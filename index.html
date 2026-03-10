@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignedReviews – Reviews Backed by Receipts</title>
+  <meta name="description" content="The only review platform that proves every review comes from a real, paying customer — verified through the actual Stripe transaction.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Instrument Serif', 'Georgia', 'serif'],
+            sans: ['DM Sans', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              50:  '#eef1f8', 100: '#d5dcee', 200: '#aab9dc', 300: '#87a2c4',
+              400: '#5d7aaa', 500: '#2b3b60', 600: '#243252', 700: '#1c2840',
+              800: '#141e30', 900: '#0c1320',
+            },
+            gold: {
+              50:  '#faf8ee', 100: '#f2edcc', 200: '#e5db99', 300: '#d4c466',
+              400: '#c4ae4e', 500: '#b39d45', 600: '#967f36', 700: '#786329',
+              800: '#5a491e', 900: '#3c3013',
+            },
+            steel: {
+              50:  '#f0f4f9', 100: '#dce6f0', 200: '#b9cedf', 300: '#87a2c4',
+              400: '#6488b0', 500: '#4a6e98', 600: '#3c5a7e', 700: '#2e4664',
+            },
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    @keyframes fadeUp    { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes pulseDot  { 0%,100% { opacity:1; } 50% { opacity:.25; } }
+    @keyframes float     { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-10px); } }
+    @keyframes shimmer   { 0% { background-position:-200% center; } 100% { background-position:200% center; } }
+
+    .fade-up  { opacity:0; animation:fadeUp .75s cubic-bezier(.22,1,.36,1) forwards; }
+    .delay-1  { animation-delay:.1s; }  .delay-2 { animation-delay:.22s; }
+    .delay-3  { animation-delay:.38s; } .delay-4 { animation-delay:.56s; }
+    .pulse-dot  { animation:pulseDot 2s ease infinite; }
+    .float-anim { animation:float 5s ease-in-out infinite; }
+
+    .grain::after {
+      content:''; position:absolute; inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+      pointer-events:none; z-index:1;
+    }
+
+    /* Gold shimmer on hero headline */
+    .gold-shimmer {
+      background: linear-gradient(90deg, #b39d45 0%, #d4c466 40%, #c4ae4e 60%, #b39d45 100%);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
+
+    /* Navy gradient for dark sections */
+    .navy-bg { background: linear-gradient(160deg, #0c1320 0%, #141e30 45%, #1c2840 100%); }
+
+    /* Gold CTA button */
+    .btn-gold {
+      background: linear-gradient(135deg, #c4ae4e, #b39d45 60%, #967f36);
+      transition: all .2s ease;
+      box-shadow: 0 4px 18px rgba(179,157,69,.3);
+    }
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #d4c466, #c4ae4e 60%, #b39d45);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba(179,157,69,.42);
+    }
+    .btn-gold:active { transform: translateY(0); }
+
+    /* Navy primary button */
+    .btn-navy {
+      background: #2b3b60;
+      transition: all .2s ease;
+    }
+    .btn-navy:hover { background: #1c2840; transform: translateY(-1px); }
+
+    /* Card lift on hover */
+    .card-lift { transition: transform .2s ease, box-shadow .2s ease; }
+    .card-lift:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(43,59,96,.12); }
+
+    /* Subtle hero bg */
+    .hero-bg {
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(135,162,196,.18) 0%, transparent 70%),
+                  linear-gradient(180deg, #f0f4f9 0%, #eef1f8 100%);
+    }
+    .dark .hero-bg { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(43,59,96,.35) 0%, transparent 70%), #0c1320; }
+
+    /* Divider line with gold accent */
+    .gold-rule { border: none; height: 2px; background: linear-gradient(90deg, transparent, #b39d45 40%, transparent); opacity: .4; }
+
+    /* Dark mode logo inversion to white */
+    .logo-img { filter: none; }
+    .dark .logo-img { filter: brightness(0) invert(1); opacity: .85; }
+  </style>
+</head>
+<body class="font-sans text-navy-800 transition-colors duration-300">
+
+  <!-- ─── NAV ──────────────────────────────────────────────── -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-navy-900/95 backdrop-blur-xl border-b border-navy-100 dark:border-navy-800 transition-colors">
+    <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
+      <a href="#" class="flex items-center">
+        <img src="images/SignedReviews_font_only.png" alt="SignedReviews" class="logo-img h-9 object-contain">
+      </a>
+      <div class="flex items-center gap-3">
+        <button onclick="toggleDark()" class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-navy-50 dark:hover:bg-navy-700 transition-colors" aria-label="Toggle dark mode">
+          <svg class="w-5 h-5 hidden dark:block text-navy-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          <svg class="w-5 h-5 dark:hidden text-navy-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
+        <a href="#waitlist" class="px-5 py-2.5 btn-gold text-white rounded-xl text-sm font-semibold">Join Waitlist</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────────────────────── -->
+  <section class="relative hero-bg pt-36 pb-24 px-5 overflow-hidden grain">
+    <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full bg-steel-200/30 dark:bg-navy-500/20 blur-3xl pointer-events-none"></div>
+    <div class="absolute top-40 -right-20 w-[350px] h-[350px] rounded-full bg-gold-200/20 dark:bg-gold-900/10 blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <!-- Pill badge -->
+      <div class="fade-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-navy-800 border border-navy-200 dark:border-navy-700 text-navy-500 dark:text-navy-300 text-sm font-semibold mb-7 shadow-sm">
+        <span class="w-1.5 h-1.5 rounded-full bg-gold-500 pulse-dot"></span>
+        Coming Soon — Join the Waitlist
+      </div>
+
+      <h1 class="fade-up delay-1 font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.07] tracking-tight text-navy-900 dark:text-white mb-6">
+        Reviews backed<br>by <em class="gold-shimmer">receipts.</em>
+      </h1>
+
+      <p class="fade-up delay-2 text-lg sm:text-xl text-navy-400 dark:text-navy-300 max-w-xl mx-auto mb-10 leading-relaxed">
+        The only review platform that proves every review comes from a real, paying customer — verified through the actual transaction.
+      </p>
+
+      <div id="waitlist" class="fade-up delay-3">
+        <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-3" onsubmit="handleSubmit(event,'hero')">
+          <input type="email" required placeholder="you@yourshop.com" id="heroEmail"
+            class="flex-1 px-4 py-3.5 rounded-xl border border-navy-200 dark:border-navy-600 bg-white dark:bg-navy-800 text-navy-900 dark:text-white placeholder-navy-400 focus:outline-none focus:ring-2 focus:ring-gold-400/40 focus:border-gold-500 transition-all text-sm shadow-sm">
+          <button type="submit" class="px-6 py-3.5 btn-gold text-white rounded-xl text-sm font-semibold whitespace-nowrap">Join Waitlist →</button>
+        </form>
+        <div class="hidden text-gold-600 dark:text-gold-400 font-semibold text-sm" id="heroSuccess">✓ You're on the list! We'll be in touch.</div>
+        <p class="text-xs text-navy-400 dark:text-navy-500 mt-3">Free to start · No credit card required · Shopify & WooCommerce</p>
+      </div>
+    </div>
+
+    <!-- Review card mockup -->
+    <div class="fade-up delay-4 max-w-2xl mx-auto mt-16 relative">
+      <div class="bg-white dark:bg-navy-800 border border-navy-100 dark:border-navy-700 rounded-2xl p-6 sm:p-8 shadow-2xl shadow-navy-500/10 dark:shadow-black/40">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-11 h-11 rounded-full bg-gradient-to-br from-navy-300 to-navy-500 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">SL</div>
+          <div class="flex-1 min-w-0">
+            <div class="font-semibold text-sm text-navy-900 dark:text-white">Sarah L.</div>
+            <div class="text-xs text-navy-400">March 4, 2026</div>
+          </div>
+          <div class="px-3 py-1.5 rounded-lg bg-gold-50 dark:bg-gold-900/25 border border-gold-200 dark:border-gold-700/50 text-gold-700 dark:text-gold-400 text-xs font-bold flex items-center gap-1.5 flex-shrink-0">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Verified Purchase
+          </div>
+        </div>
+        <div class="text-gold-500 text-lg tracking-widest mb-2">★★★★★</div>
+        <p class="text-navy-600 dark:text-navy-300 text-sm leading-relaxed mb-4">Absolutely love this serum! My skin feels smoother after just one week. Shipping was fast and packaging was beautiful. Will definitely order again.</p>
+        <div class="flex flex-wrap items-center gap-3 px-4 py-3 rounded-xl bg-navy-50 dark:bg-navy-700/40 border border-dashed border-navy-200 dark:border-navy-600 text-xs text-navy-500 dark:text-navy-400">
+          <svg class="w-4 h-4 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          <span>Transaction verified</span>
+          <code class="px-2 py-0.5 rounded bg-navy-100 dark:bg-navy-700 text-navy-700 dark:text-navy-300 font-mono">tx_3Qk8...f92a</code>
+          <span>Stripe</span>
+          <span class="font-semibold text-navy-700 dark:text-navy-200">$42.00</span>
+          <span>Feb 28, 2026</span>
+        </div>
+      </div>
+
+      <!-- Floating logo badge -->
+      <div class="absolute -top-5 -right-3 sm:-right-8 float-anim z-10">
+        <div class="w-16 h-16 rounded-2xl navy-bg shadow-xl shadow-navy-900/40 flex items-center justify-center p-2.5 border border-white/10">
+          <img src="images/SignedReviews_logo_only.png" alt="" class="w-full h-full object-contain">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── STATS BAR ─────────────────────────────────────────── -->
+  <section class="border-y border-navy-100 dark:border-navy-800 bg-white dark:bg-navy-800 transition-colors">
+    <div class="max-w-5xl mx-auto px-5 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <div class="font-serif text-4xl text-navy-500 dark:text-navy-200">98%</div>
+        <div class="text-xs text-navy-400 mt-1.5 leading-snug">of shoppers read reviews<br>before buying</div>
+      </div>
+      <div>
+        <div class="font-serif text-4xl text-gold-500">270%</div>
+        <div class="text-xs text-navy-400 mt-1.5 leading-snug">conversion lift from<br>verified reviews</div>
+      </div>
+      <div>
+        <div class="font-serif text-4xl text-navy-500 dark:text-navy-200">4.5M</div>
+        <div class="text-xs text-navy-400 mt-1.5 leading-snug">fake reviews removed<br>by Trustpilot in 2024</div>
+      </div>
+      <div>
+        <div class="font-serif text-4xl text-gold-500">$259</div>
+        <div class="text-xs text-navy-400 mt-1.5 leading-snug">per month for<br>Trustpilot's paid plan</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROBLEM ───────────────────────────────────────────── -->
+  <section class="relative py-24 px-5 navy-bg text-white grain overflow-hidden">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-gold-500/5 blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-steel-300/5 blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-navy-300 text-sm font-semibold mb-6">
+        The problem
+      </div>
+      <h2 class="font-serif text-4xl sm:text-5xl font-normal mb-5 leading-tight">Online reviews are broken.</h2>
+      <p class="text-navy-300 text-lg mb-14 max-w-xl mx-auto leading-relaxed">Anyone can write a review. Anywhere. Without ever buying anything. Your customers know it — and they don't trust reviews anymore.</p>
+      <div class="grid sm:grid-cols-2 gap-5 text-left">
+        <div class="p-6 rounded-2xl bg-white/[.03] border border-white/[.07] hover:bg-white/[.06] transition-colors card-lift">
+          <div class="w-10 h-10 rounded-xl bg-gold-500/15 border border-gold-500/20 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.27 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+          </div>
+          <h3 class="font-semibold text-base mb-2">Fake Reviews Everywhere</h3>
+          <p class="text-navy-300 text-sm leading-relaxed">Trustpilot removed 4.5M fake reviews in 2024 alone. The problem is getting worse, not better.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-white/[.03] border border-white/[.07] hover:bg-white/[.06] transition-colors card-lift">
+          <div class="w-10 h-10 rounded-xl bg-gold-500/15 border border-gold-500/20 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-semibold text-base mb-2">Pay-to-Play Platforms</h3>
+          <p class="text-navy-300 text-sm leading-relaxed">Trustpilot starts at $259/mo. Cancel and watch your positive reviews mysteriously disappear.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-white/[.03] border border-white/[.07] hover:bg-white/[.06] transition-colors card-lift">
+          <div class="w-10 h-10 rounded-xl bg-gold-500/15 border border-gold-500/20 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </div>
+          <h3 class="font-semibold text-base mb-2">New Shop, Zero Proof</h3>
+          <p class="text-navy-300 text-sm leading-relaxed">Great product but no reviews? Nobody wants to be customer number one. It's a vicious cycle.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-white/[.03] border border-white/[.07] hover:bg-white/[.06] transition-colors card-lift">
+          <div class="w-10 h-10 rounded-xl bg-gold-500/15 border border-gold-500/20 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/></svg>
+          </div>
+          <h3 class="font-semibold text-base mb-2">Trust Kills Conversion</h3>
+          <p class="text-navy-300 text-sm leading-relaxed">18% of customers abandon checkout due to trust issues. That's revenue walking out the door.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SOLUTION / SHIELD ─────────────────────────────────── -->
+  <section class="py-24 px-5 bg-white dark:bg-navy-800 transition-colors">
+    <div class="max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      <div class="flex-shrink-0 w-full lg:w-1/2 flex justify-center">
+        <svg class="w-72 h-72 sm:w-80 sm:h-80 float-anim" viewBox="0 0 320 320" fill="none">
+          <circle cx="160" cy="160" r="140" fill="#eef1f8"/>
+          <circle cx="160" cy="160" r="110" fill="#d5dcee"/>
+          <path d="M160 60L240 100V180C240 230 200 270 160 290C120 270 80 230 80 180V100L160 60Z" fill="#2b3b60" opacity=".92"/>
+          <path d="M160 75L228 110V178C228 222 192 256 160 274C128 256 92 222 92 178V110L160 75Z" fill="white"/>
+          <path d="M130 165L150 185L195 135" stroke="#b39d45" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <rect x="220" y="82" width="52" height="6" rx="3" fill="#87a2c4" opacity=".5"/>
+          <rect x="226" y="94" width="36" height="4" rx="2" fill="#87a2c4" opacity=".3"/>
+          <rect x="48" y="198" width="42" height="6" rx="3" fill="#87a2c4" opacity=".5"/>
+          <circle cx="272" cy="152" r="5" fill="#87a2c4" opacity=".35"/>
+          <circle cx="54" cy="132" r="4" fill="#b39d45" opacity=".35"/>
+          <circle cx="262" cy="220" r="6" fill="#b39d45" opacity=".25"/>
+        </svg>
+      </div>
+      <div class="flex-1 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-navy-50 dark:bg-navy-700 border border-navy-200 dark:border-navy-600 text-navy-500 dark:text-navy-300 text-sm font-semibold mb-5">
+          The solution
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl font-normal mb-5 leading-tight text-navy-900 dark:text-white">
+          Every review,<br><span class="text-gold-500">cryptographically signed.</span>
+        </h2>
+        <p class="text-navy-500 dark:text-navy-300 text-base leading-relaxed mb-7 max-w-lg">SignedReviews links every review to the actual Stripe transaction. No purchase, no review. Buyers see the proof — amount, date, and a verifiable transaction hash. It's not trust by promise. It's trust by proof.</p>
+        <div class="flex flex-col sm:flex-row gap-4 text-sm text-navy-600 dark:text-navy-300 justify-center lg:justify-start">
+          <div class="flex items-center gap-2">
+            <div class="w-5 h-5 rounded-full bg-gold-100 dark:bg-gold-900/30 flex items-center justify-center flex-shrink-0">
+              <svg class="w-3 h-3 text-gold-600 dark:text-gold-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            </div>
+            No purchase, no review
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-5 h-5 rounded-full bg-gold-100 dark:bg-gold-900/30 flex items-center justify-center flex-shrink-0">
+              <svg class="w-3 h-3 text-gold-600 dark:text-gold-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            </div>
+            Read-only Stripe access
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-5 h-5 rounded-full bg-gold-100 dark:bg-gold-900/30 flex items-center justify-center flex-shrink-0">
+              <svg class="w-3 h-3 text-gold-600 dark:text-gold-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            </div>
+            GDPR compliant
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── HOW IT WORKS ──────────────────────────────────────── -->
+  <section class="py-24 px-5 bg-[#f0f4f9] dark:bg-navy-900 border-y border-navy-100 dark:border-navy-800 transition-colors">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-serif text-4xl sm:text-5xl font-normal leading-tight text-navy-900 dark:text-white mb-3">How it works</h2>
+        <p class="text-navy-400 text-base">Four simple steps to earning unbreakable trust.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="card-lift bg-white dark:bg-navy-800 rounded-2xl p-6 text-center shadow-sm border border-navy-100 dark:border-navy-700">
+          <div class="w-14 h-14 rounded-2xl bg-navy-500 text-white flex items-center justify-center mx-auto mb-4 text-xl font-bold font-serif shadow-lg shadow-navy-500/25">1</div>
+          <h3 class="font-semibold text-sm mb-2 text-navy-900 dark:text-white">Connect Stripe</h3>
+          <p class="text-sm text-navy-400 leading-relaxed">Link your Stripe account in one click. We see transactions — never card details.</p>
+        </div>
+        <div class="card-lift bg-white dark:bg-navy-800 rounded-2xl p-6 text-center shadow-sm border border-navy-100 dark:border-navy-700">
+          <div class="w-14 h-14 rounded-2xl bg-navy-500 text-white flex items-center justify-center mx-auto mb-4 text-xl font-bold font-serif shadow-lg shadow-navy-500/25">2</div>
+          <h3 class="font-semibold text-sm mb-2 text-navy-900 dark:text-white">We Invite Buyers</h3>
+          <p class="text-sm text-navy-400 leading-relaxed">After each purchase, your customer gets a review invitation automatically.</p>
+        </div>
+        <div class="card-lift bg-white dark:bg-navy-800 rounded-2xl p-6 text-center shadow-sm border border-gold-200 dark:border-gold-800/50">
+          <div class="w-14 h-14 rounded-2xl bg-gold-500 text-white flex items-center justify-center mx-auto mb-4 text-xl font-bold font-serif shadow-lg shadow-gold-500/30">3</div>
+          <h3 class="font-semibold text-sm mb-2 text-navy-900 dark:text-white">Reviews Get Signed</h3>
+          <p class="text-sm text-navy-400 leading-relaxed">Each review is cryptographically linked to the real transaction. No faking possible.</p>
+        </div>
+        <div class="card-lift bg-white dark:bg-navy-800 rounded-2xl p-6 text-center shadow-sm border border-gold-200 dark:border-gold-800/50">
+          <div class="w-14 h-14 rounded-2xl bg-gold-500 text-white flex items-center justify-center mx-auto mb-4 text-xl font-bold font-serif shadow-lg shadow-gold-500/30">4</div>
+          <h3 class="font-semibold text-sm mb-2 text-navy-900 dark:text-white">Embed & Convert</h3>
+          <p class="text-sm text-navy-400 leading-relaxed">Display the badge on your shop. Visitors see proof — and they convert.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COMPARISON TABLE ──────────────────────────────────── -->
+  <section class="py-24 px-5 bg-white dark:bg-navy-800 transition-colors">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-serif text-4xl sm:text-5xl font-normal text-center mb-3 leading-tight text-navy-900 dark:text-white">Not all reviews are equal</h2>
+      <p class="text-center text-navy-400 mb-12">See how SignedReviews compares.</p>
+      <div class="overflow-x-auto rounded-2xl border border-navy-100 dark:border-navy-700 shadow-lg">
+        <table class="w-full bg-white dark:bg-navy-800">
+          <thead>
+            <tr class="border-b border-navy-100 dark:border-navy-700 bg-navy-50 dark:bg-navy-700/60">
+              <th class="px-5 py-4 text-left text-xs font-semibold uppercase tracking-wider text-navy-400">Feature</th>
+              <th class="px-4 py-4 text-center text-xs font-semibold uppercase tracking-wider text-navy-400">Trustpilot</th>
+              <th class="px-4 py-4 text-center text-xs font-semibold uppercase tracking-wider text-navy-400">Judge.me</th>
+              <th class="px-4 py-4 text-center text-xs font-semibold uppercase tracking-wider text-navy-400">Google</th>
+              <th class="px-4 py-4 text-center text-xs font-semibold uppercase tracking-wider text-gold-600 dark:text-gold-400">SignedReviews</th>
+            </tr>
+          </thead>
+          <tbody class="text-sm divide-y divide-navy-50 dark:divide-navy-700/50">
+            <tr><td class="px-5 py-3.5 font-medium text-navy-700 dark:text-navy-200">Verified purchases</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-navy-300">~</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-gold-500 font-bold text-base">✓</td></tr>
+            <tr><td class="px-5 py-3.5 font-medium text-navy-700 dark:text-navy-200">Transaction proof</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-gold-500 font-bold text-base">✓</td></tr>
+            <tr><td class="px-5 py-3.5 font-medium text-navy-700 dark:text-navy-200">Independent third-party</td><td class="px-4 py-3.5 text-center text-steel-400">✓</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-steel-400">✓</td><td class="px-4 py-3.5 text-center text-gold-500 font-bold text-base">✓</td></tr>
+            <tr><td class="px-5 py-3.5 font-medium text-navy-700 dark:text-navy-200">Free tier</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-steel-400">✓</td><td class="px-4 py-3.5 text-center text-steel-400">✓</td><td class="px-4 py-3.5 text-center text-gold-500 font-bold text-base">✓</td></tr>
+            <tr><td class="px-5 py-3.5 font-medium text-navy-700 dark:text-navy-200">No pay-to-play</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-steel-400">✓</td><td class="px-4 py-3.5 text-center text-steel-400">✓</td><td class="px-4 py-3.5 text-center text-gold-500 font-bold text-base">✓</td></tr>
+            <tr class="bg-gold-50/60 dark:bg-gold-900/10 border-t-2 border-gold-200 dark:border-gold-800">
+              <td class="px-5 py-4 font-bold text-navy-800 dark:text-white">Verified + Proof + Independent</td>
+              <td class="px-4 py-4 text-center text-red-400 font-bold">✗</td>
+              <td class="px-4 py-4 text-center text-red-400 font-bold">✗</td>
+              <td class="px-4 py-4 text-center text-red-400 font-bold">✗</td>
+              <td class="px-4 py-4 text-center text-gold-600 dark:text-gold-400 font-bold text-base">✓ Only us</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PRIVACY ───────────────────────────────────────────── -->
+  <section class="py-24 px-5 bg-[#f0f4f9] dark:bg-navy-900 transition-colors">
+    <div class="max-w-5xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
+      <div class="flex-1 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-navy-800 border border-navy-200 dark:border-navy-700 text-navy-500 dark:text-navy-300 text-sm font-semibold mb-5">
+          Privacy first
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl font-normal mb-5 leading-tight text-navy-900 dark:text-white">Your data stays<br><span class="text-gold-500">where it belongs.</span></h2>
+        <p class="text-navy-500 dark:text-navy-300 text-base leading-relaxed mb-7 max-w-lg">We never see credit card numbers, addresses, or personal data. We use Stripe's read-only API — just enough to verify the transaction happened. Your customers' privacy is non-negotiable.</p>
+        <div class="space-y-4 text-sm text-navy-600 dark:text-navy-300">
+          <div class="flex items-start gap-3">
+            <div class="w-6 h-6 rounded-full bg-gold-100 dark:bg-gold-900/30 border border-gold-200 dark:border-gold-800 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-gold-600 dark:text-gold-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            </div>
+            <span>Read-only Stripe access — we can't charge, refund, or modify anything</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-6 h-6 rounded-full bg-gold-100 dark:bg-gold-900/30 border border-gold-200 dark:border-gold-800 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-gold-600 dark:text-gold-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            </div>
+            <span>Customer emails are hashed after sending the review invitation</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-6 h-6 rounded-full bg-gold-100 dark:bg-gold-900/30 border border-gold-200 dark:border-gold-800 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-gold-600 dark:text-gold-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            </div>
+            <span>Disconnect anytime with one click — we lose all access instantly</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-shrink-0 w-full lg:w-1/2 flex justify-center">
+        <svg class="w-64 h-64 sm:w-72 sm:h-72" viewBox="0 0 300 300" fill="none">
+          <circle cx="150" cy="150" r="130" fill="#eef1f8"/>
+          <rect x="90" y="100" width="120" height="130" rx="16" fill="white" stroke="#d5dcee" stroke-width="2"/>
+          <rect x="125" y="145" width="50" height="40" rx="8" fill="#2b3b60"/>
+          <path d="M135 145V125C135 113 165 113 165 125V145" stroke="#2b3b60" stroke-width="6" stroke-linecap="round" fill="none"/>
+          <circle cx="150" cy="161" r="5" fill="white"/>
+          <rect x="148" y="163" width="4" height="8" rx="1" fill="white"/>
+          <rect x="108" y="115" width="45" height="4" rx="2" fill="#d5dcee"/>
+          <rect x="108" y="125" width="30" height="4" rx="2" fill="#d5dcee"/>
+          <rect x="162" y="200" width="35" height="4" rx="2" fill="#d5dcee"/>
+          <rect x="162" y="210" width="25" height="4" rx="2" fill="#d5dcee"/>
+          <circle cx="240" cy="95" r="5" fill="#b39d45" opacity=".4"/>
+          <circle cx="68" cy="202" r="6" fill="#87a2c4" opacity=".35"/>
+          <circle cx="220" cy="215" r="4" fill="#b39d45" opacity=".3"/>
+          <circle cx="78" cy="108" r="3" fill="#87a2c4" opacity=".3"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FINAL CTA ─────────────────────────────────────────── -->
+  <section class="relative py-28 px-5 navy-bg text-white grain overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(179,157,69,.06),transparent)]"></div>
+    <div class="absolute top-0 left-0 w-[400px] h-[400px] rounded-full bg-steel-300/5 blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-lg mx-auto text-center">
+      <div class="flex justify-center mb-8">
+        <img src="images/SignedReviews_logo_only.png" alt="SignedReviews" class="w-20 h-20 object-contain opacity-90 float-anim">
+      </div>
+      <h2 class="font-serif text-4xl sm:text-5xl font-normal mb-4 leading-tight">Your shop deserves<br>real reviews.</h2>
+      <p class="text-navy-300 text-lg mb-10 leading-relaxed">Join the waitlist and be among the first shops to prove every review is backed by a real transaction.</p>
+      <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-3" onsubmit="handleSubmit(event,'cta')">
+        <input type="email" required placeholder="you@yourshop.com" id="ctaEmail"
+          class="flex-1 px-4 py-3.5 rounded-xl border border-navy-600 bg-white/5 backdrop-blur-sm text-white placeholder-navy-400 focus:outline-none focus:ring-2 focus:ring-gold-500/40 focus:border-gold-500 transition-all text-sm">
+        <button type="submit" class="px-6 py-3.5 btn-gold text-white rounded-xl text-sm font-semibold whitespace-nowrap">Join Waitlist →</button>
+      </form>
+      <div class="hidden text-gold-400 font-semibold text-sm" id="ctaSuccess">✓ You're on the list! We'll be in touch.</div>
+      <p class="text-xs text-navy-500 mt-3">Free to start · Shopify & WooCommerce · Setup in 5 minutes</p>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────── -->
+  <footer class="py-8 px-5 border-t border-navy-100 dark:border-navy-800 bg-white dark:bg-navy-900 transition-colors">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <img src="images/SignedReviews_font_only.png" alt="SignedReviews" class="logo-img h-7 object-contain opacity-50">
+      <p class="text-xs text-navy-400">© 2026 SignedReviews. Reviews backed by receipts.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleDark(){document.documentElement.classList.toggle('dark');localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light')}
+    if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}
+    function handleSubmit(e,s){e.preventDefault();const id=s==='hero'?'heroEmail':'ctaEmail';const sid=s==='hero'?'heroSuccess':'ctaSuccess';console.log('Waitlist:',document.getElementById(id).value);e.target.style.display='none';document.getElementById(sid).classList.remove('hidden')}
+  </script>
+</body>
+</html>
