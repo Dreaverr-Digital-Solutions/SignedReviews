@@ -636,6 +636,17 @@
     /* ── Widget showcase marquee: contain bleed on small screens ── */
     .widget-marquee-wrap { overflow: hidden; }
 
+    /* ── Shield: initial hidden state before GSAP takes over ─────
+       Parsed synchronously with the HTML so the SVG never paints
+       in its natural state first. GSAP's inline styles (from
+       gsap.set / gsap.to) override these rules during animation. */
+    .shield-container .bg-circle,
+    .shield-container .inner-ring,
+    .shield-container .shield-fill,
+    .shield-container .deco { opacity: 0; }
+    .shield-container .shield-stroke,
+    .shield-container .check-stroke { stroke-dasharray: 1; stroke-dashoffset: 1; }
+
     /* ── Skip-to-content link (a11y) ─────────────────────────── */
     .sr-skip {
       position: absolute; left: -9999px; top: 0;
@@ -1906,22 +1917,41 @@
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script defer>
-    window.addEventListener('load', () => {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    // Runs after the two GSAP scripts above because defer preserves order.
+    // No window.load wait — the CSS in the <head> already holds the initial
+    // hidden state, so by the time this runs the SVG is already invisible
+    // and we can attach the ScrollTrigger without a visible flash.
+    (function () {
+      if (typeof gsap === 'undefined') return;
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        // Reveal the final state immediately so reduced-motion users see
+        // the shield at rest rather than the CSS-hidden starting state.
+        gsap.set('.bg-circle',    { opacity: 0.7 });
+        gsap.set('.inner-ring',   { opacity: 0.5 });
+        gsap.set('.shield-fill',  { opacity: 1 });
+        gsap.set('.deco',         { opacity: 1 });
+        gsap.set('.shield-stroke',{ strokeDasharray: 'none', strokeDashoffset: 0 });
+        gsap.set('.check-stroke', { strokeDasharray: 'none', strokeDashoffset: 0 });
+        return;
+      }
+
       gsap.registerPlugin(ScrollTrigger);
+
+      // Re-assert the starting state through GSAP so it can tween from here
+      // (the CSS rules in the head gave us the paint-safe initial hide).
+      gsap.set('.bg-circle',    { scale: 0, opacity: 0, transformOrigin: '200px 200px' });
+      gsap.set('.inner-ring',   { scale: 0, opacity: 0, transformOrigin: '200px 200px' });
+      gsap.set('.shield-stroke',{ strokeDasharray: 1, strokeDashoffset: 1 });
+      gsap.set('.shield-fill',  { opacity: 0 });
+      gsap.set('.check-stroke', { strokeDasharray: 1, strokeDashoffset: 1 });
+      gsap.set('.deco',         { scale: 0, opacity: 0, transformOrigin: '50% 50%' });
+      gsap.set('.float-group',  { y: 0 });
 
       let floatAnim;
 
       function playShieldAnimation() {
         if (floatAnim) floatAnim.kill();
-
-        gsap.set('.bg-circle',    { scale: 0, opacity: 0, transformOrigin: '200px 200px' });
-        gsap.set('.inner-ring',   { scale: 0, opacity: 0, transformOrigin: '200px 200px' });
-        gsap.set('.shield-stroke',{ strokeDasharray: 1, strokeDashoffset: 1 });
-        gsap.set('.shield-fill',  { opacity: 0 });
-        gsap.set('.check-stroke', { strokeDasharray: 1, strokeDashoffset: 1 });
-        gsap.set('.deco',         { scale: 0, opacity: 0, transformOrigin: '50% 50%' });
-        gsap.set('.float-group',  { y: 0 });
 
         const tl = gsap.timeline({
           defaults: { ease: 'power2.out' },
@@ -1946,7 +1976,7 @@
         onEnter: playShieldAnimation,
         once: true
       });
-    });
+    })();
   </script>
 </body>
 </html>
