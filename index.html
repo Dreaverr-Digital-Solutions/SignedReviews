@@ -636,16 +636,6 @@
     /* ── Widget showcase marquee: contain bleed on small screens ── */
     .widget-marquee-wrap { overflow: hidden; }
 
-    /* ── Shield: initial hidden state before GSAP takes over ─────
-       Parsed synchronously with the HTML so the SVG never paints
-       in its natural state first. GSAP's inline styles (from
-       gsap.set / gsap.to) override these rules during animation. */
-    .shield-container .bg-circle,
-    .shield-container .inner-ring,
-    .shield-container .shield-fill,
-    .shield-container .deco { opacity: 0; }
-    .shield-container .shield-stroke,
-    .shield-container .check-stroke { stroke-dasharray: 1; stroke-dashoffset: 1; }
 
     /* ── Skip-to-content link (a11y) ─────────────────────────── */
     .sr-skip {
@@ -1007,20 +997,20 @@
         <div class="shield-container">
           <svg viewBox="0 0 400 400" class="w-72 h-72 sm:w-80 sm:h-80" xmlns="http://www.w3.org/2000/svg" aria-label="Verified shield">
             <g class="deco-group">
-              <circle class="deco" cx="78" cy="145" r="3.5" fill="#c2bd72" />
-              <circle class="deco" cx="320" cy="218" r="4" fill="#7a8aab" />
-              <circle class="deco" cx="85" cy="295" r="5" fill="#d4cf90" />
-              <circle class="deco" cx="318" cy="328" r="3" fill="#a8a370" />
-              <line class="deco" x1="58" y1="262" x2="102" y2="262" stroke="#a6a168" stroke-width="4" stroke-linecap="round" />
-              <line class="deco" x1="285" y1="135" x2="345" y2="135" stroke="#8595b8" stroke-width="4" stroke-linecap="round" />
-              <line class="deco" x1="278" y1="172" x2="308" y2="172" stroke="#9aa6c0" stroke-width="3" stroke-linecap="round" />
+              <circle class="deco" cx="78" cy="145" r="3.5" fill="#c2bd72" style="opacity:0" />
+              <circle class="deco" cx="320" cy="218" r="4" fill="#7a8aab" style="opacity:0" />
+              <circle class="deco" cx="85" cy="295" r="5" fill="#d4cf90" style="opacity:0" />
+              <circle class="deco" cx="318" cy="328" r="3" fill="#a8a370" style="opacity:0" />
+              <line class="deco" x1="58" y1="262" x2="102" y2="262" stroke="#a6a168" stroke-width="4" stroke-linecap="round" style="opacity:0" />
+              <line class="deco" x1="285" y1="135" x2="345" y2="135" stroke="#8595b8" stroke-width="4" stroke-linecap="round" style="opacity:0" />
+              <line class="deco" x1="278" y1="172" x2="308" y2="172" stroke="#9aa6c0" stroke-width="3" stroke-linecap="round" style="opacity:0" />
             </g>
-            <circle class="bg-circle" cx="200" cy="200" r="175" fill="#dfe3ee" opacity="0.7" />
-            <circle class="inner-ring" cx="200" cy="200" r="155" fill="#c8cfe0" opacity="0.5" />
+            <circle class="bg-circle" cx="200" cy="200" r="175" fill="#dfe3ee" style="opacity:0" />
+            <circle class="inner-ring" cx="200" cy="200" r="155" fill="#c8cfe0" style="opacity:0" />
             <g class="float-group">
-              <path class="shield-fill" d="M 200 65 L 290 95 L 290 225 Q 290 295 200 335 Q 110 295 110 225 L 110 95 Z" fill="#ffffff" />
-              <path class="shield-stroke" pathLength="1" d="M 200 65 L 290 95 L 290 225 Q 290 295 200 335 Q 110 295 110 225 L 110 95 Z" fill="none" stroke="#3d4663" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
-              <path class="check-stroke" pathLength="1" d="M 150 200 L 185 235 L 248 165" fill="none" stroke="#b5b04a" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
+              <path class="shield-fill" d="M 200 65 L 290 95 L 290 225 Q 290 295 200 335 Q 110 295 110 225 L 110 95 Z" fill="#ffffff" style="opacity:0" />
+              <path class="shield-stroke" pathLength="1" d="M 200 65 L 290 95 L 290 225 Q 290 295 200 335 Q 110 295 110 225 L 110 95 Z" fill="none" stroke="#3d4663" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" style="stroke-dasharray:1;stroke-dashoffset:1" />
+              <path class="check-stroke" pathLength="1" d="M 150 200 L 185 235 L 248 165" fill="none" stroke="#b5b04a" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray:1;stroke-dashoffset:1" />
             </g>
           </svg>
         </div>
@@ -1914,58 +1904,55 @@
   </script>
 
   <!-- ── GSAP + ScrollTrigger: animated shield ─────────────────── -->
-  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script defer>
-    // Runs after the two GSAP scripts above because defer preserves order.
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script>
     (function () {
-      // If GSAP failed to load (CDN blocked, offline, etc.), reveal the
-      // shield via its normal CSS state so users see something instead of
-      // the CSS-hidden blank frame.
-      function revealFallback() {
-        document.querySelectorAll('.shield-container .bg-circle, .shield-container .inner-ring, .shield-container .shield-fill, .shield-container .deco')
-          .forEach(function (el) { el.style.opacity = ''; });
+      var log = function (m) { try { console.debug('[shield]', m); } catch (_) {} };
+
+      function revealFinalState() {
+        // Strip the inline style="opacity:0" / dashoffset on every shield
+        // sub-element so they render in their natural state.
+        document.querySelectorAll('.shield-container .bg-circle')   .forEach(function (el) { el.style.opacity = '0.7'; });
+        document.querySelectorAll('.shield-container .inner-ring')  .forEach(function (el) { el.style.opacity = '0.5'; });
+        document.querySelectorAll('.shield-container .shield-fill') .forEach(function (el) { el.style.opacity = '1';   });
+        document.querySelectorAll('.shield-container .deco')        .forEach(function (el) { el.style.opacity = '1';   });
         document.querySelectorAll('.shield-container .shield-stroke, .shield-container .check-stroke')
           .forEach(function (el) { el.style.strokeDasharray = 'none'; el.style.strokeDashoffset = '0'; });
       }
 
       if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-        revealFallback();
+        log('GSAP not loaded — revealing shield in final state');
+        revealFinalState();
         return;
       }
-
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        // Reveal final state without animation.
-        gsap.set('.bg-circle',    { opacity: 0.7 });
-        gsap.set('.inner-ring',   { opacity: 0.5 });
-        gsap.set('.shield-fill',  { opacity: 1 });
-        gsap.set('.deco',         { opacity: 1 });
-        gsap.set('.shield-stroke',{ strokeDasharray: 'none', strokeDashoffset: 0 });
-        gsap.set('.check-stroke', { strokeDasharray: 'none', strokeDashoffset: 0 });
+        log('reduced-motion — revealing shield in final state');
+        revealFinalState();
         return;
       }
 
       gsap.registerPlugin(ScrollTrigger);
+      log('GSAP ready, registering ScrollTrigger');
 
-      gsap.set('.bg-circle',    { scale: 0, opacity: 0, transformOrigin: '200px 200px' });
-      gsap.set('.inner-ring',   { scale: 0, opacity: 0, transformOrigin: '200px 200px' });
-      gsap.set('.shield-stroke',{ strokeDasharray: 1, strokeDashoffset: 1 });
-      gsap.set('.shield-fill',  { opacity: 0 });
-      gsap.set('.check-stroke', { strokeDasharray: 1, strokeDashoffset: 1 });
-      gsap.set('.deco',         { scale: 0, opacity: 0, transformOrigin: '50% 50%' });
-      gsap.set('.float-group',  { y: 0 });
+      // The inline style="opacity:0" on the SVG elements already has us in
+      // the hidden state. Add the extra GSAP-only properties (scale, origin)
+      // the tween starts from.
+      gsap.set('.bg-circle',    { scale: 0, transformOrigin: '200px 200px' });
+      gsap.set('.inner-ring',   { scale: 0, transformOrigin: '200px 200px' });
+      gsap.set('.deco',         { scale: 0, transformOrigin: '50% 50%' });
 
-      let floatAnim;
-      let hasPlayed = false;
+      var hasPlayed = false;
+      var floatAnim;
 
-      function playShieldAnimation() {
+      function play() {
         if (hasPlayed) return;
         hasPlayed = true;
-        if (floatAnim) floatAnim.kill();
+        log('playing animation');
 
-        const tl = gsap.timeline({
+        var tl = gsap.timeline({
           defaults: { ease: 'power2.out' },
-          onComplete: () => {
+          onComplete: function () {
             floatAnim = gsap.to('.float-group', {
               y: -10, duration: 1.2, ease: 'sine.inOut', yoyo: true, repeat: -1
             });
@@ -1980,29 +1967,41 @@
           .to('.deco',         { scale: 1, opacity: 1, duration: 0.4, stagger: 0.05, ease: 'back.out(2)' }, '-=0.3');
       }
 
-      const trigger = ScrollTrigger.create({
-        trigger: '.shield-container',
-        start: 'top 75%',
-        onEnter: playShieldAnimation,
-        once: true
-      });
-
-      // Images load after the defer script runs, shifting layout and making
-      // the cached trigger position stale. Refresh once everything's in.
-      window.addEventListener('load', function () {
-        ScrollTrigger.refresh();
-        // If after refresh the shield is already in view, fire immediately.
-        const el = document.querySelector('.shield-container');
+      function setup() {
+        // If the shield is already in view when the page is ready (short page,
+        // user scrolled, anchor link, etc.), just play it now.
+        var el = document.querySelector('.shield-container');
         if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.75) playShieldAnimation();
+          var rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.9) {
+            log('already in view, playing immediately');
+            play();
+            return;
+          }
         }
-      });
 
-      // Final safety net: if six seconds pass without the animation firing
-      // (e.g. ScrollTrigger silently failed), just play it so the shield
-      // never stays invisible.
-      setTimeout(function () { if (!hasPlayed) playShieldAnimation(); }, 6000);
+        ScrollTrigger.create({
+          trigger: '.shield-container',
+          start: 'top 85%',
+          onEnter: play,
+          once: true
+        });
+        log('ScrollTrigger created');
+      }
+
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setup();
+      } else {
+        document.addEventListener('DOMContentLoaded', setup);
+      }
+
+      // Safety net: if nothing fires within 8 seconds, force-play.
+      setTimeout(function () {
+        if (!hasPlayed) {
+          log('safety timeout — forcing play');
+          play();
+        }
+      }, 8000);
     })();
   </script>
 </body>
