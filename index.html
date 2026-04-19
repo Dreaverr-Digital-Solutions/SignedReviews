@@ -1494,22 +1494,30 @@
         </div>
       </div>
       <div class="flex-shrink-0 w-full lg:w-1/2 flex justify-center">
-        <svg class="w-64 h-64 sm:w-72 sm:h-72" viewBox="0 0 300 300" fill="none">
-          <circle cx="150" cy="150" r="130" fill="#eef1f8"/>
-          <rect x="90" y="100" width="120" height="130" rx="16" fill="white" stroke="#d5dcee" stroke-width="2"/>
-          <rect x="125" y="145" width="50" height="40" rx="8" fill="#2b3b60"/>
-          <path d="M135 145V125C135 113 165 113 165 125V145" stroke="#2b3b60" stroke-width="6" stroke-linecap="round" fill="none"/>
-          <circle cx="150" cy="161" r="5" fill="white"/>
-          <rect x="148" y="163" width="4" height="8" rx="1" fill="white"/>
-          <rect x="108" y="115" width="45" height="4" rx="2" fill="#d5dcee"/>
-          <rect x="108" y="125" width="30" height="4" rx="2" fill="#d5dcee"/>
-          <rect x="162" y="200" width="35" height="4" rx="2" fill="#d5dcee"/>
-          <rect x="162" y="210" width="25" height="4" rx="2" fill="#d5dcee"/>
-          <circle cx="240" cy="95" r="5" fill="#b39d45" opacity=".4"/>
-          <circle cx="68" cy="202" r="6" fill="#87a2c4" opacity=".35"/>
-          <circle cx="220" cy="215" r="4" fill="#b39d45" opacity=".3"/>
-          <circle cx="78" cy="108" r="3" fill="#87a2c4" opacity=".3"/>
-        </svg>
+        <div class="lock-container">
+          <svg viewBox="0 0 400 400" class="w-64 h-64 sm:w-72 sm:h-72" xmlns="http://www.w3.org/2000/svg" aria-label="Secure padlock">
+            <g class="lock-deco-group">
+              <circle class="lock-deco" cx="90" cy="138" r="3.5" fill="#9aa6c0" style="opacity:0" />
+              <circle class="lock-deco" cx="318" cy="135" r="3.5" fill="#c2bd72" style="opacity:0" />
+              <circle class="lock-deco" cx="80" cy="282" r="4"   fill="#c2bd72" style="opacity:0" />
+              <circle class="lock-deco" cx="320" cy="295" r="3.5" fill="#c2bd72" style="opacity:0" />
+              <line class="lock-deco" x1="62"  y1="245" x2="105" y2="245" stroke="#7a8aab" stroke-width="3" stroke-linecap="round" style="opacity:0" />
+              <line class="lock-deco" x1="295" y1="255" x2="338" y2="255" stroke="#9aa6c0" stroke-width="3" stroke-linecap="round" style="opacity:0" />
+              <line class="lock-deco" x1="100" y1="170" x2="128" y2="170" stroke="#a6a168" stroke-width="3" stroke-linecap="round" style="opacity:0" />
+            </g>
+            <circle class="lock-bg-circle"  cx="200" cy="200" r="170" fill="#dfe3ee" style="opacity:0" />
+            <circle class="lock-inner-ring" cx="200" cy="200" r="150" fill="#c8cfe0" style="opacity:0" />
+            <g class="lock-float-group">
+              <rect class="lock-card" x="138" y="115" width="124" height="170" rx="10" fill="#ffffff" stroke="#e2e5ee" stroke-width="1" style="opacity:0" />
+              <path class="lock-shackle" pathLength="1" d="M 180 205 V 178 Q 180 155 200 155 Q 220 155 220 178 V 205" fill="none" stroke="#3d4663" stroke-width="8" stroke-linecap="round" style="stroke-dasharray:1;stroke-dashoffset:1" />
+              <rect class="lock-body" x="170" y="200" width="60" height="55" rx="6" fill="#3d4663" style="opacity:0" />
+              <g class="lock-keyhole" style="opacity:0">
+                <circle cx="200" cy="218" r="3.5" fill="#dfe3ee" />
+                <rect x="198.5" y="218" width="3" height="11" fill="#dfe3ee" />
+              </g>
+            </g>
+          </svg>
+        </div>
       </div>
     </div>
   </section>
@@ -1996,6 +2004,105 @@
       }
 
       // Safety net: if nothing fires within 8 seconds, force-play.
+      setTimeout(function () {
+        if (!hasPlayed) {
+          log('safety timeout — forcing play');
+          play();
+        }
+      }, 8000);
+    })();
+  </script>
+
+  <!-- ── Animated lock (reuses GSAP/ScrollTrigger loaded above) ── -->
+  <script>
+    (function () {
+      var log = function (m) { try { console.debug('[lock]', m); } catch (_) {} };
+
+      function revealFinalState() {
+        document.querySelectorAll('.lock-container .lock-bg-circle') .forEach(function (el) { el.style.opacity = '0.7'; });
+        document.querySelectorAll('.lock-container .lock-inner-ring').forEach(function (el) { el.style.opacity = '0.4'; });
+        document.querySelectorAll('.lock-container .lock-card, .lock-container .lock-body, .lock-container .lock-keyhole, .lock-container .lock-deco')
+          .forEach(function (el) { el.style.opacity = '1'; });
+        document.querySelectorAll('.lock-container .lock-shackle')
+          .forEach(function (el) { el.style.strokeDasharray = 'none'; el.style.strokeDashoffset = '0'; });
+      }
+
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        log('GSAP not loaded — revealing lock in final state');
+        revealFinalState();
+        return;
+      }
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        log('reduced-motion — revealing lock in final state');
+        revealFinalState();
+        return;
+      }
+
+      // GSAP + ScrollTrigger plugin already registered by the shield block.
+      log('GSAP ready');
+
+      // Inline style="opacity:0" handles the paint-safe hide. Add the extra
+      // GSAP-only starting properties the tween reads from.
+      gsap.set('.lock-bg-circle',  { scale: 0, transformOrigin: '200px 200px' });
+      gsap.set('.lock-inner-ring', { scale: 0, transformOrigin: '200px 200px' });
+      gsap.set('.lock-card',       { scale: 0, transformOrigin: '200px 200px' });
+      gsap.set('.lock-body',       { scale: 0, transformOrigin: '200px 227px' });
+      gsap.set('.lock-keyhole',    { scale: 0, transformOrigin: '200px 222px' });
+      gsap.set('.lock-deco',       { scale: 0, transformOrigin: '50% 50%' });
+
+      var hasPlayed = false;
+      var floatAnim;
+
+      function play() {
+        if (hasPlayed) return;
+        hasPlayed = true;
+        log('playing animation');
+
+        var tl = gsap.timeline({
+          defaults: { ease: 'power2.out' },
+          onComplete: function () {
+            floatAnim = gsap.to('.lock-float-group', {
+              y: -10, duration: 1.2, ease: 'sine.inOut', yoyo: true, repeat: -1
+            });
+          }
+        });
+
+        tl.to('.lock-bg-circle',  { scale: 1, opacity: 0.7, duration: 0.7, ease: 'back.out(1.4)' })
+          .to('.lock-inner-ring', { scale: 1, opacity: 0.4, duration: 0.5 }, '-=0.5')
+          .to('.lock-card',       { scale: 1, opacity: 1,   duration: 0.5, ease: 'back.out(1.6)' }, '-=0.2')
+          .to('.lock-body',       { scale: 1, opacity: 1,   duration: 0.4, ease: 'back.out(2)' }, '-=0.1')
+          .to('.lock-shackle',    { strokeDashoffset: 0,    duration: 0.55, ease: 'power2.out' }, '-=0.1')
+          .to('.lock-body',       { scale: 1.06,            duration: 0.1, ease: 'power2.out' })
+          .to('.lock-body',       { scale: 1,               duration: 0.15, ease: 'power2.out' })
+          .to('.lock-keyhole',    { opacity: 1, scale: 1,   duration: 0.3, ease: 'back.out(2)' }, '-=0.25')
+          .to('.lock-deco',       { scale: 1, opacity: 1,   duration: 0.4, stagger: 0.05, ease: 'back.out(2)' }, '-=0.3');
+      }
+
+      function setup() {
+        var el = document.querySelector('.lock-container');
+        if (el) {
+          var rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.9) {
+            log('already in view, playing immediately');
+            play();
+            return;
+          }
+        }
+        ScrollTrigger.create({
+          trigger: '.lock-container',
+          start: 'top 85%',
+          onEnter: play,
+          once: true
+        });
+        log('ScrollTrigger created');
+      }
+
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setup();
+      } else {
+        document.addEventListener('DOMContentLoaded', setup);
+      }
+
       setTimeout(function () {
         if (!hasPlayed) {
           log('safety timeout — forcing play');
