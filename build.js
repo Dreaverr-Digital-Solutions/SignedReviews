@@ -128,13 +128,20 @@ a:hover { color: var(--gold-500); }
   display: flex; align-items: center; justify-content: space-between;
   height: 64px; gap: 1rem;
 }
-.brand { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; }
-.brand img { height: 28px; width: auto; display: block; }
-.brand-text {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 1.35rem; color: var(--navy-900);
+.brand { display: inline-flex; align-items: center; gap: .5rem; text-decoration: none; }
+.brand img { width: auto; display: block; }
+.brand .brand-icon     { height: 30px; }
+.brand .brand-wordmark { height: 20px; }
+@media (min-width: 640px) {
+  .brand .brand-icon     { height: 34px; }
+  .brand .brand-wordmark { height: 24px; }
 }
-:root.theme-dark .brand-text, :root.theme-auto .brand-text { color: #fff; }
+/* Auto-invert the black wordmark in dark mode so it's readable */
+:root.theme-dark .brand .brand-wordmark,
+:root.theme-auto .brand .brand-wordmark { filter: brightness(0) invert(1); opacity: .92; }
+@media (prefers-color-scheme: light) {
+  :root.theme-auto .brand .brand-wordmark { filter: none; opacity: 1; }
+}
 
 .nav-links {
   display: flex; align-items: center; gap: .35rem; list-style: none; margin: 0; padding: 0;
@@ -444,7 +451,8 @@ main { padding: 0; }
 @media (max-width: 880px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
 .footer-brand p { margin: .35rem 0; color: var(--muted); font-size: .9rem; }
-.footer-brand .brand-text { font-size: 1.2rem; }
+.footer-brand .brand-icon     { height: 28px; }
+.footer-brand .brand-wordmark { height: 20px; }
 .footer-col h4 {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
@@ -501,8 +509,8 @@ const HEADER = (active = '') => `
 <header class="site-header">
   <div class="nav-inner" id="navInner">
     <a class="brand" href="${B}" aria-label="${COMPANY.brand} home">
-      <img src="${B}images/SignedReviews_logo_only.png" alt="" width="28" height="28">
-      <span class="brand-text">${COMPANY.brand}</span>
+      <img class="brand-icon" src="${B}images/SignedReviews_logo_only.png" alt="">
+      <img class="brand-wordmark" src="${B}images/SignedReviews_font_only.png" alt="${COMPANY.brand}">
     </a>
     <ul class="nav-links" role="menu">
       <li><a href="${B}pricing/"${active === 'pricing' ? ' aria-current="page"' : ''}>Pricing</a></li>
@@ -535,9 +543,9 @@ const FOOTER = `
 <footer class="site-footer" role="contentinfo">
   <div class="footer-grid">
     <div class="footer-brand">
-      <a class="brand" href="${B}" aria-label="${COMPANY.brand} home">
-        <img src="${B}images/SignedReviews_logo_only.png" alt="" width="24" height="24">
-        <span class="brand-text">${COMPANY.brand}</span>
+      <a class="brand footer-brand-link" href="${B}" aria-label="${COMPANY.brand} home">
+        <img class="brand-icon" src="${B}images/SignedReviews_logo_only.png" alt="">
+        <img class="brand-wordmark" src="${B}images/SignedReviews_font_only.png" alt="${COMPANY.brand}">
       </a>
       <p>${COMPANY.attribution}</p>
       <p>${COMPANY.copyright}</p>

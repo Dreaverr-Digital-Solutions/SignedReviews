@@ -159,9 +159,10 @@
     .widget-marquee-inner { animation: widgetMarquee 28s linear infinite; will-change: transform; }
     .widget-marquee-inner:hover { animation-play-state: paused; }
 
-    /* Dark mode logo inversion to white */
+    /* Dark mode logo inversion: wordmark only; the icon is colored and stays as-is */
     .logo-img { filter: none; }
-    .dark .logo-img { filter: brightness(0) invert(1); opacity: .85; }
+    .dark .logo-wordmark,
+    .dark footer .logo-img { filter: brightness(0) invert(1); opacity: .92; }
 
     /* ── Phase 1: Scroll Reveal ─────────────────────────────── */
     .reveal {
@@ -244,9 +245,14 @@
     /* ── CLS prevention ──────────────────────────────────────
        Reserve logo image height before the network image loads.
        Avoids layout shift from collapsing img elements.         */
-    .logo-img { display: block; }
-    nav .logo-img { height: 2.25rem; width: auto; }   /* h-9 */
-    footer .logo-img { height: 1.75rem; width: auto; } /* h-7 */
+    .logo-img { display: block; width: auto; }
+    nav .logo-icon     { height: 1.85rem; }                /* compact on mobile */
+    nav .logo-wordmark { height: 1.25rem; }                /* compact on mobile */
+    @media (min-width: 640px) {
+      nav .logo-icon     { height: 2.1rem; }
+      nav .logo-wordmark { height: 1.5rem; }
+    }
+    footer .logo-img { height: 1.75rem; }                  /* h-7 */
 
     /* ── Liquid Glass System (iOS 26 inspired) ───────────────── */
 
@@ -659,9 +665,9 @@
   <!-- ─── NAV ──────────────────────────────────────────────── -->
   <nav class="fixed top-0 left-0 right-0 z-50 nav-liquid-glass bg-white/80 dark:bg-navy-900/75 backdrop-blur-2xl border-b border-white/30 dark:border-white/8 transition-colors" aria-label="Primary">
     <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16 gap-2">
-      <a href="/" class="flex items-center shrink-0" aria-label="Signed Reviews — home">
-        <img src="images/SignedReviews_logo_only.png" alt="Signed Reviews" class="logo-img sm:hidden object-contain">
-        <img src="images/SignedReviews_font_only.png" alt="Signed Reviews" class="logo-img hidden sm:block object-contain">
+      <a href="/" class="flex items-center gap-2 shrink-0" aria-label="Signed Reviews — home">
+        <img src="images/SignedReviews_logo_only.png" alt="" class="logo-img logo-icon object-contain">
+        <img src="images/SignedReviews_font_only.png" alt="Signed Reviews" class="logo-img logo-wordmark object-contain">
       </a>
       <ul class="hidden md:flex items-center gap-1 list-none m-0 p-0">
         <li><a href="/pricing/" class="px-3 py-2 text-sm font-medium text-navy-700 dark:text-navy-100 hover:text-navy-900 dark:hover:text-white rounded-lg hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Pricing</a></li>
