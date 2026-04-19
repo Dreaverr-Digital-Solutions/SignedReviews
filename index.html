@@ -1918,15 +1918,24 @@
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script defer>
     // Runs after the two GSAP scripts above because defer preserves order.
-    // No window.load wait — the CSS in the <head> already holds the initial
-    // hidden state, so by the time this runs the SVG is already invisible
-    // and we can attach the ScrollTrigger without a visible flash.
     (function () {
-      if (typeof gsap === 'undefined') return;
+      // If GSAP failed to load (CDN blocked, offline, etc.), reveal the
+      // shield via its normal CSS state so users see something instead of
+      // the CSS-hidden blank frame.
+      function revealFallback() {
+        document.querySelectorAll('.shield-container .bg-circle, .shield-container .inner-ring, .shield-container .shield-fill, .shield-container .deco')
+          .forEach(function (el) { el.style.opacity = ''; });
+        document.querySelectorAll('.shield-container .shield-stroke, .shield-container .check-stroke')
+          .forEach(function (el) { el.style.strokeDasharray = 'none'; el.style.strokeDashoffset = '0'; });
+      }
+
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        revealFallback();
+        return;
+      }
 
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        // Reveal the final state immediately so reduced-motion users see
-        // the shield at rest rather than the CSS-hidden starting state.
+        // Reveal final state without animation.
         gsap.set('.bg-circle',    { opacity: 0.7 });
         gsap.set('.inner-ring',   { opacity: 0.5 });
         gsap.set('.shield-fill',  { opacity: 1 });
@@ -1938,8 +1947,6 @@
 
       gsap.registerPlugin(ScrollTrigger);
 
-      // Re-assert the starting state through GSAP so it can tween from here
-      // (the CSS rules in the head gave us the paint-safe initial hide).
       gsap.set('.bg-circle',    { scale: 0, opacity: 0, transformOrigin: '200px 200px' });
       gsap.set('.inner-ring',   { scale: 0, opacity: 0, transformOrigin: '200px 200px' });
       gsap.set('.shield-stroke',{ strokeDasharray: 1, strokeDashoffset: 1 });
@@ -1949,8 +1956,11 @@
       gsap.set('.float-group',  { y: 0 });
 
       let floatAnim;
+      let hasPlayed = false;
 
       function playShieldAnimation() {
+        if (hasPlayed) return;
+        hasPlayed = true;
         if (floatAnim) floatAnim.kill();
 
         const tl = gsap.timeline({
@@ -1970,12 +1980,29 @@
           .to('.deco',         { scale: 1, opacity: 1, duration: 0.4, stagger: 0.05, ease: 'back.out(2)' }, '-=0.3');
       }
 
-      ScrollTrigger.create({
+      const trigger = ScrollTrigger.create({
         trigger: '.shield-container',
         start: 'top 75%',
         onEnter: playShieldAnimation,
         once: true
       });
+
+      // Images load after the defer script runs, shifting layout and making
+      // the cached trigger position stale. Refresh once everything's in.
+      window.addEventListener('load', function () {
+        ScrollTrigger.refresh();
+        // If after refresh the shield is already in view, fire immediately.
+        const el = document.querySelector('.shield-container');
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.75) playShieldAnimation();
+        }
+      });
+
+      // Final safety net: if six seconds pass without the animation firing
+      // (e.g. ScrollTrigger silently failed), just play it so the shield
+      // never stays invisible.
+      setTimeout(function () { if (!hasPlayed) playShieldAnimation(); }, 6000);
     })();
   </script>
 </body>
