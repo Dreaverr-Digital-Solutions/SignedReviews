@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sub-processors — Signed Reviews</title>
+  <meta name="description" content="Full list of sub-processors used by Signed Reviews — what they do, what data they touch, and where they operate.">
+  <link rel="canonical" href="https://signedreviews.com/subprocessors/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0c1320">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sub-processors — Signed Reviews">
+  <meta property="og:description" content="Full list of sub-processors used by Signed Reviews — what they do, what data they touch, and where they operate.">
+  <meta property="og:url" content="https://signedreviews.com/subprocessors/">
+  <meta property="og:site_name" content="Signed Reviews">
+  <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sub-processors — Signed Reviews">
+  <meta name="twitter:description" content="Full list of sub-processors used by Signed Reviews — what they do, what data they touch, and where they operate.">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png">
+  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+:root {
+  --navy-900:#0c1320; --navy-800:#141e30; --navy-700:#1c2840; --navy-600:#243252;
+  --navy-500:#2b3b60; --navy-400:#5d7aaa; --navy-300:#87a2c4; --navy-200:#aab9dc;
+  --navy-100:#d5dcee; --navy-50:#eef1f8;
+  --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
+  --gold-100:#f2edcc; --gold-50:#faf8ee;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
+  --max-prose: 72ch;
+}
+@media (prefers-color-scheme: dark) {
+  :root.theme-auto {
+    --bg:#0c1320; --surface:#141e30; --text:#eef1f8; --muted:#87a2c4;
+    --border:rgba(255,255,255,.10);
+  }
+}
+:root.theme-dark {
+  --bg:#0c1320; --surface:#141e30; --text:#eef1f8; --muted:#87a2c4;
+  --border:rgba(255,255,255,.10);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: var(--navy-500); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--gold-500); }
+:root.theme-dark a, :root.theme-auto a { color: var(--gold-300); }
+
+/* ── Skip link ── */
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--navy-900); color: #fff; padding: .75rem 1rem;
+  border-radius: 0 0 .5rem 0; z-index: 100;
+}
+.skip-link:focus { left: 0; outline: 3px solid var(--gold-400); }
+
+/* ── Header / nav ── */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: saturate(1.6) blur(14px);
+  -webkit-backdrop-filter: saturate(1.6) blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+:root.theme-dark .site-header, :root.theme-auto .site-header {
+  background: rgba(20,30,48,.85);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 1.25rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; gap: 1rem;
+}
+.brand { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; }
+.brand img { height: 28px; width: auto; display: block; }
+.brand-text {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.35rem; color: var(--navy-900);
+}
+:root.theme-dark .brand-text, :root.theme-auto .brand-text { color: #fff; }
+
+.nav-links {
+  display: flex; align-items: center; gap: .35rem; list-style: none; margin: 0; padding: 0;
+}
+.nav-links a {
+  display: inline-flex; align-items: center; padding: .5rem .85rem;
+  font-size: .92rem; font-weight: 500; text-decoration: none;
+  color: var(--navy-700); border-radius: .55rem;
+}
+:root.theme-dark .nav-links a, :root.theme-auto .nav-links a { color: var(--navy-100); }
+.nav-links a:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .nav-links a:hover, :root.theme-auto .nav-links a:hover { background: rgba(255,255,255,.06); color: #fff; }
+
+.nav-cta {
+  display: inline-flex; align-items: center; gap: .55rem; margin-left: .35rem;
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: .55rem 1rem; border-radius: .65rem; font-weight: 600; font-size: .9rem;
+  text-decoration: none; border: 1px solid transparent;
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+  cursor: pointer;
+}
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--gold-400), var(--gold-500) 60%, var(--gold-600));
+  box-shadow: 0 4px 14px rgba(179,157,69,.32);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(179,157,69,.44); color: #fff; }
+.btn-secondary {
+  color: var(--navy-700); background: transparent; border-color: var(--navy-200);
+}
+.btn-secondary:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .btn-secondary, :root.theme-auto .btn-secondary {
+  color: var(--navy-100); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.02);
+}
+:root.theme-dark .btn-secondary:hover, :root.theme-auto .btn-secondary:hover {
+  background: rgba(255,255,255,.08); color: #fff;
+}
+
+/* ── Mobile nav: collapse links into a button row stack on narrow screens ── */
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .nav-cta .btn { padding: .45rem .8rem; font-size: .85rem; }
+}
+.menu-toggle {
+  display: none; background: transparent; border: 0; padding: .35rem;
+  color: inherit; cursor: pointer;
+}
+@media (max-width: 720px) {
+  .menu-toggle { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: .5rem; }
+  .nav-inner.is-open .nav-links {
+    display: flex; flex-direction: column; align-items: stretch;
+    position: absolute; top: 64px; left: 0; right: 0;
+    background: var(--surface); padding: .75rem 1rem; gap: .25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner.is-open .nav-links a { padding: .75rem 1rem; border-radius: .5rem; }
+  .menu-toggle:hover { background: var(--navy-50); }
+}
+
+/* ── Main / prose ── */
+main { padding: 0; }
+.page-hero {
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-inner {
+  max-width: 1100px; margin: 0 auto; padding: 3.5rem 1.25rem 2.25rem;
+}
+.page-hero h1 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(2rem, 4vw + 1rem, 3.25rem);
+  line-height: 1.1; margin: 0 0 .5rem; color: var(--navy-900); letter-spacing: -0.02em;
+}
+:root.theme-dark .page-hero h1, :root.theme-auto .page-hero h1 { color: #fff; }
+.page-hero p { color: var(--muted); margin: 0; max-width: 60ch; font-size: 1.05rem; }
+.eyebrow {
+  display: inline-block;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold-600); margin-bottom: .9rem;
+}
+
+.prose-wrap {
+  max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem;
+}
+@media (min-width: 980px) {
+  .prose-wrap.has-toc { grid-template-columns: minmax(0, 1fr) 240px; }
+}
+
+.prose {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  max-width: var(--max-prose);
+  width: 100%;
+  margin: 0;
+}
+.prose h1 { display: none; } /* page hero already shows the h1 */
+.prose h2, .prose h3, .prose h4 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  color: var(--navy-900);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 2.4rem 0 .9rem;
+}
+:root.theme-dark .prose h2, :root.theme-dark .prose h3, :root.theme-dark .prose h4,
+:root.theme-auto .prose h2, :root.theme-auto .prose h3, :root.theme-auto .prose h4 { color: #fff; }
+.prose h2 { font-size: 1.65rem; padding-top: .25rem; }
+.prose h3 { font-size: 1.25rem; }
+.prose h4 { font-size: 1.05rem; font-family: 'Inter', system-ui, sans-serif; font-weight: 700; }
+.prose h2:first-of-type { margin-top: 0; }
+
+.prose p, .prose li { color: var(--text); }
+.prose p { margin: 0 0 1rem; }
+.prose ul, .prose ol { padding-left: 1.4rem; margin: 0 0 1rem; }
+.prose li { margin: .35rem 0; }
+
+.prose strong { color: var(--navy-900); }
+:root.theme-dark .prose strong, :root.theme-auto .prose strong { color: #fff; }
+
+.prose hr {
+  border: 0; height: 1px; background: var(--border); margin: 2.5rem 0;
+}
+
+.prose code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size: .9em;
+  background: var(--navy-50); color: var(--navy-700);
+  padding: .12em .42em; border-radius: 4px;
+}
+:root.theme-dark .prose code, :root.theme-auto .prose code {
+  background: rgba(255,255,255,.08); color: var(--gold-300);
+}
+
+.prose a.anchor {
+  text-decoration: none; color: var(--navy-200); margin-right: .35rem;
+  font-weight: 400; opacity: 0; transition: opacity .15s ease;
+}
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding: 1.1rem 1.25rem;
+  border-left: 4px solid var(--gold-500);
+  background: var(--gold-50);
+  color: var(--navy-800);
+  border-radius: 0 .5rem .5rem 0;
+}
+.prose blockquote p { margin: 0; }
+.prose blockquote strong { color: var(--gold-600); }
+:root.theme-dark .prose blockquote, :root.theme-auto .prose blockquote {
+  background: rgba(179,157,69,.10); color: #fff;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0 1.5rem;
+  font-size: .92rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  display: block;
+  overflow-x: auto;
+}
+.prose thead { background: var(--navy-50); }
+:root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
+.prose th, .prose td {
+  padding: .7rem .9rem; text-align: left; vertical-align: top;
+  border-bottom: 1px solid var(--border);
+}
+.prose th { font-weight: 600; color: var(--navy-900); }
+:root.theme-dark .prose th, :root.theme-auto .prose th { color: #fff; }
+.prose tbody tr:last-child td { border-bottom: 0; }
+.prose tbody tr:nth-child(even) td { background: rgba(43,59,96,.025); }
+:root.theme-dark .prose tbody tr:nth-child(even) td,
+:root.theme-auto .prose tbody tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+
+/* ── ToC sidebar (legal pages) ── */
+.toc {
+  position: sticky; top: 88px; align-self: start;
+  font-size: .88rem; max-height: calc(100vh - 110px); overflow-y: auto;
+  padding: 1rem 1.1rem; border: 1px solid var(--border);
+  background: var(--surface); border-radius: 12px;
+}
+.toc h2 {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 .6rem;
+}
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: .15rem 0; }
+.toc a {
+  color: var(--navy-700); text-decoration: none; display: block;
+  padding: .25rem .35rem; border-radius: .35rem; line-height: 1.35;
+}
+:root.theme-dark .toc a, :root.theme-auto .toc a { color: var(--navy-100); }
+.toc a:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .toc a:hover, :root.theme-auto .toc a:hover { background: rgba(255,255,255,.06); color: #fff; }
+@media (max-width: 980px) { .toc { display: none; } }
+
+/* ── Marketing utility blocks ── */
+.section { max-width: 1100px; margin: 0 auto; padding: 3rem 1.25rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.5rem;
+}
+.card h3 {
+  font-family: 'Instrument Serif', Georgia, serif; font-size: 1.4rem;
+  margin: 0 0 .5rem; color: var(--navy-900);
+}
+:root.theme-dark .card h3, :root.theme-auto .card h3 { color: #fff; }
+.card p { margin: 0; color: var(--muted); }
+.card-featured {
+  border-color: var(--gold-400);
+  box-shadow: 0 6px 26px rgba(179,157,69,.18);
+}
+.badge {
+  display: inline-block; padding: .25rem .55rem; border-radius: 999px;
+  font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  background: var(--gold-100); color: var(--gold-600); margin-bottom: .65rem;
+}
+:root.theme-dark .badge, :root.theme-auto .badge {
+  background: rgba(179,157,69,.18); color: var(--gold-300);
+}
+
+.feature-list { list-style: none; padding: 0; margin: 1rem 0 1.5rem; }
+.feature-list li {
+  display: flex; gap: .55rem; align-items: flex-start; margin: .45rem 0;
+  color: var(--text);
+}
+.feature-list li::before {
+  content: '✓'; color: var(--gold-500); font-weight: 700; flex-shrink: 0;
+}
+
+.callout {
+  border: 1px solid var(--border); border-left: 4px solid var(--gold-500);
+  background: var(--surface); border-radius: 10px; padding: 1rem 1.25rem;
+  margin: 1.25rem 0; color: var(--text);
+}
+
+/* ── Contact list ── */
+.contact-list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;
+}
+.contact-list li {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.1rem 1.25rem;
+}
+.contact-list .label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .7rem; text-transform: uppercase; letter-spacing: .12em;
+  color: var(--muted); display: block; margin-bottom: .35rem;
+}
+.contact-list a { color: var(--navy-500); }
+:root.theme-dark .contact-list a, :root.theme-auto .contact-list a { color: var(--gold-300); }
+
+/* ── Footer ── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  margin-top: 2rem;
+  padding: 3rem 1.25rem 2rem;
+}
+.footer-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; gap: 2rem;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+}
+@media (max-width: 880px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+.footer-brand p { margin: .35rem 0; color: var(--muted); font-size: .9rem; }
+.footer-brand .brand-text { font-size: 1.2rem; }
+.footer-col h4 {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 .8rem;
+}
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col li { margin: .35rem 0; }
+.footer-col a {
+  color: var(--navy-700); text-decoration: none; font-size: .92rem;
+}
+:root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
+.footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+
+.footer-fineprint {
+  max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex; flex-wrap: wrap; gap: .75rem 2rem; justify-content: space-between;
+  font-size: .82rem; color: var(--muted);
+}
+.address-block { font-style: normal; }
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  
+<header class="site-header">
+  <div class="nav-inner" id="navInner">
+    <a class="brand" href="/" aria-label="Signed Reviews home">
+      <img src="/images/SignedReviews_logo_only.png" alt="" width="28" height="28">
+      <span class="brand-text">Signed Reviews</span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" onclick="document.getElementById('navInner').classList.toggle('is-open'); this.setAttribute('aria-expanded', document.getElementById('navInner').classList.contains('is-open'));">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links" role="menu">
+      <li><a href="/pricing/">Pricing</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener">Log in</a>
+      <a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener">Sign up</a>
+    </div>
+  </div>
+</header>
+  <main id="main">
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="eyebrow">Legal</span>
+        <h1>Sub-processors</h1>
+        <p>Third-party service providers Paid Rightly LLC uses to operate Signed Reviews.</p>
+      </div>
+    </section>
+    <div class="prose-wrap has-toc">
+      <article class="prose">
+<p><strong>Last updated:</strong> April 19, 2026</p>
+<p>This page lists the third-party service providers (&quot;sub-processors&quot;) that Paid Rightly LLC uses to provide Signed Reviews. Each sub-processor is contractually required to use personal data only to provide services to us and to maintain appropriate security safeguards.</p>
+<p>We may update this list from time to time. Material additions will be reflected by updating the &quot;Last updated&quot; date. We recommend checking this page periodically.</p>
+<hr>
+<h2 id="core-infrastructure"><a class="anchor" href="#core-infrastructure" aria-label="Permalink to Core infrastructure">#</a> Core infrastructure</h2>
+<table>
+<thead>
+<tr>
+<th>Sub-processor</th>
+<th>Purpose</th>
+<th>Data categories</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Railway</strong></td>
+<td>Cloud hosting and managed PostgreSQL database</td>
+<td>All Service data at rest</td>
+<td>United States</td>
+</tr>
+<tr>
+<td><strong>Cloudinary</strong></td>
+<td>Image hosting for review photos and business brand assets</td>
+<td>User-uploaded images (review photos, logos)</td>
+<td>United States</td>
+</tr>
+<tr>
+<td><strong>Stripe</strong></td>
+<td>Payment-related webhooks and OAuth for business Stripe connections</td>
+<td>Business Stripe credentials; transaction metadata (charge ID, customer email, card last-4, amount, currency)</td>
+<td>United States</td>
+</tr>
+<tr>
+<td><strong>Resend</strong></td>
+<td>Transactional email delivery</td>
+<td>Recipient email addresses; email content (verification links, magic links, team invitations, review-request emails)</td>
+<td>United States</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="ai-services"><a class="anchor" href="#ai-services" aria-label="Permalink to AI services">#</a> AI services</h2>
+<table>
+<thead>
+<tr>
+<th>Sub-processor</th>
+<th>Purpose</th>
+<th>Data categories</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Anthropic</strong></td>
+<td>AI logo extraction during business brand onboarding (Claude Haiku with vision)</td>
+<td>Public website HTML and candidate logo images provided by the business during brand setup</td>
+<td><strong>Not used on reviews, reviewer data, or payment data.</strong> Anthropic does not train on data sent through its API under its commercial terms.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="oauth-providers-only-when-used"><a class="anchor" href="#oauth-providers-only-when-used" aria-label="Permalink to OAuth providers (only when used)">#</a> OAuth providers (only when used)</h2>
+<p>These sub-processors receive data only when a user chooses to log in or attach a profile using that provider. If you do not use a given provider, no data is shared with it.</p>
+<table>
+<thead>
+<tr>
+<th>Sub-processor</th>
+<th>Used for</th>
+<th>Data exchanged</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Google</strong></td>
+<td>Business login (SSO); reviewer profile attachment</td>
+<td>OAuth sub, email, name, profile picture</td>
+</tr>
+<tr>
+<td><strong>GitHub</strong></td>
+<td>Business login (SSO); reviewer profile attachment</td>
+<td>OAuth ID, verified email, name/username, avatar URL</td>
+</tr>
+<tr>
+<td><strong>LinkedIn</strong></td>
+<td>Business login (SSO); reviewer profile attachment</td>
+<td>OAuth sub, email, name, profile picture</td>
+</tr>
+<tr>
+<td><strong>Microsoft</strong></td>
+<td>Business login (SSO)</td>
+<td>OAuth ID, email, display name</td>
+</tr>
+<tr>
+<td><strong>Facebook</strong></td>
+<td>Reviewer profile attachment</td>
+<td>Facebook ID, name, profile picture</td>
+</tr>
+<tr>
+<td><strong>Instagram</strong></td>
+<td>Reviewer profile attachment</td>
+<td>Instagram handle, name, profile picture (via Facebook OAuth)</td>
+</tr>
+<tr>
+<td><strong>Twitter / X</strong></td>
+<td>Reviewer profile attachment</td>
+<td>Twitter/X ID, name, username, profile picture</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="specialized-services"><a class="anchor" href="#specialized-services" aria-label="Permalink to Specialized services">#</a> Specialized services</h2>
+<table>
+<thead>
+<tr>
+<th>Sub-processor</th>
+<th>Purpose</th>
+<th>Data categories</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Decodo</strong></td>
+<td>Proxy service used to retrieve public Instagram profile data (profile picture and display name) during the reviewer profile attachment flow</td>
+<td>Instagram profile URL (public); IP address of our backend server</td>
+<td>Used only when a reviewer selects Instagram as their profile source and the direct OAuth path is unavailable.</td>
+</tr>
+<tr>
+<td><strong>Gravatar</strong></td>
+<td>Check whether a reviewer&#39;s email address has an associated Gravatar image</td>
+<td>MD5 hash of email address</td>
+<td>Used only when a reviewer chooses the Gravatar avatar option. We do not store Gravatar images.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="sub-processors-we-do-not-use"><a class="anchor" href="#sub-processors-we-do-not-use" aria-label="Permalink to Sub-processors we do not use">#</a> Sub-processors we do not use</h2>
+<p>For transparency, we want to be clear about services we <strong>do not</strong> use as of the date above:</p>
+<ul>
+<li><strong>No analytics platforms</strong> (no Google Analytics, Mixpanel, Amplitude, Segment, PostHog, Plausible, Heap, or similar)</li>
+<li><strong>No advertising networks</strong></li>
+<li><strong>No session replay tools</strong> (no FullStory, Hotjar, LogRocket, or similar)</li>
+<li><strong>No error tracking services with PII access</strong> (no Sentry, Datadog, Rollbar, or similar at this time)</li>
+<li><strong>No marketing email platforms</strong> (no Mailchimp, HubSpot, ActiveCampaign, or similar — we use Resend only for transactional email)</li>
+<li><strong>No customer data platforms or enrichment services</strong></li>
+<li><strong>No cross-site tracking cookies or fingerprinting</strong></li>
+</ul>
+<hr>
+<h2 id="changes-to-this-list"><a class="anchor" href="#changes-to-this-list" aria-label="Permalink to Changes to this list">#</a> Changes to this list</h2>
+<p>When we add a new sub-processor or change how an existing one is used in a way that materially affects personal data processing, we will:</p>
+<ol>
+<li>Update this page and the &quot;Last updated&quot; date above</li>
+<li>For material additions affecting business users or reviewers, provide notice through the Service or by email when practicable</li>
+</ol>
+<p>You can request notification of future changes by emailing <strong><a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a></strong> with the subject line &quot;Sub-processor updates.&quot;</p>
+<hr>
+<h2 id="contact"><a class="anchor" href="#contact" aria-label="Permalink to Contact">#</a> Contact</h2>
+<p>Questions about sub-processors or how your data flows through them:</p>
+<p><strong>Email:</strong> <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a>
+<strong>Mail:</strong> Paid Rightly LLC, 1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States</p>
+</article>
+    <nav class="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ul>
+        <li><a href="#core-infrastructure">Core infrastructure</a></li><li><a href="#ai-services">AI services</a></li><li><a href="#oauth-providers-only-when-used">OAuth providers (only when used)</a></li><li><a href="#specialized-services">Specialized services</a></li><li><a href="#sub-processors-we-do-not-use">Sub-processors we do not use</a></li><li><a href="#changes-to-this-list">Changes to this list</a></li><li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    </div>
+  </main>
+  
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/" aria-label="Signed Reviews home">
+        <img src="/images/SignedReviews_logo_only.png" alt="" width="24" height="24">
+        <span class="brand-text">Signed Reviews</span>
+      </a>
+      <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
+      <p>© 2026 Paid Rightly LLC. All rights reserved.</p>
+      <address class="address-block"><strong>Paid Rightly LLC</strong><br>1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States</address>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#how-it-works">How it works</a></li>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/pricing/">Pricing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="mailto:support@signedreviews.com">Support</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+        <li><a href="/refund-policy/">Refund Policy</a></li>
+        <li><a href="/subprocessors/">Sub-processors</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-fineprint">
+    <span>© 2026 Paid Rightly LLC. All rights reserved.</span>
+    <span>Signed Reviews is a service operated by Paid Rightly LLC.</span>
+  </div>
+</footer>
+<script>
+  // Honor stored theme preference set by index.html.
+  (function () {
+    try {
+      var stored = localStorage.getItem('theme');
+      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
+      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
+      else document.documentElement.classList.add('theme-auto');
+    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+  })();
+</script>
+</body>
+</html>

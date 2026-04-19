@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — Signed Reviews</title>
+  <meta name="description" content="Terms of Service for Signed Reviews — operated by Paid Rightly LLC. Read before using the platform.">
+  <link rel="canonical" href="https://signedreviews.com/terms/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0c1320">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Terms of Service — Signed Reviews">
+  <meta property="og:description" content="Terms of Service for Signed Reviews — operated by Paid Rightly LLC. Read before using the platform.">
+  <meta property="og:url" content="https://signedreviews.com/terms/">
+  <meta property="og:site_name" content="Signed Reviews">
+  <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Terms of Service — Signed Reviews">
+  <meta name="twitter:description" content="Terms of Service for Signed Reviews — operated by Paid Rightly LLC. Read before using the platform.">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png">
+  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+:root {
+  --navy-900:#0c1320; --navy-800:#141e30; --navy-700:#1c2840; --navy-600:#243252;
+  --navy-500:#2b3b60; --navy-400:#5d7aaa; --navy-300:#87a2c4; --navy-200:#aab9dc;
+  --navy-100:#d5dcee; --navy-50:#eef1f8;
+  --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
+  --gold-100:#f2edcc; --gold-50:#faf8ee;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
+  --max-prose: 72ch;
+}
+@media (prefers-color-scheme: dark) {
+  :root.theme-auto {
+    --bg:#0c1320; --surface:#141e30; --text:#eef1f8; --muted:#87a2c4;
+    --border:rgba(255,255,255,.10);
+  }
+}
+:root.theme-dark {
+  --bg:#0c1320; --surface:#141e30; --text:#eef1f8; --muted:#87a2c4;
+  --border:rgba(255,255,255,.10);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: var(--navy-500); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--gold-500); }
+:root.theme-dark a, :root.theme-auto a { color: var(--gold-300); }
+
+/* ── Skip link ── */
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--navy-900); color: #fff; padding: .75rem 1rem;
+  border-radius: 0 0 .5rem 0; z-index: 100;
+}
+.skip-link:focus { left: 0; outline: 3px solid var(--gold-400); }
+
+/* ── Header / nav ── */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: saturate(1.6) blur(14px);
+  -webkit-backdrop-filter: saturate(1.6) blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+:root.theme-dark .site-header, :root.theme-auto .site-header {
+  background: rgba(20,30,48,.85);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 1.25rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; gap: 1rem;
+}
+.brand { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; }
+.brand img { height: 28px; width: auto; display: block; }
+.brand-text {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.35rem; color: var(--navy-900);
+}
+:root.theme-dark .brand-text, :root.theme-auto .brand-text { color: #fff; }
+
+.nav-links {
+  display: flex; align-items: center; gap: .35rem; list-style: none; margin: 0; padding: 0;
+}
+.nav-links a {
+  display: inline-flex; align-items: center; padding: .5rem .85rem;
+  font-size: .92rem; font-weight: 500; text-decoration: none;
+  color: var(--navy-700); border-radius: .55rem;
+}
+:root.theme-dark .nav-links a, :root.theme-auto .nav-links a { color: var(--navy-100); }
+.nav-links a:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .nav-links a:hover, :root.theme-auto .nav-links a:hover { background: rgba(255,255,255,.06); color: #fff; }
+
+.nav-cta {
+  display: inline-flex; align-items: center; gap: .55rem; margin-left: .35rem;
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: .55rem 1rem; border-radius: .65rem; font-weight: 600; font-size: .9rem;
+  text-decoration: none; border: 1px solid transparent;
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+  cursor: pointer;
+}
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--gold-400), var(--gold-500) 60%, var(--gold-600));
+  box-shadow: 0 4px 14px rgba(179,157,69,.32);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(179,157,69,.44); color: #fff; }
+.btn-secondary {
+  color: var(--navy-700); background: transparent; border-color: var(--navy-200);
+}
+.btn-secondary:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .btn-secondary, :root.theme-auto .btn-secondary {
+  color: var(--navy-100); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.02);
+}
+:root.theme-dark .btn-secondary:hover, :root.theme-auto .btn-secondary:hover {
+  background: rgba(255,255,255,.08); color: #fff;
+}
+
+/* ── Mobile nav: collapse links into a button row stack on narrow screens ── */
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .nav-cta .btn { padding: .45rem .8rem; font-size: .85rem; }
+}
+.menu-toggle {
+  display: none; background: transparent; border: 0; padding: .35rem;
+  color: inherit; cursor: pointer;
+}
+@media (max-width: 720px) {
+  .menu-toggle { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: .5rem; }
+  .nav-inner.is-open .nav-links {
+    display: flex; flex-direction: column; align-items: stretch;
+    position: absolute; top: 64px; left: 0; right: 0;
+    background: var(--surface); padding: .75rem 1rem; gap: .25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner.is-open .nav-links a { padding: .75rem 1rem; border-radius: .5rem; }
+  .menu-toggle:hover { background: var(--navy-50); }
+}
+
+/* ── Main / prose ── */
+main { padding: 0; }
+.page-hero {
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-inner {
+  max-width: 1100px; margin: 0 auto; padding: 3.5rem 1.25rem 2.25rem;
+}
+.page-hero h1 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(2rem, 4vw + 1rem, 3.25rem);
+  line-height: 1.1; margin: 0 0 .5rem; color: var(--navy-900); letter-spacing: -0.02em;
+}
+:root.theme-dark .page-hero h1, :root.theme-auto .page-hero h1 { color: #fff; }
+.page-hero p { color: var(--muted); margin: 0; max-width: 60ch; font-size: 1.05rem; }
+.eyebrow {
+  display: inline-block;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold-600); margin-bottom: .9rem;
+}
+
+.prose-wrap {
+  max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem;
+}
+@media (min-width: 980px) {
+  .prose-wrap.has-toc { grid-template-columns: minmax(0, 1fr) 240px; }
+}
+
+.prose {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  max-width: var(--max-prose);
+  width: 100%;
+  margin: 0;
+}
+.prose h1 { display: none; } /* page hero already shows the h1 */
+.prose h2, .prose h3, .prose h4 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  color: var(--navy-900);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 2.4rem 0 .9rem;
+}
+:root.theme-dark .prose h2, :root.theme-dark .prose h3, :root.theme-dark .prose h4,
+:root.theme-auto .prose h2, :root.theme-auto .prose h3, :root.theme-auto .prose h4 { color: #fff; }
+.prose h2 { font-size: 1.65rem; padding-top: .25rem; }
+.prose h3 { font-size: 1.25rem; }
+.prose h4 { font-size: 1.05rem; font-family: 'Inter', system-ui, sans-serif; font-weight: 700; }
+.prose h2:first-of-type { margin-top: 0; }
+
+.prose p, .prose li { color: var(--text); }
+.prose p { margin: 0 0 1rem; }
+.prose ul, .prose ol { padding-left: 1.4rem; margin: 0 0 1rem; }
+.prose li { margin: .35rem 0; }
+
+.prose strong { color: var(--navy-900); }
+:root.theme-dark .prose strong, :root.theme-auto .prose strong { color: #fff; }
+
+.prose hr {
+  border: 0; height: 1px; background: var(--border); margin: 2.5rem 0;
+}
+
+.prose code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size: .9em;
+  background: var(--navy-50); color: var(--navy-700);
+  padding: .12em .42em; border-radius: 4px;
+}
+:root.theme-dark .prose code, :root.theme-auto .prose code {
+  background: rgba(255,255,255,.08); color: var(--gold-300);
+}
+
+.prose a.anchor {
+  text-decoration: none; color: var(--navy-200); margin-right: .35rem;
+  font-weight: 400; opacity: 0; transition: opacity .15s ease;
+}
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding: 1.1rem 1.25rem;
+  border-left: 4px solid var(--gold-500);
+  background: var(--gold-50);
+  color: var(--navy-800);
+  border-radius: 0 .5rem .5rem 0;
+}
+.prose blockquote p { margin: 0; }
+.prose blockquote strong { color: var(--gold-600); }
+:root.theme-dark .prose blockquote, :root.theme-auto .prose blockquote {
+  background: rgba(179,157,69,.10); color: #fff;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0 1.5rem;
+  font-size: .92rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  display: block;
+  overflow-x: auto;
+}
+.prose thead { background: var(--navy-50); }
+:root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
+.prose th, .prose td {
+  padding: .7rem .9rem; text-align: left; vertical-align: top;
+  border-bottom: 1px solid var(--border);
+}
+.prose th { font-weight: 600; color: var(--navy-900); }
+:root.theme-dark .prose th, :root.theme-auto .prose th { color: #fff; }
+.prose tbody tr:last-child td { border-bottom: 0; }
+.prose tbody tr:nth-child(even) td { background: rgba(43,59,96,.025); }
+:root.theme-dark .prose tbody tr:nth-child(even) td,
+:root.theme-auto .prose tbody tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+
+/* ── ToC sidebar (legal pages) ── */
+.toc {
+  position: sticky; top: 88px; align-self: start;
+  font-size: .88rem; max-height: calc(100vh - 110px); overflow-y: auto;
+  padding: 1rem 1.1rem; border: 1px solid var(--border);
+  background: var(--surface); border-radius: 12px;
+}
+.toc h2 {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 .6rem;
+}
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: .15rem 0; }
+.toc a {
+  color: var(--navy-700); text-decoration: none; display: block;
+  padding: .25rem .35rem; border-radius: .35rem; line-height: 1.35;
+}
+:root.theme-dark .toc a, :root.theme-auto .toc a { color: var(--navy-100); }
+.toc a:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .toc a:hover, :root.theme-auto .toc a:hover { background: rgba(255,255,255,.06); color: #fff; }
+@media (max-width: 980px) { .toc { display: none; } }
+
+/* ── Marketing utility blocks ── */
+.section { max-width: 1100px; margin: 0 auto; padding: 3rem 1.25rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.5rem;
+}
+.card h3 {
+  font-family: 'Instrument Serif', Georgia, serif; font-size: 1.4rem;
+  margin: 0 0 .5rem; color: var(--navy-900);
+}
+:root.theme-dark .card h3, :root.theme-auto .card h3 { color: #fff; }
+.card p { margin: 0; color: var(--muted); }
+.card-featured {
+  border-color: var(--gold-400);
+  box-shadow: 0 6px 26px rgba(179,157,69,.18);
+}
+.badge {
+  display: inline-block; padding: .25rem .55rem; border-radius: 999px;
+  font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  background: var(--gold-100); color: var(--gold-600); margin-bottom: .65rem;
+}
+:root.theme-dark .badge, :root.theme-auto .badge {
+  background: rgba(179,157,69,.18); color: var(--gold-300);
+}
+
+.feature-list { list-style: none; padding: 0; margin: 1rem 0 1.5rem; }
+.feature-list li {
+  display: flex; gap: .55rem; align-items: flex-start; margin: .45rem 0;
+  color: var(--text);
+}
+.feature-list li::before {
+  content: '✓'; color: var(--gold-500); font-weight: 700; flex-shrink: 0;
+}
+
+.callout {
+  border: 1px solid var(--border); border-left: 4px solid var(--gold-500);
+  background: var(--surface); border-radius: 10px; padding: 1rem 1.25rem;
+  margin: 1.25rem 0; color: var(--text);
+}
+
+/* ── Contact list ── */
+.contact-list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;
+}
+.contact-list li {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.1rem 1.25rem;
+}
+.contact-list .label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .7rem; text-transform: uppercase; letter-spacing: .12em;
+  color: var(--muted); display: block; margin-bottom: .35rem;
+}
+.contact-list a { color: var(--navy-500); }
+:root.theme-dark .contact-list a, :root.theme-auto .contact-list a { color: var(--gold-300); }
+
+/* ── Footer ── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  margin-top: 2rem;
+  padding: 3rem 1.25rem 2rem;
+}
+.footer-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; gap: 2rem;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+}
+@media (max-width: 880px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+.footer-brand p { margin: .35rem 0; color: var(--muted); font-size: .9rem; }
+.footer-brand .brand-text { font-size: 1.2rem; }
+.footer-col h4 {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 .8rem;
+}
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col li { margin: .35rem 0; }
+.footer-col a {
+  color: var(--navy-700); text-decoration: none; font-size: .92rem;
+}
+:root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
+.footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+
+.footer-fineprint {
+  max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex; flex-wrap: wrap; gap: .75rem 2rem; justify-content: space-between;
+  font-size: .82rem; color: var(--muted);
+}
+.address-block { font-style: normal; }
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  
+<header class="site-header">
+  <div class="nav-inner" id="navInner">
+    <a class="brand" href="/" aria-label="Signed Reviews home">
+      <img src="/images/SignedReviews_logo_only.png" alt="" width="28" height="28">
+      <span class="brand-text">Signed Reviews</span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" onclick="document.getElementById('navInner').classList.toggle('is-open'); this.setAttribute('aria-expanded', document.getElementById('navInner').classList.contains('is-open'));">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links" role="menu">
+      <li><a href="/pricing/">Pricing</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener">Log in</a>
+      <a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener">Sign up</a>
+    </div>
+  </div>
+</header>
+  <main id="main">
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="eyebrow">Legal</span>
+        <h1>Terms of Service</h1>
+        <p>The agreement between you and Paid Rightly LLC for use of Signed Reviews.</p>
+      </div>
+    </section>
+    <div class="prose-wrap has-toc">
+      <article class="prose">
+<p><strong>Effective date:</strong> April 19, 2026
+<strong>Last updated:</strong> April 19, 2026</p>
+<p>These Terms of Service (&quot;Terms&quot;) are a binding legal agreement between you and <strong>Paid Rightly LLC</strong> (&quot;we,&quot; &quot;us,&quot; &quot;our&quot;), a New Mexico limited liability company, regarding your use of Signed Reviews (&quot;Service&quot;), available at <a href="https://signedreviews.com">signedreviews.com</a> and <a href="https://platform.signedreviews.com">platform.signedreviews.com</a>.</p>
+<p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
+<p><strong>By registering for an account, accessing the Service, or submitting a review through the Service, you agree to these Terms and to our <a href="https://signedreviews.com/privacy">Privacy Policy</a>.</strong> If you do not agree, do not use the Service.</p>
+<blockquote>
+<p><strong>Important:</strong> Section 17 contains an agreement to resolve most disputes through binding arbitration on an individual basis rather than in court, and a waiver of the right to participate in class actions and jury trials. Please read it carefully.</p>
+</blockquote>
+<hr>
+<h2 id="1-who-can-use-the-service"><a class="anchor" href="#1-who-can-use-the-service" aria-label="Permalink to 1. Who can use the Service">#</a> 1. Who can use the Service</h2>
+<h3 id="11-account-types"><a class="anchor" href="#11-account-types" aria-label="Permalink to 1.1 Account types">#</a> 1.1 Account types</h3>
+<p>The Service has two categories of users:</p>
+<ul>
+<li><strong>Business users</strong> — businesses and their authorized team members who register for a Signed Reviews account at <code>platform.signedreviews.com</code> to collect, verify, and display reviews from their customers.</li>
+<li><strong>Reviewers</strong> — customers of those businesses who receive a review invitation via email and submit a review through a one-time link.</li>
+</ul>
+<p>A single reviewer does not create an account with Signed Reviews; they interact with the Service only by submitting reviews and receiving verification emails.</p>
+<h3 id="12-eligibility"><a class="anchor" href="#12-eligibility" aria-label="Permalink to 1.2 Eligibility">#</a> 1.2 Eligibility</h3>
+<p>The Service is not directed at individuals under 16 years of age. If you are using the Service on behalf of a business, you represent that you have authority to bind that business to these Terms.</p>
+<h3 id="13-registration-and-accuracy"><a class="anchor" href="#13-registration-and-accuracy" aria-label="Permalink to 1.3 Registration and accuracy">#</a> 1.3 Registration and accuracy</h3>
+<p>When you register a business account, you agree to provide accurate and current information and to keep it accurate and current. You are responsible for all activity that occurs under your account.</p>
+<h3 id="14-credentials"><a class="anchor" href="#14-credentials" aria-label="Permalink to 1.4 Credentials">#</a> 1.4 Credentials</h3>
+<p>You are responsible for keeping your login credentials (email, password, OAuth account, magic-link email access) secure. You must notify us promptly at <a href="mailto:support@signedreviews.com">support@signedreviews.com</a> if you believe your account has been compromised.</p>
+<hr>
+<h2 id="2-description-of-the-service"><a class="anchor" href="#2-description-of-the-service" aria-label="Permalink to 2. Description of the Service">#</a> 2. Description of the Service</h2>
+<p>Signed Reviews helps businesses collect verified, tamper-evident reviews from their customers. The core workflow:</p>
+<ol>
+<li>A business connects their Stripe account to Signed Reviews.</li>
+<li>When a customer makes a purchase (resulting in a successful Stripe charge), Signed Reviews sends the customer an email invitation to leave a review.</li>
+<li>The customer clicks a one-time, time-limited link, writes a review, and submits it.</li>
+<li>The review is cryptographically signed server-side and stored.</li>
+<li>If enabled by the business, the review is displayed publicly on a hosted review page, in an embeddable widget, and via a public API.</li>
+</ol>
+<p>Verified reviews are labeled &quot;Purchase Verified.&quot; This label indicates that (a) the review is linked to a specific Stripe charge, (b) the reviewer had access to the email address associated with that charge, and (c) the review content has not been altered since submission. It does not verify the reviewer&#39;s legal identity or the subjective truth of the review content.</p>
+<hr>
+<h2 id="3-current-pricing"><a class="anchor" href="#3-current-pricing" aria-label="Permalink to 3. Current pricing">#</a> 3. Current pricing</h2>
+<p>Signed Reviews is currently offered <strong>free of charge</strong>. There is no subscription fee, no per-review charge, no commission on business transactions, and no platform fee taken from any connected Stripe account.</p>
+<p>We reserve the right to introduce paid tiers, usage-based fees, or other charges in the future. We will provide at least 30 days&#39; advance notice by email and an in-product notice before any such change takes effect. If you do not agree to the new pricing, you may discontinue use of the Service before the change takes effect.</p>
+<hr>
+<h2 id="4-your-license-to-use-the-service"><a class="anchor" href="#4-your-license-to-use-the-service" aria-label="Permalink to 4. Your license to use the Service">#</a> 4. Your license to use the Service</h2>
+<p>Subject to your ongoing compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to access and use the Service for your own internal business purposes.</p>
+<p>You may not:</p>
+<ul>
+<li>Copy, modify, reverse engineer, or create derivative works of the Service (except to the extent this restriction is prohibited by applicable law)</li>
+<li>Resell, rent, lease, or otherwise commercially exploit the Service to third parties</li>
+<li>Use the Service to build a competing product</li>
+<li>Remove or obscure any proprietary notices on the Service</li>
+<li>Circumvent or attempt to circumvent rate limits, access controls, or security measures</li>
+</ul>
+<hr>
+<h2 id="5-your-stripe-connection"><a class="anchor" href="#5-your-stripe-connection" aria-label="Permalink to 5. Your Stripe connection">#</a> 5. Your Stripe connection</h2>
+<p>To use most of the Service, you must connect a Stripe account. By connecting your Stripe account, you:</p>
+<ul>
+<li>Grant us read-only access to your charge data for the purpose of triggering review requests</li>
+<li>Authorize us to create a webhook endpoint on your Stripe account to receive <code>charge.succeeded</code> and related events</li>
+<li>Remain solely responsible for your relationship with Stripe, including compliance with Stripe&#39;s Services Agreement</li>
+</ul>
+<p>We do not take platform fees from your Stripe account, do not initiate charges on your Stripe account, and do not transfer funds. Our access is limited to reading charge metadata necessary to operate the review-request workflow.</p>
+<p>You can disconnect your Stripe account at any time through the Service. Doing so will stop future review requests from being triggered.</p>
+<hr>
+<h2 id="6-business-user-obligations-regarding-reviewers"><a class="anchor" href="#6-business-user-obligations-regarding-reviewers" aria-label="Permalink to 6. Business user obligations regarding reviewers">#</a> 6. Business user obligations regarding reviewers</h2>
+<p>When you use Signed Reviews to request reviews from your customers, you act as the data controller for your customer relationship. You are responsible for:</p>
+<h3 id="61-lawful-basis-and-consent"><a class="anchor" href="#61-lawful-basis-and-consent" aria-label="Permalink to 6.1 Lawful basis and consent">#</a> 6.1 Lawful basis and consent</h3>
+<p>Having a lawful basis under applicable law (GDPR, CASL, CAN-SPAM, and any other relevant regime) to send review-request emails to your customers. Where required, you are responsible for obtaining and maintaining records of your customers&#39; consent.</p>
+<h3 id="62-accuracy-of-stripe-data"><a class="anchor" href="#62-accuracy-of-stripe-data" aria-label="Permalink to 6.2 Accuracy of Stripe data">#</a> 6.2 Accuracy of Stripe data</h3>
+<p>The review invitations Signed Reviews sends are based on the customer data in your connected Stripe account. You are responsible for the accuracy of that data.</p>
+<h3 id="63-no-inducements-or-manipulation"><a class="anchor" href="#63-no-inducements-or-manipulation" aria-label="Permalink to 6.3 No inducements or manipulation">#</a> 6.3 No inducements or manipulation</h3>
+<p>You agree <strong>not</strong> to:</p>
+<ul>
+<li>Offer payment, discounts, free products, or any other consideration in exchange for positive reviews</li>
+<li>Condition a refund, service, or benefit on leaving a review</li>
+<li>Selectively suppress, hide, or filter negative reviews while displaying positive ones</li>
+<li>Edit, fabricate, or impersonate reviewers or reviews</li>
+<li>Solicit reviews from individuals who are not actual paying customers</li>
+<li>Send review requests to email addresses obtained outside the ordinary course of your business relationship with the customer</li>
+</ul>
+<p>These restrictions reflect US Federal Trade Commission guidance on endorsements and reviews, as well as similar rules in other jurisdictions. Violation may result in immediate suspension of your account and referral to regulatory authorities.</p>
+<h3 id="64-replies-to-reviews"><a class="anchor" href="#64-replies-to-reviews" aria-label="Permalink to 6.4 Replies to reviews">#</a> 6.4 Replies to reviews</h3>
+<p>If you respond to a reviewer&#39;s review through the Service, your response will be displayed publicly alongside the review. You are responsible for the content of your responses.</p>
+<hr>
+<h2 id="7-reviewer-obligations"><a class="anchor" href="#7-reviewer-obligations" aria-label="Permalink to 7. Reviewer obligations">#</a> 7. Reviewer obligations</h2>
+<p>If you are submitting a review, you agree that:</p>
+<ul>
+<li>Your review reflects your honest, personal opinion based on your actual experience with the business</li>
+<li>You have not been paid, compensated, or offered consideration by the business in exchange for writing the review</li>
+<li>You are the person who made the purchase, or are authorized to submit a review about it</li>
+<li>You own, or have permission to use, any photos you upload</li>
+<li>Your review does not contain content that is unlawful, defamatory, harassing, threatening, obscene, or that infringes anyone&#39;s rights</li>
+</ul>
+<p>By submitting a review, you understand and agree that:</p>
+<ul>
+<li>Your review will be displayed publicly on the business&#39;s review page, in their widget if embedded on third-party sites, and may be made available through their public API</li>
+<li>The display name, photo, and social handle you choose to include will be displayed alongside your review</li>
+<li>You may request anonymization of your review at any time by emailing <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a></li>
+<li>You can opt out of future review-request emails from any Signed Reviews business by clicking the unsubscribe link in any review-request email</li>
+</ul>
+<hr>
+<h2 id="8-your-content"><a class="anchor" href="#8-your-content" aria-label="Permalink to 8. Your content">#</a> 8. Your content</h2>
+<h3 id="81-ownership"><a class="anchor" href="#81-ownership" aria-label="Permalink to 8.1 Ownership">#</a> 8.1 Ownership</h3>
+<p>You retain ownership of the content you submit to the Service, including reviews, photos, business branding materials, and replies (&quot;Your Content&quot;).</p>
+<h3 id="82-license-to-us"><a class="anchor" href="#82-license-to-us" aria-label="Permalink to 8.2 License to us">#</a> 8.2 License to us</h3>
+<p>You grant us a worldwide, non-exclusive, royalty-free, sublicensable license to host, store, reproduce, modify (for technical purposes like format conversion and resizing), display, distribute, and transmit Your Content solely for the purpose of operating and providing the Service, including:</p>
+<ul>
+<li>Displaying reviews on public review pages and in widgets embedded on third-party sites</li>
+<li>Making reviews available through the public API to authorized consumers</li>
+<li>Using anonymized and aggregated data to operate and improve the Service</li>
+<li>Creating backups and operational copies</li>
+</ul>
+<p>This license continues for as long as Your Content remains on the Service. If Your Content is anonymized pursuant to a deletion or erasure request, the license continues to apply to the anonymized content.</p>
+<h3 id="83-no-moderation-guarantee"><a class="anchor" href="#83-no-moderation-guarantee" aria-label="Permalink to 8.3 No moderation guarantee">#</a> 8.3 No moderation guarantee</h3>
+<p>We do not pre-screen, moderate, or verify the accuracy of reviews or other user-generated content before it is published. Reviews go live immediately on submission. We reserve the right, but have no obligation, to remove content that violates these Terms.</p>
+<h3 id="84-refunded-transactions"><a class="anchor" href="#84-refunded-transactions" aria-label="Permalink to 8.4 Refunded transactions">#</a> 8.4 Refunded transactions</h3>
+<p>If a business refunds the Stripe charge associated with a review, the review will be hidden from public display (widgets, review pages, public API). The underlying record is retained for integrity and audit purposes but is no longer surfaced to the public.</p>
+<hr>
+<h2 id="9-prohibited-uses"><a class="anchor" href="#9-prohibited-uses" aria-label="Permalink to 9. Prohibited uses">#</a> 9. Prohibited uses</h2>
+<p>You agree not to use the Service to:</p>
+<ul>
+<li>Violate any law, regulation, or third-party right</li>
+<li>Transmit malicious code, viruses, or any harmful content</li>
+<li>Interfere with or disrupt the Service, including by probing, scanning, or testing vulnerabilities without authorization</li>
+<li>Scrape, crawl, or extract data from the Service except through the documented public API, and only within the rate limits and terms of that API</li>
+<li>Use the Service for any form of harassment, discrimination, or hate speech</li>
+<li>Misrepresent your identity or affiliation</li>
+<li>Share your login credentials or allow others to use your account</li>
+<li>Circumvent the unique-review-per-customer controls</li>
+<li>Resell or redistribute data obtained through the Service in a way that violates these Terms or applicable law</li>
+</ul>
+<p>We may suspend or terminate accounts that violate these restrictions.</p>
+<hr>
+<h2 id="10-public-api-and-widget"><a class="anchor" href="#10-public-api-and-widget" aria-label="Permalink to 10. Public API and widget">#</a> 10. Public API and widget</h2>
+<p>If you use the public API or embed the Signed Reviews widget on a third-party website, you additionally agree that:</p>
+<ul>
+<li>Your API key is confidential; sharing it is a breach of these Terms</li>
+<li>The public API is rate limited to 100 requests per minute per API key; excessive use may result in throttling or termination</li>
+<li>Widget-embedded reviews must be displayed in their original form without editing or selective omission of negative reviews</li>
+<li>You are responsible for ensuring the widget or API data you display on your site complies with applicable law (including disclosure rules for endorsements)</li>
+</ul>
+<hr>
+<h2 id="11-service-availability-and-changes"><a class="anchor" href="#11-service-availability-and-changes" aria-label="Permalink to 11. Service availability and changes">#</a> 11. Service availability and changes</h2>
+<p>We work to keep the Service available, but we do not guarantee uninterrupted access. We may modify, suspend, or discontinue any part of the Service at any time. When we make material changes that adversely affect how you use the Service, we will provide reasonable advance notice by email or through the Service.</p>
+<p>Scheduled maintenance, infrastructure provider outages, and emergency security actions may interrupt the Service without advance notice.</p>
+<hr>
+<h2 id="12-termination"><a class="anchor" href="#12-termination" aria-label="Permalink to 12. Termination">#</a> 12. Termination</h2>
+<h3 id="121-termination-by-you"><a class="anchor" href="#121-termination-by-you" aria-label="Permalink to 12.1 Termination by you">#</a> 12.1 Termination by you</h3>
+<p>You may stop using the Service at any time. You may request deletion of your account by emailing <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a>. When your account is deleted:</p>
+<ul>
+<li>Your business user profile is soft-deleted and your personal identifiers are anonymized</li>
+<li>Reviews collected through your account are anonymized but remain publicly visible (see Section 8.2 of the Privacy Policy for how this works and why)</li>
+<li>Your Stripe connection is revoked</li>
+<li>Team members lose access to the business account</li>
+</ul>
+<h3 id="122-termination-by-us"><a class="anchor" href="#122-termination-by-us" aria-label="Permalink to 12.2 Termination by us">#</a> 12.2 Termination by us</h3>
+<p>We may suspend or terminate your access to the Service, without refund, if:</p>
+<ul>
+<li>You materially breach these Terms</li>
+<li>Your use of the Service creates legal risk for us or others</li>
+<li>Required by law, regulation, or order of a competent authority</li>
+<li>You fail to pay fees that become due after paid tiers are introduced</li>
+<li>Extended inactivity makes continued service impractical</li>
+</ul>
+<p>We will generally give you notice and an opportunity to cure before terminating for a non-urgent breach. For urgent breaches (fraud, illegal use, security threats), we may terminate immediately.</p>
+<h3 id="123-effect-of-termination"><a class="anchor" href="#123-effect-of-termination" aria-label="Permalink to 12.3 Effect of termination">#</a> 12.3 Effect of termination</h3>
+<p>On termination, your right to use the Service ends immediately. Sections of these Terms that by their nature should survive termination (including Sections 8.2, 13, 14, 15, 16, 17, and 18) will survive.</p>
+<hr>
+<h2 id="13-third-party-services"><a class="anchor" href="#13-third-party-services" aria-label="Permalink to 13. Third-party services">#</a> 13. Third-party services</h2>
+<p>The Service integrates with third-party services, including Stripe, Resend, Cloudinary, Anthropic, OAuth providers (Google, GitHub, LinkedIn, Microsoft, Facebook, Twitter/X, Instagram), and others listed at <a href="https://signedreviews.com/subprocessors">signedreviews.com/subprocessors</a>. Your use of those services is governed by their own terms. We are not responsible for the acts, omissions, or policies of third-party services.</p>
+<hr>
+<h2 id="14-disclaimers"><a class="anchor" href="#14-disclaimers" aria-label="Permalink to 14. Disclaimers">#</a> 14. Disclaimers</h2>
+<p>THE SERVICE IS PROVIDED <strong>&quot;AS IS&quot; AND &quot;AS AVAILABLE&quot;</strong> WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, WE DISCLAIM ALL WARRANTIES, INCLUDING ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, AND ANY WARRANTIES ARISING FROM COURSE OF DEALING OR USAGE OF TRADE.</p>
+<p>We do not warrant that:</p>
+<ul>
+<li>The Service will be uninterrupted, timely, secure, or error-free</li>
+<li>Any defects will be corrected</li>
+<li>The Service will meet your specific requirements</li>
+<li>Reviews submitted through the Service are accurate, truthful, or non-infringing</li>
+<li>Verification labels guarantee the honesty or identity of reviewers beyond what Section 2 describes</li>
+</ul>
+<p>Some jurisdictions do not allow the disclaimer of implied warranties. In those jurisdictions, the above disclaimers apply to the maximum extent permitted.</p>
+<hr>
+<h2 id="15-limitation-of-liability"><a class="anchor" href="#15-limitation-of-liability" aria-label="Permalink to 15. Limitation of liability">#</a> 15. Limitation of liability</h2>
+<p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW:</p>
+<ul>
+<li><p>IN NO EVENT WILL PAID RIGHTLY LLC BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES, OR FOR LOST PROFITS, LOST REVENUE, LOST DATA, LOST BUSINESS OPPORTUNITIES, OR REPUTATIONAL HARM, ARISING OUT OF OR RELATING TO THESE TERMS OR THE SERVICE, WHETHER BASED ON CONTRACT, TORT, STATUTE, OR ANY OTHER LEGAL THEORY, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+</li>
+<li><p>OUR TOTAL CUMULATIVE LIABILITY ARISING OUT OF OR RELATING TO THESE TERMS OR THE SERVICE WILL NOT EXCEED THE GREATER OF (A) THE TOTAL FEES YOU PAID TO US IN THE 12 MONTHS IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO LIABILITY, OR (B) ONE HUNDRED US DOLLARS ($100).</p>
+</li>
+</ul>
+<p>These limitations apply even if a remedy fails of its essential purpose. Some jurisdictions do not allow the exclusion or limitation of certain damages. In those jurisdictions, the above limitations apply to the maximum extent permitted.</p>
+<hr>
+<h2 id="16-indemnification"><a class="anchor" href="#16-indemnification" aria-label="Permalink to 16. Indemnification">#</a> 16. Indemnification</h2>
+<p>You agree to defend, indemnify, and hold harmless Paid Rightly LLC, its affiliates, and their respective officers, directors, employees, and agents from any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys&#39; fees) arising out of or relating to:</p>
+<ul>
+<li>Your use of the Service</li>
+<li>Your violation of these Terms</li>
+<li>Your violation of any applicable law or third-party right</li>
+<li>Your Content, including any claim that it infringes intellectual property rights, is defamatory, or violates privacy rights</li>
+<li>Your relationship with your customers, including compliance with consent and anti-spam laws</li>
+</ul>
+<p>We reserve the right, at our expense, to assume exclusive defense and control of any matter otherwise subject to indemnification by you. You agree to cooperate with our defense.</p>
+<hr>
+<h2 id="17-dispute-resolution-arbitration-and-class-action-waiver"><a class="anchor" href="#17-dispute-resolution-arbitration-and-class-action-waiver" aria-label="Permalink to 17. Dispute resolution, arbitration, and class action waiver">#</a> 17. Dispute resolution, arbitration, and class action waiver</h2>
+<blockquote>
+<p><strong>Please read this section carefully. It affects your legal rights, including your right to file a lawsuit in court.</strong></p>
+</blockquote>
+<h3 id="171-informal-resolution-required-first-step"><a class="anchor" href="#171-informal-resolution-required-first-step" aria-label="Permalink to 17.1 Informal resolution (required first step)">#</a> 17.1 Informal resolution (required first step)</h3>
+<p>Before initiating any arbitration or legal action, you and Paid Rightly LLC agree to attempt to resolve any dispute informally. You must send a written notice describing the dispute to <strong><a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a></strong>, including your name, contact information, a clear description of the claim, and the specific relief sought. We will similarly send any notice to you using the contact information on your account. <strong>Neither party may commence an arbitration or lawsuit (other than in small claims court, or for injunctive or IP relief as described below) until at least 30 days after the notice is sent.</strong> The parties will make a good-faith effort to resolve the dispute during that 30-day period.</p>
+<h3 id="172-agreement-to-arbitrate"><a class="anchor" href="#172-agreement-to-arbitrate" aria-label="Permalink to 17.2 Agreement to arbitrate">#</a> 17.2 Agreement to arbitrate</h3>
+<p>If informal resolution does not resolve the dispute, you and Paid Rightly LLC agree that <strong>any dispute, claim, or controversy arising out of or relating to these Terms or the Service — except for the carve-outs in Section 17.4 — will be resolved by binding individual arbitration</strong> rather than in court.</p>
+<p>The arbitration will be administered by the <strong>American Arbitration Association (AAA)</strong> under its Consumer Arbitration Rules (or its Commercial Rules, if applicable based on the claim), available at <a href="https://www.adr.org">www.adr.org</a>. If AAA is unavailable, the parties will agree on an alternative arbitrator; if they cannot agree, a court may appoint one. The arbitration will be conducted in English. The seat of arbitration will be <strong>Albuquerque, New Mexico</strong>, though the arbitrator may conduct proceedings remotely or by written submission where feasible, and hearings may be held elsewhere with the parties&#39; agreement.</p>
+<p>The arbitrator&#39;s decision will be final and binding. Judgment on the arbitration award may be entered in any court of competent jurisdiction.</p>
+<h3 id="173-class-action-and-jury-trial-waiver"><a class="anchor" href="#173-class-action-and-jury-trial-waiver" aria-label="Permalink to 17.3 Class action and jury trial waiver">#</a> 17.3 Class action and jury trial waiver</h3>
+<p>YOU AND PAID RIGHTLY LLC AGREE THAT ANY DISPUTE RESOLUTION PROCEEDING WILL BE CONDUCTED ONLY ON AN INDIVIDUAL BASIS AND NOT AS A CLASS, COLLECTIVE, CONSOLIDATED, OR REPRESENTATIVE ACTION. THE ARBITRATOR HAS NO AUTHORITY TO CONSOLIDATE THE CLAIMS OF MULTIPLE PARTIES OR TO PRESIDE OVER ANY FORM OF CLASS OR REPRESENTATIVE PROCEEDING.</p>
+<p>YOU AND PAID RIGHTLY LLC EACH WAIVE THE RIGHT TO A TRIAL BY JURY.</p>
+<p>If the class action waiver is found to be unenforceable in a particular case, that specific claim will proceed in court, but the remainder of this Section 17 will remain in effect for all other claims.</p>
+<h3 id="174-carve-outs-what-stays-in-court"><a class="anchor" href="#174-carve-outs-what-stays-in-court" aria-label="Permalink to 17.4 Carve-outs (what stays in court)">#</a> 17.4 Carve-outs (what stays in court)</h3>
+<p>The following disputes are <strong>not</strong> subject to mandatory arbitration and may be brought in court:</p>
+<ul>
+<li><strong>Small claims court actions</strong> — either party may bring an individual claim in a small claims court of competent jurisdiction, as long as the matter stays in that court and is not removed or appealed to a court of general jurisdiction.</li>
+<li><strong>Injunctive relief</strong> — either party may seek temporary or preliminary injunctive relief in a court of competent jurisdiction to address urgent harms (such as misuse of login credentials, unauthorized scraping, or breaches of Section 9).</li>
+<li><strong>Intellectual property disputes</strong> — either party may bring a court action to protect its intellectual property rights (including claims of infringement, misappropriation of trade secrets, or enforcement of license terms).</li>
+</ul>
+<h3 id="175-opt-out-of-arbitration"><a class="anchor" href="#175-opt-out-of-arbitration" aria-label="Permalink to 17.5 Opt-out of arbitration">#</a> 17.5 Opt-out of arbitration</h3>
+<p>You may opt out of the arbitration agreement in Section 17.2 by sending written notice to <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a> within <strong>30 days of first accepting these Terms</strong>. The notice must include your name, the email address associated with your account, and a clear statement that you are opting out of the arbitration agreement. Opting out will not affect any other provision of these Terms.</p>
+<h3 id="176-governing-law"><a class="anchor" href="#176-governing-law" aria-label="Permalink to 17.6 Governing law">#</a> 17.6 Governing law</h3>
+<p>These Terms are governed by the laws of the <strong>State of New Mexico, United States</strong>, without regard to its conflict-of-laws principles. The Federal Arbitration Act governs the interpretation and enforcement of Section 17.2.</p>
+<h3 id="177-forum-for-non-arbitrable-disputes"><a class="anchor" href="#177-forum-for-non-arbitrable-disputes" aria-label="Permalink to 17.7 Forum for non-arbitrable disputes">#</a> 17.7 Forum for non-arbitrable disputes</h3>
+<p>For any dispute that is not subject to arbitration under Section 17.4 or otherwise, you and Paid Rightly LLC agree to submit to the exclusive jurisdiction of the state and federal courts located in <strong>Bernalillo County, New Mexico</strong>, and waive any objection to venue in those courts.</p>
+<hr>
+<h2 id="18-general"><a class="anchor" href="#18-general" aria-label="Permalink to 18. General">#</a> 18. General</h2>
+<h3 id="181-entire-agreement"><a class="anchor" href="#181-entire-agreement" aria-label="Permalink to 18.1 Entire agreement">#</a> 18.1 Entire agreement</h3>
+<p>These Terms, together with the Privacy Policy and any other policies referenced in them, constitute the entire agreement between you and Paid Rightly LLC regarding the Service and supersede any prior agreements.</p>
+<h3 id="182-changes-to-these-terms"><a class="anchor" href="#182-changes-to-these-terms" aria-label="Permalink to 18.2 Changes to these Terms">#</a> 18.2 Changes to these Terms</h3>
+<p>We may update these Terms from time to time. When we make material changes, we will update the &quot;Last updated&quot; date and notify you by email or through the Service at least 30 days before the changes take effect (except for changes required for legal or security reasons, which may take effect sooner). Continued use of the Service after the updated Terms take effect constitutes acceptance. If you do not agree, you must stop using the Service.</p>
+<h3 id="183-severability"><a class="anchor" href="#183-severability" aria-label="Permalink to 18.3 Severability">#</a> 18.3 Severability</h3>
+<p>If any provision of these Terms is held unenforceable, the remaining provisions will remain in full force and effect, and the unenforceable provision will be modified to the minimum extent necessary to make it enforceable while reflecting the original intent.</p>
+<h3 id="184-no-waiver"><a class="anchor" href="#184-no-waiver" aria-label="Permalink to 18.4 No waiver">#</a> 18.4 No waiver</h3>
+<p>Our failure to enforce any right or provision of these Terms is not a waiver of that right or provision.</p>
+<h3 id="185-assignment"><a class="anchor" href="#185-assignment" aria-label="Permalink to 18.5 Assignment">#</a> 18.5 Assignment</h3>
+<p>You may not assign or transfer these Terms without our prior written consent. We may assign these Terms freely in connection with a merger, acquisition, financing, or sale of assets.</p>
+<h3 id="186-no-third-party-beneficiaries"><a class="anchor" href="#186-no-third-party-beneficiaries" aria-label="Permalink to 18.6 No third-party beneficiaries">#</a> 18.6 No third-party beneficiaries</h3>
+<p>These Terms do not create any third-party beneficiary rights.</p>
+<h3 id="187-force-majeure"><a class="anchor" href="#187-force-majeure" aria-label="Permalink to 18.7 Force majeure">#</a> 18.7 Force majeure</h3>
+<p>Neither party is liable for delays or failures caused by events beyond its reasonable control, including acts of God, war, terrorism, pandemic, labor disputes, government action, utility failures, or internet outages.</p>
+<h3 id="188-contact"><a class="anchor" href="#188-contact" aria-label="Permalink to 18.8 Contact">#</a> 18.8 Contact</h3>
+<p>For questions about these Terms:</p>
+<p><strong>Email:</strong> <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a>
+<strong>Mail:</strong> Paid Rightly LLC, 1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States</p>
+<p>For general support: <a href="mailto:support@signedreviews.com">support@signedreviews.com</a></p>
+</article>
+    <nav class="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ul>
+        <li><a href="#1-who-can-use-the-service">1. Who can use the Service</a></li><li><a href="#2-description-of-the-service">2. Description of the Service</a></li><li><a href="#3-current-pricing">3. Current pricing</a></li><li><a href="#4-your-license-to-use-the-service">4. Your license to use the Service</a></li><li><a href="#5-your-stripe-connection">5. Your Stripe connection</a></li><li><a href="#6-business-user-obligations-regarding-reviewers">6. Business user obligations regarding reviewers</a></li><li><a href="#7-reviewer-obligations">7. Reviewer obligations</a></li><li><a href="#8-your-content">8. Your content</a></li><li><a href="#9-prohibited-uses">9. Prohibited uses</a></li><li><a href="#10-public-api-and-widget">10. Public API and widget</a></li><li><a href="#11-service-availability-and-changes">11. Service availability and changes</a></li><li><a href="#12-termination">12. Termination</a></li><li><a href="#13-third-party-services">13. Third-party services</a></li><li><a href="#14-disclaimers">14. Disclaimers</a></li><li><a href="#15-limitation-of-liability">15. Limitation of liability</a></li><li><a href="#16-indemnification">16. Indemnification</a></li><li><a href="#17-dispute-resolution-arbitration-and-class-action-waiver">17. Dispute resolution, arbitration, and class action waiver</a></li><li><a href="#18-general">18. General</a></li>
+      </ul>
+    </nav>
+    </div>
+  </main>
+  
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/" aria-label="Signed Reviews home">
+        <img src="/images/SignedReviews_logo_only.png" alt="" width="24" height="24">
+        <span class="brand-text">Signed Reviews</span>
+      </a>
+      <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
+      <p>© 2026 Paid Rightly LLC. All rights reserved.</p>
+      <address class="address-block"><strong>Paid Rightly LLC</strong><br>1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States</address>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#how-it-works">How it works</a></li>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/pricing/">Pricing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="mailto:support@signedreviews.com">Support</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+        <li><a href="/refund-policy/">Refund Policy</a></li>
+        <li><a href="/subprocessors/">Sub-processors</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-fineprint">
+    <span>© 2026 Paid Rightly LLC. All rights reserved.</span>
+    <span>Signed Reviews is a service operated by Paid Rightly LLC.</span>
+  </div>
+</footer>
+<script>
+  // Honor stored theme preference set by index.html.
+  (function () {
+    try {
+      var stored = localStorage.getItem('theme');
+      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
+      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
+      else document.documentElement.classList.add('theme-auto');
+    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+  })();
+</script>
+</body>
+</html>

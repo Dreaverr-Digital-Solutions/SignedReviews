@@ -1,0 +1,22 @@
+{
+  "name": "signedreviewslandingpage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Marketing site for Signed Reviews (signedreviews.com) — operated by Paid Rightly LLC.",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node dev-server.js",
+    "test": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dreaverr-Digital-Solutions/SignedReviews.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "marked": "^12.0.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2"
+  }
+}

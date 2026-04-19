@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Signed Reviews</title>
+  <meta name="description" content="Privacy Policy for Signed Reviews — operated by Paid Rightly LLC. Learn what we collect, how we use it, and your rights.">
+  <link rel="canonical" href="https://signedreviews.com/privacy/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0c1320">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Privacy Policy — Signed Reviews">
+  <meta property="og:description" content="Privacy Policy for Signed Reviews — operated by Paid Rightly LLC. Learn what we collect, how we use it, and your rights.">
+  <meta property="og:url" content="https://signedreviews.com/privacy/">
+  <meta property="og:site_name" content="Signed Reviews">
+  <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacy Policy — Signed Reviews">
+  <meta name="twitter:description" content="Privacy Policy for Signed Reviews — operated by Paid Rightly LLC. Learn what we collect, how we use it, and your rights.">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png">
+  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+:root {
+  --navy-900:#0c1320; --navy-800:#141e30; --navy-700:#1c2840; --navy-600:#243252;
+  --navy-500:#2b3b60; --navy-400:#5d7aaa; --navy-300:#87a2c4; --navy-200:#aab9dc;
+  --navy-100:#d5dcee; --navy-50:#eef1f8;
+  --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
+  --gold-100:#f2edcc; --gold-50:#faf8ee;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
+  --max-prose: 72ch;
+}
+@media (prefers-color-scheme: dark) {
+  :root.theme-auto {
+    --bg:#0c1320; --surface:#141e30; --text:#eef1f8; --muted:#87a2c4;
+    --border:rgba(255,255,255,.10);
+  }
+}
+:root.theme-dark {
+  --bg:#0c1320; --surface:#141e30; --text:#eef1f8; --muted:#87a2c4;
+  --border:rgba(255,255,255,.10);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: var(--navy-500); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--gold-500); }
+:root.theme-dark a, :root.theme-auto a { color: var(--gold-300); }
+
+/* ── Skip link ── */
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--navy-900); color: #fff; padding: .75rem 1rem;
+  border-radius: 0 0 .5rem 0; z-index: 100;
+}
+.skip-link:focus { left: 0; outline: 3px solid var(--gold-400); }
+
+/* ── Header / nav ── */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: saturate(1.6) blur(14px);
+  -webkit-backdrop-filter: saturate(1.6) blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+:root.theme-dark .site-header, :root.theme-auto .site-header {
+  background: rgba(20,30,48,.85);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 1.25rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; gap: 1rem;
+}
+.brand { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; }
+.brand img { height: 28px; width: auto; display: block; }
+.brand-text {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.35rem; color: var(--navy-900);
+}
+:root.theme-dark .brand-text, :root.theme-auto .brand-text { color: #fff; }
+
+.nav-links {
+  display: flex; align-items: center; gap: .35rem; list-style: none; margin: 0; padding: 0;
+}
+.nav-links a {
+  display: inline-flex; align-items: center; padding: .5rem .85rem;
+  font-size: .92rem; font-weight: 500; text-decoration: none;
+  color: var(--navy-700); border-radius: .55rem;
+}
+:root.theme-dark .nav-links a, :root.theme-auto .nav-links a { color: var(--navy-100); }
+.nav-links a:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .nav-links a:hover, :root.theme-auto .nav-links a:hover { background: rgba(255,255,255,.06); color: #fff; }
+
+.nav-cta {
+  display: inline-flex; align-items: center; gap: .55rem; margin-left: .35rem;
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: .55rem 1rem; border-radius: .65rem; font-weight: 600; font-size: .9rem;
+  text-decoration: none; border: 1px solid transparent;
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+  cursor: pointer;
+}
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--gold-400), var(--gold-500) 60%, var(--gold-600));
+  box-shadow: 0 4px 14px rgba(179,157,69,.32);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(179,157,69,.44); color: #fff; }
+.btn-secondary {
+  color: var(--navy-700); background: transparent; border-color: var(--navy-200);
+}
+.btn-secondary:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .btn-secondary, :root.theme-auto .btn-secondary {
+  color: var(--navy-100); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.02);
+}
+:root.theme-dark .btn-secondary:hover, :root.theme-auto .btn-secondary:hover {
+  background: rgba(255,255,255,.08); color: #fff;
+}
+
+/* ── Mobile nav: collapse links into a button row stack on narrow screens ── */
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .nav-cta .btn { padding: .45rem .8rem; font-size: .85rem; }
+}
+.menu-toggle {
+  display: none; background: transparent; border: 0; padding: .35rem;
+  color: inherit; cursor: pointer;
+}
+@media (max-width: 720px) {
+  .menu-toggle { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: .5rem; }
+  .nav-inner.is-open .nav-links {
+    display: flex; flex-direction: column; align-items: stretch;
+    position: absolute; top: 64px; left: 0; right: 0;
+    background: var(--surface); padding: .75rem 1rem; gap: .25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner.is-open .nav-links a { padding: .75rem 1rem; border-radius: .5rem; }
+  .menu-toggle:hover { background: var(--navy-50); }
+}
+
+/* ── Main / prose ── */
+main { padding: 0; }
+.page-hero {
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-inner {
+  max-width: 1100px; margin: 0 auto; padding: 3.5rem 1.25rem 2.25rem;
+}
+.page-hero h1 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(2rem, 4vw + 1rem, 3.25rem);
+  line-height: 1.1; margin: 0 0 .5rem; color: var(--navy-900); letter-spacing: -0.02em;
+}
+:root.theme-dark .page-hero h1, :root.theme-auto .page-hero h1 { color: #fff; }
+.page-hero p { color: var(--muted); margin: 0; max-width: 60ch; font-size: 1.05rem; }
+.eyebrow {
+  display: inline-block;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold-600); margin-bottom: .9rem;
+}
+
+.prose-wrap {
+  max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem;
+}
+@media (min-width: 980px) {
+  .prose-wrap.has-toc { grid-template-columns: minmax(0, 1fr) 240px; }
+}
+
+.prose {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  max-width: var(--max-prose);
+  width: 100%;
+  margin: 0;
+}
+.prose h1 { display: none; } /* page hero already shows the h1 */
+.prose h2, .prose h3, .prose h4 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  color: var(--navy-900);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 2.4rem 0 .9rem;
+}
+:root.theme-dark .prose h2, :root.theme-dark .prose h3, :root.theme-dark .prose h4,
+:root.theme-auto .prose h2, :root.theme-auto .prose h3, :root.theme-auto .prose h4 { color: #fff; }
+.prose h2 { font-size: 1.65rem; padding-top: .25rem; }
+.prose h3 { font-size: 1.25rem; }
+.prose h4 { font-size: 1.05rem; font-family: 'Inter', system-ui, sans-serif; font-weight: 700; }
+.prose h2:first-of-type { margin-top: 0; }
+
+.prose p, .prose li { color: var(--text); }
+.prose p { margin: 0 0 1rem; }
+.prose ul, .prose ol { padding-left: 1.4rem; margin: 0 0 1rem; }
+.prose li { margin: .35rem 0; }
+
+.prose strong { color: var(--navy-900); }
+:root.theme-dark .prose strong, :root.theme-auto .prose strong { color: #fff; }
+
+.prose hr {
+  border: 0; height: 1px; background: var(--border); margin: 2.5rem 0;
+}
+
+.prose code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size: .9em;
+  background: var(--navy-50); color: var(--navy-700);
+  padding: .12em .42em; border-radius: 4px;
+}
+:root.theme-dark .prose code, :root.theme-auto .prose code {
+  background: rgba(255,255,255,.08); color: var(--gold-300);
+}
+
+.prose a.anchor {
+  text-decoration: none; color: var(--navy-200); margin-right: .35rem;
+  font-weight: 400; opacity: 0; transition: opacity .15s ease;
+}
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding: 1.1rem 1.25rem;
+  border-left: 4px solid var(--gold-500);
+  background: var(--gold-50);
+  color: var(--navy-800);
+  border-radius: 0 .5rem .5rem 0;
+}
+.prose blockquote p { margin: 0; }
+.prose blockquote strong { color: var(--gold-600); }
+:root.theme-dark .prose blockquote, :root.theme-auto .prose blockquote {
+  background: rgba(179,157,69,.10); color: #fff;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0 1.5rem;
+  font-size: .92rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  display: block;
+  overflow-x: auto;
+}
+.prose thead { background: var(--navy-50); }
+:root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
+.prose th, .prose td {
+  padding: .7rem .9rem; text-align: left; vertical-align: top;
+  border-bottom: 1px solid var(--border);
+}
+.prose th { font-weight: 600; color: var(--navy-900); }
+:root.theme-dark .prose th, :root.theme-auto .prose th { color: #fff; }
+.prose tbody tr:last-child td { border-bottom: 0; }
+.prose tbody tr:nth-child(even) td { background: rgba(43,59,96,.025); }
+:root.theme-dark .prose tbody tr:nth-child(even) td,
+:root.theme-auto .prose tbody tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+
+/* ── ToC sidebar (legal pages) ── */
+.toc {
+  position: sticky; top: 88px; align-self: start;
+  font-size: .88rem; max-height: calc(100vh - 110px); overflow-y: auto;
+  padding: 1rem 1.1rem; border: 1px solid var(--border);
+  background: var(--surface); border-radius: 12px;
+}
+.toc h2 {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 .6rem;
+}
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: .15rem 0; }
+.toc a {
+  color: var(--navy-700); text-decoration: none; display: block;
+  padding: .25rem .35rem; border-radius: .35rem; line-height: 1.35;
+}
+:root.theme-dark .toc a, :root.theme-auto .toc a { color: var(--navy-100); }
+.toc a:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .toc a:hover, :root.theme-auto .toc a:hover { background: rgba(255,255,255,.06); color: #fff; }
+@media (max-width: 980px) { .toc { display: none; } }
+
+/* ── Marketing utility blocks ── */
+.section { max-width: 1100px; margin: 0 auto; padding: 3rem 1.25rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.5rem;
+}
+.card h3 {
+  font-family: 'Instrument Serif', Georgia, serif; font-size: 1.4rem;
+  margin: 0 0 .5rem; color: var(--navy-900);
+}
+:root.theme-dark .card h3, :root.theme-auto .card h3 { color: #fff; }
+.card p { margin: 0; color: var(--muted); }
+.card-featured {
+  border-color: var(--gold-400);
+  box-shadow: 0 6px 26px rgba(179,157,69,.18);
+}
+.badge {
+  display: inline-block; padding: .25rem .55rem; border-radius: 999px;
+  font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  background: var(--gold-100); color: var(--gold-600); margin-bottom: .65rem;
+}
+:root.theme-dark .badge, :root.theme-auto .badge {
+  background: rgba(179,157,69,.18); color: var(--gold-300);
+}
+
+.feature-list { list-style: none; padding: 0; margin: 1rem 0 1.5rem; }
+.feature-list li {
+  display: flex; gap: .55rem; align-items: flex-start; margin: .45rem 0;
+  color: var(--text);
+}
+.feature-list li::before {
+  content: '✓'; color: var(--gold-500); font-weight: 700; flex-shrink: 0;
+}
+
+.callout {
+  border: 1px solid var(--border); border-left: 4px solid var(--gold-500);
+  background: var(--surface); border-radius: 10px; padding: 1rem 1.25rem;
+  margin: 1.25rem 0; color: var(--text);
+}
+
+/* ── Contact list ── */
+.contact-list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;
+}
+.contact-list li {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.1rem 1.25rem;
+}
+.contact-list .label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .7rem; text-transform: uppercase; letter-spacing: .12em;
+  color: var(--muted); display: block; margin-bottom: .35rem;
+}
+.contact-list a { color: var(--navy-500); }
+:root.theme-dark .contact-list a, :root.theme-auto .contact-list a { color: var(--gold-300); }
+
+/* ── Footer ── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  margin-top: 2rem;
+  padding: 3rem 1.25rem 2rem;
+}
+.footer-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; gap: 2rem;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+}
+@media (max-width: 880px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+.footer-brand p { margin: .35rem 0; color: var(--muted); font-size: .9rem; }
+.footer-brand .brand-text { font-size: 1.2rem; }
+.footer-col h4 {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 .8rem;
+}
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col li { margin: .35rem 0; }
+.footer-col a {
+  color: var(--navy-700); text-decoration: none; font-size: .92rem;
+}
+:root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
+.footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+
+.footer-fineprint {
+  max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex; flex-wrap: wrap; gap: .75rem 2rem; justify-content: space-between;
+  font-size: .82rem; color: var(--muted);
+}
+.address-block { font-style: normal; }
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  
+<header class="site-header">
+  <div class="nav-inner" id="navInner">
+    <a class="brand" href="/" aria-label="Signed Reviews home">
+      <img src="/images/SignedReviews_logo_only.png" alt="" width="28" height="28">
+      <span class="brand-text">Signed Reviews</span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" onclick="document.getElementById('navInner').classList.toggle('is-open'); this.setAttribute('aria-expanded', document.getElementById('navInner').classList.contains('is-open'));">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links" role="menu">
+      <li><a href="/pricing/">Pricing</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener">Log in</a>
+      <a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener">Sign up</a>
+    </div>
+  </div>
+</header>
+  <main id="main">
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="eyebrow">Legal</span>
+        <h1>Privacy Policy</h1>
+        <p>How Paid Rightly LLC collects, uses, and protects information when you use Signed Reviews.</p>
+      </div>
+    </section>
+    <div class="prose-wrap has-toc">
+      <article class="prose">
+<p><strong>Effective date:</strong> April 19, 2026
+<strong>Last updated:</strong> April 19, 2026</p>
+<p>This Privacy Policy explains how Paid Rightly LLC (&quot;we,&quot; &quot;us,&quot; &quot;our&quot;) collects, uses, discloses, and protects information when you use Signed Reviews, available at <a href="https://signedreviews.com">signedreviews.com</a> and <a href="https://platform.signedreviews.com">platform.signedreviews.com</a> (collectively, the &quot;Service&quot;).</p>
+<p>Signed Reviews is a service operated by Paid Rightly LLC, a New Mexico limited liability company.</p>
+<p><strong>Contact for privacy matters:</strong> <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a>
+<strong>Mailing address:</strong> Paid Rightly LLC, 1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States</p>
+<hr>
+<h2 id="1-who-this-policy-applies-to"><a class="anchor" href="#1-who-this-policy-applies-to" aria-label="Permalink to 1. Who this policy applies to">#</a> 1. Who this policy applies to</h2>
+<p>Signed Reviews has three types of people whose personal data we handle:</p>
+<ul>
+<li><strong>Business users</strong> — the businesses that sign up for Signed Reviews and their team members who log in to the platform at <code>platform.signedreviews.com</code>.</li>
+<li><strong>Reviewers</strong> — the customers of those businesses who receive an email invitation to leave a review and submit one through a one-time link.</li>
+<li><strong>Visitors</strong> — anyone who views a public review page, clicks a review widget embedded on a third-party site, or browses our marketing website.</li>
+</ul>
+<p>Different parts of this policy apply to each group. Where relevant, we call this out explicitly.</p>
+<hr>
+<h2 id="2-our-role-under-privacy-law"><a class="anchor" href="#2-our-role-under-privacy-law" aria-label="Permalink to 2. Our role under privacy law">#</a> 2. Our role under privacy law</h2>
+<p>For <strong>business users</strong>, we act as a &quot;controller&quot; (or &quot;business&quot; under US state privacy laws) of your personal data.</p>
+<p>For <strong>reviewer data</strong>, our role depends on context:</p>
+<ul>
+<li>When a business collects a review from their customer using Signed Reviews, the business is the controller of that reviewer&#39;s personal data for their own customer-relationship purposes. We act as a &quot;processor&quot; (or &quot;service provider&quot;) on their behalf.</li>
+<li>For our own operational purposes — such as fraud prevention, platform security, and ensuring the integrity of the verified-review system — we act as a controller of a limited set of reviewer data (email address used for verification, cryptographic signatures, technical metadata).</li>
+</ul>
+<p>This distinction matters because it determines who a reviewer should contact with questions about their data. In most cases, the business that requested your review is your primary contact. You can always reach us at <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a> as well.</p>
+<hr>
+<h2 id="3-information-we-collect"><a class="anchor" href="#3-information-we-collect" aria-label="Permalink to 3. Information we collect">#</a> 3. Information we collect</h2>
+<h3 id="31-from-business-users"><a class="anchor" href="#31-from-business-users" aria-label="Permalink to 3.1 From business users">#</a> 3.1 From business users</h3>
+<p>When you register for a Signed Reviews account, either directly or through Google, GitHub, LinkedIn, or Microsoft single sign-on, we collect:</p>
+<ul>
+<li><strong>Email address</strong></li>
+<li><strong>Display name</strong></li>
+<li><strong>Profile picture</strong> (only if you provide one through SSO or upload)</li>
+<li><strong>Hashed password</strong> (only for email/password signups — we never store your password in readable form; we use bcrypt with cost factor 12)</li>
+<li><strong>Business information you provide:</strong> business name, website URL, brand logo, brand colors, email subject preferences, widget and review page customization settings</li>
+</ul>
+<p>We do not collect phone numbers, dates of birth, physical addresses, government identification, or tax identification numbers from business users.</p>
+<h3 id="32-from-reviewers"><a class="anchor" href="#32-from-reviewers" aria-label="Permalink to 3.2 From reviewers">#</a> 3.2 From reviewers</h3>
+<p>When a business uses Signed Reviews to request a review from you, we receive the following information from that business&#39;s Stripe account:</p>
+<ul>
+<li><strong>Your email address</strong> (used to deliver the review invitation)</li>
+<li><strong>The last four digits of the payment card you used</strong> (used for the optional email-and-card verification level)</li>
+<li><strong>The transaction amount and currency</strong> (displayed on the review form if the business enables it)</li>
+<li><strong>A Stripe charge identifier</strong> (used to prevent duplicate review requests and to cryptographically sign your review)</li>
+</ul>
+<p>If you choose to submit a review, we also collect whatever you enter into the review form, which may include:</p>
+<ul>
+<li><strong>A star rating</strong></li>
+<li><strong>A review title and body</strong> (up to 2,000 characters)</li>
+<li><strong>Up to three photos</strong> (JPEG, PNG, or WebP, up to 5 MB each)</li>
+<li><strong>A social media handle</strong> you choose to attach (Instagram, LinkedIn, Google, GitHub, Facebook, or Twitter/X), along with the display name and profile picture from that account if you link it</li>
+<li><strong>A display name and photo</strong> from OAuth login with Google, GitHub, LinkedIn, Facebook, Twitter/X, or Instagram, or from Gravatar based on your email address, if you choose to attach one</li>
+</ul>
+<p>Attaching a social handle and photo is always optional. You can submit a review with only the email address the business already has for you.</p>
+<h3 id="33-payment-information"><a class="anchor" href="#33-payment-information" aria-label="Permalink to 3.3 Payment information">#</a> 3.3 Payment information</h3>
+<p>Signed Reviews does not process payments from reviewers, does not take fees from business Stripe accounts, and does not store full card numbers, CVV codes, expiry dates, cardholder names, or full billing addresses.</p>
+<p>The only payment-adjacent data we store is a narrow slice of charge metadata received from Stripe webhooks: the charge ID, customer email, card last four digits, amount, and currency. These are used to link a review to a verified purchase.</p>
+<h3 id="34-technical-information"><a class="anchor" href="#34-technical-information" aria-label="Permalink to 3.4 Technical information">#</a> 3.4 Technical information</h3>
+<p>We collect limited technical information to keep the Service working:</p>
+<ul>
+<li><strong>IP address</strong> — used transiently for rate limiting to prevent abuse. We do not persist IP addresses in our database.</li>
+<li><strong>Browser session tokens</strong> — stored in your browser&#39;s local storage after you log in. These are not cookies.</li>
+</ul>
+<p>We do not use tracking cookies, analytics cookies, advertising cookies, session replay tools, or behavioral analytics platforms. We do not set any cookies from our backend. We do not embed tracking pixels in the emails we send.</p>
+<h3 id="35-from-third-parties"><a class="anchor" href="#35-from-third-parties" aria-label="Permalink to 3.5 From third parties">#</a> 3.5 From third parties</h3>
+<p>When you sign in using an OAuth provider (Google, GitHub, LinkedIn, Microsoft, Facebook, Twitter/X, or Instagram), that provider shares a limited profile with us — typically your subject identifier, email address, name, and profile picture URL. We only request the minimum scopes needed for authentication or for the specific feature you are using.</p>
+<p>When a business enters their website URL during branding setup, we fetch that website&#39;s publicly accessible HTML to identify logo images. We may also query public favicon services (Clearbit, Google Favicons, DuckDuckGo) for logo candidates. We store only the logo images the business chooses to use.</p>
+<hr>
+<h2 id="4-how-we-use-information"><a class="anchor" href="#4-how-we-use-information" aria-label="Permalink to 4. How we use information">#</a> 4. How we use information</h2>
+<h3 id="41-to-provide-the-service"><a class="anchor" href="#41-to-provide-the-service" aria-label="Permalink to 4.1 To provide the Service">#</a> 4.1 To provide the Service</h3>
+<ul>
+<li>Authenticate business users and maintain logged-in sessions (7-day session tokens)</li>
+<li>Deliver review-request emails triggered by successful Stripe charges</li>
+<li>Generate and validate one-time review submission links (valid for 14 days, single-use)</li>
+<li>Display reviews on public review pages, embeddable widgets, and the public API, subject to each business&#39;s configuration</li>
+<li>Produce aggregate analytics for business users from their own review and transaction data</li>
+</ul>
+<h3 id="42-to-verify-reviews"><a class="anchor" href="#42-to-verify-reviews" aria-label="Permalink to 4.2 To verify reviews">#</a> 4.2 To verify reviews</h3>
+<p>Every review submitted through Signed Reviews is cryptographically signed server-side using HMAC-SHA256. This signature proves, to anyone who inspects the review later, that:</p>
+<ul>
+<li>The review was linked to a specific Stripe charge</li>
+<li>The reviewer had access to the email address on that charge</li>
+<li>The review content has not been altered since submission</li>
+</ul>
+<p>We label these reviews as &quot;Purchase Verified.&quot; This does <strong>not</strong> mean we have verified the reviewer&#39;s legal identity, verified that they are who they claim to be socially, or evaluated the honesty of their review. It only means the review is tied to a real purchase on the business&#39;s Stripe account.</p>
+<h3 id="43-to-communicate-with-you"><a class="anchor" href="#43-to-communicate-with-you" aria-label="Permalink to 4.3 To communicate with you">#</a> 4.3 To communicate with you</h3>
+<p>We send the following emails — all transactional, none marketing:</p>
+<ul>
+<li>Account email verification and password-change flows, for business users</li>
+<li>Magic-link login messages, for business users who request them</li>
+<li>Team invitations, for people invited to join a business account</li>
+<li>Review-request emails, for reviewers, white-labeled with the business&#39;s branding and a clear &quot;Powered by Signed Reviews&quot; footer</li>
+</ul>
+<p>We do not send marketing emails, newsletters, product announcements, or promotional content to reviewers. Business users may receive occasional operational notices from us (security alerts, policy updates, service changes).</p>
+<h3 id="44-to-protect-the-service"><a class="anchor" href="#44-to-protect-the-service" aria-label="Permalink to 4.4 To protect the Service">#</a> 4.4 To protect the Service</h3>
+<ul>
+<li>Rate limiting on review submission, public API access, and authentication endpoints</li>
+<li>Webhook deduplication to prevent duplicate processing of Stripe events</li>
+<li>One-review-per-customer-per-business enforcement (with an override if the customer makes a subsequent, higher-value purchase)</li>
+</ul>
+<h3 id="45-to-comply-with-law"><a class="anchor" href="#45-to-comply-with-law" aria-label="Permalink to 4.5 To comply with law">#</a> 4.5 To comply with law</h3>
+<p>We may use and disclose information to comply with applicable law, respond to lawful government requests, enforce our Terms of Service, protect our rights and safety, and prevent fraud or abuse.</p>
+<hr>
+<h2 id="5-how-we-share-information"><a class="anchor" href="#5-how-we-share-information" aria-label="Permalink to 5. How we share information">#</a> 5. How we share information</h2>
+<p>We do not sell personal data. We do not share personal data with advertisers. We do not share personal data with data brokers.</p>
+<p>We share personal data in the following limited circumstances:</p>
+<h3 id="51-with-businesses-that-requested-your-review"><a class="anchor" href="#51-with-businesses-that-requested-your-review" aria-label="Permalink to 5.1 With businesses that requested your review">#</a> 5.1 With businesses that requested your review</h3>
+<p>If you are a reviewer, your review — including any content, photos, display name, and social handle you chose to include — is visible to the business that requested it. If that business has enabled public review display, your review is also visible to anyone who views the business&#39;s public review page or any site embedding the business&#39;s widget.</p>
+<h3 id="52-with-sub-processors"><a class="anchor" href="#52-with-sub-processors" aria-label="Permalink to 5.2 With sub-processors">#</a> 5.2 With sub-processors</h3>
+<p>We use a small number of service providers to operate the Service. A complete, current list is maintained at <a href="https://signedreviews.com/subprocessors">signedreviews.com/subprocessors</a>. At the time this policy was last updated, our sub-processors are:</p>
+<ul>
+<li><strong>Stripe</strong> (payments and transaction data)</li>
+<li><strong>Resend</strong> (transactional email delivery)</li>
+<li><strong>Cloudinary</strong> (image hosting for review photos and brand assets)</li>
+<li><strong>Anthropic</strong> (AI logo extraction — see Section 6 for specifics)</li>
+<li><strong>Railway</strong> (cloud hosting and managed database)</li>
+<li><strong>Decodo</strong> (proxy service used only for Instagram public profile lookups)</li>
+<li><strong>OAuth providers</strong> (Google, GitHub, LinkedIn, Microsoft, Facebook, Twitter/X, Instagram) — only when you choose to use them</li>
+<li><strong>Gravatar</strong> (only when we check whether your email has an associated avatar)</li>
+</ul>
+<p>Each sub-processor is contractually bound to use personal data only for the purpose of providing services to us.</p>
+<h3 id="53-business-transfers"><a class="anchor" href="#53-business-transfers" aria-label="Permalink to 5.3 Business transfers">#</a> 5.3 Business transfers</h3>
+<p>If Paid Rightly LLC is involved in a merger, acquisition, financing, or sale of assets, personal data may be transferred as part of that transaction. We will provide notice before personal data becomes subject to a different privacy policy.</p>
+<h3 id="54-legal-compliance-and-rights-protection"><a class="anchor" href="#54-legal-compliance-and-rights-protection" aria-label="Permalink to 5.4 Legal compliance and rights protection">#</a> 5.4 Legal compliance and rights protection</h3>
+<p>We may disclose information in response to lawful subpoenas, court orders, or government requests; when required by applicable law; or when we believe disclosure is necessary to protect the rights, property, or safety of Paid Rightly LLC, our users, or the public.</p>
+<hr>
+<h2 id="6-how-we-use-ai"><a class="anchor" href="#6-how-we-use-ai" aria-label="Permalink to 6. How we use AI">#</a> 6. How we use AI</h2>
+<p>We use Anthropic&#39;s Claude AI (specifically, Claude Haiku with vision capabilities) for one purpose only: helping businesses extract brand logos and visual identity from their own publicly available website during onboarding. The AI is shown the HTML of the website URL a business enters, along with candidate logo images from that site, and selects the most likely logo.</p>
+<p>We do <strong>not</strong> use AI to analyze, moderate, score, or train on:</p>
+<ul>
+<li>Review content (ratings, titles, bodies, photos)</li>
+<li>Reviewer names, email addresses, social handles, or any reviewer personal data</li>
+<li>Payment or transaction data</li>
+<li>Private messages, business-reply text, or any business user&#39;s account data</li>
+</ul>
+<p>Anthropic does not train models on data sent through the Claude API, per Anthropic&#39;s commercial terms. The only data that flows to Anthropic is the publicly accessible website content the business asked us to analyze.</p>
+<hr>
+<h2 id="7-how-we-protect-information"><a class="anchor" href="#7-how-we-protect-information" aria-label="Permalink to 7. How we protect information">#</a> 7. How we protect information</h2>
+<ul>
+<li><strong>In transit:</strong> All traffic to the Service is protected by TLS (HTTPS).</li>
+<li><strong>At rest:</strong> Our database and file storage rely on the encryption provided by our infrastructure providers (Railway for databases, Cloudinary for files).</li>
+<li><strong>Passwords:</strong> Hashed with bcrypt (cost factor 12). We never see or store your plaintext password.</li>
+<li><strong>Review integrity:</strong> Every review carries an HMAC-SHA256 signature generated with a server-side secret, making post-hoc tampering detectable.</li>
+<li><strong>Access control:</strong> Team member access within a business account is role-based (Owner, Admin, Member).</li>
+<li><strong>Secrets handling:</strong> API keys and other secrets required to operate the Service are stored in environment variables, not committed to source code.</li>
+</ul>
+<p>No system is perfectly secure. If we become aware of a breach affecting your personal data, we will notify you as required by applicable law.</p>
+<hr>
+<h2 id="8-how-long-we-keep-information"><a class="anchor" href="#8-how-long-we-keep-information" aria-label="Permalink to 8. How long we keep information">#</a> 8. How long we keep information</h2>
+<ul>
+<li><strong>Business user accounts:</strong> Kept while your account is active. If you delete your account, we soft-delete your account and anonymize your associated reviews and transaction records (see Section 9).</li>
+<li><strong>Reviews and transactions:</strong> Kept indefinitely by default, because the value of a verified-review platform depends on a durable record of reviews. If a reviewer requests erasure, we anonymize the review (see Section 9).</li>
+<li><strong>Short-lived tokens:</strong> Review-submission tokens expire after 14 days; magic-link tokens after 15 minutes; invitations after 7 days. Expired tokens become unusable immediately; they may remain in the database for a period before routine cleanup.</li>
+<li><strong>Refunded transactions:</strong> When a business refunds a Stripe charge, the associated review is hidden from public surfaces. The underlying record is retained for integrity purposes but is no longer displayed.</li>
+<li><strong>Email logs:</strong> Resend, our email provider, retains delivery logs per their own retention policy.</li>
+<li><strong>Server logs:</strong> Application logs generated during normal operation are retained by our hosting provider (Railway) for up to 30 days.</li>
+</ul>
+<hr>
+<h2 id="9-your-rights-and-choices"><a class="anchor" href="#9-your-rights-and-choices" aria-label="Permalink to 9. Your rights and choices">#</a> 9. Your rights and choices</h2>
+<p>Depending on where you live, you may have rights under laws such as the EU General Data Protection Regulation (GDPR), the UK GDPR, the California Consumer Privacy Act (CCPA/CPRA), and similar US state laws (including Colorado, Connecticut, Virginia, Utah, Texas, and others). We honor these rights for all users regardless of location.</p>
+<h3 id="91-rights-available-to-you"><a class="anchor" href="#91-rights-available-to-you" aria-label="Permalink to 9.1 Rights available to you">#</a> 9.1 Rights available to you</h3>
+<ul>
+<li><strong>Access</strong> — request a copy of the personal data we hold about you</li>
+<li><strong>Correction</strong> — correct inaccurate personal data</li>
+<li><strong>Erasure</strong> — request deletion of your personal data (subject to the anonymization approach described below)</li>
+<li><strong>Portability</strong> — receive your personal data in a portable format</li>
+<li><strong>Objection / restriction</strong> — object to or restrict certain processing</li>
+<li><strong>Withdrawal of consent</strong> — withdraw consent where processing relies on consent</li>
+<li><strong>Non-discrimination</strong> — exercise these rights without being penalized in how the Service is provided</li>
+</ul>
+<h3 id="92-how-erasure-works"><a class="anchor" href="#92-how-erasure-works" aria-label="Permalink to 9.2 How erasure works">#</a> 9.2 How erasure works</h3>
+<p><strong>For business users:</strong> You can request account deletion by emailing <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a>. We will delete your account and associated personal data (email, display name, profile picture, team membership). Reviews and transaction records associated with your business will be anonymized — the review content, rating, and cryptographic signature remain public (because third parties rely on them), but reviewer identifiers tied to your account will be removed.</p>
+<p><strong>For reviewers:</strong> You can request erasure of your review by emailing <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a> with the email address you used to receive the review invitation. On verification, we will anonymize the review: your display name, photo, social handle, and email-derived identifiers will be removed, while the rating, review body, and verification signature will remain. We follow this anonymize-rather-than-delete approach because deleting reviews outright would undermine the integrity of the verified-review record that other users rely on. If anonymization does not satisfy your erasure request under applicable law, contact us and we will work with you in good faith to resolve it.</p>
+<h3 id="93-opting-out-of-review-request-emails"><a class="anchor" href="#93-opting-out-of-review-request-emails" aria-label="Permalink to 9.3 Opting out of review-request emails">#</a> 9.3 Opting out of review-request emails</h3>
+<p>Every review-request email contains a one-click unsubscribe link. Clicking it adds your email address to a global suppression list, preventing any Signed Reviews business from sending you future review invitations. This applies across all businesses using the platform, not just the one that sent the email.</p>
+<h3 id="94-how-to-exercise-your-rights"><a class="anchor" href="#94-how-to-exercise-your-rights" aria-label="Permalink to 9.4 How to exercise your rights">#</a> 9.4 How to exercise your rights</h3>
+<p>Email <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a> from the email address associated with your data, or from the email that received the review invitation (for reviewers). We will respond within the timeframe required by applicable law (typically 30 days under GDPR; 45 days under CCPA, extendable to 90 days). We may need to verify your identity before fulfilling requests.</p>
+<h3 id="95-appeals-and-complaints"><a class="anchor" href="#95-appeals-and-complaints" aria-label="Permalink to 9.5 Appeals and complaints">#</a> 9.5 Appeals and complaints</h3>
+<p>If we decline your request and you are covered by a US state law that provides an appeal right (e.g., Colorado, Virginia), you may appeal by replying to our response. If you are not satisfied, you may also file a complaint with your data protection authority:</p>
+<ul>
+<li><strong>EU/EEA residents:</strong> Your local Data Protection Authority</li>
+<li><strong>UK residents:</strong> The Information Commissioner&#39;s Office (ICO)</li>
+<li><strong>California residents:</strong> The California Privacy Protection Agency or the California Attorney General</li>
+<li><strong>Other US residents:</strong> Your state Attorney General</li>
+</ul>
+<hr>
+<h2 id="10-international-data-transfers"><a class="anchor" href="#10-international-data-transfers" aria-label="Permalink to 10. International data transfers">#</a> 10. International data transfers</h2>
+<p>Signed Reviews is operated from the United States. When you use the Service from outside the US, your personal data is transferred to and processed in the United States and in countries where our sub-processors operate.</p>
+<p>For transfers of EU/UK personal data to the United States, we rely on Standard Contractual Clauses (SCCs) with our sub-processors, as applicable. Stripe, Resend, Cloudinary, Anthropic, and our other sub-processors have their own cross-border transfer mechanisms in place.</p>
+<hr>
+<h2 id="11-children"><a class="anchor" href="#11-children" aria-label="Permalink to 11. Children">#</a> 11. Children</h2>
+<p>Signed Reviews is not directed at children under 16, and we do not knowingly collect personal data from children under 16. If you believe a child has submitted personal data to us, contact <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a> and we will delete it.</p>
+<hr>
+<h2 id="12-california-specific-disclosures"><a class="anchor" href="#12-california-specific-disclosures" aria-label="Permalink to 12. California-specific disclosures">#</a> 12. California-specific disclosures</h2>
+<p>If you are a California resident, the following additional information applies to you under the California Consumer Privacy Act / California Privacy Rights Act (CCPA/CPRA):</p>
+<p><strong>Categories of personal information collected in the last 12 months:</strong> identifiers (email, name, IP address transiently), commercial information (transaction metadata from Stripe), internet/electronic activity information (login events), professional information (business name, role), and user-generated content (reviews, photos).</p>
+<p><strong>Sources:</strong> directly from you, from OAuth providers when you choose to use them, from Stripe webhooks when a business you&#39;ve purchased from uses Signed Reviews, and from public websites during brand extraction.</p>
+<p><strong>Business purposes for which we use this information:</strong> providing the Service, verifying reviews, security and fraud prevention, communicating with you, and legal compliance.</p>
+<p><strong>Categories disclosed to sub-processors:</strong> see Section 5.2 and the sub-processor list.</p>
+<p><strong>Sale or sharing of personal information:</strong> We do <strong>not</strong> sell personal information and do <strong>not</strong> &quot;share&quot; personal information for cross-context behavioral advertising, as those terms are defined under CCPA/CPRA.</p>
+<p><strong>Sensitive personal information:</strong> We do not collect sensitive personal information as defined under CPRA.</p>
+<p><strong>Right to limit use of sensitive personal information:</strong> not applicable, because we do not collect such information.</p>
+<hr>
+<h2 id="13-changes-to-this-policy"><a class="anchor" href="#13-changes-to-this-policy" aria-label="Permalink to 13. Changes to this policy">#</a> 13. Changes to this policy</h2>
+<p>We may update this Privacy Policy from time to time. When we make material changes, we will update the &quot;Last updated&quot; date at the top and, where appropriate, notify you by email or through a notice in the Service. Continued use of the Service after the updated policy takes effect constitutes acceptance.</p>
+<hr>
+<h2 id="14-contact-us"><a class="anchor" href="#14-contact-us" aria-label="Permalink to 14. Contact us">#</a> 14. Contact us</h2>
+<p>For privacy questions, data subject requests, or any other inquiry related to this policy:</p>
+<p><strong>Email:</strong> <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a>
+<strong>Mail:</strong> Paid Rightly LLC, 1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States</p>
+<p>For general support, contact <a href="mailto:support@signedreviews.com">support@signedreviews.com</a>.</p>
+</article>
+    <nav class="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ul>
+        <li><a href="#1-who-this-policy-applies-to">1. Who this policy applies to</a></li><li><a href="#2-our-role-under-privacy-law">2. Our role under privacy law</a></li><li><a href="#3-information-we-collect">3. Information we collect</a></li><li><a href="#4-how-we-use-information">4. How we use information</a></li><li><a href="#5-how-we-share-information">5. How we share information</a></li><li><a href="#6-how-we-use-ai">6. How we use AI</a></li><li><a href="#7-how-we-protect-information">7. How we protect information</a></li><li><a href="#8-how-long-we-keep-information">8. How long we keep information</a></li><li><a href="#9-your-rights-and-choices">9. Your rights and choices</a></li><li><a href="#10-international-data-transfers">10. International data transfers</a></li><li><a href="#11-children">11. Children</a></li><li><a href="#12-california-specific-disclosures">12. California-specific disclosures</a></li><li><a href="#13-changes-to-this-policy">13. Changes to this policy</a></li><li><a href="#14-contact-us">14. Contact us</a></li>
+      </ul>
+    </nav>
+    </div>
+  </main>
+  
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/" aria-label="Signed Reviews home">
+        <img src="/images/SignedReviews_logo_only.png" alt="" width="24" height="24">
+        <span class="brand-text">Signed Reviews</span>
+      </a>
+      <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
+      <p>© 2026 Paid Rightly LLC. All rights reserved.</p>
+      <address class="address-block"><strong>Paid Rightly LLC</strong><br>1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States</address>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#how-it-works">How it works</a></li>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/pricing/">Pricing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="mailto:support@signedreviews.com">Support</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+        <li><a href="/refund-policy/">Refund Policy</a></li>
+        <li><a href="/subprocessors/">Sub-processors</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-fineprint">
+    <span>© 2026 Paid Rightly LLC. All rights reserved.</span>
+    <span>Signed Reviews is a service operated by Paid Rightly LLC.</span>
+  </div>
+</footer>
+<script>
+  // Honor stored theme preference set by index.html.
+  (function () {
+    try {
+      var stored = localStorage.getItem('theme');
+      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
+      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
+      else document.documentElement.classList.add('theme-auto');
+    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,856 @@
+#!/usr/bin/env node
+/**
+ * Static site builder for signedreviews.com.
+ *
+ * Owns the shared header/footer used by every secondary page (legal + marketing
+ * routes). The home page (`index.html`) keeps its own bespoke layout and is left
+ * untouched here — only the secondary routes are generated.
+ *
+ * Output (relative to repo root):
+ *   /privacy/index.html
+ *   /terms/index.html
+ *   /refund-policy/index.html
+ *   /subprocessors/index.html
+ *   /pricing/index.html
+ *   /contact/index.html
+ *   /about/index.html
+ *   /sitemap.xml, /robots.txt, /favicon.svg
+ */
+
+const fs = require('node:fs');
+const path = require('node:path');
+const { marked } = require('marked');
+
+const ROOT = __dirname;
+const FILES_DIR = path.join(ROOT, 'files');
+const SITE_URL = 'https://signedreviews.com';
+const PLATFORM_URL = 'https://platform.signedreviews.com';
+
+const COMPANY = {
+  legalName: 'Paid Rightly LLC',
+  brand: 'Signed Reviews',
+  description: 'Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.',
+  supportEmail: 'support@signedreviews.com',
+  legalEmail: 'legal@signedreviews.com',
+  address: '1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States',
+  copyright: '© 2026 Paid Rightly LLC. All rights reserved.',
+  attribution: 'Signed Reviews is a service operated by Paid Rightly LLC.',
+};
+
+// ── Marked configuration: anchor IDs on every heading ────────────────────────
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .slice(0, 80);
+}
+
+function renderMarkdown(md) {
+  const html = marked.parse(md, { gfm: true, breaks: false });
+  // Post-process: add stable IDs and anchor links to h1-h4.
+  const seen = new Map();
+  return html.replace(/<(h[1-4])>([\s\S]*?)<\/\1>/g, (_, tag, inner) => {
+    const plain = inner.replace(/<[^>]+>/g, '').trim();
+    let slug = slugify(plain);
+    const count = seen.get(slug) || 0;
+    seen.set(slug, count + 1);
+    if (count > 0) slug = `${slug}-${count}`;
+    return `<${tag} id="${slug}"><a class="anchor" href="#${slug}" aria-label="Permalink to ${escapeHtml(plain)}">#</a> ${inner}</${tag}>`;
+  });
+}
+
+// ── Shared layout ────────────────────────────────────────────────────────────
+const SHARED_STYLES = `
+:root {
+  --navy-900:#0c1320; --navy-800:#141e30; --navy-700:#1c2840; --navy-600:#243252;
+  --navy-500:#2b3b60; --navy-400:#5d7aaa; --navy-300:#87a2c4; --navy-200:#aab9dc;
+  --navy-100:#d5dcee; --navy-50:#eef1f8;
+  --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
+  --gold-100:#f2edcc; --gold-50:#faf8ee;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
+  --max-prose: 72ch;
+}
+@media (prefers-color-scheme: dark) {
+  :root.theme-auto {
+    --bg:#0c1320; --surface:#141e30; --text:#eef1f8; --muted:#87a2c4;
+    --border:rgba(255,255,255,.10);
+  }
+}
+:root.theme-dark {
+  --bg:#0c1320; --surface:#141e30; --text:#eef1f8; --muted:#87a2c4;
+  --border:rgba(255,255,255,.10);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: var(--navy-500); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--gold-500); }
+:root.theme-dark a, :root.theme-auto a { color: var(--gold-300); }
+
+/* ── Skip link ── */
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--navy-900); color: #fff; padding: .75rem 1rem;
+  border-radius: 0 0 .5rem 0; z-index: 100;
+}
+.skip-link:focus { left: 0; outline: 3px solid var(--gold-400); }
+
+/* ── Header / nav ── */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: saturate(1.6) blur(14px);
+  -webkit-backdrop-filter: saturate(1.6) blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+:root.theme-dark .site-header, :root.theme-auto .site-header {
+  background: rgba(20,30,48,.85);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 1.25rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; gap: 1rem;
+}
+.brand { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; }
+.brand img { height: 28px; width: auto; display: block; }
+.brand-text {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.35rem; color: var(--navy-900);
+}
+:root.theme-dark .brand-text, :root.theme-auto .brand-text { color: #fff; }
+
+.nav-links {
+  display: flex; align-items: center; gap: .35rem; list-style: none; margin: 0; padding: 0;
+}
+.nav-links a {
+  display: inline-flex; align-items: center; padding: .5rem .85rem;
+  font-size: .92rem; font-weight: 500; text-decoration: none;
+  color: var(--navy-700); border-radius: .55rem;
+}
+:root.theme-dark .nav-links a, :root.theme-auto .nav-links a { color: var(--navy-100); }
+.nav-links a:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .nav-links a:hover, :root.theme-auto .nav-links a:hover { background: rgba(255,255,255,.06); color: #fff; }
+
+.nav-cta {
+  display: inline-flex; align-items: center; gap: .55rem; margin-left: .35rem;
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: .55rem 1rem; border-radius: .65rem; font-weight: 600; font-size: .9rem;
+  text-decoration: none; border: 1px solid transparent;
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+  cursor: pointer;
+}
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--gold-400), var(--gold-500) 60%, var(--gold-600));
+  box-shadow: 0 4px 14px rgba(179,157,69,.32);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(179,157,69,.44); color: #fff; }
+.btn-secondary {
+  color: var(--navy-700); background: transparent; border-color: var(--navy-200);
+}
+.btn-secondary:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .btn-secondary, :root.theme-auto .btn-secondary {
+  color: var(--navy-100); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.02);
+}
+:root.theme-dark .btn-secondary:hover, :root.theme-auto .btn-secondary:hover {
+  background: rgba(255,255,255,.08); color: #fff;
+}
+
+/* ── Mobile nav: collapse links into a button row stack on narrow screens ── */
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .nav-cta .btn { padding: .45rem .8rem; font-size: .85rem; }
+}
+.menu-toggle {
+  display: none; background: transparent; border: 0; padding: .35rem;
+  color: inherit; cursor: pointer;
+}
+@media (max-width: 720px) {
+  .menu-toggle { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: .5rem; }
+  .nav-inner.is-open .nav-links {
+    display: flex; flex-direction: column; align-items: stretch;
+    position: absolute; top: 64px; left: 0; right: 0;
+    background: var(--surface); padding: .75rem 1rem; gap: .25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner.is-open .nav-links a { padding: .75rem 1rem; border-radius: .5rem; }
+  .menu-toggle:hover { background: var(--navy-50); }
+}
+
+/* ── Main / prose ── */
+main { padding: 0; }
+.page-hero {
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-inner {
+  max-width: 1100px; margin: 0 auto; padding: 3.5rem 1.25rem 2.25rem;
+}
+.page-hero h1 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(2rem, 4vw + 1rem, 3.25rem);
+  line-height: 1.1; margin: 0 0 .5rem; color: var(--navy-900); letter-spacing: -0.02em;
+}
+:root.theme-dark .page-hero h1, :root.theme-auto .page-hero h1 { color: #fff; }
+.page-hero p { color: var(--muted); margin: 0; max-width: 60ch; font-size: 1.05rem; }
+.eyebrow {
+  display: inline-block;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold-600); margin-bottom: .9rem;
+}
+
+.prose-wrap {
+  max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem;
+}
+@media (min-width: 980px) {
+  .prose-wrap.has-toc { grid-template-columns: minmax(0, 1fr) 240px; }
+}
+
+.prose {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  max-width: var(--max-prose);
+  width: 100%;
+  margin: 0;
+}
+.prose h1 { display: none; } /* page hero already shows the h1 */
+.prose h2, .prose h3, .prose h4 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  color: var(--navy-900);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 2.4rem 0 .9rem;
+}
+:root.theme-dark .prose h2, :root.theme-dark .prose h3, :root.theme-dark .prose h4,
+:root.theme-auto .prose h2, :root.theme-auto .prose h3, :root.theme-auto .prose h4 { color: #fff; }
+.prose h2 { font-size: 1.65rem; padding-top: .25rem; }
+.prose h3 { font-size: 1.25rem; }
+.prose h4 { font-size: 1.05rem; font-family: 'Inter', system-ui, sans-serif; font-weight: 700; }
+.prose h2:first-of-type { margin-top: 0; }
+
+.prose p, .prose li { color: var(--text); }
+.prose p { margin: 0 0 1rem; }
+.prose ul, .prose ol { padding-left: 1.4rem; margin: 0 0 1rem; }
+.prose li { margin: .35rem 0; }
+
+.prose strong { color: var(--navy-900); }
+:root.theme-dark .prose strong, :root.theme-auto .prose strong { color: #fff; }
+
+.prose hr {
+  border: 0; height: 1px; background: var(--border); margin: 2.5rem 0;
+}
+
+.prose code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size: .9em;
+  background: var(--navy-50); color: var(--navy-700);
+  padding: .12em .42em; border-radius: 4px;
+}
+:root.theme-dark .prose code, :root.theme-auto .prose code {
+  background: rgba(255,255,255,.08); color: var(--gold-300);
+}
+
+.prose a.anchor {
+  text-decoration: none; color: var(--navy-200); margin-right: .35rem;
+  font-weight: 400; opacity: 0; transition: opacity .15s ease;
+}
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding: 1.1rem 1.25rem;
+  border-left: 4px solid var(--gold-500);
+  background: var(--gold-50);
+  color: var(--navy-800);
+  border-radius: 0 .5rem .5rem 0;
+}
+.prose blockquote p { margin: 0; }
+.prose blockquote strong { color: var(--gold-600); }
+:root.theme-dark .prose blockquote, :root.theme-auto .prose blockquote {
+  background: rgba(179,157,69,.10); color: #fff;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0 1.5rem;
+  font-size: .92rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  display: block;
+  overflow-x: auto;
+}
+.prose thead { background: var(--navy-50); }
+:root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
+.prose th, .prose td {
+  padding: .7rem .9rem; text-align: left; vertical-align: top;
+  border-bottom: 1px solid var(--border);
+}
+.prose th { font-weight: 600; color: var(--navy-900); }
+:root.theme-dark .prose th, :root.theme-auto .prose th { color: #fff; }
+.prose tbody tr:last-child td { border-bottom: 0; }
+.prose tbody tr:nth-child(even) td { background: rgba(43,59,96,.025); }
+:root.theme-dark .prose tbody tr:nth-child(even) td,
+:root.theme-auto .prose tbody tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+
+/* ── ToC sidebar (legal pages) ── */
+.toc {
+  position: sticky; top: 88px; align-self: start;
+  font-size: .88rem; max-height: calc(100vh - 110px); overflow-y: auto;
+  padding: 1rem 1.1rem; border: 1px solid var(--border);
+  background: var(--surface); border-radius: 12px;
+}
+.toc h2 {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 .6rem;
+}
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: .15rem 0; }
+.toc a {
+  color: var(--navy-700); text-decoration: none; display: block;
+  padding: .25rem .35rem; border-radius: .35rem; line-height: 1.35;
+}
+:root.theme-dark .toc a, :root.theme-auto .toc a { color: var(--navy-100); }
+.toc a:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .toc a:hover, :root.theme-auto .toc a:hover { background: rgba(255,255,255,.06); color: #fff; }
+@media (max-width: 980px) { .toc { display: none; } }
+
+/* ── Marketing utility blocks ── */
+.section { max-width: 1100px; margin: 0 auto; padding: 3rem 1.25rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.5rem;
+}
+.card h3 {
+  font-family: 'Instrument Serif', Georgia, serif; font-size: 1.4rem;
+  margin: 0 0 .5rem; color: var(--navy-900);
+}
+:root.theme-dark .card h3, :root.theme-auto .card h3 { color: #fff; }
+.card p { margin: 0; color: var(--muted); }
+.card-featured {
+  border-color: var(--gold-400);
+  box-shadow: 0 6px 26px rgba(179,157,69,.18);
+}
+.badge {
+  display: inline-block; padding: .25rem .55rem; border-radius: 999px;
+  font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  background: var(--gold-100); color: var(--gold-600); margin-bottom: .65rem;
+}
+:root.theme-dark .badge, :root.theme-auto .badge {
+  background: rgba(179,157,69,.18); color: var(--gold-300);
+}
+
+.feature-list { list-style: none; padding: 0; margin: 1rem 0 1.5rem; }
+.feature-list li {
+  display: flex; gap: .55rem; align-items: flex-start; margin: .45rem 0;
+  color: var(--text);
+}
+.feature-list li::before {
+  content: '✓'; color: var(--gold-500); font-weight: 700; flex-shrink: 0;
+}
+
+.callout {
+  border: 1px solid var(--border); border-left: 4px solid var(--gold-500);
+  background: var(--surface); border-radius: 10px; padding: 1rem 1.25rem;
+  margin: 1.25rem 0; color: var(--text);
+}
+
+/* ── Contact list ── */
+.contact-list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;
+}
+.contact-list li {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.1rem 1.25rem;
+}
+.contact-list .label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .7rem; text-transform: uppercase; letter-spacing: .12em;
+  color: var(--muted); display: block; margin-bottom: .35rem;
+}
+.contact-list a { color: var(--navy-500); }
+:root.theme-dark .contact-list a, :root.theme-auto .contact-list a { color: var(--gold-300); }
+
+/* ── Footer ── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  margin-top: 2rem;
+  padding: 3rem 1.25rem 2rem;
+}
+.footer-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; gap: 2rem;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+}
+@media (max-width: 880px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+.footer-brand p { margin: .35rem 0; color: var(--muted); font-size: .9rem; }
+.footer-brand .brand-text { font-size: 1.2rem; }
+.footer-col h4 {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 .8rem;
+}
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col li { margin: .35rem 0; }
+.footer-col a {
+  color: var(--navy-700); text-decoration: none; font-size: .92rem;
+}
+:root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
+.footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+
+.footer-fineprint {
+  max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex; flex-wrap: wrap; gap: .75rem 2rem; justify-content: space-between;
+  font-size: .82rem; color: var(--muted);
+}
+.address-block { font-style: normal; }
+`;
+
+const SHARED_HEAD = ({ title, description, canonical, pageType = 'website' }) => `
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${escapeHtml(title)}</title>
+  <meta name="description" content="${escapeHtml(description)}">
+  <link rel="canonical" href="${canonical}">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0c1320">
+
+  <meta property="og:type" content="${pageType}">
+  <meta property="og:title" content="${escapeHtml(title)}">
+  <meta property="og:description" content="${escapeHtml(description)}">
+  <meta property="og:url" content="${canonical}">
+  <meta property="og:site_name" content="${COMPANY.brand}">
+  <meta property="og:image" content="${SITE_URL}/images/SignedReviews_full_logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escapeHtml(title)}">
+  <meta name="twitter:description" content="${escapeHtml(description)}">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png">
+  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>${SHARED_STYLES}</style>
+`;
+
+const HEADER = (active = '') => `
+<header class="site-header">
+  <div class="nav-inner" id="navInner">
+    <a class="brand" href="/" aria-label="${COMPANY.brand} home">
+      <img src="/images/SignedReviews_logo_only.png" alt="" width="28" height="28">
+      <span class="brand-text">${COMPANY.brand}</span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" onclick="document.getElementById('navInner').classList.toggle('is-open'); this.setAttribute('aria-expanded', document.getElementById('navInner').classList.contains('is-open'));">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links" role="menu">
+      <li><a href="/pricing/"${active === 'pricing' ? ' aria-current="page"' : ''}>Pricing</a></li>
+      <li><a href="/about/"${active === 'about' ? ' aria-current="page"' : ''}>About</a></li>
+      <li><a href="/contact/"${active === 'contact' ? ' aria-current="page"' : ''}>Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-secondary" href="${PLATFORM_URL}" rel="noopener">Log in</a>
+      <a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener">Sign up</a>
+    </div>
+  </div>
+</header>`;
+
+const FOOTER = `
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/" aria-label="${COMPANY.brand} home">
+        <img src="/images/SignedReviews_logo_only.png" alt="" width="24" height="24">
+        <span class="brand-text">${COMPANY.brand}</span>
+      </a>
+      <p>${COMPANY.attribution}</p>
+      <p>${COMPANY.copyright}</p>
+      <address class="address-block"><strong>${COMPANY.legalName}</strong><br>${COMPANY.address}</address>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#how-it-works">How it works</a></li>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/pricing/">Pricing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="mailto:${COMPANY.supportEmail}">Support</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+        <li><a href="/refund-policy/">Refund Policy</a></li>
+        <li><a href="/subprocessors/">Sub-processors</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-fineprint">
+    <span>${COMPANY.copyright}</span>
+    <span>${COMPANY.attribution}</span>
+  </div>
+</footer>
+<script>
+  // Honor stored theme preference set by index.html.
+  (function () {
+    try {
+      var stored = localStorage.getItem('theme');
+      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
+      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
+      else document.documentElement.classList.add('theme-auto');
+    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+  })();
+</script>`;
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function page({ title, description, slug, hero, body, hasToc = false, active = '' }) {
+  const canonical = `${SITE_URL}${slug}`;
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>${SHARED_HEAD({ title, description, canonical })}</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  ${HEADER(active)}
+  <main id="main">
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        ${hero.eyebrow ? `<span class="eyebrow">${hero.eyebrow}</span>` : ''}
+        <h1>${hero.title}</h1>
+        ${hero.subtitle ? `<p>${hero.subtitle}</p>` : ''}
+      </div>
+    </section>
+    <div class="prose-wrap${hasToc ? ' has-toc' : ''}">
+      ${body}
+    </div>
+  </main>
+  ${FOOTER}
+</body>
+</html>
+`;
+}
+
+function buildToc(html) {
+  const re = /<h2 id="([^"]+)"><a class="anchor"[^>]*>#<\/a> ([\s\S]*?)<\/h2>/g;
+  const items = [];
+  let m;
+  while ((m = re.exec(html))) {
+    const stripped = m[2].replace(/<[^>]+>/g, '').trim();
+    items.push({ id: m[1], text: stripped });
+  }
+  if (!items.length) return '';
+  return `
+    <nav class="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ul>
+        ${items.map((it) => `<li><a href="#${it.id}">${escapeHtml(it.text)}</a></li>`).join('')}
+      </ul>
+    </nav>`;
+}
+
+function writePage(slug, html) {
+  const outDir = path.join(ROOT, slug.replace(/^\//, '').replace(/\/$/, ''));
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
+}
+
+// ── Legal pages: render markdown ─────────────────────────────────────────────
+const LEGAL_PAGES = [
+  {
+    slug: '/privacy/',
+    file: 'privacy.md',
+    title: 'Privacy Policy',
+    eyebrow: 'Legal',
+    subtitle: 'How Paid Rightly LLC collects, uses, and protects information when you use Signed Reviews.',
+    metaDesc: 'Privacy Policy for Signed Reviews — operated by Paid Rightly LLC. Learn what we collect, how we use it, and your rights.',
+  },
+  {
+    slug: '/terms/',
+    file: 'terms.md',
+    title: 'Terms of Service',
+    eyebrow: 'Legal',
+    subtitle: 'The agreement between you and Paid Rightly LLC for use of Signed Reviews.',
+    metaDesc: 'Terms of Service for Signed Reviews — operated by Paid Rightly LLC. Read before using the platform.',
+  },
+  {
+    slug: '/refund-policy/',
+    file: 'refund-policy.md',
+    title: 'Refund and Cancellation Policy',
+    eyebrow: 'Legal',
+    subtitle: 'How refunds and cancellations work for Signed Reviews.',
+    metaDesc: 'Refund and Cancellation Policy for Signed Reviews. Currently free during beta — full policy for future paid tiers.',
+  },
+  {
+    slug: '/subprocessors/',
+    file: 'subprocessors.md',
+    title: 'Sub-processors',
+    eyebrow: 'Legal',
+    subtitle: 'Third-party service providers Paid Rightly LLC uses to operate Signed Reviews.',
+    metaDesc: 'Full list of sub-processors used by Signed Reviews — what they do, what data they touch, and where they operate.',
+  },
+];
+
+function buildLegal() {
+  for (const p of LEGAL_PAGES) {
+    const md = fs.readFileSync(path.join(FILES_DIR, p.file), 'utf8');
+    const renderedBody = renderMarkdown(md);
+    // Strip the original H1 (page hero shows the title).
+    const bodyNoH1 = renderedBody.replace(/<h1[^>]*>[\s\S]*?<\/h1>/, '');
+    const toc = buildToc(bodyNoH1);
+    const html = page({
+      title: `${p.title} — ${COMPANY.brand}`,
+      description: p.metaDesc,
+      slug: p.slug,
+      hero: { eyebrow: p.eyebrow, title: p.title, subtitle: p.subtitle },
+      body: `<article class="prose">${bodyNoH1}</article>${toc}`,
+      hasToc: !!toc,
+    });
+    writePage(p.slug, html);
+    console.log(`  ✓ ${p.slug}`);
+  }
+}
+
+// ── Marketing pages ──────────────────────────────────────────────────────────
+function buildPricing() {
+  const body = `
+    <article class="prose" style="max-width: var(--max-prose)">
+      <span class="badge">Free during beta</span>
+      <h2>One plan. Free during beta.</h2>
+      <p>Signed Reviews is currently free for every business. We are running an open beta while we mature the product, talk to customers, and learn what works. There are no subscription fees, per-review fees, commissions, or platform fees.</p>
+
+      <div class="callout">
+        <strong>What's included today</strong>
+        <ul class="feature-list" style="margin-top:.5rem">
+          <li>Stripe-native onboarding — connect your Stripe account in one click</li>
+          <li>Automatic Purchase Verified review invitations after each completed transaction</li>
+          <li>One-time, single-use review links tied to a specific Stripe transaction</li>
+          <li>Cryptographically signed (HMAC-SHA256), tamper-evident review records</li>
+          <li>Public, hosted review page for every business</li>
+          <li>Embeddable review widget for your own website</li>
+          <li>Public verification page for every individual review</li>
+          <li>Optional reviewer identity attachment via Google, GitHub, LinkedIn, Microsoft, Facebook, Instagram, or Twitter / X</li>
+          <li>Team seats and role-based access</li>
+          <li>Read-only Stripe access — we never charge, refund, or modify anything in your Stripe account</li>
+        </ul>
+      </div>
+
+      <h2>Future paid tiers</h2>
+      <p>If and when paid plans are introduced, we will publish updated pricing and an updated <a href="/refund-policy/">Refund and Cancellation Policy</a> first. We will give you <strong>at least 30 days' advance notice by email</strong> before any charges take effect, so you always have the option to discontinue use of the Service before billing begins.</p>
+
+      <h2>Get started</h2>
+      <p>Create a free account at the platform — no credit card required.</p>
+      <p style="margin-top: 1.5rem">
+        <a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="font-size:1rem; padding:.75rem 1.4rem">Sign up free →</a>
+        <a class="btn btn-secondary" href="${PLATFORM_URL}" rel="noopener" style="font-size:1rem; padding:.75rem 1.4rem; margin-left:.5rem">Log in</a>
+      </p>
+    </article>`;
+
+  const html = page({
+    title: `Pricing — ${COMPANY.brand}`,
+    description: 'Signed Reviews is free during beta. Sign up at platform.signedreviews.com — no credit card required.',
+    slug: '/pricing/',
+    hero: {
+      eyebrow: 'Pricing',
+      title: 'Free during beta',
+      subtitle: 'Connect Stripe, start collecting Purchase Verified reviews — at no cost.',
+    },
+    body,
+    active: 'pricing',
+  });
+  writePage('/pricing/', html);
+  console.log('  ✓ /pricing/');
+}
+
+function buildContact() {
+  const body = `
+    <article class="prose" style="max-width: var(--max-prose)">
+      <h2>Get in touch</h2>
+      <p>For product support use the support address. For privacy requests, legal matters, data subject requests, or anything related to the Sub-processor list, use the legal address.</p>
+
+      <ul class="contact-list" style="margin: 1.5rem 0;">
+        <li>
+          <span class="label">Product support</span>
+          <a href="mailto:${COMPANY.supportEmail}">${COMPANY.supportEmail}</a>
+          <p style="margin:.4rem 0 0; color: var(--muted); font-size:.88rem;">Account help, onboarding, billing, and bug reports.</p>
+        </li>
+        <li>
+          <span class="label">Legal &amp; privacy</span>
+          <a href="mailto:${COMPANY.legalEmail}">${COMPANY.legalEmail}</a>
+          <p style="margin:.4rem 0 0; color: var(--muted); font-size:.88rem;">Privacy requests, data subject requests, legal notices, and DMCA.</p>
+        </li>
+      </ul>
+
+      <h2>Mailing address</h2>
+      <address class="address-block" style="font-size:1rem; line-height:1.7;">
+        <strong>${COMPANY.legalName}</strong><br>
+        1209 Mountain Road Pl NE, Ste N<br>
+        Albuquerque, NM 87110<br>
+        United States
+      </address>
+
+      <h2>Response times</h2>
+      <p>We aim to respond to support inquiries within two business days and to legal or privacy inquiries within the timeframes set out in our <a href="/privacy/">Privacy Policy</a>.</p>
+    </article>`;
+
+  const html = page({
+    title: `Contact — ${COMPANY.brand}`,
+    description: `Contact Paid Rightly LLC, the operator of Signed Reviews. Support: ${COMPANY.supportEmail}. Legal: ${COMPANY.legalEmail}.`,
+    slug: '/contact/',
+    hero: {
+      eyebrow: 'Contact',
+      title: 'Talk to us',
+      subtitle: 'The two best ways to reach the team behind Signed Reviews.',
+    },
+    body,
+    active: 'contact',
+  });
+  writePage('/contact/', html);
+  console.log('  ✓ /contact/');
+}
+
+function buildAbout() {
+  const body = `
+    <article class="prose" style="max-width: var(--max-prose)">
+      <h2>What we do</h2>
+      <p>${COMPANY.description}</p>
+      <p>Each review collected through our platform is invited only after a real Stripe transaction completes, is delivered to the buyer's verified email address, and is cryptographically signed so anyone can later verify the review hasn't been altered. The result is a review record that ties back to a specific, completed payment — instead of a star rating posted by an anonymous account that may never have purchased anything.</p>
+
+      <h2>Who operates Signed Reviews</h2>
+      <p>${COMPANY.brand} is operated by <strong>${COMPANY.legalName}</strong>, a New Mexico limited liability company headquartered in Albuquerque. ${COMPANY.legalName} is the controller of business-user data and the processor of reviewer data on behalf of our business customers. The full breakdown is described in our <a href="/privacy/">Privacy Policy</a> and the third parties we rely on are listed in our <a href="/subprocessors/">Sub-processors page</a>.</p>
+
+      <h2>How we make money</h2>
+      <p>Signed Reviews is currently free during beta. If and when we introduce paid plans, we will publish updated pricing first and notify users by email at least 30 days before any charges take effect. See the <a href="/pricing/">Pricing page</a> and our <a href="/refund-policy/">Refund and Cancellation Policy</a>.</p>
+
+      <h2>Things we deliberately don't do</h2>
+      <ul class="feature-list">
+        <li>No analytics platforms, advertising networks, or session-replay tools on this site or in the platform</li>
+        <li>No selling or sharing of personal data — we are not in the data-broker business</li>
+        <li>No write access to your Stripe account — our Stripe connection is read-only</li>
+        <li>No fake or seeded reviews — a review only exists if a real, completed Stripe transaction backs it</li>
+      </ul>
+
+      <h2>Contact</h2>
+      <p>Product support: <a href="mailto:${COMPANY.supportEmail}">${COMPANY.supportEmail}</a><br>
+      Legal &amp; privacy: <a href="mailto:${COMPANY.legalEmail}">${COMPANY.legalEmail}</a></p>
+      <address class="address-block" style="font-size:.95rem;">
+        <strong>${COMPANY.legalName}</strong><br>
+        ${COMPANY.address}
+      </address>
+    </article>`;
+
+  const html = page({
+    title: `About — ${COMPANY.brand}`,
+    description: `About ${COMPANY.brand}, the verified-reviews platform operated by ${COMPANY.legalName}.`,
+    slug: '/about/',
+    hero: {
+      eyebrow: 'About',
+      title: `About ${COMPANY.brand}`,
+      subtitle: `${COMPANY.brand} is operated by ${COMPANY.legalName}, a New Mexico limited liability company.`,
+    },
+    body,
+    active: 'about',
+  });
+  writePage('/about/', html);
+  console.log('  ✓ /about/');
+}
+
+// ── robots / sitemap / favicon ───────────────────────────────────────────────
+function buildSeoFiles() {
+  const today = new Date().toISOString().slice(0, 10);
+  const urls = ['/', '/pricing/', '/about/', '/contact/', '/privacy/', '/terms/', '/refund-policy/', '/subprocessors/'];
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls
+  .map(
+    (u) => `  <url>
+    <loc>${SITE_URL}${u}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>${u === '/' ? '1.0' : '0.7'}</priority>
+  </url>`
+  )
+  .join('\n')}
+</urlset>
+`;
+  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap, 'utf8');
+
+  const robots = `User-agent: *
+Allow: /
+
+Sitemap: ${SITE_URL}/sitemap.xml
+`;
+  fs.writeFileSync(path.join(ROOT, 'robots.txt'), robots, 'utf8');
+
+  const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1c2840"/>
+      <stop offset="1" stop-color="#2b3b60"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#g)"/>
+  <text x="32" y="42" text-anchor="middle"
+        font-family="Georgia, 'Instrument Serif', serif"
+        font-size="34" font-weight="400" fill="#d4c466"
+        font-style="italic">SR</text>
+</svg>
+`;
+  fs.writeFileSync(path.join(ROOT, 'favicon.svg'), favicon, 'utf8');
+
+  console.log('  ✓ sitemap.xml, robots.txt, favicon.svg');
+}
+
+// ── Run ──────────────────────────────────────────────────────────────────────
+console.log('Building signedreviews.com...');
+console.log('\nLegal pages:');
+buildLegal();
+console.log('\nMarketing pages:');
+buildPricing();
+buildContact();
+buildAbout();
+console.log('\nSEO files:');
+buildSeoFiles();
+console.log('\nBuild complete.');

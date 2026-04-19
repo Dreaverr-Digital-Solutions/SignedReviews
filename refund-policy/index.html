@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refund and Cancellation Policy — Signed Reviews</title>
+  <meta name="description" content="Refund and Cancellation Policy for Signed Reviews. Currently free during beta — full policy for future paid tiers.">
+  <link rel="canonical" href="https://signedreviews.com/refund-policy/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0c1320">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Refund and Cancellation Policy — Signed Reviews">
+  <meta property="og:description" content="Refund and Cancellation Policy for Signed Reviews. Currently free during beta — full policy for future paid tiers.">
+  <meta property="og:url" content="https://signedreviews.com/refund-policy/">
+  <meta property="og:site_name" content="Signed Reviews">
+  <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Refund and Cancellation Policy — Signed Reviews">
+  <meta name="twitter:description" content="Refund and Cancellation Policy for Signed Reviews. Currently free during beta — full policy for future paid tiers.">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png">
+  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+:root {
+  --navy-900:#0c1320; --navy-800:#141e30; --navy-700:#1c2840; --navy-600:#243252;
+  --navy-500:#2b3b60; --navy-400:#5d7aaa; --navy-300:#87a2c4; --navy-200:#aab9dc;
+  --navy-100:#d5dcee; --navy-50:#eef1f8;
+  --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
+  --gold-100:#f2edcc; --gold-50:#faf8ee;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
+  --max-prose: 72ch;
+}
+@media (prefers-color-scheme: dark) {
+  :root.theme-auto {
+    --bg:#0c1320; --surface:#141e30; --text:#eef1f8; --muted:#87a2c4;
+    --border:rgba(255,255,255,.10);
+  }
+}
+:root.theme-dark {
+  --bg:#0c1320; --surface:#141e30; --text:#eef1f8; --muted:#87a2c4;
+  --border:rgba(255,255,255,.10);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: var(--navy-500); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--gold-500); }
+:root.theme-dark a, :root.theme-auto a { color: var(--gold-300); }
+
+/* ── Skip link ── */
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--navy-900); color: #fff; padding: .75rem 1rem;
+  border-radius: 0 0 .5rem 0; z-index: 100;
+}
+.skip-link:focus { left: 0; outline: 3px solid var(--gold-400); }
+
+/* ── Header / nav ── */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: saturate(1.6) blur(14px);
+  -webkit-backdrop-filter: saturate(1.6) blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+:root.theme-dark .site-header, :root.theme-auto .site-header {
+  background: rgba(20,30,48,.85);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 1.25rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; gap: 1rem;
+}
+.brand { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; }
+.brand img { height: 28px; width: auto; display: block; }
+.brand-text {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.35rem; color: var(--navy-900);
+}
+:root.theme-dark .brand-text, :root.theme-auto .brand-text { color: #fff; }
+
+.nav-links {
+  display: flex; align-items: center; gap: .35rem; list-style: none; margin: 0; padding: 0;
+}
+.nav-links a {
+  display: inline-flex; align-items: center; padding: .5rem .85rem;
+  font-size: .92rem; font-weight: 500; text-decoration: none;
+  color: var(--navy-700); border-radius: .55rem;
+}
+:root.theme-dark .nav-links a, :root.theme-auto .nav-links a { color: var(--navy-100); }
+.nav-links a:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .nav-links a:hover, :root.theme-auto .nav-links a:hover { background: rgba(255,255,255,.06); color: #fff; }
+
+.nav-cta {
+  display: inline-flex; align-items: center; gap: .55rem; margin-left: .35rem;
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: .55rem 1rem; border-radius: .65rem; font-weight: 600; font-size: .9rem;
+  text-decoration: none; border: 1px solid transparent;
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+  cursor: pointer;
+}
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--gold-400), var(--gold-500) 60%, var(--gold-600));
+  box-shadow: 0 4px 14px rgba(179,157,69,.32);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(179,157,69,.44); color: #fff; }
+.btn-secondary {
+  color: var(--navy-700); background: transparent; border-color: var(--navy-200);
+}
+.btn-secondary:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .btn-secondary, :root.theme-auto .btn-secondary {
+  color: var(--navy-100); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.02);
+}
+:root.theme-dark .btn-secondary:hover, :root.theme-auto .btn-secondary:hover {
+  background: rgba(255,255,255,.08); color: #fff;
+}
+
+/* ── Mobile nav: collapse links into a button row stack on narrow screens ── */
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .nav-cta .btn { padding: .45rem .8rem; font-size: .85rem; }
+}
+.menu-toggle {
+  display: none; background: transparent; border: 0; padding: .35rem;
+  color: inherit; cursor: pointer;
+}
+@media (max-width: 720px) {
+  .menu-toggle { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: .5rem; }
+  .nav-inner.is-open .nav-links {
+    display: flex; flex-direction: column; align-items: stretch;
+    position: absolute; top: 64px; left: 0; right: 0;
+    background: var(--surface); padding: .75rem 1rem; gap: .25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner.is-open .nav-links a { padding: .75rem 1rem; border-radius: .5rem; }
+  .menu-toggle:hover { background: var(--navy-50); }
+}
+
+/* ── Main / prose ── */
+main { padding: 0; }
+.page-hero {
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-inner {
+  max-width: 1100px; margin: 0 auto; padding: 3.5rem 1.25rem 2.25rem;
+}
+.page-hero h1 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(2rem, 4vw + 1rem, 3.25rem);
+  line-height: 1.1; margin: 0 0 .5rem; color: var(--navy-900); letter-spacing: -0.02em;
+}
+:root.theme-dark .page-hero h1, :root.theme-auto .page-hero h1 { color: #fff; }
+.page-hero p { color: var(--muted); margin: 0; max-width: 60ch; font-size: 1.05rem; }
+.eyebrow {
+  display: inline-block;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold-600); margin-bottom: .9rem;
+}
+
+.prose-wrap {
+  max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem;
+}
+@media (min-width: 980px) {
+  .prose-wrap.has-toc { grid-template-columns: minmax(0, 1fr) 240px; }
+}
+
+.prose {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  max-width: var(--max-prose);
+  width: 100%;
+  margin: 0;
+}
+.prose h1 { display: none; } /* page hero already shows the h1 */
+.prose h2, .prose h3, .prose h4 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  color: var(--navy-900);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 2.4rem 0 .9rem;
+}
+:root.theme-dark .prose h2, :root.theme-dark .prose h3, :root.theme-dark .prose h4,
+:root.theme-auto .prose h2, :root.theme-auto .prose h3, :root.theme-auto .prose h4 { color: #fff; }
+.prose h2 { font-size: 1.65rem; padding-top: .25rem; }
+.prose h3 { font-size: 1.25rem; }
+.prose h4 { font-size: 1.05rem; font-family: 'Inter', system-ui, sans-serif; font-weight: 700; }
+.prose h2:first-of-type { margin-top: 0; }
+
+.prose p, .prose li { color: var(--text); }
+.prose p { margin: 0 0 1rem; }
+.prose ul, .prose ol { padding-left: 1.4rem; margin: 0 0 1rem; }
+.prose li { margin: .35rem 0; }
+
+.prose strong { color: var(--navy-900); }
+:root.theme-dark .prose strong, :root.theme-auto .prose strong { color: #fff; }
+
+.prose hr {
+  border: 0; height: 1px; background: var(--border); margin: 2.5rem 0;
+}
+
+.prose code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size: .9em;
+  background: var(--navy-50); color: var(--navy-700);
+  padding: .12em .42em; border-radius: 4px;
+}
+:root.theme-dark .prose code, :root.theme-auto .prose code {
+  background: rgba(255,255,255,.08); color: var(--gold-300);
+}
+
+.prose a.anchor {
+  text-decoration: none; color: var(--navy-200); margin-right: .35rem;
+  font-weight: 400; opacity: 0; transition: opacity .15s ease;
+}
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding: 1.1rem 1.25rem;
+  border-left: 4px solid var(--gold-500);
+  background: var(--gold-50);
+  color: var(--navy-800);
+  border-radius: 0 .5rem .5rem 0;
+}
+.prose blockquote p { margin: 0; }
+.prose blockquote strong { color: var(--gold-600); }
+:root.theme-dark .prose blockquote, :root.theme-auto .prose blockquote {
+  background: rgba(179,157,69,.10); color: #fff;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0 1.5rem;
+  font-size: .92rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  display: block;
+  overflow-x: auto;
+}
+.prose thead { background: var(--navy-50); }
+:root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
+.prose th, .prose td {
+  padding: .7rem .9rem; text-align: left; vertical-align: top;
+  border-bottom: 1px solid var(--border);
+}
+.prose th { font-weight: 600; color: var(--navy-900); }
+:root.theme-dark .prose th, :root.theme-auto .prose th { color: #fff; }
+.prose tbody tr:last-child td { border-bottom: 0; }
+.prose tbody tr:nth-child(even) td { background: rgba(43,59,96,.025); }
+:root.theme-dark .prose tbody tr:nth-child(even) td,
+:root.theme-auto .prose tbody tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+
+/* ── ToC sidebar (legal pages) ── */
+.toc {
+  position: sticky; top: 88px; align-self: start;
+  font-size: .88rem; max-height: calc(100vh - 110px); overflow-y: auto;
+  padding: 1rem 1.1rem; border: 1px solid var(--border);
+  background: var(--surface); border-radius: 12px;
+}
+.toc h2 {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 .6rem;
+}
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: .15rem 0; }
+.toc a {
+  color: var(--navy-700); text-decoration: none; display: block;
+  padding: .25rem .35rem; border-radius: .35rem; line-height: 1.35;
+}
+:root.theme-dark .toc a, :root.theme-auto .toc a { color: var(--navy-100); }
+.toc a:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .toc a:hover, :root.theme-auto .toc a:hover { background: rgba(255,255,255,.06); color: #fff; }
+@media (max-width: 980px) { .toc { display: none; } }
+
+/* ── Marketing utility blocks ── */
+.section { max-width: 1100px; margin: 0 auto; padding: 3rem 1.25rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.5rem;
+}
+.card h3 {
+  font-family: 'Instrument Serif', Georgia, serif; font-size: 1.4rem;
+  margin: 0 0 .5rem; color: var(--navy-900);
+}
+:root.theme-dark .card h3, :root.theme-auto .card h3 { color: #fff; }
+.card p { margin: 0; color: var(--muted); }
+.card-featured {
+  border-color: var(--gold-400);
+  box-shadow: 0 6px 26px rgba(179,157,69,.18);
+}
+.badge {
+  display: inline-block; padding: .25rem .55rem; border-radius: 999px;
+  font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  background: var(--gold-100); color: var(--gold-600); margin-bottom: .65rem;
+}
+:root.theme-dark .badge, :root.theme-auto .badge {
+  background: rgba(179,157,69,.18); color: var(--gold-300);
+}
+
+.feature-list { list-style: none; padding: 0; margin: 1rem 0 1.5rem; }
+.feature-list li {
+  display: flex; gap: .55rem; align-items: flex-start; margin: .45rem 0;
+  color: var(--text);
+}
+.feature-list li::before {
+  content: '✓'; color: var(--gold-500); font-weight: 700; flex-shrink: 0;
+}
+
+.callout {
+  border: 1px solid var(--border); border-left: 4px solid var(--gold-500);
+  background: var(--surface); border-radius: 10px; padding: 1rem 1.25rem;
+  margin: 1.25rem 0; color: var(--text);
+}
+
+/* ── Contact list ── */
+.contact-list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;
+}
+.contact-list li {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.1rem 1.25rem;
+}
+.contact-list .label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .7rem; text-transform: uppercase; letter-spacing: .12em;
+  color: var(--muted); display: block; margin-bottom: .35rem;
+}
+.contact-list a { color: var(--navy-500); }
+:root.theme-dark .contact-list a, :root.theme-auto .contact-list a { color: var(--gold-300); }
+
+/* ── Footer ── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  margin-top: 2rem;
+  padding: 3rem 1.25rem 2rem;
+}
+.footer-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; gap: 2rem;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+}
+@media (max-width: 880px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+.footer-brand p { margin: .35rem 0; color: var(--muted); font-size: .9rem; }
+.footer-brand .brand-text { font-size: 1.2rem; }
+.footer-col h4 {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 .8rem;
+}
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col li { margin: .35rem 0; }
+.footer-col a {
+  color: var(--navy-700); text-decoration: none; font-size: .92rem;
+}
+:root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
+.footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+
+.footer-fineprint {
+  max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex; flex-wrap: wrap; gap: .75rem 2rem; justify-content: space-between;
+  font-size: .82rem; color: var(--muted);
+}
+.address-block { font-style: normal; }
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  
+<header class="site-header">
+  <div class="nav-inner" id="navInner">
+    <a class="brand" href="/" aria-label="Signed Reviews home">
+      <img src="/images/SignedReviews_logo_only.png" alt="" width="28" height="28">
+      <span class="brand-text">Signed Reviews</span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" onclick="document.getElementById('navInner').classList.toggle('is-open'); this.setAttribute('aria-expanded', document.getElementById('navInner').classList.contains('is-open'));">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links" role="menu">
+      <li><a href="/pricing/">Pricing</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener">Log in</a>
+      <a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener">Sign up</a>
+    </div>
+  </div>
+</header>
+  <main id="main">
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="eyebrow">Legal</span>
+        <h1>Refund and Cancellation Policy</h1>
+        <p>How refunds and cancellations work for Signed Reviews.</p>
+      </div>
+    </section>
+    <div class="prose-wrap has-toc">
+      <article class="prose">
+<p><strong>Effective date:</strong> April 19, 2026
+<strong>Last updated:</strong> April 19, 2026</p>
+<p>This Refund and Cancellation Policy applies to your use of Signed Reviews, a service operated by <strong>Paid Rightly LLC</strong>, a New Mexico limited liability company.</p>
+<hr>
+<h2 id="current-pricing"><a class="anchor" href="#current-pricing" aria-label="Permalink to Current pricing">#</a> Current pricing</h2>
+<p>Signed Reviews is currently offered <strong>free of charge</strong>. There are no subscription fees, per-review fees, commissions, or platform fees associated with using the Service.</p>
+<p>Because no payments are currently collected from business users, refunds are not applicable at this time.</p>
+<hr>
+<h2 id="cancellation"><a class="anchor" href="#cancellation" aria-label="Permalink to Cancellation">#</a> Cancellation</h2>
+<p>You may stop using Signed Reviews at any time. To cancel and delete your account:</p>
+<ol>
+<li>Email <strong><a href="mailto:support@signedreviews.com">support@signedreviews.com</a></strong> from the email address associated with your account, or</li>
+<li>Use the account deletion option inside the platform when available</li>
+</ol>
+<p>On cancellation:</p>
+<ul>
+<li>Your business user account is soft-deleted and your personal identifiers are anonymized</li>
+<li>Reviews and transaction records remain in the Service in anonymized form, as described in our <a href="https://signedreviews.com/privacy">Privacy Policy</a> and <a href="https://signedreviews.com/terms">Terms of Service</a></li>
+<li>Your Stripe connection is revoked and future review requests stop being triggered</li>
+</ul>
+<hr>
+<h2 id="future-paid-tiers"><a class="anchor" href="#future-paid-tiers" aria-label="Permalink to Future paid tiers">#</a> Future paid tiers</h2>
+<p>If and when Signed Reviews introduces paid subscription tiers or usage-based fees, we will publish an updated Refund and Cancellation Policy <strong>before</strong> any charges take effect. That updated policy will address:</p>
+<ul>
+<li>Billing cycles and auto-renewal terms</li>
+<li>Cancellation timing and proration rules</li>
+<li>Refund eligibility and timeframes</li>
+<li>Handling of disputed charges and chargebacks</li>
+<li>Consequences of failed payments</li>
+</ul>
+<p>We will provide at least <strong>30 days&#39; advance notice by email</strong> before introducing any fees, giving you the opportunity to discontinue use of the Service before charges begin.</p>
+<hr>
+<h2 id="disputes-about-charges-future"><a class="anchor" href="#disputes-about-charges-future" aria-label="Permalink to Disputes about charges (future)">#</a> Disputes about charges (future)</h2>
+<p>Once paid tiers are introduced, if you believe a charge is incorrect, please contact <strong><a href="mailto:support@signedreviews.com">support@signedreviews.com</a></strong> within 60 days of the charge so we can investigate. We will work in good faith to resolve billing disputes before any formal dispute resolution process begins under our <a href="https://signedreviews.com/terms">Terms of Service</a>.</p>
+<hr>
+<h2 id="contact"><a class="anchor" href="#contact" aria-label="Permalink to Contact">#</a> Contact</h2>
+<p>Questions about this policy, cancellation, or billing:</p>
+<p><strong>Email:</strong> <a href="mailto:support@signedreviews.com">support@signedreviews.com</a>
+<strong>Mail:</strong> Paid Rightly LLC, 1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States</p>
+</article>
+    <nav class="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ul>
+        <li><a href="#current-pricing">Current pricing</a></li><li><a href="#cancellation">Cancellation</a></li><li><a href="#future-paid-tiers">Future paid tiers</a></li><li><a href="#disputes-about-charges-future">Disputes about charges (future)</a></li><li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    </div>
+  </main>
+  
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/" aria-label="Signed Reviews home">
+        <img src="/images/SignedReviews_logo_only.png" alt="" width="24" height="24">
+        <span class="brand-text">Signed Reviews</span>
+      </a>
+      <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
+      <p>© 2026 Paid Rightly LLC. All rights reserved.</p>
+      <address class="address-block"><strong>Paid Rightly LLC</strong><br>1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States</address>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#how-it-works">How it works</a></li>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/pricing/">Pricing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="mailto:support@signedreviews.com">Support</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+        <li><a href="/refund-policy/">Refund Policy</a></li>
+        <li><a href="/subprocessors/">Sub-processors</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-fineprint">
+    <span>© 2026 Paid Rightly LLC. All rights reserved.</span>
+    <span>Signed Reviews is a service operated by Paid Rightly LLC.</span>
+  </div>
+</footer>
+<script>
+  // Honor stored theme preference set by index.html.
+  (function () {
+    try {
+      var stored = localStorage.getItem('theme');
+      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
+      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
+      else document.documentElement.classList.add('theme-auto');
+    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+  })();
+</script>
+</body>
+</html>
