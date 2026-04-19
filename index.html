@@ -1981,7 +1981,7 @@
         var el = document.querySelector('.shield-container');
         if (el) {
           var rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.9) {
+          if (rect.top < window.innerHeight * 0.7) {
             log('already in view, playing immediately');
             play();
             return;
@@ -1990,7 +1990,7 @@
 
         ScrollTrigger.create({
           trigger: '.shield-container',
-          start: 'top 85%',
+          start: 'top 65%',
           onEnter: play,
           once: true
         });
@@ -2082,7 +2082,7 @@
         var el = document.querySelector('.lock-container');
         if (el) {
           var rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.9) {
+          if (rect.top < window.innerHeight * 0.7) {
             log('already in view, playing immediately');
             play();
             return;
@@ -2090,7 +2090,7 @@
         }
         ScrollTrigger.create({
           trigger: '.lock-container',
-          start: 'top 85%',
+          start: 'top 65%',
           onEnter: play,
           once: true
         });
