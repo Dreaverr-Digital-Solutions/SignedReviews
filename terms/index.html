@@ -111,6 +111,23 @@ a:hover { color: var(--gold-500); }
 .nav-cta {
   display: inline-flex; align-items: center; gap: .55rem; margin-left: .35rem;
 }
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 999px;
+  background: transparent; border: 0; cursor: pointer;
+  color: var(--navy-700);
+}
+:root.theme-dark .theme-toggle, :root.theme-auto .theme-toggle { color: var(--navy-100); }
+.theme-toggle:hover { background: var(--navy-50); }
+:root.theme-dark .theme-toggle:hover, :root.theme-auto .theme-toggle:hover { background: rgba(255,255,255,.06); }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+:root.theme-dark .theme-toggle .icon-sun { display: block; }
+:root.theme-dark .theme-toggle .icon-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root.theme-auto .theme-toggle .icon-sun { display: block; }
+  :root.theme-auto .theme-toggle .icon-moon { display: none; }
+}
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   padding: .55rem 1rem; border-radius: .65rem; font-weight: 600; font-size: .9rem;
@@ -425,6 +442,10 @@ main { padding: 0; }
       <li><a href="/SignedReviews/contact/">Contact</a></li>
     </ul>
     <div class="nav-cta">
+      <button class="theme-toggle" aria-label="Toggle dark mode" onclick="(function(){var d=document.documentElement; d.classList.remove('theme-auto'); var dark=d.classList.toggle('theme-dark'); try{localStorage.setItem('theme', dark?'dark':'light');}catch(_){}})();">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
       <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener">Log in</a>
       <a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener">Sign up</a>
       <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer" onclick="(function(b){var d=document.getElementById('mobileDrawer'); if(!d)return; var open=d.classList.toggle('is-open'); b.setAttribute('aria-expanded', open?'true':'false');})(this);">
