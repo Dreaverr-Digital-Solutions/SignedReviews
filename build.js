@@ -25,6 +25,11 @@ const ROOT = __dirname;
 const FILES_DIR = path.join(ROOT, 'files');
 const SITE_URL = 'https://signedreviews.com';
 const PLATFORM_URL = 'https://platform.signedreviews.com';
+// Root-relative URL prefix for internal links and assets. Use "/" for the
+// custom domain (served at root) or "/SignedReviews/" when deploying to the
+// GitHub Pages project URL. Override with BASE_PATH=/ npm run build.
+const BASE_PATH = (process.env.BASE_PATH || '/SignedReviews/').replace(/\/+$/, '/') || '/';
+const B = BASE_PATH; // shorthand
 
 const COMPANY = {
   legalName: 'Paid Rightly LLC',
@@ -450,9 +455,9 @@ const SHARED_HEAD = ({ title, description, canonical, pageType = 'website' }) =>
   <meta name="twitter:title" content="${escapeHtml(title)}">
   <meta name="twitter:description" content="${escapeHtml(description)}">
 
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png">
-  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png">
+  <link rel="icon" href="${B}favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="${B}images/SignedReviews_logo_only.png">
+  <link rel="apple-touch-icon" href="${B}images/SignedReviews_logo_only.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -464,17 +469,17 @@ const SHARED_HEAD = ({ title, description, canonical, pageType = 'website' }) =>
 const HEADER = (active = '') => `
 <header class="site-header">
   <div class="nav-inner" id="navInner">
-    <a class="brand" href="/" aria-label="${COMPANY.brand} home">
-      <img src="/images/SignedReviews_logo_only.png" alt="" width="28" height="28">
+    <a class="brand" href="${B}" aria-label="${COMPANY.brand} home">
+      <img src="${B}images/SignedReviews_logo_only.png" alt="" width="28" height="28">
       <span class="brand-text">${COMPANY.brand}</span>
     </a>
     <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" onclick="document.getElementById('navInner').classList.toggle('is-open'); this.setAttribute('aria-expanded', document.getElementById('navInner').classList.contains('is-open'));">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
     <ul class="nav-links" role="menu">
-      <li><a href="/pricing/"${active === 'pricing' ? ' aria-current="page"' : ''}>Pricing</a></li>
-      <li><a href="/about/"${active === 'about' ? ' aria-current="page"' : ''}>About</a></li>
-      <li><a href="/contact/"${active === 'contact' ? ' aria-current="page"' : ''}>Contact</a></li>
+      <li><a href="${B}pricing/"${active === 'pricing' ? ' aria-current="page"' : ''}>Pricing</a></li>
+      <li><a href="${B}about/"${active === 'about' ? ' aria-current="page"' : ''}>About</a></li>
+      <li><a href="${B}contact/"${active === 'contact' ? ' aria-current="page"' : ''}>Contact</a></li>
     </ul>
     <div class="nav-cta">
       <a class="btn btn-secondary" href="${PLATFORM_URL}" rel="noopener">Log in</a>
@@ -487,8 +492,8 @@ const FOOTER = `
 <footer class="site-footer" role="contentinfo">
   <div class="footer-grid">
     <div class="footer-brand">
-      <a class="brand" href="/" aria-label="${COMPANY.brand} home">
-        <img src="/images/SignedReviews_logo_only.png" alt="" width="24" height="24">
+      <a class="brand" href="${B}" aria-label="${COMPANY.brand} home">
+        <img src="${B}images/SignedReviews_logo_only.png" alt="" width="24" height="24">
         <span class="brand-text">${COMPANY.brand}</span>
       </a>
       <p>${COMPANY.attribution}</p>
@@ -498,27 +503,27 @@ const FOOTER = `
     <div class="footer-col">
       <h4>Product</h4>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/#how-it-works">How it works</a></li>
-        <li><a href="/#features">Features</a></li>
-        <li><a href="/pricing/">Pricing</a></li>
+        <li><a href="${B}">Home</a></li>
+        <li><a href="${B}#how-it-works">How it works</a></li>
+        <li><a href="${B}#features">Features</a></li>
+        <li><a href="${B}pricing/">Pricing</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/contact/">Contact</a></li>
+        <li><a href="${B}about/">About</a></li>
+        <li><a href="${B}contact/">Contact</a></li>
         <li><a href="mailto:${COMPANY.supportEmail}">Support</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Legal</h4>
       <ul>
-        <li><a href="/privacy/">Privacy Policy</a></li>
-        <li><a href="/terms/">Terms of Service</a></li>
-        <li><a href="/refund-policy/">Refund Policy</a></li>
-        <li><a href="/subprocessors/">Sub-processors</a></li>
+        <li><a href="${B}privacy/">Privacy Policy</a></li>
+        <li><a href="${B}terms/">Terms of Service</a></li>
+        <li><a href="${B}refund-policy/">Refund Policy</a></li>
+        <li><a href="${B}subprocessors/">Sub-processors</a></li>
       </ul>
     </div>
   </div>
@@ -678,7 +683,7 @@ function buildPricing() {
       </div>
 
       <h2>Future paid tiers</h2>
-      <p>If and when paid plans are introduced, we will publish updated pricing and an updated <a href="/refund-policy/">Refund and Cancellation Policy</a> first. We will give you <strong>at least 30 days' advance notice by email</strong> before any charges take effect, so you always have the option to discontinue use of the Service before billing begins.</p>
+      <p>If and when paid plans are introduced, we will publish updated pricing and an updated <a href="${B}refund-policy/">Refund and Cancellation Policy</a> first. We will give you <strong>at least 30 days' advance notice by email</strong> before any charges take effect, so you always have the option to discontinue use of the Service before billing begins.</p>
 
       <h2>Get started</h2>
       <p>Create a free account at the platform — no credit card required.</p>
@@ -732,7 +737,7 @@ function buildContact() {
       </address>
 
       <h2>Response times</h2>
-      <p>We aim to respond to support inquiries within two business days and to legal or privacy inquiries within the timeframes set out in our <a href="/privacy/">Privacy Policy</a>.</p>
+      <p>We aim to respond to support inquiries within two business days and to legal or privacy inquiries within the timeframes set out in our <a href="${B}privacy/">Privacy Policy</a>.</p>
     </article>`;
 
   const html = page({
@@ -759,10 +764,10 @@ function buildAbout() {
       <p>Each review collected through our platform is invited only after a real Stripe transaction completes, is delivered to the buyer's verified email address, and is cryptographically signed so anyone can later verify the review hasn't been altered. The result is a review record that ties back to a specific, completed payment — instead of a star rating posted by an anonymous account that may never have purchased anything.</p>
 
       <h2>Who operates Signed Reviews</h2>
-      <p>${COMPANY.brand} is operated by <strong>${COMPANY.legalName}</strong>, a New Mexico limited liability company headquartered in Albuquerque. ${COMPANY.legalName} is the controller of business-user data and the processor of reviewer data on behalf of our business customers. The full breakdown is described in our <a href="/privacy/">Privacy Policy</a> and the third parties we rely on are listed in our <a href="/subprocessors/">Sub-processors page</a>.</p>
+      <p>${COMPANY.brand} is operated by <strong>${COMPANY.legalName}</strong>, a New Mexico limited liability company headquartered in Albuquerque. ${COMPANY.legalName} is the controller of business-user data and the processor of reviewer data on behalf of our business customers. The full breakdown is described in our <a href="${B}privacy/">Privacy Policy</a> and the third parties we rely on are listed in our <a href="${B}subprocessors/">Sub-processors page</a>.</p>
 
       <h2>How we make money</h2>
-      <p>Signed Reviews is currently free during beta. If and when we introduce paid plans, we will publish updated pricing first and notify users by email at least 30 days before any charges take effect. See the <a href="/pricing/">Pricing page</a> and our <a href="/refund-policy/">Refund and Cancellation Policy</a>.</p>
+      <p>Signed Reviews is currently free during beta. If and when we introduce paid plans, we will publish updated pricing first and notify users by email at least 30 days before any charges take effect. See the <a href="${B}pricing/">Pricing page</a> and our <a href="${B}refund-policy/">Refund and Cancellation Policy</a>.</p>
 
       <h2>Things we deliberately don't do</h2>
       <ul class="feature-list">
