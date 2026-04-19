@@ -135,25 +135,39 @@ a:hover { color: var(--gold-500); }
   background: rgba(255,255,255,.08); color: #fff;
 }
 
-/* ── Mobile nav: collapse links into a button row stack on narrow screens ── */
+/* ── Mobile nav: hide inline links + secondary CTA, show hamburger ── */
+.menu-toggle {
+  display: none; background: transparent; border: 0; padding: 0;
+  width: 40px; height: 40px; border-radius: .5rem;
+  align-items: center; justify-content: center;
+  color: var(--navy-700); cursor: pointer;
+}
+:root.theme-dark .menu-toggle, :root.theme-auto .menu-toggle { color: var(--navy-100); }
+.menu-toggle:hover { background: var(--navy-50); }
+:root.theme-dark .menu-toggle:hover, :root.theme-auto .menu-toggle:hover { background: rgba(255,255,255,.06); }
+
+.mobile-drawer { display: none; }
+.mobile-drawer ul { list-style: none; margin: 0; padding: .5rem 1rem .75rem; }
+.mobile-drawer li { margin: 0; }
+.mobile-drawer a {
+  display: block; padding: .75rem 1rem; border-radius: .5rem;
+  font-size: 1rem; font-weight: 500; text-decoration: none;
+  color: var(--navy-700);
+}
+:root.theme-dark .mobile-drawer a, :root.theme-auto .mobile-drawer a { color: var(--navy-100); }
+.mobile-drawer a:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .mobile-drawer a:hover, :root.theme-auto .mobile-drawer a:hover { background: rgba(255,255,255,.06); color: #fff; }
+
 @media (max-width: 720px) {
   .nav-links { display: none; }
-  .nav-cta .btn { padding: .45rem .8rem; font-size: .85rem; }
-}
-.menu-toggle {
-  display: none; background: transparent; border: 0; padding: .35rem;
-  color: inherit; cursor: pointer;
-}
-@media (max-width: 720px) {
-  .menu-toggle { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: .5rem; }
-  .nav-inner.is-open .nav-links {
-    display: flex; flex-direction: column; align-items: stretch;
-    position: absolute; top: 64px; left: 0; right: 0;
-    background: var(--surface); padding: .75rem 1rem; gap: .25rem;
-    border-bottom: 1px solid var(--border);
+  .nav-cta .btn-secondary { display: none; }
+  .nav-cta .btn { padding: .45rem .85rem; font-size: .85rem; }
+  .menu-toggle { display: inline-flex; }
+  .mobile-drawer.is-open {
+    display: block;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
   }
-  .nav-inner.is-open .nav-links a { padding: .75rem 1rem; border-radius: .5rem; }
-  .menu-toggle:hover { background: var(--navy-50); }
 }
 
 /* ── Main / prose ── */
@@ -405,9 +419,6 @@ main { padding: 0; }
       <img src="/SignedReviews/images/SignedReviews_logo_only.png" alt="" width="28" height="28">
       <span class="brand-text">Signed Reviews</span>
     </a>
-    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" onclick="document.getElementById('navInner').classList.toggle('is-open'); this.setAttribute('aria-expanded', document.getElementById('navInner').classList.contains('is-open'));">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
     <ul class="nav-links" role="menu">
       <li><a href="/SignedReviews/pricing/">Pricing</a></li>
       <li><a href="/SignedReviews/about/">About</a></li>
@@ -416,7 +427,18 @@ main { padding: 0; }
     <div class="nav-cta">
       <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener">Log in</a>
       <a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener">Sign up</a>
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer" onclick="(function(b){var d=document.getElementById('mobileDrawer'); if(!d)return; var open=d.classList.toggle('is-open'); b.setAttribute('aria-expanded', open?'true':'false');})(this);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
     </div>
+  </div>
+  <div id="mobileDrawer" class="mobile-drawer" aria-label="Mobile navigation">
+    <ul>
+      <li><a href="/SignedReviews/pricing/">Pricing</a></li>
+      <li><a href="/SignedReviews/about/">About</a></li>
+      <li><a href="/SignedReviews/contact/" aria-current="page">Contact</a></li>
+      <li><a href="https://platform.signedreviews.com" rel="noopener">Log in</a></li>
+    </ul>
   </div>
 </header>
   <main id="main">

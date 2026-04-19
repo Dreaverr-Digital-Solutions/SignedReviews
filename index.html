@@ -658,8 +658,8 @@
 
   <!-- ─── NAV ──────────────────────────────────────────────── -->
   <nav class="fixed top-0 left-0 right-0 z-50 nav-liquid-glass bg-white/80 dark:bg-navy-900/75 backdrop-blur-2xl border-b border-white/30 dark:border-white/8 transition-colors" aria-label="Primary">
-    <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
-      <a href="/SignedReviews/" class="flex items-center" aria-label="Signed Reviews — home">
+    <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16 gap-2">
+      <a href="/SignedReviews/" class="flex items-center shrink-0" aria-label="Signed Reviews — home">
         <img src="images/SignedReviews_font_only.png" alt="Signed Reviews" class="logo-img h-9 object-contain">
       </a>
       <ul class="hidden md:flex items-center gap-1 list-none m-0 p-0">
@@ -667,14 +667,26 @@
         <li><a href="/SignedReviews/about/" class="px-3 py-2 text-sm font-medium text-navy-700 dark:text-navy-100 hover:text-navy-900 dark:hover:text-white rounded-lg hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">About</a></li>
         <li><a href="/SignedReviews/contact/" class="px-3 py-2 text-sm font-medium text-navy-700 dark:text-navy-100 hover:text-navy-900 dark:hover:text-white rounded-lg hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Contact</a></li>
       </ul>
-      <div class="flex items-center gap-2">
-        <button onclick="toggleDark()" class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-navy-50 dark:hover:bg-navy-700 transition-colors" aria-label="Toggle dark mode">
+      <div class="flex items-center gap-2 shrink-0">
+        <button onclick="toggleDark()" class="hidden sm:inline-flex w-9 h-9 rounded-full items-center justify-center hover:bg-navy-50 dark:hover:bg-navy-700 transition-colors" aria-label="Toggle dark mode">
           <svg class="w-5 h-5 hidden dark:block text-navy-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
           <svg class="w-5 h-5 dark:hidden text-navy-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
         </button>
-        <a href="https://platform.signedreviews.com" rel="noopener" class="hidden sm:inline-flex px-3 py-2 text-sm font-semibold text-navy-700 dark:text-navy-100 hover:text-navy-900 dark:hover:text-white rounded-lg hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Log in</a>
-        <a href="https://platform.signedreviews.com" rel="noopener" class="px-4 py-2 btn-gold btn-ripple text-white rounded-xl text-sm font-semibold">Sign up</a>
+        <a href="https://platform.signedreviews.com" rel="noopener" class="hidden md:inline-flex px-3 py-2 text-sm font-semibold text-navy-700 dark:text-navy-100 hover:text-navy-900 dark:hover:text-white rounded-lg hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Log in</a>
+        <a href="https://platform.signedreviews.com" rel="noopener" class="px-4 py-2 btn-gold btn-ripple text-white rounded-xl text-sm font-semibold whitespace-nowrap">Sign up</a>
+        <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 rounded-lg flex items-center justify-center text-navy-700 dark:text-navy-100 hover:bg-navy-50 dark:hover:bg-white/5 transition-colors" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" id="mobileMenuBtn">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        </button>
       </div>
+    </div>
+    <!-- Mobile drawer -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-navy-100 dark:border-navy-800 bg-white/95 dark:bg-navy-900/95 backdrop-blur-xl">
+      <ul class="max-w-6xl mx-auto px-5 py-3 flex flex-col gap-1 list-none m-0">
+        <li><a href="/SignedReviews/pricing/" class="block px-3 py-3 rounded-lg text-base font-medium text-navy-700 dark:text-navy-100 hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Pricing</a></li>
+        <li><a href="/SignedReviews/about/" class="block px-3 py-3 rounded-lg text-base font-medium text-navy-700 dark:text-navy-100 hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">About</a></li>
+        <li><a href="/SignedReviews/contact/" class="block px-3 py-3 rounded-lg text-base font-medium text-navy-700 dark:text-navy-100 hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Contact</a></li>
+        <li><a href="https://platform.signedreviews.com" rel="noopener" class="block px-3 py-3 rounded-lg text-base font-semibold text-navy-700 dark:text-navy-100 hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Log in</a></li>
+      </ul>
     </div>
   </nav>
 
@@ -1609,6 +1621,15 @@
     function toggleDark(){
       document.documentElement.classList.toggle('dark');
       localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    }
+
+    /* Mobile menu drawer */
+    function toggleMobileMenu(){
+      var menu = document.getElementById('mobileMenu');
+      var btn  = document.getElementById('mobileMenuBtn');
+      if (!menu || !btn) return;
+      var open = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
     if (localStorage.getItem('theme') === 'dark' ||
         (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme:dark)').matches)) {
