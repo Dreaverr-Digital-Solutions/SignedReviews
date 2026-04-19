@@ -993,19 +993,26 @@
   <section class="py-24 px-5 bg-white dark:bg-navy-800 transition-colors">
     <div class="max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
       <div class="flex-shrink-0 w-full lg:w-1/2 flex justify-center">
-        <svg class="w-72 h-72 sm:w-80 sm:h-80 float-anim" viewBox="0 0 320 320" fill="none">
-          <circle cx="160" cy="160" r="140" fill="#eef1f8"/>
-          <circle cx="160" cy="160" r="110" fill="#d5dcee"/>
-          <path d="M160 60L240 100V180C240 230 200 270 160 290C120 270 80 230 80 180V100L160 60Z" fill="#2b3b60" opacity=".92"/>
-          <path d="M160 75L228 110V178C228 222 192 256 160 274C128 256 92 222 92 178V110L160 75Z" fill="white"/>
-          <path d="M130 165L150 185L195 135" stroke="#b39d45" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <rect x="220" y="82" width="52" height="6" rx="3" fill="#87a2c4" opacity=".5"/>
-          <rect x="226" y="94" width="36" height="4" rx="2" fill="#87a2c4" opacity=".3"/>
-          <rect x="48" y="198" width="42" height="6" rx="3" fill="#87a2c4" opacity=".5"/>
-          <circle cx="272" cy="152" r="5" fill="#87a2c4" opacity=".35"/>
-          <circle cx="54" cy="132" r="4" fill="#b39d45" opacity=".35"/>
-          <circle cx="262" cy="220" r="6" fill="#b39d45" opacity=".25"/>
-        </svg>
+        <div class="shield-container">
+          <svg viewBox="0 0 400 400" class="w-72 h-72 sm:w-80 sm:h-80" xmlns="http://www.w3.org/2000/svg" aria-label="Verified shield">
+            <g class="deco-group">
+              <circle class="deco" cx="78" cy="145" r="3.5" fill="#c2bd72" />
+              <circle class="deco" cx="320" cy="218" r="4" fill="#7a8aab" />
+              <circle class="deco" cx="85" cy="295" r="5" fill="#d4cf90" />
+              <circle class="deco" cx="318" cy="328" r="3" fill="#a8a370" />
+              <line class="deco" x1="58" y1="262" x2="102" y2="262" stroke="#a6a168" stroke-width="4" stroke-linecap="round" />
+              <line class="deco" x1="285" y1="135" x2="345" y2="135" stroke="#8595b8" stroke-width="4" stroke-linecap="round" />
+              <line class="deco" x1="278" y1="172" x2="308" y2="172" stroke="#9aa6c0" stroke-width="3" stroke-linecap="round" />
+            </g>
+            <circle class="bg-circle" cx="200" cy="200" r="175" fill="#dfe3ee" opacity="0.7" />
+            <circle class="inner-ring" cx="200" cy="200" r="155" fill="#c8cfe0" opacity="0.5" />
+            <g class="float-group">
+              <path class="shield-fill" d="M 200 65 L 290 95 L 290 225 Q 290 295 200 335 Q 110 295 110 225 L 110 95 Z" fill="#ffffff" />
+              <path class="shield-stroke" pathLength="1" d="M 200 65 L 290 95 L 290 225 Q 290 295 200 335 Q 110 295 110 225 L 110 95 Z" fill="none" stroke="#3d4663" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+              <path class="check-stroke" pathLength="1" d="M 150 200 L 185 235 L 248 165" fill="none" stroke="#b5b04a" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+          </svg>
+        </div>
       </div>
       <div class="flex-1 text-center lg:text-left">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-navy-50 dark:bg-navy-700 border border-navy-200 dark:border-navy-600 text-navy-500 dark:text-navy-300 text-sm font-semibold mb-5">
@@ -1893,6 +1900,53 @@
       })();
 
     }); /* end DOMContentLoaded */
+  </script>
+
+  <!-- ── GSAP + ScrollTrigger: animated shield ─────────────────── -->
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script defer>
+    window.addEventListener('load', () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      let floatAnim;
+
+      function playShieldAnimation() {
+        if (floatAnim) floatAnim.kill();
+
+        gsap.set('.bg-circle',    { scale: 0, opacity: 0, transformOrigin: '200px 200px' });
+        gsap.set('.inner-ring',   { scale: 0, opacity: 0, transformOrigin: '200px 200px' });
+        gsap.set('.shield-stroke',{ strokeDasharray: 1, strokeDashoffset: 1 });
+        gsap.set('.shield-fill',  { opacity: 0 });
+        gsap.set('.check-stroke', { strokeDasharray: 1, strokeDashoffset: 1 });
+        gsap.set('.deco',         { scale: 0, opacity: 0, transformOrigin: '50% 50%' });
+        gsap.set('.float-group',  { y: 0 });
+
+        const tl = gsap.timeline({
+          defaults: { ease: 'power2.out' },
+          onComplete: () => {
+            floatAnim = gsap.to('.float-group', {
+              y: -10, duration: 1.2, ease: 'sine.inOut', yoyo: true, repeat: -1
+            });
+          }
+        });
+
+        tl.to('.bg-circle',    { scale: 1, opacity: 0.7, duration: 0.7, ease: 'back.out(1.4)' })
+          .to('.inner-ring',   { scale: 1, opacity: 0.5, duration: 0.5 }, '-=0.5')
+          .to('.shield-stroke',{ strokeDashoffset: 0, duration: 0.8, ease: 'power2.inOut' }, '-=0.3')
+          .to('.shield-fill',  { opacity: 1, duration: 0.3 }, '-=0.4')
+          .to('.check-stroke', { strokeDashoffset: 0, duration: 0.5, ease: 'power2.out' }, '-=0.1')
+          .to('.deco',         { scale: 1, opacity: 1, duration: 0.4, stagger: 0.05, ease: 'back.out(2)' }, '-=0.3');
+      }
+
+      ScrollTrigger.create({
+        trigger: '.shield-container',
+        start: 'top 75%',
+        onEnter: playShieldAnimation,
+        once: true
+      });
+    });
   </script>
 </body>
 </html>
