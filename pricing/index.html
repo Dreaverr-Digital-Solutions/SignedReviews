@@ -297,7 +297,7 @@ main { padding: 0; }
   white-space: nowrap;
 }
 
-/* Header zone */
+/* Header zone — fixed min-height on persona so every card's price block starts at the same Y */
 .tier-header { margin-bottom: 1.2rem; }
 .tier-name {
   font-family: 'Instrument Serif', Georgia, serif;
@@ -307,6 +307,7 @@ main { padding: 0; }
 :root.theme-dark .tier-name, :root.theme-auto .tier-name { color: #fff; }
 .tier-persona {
   font-size: .86rem; line-height: 1.5; color: var(--muted); margin: 0;
+  min-height: 3em; /* reserve space for 2 lines so price block aligns across tiers */
 }
 
 /* Price block */
@@ -581,14 +582,14 @@ main { padding: 0; }
       <article class="tier">
         <header class="tier-header">
           <h2 class="tier-name">Free</h2>
-          <p class="tier-persona">Try the product with real customers — no card required.</p>
+          <p class="tier-persona">For merchants trying the product with real customers.</p>
         </header>
         <div class="tier-price-block">
           <div class="tier-price">
             <span class="amount">$0</span>
             <span class="period">forever</span>
           </div>
-          <span class="tier-invitations">100 invitations · lifetime</span>
+          <span class="tier-invitations">100 invitations · total</span>
         </div>
         <p class="tier-cta">
           <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener">Start free</a>
@@ -596,7 +597,6 @@ main { padding: 0; }
         <ul class="tier-features">
           <li class="feature-primary">100 review invitations, lifetime</li>
           <li>All collected reviews visible forever</li>
-          <li>Verified by Signed Reviews badge</li>
           <li>1 team seat</li>
           <li>Stripe-native onboarding</li>
           <li>Hosted public review page + widget</li>
@@ -639,7 +639,7 @@ main { padding: 0; }
         <span class="tier-badge">Most popular</span>
         <header class="tier-header">
           <h2 class="tier-name">Pro</h2>
-          <p class="tier-persona">For growing brands with a CS team and integrations to wire up.</p>
+          <p class="tier-persona">For growing brands with a team and integrations.</p>
         </header>
         <div class="tier-price-block">
           <div class="tier-price">
@@ -667,7 +667,7 @@ main { padding: 0; }
       <article class="tier">
         <header class="tier-header">
           <h2 class="tier-name">Scale</h2>
-          <p class="tier-persona">For high-volume DTC brands and agencies running reviews at scale.</p>
+          <p class="tier-persona">For high-volume DTC brands and review agencies.</p>
         </header>
         <div class="tier-price-block">
           <div class="tier-price">
