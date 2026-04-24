@@ -268,17 +268,12 @@ main { padding: 0; }
   box-shadow: 0 16px 36px rgba(0,0,0,.45);
 }
 
-/* Featured — gold left-accent stripe + lifted shadow */
+/* Featured — gold border + lifted shadow; the "Most popular" pill, gold border,
+   gold shadow, and gold primary CTA together signal the featured tier without
+   needing an extra accent stripe. */
 .tier.is-featured {
   border-color: var(--gold-400);
   box-shadow: 0 16px 40px rgba(179,157,69,.22);
-}
-.tier.is-featured::after {
-  content: '';
-  position: absolute; top: 0; bottom: 0; left: 0;
-  width: 4px; border-radius: 20px 0 0 20px;
-  background: linear-gradient(180deg, var(--gold-400), var(--gold-600));
-  pointer-events: none;
 }
 .tier.is-featured:hover {
   border-color: var(--gold-400);
