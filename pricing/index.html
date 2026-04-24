@@ -268,27 +268,31 @@ main { padding: 0; }
   box-shadow: 0 16px 36px rgba(0,0,0,.45);
 }
 
-/* Featured — gold border + lifted shadow; the "Most popular" pill, gold border,
-   gold shadow, and gold primary CTA together signal the featured tier without
-   needing an extra accent stripe. */
+/* Featured — gold border is the primary signal; shadow stays neutral so no gold
+   halo bleeds past the card edges. */
 .tier.is-featured {
   border-color: var(--gold-400);
-  box-shadow: 0 16px 40px rgba(179,157,69,.22);
+  box-shadow: 0 14px 36px rgba(13,28,46,.08);
 }
 .tier.is-featured:hover {
   border-color: var(--gold-400);
-  box-shadow: 0 20px 48px rgba(179,157,69,.32);
+  box-shadow: 0 18px 44px rgba(13,28,46,.12);
+}
+:root.theme-dark .tier.is-featured, :root.theme-auto .tier.is-featured {
+  box-shadow: 0 14px 36px rgba(0,0,0,.45);
+}
+:root.theme-dark .tier.is-featured:hover, :root.theme-auto .tier.is-featured:hover {
+  box-shadow: 0 18px 44px rgba(0,0,0,.55);
 }
 
-/* "Most popular" pill */
+/* "Most popular" pill — solid gold, no gradient, no shadow drip, no edge lines */
 .tier-badge {
-  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-  background: linear-gradient(135deg, var(--gold-400), var(--gold-500) 55%, var(--gold-600));
+  position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
+  background: var(--gold-500);
   color: #fff;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 600;
-  padding: .38rem .85rem; border-radius: 999px;
-  box-shadow: 0 6px 14px rgba(179,157,69,.34);
+  padding: .34rem .8rem; border-radius: 999px;
   white-space: nowrap;
 }
 
