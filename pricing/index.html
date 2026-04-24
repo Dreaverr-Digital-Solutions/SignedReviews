@@ -453,9 +453,9 @@ main { padding: 0; }
 .assurances {
   max-width: 1100px; margin: 0 auto 3.5rem; padding: 0 1.25rem;
   display: grid; gap: 1rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-@media (max-width: 860px) { .assurances { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .assurances { grid-template-columns: 1fr; } }
 .assurance {
   background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
   padding: 1.1rem 1.2rem;
@@ -818,6 +818,10 @@ main { padding: 0; }
     <article class="assurance">
       <h3>Read-only Stripe access.</h3>
       <p>We never charge, refund, or modify anything in your Stripe account. We read completed charges to trigger verified review requests — that's it.</p>
+    </article>
+    <article class="assurance">
+      <h3>The API can't create reviews.</h3>
+      <p>No matter which plan you're on, reviews only come from real customers clicking real signed invitation links. The write API handles replies, moderation, and sending invitations — never creating review records. The badge stays meaningful because the rule doesn't bend.</p>
     </article>
     <article class="assurance">
       <h3>No surprise billing.</h3>
