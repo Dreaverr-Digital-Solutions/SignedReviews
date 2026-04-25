@@ -239,6 +239,8 @@ On termination, your right to use the Service ends immediately. Sections of thes
 
 The Service integrates with third-party services, including Stripe, Resend, Cloudinary, Anthropic, OAuth providers (Google, GitHub, LinkedIn, Microsoft, Facebook, Twitter/X, Instagram), and others listed at [signedreviews.com/subprocessors](https://signedreviews.com/subprocessors). Your use of those services is governed by their own terms. We are not responsible for the acts, omissions, or policies of third-party services.
 
+When we process personal data of your customers (reviewers) on your behalf, we act as your processor under GDPR Article 28 and equivalent privacy laws. The terms of that processing relationship are set out in our [Data Processing Agreement](/dpa/), which is incorporated into these Terms by reference and applies automatically when you accept these Terms.
+
 ---
 
 ## 14. Disclaimers

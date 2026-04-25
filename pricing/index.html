@@ -4,24 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pricing — Signed Reviews</title>
-  <meta name="description" content="Signed Reviews pricing: Free, Starter, Pro, Scale. Free during beta — post-beta pricing starts at $29/month. Every plan includes the Verified by Signed Reviews trust badge.">
+  <meta name="description" content="Signed Reviews is free during beta. Sign up at platform.signedreviews.com — no credit card required.">
   <link rel="canonical" href="https://signedreviews.com/pricing/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Pricing — Signed Reviews">
-  <meta property="og:description" content="Free during beta. Post-beta plans start at $29/month. Every tier includes Purchase Verified review collection, the trust badge, and read-only Stripe integration.">
+  <meta property="og:description" content="Signed Reviews is free during beta. Sign up at platform.signedreviews.com — no credit card required.">
   <meta property="og:url" content="https://signedreviews.com/pricing/">
   <meta property="og:site_name" content="Signed Reviews">
   <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Pricing — Signed Reviews">
-  <meta name="twitter:description" content="Free during beta. Post-beta plans start at $29/month. Every tier includes Purchase Verified review collection, the trust badge, and read-only Stripe integration.">
+  <meta name="twitter:description" content="Signed Reviews is free during beta. Sign up at platform.signedreviews.com — no credit card required.">
 
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png">
-  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png">
+  <link rel="icon" href="C:/Program Files/Git/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="C:/Program Files/Git/images/SignedReviews_logo_only.png">
+  <link rel="apple-touch-icon" href="C:/Program Files/Git/images/SignedReviews_logo_only.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,6 +96,7 @@ a:hover { color: var(--gold-500); }
   .brand .brand-icon     { height: 34px; }
   .brand .brand-wordmark { height: 24px; }
 }
+/* Auto-invert the black wordmark in dark mode so it's readable */
 :root.theme-dark .brand .brand-wordmark,
 :root.theme-auto .brand .brand-wordmark { filter: brightness(0) invert(1); opacity: .92; }
 @media (prefers-color-scheme: light) {
@@ -158,7 +159,7 @@ a:hover { color: var(--gold-500); }
   background: rgba(255,255,255,.08); color: #fff;
 }
 
-/* Mobile nav */
+/* ── Mobile nav: hide inline links + secondary CTA, show hamburger ── */
 .menu-toggle {
   display: none; background: transparent; border: 0; padding: 0;
   width: 40px; height: 40px; border-radius: .5rem;
@@ -193,7 +194,7 @@ a:hover { color: var(--gold-500); }
   }
 }
 
-/* ── Main / hero ── */
+/* ── Main / prose ── */
 main { padding: 0; }
 .page-hero {
   background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
@@ -216,277 +217,190 @@ main { padding: 0; }
   color: var(--gold-600); margin-bottom: .9rem;
 }
 
-.section { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+.prose-wrap {
+  max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem;
+}
+@media (min-width: 980px) {
+  .prose-wrap.has-toc { grid-template-columns: minmax(0, 1fr) 240px; }
+}
 
-/* ── Beta banner ── */
-.beta-banner {
-  max-width: 1100px; margin: 2rem auto 0; padding: .9rem 1.15rem;
-  display: flex; gap: .85rem; align-items: flex-start;
-  background: var(--gold-50); border: 1px solid var(--gold-400);
-  border-radius: 12px;
-  color: var(--navy-800);
-}
-:root.theme-dark .beta-banner, :root.theme-auto .beta-banner {
-  background: rgba(179,157,69,.10); color: #fff; border-color: rgba(179,157,69,.35);
-}
-.beta-banner .dot {
-  flex-shrink: 0;
-  width: 8px; height: 8px; border-radius: 999px;
-  background: var(--gold-500);
-  margin-top: .55rem;
-  box-shadow: 0 0 0 4px rgba(179,157,69,.2);
-}
-.beta-banner p { margin: 0; font-size: .92rem; line-height: 1.55; }
-.beta-banner strong { color: var(--navy-900); }
-:root.theme-dark .beta-banner strong, :root.theme-auto .beta-banner strong { color: #fff; }
-
-/* ── Tier grid ── */
-.tiers {
-  display: grid; gap: 1.1rem;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin: 2rem 0 2.5rem;
-}
-@media (max-width: 1040px) { .tiers { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 560px)  { .tiers { grid-template-columns: 1fr; } }
-
-.tier {
-  position: relative;
-  display: flex; flex-direction: column;
+.prose {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 1.75rem 1.55rem;
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  border-radius: 16px;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  max-width: var(--max-prose);
+  width: 100%;
+  margin: 0;
 }
-/* Non-featured hover: navy-tinted glow — same visual energy as the gold glow on
-   the featured card, just in the brand's primary hue instead. */
-.tier:hover {
-  transform: translateY(-3px);
-  border-color: var(--navy-200);
-  box-shadow: 0 20px 46px rgba(36,50,82,.22);
-}
-:root.theme-dark .tier:hover, :root.theme-auto .tier:hover {
-  border-color: rgba(255,255,255,.25);
-  box-shadow: 0 20px 46px rgba(93,122,170,.28); /* navy-400 on dark bg */
-}
-
-/* Featured — gold border is the primary signal at rest; shadow stays neutral so
-   no gold halo bleeds past the card edges. On hover, the gold glow returns. */
-.tier.is-featured {
-  border-color: var(--gold-400);
-  box-shadow: 0 14px 36px rgba(13,28,46,.08);
-}
-.tier.is-featured:hover {
-  border-color: var(--gold-400);
-  box-shadow: 0 22px 50px rgba(179,157,69,.36); /* gold glow on hover */
-}
-:root.theme-dark .tier.is-featured, :root.theme-auto .tier.is-featured {
-  box-shadow: 0 14px 36px rgba(0,0,0,.45);
-}
-:root.theme-dark .tier.is-featured:hover, :root.theme-auto .tier.is-featured:hover {
-  box-shadow: 0 22px 50px rgba(212,196,102,.28); /* gold-300 glow on dark bg */
-}
-
-/* "Most popular" pill — solid gold, no gradient, no shadow drip, no edge lines */
-.tier-badge {
-  position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
-  background: var(--gold-500);
-  color: #fff;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 600;
-  padding: .34rem .8rem; border-radius: 999px;
-  white-space: nowrap;
-}
-
-/* Header zone — fixed min-height on persona so every card's price block starts at the same Y */
-.tier-header { margin-bottom: 1.2rem; }
-.tier-name {
+.prose h1 { display: none; } /* page hero already shows the h1 */
+.prose h2, .prose h3, .prose h4 {
   font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 1.85rem; line-height: 1.1; letter-spacing: -0.015em;
-  color: var(--navy-900); margin: 0 0 .3rem;
-}
-:root.theme-dark .tier-name, :root.theme-auto .tier-name { color: #fff; }
-.tier-persona {
-  font-size: .86rem; line-height: 1.5; color: var(--muted); margin: 0;
-  min-height: 3em; /* reserve space for 2 lines so price block aligns across tiers */
-}
-
-/* Price block */
-.tier-price-block { margin-bottom: 1.35rem; }
-.tier-price {
-  display: flex; align-items: baseline; gap: .35rem; margin-bottom: .6rem;
-  font-family: 'Inter', system-ui, sans-serif;
   color: var(--navy-900);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 2.4rem 0 .9rem;
 }
-:root.theme-dark .tier-price, :root.theme-auto .tier-price { color: #fff; }
-.tier-price .amount {
-  font-size: 2.75rem; font-weight: 700; line-height: 1; letter-spacing: -0.03em;
-}
-.tier-price .period {
-  color: var(--muted); font-size: .88rem; font-weight: 500;
-}
-.tier-invitations {
-  display: inline-flex; align-items: center; gap: .35rem;
-  font-size: .78rem; font-weight: 600; letter-spacing: .005em;
-  color: var(--gold-600); background: var(--gold-50);
-  padding: .32rem .6rem; border-radius: 999px;
-  border: 1px solid rgba(179,157,69,.22);
-}
-:root.theme-dark .tier-invitations, :root.theme-auto .tier-invitations {
-  color: var(--gold-300); background: rgba(179,157,69,.12);
-  border-color: rgba(179,157,69,.28);
+:root.theme-dark .prose h2, :root.theme-dark .prose h3, :root.theme-dark .prose h4,
+:root.theme-auto .prose h2, :root.theme-auto .prose h3, :root.theme-auto .prose h4 { color: #fff; }
+.prose h2 { font-size: 1.65rem; padding-top: .25rem; }
+.prose h3 { font-size: 1.25rem; }
+.prose h4 { font-size: 1.05rem; font-family: 'Inter', system-ui, sans-serif; font-weight: 700; }
+.prose h2:first-of-type { margin-top: 0; }
+
+.prose p, .prose li { color: var(--text); }
+.prose p { margin: 0 0 1rem; }
+.prose ul, .prose ol { padding-left: 1.4rem; margin: 0 0 1rem; }
+.prose li { margin: .35rem 0; }
+
+.prose strong { color: var(--navy-900); }
+:root.theme-dark .prose strong, :root.theme-auto .prose strong { color: #fff; }
+
+.prose hr {
+  border: 0; height: 1px; background: var(--border); margin: 2.5rem 0;
 }
 
-/* CTA */
-.tier-cta { margin: 0 0 1.5rem; }
-.tier-cta .btn {
-  width: 100%; padding: .7rem 1rem; font-size: .92rem; border-radius: .7rem;
+.prose code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size: .9em;
+  background: var(--navy-50); color: var(--navy-700);
+  padding: .12em .42em; border-radius: 4px;
+}
+:root.theme-dark .prose code, :root.theme-auto .prose code {
+  background: rgba(255,255,255,.08); color: var(--gold-300);
 }
 
-/* Feature list — bottom-aligned via flex-grow so CTAs line up across tiers */
-.tier-features {
-  flex: 1 1 auto;
-  list-style: none; padding: 1.15rem 0 0; margin: 0;
-  border-top: 1px solid var(--border);
-  font-size: .9rem; line-height: 1.5;
+.prose a.anchor {
+  text-decoration: none; color: var(--navy-200); margin-right: .35rem;
+  font-weight: 400; opacity: 0; transition: opacity .15s ease;
 }
-.tier-features li {
-  display: flex; gap: .65rem; align-items: flex-start;
-  padding: .38rem 0;
-  color: var(--text);
-}
-.tier-features li::before {
-  content: '';
-  flex-shrink: 0;
-  width: 15px; height: 15px; margin-top: 4px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='%23b39d45' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round' d='M3 8.2l3.2 3.2L13 4.6'/></svg>");
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.tier-features li.feature-primary {
-  color: var(--navy-900); font-weight: 600;
-}
-:root.theme-dark .tier-features li.feature-primary,
-:root.theme-auto .tier-features li.feature-primary { color: #fff; }
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
 
-/* ── Comparison table ── */
-.compare-intro {
-  max-width: 1100px; margin: 3rem auto 1rem; padding: 0 1.25rem;
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding: 1.1rem 1.25rem;
+  border-left: 4px solid var(--gold-500);
+  background: var(--gold-50);
+  color: var(--navy-800);
+  border-radius: 0 .5rem .5rem 0;
 }
-.compare-intro h2 {
-  font-family: 'Instrument Serif', Georgia, serif; font-size: 1.65rem;
-  margin: 0 0 .35rem; color: var(--navy-900); letter-spacing: -0.01em;
+.prose blockquote p { margin: 0; }
+.prose blockquote strong { color: var(--gold-600); }
+:root.theme-dark .prose blockquote, :root.theme-auto .prose blockquote {
+  background: rgba(179,157,69,.10); color: #fff;
 }
-:root.theme-dark .compare-intro h2, :root.theme-auto .compare-intro h2 { color: #fff; }
-.compare-intro p { margin: 0; color: var(--muted); font-size: .95rem; }
 
-.compare-table-wrap {
-  max-width: 1100px; margin: 0 auto 3rem; padding: 0 1.25rem;
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0 1.5rem;
+  font-size: .92rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  display: block;
   overflow-x: auto;
 }
-.compare-table {
-  width: 100%;
-  border-collapse: separate; border-spacing: 0;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-  font-size: .92rem;
-  min-width: 780px;
-}
-.compare-table thead th {
-  background: var(--navy-50);
-  color: var(--navy-900); font-weight: 600; text-align: left;
-  padding: 1rem 1rem;
+.prose thead { background: var(--navy-50); }
+:root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
+.prose th, .prose td {
+  padding: .7rem .9rem; text-align: left; vertical-align: top;
   border-bottom: 1px solid var(--border);
-  font-family: 'Inter', system-ui, sans-serif;
 }
-:root.theme-dark .compare-table thead th,
-:root.theme-auto .compare-table thead th {
-  background: rgba(255,255,255,.04); color: #fff;
+.prose th { font-weight: 600; color: var(--navy-900); }
+:root.theme-dark .prose th, :root.theme-auto .prose th { color: #fff; }
+.prose tbody tr:last-child td { border-bottom: 0; }
+.prose tbody tr:nth-child(even) td { background: rgba(43,59,96,.025); }
+:root.theme-dark .prose tbody tr:nth-child(even) td,
+:root.theme-auto .prose tbody tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+
+/* ── ToC sidebar (legal pages) ── */
+.toc {
+  position: sticky; top: 88px; align-self: start;
+  font-size: .88rem; max-height: calc(100vh - 110px); overflow-y: auto;
+  padding: 1rem 1.1rem; border: 1px solid var(--border);
+  background: var(--surface); border-radius: 12px;
 }
-.compare-table thead th:first-child {
+.toc h2 {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--muted); font-weight: 500;
+  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 .6rem;
 }
-.compare-table thead th .col-price {
-  display: block; font-family: 'Inter', system-ui, sans-serif;
-  font-size: .8rem; color: var(--muted); font-weight: 500; margin-top: .15rem;
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: .15rem 0; }
+.toc a {
+  color: var(--navy-700); text-decoration: none; display: block;
+  padding: .25rem .35rem; border-radius: .35rem; line-height: 1.35;
 }
-.compare-table td, .compare-table th {
-  padding: .75rem 1rem; vertical-align: top;
-  border-bottom: 1px solid var(--border);
-}
-.compare-table tbody th {
-  text-align: left; font-weight: 500; color: var(--navy-700);
-  background: transparent; font-family: 'Inter', system-ui, sans-serif;
-}
-:root.theme-dark .compare-table tbody th,
-:root.theme-auto .compare-table tbody th { color: var(--navy-100); }
-.compare-table tbody tr:last-child td,
-.compare-table tbody tr:last-child th { border-bottom: 0; }
-.compare-table td { color: var(--text); }
-.compare-table td.dim { color: var(--muted); }
-.compare-table .check { color: var(--gold-500); font-weight: 700; }
+:root.theme-dark .toc a, :root.theme-auto .toc a { color: var(--navy-100); }
+.toc a:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .toc a:hover, :root.theme-auto .toc a:hover { background: rgba(255,255,255,.06); color: #fff; }
+@media (max-width: 980px) { .toc { display: none; } }
 
-/* ── Add-on card + FAQ-ish blocks ── */
-.addon-card {
-  max-width: 1100px; margin: 0 auto 3rem; padding: 1.4rem 1.5rem;
-  display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;
+/* ── Marketing utility blocks ── */
+.section { max-width: 1100px; margin: 0 auto; padding: 3rem 1.25rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.card {
   background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.5rem;
 }
-.addon-card .addon-name {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 1.35rem; color: var(--navy-900); margin: 0;
+.card h3 {
+  font-family: 'Instrument Serif', Georgia, serif; font-size: 1.4rem;
+  margin: 0 0 .5rem; color: var(--navy-900);
 }
-:root.theme-dark .addon-card .addon-name,
-:root.theme-auto .addon-card .addon-name { color: #fff; }
-.addon-card p { margin: .25rem 0 0; color: var(--muted); font-size: .92rem; }
-.addon-card .addon-price {
-  margin-left: auto;
-  font-size: 1.15rem; font-weight: 600; color: var(--navy-900);
+:root.theme-dark .card h3, :root.theme-auto .card h3 { color: #fff; }
+.card p { margin: 0; color: var(--muted); }
+.card-featured {
+  border-color: var(--gold-400);
+  box-shadow: 0 6px 26px rgba(179,157,69,.18);
 }
-:root.theme-dark .addon-card .addon-price,
-:root.theme-auto .addon-card .addon-price { color: var(--gold-300); }
-@media (max-width: 560px) { .addon-card .addon-price { margin-left: 0; } }
+.badge {
+  display: inline-block; padding: .25rem .55rem; border-radius: 999px;
+  font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  background: var(--gold-100); color: var(--gold-600); margin-bottom: .65rem;
+}
+:root.theme-dark .badge, :root.theme-auto .badge {
+  background: rgba(179,157,69,.18); color: var(--gold-300);
+}
 
-.assurances {
-  max-width: 1100px; margin: 0 auto 3.5rem; padding: 0 1.25rem;
-  display: grid; gap: 1rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+.feature-list { list-style: none; padding: 0; margin: 1rem 0 1.5rem; }
+.feature-list li {
+  display: flex; gap: .55rem; align-items: flex-start; margin: .45rem 0;
+  color: var(--text);
 }
-@media (max-width: 640px) { .assurances { grid-template-columns: 1fr; } }
-.assurance {
-  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-  padding: 1.1rem 1.2rem;
+.feature-list li::before {
+  content: '✓'; color: var(--gold-500); font-weight: 700; flex-shrink: 0;
 }
-.assurance h3 {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 1.15rem; margin: 0 0 .3rem; color: var(--navy-900);
-}
-:root.theme-dark .assurance h3, :root.theme-auto .assurance h3 { color: #fff; }
-.assurance p { margin: 0; font-size: .9rem; color: var(--muted); line-height: 1.5; }
 
-.cta-bar {
-  max-width: 1100px; margin: 0 auto 4rem; padding: 2.5rem 1.5rem;
-  background: linear-gradient(135deg, var(--navy-800), var(--navy-900));
-  border-radius: 18px;
-  text-align: center; color: #fff;
+.callout {
+  border: 1px solid var(--border); border-left: 4px solid var(--gold-500);
+  background: var(--surface); border-radius: 10px; padding: 1rem 1.25rem;
+  margin: 1.25rem 0; color: var(--text);
 }
-.cta-bar h2 {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: clamp(1.6rem, 2.5vw + .5rem, 2.25rem);
-  margin: 0 0 .4rem; letter-spacing: -0.01em; color: #fff;
+
+/* ── Contact list ── */
+.contact-list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;
 }
-.cta-bar p { margin: 0 0 1.4rem; color: var(--navy-200); font-size: 1rem; }
-.cta-bar .btn-primary { padding: .85rem 1.6rem; font-size: 1rem; }
+.contact-list li {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.1rem 1.25rem;
+}
+.contact-list .label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .7rem; text-transform: uppercase; letter-spacing: .12em;
+  color: var(--muted); display: block; margin-bottom: .35rem;
+}
+.contact-list a { color: var(--navy-500); }
+:root.theme-dark .contact-list a, :root.theme-auto .contact-list a { color: var(--gold-300); }
 
 /* ── Footer ── */
 .site-footer {
   border-top: 1px solid var(--border);
   background: var(--surface);
-  margin-top: 0;
+  margin-top: 2rem;
   padding: 3rem 1.25rem 2rem;
 }
 .footer-grid {
@@ -519,21 +433,21 @@ main { padding: 0; }
   font-size: .82rem; color: var(--muted);
 }
 .address-block { font-style: normal; }
-  </style>
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
-
+  
 <header class="site-header">
   <div class="nav-inner" id="navInner">
-    <a class="brand" href="/" aria-label="Signed Reviews home">
-      <img class="brand-icon" src="/images/SignedReviews_logo_only.png" alt="">
-      <img class="brand-wordmark" src="/images/SignedReviews_font_only.png" alt="Signed Reviews">
+    <a class="brand" href="C:/Program Files/Git/" aria-label="Signed Reviews home">
+      <img class="brand-icon" src="C:/Program Files/Git/images/SignedReviews_logo_only.png" alt="">
+      <img class="brand-wordmark" src="C:/Program Files/Git/images/SignedReviews_font_only.png" alt="Signed Reviews">
     </a>
     <ul class="nav-links" role="menu">
-      <li><a href="/pricing/" aria-current="page">Pricing</a></li>
-      <li><a href="/about/">About</a></li>
-      <li><a href="/contact/">Contact</a></li>
+      <li><a href="C:/Program Files/Git/pricing/" aria-current="page">Pricing</a></li>
+      <li><a href="C:/Program Files/Git/about/">About</a></li>
+      <li><a href="C:/Program Files/Git/contact/">Contact</a></li>
     </ul>
     <div class="nav-cta">
       <button class="theme-toggle" aria-label="Toggle dark mode" onclick="(function(){var d=document.documentElement; d.classList.remove('theme-auto'); var dark=d.classList.toggle('theme-dark'); try{localStorage.setItem('theme', dark?'dark':'light');}catch(_){}})();">
@@ -549,310 +463,63 @@ main { padding: 0; }
   </div>
   <div id="mobileDrawer" class="mobile-drawer" aria-label="Mobile navigation">
     <ul>
-      <li><a href="/pricing/" aria-current="page">Pricing</a></li>
-      <li><a href="/about/">About</a></li>
-      <li><a href="/contact/">Contact</a></li>
+      <li><a href="C:/Program Files/Git/pricing/" aria-current="page">Pricing</a></li>
+      <li><a href="C:/Program Files/Git/about/">About</a></li>
+      <li><a href="C:/Program Files/Git/contact/">Contact</a></li>
       <li><a href="https://platform.signedreviews.com" rel="noopener">Log in</a></li>
     </ul>
   </div>
 </header>
+  <main id="main">
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="eyebrow">Pricing</span>
+        <h1>Free during beta</h1>
+        <p>Connect Stripe, start collecting Purchase Verified reviews — at no cost.</p>
+      </div>
+    </section>
+    <div class="prose-wrap">
+      
+    <article class="prose" style="max-width: var(--max-prose)">
+      <span class="badge">Free during beta</span>
+      <h2>One plan. Free during beta.</h2>
+      <p>Signed Reviews is currently free for every business. We are running an open beta while we mature the product, talk to customers, and learn what works. There are no subscription fees, per-review fees, commissions, or platform fees.</p>
 
-<main id="main">
-
-  <section class="page-hero">
-    <div class="page-hero-inner">
-      <span class="eyebrow">Pricing</span>
-      <h1>Plans that scale with real customer reviews.</h1>
-      <p>Every plan includes the "Verified by Signed Reviews" trust badge — the mark that tells your visitors each review was signed by a real Stripe purchase.</p>
-    </div>
-  </section>
-
-  <div class="beta-banner" role="note">
-    <span class="dot" aria-hidden="true"></span>
-    <p>
-      <strong>Free during beta.</strong>
-      Signed Reviews is currently free for every business. The plans below describe how pricing will work when we exit beta. Existing accounts will get at least 30 days' email notice before any charges begin — see our
-      <a href="/refund-policy/">Refund and Cancellation Policy</a>.
-    </p>
-  </div>
-
-  <section class="section" aria-label="Pricing tiers">
-    <div class="tiers">
-
-      <!-- FREE -->
-      <article class="tier">
-        <header class="tier-header">
-          <h2 class="tier-name">Free</h2>
-          <p class="tier-persona">For merchants trying the product with real customers.</p>
-        </header>
-        <div class="tier-price-block">
-          <div class="tier-price">
-            <span class="amount">$0</span>
-            <span class="period">forever</span>
-          </div>
-          <span class="tier-invitations">100 invitations · total</span>
-        </div>
-        <p class="tier-cta">
-          <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener">Start free</a>
-        </p>
-        <ul class="tier-features">
-          <li class="feature-primary">100 review invitations, lifetime</li>
-          <li>All collected reviews visible forever</li>
-          <li>1 automatic reminder · Day 7</li>
-          <li>1 team seat</li>
-          <li>Stripe-native onboarding</li>
-          <li>Hosted public review page + widget</li>
-          <li>AI Style Generator · 3 runs/day</li>
-          <li>Community support</li>
+      <div class="callout">
+        <strong>What's included today</strong>
+        <ul class="feature-list" style="margin-top:.5rem">
+          <li>Stripe-native onboarding — connect your Stripe account in one click</li>
+          <li>Automatic Purchase Verified review invitations after each completed transaction</li>
+          <li>One-time, single-use review links tied to a specific Stripe transaction</li>
+          <li>Cryptographically signed (HMAC-SHA256), tamper-evident review records</li>
+          <li>Public, hosted review page for every business</li>
+          <li>Embeddable review widget for your own website</li>
+          <li>Public verification page for every individual review</li>
+          <li>Optional reviewer identity attachment via Google, GitHub, LinkedIn, Microsoft, Facebook, Instagram, or Twitter / X</li>
+          <li>Team seats and role-based access</li>
+          <li>Read-only Stripe access — we never charge, refund, or modify anything in your Stripe account</li>
         </ul>
-      </article>
+      </div>
 
-      <!-- STARTER -->
-      <article class="tier">
-        <header class="tier-header">
-          <h2 class="tier-name">Starter</h2>
-          <p class="tier-persona">For solo merchants building trust on their storefront.</p>
-        </header>
-        <div class="tier-price-block">
-          <div class="tier-price">
-            <span class="amount">$29</span>
-            <span class="period">/ month</span>
-          </div>
-          <span class="tier-invitations">250 invitations / month</span>
-        </div>
-        <p class="tier-cta">
-          <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener">Sign up free</a>
-        </p>
-        <ul class="tier-features">
-          <li class="feature-primary">250 review invitations / month</li>
-          <li>All collected reviews visible forever</li>
-          <li>2 automatic reminders · Day 3 + Day 10</li>
-          <li>3 team seats</li>
-          <li>60-day review link expiry</li>
-          <li>Unlimited AI Style Generator runs</li>
-          <li>Read-only API · 60 req/min</li>
-          <li>Email support · 72-hour response</li>
-        </ul>
-      </article>
+      <h2>Future paid tiers</h2>
+      <p>If and when paid plans are introduced, we will publish updated pricing and an updated <a href="C:/Program Files/Git/refund-policy/">Refund and Cancellation Policy</a> first. We will give you <strong>at least 30 days' advance notice by email</strong> before any charges take effect, so you always have the option to discontinue use of the Service before billing begins.</p>
 
-      <!-- PRO (featured) -->
-      <article class="tier is-featured">
-        <span class="tier-badge">Most popular</span>
-        <header class="tier-header">
-          <h2 class="tier-name">Pro</h2>
-          <p class="tier-persona">For growing brands with a team and integrations.</p>
-        </header>
-        <div class="tier-price-block">
-          <div class="tier-price">
-            <span class="amount">$79</span>
-            <span class="period">/ month</span>
-          </div>
-          <span class="tier-invitations">1,500 invitations / month</span>
-        </div>
-        <p class="tier-cta">
-          <a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener">Sign up free</a>
-        </p>
-        <ul class="tier-features">
-          <li class="feature-primary">1,500 review invitations / month</li>
-          <li>All collected reviews visible forever</li>
-          <li>2 automatic reminders · custom cadence preset</li>
-          <li>8 team seats</li>
-          <li>90-day review link expiry</li>
-          <li>Full API · 600 req/min</li>
-          <li>Webhooks on new review, reply, refund</li>
-          <li>CSV export of reviews + transactions</li>
-          <li>Priority support · 24-hour response</li>
-        </ul>
-      </article>
-
-      <!-- SCALE -->
-      <article class="tier">
-        <header class="tier-header">
-          <h2 class="tier-name">Scale</h2>
-          <p class="tier-persona">For high-volume DTC brands and review agencies.</p>
-        </header>
-        <div class="tier-price-block">
-          <div class="tier-price">
-            <span class="amount">$199</span>
-            <span class="period">/ month</span>
-          </div>
-          <span class="tier-invitations">5,000 invitations / month</span>
-        </div>
-        <p class="tier-cta">
-          <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener">Sign up free</a>
-        </p>
-        <ul class="tier-features">
-          <li class="feature-primary">5,000 review invitations / month</li>
-          <li>All collected reviews visible forever</li>
-          <li>2 automatic reminders · custom cadence + copy</li>
-          <li>20 team seats</li>
-          <li>90-day review link expiry</li>
-          <li>Full API · 2,000 req/min</li>
-          <li>Webhooks + CSV export</li>
-          <li>Priority support · 12-hour response</li>
-        </ul>
-      </article>
-
+      <h2>Get started</h2>
+      <p>Create a free account at the platform — no credit card required.</p>
+      <p style="margin-top: 1.5rem">
+        <a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener" style="font-size:1rem; padding:.75rem 1.4rem">Sign up free →</a>
+        <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener" style="font-size:1rem; padding:.75rem 1.4rem; margin-left:.5rem">Log in</a>
+      </p>
+    </article>
     </div>
-  </section>
-
-  <!-- Add-ons -->
-  <div class="addon-card" role="region" aria-label="Seat add-on">
-    <div>
-      <h2 class="addon-name">Add-on — Extra seat</h2>
-      <p>Stack additional team seats onto any paid plan. Ideal for growing support or moderation teams.</p>
-    </div>
-    <span class="addon-price">$5 / seat / month</span>
-  </div>
-
-  <div class="addon-card" role="region" aria-label="Invitation pack add-on">
-    <div>
-      <h2 class="addon-name">Add-on — Invitation Pack</h2>
-      <p>+100 review invitations, one-time. Stackable on any paid plan — perfect for a bursty sales month without committing to a tier upgrade.</p>
-    </div>
-    <span class="addon-price">$15 / pack</span>
-  </div>
-
-  <!-- Comparison table -->
-  <div class="compare-intro">
-    <h2>Compare plans in detail</h2>
-    <p>Every feature, by tier — so you can see exactly where you belong.</p>
-  </div>
-  <div class="compare-table-wrap">
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th scope="col">Feature</th>
-          <th scope="col">Free<span class="col-price">$0</span></th>
-          <th scope="col">Starter<span class="col-price">$29/mo</span></th>
-          <th scope="col">Pro<span class="col-price">$79/mo</span></th>
-          <th scope="col">Scale<span class="col-price">$199/mo</span></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Review invitations</th>
-          <td>100 lifetime</td>
-          <td>250 / mo</td>
-          <td>1,500 / mo</td>
-          <td>5,000 / mo</td>
-        </tr>
-        <tr>
-          <th scope="row">Visible collected reviews</th>
-          <td>Unlimited</td>
-          <td>Unlimited</td>
-          <td>Unlimited</td>
-          <td>Unlimited</td>
-        </tr>
-        <tr>
-          <th scope="row">Verified by Signed Reviews badge</th>
-          <td class="check">✓</td>
-          <td class="check">✓</td>
-          <td class="check">✓</td>
-          <td class="check">✓</td>
-        </tr>
-        <tr>
-          <th scope="row">Team seats</th>
-          <td>1</td>
-          <td>3</td>
-          <td>8</td>
-          <td>20</td>
-        </tr>
-        <tr>
-          <th scope="row">Auto-request delays</th>
-          <td>Immediate + 1-day</td>
-          <td>All presets</td>
-          <td>All presets</td>
-          <td>All presets</td>
-        </tr>
-        <tr>
-          <th scope="row">Automatic reminder emails</th>
-          <td>1 reminder · Day 7</td>
-          <td>2 reminders · standard</td>
-          <td>2 · custom cadence</td>
-          <td>2 · custom cadence + copy</td>
-        </tr>
-        <tr>
-          <th scope="row">Review link expiry</th>
-          <td>14 days</td>
-          <td>60 days</td>
-          <td>90 days</td>
-          <td>90 days</td>
-        </tr>
-        <tr>
-          <th scope="row">AI Style Generator</th>
-          <td>3 runs / day</td>
-          <td>Unlimited</td>
-          <td>Unlimited</td>
-          <td>Unlimited</td>
-        </tr>
-        <tr>
-          <th scope="row">Public API access</th>
-          <td class="dim">—</td>
-          <td>Read-only, 60 req/min</td>
-          <td>Full, 600 req/min</td>
-          <td>Full, 2,000 req/min</td>
-        </tr>
-        <tr>
-          <th scope="row">Webhooks</th>
-          <td class="dim">—</td>
-          <td class="dim">—</td>
-          <td class="check">✓</td>
-          <td class="check">✓</td>
-        </tr>
-        <tr>
-          <th scope="row">CSV export</th>
-          <td class="dim">—</td>
-          <td class="dim">—</td>
-          <td class="check">✓</td>
-          <td class="check">✓</td>
-        </tr>
-        <tr>
-          <th scope="row">Support</th>
-          <td>Community</td>
-          <td>Email, 72 h</td>
-          <td>Priority, 24 h</td>
-          <td>Priority, 12 h</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Assurances -->
-  <section class="assurances" aria-label="Common questions">
-    <article class="assurance">
-      <h3>The trust badge stays on every plan.</h3>
-      <p>"Verified by Signed Reviews" is how your visitors know each review was signed by a real Stripe purchase. It's a trust mark, not a paywall — it's included at every tier, including Free.</p>
-    </article>
-    <article class="assurance">
-      <h3>Read-only Stripe access.</h3>
-      <p>We never charge, refund, or modify anything in your Stripe account. We read completed charges to trigger verified review requests — that's it.</p>
-    </article>
-    <article class="assurance">
-      <h3>The API can't create reviews.</h3>
-      <p>No matter which plan you're on, reviews only come from real customers clicking real signed invitation links. The write API handles replies, moderation, and sending invitations — never creating review records. The badge stays meaningful because the rule doesn't bend.</p>
-    </article>
-    <article class="assurance">
-      <h3>No surprise billing.</h3>
-      <p>Beta is free for everyone today. When paid plans activate, every existing account gets at least 30 days' email notice and a chance to choose its tier before any charge.</p>
-    </article>
-  </section>
-
-  <!-- CTA bar -->
-  <section class="cta-bar" aria-label="Get started">
-    <h2>Start collecting unfakable reviews today.</h2>
-    <p>Free during beta. No credit card required.</p>
-    <a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener">Sign up free →</a>
-  </section>
-
-</main>
-
+  </main>
+  
 <footer class="site-footer" role="contentinfo">
   <div class="footer-grid">
     <div class="footer-brand">
-      <a class="brand footer-brand-link" href="/" aria-label="Signed Reviews home">
-        <img class="brand-icon" src="/images/SignedReviews_logo_only.png" alt="">
-        <img class="brand-wordmark" src="/images/SignedReviews_font_only.png" alt="Signed Reviews">
+      <a class="brand footer-brand-link" href="C:/Program Files/Git/" aria-label="Signed Reviews home">
+        <img class="brand-icon" src="C:/Program Files/Git/images/SignedReviews_logo_only.png" alt="">
+        <img class="brand-wordmark" src="C:/Program Files/Git/images/SignedReviews_font_only.png" alt="Signed Reviews">
       </a>
       <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
       <p>© 2026 Paid Rightly LLC. All rights reserved.</p>
@@ -861,27 +528,28 @@ main { padding: 0; }
     <div class="footer-col">
       <h4>Product</h4>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/#how-it-works">How it works</a></li>
-        <li><a href="/#features">Features</a></li>
-        <li><a href="/pricing/">Pricing</a></li>
+        <li><a href="C:/Program Files/Git/">Home</a></li>
+        <li><a href="C:/Program Files/Git/#how-it-works">How it works</a></li>
+        <li><a href="C:/Program Files/Git/#features">Features</a></li>
+        <li><a href="C:/Program Files/Git/pricing/">Pricing</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/contact/">Contact</a></li>
+        <li><a href="C:/Program Files/Git/about/">About</a></li>
+        <li><a href="C:/Program Files/Git/contact/">Contact</a></li>
         <li><a href="mailto:support@signedreviews.com">Support</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Legal</h4>
       <ul>
-        <li><a href="/privacy/">Privacy Policy</a></li>
-        <li><a href="/terms/">Terms of Service</a></li>
-        <li><a href="/refund-policy/">Refund Policy</a></li>
-        <li><a href="/subprocessors/">Sub-processors</a></li>
+        <li><a href="C:/Program Files/Git/privacy/">Privacy Policy</a></li>
+        <li><a href="C:/Program Files/Git/terms/">Terms of Service</a></li>
+        <li><a href="C:/Program Files/Git/dpa/">Data Processing Agreement</a></li>
+        <li><a href="C:/Program Files/Git/refund-policy/">Refund Policy</a></li>
+        <li><a href="C:/Program Files/Git/subprocessors/">Sub-processors</a></li>
       </ul>
     </div>
   </div>
@@ -890,7 +558,6 @@ main { padding: 0; }
     <span>Signed Reviews is a service operated by Paid Rightly LLC.</span>
   </div>
 </footer>
-
 <script>
   // Honor stored theme preference set by index.html.
   (function () {

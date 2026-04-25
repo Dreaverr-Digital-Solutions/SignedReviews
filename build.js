@@ -573,6 +573,7 @@ const FOOTER = `
       <ul>
         <li><a href="${B}privacy/">Privacy Policy</a></li>
         <li><a href="${B}terms/">Terms of Service</a></li>
+        <li><a href="${B}dpa/">Data Processing Agreement</a></li>
         <li><a href="${B}refund-policy/">Refund Policy</a></li>
         <li><a href="${B}subprocessors/">Sub-processors</a></li>
       </ul>
@@ -686,6 +687,14 @@ const LEGAL_PAGES = [
     eyebrow: 'Legal',
     subtitle: 'Third-party service providers Paid Rightly LLC uses to operate Signed Reviews.',
     metaDesc: 'Full list of sub-processors used by Signed Reviews — what they do, what data they touch, and where they operate.',
+  },
+  {
+    slug: '/dpa/',
+    file: 'dpa.md',
+    title: 'Data Processing Agreement',
+    eyebrow: 'Legal',
+    subtitle: 'Our processor obligations to you under GDPR Article 28 and equivalent privacy laws when we handle your customers\u2019 data on your behalf.',
+    metaDesc: 'Data Processing Agreement (DPA) for Signed Reviews — the contract between Paid Rightly LLC (processor) and the Business User (controller) governing review-data handling under GDPR, UK GDPR, Swiss FADP, and CCPA/CPRA.',
   },
 ];
 

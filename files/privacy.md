@@ -35,6 +35,8 @@ For **reviewer data**, our role depends on context:
 
 This distinction matters because it determines who a reviewer should contact with questions about their data. In most cases, the business that requested your review is your primary contact. You can always reach us at legal@signedreviews.com as well.
 
+When we act as a processor for a business, the terms of that processing relationship — including security measures, sub-processor authorization, breach notification, audit rights, and international-transfer mechanisms — are set out in our [Data Processing Agreement](/dpa/), which is incorporated by reference into the [Terms of Service](/terms/) at the moment a business signs up.
+
 ---
 
 ## 3. Information we collect
