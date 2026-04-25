@@ -117,6 +117,10 @@ These restrictions reflect US Federal Trade Commission guidance on endorsements 
 
 If you respond to a reviewer's review through the Service, your response will be displayed publicly alongside the review. You are responsible for the content of your responses.
 
+### 6.5 Stripe acceptable-use covenant
+
+You represent and warrant that your business does not operate in any category that Stripe identifies as a Restricted Business or Prohibited Business under its published policies (currently maintained at https://stripe.com/legal/restricted-businesses, as updated by Stripe from time to time). If we discover that your connected Stripe account operates in any such category, we may suspend or terminate your account under Section 12, with or without notice.
+
 ---
 
 ## 7. Reviewer obligations
