@@ -9,7 +9,7 @@ Signed Reviews is a service operated by Paid Rightly LLC.
 
 **By registering for an account, accessing the Service, or submitting a review through the Service, you agree to these Terms and to our [Privacy Policy](https://signedreviews.com/privacy).** If you do not agree, do not use the Service.
 
-> **Important:** Section 17 contains an agreement to resolve most disputes through binding arbitration on an individual basis rather than in court, and a waiver of the right to participate in class actions and jury trials. Please read it carefully.
+> **Important:** Section 18 contains an agreement to resolve most disputes through binding arbitration on an individual basis rather than in court, and a waiver of the right to participate in class actions and jury trials. Please read it carefully.
 
 ---
 
@@ -231,7 +231,7 @@ We will generally give you notice and an opportunity to cure before terminating 
 
 ### 12.3 Effect of termination
 
-On termination, your right to use the Service ends immediately. Sections of these Terms that by their nature should survive termination (including Sections 8.2, 13, 14, 15, 16, 17, and 18) will survive.
+On termination, your right to use the Service ends immediately. Sections of these Terms that by their nature should survive termination (including Sections 8.2, 13, 14, 15, 16, 17, 18, and 19) will survive.
 
 ---
 
@@ -285,31 +285,73 @@ We reserve the right, at our expense, to assume exclusive defense and control of
 
 ---
 
-## 17. Dispute resolution, arbitration, and class action waiver
+## 17. DMCA and copyright policy
+
+We respect intellectual property rights and respond to clear notices of alleged copyright infringement on the Service in accordance with the U.S. Digital Millennium Copyright Act ("DMCA"), 17 U.S.C. § 512.
+
+### 17.1 Designated agent
+
+We have designated the following agent to receive notifications of claimed copyright infringement under the DMCA:
+
+**Email:** legal@signedreviews.com
+**Mail:** Paid Rightly LLC, Designated Copyright Agent, 1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States
+
+### 17.2 Takedown notices
+
+If you believe content on the Service infringes a copyright you own or control, send a written notice to the agent above containing all of the elements required by 17 U.S.C. § 512(c)(3):
+
+- A physical or electronic signature of the copyright owner or a person authorized to act on their behalf
+- Identification of the copyrighted work claimed to have been infringed
+- Identification of the allegedly infringing material with enough detail (URL or specific review identifier) for us to locate it
+- Your contact information — name, mailing address, telephone number, and email address
+- A statement that you have a good-faith belief that the contested use is not authorized by the copyright owner, its agent, or the law
+- A statement, made under penalty of perjury, that the information in the notice is accurate and that you are the copyright owner or are authorized to act on the copyright owner's behalf
+
+We may, in our discretion, share a copy of the takedown notice (including your contact information) with the user who posted the allegedly infringing material.
+
+### 17.3 Counter-notification
+
+If your content was removed in response to a DMCA notice and you believe the removal was a mistake or misidentification, you may submit a counter-notification meeting the requirements of 17 U.S.C. § 512(g)(3). If we receive a valid counter-notification, we will forward it to the original complaining party. Unless that party files a court action seeking a restraining order against you within **10 business days**, we may, at our discretion, restore the removed material.
+
+### 17.4 Repeat-infringer policy
+
+We will terminate, in appropriate circumstances, the accounts of business users we determine to be repeat infringers.
+
+### 17.5 Misrepresentation
+
+Submitting a false DMCA notice or counter-notification may make you liable for damages, including costs and attorneys' fees, under 17 U.S.C. § 512(f). Don't submit a notice unless you genuinely believe it is accurate.
+
+### 17.6 Detailed procedure
+
+The full DMCA notice and counter-notification procedure, including all required elements, is published at [signedreviews.com/dmca](https://signedreviews.com/dmca/) and incorporated into these Terms by reference.
+
+---
+
+## 18. Dispute resolution, arbitration, and class action waiver
 
 > **Please read this section carefully. It affects your legal rights, including your right to file a lawsuit in court.**
 
-### 17.1 Informal resolution (required first step)
+### 18.1 Informal resolution (required first step)
 
 Before initiating any arbitration or legal action, you and Paid Rightly LLC agree to attempt to resolve any dispute informally. You must send a written notice describing the dispute to **legal@signedreviews.com**, including your name, contact information, a clear description of the claim, and the specific relief sought. We will similarly send any notice to you using the contact information on your account. **Neither party may commence an arbitration or lawsuit (other than in small claims court, or for injunctive or IP relief as described below) until at least 30 days after the notice is sent.** The parties will make a good-faith effort to resolve the dispute during that 30-day period.
 
-### 17.2 Agreement to arbitrate
+### 18.2 Agreement to arbitrate
 
-If informal resolution does not resolve the dispute, you and Paid Rightly LLC agree that **any dispute, claim, or controversy arising out of or relating to these Terms or the Service — except for the carve-outs in Section 17.4 — will be resolved by binding individual arbitration** rather than in court.
+If informal resolution does not resolve the dispute, you and Paid Rightly LLC agree that **any dispute, claim, or controversy arising out of or relating to these Terms or the Service — except for the carve-outs in Section 18.4 — will be resolved by binding individual arbitration** rather than in court.
 
 The arbitration will be administered by the **American Arbitration Association (AAA)** under its Consumer Arbitration Rules (or its Commercial Rules, if applicable based on the claim), available at [www.adr.org](https://www.adr.org). If AAA is unavailable, the parties will agree on an alternative arbitrator; if they cannot agree, a court may appoint one. The arbitration will be conducted in English. The seat of arbitration will be **Albuquerque, New Mexico**, though the arbitrator may conduct proceedings remotely or by written submission where feasible, and hearings may be held elsewhere with the parties' agreement.
 
 The arbitrator's decision will be final and binding. Judgment on the arbitration award may be entered in any court of competent jurisdiction.
 
-### 17.3 Class action and jury trial waiver
+### 18.3 Class action and jury trial waiver
 
 YOU AND PAID RIGHTLY LLC AGREE THAT ANY DISPUTE RESOLUTION PROCEEDING WILL BE CONDUCTED ONLY ON AN INDIVIDUAL BASIS AND NOT AS A CLASS, COLLECTIVE, CONSOLIDATED, OR REPRESENTATIVE ACTION. THE ARBITRATOR HAS NO AUTHORITY TO CONSOLIDATE THE CLAIMS OF MULTIPLE PARTIES OR TO PRESIDE OVER ANY FORM OF CLASS OR REPRESENTATIVE PROCEEDING.
 
 YOU AND PAID RIGHTLY LLC EACH WAIVE THE RIGHT TO A TRIAL BY JURY.
 
-If the class action waiver is found to be unenforceable in a particular case, that specific claim will proceed in court, but the remainder of this Section 17 will remain in effect for all other claims.
+If the class action waiver is found to be unenforceable in a particular case, that specific claim will proceed in court, but the remainder of this Section 18 will remain in effect for all other claims.
 
-### 17.4 Carve-outs (what stays in court)
+### 18.4 Carve-outs (what stays in court)
 
 The following disputes are **not** subject to mandatory arbitration and may be brought in court:
 
@@ -317,51 +359,51 @@ The following disputes are **not** subject to mandatory arbitration and may be b
 - **Injunctive relief** — either party may seek temporary or preliminary injunctive relief in a court of competent jurisdiction to address urgent harms (such as misuse of login credentials, unauthorized scraping, or breaches of Section 9).
 - **Intellectual property disputes** — either party may bring a court action to protect its intellectual property rights (including claims of infringement, misappropriation of trade secrets, or enforcement of license terms).
 
-### 17.5 Opt-out of arbitration
+### 18.5 Opt-out of arbitration
 
-You may opt out of the arbitration agreement in Section 17.2 by sending written notice to legal@signedreviews.com within **30 days of first accepting these Terms**. The notice must include your name, the email address associated with your account, and a clear statement that you are opting out of the arbitration agreement. Opting out will not affect any other provision of these Terms.
+You may opt out of the arbitration agreement in Section 18.2 by sending written notice to legal@signedreviews.com within **30 days of first accepting these Terms**. The notice must include your name, the email address associated with your account, and a clear statement that you are opting out of the arbitration agreement. Opting out will not affect any other provision of these Terms.
 
-### 17.6 Governing law
+### 18.6 Governing law
 
-These Terms are governed by the laws of the **State of New Mexico, United States**, without regard to its conflict-of-laws principles. The Federal Arbitration Act governs the interpretation and enforcement of Section 17.2.
+These Terms are governed by the laws of the **State of New Mexico, United States**, without regard to its conflict-of-laws principles. The Federal Arbitration Act governs the interpretation and enforcement of Section 18.2.
 
-### 17.7 Forum for non-arbitrable disputes
+### 18.7 Forum for non-arbitrable disputes
 
-For any dispute that is not subject to arbitration under Section 17.4 or otherwise, you and Paid Rightly LLC agree to submit to the exclusive jurisdiction of the state and federal courts located in **Bernalillo County, New Mexico**, and waive any objection to venue in those courts.
+For any dispute that is not subject to arbitration under Section 18.4 or otherwise, you and Paid Rightly LLC agree to submit to the exclusive jurisdiction of the state and federal courts located in **Bernalillo County, New Mexico**, and waive any objection to venue in those courts.
 
 ---
 
-## 18. General
+## 19. General
 
-### 18.1 Entire agreement
+### 19.1 Entire agreement
 
 These Terms, together with the Privacy Policy and any other policies referenced in them, constitute the entire agreement between you and Paid Rightly LLC regarding the Service and supersede any prior agreements.
 
-### 18.2 Changes to these Terms
+### 19.2 Changes to these Terms
 
 We may update these Terms from time to time. When we make material changes, we will update the "Last updated" date and notify you by email or through the Service at least 30 days before the changes take effect (except for changes required for legal or security reasons, which may take effect sooner). Continued use of the Service after the updated Terms take effect constitutes acceptance. If you do not agree, you must stop using the Service.
 
-### 18.3 Severability
+### 19.3 Severability
 
 If any provision of these Terms is held unenforceable, the remaining provisions will remain in full force and effect, and the unenforceable provision will be modified to the minimum extent necessary to make it enforceable while reflecting the original intent.
 
-### 18.4 No waiver
+### 19.4 No waiver
 
 Our failure to enforce any right or provision of these Terms is not a waiver of that right or provision.
 
-### 18.5 Assignment
+### 19.5 Assignment
 
 You may not assign or transfer these Terms without our prior written consent. We may assign these Terms freely in connection with a merger, acquisition, financing, or sale of assets.
 
-### 18.6 No third-party beneficiaries
+### 19.6 No third-party beneficiaries
 
 These Terms do not create any third-party beneficiary rights.
 
-### 18.7 Force majeure
+### 19.7 Force majeure
 
 Neither party is liable for delays or failures caused by events beyond its reasonable control, including acts of God, war, terrorism, pandemic, labor disputes, government action, utility failures, or internet outages.
 
-### 18.8 Contact
+### 19.8 Contact
 
 For questions about these Terms:
 

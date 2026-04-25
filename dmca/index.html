@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sub-processors — Signed Reviews</title>
-  <meta name="description" content="Full list of sub-processors used by Signed Reviews — what they do, what data they touch, and where they operate.">
-  <link rel="canonical" href="https://signedreviews.com/subprocessors/">
+  <title>DMCA and Copyright Policy — Signed Reviews</title>
+  <meta name="description" content="DMCA and Copyright Policy for Signed Reviews — submit takedown notices and counter-notifications to our designated copyright agent under 17 U.S.C. § 512.">
+  <link rel="canonical" href="https://signedreviews.com/dmca/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Sub-processors — Signed Reviews">
-  <meta property="og:description" content="Full list of sub-processors used by Signed Reviews — what they do, what data they touch, and where they operate.">
-  <meta property="og:url" content="https://signedreviews.com/subprocessors/">
+  <meta property="og:title" content="DMCA and Copyright Policy — Signed Reviews">
+  <meta property="og:description" content="DMCA and Copyright Policy for Signed Reviews — submit takedown notices and counter-notifications to our designated copyright agent under 17 U.S.C. § 512.">
+  <meta property="og:url" content="https://signedreviews.com/dmca/">
   <meta property="og:site_name" content="Signed Reviews">
   <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Sub-processors — Signed Reviews">
-  <meta name="twitter:description" content="Full list of sub-processors used by Signed Reviews — what they do, what data they touch, and where they operate.">
+  <meta name="twitter:title" content="DMCA and Copyright Policy — Signed Reviews">
+  <meta name="twitter:description" content="DMCA and Copyright Policy for Signed Reviews — submit takedown notices and counter-notifications to our designated copyright agent under 17 U.S.C. § 512.">
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png">
@@ -474,170 +474,73 @@ main { padding: 0; }
     <section class="page-hero">
       <div class="page-hero-inner">
         <span class="eyebrow">Legal</span>
-        <h1>Sub-processors</h1>
-        <p>Third-party service providers Paid Rightly LLC uses to operate Signed Reviews.</p>
+        <h1>DMCA and Copyright Policy</h1>
+        <p>How to submit a DMCA takedown notice or counter-notification, and our designated copyright agent.</p>
       </div>
     </section>
     <div class="prose-wrap has-toc">
       <article class="prose">
-<p><strong>Last updated:</strong> April 19, 2026</p>
-<p>This page lists the third-party service providers (&quot;sub-processors&quot;) that Paid Rightly LLC uses to provide Signed Reviews. Each sub-processor is contractually required to use personal data only to provide services to us and to maintain appropriate security safeguards.</p>
-<p>We may update this list from time to time. Material additions will be reflected by updating the &quot;Last updated&quot; date. We recommend checking this page periodically.</p>
+<p><strong>Effective date:</strong> April 26, 2026
+<strong>Last updated:</strong> April 26, 2026</p>
+<p>Paid Rightly LLC (&quot;we,&quot; &quot;us,&quot; &quot;our&quot;) respects intellectual property rights and responds to clear notices of alleged copyright infringement on Signed Reviews (&quot;Service&quot;). This policy implements the U.S. Digital Millennium Copyright Act (&quot;DMCA&quot;), 17 U.S.C. § 512.</p>
+<p>This policy is incorporated into our <a href="/terms/">Terms of Service</a> by reference and supplements Section 17 (DMCA and copyright policy) of those Terms.</p>
 <hr>
-<h2 id="core-infrastructure"><a class="anchor" href="#core-infrastructure" aria-label="Permalink to Core infrastructure">#</a> Core infrastructure</h2>
-<table>
-<thead>
-<tr>
-<th>Sub-processor</th>
-<th>Purpose</th>
-<th>Data categories</th>
-<th>Location</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>Railway</strong></td>
-<td>Cloud hosting and managed PostgreSQL database</td>
-<td>All Service data at rest</td>
-<td>United States</td>
-</tr>
-<tr>
-<td><strong>Cloudinary</strong></td>
-<td>Image hosting for review photos and business brand assets</td>
-<td>User-uploaded images (review photos, logos)</td>
-<td>United States</td>
-</tr>
-<tr>
-<td><strong>Stripe</strong></td>
-<td>Payment-related webhooks and OAuth for business Stripe connections</td>
-<td>Business Stripe credentials; transaction metadata (charge ID, customer email, card last-4, amount, currency)</td>
-<td>United States</td>
-</tr>
-<tr>
-<td><strong>Resend</strong></td>
-<td>Transactional email delivery</td>
-<td>Recipient email addresses; email content (verification links, magic links, team invitations, review-request emails)</td>
-<td>United States</td>
-</tr>
-</tbody></table>
+<h2 id="1-designated-agent"><a class="anchor" href="#1-designated-agent" aria-label="Permalink to 1. Designated agent">#</a> 1. Designated agent</h2>
+<p>We have designated the following agent to receive notifications of claimed copyright infringement under the DMCA. Notices sent to any other address may not be processed and may not start the §512 takedown clock:</p>
+<p><strong>Designated Copyright Agent — Paid Rightly LLC</strong>
+<strong>Email:</strong> <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a>
+<strong>Mail:</strong> 1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States</p>
 <hr>
-<h2 id="ai-services"><a class="anchor" href="#ai-services" aria-label="Permalink to AI services">#</a> AI services</h2>
-<table>
-<thead>
-<tr>
-<th>Sub-processor</th>
-<th>Purpose</th>
-<th>Data categories</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>Anthropic</strong></td>
-<td>AI logo extraction during business brand onboarding (Claude Haiku with vision)</td>
-<td>Public website HTML and candidate logo images provided by the business during brand setup</td>
-<td><strong>Not used on reviews, reviewer data, or payment data.</strong> Anthropic does not train on data sent through its API under its commercial terms.</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="oauth-providers-only-when-used"><a class="anchor" href="#oauth-providers-only-when-used" aria-label="Permalink to OAuth providers (only when used)">#</a> OAuth providers (only when used)</h2>
-<p>These sub-processors receive data only when a user chooses to log in or attach a profile using that provider. If you do not use a given provider, no data is shared with it.</p>
-<table>
-<thead>
-<tr>
-<th>Sub-processor</th>
-<th>Used for</th>
-<th>Data exchanged</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>Google</strong></td>
-<td>Business login (SSO); reviewer profile attachment</td>
-<td>OAuth sub, email, name, profile picture</td>
-</tr>
-<tr>
-<td><strong>GitHub</strong></td>
-<td>Business login (SSO); reviewer profile attachment</td>
-<td>OAuth ID, verified email, name/username, avatar URL</td>
-</tr>
-<tr>
-<td><strong>LinkedIn</strong></td>
-<td>Business login (SSO); reviewer profile attachment</td>
-<td>OAuth sub, email, name, profile picture</td>
-</tr>
-<tr>
-<td><strong>Microsoft</strong></td>
-<td>Business login (SSO)</td>
-<td>OAuth ID, email, display name</td>
-</tr>
-<tr>
-<td><strong>Facebook</strong></td>
-<td>Reviewer profile attachment</td>
-<td>Facebook ID, name, profile picture</td>
-</tr>
-<tr>
-<td><strong>Instagram</strong></td>
-<td>Reviewer profile attachment</td>
-<td>Instagram handle, name, profile picture (via Facebook OAuth)</td>
-</tr>
-<tr>
-<td><strong>Twitter / X</strong></td>
-<td>Reviewer profile attachment</td>
-<td>Twitter/X ID, name, username, profile picture</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="specialized-services"><a class="anchor" href="#specialized-services" aria-label="Permalink to Specialized services">#</a> Specialized services</h2>
-<table>
-<thead>
-<tr>
-<th>Sub-processor</th>
-<th>Purpose</th>
-<th>Data categories</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>Decodo</strong></td>
-<td>Proxy service used to retrieve public Instagram profile data (profile picture and display name) during the reviewer profile attachment flow</td>
-<td>Instagram profile URL (public); IP address of our backend server</td>
-<td>Used only when a reviewer selects Instagram as their profile source and the direct OAuth path is unavailable.</td>
-</tr>
-<tr>
-<td><strong>Gravatar</strong></td>
-<td>Check whether a reviewer&#39;s email address has an associated Gravatar image</td>
-<td>MD5 hash of email address</td>
-<td>Used only when a reviewer chooses the Gravatar avatar option. We do not store Gravatar images.</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="sub-processors-we-do-not-use"><a class="anchor" href="#sub-processors-we-do-not-use" aria-label="Permalink to Sub-processors we do not use">#</a> Sub-processors we do not use</h2>
-<p>For transparency, we want to be clear about services we <strong>do not</strong> use as of the date above:</p>
-<ul>
-<li><strong>No analytics platforms</strong> (no Google Analytics, Mixpanel, Amplitude, Segment, PostHog, Plausible, Heap, or similar)</li>
-<li><strong>No advertising networks</strong></li>
-<li><strong>No session replay tools</strong> (no FullStory, Hotjar, LogRocket, or similar)</li>
-<li><strong>No error tracking services with PII access</strong> (no Sentry, Datadog, Rollbar, or similar at this time)</li>
-<li><strong>No marketing email platforms</strong> (no Mailchimp, HubSpot, ActiveCampaign, or similar — we use Resend only for transactional email)</li>
-<li><strong>No customer data platforms or enrichment services</strong></li>
-<li><strong>No cross-site tracking cookies or fingerprinting</strong></li>
-</ul>
-<hr>
-<h2 id="changes-to-this-list"><a class="anchor" href="#changes-to-this-list" aria-label="Permalink to Changes to this list">#</a> Changes to this list</h2>
-<p>When we add a new sub-processor or change how an existing one is used in a way that materially affects personal data processing, we will:</p>
+<h2 id="2-notice-of-alleged-infringement-takedown-notice"><a class="anchor" href="#2-notice-of-alleged-infringement-takedown-notice" aria-label="Permalink to 2. Notice of alleged infringement (takedown notice)">#</a> 2. Notice of alleged infringement (takedown notice)</h2>
+<p>If you believe content on the Service infringes a copyright you own or control, send a written notice to the agent above. To be effective under 17 U.S.C. § 512(c)(3), your notice must include all of the following:</p>
 <ol>
-<li>Update this page and the &quot;Last updated&quot; date above</li>
-<li>For material additions affecting business users or reviewers, provide notice through the Service or by email when practicable</li>
+<li><strong>A physical or electronic signature</strong> of the copyright owner or a person authorized to act on their behalf.</li>
+<li><strong>Identification of the copyrighted work</strong> claimed to have been infringed. If the notice covers multiple works on the Service, a representative list is sufficient.</li>
+<li><strong>Identification of the allegedly infringing material</strong> with enough detail for us to locate it — typically the URL of the public review page, the review identifier, or the widget URL where the material is displayed.</li>
+<li><strong>Your contact information</strong> — name, mailing address, telephone number, and email address.</li>
+<li><strong>A good-faith statement</strong> that you have a good-faith belief the contested use is not authorized by the copyright owner, its agent, or the law.</li>
+<li><strong>A statement under penalty of perjury</strong> that the information in the notice is accurate and that you are the copyright owner or are authorized to act on the copyright owner&#39;s behalf.</li>
 </ol>
-<p>You can request notification of future changes by emailing <strong><a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a></strong> with the subject line &quot;Sub-processor updates.&quot;</p>
+<p>A notice that does not substantially comply with these requirements may not constitute effective notice under §512(c)(3) and may be returned to you for correction.</p>
+<p>We may, in our discretion, share a copy of the takedown notice (including your contact information) with the user who posted the allegedly infringing material so they can decide whether to submit a counter-notification.</p>
 <hr>
-<h2 id="contact"><a class="anchor" href="#contact" aria-label="Permalink to Contact">#</a> Contact</h2>
-<p>Questions about sub-processors or how your data flows through them:</p>
-<p><strong>Email:</strong> <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a>
-<strong>Mail:</strong> Paid Rightly LLC, 1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States</p>
+<h2 id="3-counter-notification"><a class="anchor" href="#3-counter-notification" aria-label="Permalink to 3. Counter-notification">#</a> 3. Counter-notification</h2>
+<p>If your content was removed in response to a DMCA notice and you believe the removal was a mistake or misidentification, you may submit a counter-notification to the agent above. To be effective under 17 U.S.C. § 512(g)(3), your counter-notification must include all of the following:</p>
+<ol>
+<li><strong>Your physical or electronic signature.</strong></li>
+<li><strong>Identification of the material</strong> that was removed and the location at which it appeared before removal.</li>
+<li><strong>A statement under penalty of perjury</strong> that you have a good-faith belief the material was removed or disabled as a result of mistake or misidentification of the material.</li>
+<li><strong>Your name, address, and telephone number</strong>, and a statement that you consent to the jurisdiction of the U.S. federal district court for the judicial district in which your address is located, or, if your address is outside the United States, for any judicial district in which Paid Rightly LLC may be found, and that you will accept service of process from the person who provided the original notice or that person&#39;s agent.</li>
+</ol>
+<hr>
+<h2 id="4-restoration-timing"><a class="anchor" href="#4-restoration-timing" aria-label="Permalink to 4. Restoration timing">#</a> 4. Restoration timing</h2>
+<p>If we receive a valid counter-notification, we will forward it to the original complaining party. Unless the complaining party files a court action seeking a restraining order against the user who submitted the counter-notification within <strong>10 business days</strong> of our forwarding the counter-notification, we may, at our discretion, restore the removed material.</p>
+<p>We do not guarantee restoration will occur on the eleventh business day. Restoration is at our discretion and remains subject to our Terms of Service and other policies.</p>
+<hr>
+<h2 id="5-repeat-infringer-policy"><a class="anchor" href="#5-repeat-infringer-policy" aria-label="Permalink to 5. Repeat-infringer policy">#</a> 5. Repeat-infringer policy</h2>
+<p>In accordance with §512(i), we will terminate, in appropriate circumstances, the accounts of business users we determine to be repeat infringers.</p>
+<p>For purposes of this policy, a &quot;repeat infringer&quot; is a business user against whom we have received multiple valid DMCA takedown notices that the user has not successfully counter-notified within a reasonable period. We assess each case individually; the existence of two or more uncontested notices is a strong indicator but is not the sole criterion.</p>
+<hr>
+<h2 id="6-misrepresentation"><a class="anchor" href="#6-misrepresentation" aria-label="Permalink to 6. Misrepresentation">#</a> 6. Misrepresentation</h2>
+<p>Submitting a false DMCA notice or counter-notification may make you liable to the other party for any damages, including costs and attorneys&#39; fees, incurred as a result of our reliance on your statement. See 17 U.S.C. § 512(f). Don&#39;t submit a notice or counter-notification unless you genuinely believe it is accurate.</p>
+<hr>
+<h2 id="7-non-dmca-complaints"><a class="anchor" href="#7-non-dmca-complaints" aria-label="Permalink to 7. Non-DMCA complaints">#</a> 7. Non-DMCA complaints</h2>
+<p>This policy is for U.S. copyright infringement claims under the DMCA. If your concern is something else — defamation, harassment, privacy, trademark infringement, impersonation, or any other category — please email <strong><a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a></strong> with a description of the issue. We handle those concerns separately under the relevant section of our Terms of Service or applicable law, not through this DMCA process.</p>
+<p>For general abuse reports about review content, see the abuse-report contact in our <a href="/terms/">Terms of Service</a>.</p>
+<hr>
+<h2 id="8-contact"><a class="anchor" href="#8-contact" aria-label="Permalink to 8. Contact">#</a> 8. Contact</h2>
+<p>For all DMCA matters:</p>
+<p><strong>Designated Copyright Agent</strong>
+Paid Rightly LLC
+Email: <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a>
+Mail: 1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States</p>
+<p>For non-DMCA legal questions: <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a>.
+For product support: <a href="mailto:support@signedreviews.com">support@signedreviews.com</a>.</p>
 </article>
     <nav class="toc" aria-label="On this page">
       <h2>On this page</h2>
       <ul>
-        <li><a href="#core-infrastructure">Core infrastructure</a></li><li><a href="#ai-services">AI services</a></li><li><a href="#oauth-providers-only-when-used">OAuth providers (only when used)</a></li><li><a href="#specialized-services">Specialized services</a></li><li><a href="#sub-processors-we-do-not-use">Sub-processors we do not use</a></li><li><a href="#changes-to-this-list">Changes to this list</a></li><li><a href="#contact">Contact</a></li>
+        <li><a href="#1-designated-agent">1. Designated agent</a></li><li><a href="#2-notice-of-alleged-infringement-takedown-notice">2. Notice of alleged infringement (takedown notice)</a></li><li><a href="#3-counter-notification">3. Counter-notification</a></li><li><a href="#4-restoration-timing">4. Restoration timing</a></li><li><a href="#5-repeat-infringer-policy">5. Repeat-infringer policy</a></li><li><a href="#6-misrepresentation">6. Misrepresentation</a></li><li><a href="#7-non-dmca-complaints">7. Non-DMCA complaints</a></li><li><a href="#8-contact">8. Contact</a></li>
       </ul>
     </nav>
     </div>

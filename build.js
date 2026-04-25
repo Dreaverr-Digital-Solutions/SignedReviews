@@ -574,6 +574,7 @@ const FOOTER = `
         <li><a href="${B}privacy/">Privacy Policy</a></li>
         <li><a href="${B}terms/">Terms of Service</a></li>
         <li><a href="${B}dpa/">Data Processing Agreement</a></li>
+        <li><a href="${B}dmca/">DMCA Policy</a></li>
         <li><a href="${B}refund-policy/">Refund Policy</a></li>
         <li><a href="${B}subprocessors/">Sub-processors</a></li>
       </ul>
@@ -695,6 +696,14 @@ const LEGAL_PAGES = [
     eyebrow: 'Legal',
     subtitle: 'Our processor obligations to you under GDPR Article 28 and equivalent privacy laws when we handle your customers\u2019 data on your behalf.',
     metaDesc: 'Data Processing Agreement (DPA) for Signed Reviews — the contract between Paid Rightly LLC (processor) and the Business User (controller) governing review-data handling under GDPR, UK GDPR, Swiss FADP, and CCPA/CPRA.',
+  },
+  {
+    slug: '/dmca/',
+    file: 'dmca.md',
+    title: 'DMCA and Copyright Policy',
+    eyebrow: 'Legal',
+    subtitle: 'How to submit a DMCA takedown notice or counter-notification, and our designated copyright agent.',
+    metaDesc: 'DMCA and Copyright Policy for Signed Reviews — submit takedown notices and counter-notifications to our designated copyright agent under 17 U.S.C. § 512.',
   },
 ];
 
@@ -865,7 +874,7 @@ function buildAbout() {
 // ── robots / sitemap / favicon ───────────────────────────────────────────────
 function buildSeoFiles() {
   const today = new Date().toISOString().slice(0, 10);
-  const urls = ['/', '/pricing/', '/about/', '/contact/', '/privacy/', '/terms/', '/refund-policy/', '/subprocessors/'];
+  const urls = ['/', '/pricing/', '/about/', '/contact/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/'];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
