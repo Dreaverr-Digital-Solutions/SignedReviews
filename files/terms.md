@@ -159,9 +159,11 @@ You grant us a worldwide, non-exclusive, royalty-free, sublicensable license to 
 
 This license continues for as long as Your Content remains on the Service. If Your Content is anonymized pursuant to a deletion or erasure request, the license continues to apply to the anonymized content.
 
-### 8.3 No moderation guarantee
+### 8.3 No pre-screening; 7-business-day abuse-report SLA
 
-We do not pre-screen, moderate, or verify the accuracy of reviews or other user-generated content before it is published. Reviews go live immediately on submission. We reserve the right, but have no obligation, to remove content that violates these Terms.
+We do not pre-screen, moderate, or verify the accuracy of reviews or other user-generated content before it is published. Reviews go live immediately on submission.
+
+We commit to reviewing every abuse report we receive — whether submitted via the in-product "Report" link on a public review page or by email to legal@signedreviews.com — **within 7 business days** of receipt. We will take appropriate action where warranted, including, in our sole discretion, hiding the content from public surfaces (the public review page, embeddable widget, and public API), terminating the offending account, or referring the matter to law enforcement. For DMCA copyright complaints, see Section 17.
 
 ### 8.4 Refunded transactions
 
