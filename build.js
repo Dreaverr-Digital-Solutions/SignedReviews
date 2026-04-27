@@ -1075,7 +1075,7 @@ function buildPricing() {
           <li>2 automatic reminders · custom cadence preset</li>
           <li>8 team seats</li>
           <li>90-day review link expiry</li>
-          <li>Full API · 600 req/min</li>
+          <li>Read-only API · 600 req/min</li>
           <li>Webhooks on new review, reply, refund</li>
           <li>CSV export of reviews + transactions</li>
           <li>Priority support · 24-hour response</li>
@@ -1103,7 +1103,7 @@ function buildPricing() {
           <li>2 automatic reminders · custom cadence + copy</li>
           <li>20 team seats</li>
           <li>90-day review link expiry</li>
-          <li>Full API · 2,000 req/min</li>
+          <li>Read-only API · 2,000 req/min</li>
           <li>Webhooks + CSV export</li>
           <li>Priority support · 12-hour response</li>
         </ul>
@@ -1204,8 +1204,8 @@ function buildPricing() {
           <th scope="row">Public API access</th>
           <td class="dim">—</td>
           <td>Read-only, 60 req/min</td>
-          <td>Full, 600 req/min</td>
-          <td>Full, 2,000 req/min</td>
+          <td>Read-only, 600 req/min</td>
+          <td>Read-only, 2,000 req/min</td>
         </tr>
         <tr>
           <th scope="row">Webhooks</th>
