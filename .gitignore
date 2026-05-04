@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# Cloudflare Pages build output (assembled by build.js)
+dist/
+
 # Playwright artifacts
 playwright-report/
 test-results/

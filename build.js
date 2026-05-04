@@ -1425,4 +1425,29 @@ buildContact();
 buildAbout();
 console.log('\nSEO files:');
 buildSeoFiles();
+
+// ── Cloudflare Pages output ──────────────────────────────────────────────────
+// The in-place writes above support GitHub Pages, which serves the repo root.
+// Cloudflare Pages wants a single output directory, and uploading the full repo
+// would include node_modules + Playwright artifacts (likely over the 20k-file
+// deploy limit). Assemble a clean dist/ from the generated tree.
+console.log('\nCloudflare dist/:');
+const DIST_DIR = path.join(ROOT, 'dist');
+fs.rmSync(DIST_DIR, { recursive: true, force: true });
+fs.mkdirSync(DIST_DIR, { recursive: true });
+
+const PUBLISH = [
+  'index.html', 'favicon.svg', 'sitemap.xml', 'robots.txt', 'CNAME',
+  'about', 'contact', 'dpa', 'files', 'images',
+  'privacy', 'refund-policy', 'subprocessors', 'terms', 'pricing', 'dmca',
+];
+
+for (const entry of PUBLISH) {
+  const src = path.join(ROOT, entry);
+  if (fs.existsSync(src)) {
+    fs.cpSync(src, path.join(DIST_DIR, entry), { recursive: true });
+  }
+}
+console.log(`  ✓ dist/ (${PUBLISH.length} entries)`);
+
 console.log('\nBuild complete.');
