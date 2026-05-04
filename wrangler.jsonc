@@ -1,0 +1,18 @@
+{
+  // Cloudflare Workers Static Assets config for the signedreviews.com landing.
+  //
+  // The previous auto-detect deploy scanned the whole repo (incl. node_modules)
+  // and crashed on workerd/bin/workerd at 118 MiB. Pinning the assets directory
+  // to ./dist tells wrangler to upload only the 16 publishable entries that
+  // build.js produces, well under the 20k-file / 25 MiB-per-file limits.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "signedreviews-landing",
+  "compatibility_date": "2026-05-04",
+  "assets": {
+    "directory": "./dist",
+    // SPA-style routing not wanted — these are pre-built static HTML files
+    // with their own /about/index.html, /terms/index.html, etc. Each path
+    // serves the matching index.html or 404s naturally.
+    "not_found_handling": "404-page"
+  }
+}
