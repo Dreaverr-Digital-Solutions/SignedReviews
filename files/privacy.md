@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date:** April 19, 2026
-**Last updated:** April 19, 2026
+**Last updated:** June 8, 2026
 
 This Privacy Policy explains how Paid Rightly LLC ("we," "us," "our") collects, uses, discloses, and protects information when you use Signed Reviews, available at [signedreviews.com](https://signedreviews.com) and [platform.signedreviews.com](https://platform.signedreviews.com) (collectively, the "Service").
 
@@ -85,7 +85,13 @@ We collect limited technical information to keep the Service working:
 - **IP address** — used transiently for rate limiting to prevent abuse. We do not persist IP addresses in our database.
 - **Browser session tokens** — stored in your browser's local storage after you log in. These are not cookies.
 
-We do not use tracking cookies, analytics cookies, advertising cookies, session replay tools, or behavioral analytics platforms. We do not set any cookies from our backend. We do not embed tracking pixels in the emails we send.
+### 3.4a Analytics
+
+We use **PostHog** for first-party product and marketing analytics, to understand how our marketing site and merchant dashboard are used (pages viewed, features used, sign-up funnels). PostHog sets a first-party analytics cookie and may process usage and device data (pages viewed, UI interactions, approximate location derived from IP, browser/OS); for signed-in merchants it is also associated with your user ID, email, and business. PostHog is listed on our [Sub-processors](/subprocessors) page.
+
+**Where analytics runs — and where it does not.** PostHog runs only on our marketing site (`signedreviews.com`) and the authenticated merchant dashboard. It is **not** loaded on public review pages, the reviewer-facing review-submission flow, or the embeddable review widget — so review readers and reviewers are not tracked by our analytics. **Session replay is disabled**, and we honour your browser's "Do Not Track" setting.
+
+Beyond this first-party analytics cookie, we do not use advertising cookies, cross-site tracking, session replay tools, or behavioral-advertising platforms, and we do not embed tracking pixels in the emails we send.
 
 ### 3.5 From third parties
 

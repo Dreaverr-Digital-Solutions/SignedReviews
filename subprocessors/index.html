@@ -480,7 +480,7 @@ main { padding: 0; }
     </section>
     <div class="prose-wrap has-toc">
       <article class="prose">
-<p><strong>Last updated:</strong> April 19, 2026</p>
+<p><strong>Last updated:</strong> June 8, 2026</p>
 <p>This page lists the third-party service providers (&quot;sub-processors&quot;) that Paid Rightly LLC uses to provide Signed Reviews. Each sub-processor is contractually required to use personal data only to provide services to us and to maintain appropriate security safeguards.</p>
 <p>We may update this list from time to time. Material additions will be reflected by updating the &quot;Last updated&quot; date. We recommend checking this page periodically.</p>
 <hr>
@@ -537,6 +537,25 @@ main { padding: 0; }
 <td><strong>Not used on reviews, reviewer data, or payment data.</strong> Anthropic does not train on data sent through its API under its commercial terms.</td>
 </tr>
 </tbody></table>
+<hr>
+<h2 id="analytics"><a class="anchor" href="#analytics" aria-label="Permalink to Analytics">#</a> Analytics</h2>
+<table>
+<thead>
+<tr>
+<th>Sub-processor</th>
+<th>Purpose</th>
+<th>Data categories</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>PostHog</strong></td>
+<td>First-party product and marketing-site analytics (page views, feature usage, and conversion funnels) on our marketing site and the merchant dashboard</td>
+<td>Usage and device data (pages viewed, UI interactions, approximate location from IP, browser/OS). For signed-in merchants only: user ID, email, and business association</td>
+<td>United States</td>
+</tr>
+</tbody></table>
+<p><strong>Scope and safeguards.</strong> PostHog runs <strong>only</strong> on our marketing site (<code>signedreviews.com</code>) and the authenticated merchant dashboard. It is <strong>not</strong> loaded on public review pages, reviewer-facing review-submission pages, or the embeddable review widget — so review readers and reviewers are not tracked by it. <strong>Session replay is disabled.</strong> We use a first-party cookie (not cross-site tracking) and honour browser &quot;Do Not Track.&quot;</p>
 <hr>
 <h2 id="oauth-providers-only-when-used"><a class="anchor" href="#oauth-providers-only-when-used" aria-label="Permalink to OAuth providers (only when used)">#</a> OAuth providers (only when used)</h2>
 <p>These sub-processors receive data only when a user chooses to log in or attach a profile using that provider. If you do not use a given provider, no data is shared with it.</p>
@@ -612,13 +631,13 @@ main { padding: 0; }
 <h2 id="sub-processors-we-do-not-use"><a class="anchor" href="#sub-processors-we-do-not-use" aria-label="Permalink to Sub-processors we do not use">#</a> Sub-processors we do not use</h2>
 <p>For transparency, we want to be clear about services we <strong>do not</strong> use as of the date above:</p>
 <ul>
-<li><strong>No analytics platforms</strong> (no Google Analytics, Mixpanel, Amplitude, Segment, PostHog, Plausible, Heap, or similar)</li>
+<li><strong>No third-party analytics beyond PostHog</strong> — PostHog (listed above) is our only analytics provider, used for first-party product and marketing-site analytics. We do <strong>not</strong> use Google Analytics, Mixpanel, Amplitude, Segment, Plausible, Heap, or similar.</li>
 <li><strong>No advertising networks</strong></li>
-<li><strong>No session replay tools</strong> (no FullStory, Hotjar, LogRocket, or similar)</li>
+<li><strong>No session replay tools</strong> (no FullStory, Hotjar, LogRocket, or similar — and PostHog&#39;s session-replay feature is disabled)</li>
 <li><strong>No error tracking services with PII access</strong> (no Sentry, Datadog, Rollbar, or similar at this time)</li>
 <li><strong>No marketing email platforms</strong> (no Mailchimp, HubSpot, ActiveCampaign, or similar — we use Resend only for transactional email)</li>
 <li><strong>No customer data platforms or enrichment services</strong></li>
-<li><strong>No cross-site tracking cookies or fingerprinting</strong></li>
+<li><strong>No cross-site tracking cookies or fingerprinting</strong> (PostHog uses a first-party analytics cookie only)</li>
 </ul>
 <hr>
 <h2 id="changes-to-this-list"><a class="anchor" href="#changes-to-this-list" aria-label="Permalink to Changes to this list">#</a> Changes to this list</h2>
@@ -637,7 +656,7 @@ main { padding: 0; }
     <nav class="toc" aria-label="On this page">
       <h2>On this page</h2>
       <ul>
-        <li><a href="#core-infrastructure">Core infrastructure</a></li><li><a href="#ai-services">AI services</a></li><li><a href="#oauth-providers-only-when-used">OAuth providers (only when used)</a></li><li><a href="#specialized-services">Specialized services</a></li><li><a href="#sub-processors-we-do-not-use">Sub-processors we do not use</a></li><li><a href="#changes-to-this-list">Changes to this list</a></li><li><a href="#contact">Contact</a></li>
+        <li><a href="#core-infrastructure">Core infrastructure</a></li><li><a href="#ai-services">AI services</a></li><li><a href="#analytics">Analytics</a></li><li><a href="#oauth-providers-only-when-used">OAuth providers (only when used)</a></li><li><a href="#specialized-services">Specialized services</a></li><li><a href="#sub-processors-we-do-not-use">Sub-processors we do not use</a></li><li><a href="#changes-to-this-list">Changes to this list</a></li><li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
     </div>

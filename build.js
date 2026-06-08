@@ -31,6 +31,25 @@ const PLATFORM_URL = 'https://platform.signedreviews.com';
 const BASE_PATH = (process.env.BASE_PATH || '/SignedReviews/').replace(/\/+$/, '/') || '/';
 const B = BASE_PATH; // shorthand
 
+// ── PostHog analytics ────────────────────────────────────────────────────────
+// Injected into every page (home + generated) when POSTHOG_KEY is set at build
+// time. Leave unset to ship the site with no analytics (the snippet is omitted
+// entirely). The key is a publishable client key — safe in static HTML.
+//   POSTHOG_KEY=phc_xxx POSTHOG_HOST=https://us.i.posthog.com npm run build
+// person_profiles:'identified_only' → anonymous visitors are measured for
+// funnels but no person profile is created until they sign up (and the dashboard
+// calls identify()). Session recording stays off; first-party cookie on the
+// registered domain enables the landing→app funnel stitch across subdomains.
+const POSTHOG_KEY = process.env.POSTHOG_KEY || '';
+const POSTHOG_HOST = process.env.POSTHOG_HOST || 'https://us.i.posthog.com';
+const POSTHOG_SNIPPET = POSTHOG_KEY
+  ? `
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('${POSTHOG_KEY}',{api_host:'${POSTHOG_HOST}',person_profiles:'identified_only',disable_session_recording:true,respect_dnt:true});
+  </script>`
+  : '';
+
 const COMPANY = {
   legalName: 'Paid Rightly LLC',
   brand: 'Signed Reviews',
@@ -502,7 +521,7 @@ const SHARED_HEAD = ({ title, description, canonical, pageType = 'website' }) =>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <style>${SHARED_STYLES}</style>
+  <style>${SHARED_STYLES}</style>${POSTHOG_SNIPPET}
 `;
 
 const HEADER = (active = '') => `
@@ -1446,6 +1465,20 @@ for (const entry of PUBLISH) {
   const src = path.join(ROOT, entry);
   if (fs.existsSync(src)) {
     fs.cpSync(src, path.join(DIST_DIR, entry), { recursive: true });
+  }
+}
+
+// The home page (index.html) is bespoke and not generated through SHARED_HEAD,
+// so inject the PostHog snippet into its dist copy here (keeps the source file
+// clean and the key in one place). No-op when POSTHOG_KEY is unset.
+if (POSTHOG_SNIPPET) {
+  const distIndex = path.join(DIST_DIR, 'index.html');
+  if (fs.existsSync(distIndex)) {
+    const html = fs.readFileSync(distIndex, 'utf8');
+    if (!html.includes('posthog.init(')) {
+      fs.writeFileSync(distIndex, html.replace('</head>', `${POSTHOG_SNIPPET}\n</head>`), 'utf8');
+      console.log('  ✓ injected PostHog snippet into index.html');
+    }
   }
 }
 console.log(`  ✓ dist/ (${PUBLISH.length} entries)`);

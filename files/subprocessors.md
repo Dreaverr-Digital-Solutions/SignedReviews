@@ -1,6 +1,6 @@
 # Sub-processors
 
-**Last updated:** April 19, 2026
+**Last updated:** June 8, 2026
 
 This page lists the third-party service providers ("sub-processors") that Paid Rightly LLC uses to provide Signed Reviews. Each sub-processor is contractually required to use personal data only to provide services to us and to maintain appropriate security safeguards.
 
@@ -24,6 +24,16 @@ We may update this list from time to time. Material additions will be reflected 
 | Sub-processor | Purpose | Data categories | Notes |
 |---|---|---|---|
 | **Anthropic** | AI logo extraction during business brand onboarding (Claude Haiku with vision) | Public website HTML and candidate logo images provided by the business during brand setup | **Not used on reviews, reviewer data, or payment data.** Anthropic does not train on data sent through its API under its commercial terms. |
+
+---
+
+## Analytics
+
+| Sub-processor | Purpose | Data categories | Location |
+|---|---|---|---|
+| **PostHog** | First-party product and marketing-site analytics (page views, feature usage, and conversion funnels) on our marketing site and the merchant dashboard | Usage and device data (pages viewed, UI interactions, approximate location from IP, browser/OS). For signed-in merchants only: user ID, email, and business association | United States |
+
+**Scope and safeguards.** PostHog runs **only** on our marketing site (`signedreviews.com`) and the authenticated merchant dashboard. It is **not** loaded on public review pages, reviewer-facing review-submission pages, or the embeddable review widget — so review readers and reviewers are not tracked by it. **Session replay is disabled.** We use a first-party cookie (not cross-site tracking) and honour browser "Do Not Track."
 
 ---
 
@@ -56,13 +66,13 @@ These sub-processors receive data only when a user chooses to log in or attach a
 
 For transparency, we want to be clear about services we **do not** use as of the date above:
 
-- **No analytics platforms** (no Google Analytics, Mixpanel, Amplitude, Segment, PostHog, Plausible, Heap, or similar)
+- **No third-party analytics beyond PostHog** — PostHog (listed above) is our only analytics provider, used for first-party product and marketing-site analytics. We do **not** use Google Analytics, Mixpanel, Amplitude, Segment, Plausible, Heap, or similar.
 - **No advertising networks**
-- **No session replay tools** (no FullStory, Hotjar, LogRocket, or similar)
+- **No session replay tools** (no FullStory, Hotjar, LogRocket, or similar — and PostHog's session-replay feature is disabled)
 - **No error tracking services with PII access** (no Sentry, Datadog, Rollbar, or similar at this time)
 - **No marketing email platforms** (no Mailchimp, HubSpot, ActiveCampaign, or similar — we use Resend only for transactional email)
 - **No customer data platforms or enrichment services**
-- **No cross-site tracking cookies or fingerprinting**
+- **No cross-site tracking cookies or fingerprinting** (PostHog uses a first-party analytics cookie only)
 
 ---
 
