@@ -40,7 +40,9 @@ const B = BASE_PATH; // shorthand
 // funnels but no person profile is created until they sign up (and the dashboard
 // calls identify()). Session recording stays off; first-party cookie on the
 // registered domain enables the landing→app funnel stitch across subdomains.
-const POSTHOG_KEY = process.env.POSTHOG_KEY || '';
+// Publishable PostHog project token (client-side key — safe in static HTML).
+// Override per-build with POSTHOG_KEY=... if ever needed.
+const POSTHOG_KEY = process.env.POSTHOG_KEY || 'phc_mTGzatRy8CDWz3YnSAgAukvT2QRdR9yd72URWw26UWh2';
 const POSTHOG_HOST = process.env.POSTHOG_HOST || 'https://us.i.posthog.com';
 const POSTHOG_SNIPPET = POSTHOG_KEY
   ? `
