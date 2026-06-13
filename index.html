@@ -1788,21 +1788,21 @@
         var canvas = document.getElementById('heroParticles');
         if (!canvas) return;
         var ctx = canvas.getContext('2d'), particles = [], raf;
-        var colors = ['rgba(196,174,78,', 'rgba(212,196,102,', 'rgba(229,219,153,'];
+        var colors = ['rgba(224,150,70,', 'rgba(214,178,90,', 'rgba(196,120,52,'];
         function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
         function spawn(W, H, initial) {
           return {
             x: W/2 + (Math.random()-Math.random())*W*0.5,
             y: initial ? H/2 + Math.random()*(H/2) : H + 8,
             vy: .18+Math.random()*.5, drift: (Math.random()-.5)*.12,
-            r: Math.random()*2.4+0.8, a: .5+Math.random()*.5,
+            r: Math.random()*3.6+1.2, a: .5+Math.random()*.5,
             color: colors[Math.floor(Math.random()*colors.length)]
           };
         }
         function init() {
           particles = [];
           var W = canvas.width, H = canvas.height;
-          var N = Math.max(36, Math.min(80, Math.floor((W*H)/13000)));
+          var N = Math.max(26, Math.min(60, Math.floor((W*H)/16000)));
           for (var i = 0; i < N; i++) particles.push(spawn(W, H, true));
         }
         function draw() {
@@ -1819,8 +1819,8 @@
             if (alpha <= 0.012) continue;
             ctx.beginPath();
             ctx.fillStyle = p.color + alpha.toFixed(3) + ')';
-            ctx.shadowColor = 'rgba(196,174,78,0.9)';
-            ctx.shadowBlur = p.r*3;
+            ctx.shadowColor = 'rgba(224,150,70,0.9)';
+            ctx.shadowBlur = p.r*3.4;
             ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
             ctx.fill();
           }
