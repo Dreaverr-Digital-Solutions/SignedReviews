@@ -1799,12 +1799,28 @@
         }
         function draw() {
           ctx.clearRect(0, 0, canvas.width, canvas.height);
+          // advance
           particles.forEach(function(p) {
-            ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-            ctx.fillStyle = p.color; ctx.fill();
             p.x += p.dx; p.y += p.dy;
             if (p.x < 0) p.x = canvas.width;  if (p.x > canvas.width)  p.x = 0;
             if (p.y < 0) p.y = canvas.height; if (p.y > canvas.height) p.y = 0;
+          });
+          // constellation lines between nearby nodes
+          for (var i = 0; i < particles.length; i++) {
+            for (var j = i + 1; j < particles.length; j++) {
+              var a = particles[i], b = particles[j];
+              var dx = a.x - b.x, dy = a.y - b.y, dist = Math.sqrt(dx*dx + dy*dy);
+              if (dist < 130) {
+                ctx.strokeStyle = 'rgba(135,162,196,' + (0.18 * (1 - dist/130)) + ')';
+                ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+              }
+            }
+          }
+          // nodes
+          particles.forEach(function(p) {
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+            ctx.fillStyle = p.color; ctx.fill();
           });
           if (!document.hidden) raf = requestAnimationFrame(draw);
         }
