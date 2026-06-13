@@ -1788,24 +1788,43 @@
         var canvas = document.getElementById('heroParticles');
         if (!canvas) return;
         var ctx = canvas.getContext('2d'), particles = [], raf;
-        var colors = ['rgba(43,59,96,.18)','rgba(179,157,69,.20)','rgba(135,162,196,.24)','rgba(43,59,96,.10)'];
+        var colors = ['rgba(229,219,153,', 'rgba(212,196,102,', 'rgba(179,157,69,'];
         function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+        function spawn(W, H) {
+          return {
+            x: W/2 + (Math.random()-Math.random())*W*0.52,
+            y: H/2 + (Math.random()-Math.random())*H*0.58,
+            r: Math.random()*2.4+0.8,
+            dx: (Math.random()-.5)*.18, dy: (Math.random()-.5)*.18,
+            a: .5+Math.random()*.5, tw: Math.random()*6.28, tws: .012+Math.random()*.03,
+            color: colors[Math.floor(Math.random()*colors.length)]
+          };
+        }
         function init() {
           particles = [];
-          for (var i = 0; i < 38; i++)
-            particles.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height,
-              r: Math.random()*2.8+1.1, dx: (Math.random()-.5)*.32, dy: (Math.random()-.5)*.32,
-              color: colors[Math.floor(Math.random()*colors.length)] });
+          var W = canvas.width, H = canvas.height;
+          var N = Math.max(36, Math.min(80, Math.floor((W*H)/13000)));
+          for (var i = 0; i < N; i++) particles.push(spawn(W, H));
         }
         function draw() {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          particles.forEach(function(p) {
-            ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-            ctx.fillStyle = p.color; ctx.fill();
-            p.x += p.dx; p.y += p.dy;
-            if (p.x < 0) p.x = canvas.width;  if (p.x > canvas.width)  p.x = 0;
-            if (p.y < 0) p.y = canvas.height; if (p.y > canvas.height) p.y = 0;
-          });
+          var W = canvas.width, H = canvas.height;
+          ctx.clearRect(0, 0, W, H);
+          for (var i = 0; i < particles.length; i++) {
+            var p = particles[i];
+            p.x += p.dx; p.y += p.dy; p.tw += p.tws;
+            if (p.x < -12 || p.x > W+12 || p.y < -12 || p.y > H+12) particles[i] = p = spawn(W, H);
+            var nx = (p.x-W/2)/(W/2), ny = (p.y-H/2)/(H/2);
+            var edge = Math.max(0, 1 - Math.min(1, Math.sqrt(nx*nx+ny*ny)));
+            var alpha = p.a * (.55 + .45*Math.sin(p.tw)) * edge;
+            if (alpha <= 0.012) continue;
+            ctx.beginPath();
+            ctx.fillStyle = p.color + alpha.toFixed(3) + ')';
+            ctx.shadowColor = 'rgba(212,196,102,0.9)';
+            ctx.shadowBlur = p.r*3.5;
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+            ctx.fill();
+          }
+          ctx.shadowBlur = 0;
           if (!document.hidden) raf = requestAnimationFrame(draw);
         }
         resize(); init(); draw();
