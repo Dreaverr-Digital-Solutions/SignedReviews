@@ -1793,7 +1793,7 @@
         function spawn(W, H, initial) {
           return {
             x: W/2 + (Math.random()-Math.random())*W*0.5,
-            y: initial ? Math.random()*H : H + 8,
+            y: initial ? H/2 + Math.random()*(H/2) : H + 8,
             vy: .18+Math.random()*.5, drift: (Math.random()-.5)*.12,
             r: Math.random()*2.4+0.8, a: .5+Math.random()*.5,
             color: colors[Math.floor(Math.random()*colors.length)]
@@ -1811,9 +1811,9 @@
           for (var i = 0; i < particles.length; i++) {
             var p = particles[i];
             p.y -= p.vy; p.x += p.drift;
-            if (p.y < -8) particles[i] = p = spawn(W, H, false);
-            var prog = 1 - p.y/H;
-            var life = prog < .15 ? prog/.15 : prog > .85 ? Math.max(0,(1-prog)/.15) : 1;
+            if (p.y <= H/2) particles[i] = p = spawn(W, H, false);
+            var prog = Math.min(1, (H - p.y)/(H/2));
+            var life = prog < .15 ? prog/.15 : prog > .8 ? Math.max(0,(1-prog)/.2) : 1;
             var hedge = Math.max(.12, 1 - Math.min(1, Math.abs((p.x-W/2)/(W/2))));
             var alpha = p.a * life * hedge;
             if (alpha <= 0.012) continue;
