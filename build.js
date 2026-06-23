@@ -57,7 +57,7 @@ const POSTHOG_SNIPPET = POSTHOG_KEY
     posthog.init('${POSTHOG_KEY}',{api_host:'${POSTHOG_HOST}',person_profiles:'identified_only',session_recording:{maskAllInputs:true},disable_session_recording:true,respect_dnt:true});
     (function(){
       var CK='sr_replay_consent', GK='sr_geo';
-      var REGION=['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'];
+      var REGION=['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH','BR'];
       function get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
       function set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
       function start(){ try{ posthog.startSessionRecording(); }catch(e){} }
