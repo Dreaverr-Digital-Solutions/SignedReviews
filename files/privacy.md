@@ -93,6 +93,8 @@ We use **PostHog** for first-party product and marketing analytics, to understan
 
 **Session replay.** On the marketing site and the merchant dashboard, PostHog records anonymised session replays (a reconstruction of page interactions such as clicks, scrolls, and navigation) to help us diagnose usability issues. **All form-field inputs are masked** — values you type into fields, including passwords, email addresses, and payment details, are never captured. Replay is **not** active on public review pages, the reviewer-facing review-submission flow, or the embeddable review widget, and it is suppressed for visitors whose browser sends a "Do Not Track" signal.
 
+**Consent in the EU, EEA, and UK.** If you visit our marketing site from the EU, EEA, or UK, session replay is **off by default** and begins **only if you give consent** through the banner shown on your visit. Declining leaves replay off; the rest of our first-party analytics (such as page views and conversion funnels) continues to operate. You can withdraw consent at any time by clearing your browser storage for this site.
+
 Beyond this first-party analytics cookie and masked session replay, we do not use advertising cookies, cross-site tracking, or behavioral-advertising platforms, and we do not embed tracking pixels in the emails we send.
 
 ### 3.5 From third parties
