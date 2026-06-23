@@ -89,9 +89,11 @@ We collect limited technical information to keep the Service working:
 
 We use **PostHog** for first-party product and marketing analytics, to understand how our marketing site and merchant dashboard are used (pages viewed, features used, sign-up funnels). PostHog sets a first-party analytics cookie and may process usage and device data (pages viewed, UI interactions, approximate location derived from IP, browser/OS); for signed-in merchants it is also associated with your user ID, email, and business. PostHog is listed on our [Sub-processors](/subprocessors) page.
 
-**Where analytics runs — and where it does not.** PostHog runs only on our marketing site (`signedreviews.com`) and the authenticated merchant dashboard. It is **not** loaded on public review pages, the reviewer-facing review-submission flow, or the embeddable review widget — so review readers and reviewers are not tracked by our analytics. **Session replay is disabled**, and we honour your browser's "Do Not Track" setting.
+**Where analytics runs — and where it does not.** PostHog runs only on our marketing site (`signedreviews.com`) and the authenticated merchant dashboard. It is **not** loaded on public review pages, the reviewer-facing review-submission flow, or the embeddable review widget — so review readers and reviewers are not tracked by our analytics. We honour your browser's "Do Not Track" setting.
 
-Beyond this first-party analytics cookie, we do not use advertising cookies, cross-site tracking, session replay tools, or behavioral-advertising platforms, and we do not embed tracking pixels in the emails we send.
+**Session replay.** On the marketing site and the merchant dashboard, PostHog records anonymised session replays (a reconstruction of page interactions such as clicks, scrolls, and navigation) to help us diagnose usability issues. **All form-field inputs are masked** — values you type into fields, including passwords, email addresses, and payment details, are never captured. Replay is **not** active on public review pages, the reviewer-facing review-submission flow, or the embeddable review widget, and it is suppressed for visitors whose browser sends a "Do Not Track" signal.
+
+Beyond this first-party analytics cookie and masked session replay, we do not use advertising cookies, cross-site tracking, or behavioral-advertising platforms, and we do not embed tracking pixels in the emails we send.
 
 ### 3.5 From third parties
 

@@ -33,7 +33,7 @@ We may update this list from time to time. Material additions will be reflected 
 |---|---|---|---|
 | **PostHog** | First-party product and marketing-site analytics (page views, feature usage, and conversion funnels) on our marketing site and the merchant dashboard | Usage and device data (pages viewed, UI interactions, approximate location from IP, browser/OS). For signed-in merchants only: user ID, email, and business association | United States |
 
-**Scope and safeguards.** PostHog runs **only** on our marketing site (`signedreviews.com`) and the authenticated merchant dashboard. It is **not** loaded on public review pages, reviewer-facing review-submission pages, or the embeddable review widget — so review readers and reviewers are not tracked by it. **Session replay is disabled.** We use a first-party cookie (not cross-site tracking) and honour browser "Do Not Track."
+**Scope and safeguards.** PostHog runs **only** on our marketing site (`signedreviews.com`) and the authenticated merchant dashboard. It is **not** loaded on public review pages, reviewer-facing review-submission pages, or the embeddable review widget — so review readers and reviewers are not tracked by it. **Session replay is enabled** on the marketing site and merchant dashboard, with **all form-field inputs masked** (passwords, email addresses, and payment details are never captured); replay is suppressed for visitors who send a "Do Not Track" signal. We use a first-party cookie (not cross-site tracking) and honour browser "Do Not Track."
 
 ---
 
@@ -68,7 +68,7 @@ For transparency, we want to be clear about services we **do not** use as of the
 
 - **No third-party analytics beyond PostHog** — PostHog (listed above) is our only analytics provider, used for first-party product and marketing-site analytics. We do **not** use Google Analytics, Mixpanel, Amplitude, Segment, Plausible, Heap, or similar.
 - **No advertising networks**
-- **No session replay tools** (no FullStory, Hotjar, LogRocket, or similar — and PostHog's session-replay feature is disabled)
+- **No standalone session replay tools** (no FullStory, Hotjar, LogRocket, or similar). Session replay is provided by PostHog — our existing analytics sub-processor listed above — with all form-field inputs masked; we do not add a separate replay vendor.
 - **No error tracking services with PII access** (no Sentry, Datadog, Rollbar, or similar at this time)
 - **No marketing email platforms** (no Mailchimp, HubSpot, ActiveCampaign, or similar — we use Resend only for transactional email)
 - **No customer data platforms or enrichment services**
