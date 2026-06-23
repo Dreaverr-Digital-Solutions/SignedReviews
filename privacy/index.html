@@ -440,11 +440,10 @@ main { padding: 0; }
     (function(){
       var CK='sr_replay_consent', GK='sr_geo';
       var REGION=['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'];
-      var dnt=navigator.doNotTrack=='1'||navigator.doNotTrack=='yes'||window.doNotTrack=='1';
-      if(dnt) return;
       function get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
       function set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
       function start(){ try{ posthog.startSessionRecording(); }catch(e){} }
+      function stop(){ try{ posthog.stopSessionRecording(); }catch(e){} }
       function banner(){
         if(document.getElementById('sr-consent')) return;
         var d=document.createElement('div'); d.id='sr-consent'; d.setAttribute('role','dialog'); d.setAttribute('aria-label','Session recording consent');
@@ -454,17 +453,25 @@ main { padding: 0; }
         var row=document.createElement('div'); row.style.cssText='display:flex;gap:8px;justify-content:flex-end';
         var dec=document.createElement('button'); dec.type='button'; dec.textContent='Decline'; dec.style.cssText='padding:8px 14px;border-radius:8px;border:1px solid #3a475c;background:transparent;color:#e7ecf3;cursor:pointer';
         var acc=document.createElement('button'); acc.type='button'; acc.textContent='Accept'; acc.style.cssText='padding:8px 14px;border-radius:8px;border:0;background:#2f6df6;color:#fff;font-weight:600;cursor:pointer';
-        dec.onclick=function(){ set(CK,'denied'); d.remove(); };
+        dec.onclick=function(){ set(CK,'denied'); stop(); d.remove(); };
         acc.onclick=function(){ set(CK,'granted'); d.remove(); start(); };
         row.appendChild(dec); row.appendChild(acc); d.appendChild(p); d.appendChild(row);
         (document.body||document.documentElement).appendChild(d);
       }
+      // Footer "Privacy choices" entry point — lets anyone re-open the banner to
+      // opt in or out at any time, in any region.
+      window.srPrivacy=function(){ banner(); };
+      // Browser-level opt-out signals (Do Not Track, Global Privacy Control):
+      // never record and don't prompt.
+      var dnt=navigator.doNotTrack=='1'||navigator.doNotTrack=='yes'||window.doNotTrack=='1';
+      var gpc=navigator.globalPrivacyControl===true;
+      if(dnt||gpc){ stop(); return; }
       function decide(inRegion){
-        if(!inRegion){ start(); return; }
         var c=get(CK);
-        if(c==='granted'){ start(); }
-        else if(c==='denied'){ /* respect choice */ }
-        else if(document.body){ banner(); }
+        if(c==='denied'){ return; }            // persistent opt-out, honoured everywhere
+        if(c==='granted'){ start(); return; }
+        if(!inRegion){ start(); return; }      // outside EU/EEA/UK: record by default
+        if(document.body){ banner(); }         // inside, no choice yet: ask
         else { document.addEventListener('DOMContentLoaded',banner); }
       }
       var g=get(GK);
@@ -781,6 +788,7 @@ main { padding: 0; }
         <li><a href="/SignedReviews/dmca/">DMCA Policy</a></li>
         <li><a href="/SignedReviews/refund-policy/">Refund Policy</a></li>
         <li><a href="/SignedReviews/subprocessors/">Sub-processors</a></li>
+        <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;">Privacy choices</a></li>
       </ul>
     </div>
   </div>
