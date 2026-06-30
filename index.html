@@ -241,10 +241,9 @@
        Hero and final CTA should each occupy a full screen.
        min-height uses svh (small viewport) so mobile browser
        chrome doesn't cause the section to overflow.             */
-    .hero-section {
-      min-height: 100vh;
-      min-height: 100svh;
-    }
+    /* Hero is content-height (was min-height:100vh, which left a large empty
+       space below the text once the code-card mockup was removed). The
+       .hero-section class itself is kept for the IntersectionObserver selector. */
     .cta-section {
       min-height: 100vh;
       min-height: 100svh;
