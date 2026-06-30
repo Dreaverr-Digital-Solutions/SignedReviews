@@ -526,7 +526,7 @@ main { padding: 0; }
     <div class="prose-wrap has-toc">
       <article class="prose">
 <p><strong>Effective date:</strong> April 19, 2026
-<strong>Last updated:</strong> April 19, 2026</p>
+<strong>Last updated:</strong> June 28, 2026</p>
 <p>These Terms of Service (&quot;Terms&quot;) are a binding legal agreement between you and <strong>Paid Rightly LLC</strong> (&quot;we,&quot; &quot;us,&quot; &quot;our&quot;), a New Mexico limited liability company, regarding your use of Signed Reviews (&quot;Service&quot;), available at <a href="https://signedreviews.com">signedreviews.com</a> and <a href="https://platform.signedreviews.com">platform.signedreviews.com</a>.</p>
 <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
 <p><strong>By registering for an account, accessing the Service, or submitting a review through the Service, you agree to these Terms and to our <a href="https://signedreviews.com/privacy">Privacy Policy</a>.</strong> If you do not agree, do not use the Service.</p>
@@ -576,14 +576,19 @@ main { padding: 0; }
 </ul>
 <hr>
 <h2 id="5-your-stripe-connection"><a class="anchor" href="#5-your-stripe-connection" aria-label="Permalink to 5. Your Stripe connection">#</a> 5. Your Stripe connection</h2>
-<p>To use most of the Service, you must connect a Stripe account. By connecting your Stripe account, you:</p>
+<p>To use most of the Service, you first create a Signed Reviews account (email and password, magic link, or social sign-in), then <strong>link your Stripe account</strong>. You can link Stripe in one of two ways:</p>
 <ul>
-<li>Grant us read-only access to your charge data for the purpose of triggering review requests</li>
-<li>Authorize us to create a webhook endpoint on your Stripe account to receive <code>charge.succeeded</code> and related events</li>
-<li>Remain solely responsible for your relationship with Stripe, including compliance with Stripe&#39;s Services Agreement</li>
+<li><strong>Stripe Connect (OAuth)</strong> — you authorize Signed Reviews from Stripe&#39;s hosted consent screen; or</li>
+<li><strong>Restricted API key</strong> — you create a read-restricted Stripe API key and paste it into the Service.</li>
 </ul>
-<p>We do not take platform fees from your Stripe account, do not initiate charges on your Stripe account, and do not transfer funds. Our access is limited to reading charge metadata necessary to operate the review-request workflow.</p>
-<p>You can disconnect your Stripe account at any time through the Service. Doing so will stop future review requests from being triggered.</p>
+<p>By linking your Stripe account, you:</p>
+<ul>
+<li>Grant us <strong>read-only</strong> access to your Stripe data. We read charge data to trigger and verify review requests and, only for the metrics you explicitly enable on your public Trust Profile, aggregate read access to related data such as charges, customers, subscriptions, refunds, disputes, and balance transactions.</li>
+<li>Authorize us to receive <code>charge.succeeded</code> and <code>charge.refunded</code> events. With Stripe Connect these are delivered to our platform webhook automatically; with a restricted API key we register (or you configure) a webhook endpoint on your Stripe account for the same events.</li>
+<li>Remain solely responsible for your relationship with Stripe, including compliance with Stripe&#39;s Services Agreement.</li>
+</ul>
+<p>We <strong>never</strong> initiate charges, issue refunds, move or transfer funds, modify your Stripe account, or take platform fees. Our access is strictly read-only and limited to the data needed to verify reviews and compute the Trust Profile metrics you choose to display.</p>
+<p>You can disconnect your Stripe account at any time through the Service. Doing so stops future review requests from being triggered; your Signed Reviews account and existing reviews remain intact.</p>
 <hr>
 <h2 id="6-business-user-obligations-regarding-reviewers"><a class="anchor" href="#6-business-user-obligations-regarding-reviewers" aria-label="Permalink to 6. Business user obligations regarding reviewers">#</a> 6. Business user obligations regarding reviewers</h2>
 <p>When you use Signed Reviews to request reviews from your customers, you act as the data controller for your customer relationship. You are responsible for:</p>
@@ -661,7 +666,7 @@ main { padding: 0; }
 <p>If you use the public API or embed the Signed Reviews widget on a third-party website, you additionally agree that:</p>
 <ul>
 <li>Your API key is confidential; sharing it is a breach of these Terms</li>
-<li>The public API is rate limited to 100 requests per minute per API key; excessive use may result in throttling or termination</li>
+<li>The public API is rate limited, and the limit depends on your plan (see our <a href="https://signedreviews.com/pricing">Pricing page</a>); excessive use may result in throttling or suspension</li>
 <li>Widget-embedded reviews must be displayed in their original form without editing or selective omission of negative reviews</li>
 <li>You are responsible for ensuring the widget or API data you display on your site complies with applicable law (including disclosure rules for endorsements)</li>
 </ul>

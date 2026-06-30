@@ -1,6 +1,6 @@
 # Sub-processors
 
-**Last updated:** June 8, 2026
+**Last updated:** June 27, 2026
 
 This page lists the third-party service providers ("sub-processors") that Paid Rightly LLC uses to provide Signed Reviews. Each sub-processor is contractually required to use personal data only to provide services to us and to maintain appropriate security safeguards.
 
@@ -14,7 +14,7 @@ We may update this list from time to time. Material additions will be reflected 
 |---|---|---|---|
 | **Railway** | Cloud hosting and managed PostgreSQL database | All Service data at rest | United States |
 | **Cloudinary** | Image hosting for review photos and business brand assets | User-uploaded images (review photos, logos) | United States |
-| **Stripe** | Payment-related webhooks and OAuth for business Stripe connections | Business Stripe credentials; transaction metadata (charge ID, customer email, card last-4, amount, currency) | United States |
+| **Stripe** | Business Stripe account linking (Connect OAuth or a restricted API key) and webhooks. Read-only access used to verify reviews and to compute the metrics a merchant chooses to show on their public Trust Profile. We never charge, refund, move funds, or modify the connected account. | Stripe account ID or restricted API key (encrypted at rest); transaction metadata (charge ID, customer email, card last-4, amount, currency); aggregate read of charges, customers, subscriptions, refunds, disputes, and balance transactions for merchant-enabled metrics | United States |
 | **Resend** | Transactional email delivery | Recipient email addresses; email content (verification links, magic links, team invitations, review-request emails) | United States |
 
 ---
@@ -23,7 +23,8 @@ We may update this list from time to time. Material additions will be reflected 
 
 | Sub-processor | Purpose | Data categories | Notes |
 |---|---|---|---|
-| **Anthropic** | AI logo extraction during business brand onboarding (Claude Haiku with vision) | Public website HTML and candidate logo images provided by the business during brand setup | **Not used on reviews, reviewer data, or payment data.** Anthropic does not train on data sent through its API under its commercial terms. |
+| **Anthropic** | Business-facing AI features: logo extraction and the AI Style Generator (suggesting brand colors and styles for the public review page, widget, and badge), using Claude models | Public website HTML/URL and candidate logo or brand images provided by the business during setup | **Not used on review content, reviewer data, or payment data.** Anthropic does not train on data sent through its API under its commercial terms. |
+| **Google (Gemini)** | Alternate AI provider for the same business-facing AI features (logo extraction / AI Style Generator), via the Google Gemini API | Public website HTML/URL and candidate logo or brand images provided by the business during setup | **Not used on review content, reviewer data, or payment data.** |
 
 ---
 

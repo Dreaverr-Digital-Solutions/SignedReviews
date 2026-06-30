@@ -54,6 +54,7 @@ This DPA applies to Personal Data we process on your behalf in connection with y
 - Reviewer profile picture (if provided)
 - Reviewer social-media handle (if provided)
 - Stripe charge identifier and transaction metadata (charge ID, amount, currency, card last-4)
+- Aggregate Stripe account data read on a read-only basis to compute merchant-enabled Trust Profile metrics (e.g. charges, customers, subscriptions, refunds, disputes, balance transactions), stored only as privacy-thresholded aggregates, not raw records
 - Review content (rating, title, body, photos)
 - Team-member email, display name, and OAuth identifiers
 - Server logs containing technical metadata (request timestamps, anonymized rate-limit keys)
@@ -62,7 +63,7 @@ We do **not** process special-category data (Article 9 GDPR), criminal-convictio
 
 ### 4.3 Nature and purpose of processing
 
-We process Personal Data solely to provide the Service: read Stripe charge metadata, send review-request emails, host signed review-submission links, store cryptographically-signed reviews, render reviews on the public review page and embeddable widget, expose reviews via the Public API, and perform basic operational functions (rate limiting, deliverability suppression, audit logging).
+We process Personal Data solely to provide the Service: read Stripe charge metadata on a read-only basis (and, for merchant-enabled Trust Profile metrics, aggregate read-only account data), send review-request emails, host signed review-submission links, store cryptographically-signed reviews, render reviews on the public review page and embeddable widget, expose reviews via the Public API, and perform basic operational functions (rate limiting, deliverability suppression, audit logging).
 
 ### 4.4 Duration
 

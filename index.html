@@ -195,6 +195,17 @@
     /* ── Phase 3: Particle canvas ───────────────────────────── */
     #heroParticles { position: absolute; inset: 0; z-index: 0; pointer-events: none; width: 100%; height: 100%; }
 
+    /* ── Hero treatment: diagonal gold stripes + periodic light sweep ── */
+    .hero-stripes { position: absolute; inset: 0; z-index: 0; pointer-events: none; background-color: #0a0f1a;
+      background-image: repeating-linear-gradient(45deg, rgba(212,196,102,.06) 0 2px, transparent 2px 16px);
+      animation: heroStripes 40s linear infinite; }
+    @keyframes heroStripes { to { background-position: 160px 0; } }
+    .hero-sweep { position: absolute; top: -10%; left: -35%; width: 35%; height: 120%; z-index: 0; pointer-events: none;
+      background: linear-gradient(100deg, transparent, rgba(212,196,102,.16), transparent);
+      transform: skewX(-18deg); animation: heroSweep 7s ease-in-out infinite; }
+    @keyframes heroSweep { 0% { left: -35%; } 55%, 100% { left: 130%; } }
+    @media (prefers-reduced-motion: reduce) { .hero-stripes, .hero-sweep { animation: none; } }
+
     /* ── Phase 4: Micro-interactions ───────────────────────── */
     .btn-ripple { position: relative; overflow: hidden; }
     .ripple-circle {
@@ -700,30 +711,24 @@
 
   <main id="main">
   <!-- ─── HERO ─────────────────────────────────────────────── -->
-  <section class="relative hero-section hero-bg pt-36 pb-24 px-5 overflow-hidden grain">
-    <!-- Hero atmospheric background image (cryptographic vault) -->
-    <img src="images/hero-bg.jpeg" alt="" class="hero-bg-img" aria-hidden="true">
-    <canvas id="heroParticles"></canvas>
-    <div class="hero-blob absolute -top-24 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full bg-steel-200/30 dark:bg-navy-500/20 blur-3xl pointer-events-none"></div>
-    <div class="hero-blob absolute top-40 -right-20 w-[350px] h-[350px] rounded-full bg-gold-200/20 dark:bg-gold-900/10 blur-3xl pointer-events-none"></div>
-    <!-- CSS-animated orbs (no JS parallax — pure keyframes) -->
-    <div class="hero-orb-a absolute top-24 left-1/4 w-[200px] h-[200px] rounded-full blur-3xl pointer-events-none" style="background:rgba(179,157,69,.10)"></div>
-    <div class="hero-orb-b absolute bottom-12 right-1/4 w-[260px] h-[260px] rounded-full blur-3xl pointer-events-none" style="background:rgba(43,59,96,.10)"></div>
-    <div class="hero-orb-c absolute top-1/2 left-8 w-[140px] h-[140px] rounded-full blur-3xl pointer-events-none" style="background:rgba(135,162,196,.14)"></div>
+  <section class="relative hero-section hero-bg dark pt-36 pb-24 px-5 overflow-hidden grain">
+    <!-- Hero treatment: diagonal gold stripes + periodic light sweep -->
+    <div class="hero-stripes"></div>
+    <div class="hero-sweep"></div>
 
     <div class="relative z-10 max-w-3xl mx-auto text-center">
       <!-- Pill badge -->
-      <a href="/pricing/" class="fade-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-navy-800 border border-navy-200 dark:border-navy-700 text-navy-500 dark:text-navy-300 text-sm font-semibold mb-7 shadow-sm hover:border-gold-400 transition-colors no-underline">
+      <div class="fade-up inline-flex items-center gap-2 mb-7 font-mono text-gold-500 text-xs font-semibold uppercase" style="letter-spacing:.22em;">
         <span class="w-1.5 h-1.5 rounded-full bg-gold-500 pulse-dot"></span>
-        Free during beta — see what's included →
-      </a>
+        Purchase-verified reviews
+      </div>
 
       <h1 class="fade-up delay-1 hero-headline font-serif font-normal text-navy-900 dark:text-white mb-6">
         You earned those reviews.<br><em class="gold-shimmer">Now prove it.</em>
       </h1>
 
       <p class="fade-up delay-2 text-lg sm:text-xl text-navy-400 dark:text-navy-300 max-w-xl mx-auto mb-10 leading-relaxed">
-        Signed Reviews helps Stripe-powered businesses collect Purchase Verified, tamper-evident customer reviews — every review is tied to a real, completed Stripe transaction.
+        Every review backed by a real Stripe charge.
       </p>
 
       <div class="fade-up delay-3">
@@ -741,188 +746,7 @@
       </div>
     </div>
 
-    <!-- Widget mockup — carousel with autoplay -->
-    <div class="fade-up delay-4 max-w-2xl mx-auto mt-16 relative" onmouseenter="heroPause()" onmouseleave="heroResume()">
-      <!-- Widget iframe shell -->
-      <div class="glass-card" style="border-radius:16px;padding:16px;font-family:'Inter',system-ui,sans-serif;color:#1a1a2e;">
-
-        <!-- vr-header: avg + stars + count -->
-        <div style="display:flex;align-items:center;justify-content:flex-start;margin-bottom:16px;">
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div style="font-size:2rem;font-weight:700;color:#2b3b60;">4.9</div>
-            <div>
-              <div style="display:flex;gap:2px;margin-bottom:4px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="20" height="20" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="20" height="20" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="20" height="20" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="20" height="20" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              </div>
-              <div style="font-size:0.85rem;opacity:0.7;">24 Purchase Verified reviews</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Carousel: 2 visible, 6 total, 3 pages -->
-        <div id="heroCarouselOuter" style="overflow:hidden;">
-          <div id="heroCarouselTrack" style="display:flex;gap:12px;transition:transform 0.45s cubic-bezier(.4,0,.2,1);will-change:transform;">
-
-            <!-- Card 1: 5★ -->
-            <div class="widget-card-glass" style="flex:0 0 calc(50% - 6px);min-width:0;border-radius:12px;padding:16px;display:flex;flex-direction:column;">
-              <div style="display:flex;align-items:center;gap:4px;margin-bottom:6px;">
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              </div>
-              <div style="font-weight:600;font-size:0.95rem;margin-bottom:6px;">Exactly what I needed</div>
-              <div style="font-size:0.875rem;line-height:1.5;opacity:0.85;margin-bottom:10px;flex:1;">Worth every penny. The quality exceeded my expectations and the whole process was seamless from start to finish.</div>
-              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
-                <span style="background:#dcfce7;color:#166534;font-size:0.7rem;padding:2px 8px;border-radius:20px;font-weight:600;">✓ Purchase Verified + Card</span>
-              </div>
-              <div class="review-fingerprint">tx: stripe_pi_3N8x····a1b2 &nbsp;|&nbsp; HMAC·SHA256 &nbsp;|&nbsp; ✓ signed</div>
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto;">
-                <span style="font-size:0.75rem;opacity:0.5;">Feb 28, 2026</span>
-                <span class="verify-btn" style="font-size:0.7rem;color:#b39d45;opacity:0.8;">🔒 Verify</span>
-              </div>
-            </div>
-
-            <!-- Card 2: 4★ -->
-            <div class="widget-card-glass" style="flex:0 0 calc(50% - 6px);min-width:0;border-radius:12px;padding:16px;display:flex;flex-direction:column;">
-              <div style="display:flex;align-items:center;gap:4px;margin-bottom:6px;">
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:none;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              </div>
-              <div style="font-weight:600;font-size:0.95rem;margin-bottom:6px;">Great product, fast delivery</div>
-              <div style="font-size:0.875rem;line-height:1.5;opacity:0.85;margin-bottom:10px;flex:1;">Really happy with my purchase. Does exactly what it says, good build quality. Would recommend to anyone on the fence.</div>
-              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
-                <span style="background:#dcfce7;color:#166534;font-size:0.7rem;padding:2px 8px;border-radius:20px;font-weight:600;">✓ Purchase Verified</span>
-                <span style="background:#dbeafe;color:#1e40af;font-size:0.7rem;padding:2px 8px;border-radius:20px;font-weight:600;">📷 @james.k</span>
-              </div>
-              <div class="review-fingerprint">tx: stripe_pi_3P2c····d3e4 &nbsp;|&nbsp; HMAC·SHA256 &nbsp;|&nbsp; ✓ signed</div>
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto;">
-                <span style="font-size:0.75rem;opacity:0.5;">Mar 4, 2026</span>
-                <span class="verify-btn" style="font-size:0.7rem;color:#b39d45;opacity:0.8;">🔒 Verify</span>
-              </div>
-            </div>
-
-            <!-- Card 3: 5★ -->
-            <div class="widget-card-glass" style="flex:0 0 calc(50% - 6px);min-width:0;border-radius:12px;padding:16px;display:flex;flex-direction:column;">
-              <div style="display:flex;align-items:center;gap:4px;margin-bottom:6px;">
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              </div>
-              <div style="font-weight:600;font-size:0.95rem;margin-bottom:6px;">Came back for more</div>
-              <div style="font-size:0.875rem;line-height:1.5;opacity:0.85;margin-bottom:10px;flex:1;">Third order and still the same great experience. The consistency alone makes me a loyal customer for life.</div>
-              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
-                <span style="background:#dcfce7;color:#166534;font-size:0.7rem;padding:2px 8px;border-radius:20px;font-weight:600;">✓ Purchase Verified + Card</span>
-              </div>
-              <div class="review-fingerprint">tx: stripe_pi_3Q7f····f5g6 &nbsp;|&nbsp; HMAC·SHA256 &nbsp;|&nbsp; ✓ signed</div>
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto;">
-                <span style="font-size:0.75rem;opacity:0.5;">Mar 6, 2026</span>
-                <span class="verify-btn" style="font-size:0.7rem;color:#b39d45;opacity:0.8;">🔒 Verify</span>
-              </div>
-            </div>
-
-            <!-- Card 4: 5★ -->
-            <div class="widget-card-glass" style="flex:0 0 calc(50% - 6px);min-width:0;border-radius:12px;padding:16px;display:flex;flex-direction:column;">
-              <div style="display:flex;align-items:center;gap:4px;margin-bottom:6px;">
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              </div>
-              <div style="font-weight:600;font-size:0.95rem;margin-bottom:6px;">Better than expected</div>
-              <div style="font-size:0.875rem;line-height:1.5;opacity:0.85;margin-bottom:10px;flex:1;">Ordered skeptically, received a genuinely impressive product. Fast shipping, solid packaging, no issues at all.</div>
-              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
-                <span style="background:#dcfce7;color:#166534;font-size:0.7rem;padding:2px 8px;border-radius:20px;font-weight:600;">✓ Purchase Verified</span>
-              </div>
-              <div class="review-fingerprint">tx: stripe_pi_3R4h····h7i8 &nbsp;|&nbsp; HMAC·SHA256 &nbsp;|&nbsp; ✓ signed</div>
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto;">
-                <span style="font-size:0.75rem;opacity:0.5;">Mar 3, 2026</span>
-                <span class="verify-btn" style="font-size:0.7rem;color:#b39d45;opacity:0.8;">🔒 Verify</span>
-              </div>
-            </div>
-
-            <!-- Card 5: 5★ -->
-            <div class="widget-card-glass" style="flex:0 0 calc(50% - 6px);min-width:0;border-radius:12px;padding:16px;display:flex;flex-direction:column;">
-              <div style="display:flex;align-items:center;gap:4px;margin-bottom:6px;">
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              </div>
-              <div style="font-weight:600;font-size:0.95rem;margin-bottom:6px;">Outstanding service</div>
-              <div style="font-size:0.875rem;line-height:1.5;opacity:0.85;margin-bottom:10px;flex:1;">From ordering to delivery, everything was smooth. Customer support even followed up unprompted. Impressive.</div>
-              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
-                <span style="background:#dcfce7;color:#166534;font-size:0.7rem;padding:2px 8px;border-radius:20px;font-weight:600;">✓ Purchase Verified + Card</span>
-                <span style="background:#dbeafe;color:#1e40af;font-size:0.7rem;padding:2px 8px;border-radius:20px;font-weight:600;">💼 @sarah.m</span>
-              </div>
-              <div class="review-fingerprint">tx: stripe_pi_3S9j····j9k0 &nbsp;|&nbsp; HMAC·SHA256 &nbsp;|&nbsp; ✓ signed</div>
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto;">
-                <span style="font-size:0.75rem;opacity:0.5;">Mar 7, 2026</span>
-                <span class="verify-btn" style="font-size:0.7rem;color:#b39d45;opacity:0.8;">🔒 Verify</span>
-              </div>
-            </div>
-
-            <!-- Card 6: 4★ -->
-            <div class="widget-card-glass" style="flex:0 0 calc(50% - 6px);min-width:0;border-radius:12px;padding:16px;display:flex;flex-direction:column;">
-              <div style="display:flex;align-items:center;gap:4px;margin-bottom:6px;">
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:none;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              </div>
-              <div style="font-weight:600;font-size:0.95rem;margin-bottom:6px;">Solid all around</div>
-              <div style="font-size:0.875rem;line-height:1.5;opacity:0.85;margin-bottom:10px;flex:1;">Not flashy but does exactly what it promises. Fair price for the quality. Will definitely order again.</div>
-              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
-                <span style="background:#dcfce7;color:#166534;font-size:0.7rem;padding:2px 8px;border-radius:20px;font-weight:600;">✓ Purchase Verified</span>
-              </div>
-              <div class="review-fingerprint">tx: stripe_pi_3T5m····l1m2 &nbsp;|&nbsp; HMAC·SHA256 &nbsp;|&nbsp; ✓ signed</div>
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto;">
-                <span style="font-size:0.75rem;opacity:0.5;">Mar 1, 2026</span>
-                <span class="verify-btn" style="font-size:0.7rem;color:#b39d45;opacity:0.8;">🔒 Verify</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- vr-carousel-nav: arrows + dots -->
-        <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:18px;">
-          <button onclick="heroGoTo(heroPage-1)" class="carousel-glass-btn" style="width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <div style="display:flex;align-items:center;gap:6px;">
-            <button class="hero-dot" onclick="heroGoTo(0)" style="width:20px;height:6px;border-radius:3px;background:#b39d45;border:none;cursor:pointer;transition:all 0.25s;"></button>
-            <button class="hero-dot" onclick="heroGoTo(1)" style="width:6px;height:6px;border-radius:3px;background:rgba(179,157,69,0.25);border:none;cursor:pointer;transition:all 0.25s;"></button>
-            <button class="hero-dot" onclick="heroGoTo(2)" style="width:6px;height:6px;border-radius:3px;background:rgba(179,157,69,0.25);border:none;cursor:pointer;transition:all 0.25s;"></button>
-          </div>
-          <button onclick="heroGoTo(heroPage+1)" class="carousel-glass-btn" style="width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
-        </div>
-
-      </div>
-
-      <!-- Floating logo badge -->
-      <div class="absolute -top-5 -right-3 sm:-right-8 float-anim z-10">
-        <div class="w-16 h-16 rounded-2xl bg-white shadow-xl shadow-navy-900/20 flex items-center justify-center p-2.5 border border-navy-100">
-          <img src="images/SignedReviews_logo_only.png" alt="" class="w-full h-full object-contain">
-        </div>
-      </div>
-    </div>
-  </section>
+        </section>
 
   <!-- ─── STATS BAR ─────────────────────────────────────────── -->
   <section id="statsBar" class="border-y border-navy-100 dark:border-navy-800 bg-white dark:bg-navy-800 transition-colors">
@@ -1095,7 +919,7 @@
             Connect
           </div>
           <h3 class="font-semibold text-base mb-2.5 text-navy-900 dark:text-white">Connect Stripe</h3>
-          <p class="text-sm text-navy-400 leading-relaxed">Link your Stripe account in one click. Read-only access — we see transactions, never card details or personal data.</p>
+          <p class="text-sm text-navy-400 leading-relaxed">Link your Stripe account in one click. Read-only access — we read transaction details to verify purchases, never full card numbers or billing data.</p>
         </div>
 
         <!-- Step 2 -->
@@ -1143,7 +967,7 @@
             Embed
           </div>
           <h3 class="font-semibold text-base mb-2.5 text-navy-900 dark:text-white">Embed &amp; Convert</h3>
-          <p class="text-sm text-navy-400 leading-relaxed">One snippet on your site, a premium verified review widget appears. Every visitor sees your reviews are backed by real receipts.</p>
+          <p class="text-sm text-navy-400 leading-relaxed">Pull your verified reviews from the read-only public API and embed them your way — a wall, a carousel, a badge. Every visitor sees they're backed by real receipts.</p>
         </div>
 
       </div>
@@ -1157,196 +981,94 @@
     </div>
   </section>
 
-  <!-- ─── WIDGET SHOWCASE ───────────────────────────────────── -->
+    <!-- ─── BUILD WITH THE API ─────────────────────────────────── -->
   <section id="features" class="py-24 px-5 bg-white dark:bg-navy-800 transition-colors">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-14">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-navy-50 dark:bg-navy-700 border border-navy-200 dark:border-navy-600 text-navy-500 dark:text-navy-300 text-sm font-semibold mb-5">
-          The embed widget
+          Public API
         </div>
-        <h2 class="font-serif text-4xl sm:text-5xl font-normal leading-tight text-navy-900 dark:text-white mb-3">One line of code.<br><span class="text-gold-500">Proof on every page.</span></h2>
-        <p class="text-navy-400 text-base max-w-xl mx-auto">Drop a single snippet into your website and your verified reviews appear instantly — styled to match your brand, automatically.</p>
+        <h2 class="font-serif text-4xl sm:text-5xl font-normal leading-tight text-navy-900 dark:text-white mb-3">Two endpoints.<br><span class="text-gold-500">Proof on every page.</span></h2>
+        <p class="text-navy-400 text-base max-w-2xl mx-auto">Pull your purchase-verified reviews from a read-only, CORS-enabled API using a browser-safe publishable key. Render them as a wall, a carousel, a badge — your site, your rules.</p>
       </div>
 
-      <!-- Code snippet mockup -->
-      <div class="max-w-2xl mx-auto mb-14">
+      <!-- Request + response -->
+      <div class="max-w-2xl mx-auto mb-14 grid gap-5">
         <div class="bg-navy-900 rounded-2xl overflow-hidden shadow-2xl shadow-navy-900/20">
           <div class="flex items-center gap-1.5 px-4 py-3 border-b border-white/5">
             <div class="w-3 h-3 rounded-full bg-red-400/70"></div>
             <div class="w-3 h-3 rounded-full bg-yellow-400/70"></div>
             <div class="w-3 h-3 rounded-full bg-green-400/70"></div>
-            <span class="text-xs text-navy-400 ml-2 font-mono">index.html</span>
+            <span class="text-xs text-navy-400 ml-2 font-mono">request.sh</span>
           </div>
           <div class="p-5 font-mono text-xs leading-relaxed overflow-x-auto">
-            <span class="text-navy-400">&lt;!-- Paste once. Works everywhere. --&gt;</span><br>
-            <span class="text-steel-300">&lt;div</span>
-            <span class="text-gold-400"> id</span><span class="text-white">="signedreviews-widget"</span><br>
-            <span class="text-gold-400">     data-api-key</span><span class="text-white">="<span class="text-gold-300">your_key_here</span>"</span><br>
-            <span class="text-gold-400">     data-theme</span><span class="text-white">="auto"</span><br>
-            <span class="text-gold-400">     data-layout</span><span class="text-white">="carousel"</span><span class="text-steel-300">&gt;&lt;/div&gt;</span><br>
-            <span class="text-steel-300">&lt;script </span><span class="text-gold-400">src</span><span class="text-white">="https://app.signedreviews.com/widget.js"</span><span class="text-steel-300">&gt;&lt;/script&gt;</span>
+            <div><span class="text-navy-500">$</span> <span class="text-white">curl</span> <span class="text-steel-300">"https://api.signedreviews.com/api/public/v1/reviews?sort=date_desc&amp;limit=10"</span></div>
+            <div class="text-steel-300">&nbsp;&nbsp;-H <span class="text-gold-300">"Authorization: Bearer rvwpk_live_4f2a…"</span></div>
+          </div>
+        </div>
+        <div class="bg-navy-900 rounded-2xl overflow-hidden shadow-2xl shadow-navy-900/20">
+          <div class="flex items-center gap-1.5 px-4 py-3 border-b border-white/5">
+            <span class="text-xs text-gold-400 ml-2 font-mono font-semibold">200 OK</span>
+            <span class="ml-auto text-[0.65rem] text-navy-400 font-mono">application/json</span>
+          </div>
+          <div class="p-5 font-mono text-xs leading-[1.8] overflow-x-auto text-steel-300">
+            <div>{</div>
+            <div>&nbsp;&nbsp;<span class="text-steel-300">"success"</span>: <span class="text-green-400">true</span>,</div>
+            <div>&nbsp;&nbsp;<span class="text-steel-300">"data"</span>: [{</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-steel-300">"rating"</span>: <span class="text-green-400">5</span>,</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-steel-300">"title"</span>: <span class="text-gold-300">"Exactly what I needed"</span>,</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-steel-300">"body"</span>: <span class="text-gold-300">"Worth every penny…"</span>,</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-steel-300">"reviewer"</span>: { <span class="text-steel-300">"displayName"</span>: <span class="text-gold-300">"James K."</span> },</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-steel-300">"verification"</span>: {</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-steel-300">"method"</span>: <span class="text-gold-300">"EMAIL_MATCH"</span>,</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-steel-300">"signature"</span>: <span class="text-gold-400 font-semibold">"9f3c7b1e8a4d2c…"</span>,</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-steel-300">"url"</span>: <span class="text-gold-300">"signedreviews.com/verify/…"</span></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+            <div>&nbsp;&nbsp;}],</div>
+            <div>&nbsp;&nbsp;<span class="text-steel-300">"meta"</span>: { <span class="text-steel-300">"page"</span>: <span class="text-green-400">1</span>, <span class="text-steel-300">"total"</span>: <span class="text-green-400">24</span>, <span class="text-steel-300">"totalPages"</span>: <span class="text-green-400">3</span> }</div>
+            <div>}</div>
           </div>
         </div>
       </div>
 
-      <!-- Marquee layout preview -->
-      <div class="max-w-3xl mx-auto mb-14">
-        <div class="text-center mb-5">
-          <span class="inline-flex items-center gap-3 text-xs font-semibold text-navy-400 uppercase tracking-widest">
-            <span class="flex-1 h-px bg-navy-200 dark:bg-navy-600 max-w-[60px]"></span>
-            Marquee layout — infinite auto-scroll
-            <span class="flex-1 h-px bg-navy-200 dark:bg-navy-600 max-w-[60px]"></span>
-          </span>
-        </div>
-        <div style="background:#ffffff;border-radius:16px;padding:16px;box-shadow:0 8px 40px rgba(43,59,96,0.10);font-family:'Inter',system-ui,sans-serif;color:#1a1a2e;">
-          <!-- header -->
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
-            <div style="display:flex;align-items:center;gap:10px;">
-              <div style="font-size:1.6rem;font-weight:700;color:#2b3b60;">4.9</div>
-              <div>
-                <div style="display:flex;gap:2px;margin-bottom:3px;">
-                  <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                  <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                  <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                  <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                  <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                </div>
-                <div style="font-size:0.78rem;opacity:0.65;">24 Purchase Verified reviews</div>
-              </div>
-            </div>
-            <span style="font-size:0.68rem;background:rgba(179,157,69,0.1);color:#b39d45;padding:3px 10px;border-radius:20px;font-weight:600;border:1px solid rgba(179,157,69,0.25);font-family:'JetBrains Mono',monospace;">Marquee</span>
-          </div>
-          <!-- marquee scroll area -->
-          <div style="overflow:hidden;margin:0 -16px;position:relative;">
-            <div style="position:absolute;left:0;top:0;bottom:0;width:56px;background:linear-gradient(to right,#ffffff,transparent);z-index:1;pointer-events:none;"></div>
-            <div style="position:absolute;right:0;top:0;bottom:0;width:56px;background:linear-gradient(to left,#ffffff,transparent);z-index:1;pointer-events:none;"></div>
-            <div class="widget-marquee-inner" style="display:flex;width:max-content;padding:4px 0;">
-              <!-- Set A -->
-              <div style="width:240px;flex-shrink:0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:13px;margin-right:14px;">
-                <div style="display:flex;gap:2px;margin-bottom:5px;"><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-                <div style="font-weight:600;font-size:0.82rem;margin-bottom:3px;">Exactly what I needed</div>
-                <div style="font-size:0.75rem;line-height:1.45;opacity:0.72;margin-bottom:7px;">Worth every penny. Quality exceeded my expectations completely.</div>
-                <span style="background:#dcfce7;color:#166534;font-size:0.62rem;padding:2px 7px;border-radius:20px;font-weight:600;">✓ Purchase Verified + Card</span>
-              </div>
-              <div style="width:240px;flex-shrink:0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:13px;margin-right:14px;">
-                <div style="display:flex;gap:2px;margin-bottom:5px;"><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:none;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-                <div style="font-weight:600;font-size:0.82rem;margin-bottom:3px;">Great product, fast delivery</div>
-                <div style="font-size:0.75rem;line-height:1.45;opacity:0.72;margin-bottom:7px;">Does exactly what it says, good build quality. Would recommend.</div>
-                <div style="display:flex;gap:4px;flex-wrap:wrap;"><span style="background:#dcfce7;color:#166534;font-size:0.62rem;padding:2px 7px;border-radius:20px;font-weight:600;">✓ Purchase Verified</span><span style="background:#dbeafe;color:#1e40af;font-size:0.62rem;padding:2px 7px;border-radius:20px;font-weight:600;">📷 @james.k</span></div>
-              </div>
-              <div style="width:240px;flex-shrink:0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:13px;margin-right:14px;">
-                <div style="display:flex;gap:2px;margin-bottom:5px;"><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-                <div style="font-weight:600;font-size:0.82rem;margin-bottom:3px;">Came back for more</div>
-                <div style="font-size:0.75rem;line-height:1.45;opacity:0.72;margin-bottom:7px;">Third order and still the same great experience. Loyal customer.</div>
-                <span style="background:#dcfce7;color:#166534;font-size:0.62rem;padding:2px 7px;border-radius:20px;font-weight:600;">✓ Purchase Verified + Card</span>
-              </div>
-              <div style="width:240px;flex-shrink:0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:13px;margin-right:14px;">
-                <div style="display:flex;gap:2px;margin-bottom:5px;"><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-                <div style="font-weight:600;font-size:0.82rem;margin-bottom:3px;">Better than expected</div>
-                <div style="font-size:0.75rem;line-height:1.45;opacity:0.72;margin-bottom:7px;">Ordered skeptically, received a genuinely impressive product.</div>
-                <span style="background:#dcfce7;color:#166534;font-size:0.62rem;padding:2px 7px;border-radius:20px;font-weight:600;">✓ Purchase Verified</span>
-              </div>
-              <div style="width:240px;flex-shrink:0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:13px;margin-right:14px;">
-                <div style="display:flex;gap:2px;margin-bottom:5px;"><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-                <div style="font-weight:600;font-size:0.82rem;margin-bottom:3px;">Outstanding service</div>
-                <div style="font-size:0.75rem;line-height:1.45;opacity:0.72;margin-bottom:7px;">From ordering to delivery, everything was smooth. Impressive.</div>
-                <div style="display:flex;gap:4px;flex-wrap:wrap;"><span style="background:#dcfce7;color:#166534;font-size:0.62rem;padding:2px 7px;border-radius:20px;font-weight:600;">✓ Purchase Verified + Card</span><span style="background:#dbeafe;color:#1e40af;font-size:0.62rem;padding:2px 7px;border-radius:20px;font-weight:600;">💼 @sarah.m</span></div>
-              </div>
-              <div style="width:240px;flex-shrink:0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:13px;margin-right:14px;">
-                <div style="display:flex;gap:2px;margin-bottom:5px;"><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:none;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-                <div style="font-weight:600;font-size:0.82rem;margin-bottom:3px;">Solid all around</div>
-                <div style="font-size:0.75rem;line-height:1.45;opacity:0.72;margin-bottom:7px;">Does exactly what it promises. Fair price, good quality. Will reorder.</div>
-                <span style="background:#dcfce7;color:#166534;font-size:0.62rem;padding:2px 7px;border-radius:20px;font-weight:600;">✓ Purchase Verified</span>
-              </div>
-              <!-- Set B (duplicate for seamless loop) -->
-              <div style="width:240px;flex-shrink:0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:13px;margin-right:14px;">
-                <div style="display:flex;gap:2px;margin-bottom:5px;"><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-                <div style="font-weight:600;font-size:0.82rem;margin-bottom:3px;">Exactly what I needed</div>
-                <div style="font-size:0.75rem;line-height:1.45;opacity:0.72;margin-bottom:7px;">Worth every penny. Quality exceeded my expectations completely.</div>
-                <span style="background:#dcfce7;color:#166534;font-size:0.62rem;padding:2px 7px;border-radius:20px;font-weight:600;">✓ Purchase Verified + Card</span>
-              </div>
-              <div style="width:240px;flex-shrink:0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:13px;margin-right:14px;">
-                <div style="display:flex;gap:2px;margin-bottom:5px;"><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:none;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-                <div style="font-weight:600;font-size:0.82rem;margin-bottom:3px;">Great product, fast delivery</div>
-                <div style="font-size:0.75rem;line-height:1.45;opacity:0.72;margin-bottom:7px;">Does exactly what it says, good build quality. Would recommend.</div>
-                <div style="display:flex;gap:4px;flex-wrap:wrap;"><span style="background:#dcfce7;color:#166534;font-size:0.62rem;padding:2px 7px;border-radius:20px;font-weight:600;">✓ Purchase Verified</span><span style="background:#dbeafe;color:#1e40af;font-size:0.62rem;padding:2px 7px;border-radius:20px;font-weight:600;">📷 @james.k</span></div>
-              </div>
-              <div style="width:240px;flex-shrink:0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:13px;margin-right:14px;">
-                <div style="display:flex;gap:2px;margin-bottom:5px;"><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-                <div style="font-weight:600;font-size:0.82rem;margin-bottom:3px;">Came back for more</div>
-                <div style="font-size:0.75rem;line-height:1.45;opacity:0.72;margin-bottom:7px;">Third order and still the same great experience. Loyal customer.</div>
-                <span style="background:#dcfce7;color:#166534;font-size:0.62rem;padding:2px 7px;border-radius:20px;font-weight:600;">✓ Purchase Verified + Card</span>
-              </div>
-              <div style="width:240px;flex-shrink:0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:13px;margin-right:14px;">
-                <div style="display:flex;gap:2px;margin-bottom:5px;"><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-                <div style="font-weight:600;font-size:0.82rem;margin-bottom:3px;">Better than expected</div>
-                <div style="font-size:0.75rem;line-height:1.45;opacity:0.72;margin-bottom:7px;">Ordered skeptically, received a genuinely impressive product.</div>
-                <span style="background:#dcfce7;color:#166534;font-size:0.62rem;padding:2px 7px;border-radius:20px;font-weight:600;">✓ Purchase Verified</span>
-              </div>
-              <div style="width:240px;flex-shrink:0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:13px;margin-right:14px;">
-                <div style="display:flex;gap:2px;margin-bottom:5px;"><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-                <div style="font-weight:600;font-size:0.82rem;margin-bottom:3px;">Outstanding service</div>
-                <div style="font-size:0.75rem;line-height:1.45;opacity:0.72;margin-bottom:7px;">From ordering to delivery, everything was smooth. Impressive.</div>
-                <div style="display:flex;gap:4px;flex-wrap:wrap;"><span style="background:#dcfce7;color:#166534;font-size:0.62rem;padding:2px 7px;border-radius:20px;font-weight:600;">✓ Purchase Verified + Card</span><span style="background:#dbeafe;color:#1e40af;font-size:0.62rem;padding:2px 7px;border-radius:20px;font-weight:600;">💼 @sarah.m</span></div>
-              </div>
-              <div style="width:240px;flex-shrink:0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:13px;margin-right:14px;">
-                <div style="display:flex;gap:2px;margin-bottom:5px;"><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:#b39d45;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="13" height="13" viewBox="0 0 24 24" stroke-width="2" style="fill:none;stroke:#b39d45;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-                <div style="font-weight:600;font-size:0.82rem;margin-bottom:3px;">Solid all around</div>
-                <div style="font-size:0.75rem;line-height:1.45;opacity:0.72;margin-bottom:7px;">Does exactly what it promises. Fair price, good quality. Will reorder.</div>
-                <span style="background:#dcfce7;color:#166534;font-size:0.62rem;padding:2px 7px;border-radius:20px;font-weight:600;">✓ Purchase Verified</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Widget feature grid -->
+      <!-- Feature grid -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <div class="p-6 rounded-2xl border border-navy-100 dark:border-navy-700 bg-navy-50 dark:bg-navy-700/30 card-lift">
-          <div class="w-10 h-10 rounded-xl bg-navy-500/10 dark:bg-navy-500/20 border border-navy-200 dark:border-navy-600 flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-navy-500 dark:text-navy-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
-          </div>
-          <h3 class="font-semibold text-sm mb-1.5 text-navy-900 dark:text-white">4 layout options</h3>
-          <p class="text-sm text-navy-400 leading-relaxed">Carousel, grid, masonry, or auto-scrolling marquee — pick what fits your page best.</p>
+        <div class="p-6 rounded-2xl border border-navy-100 dark:border-navy-700 card-lift">
+          <div class="text-2xl mb-3">🔑</div>
+          <h3 class="font-semibold text-sm mb-1.5 text-navy-900 dark:text-white">Browser-safe key</h3>
+          <p class="text-sm text-navy-400 leading-relaxed">A publishable key (<span class="font-mono text-navy-500">rvwpk_…</span>) that only ever reads public data — safe to ship in client-side code.</p>
         </div>
-        <div class="p-6 rounded-2xl border border-navy-100 dark:border-navy-700 bg-navy-50 dark:bg-navy-700/30 card-lift">
-          <div class="w-10 h-10 rounded-xl bg-navy-500/10 dark:bg-navy-500/20 border border-navy-200 dark:border-navy-600 flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-navy-500 dark:text-navy-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
-          </div>
-          <h3 class="font-semibold text-sm mb-1.5 text-navy-900 dark:text-white">Fully customizable</h3>
-          <p class="text-sm text-navy-400 leading-relaxed">Match your brand exactly — colors, fonts, border radius, card density, and accent colors, all from a live visual editor.</p>
+        <div class="p-6 rounded-2xl border border-navy-100 dark:border-navy-700 card-lift">
+          <div class="text-2xl mb-3">🌍</div>
+          <h3 class="font-semibold text-sm mb-1.5 text-navy-900 dark:text-white">CORS-enabled</h3>
+          <p class="text-sm text-navy-400 leading-relaxed">Fetch straight from the browser on any domain — no proxy, no backend required.</p>
         </div>
-        <div class="p-6 rounded-2xl border border-navy-100 dark:border-navy-700 bg-navy-50 dark:bg-navy-700/30 card-lift">
-          <div class="w-10 h-10 rounded-xl bg-navy-500/10 dark:bg-navy-500/20 border border-navy-200 dark:border-navy-600 flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-navy-500 dark:text-navy-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-          </div>
-          <h3 class="font-semibold text-sm mb-1.5 text-navy-900 dark:text-white">Dark mode aware</h3>
-          <p class="text-sm text-navy-400 leading-relaxed">The widget auto-detects your site's light/dark mode and switches seamlessly — no extra configuration needed.</p>
+        <div class="p-6 rounded-2xl border border-navy-100 dark:border-navy-700 card-lift">
+          <div class="text-2xl mb-3">🔍</div>
+          <h3 class="font-semibold text-sm mb-1.5 text-navy-900 dark:text-white">Paginated &amp; filterable</h3>
+          <p class="text-sm text-navy-400 leading-relaxed">Sort by date or rating, filter by min-rating or date range, page through thousands of reviews.</p>
         </div>
-        <div class="p-6 rounded-2xl border border-navy-100 dark:border-navy-700 bg-navy-50 dark:bg-navy-700/30 card-lift">
-          <div class="w-10 h-10 rounded-xl bg-navy-500/10 dark:bg-navy-500/20 border border-navy-200 dark:border-navy-600 flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-navy-500 dark:text-navy-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-          </div>
-          <h3 class="font-semibold text-sm mb-1.5 text-navy-900 dark:text-white">Mobile-first</h3>
-          <p class="text-sm text-navy-400 leading-relaxed">Looks great on every screen size. Touch-swipeable carousel, responsive grid, auto-resizing iframe.</p>
+        <div class="p-6 rounded-2xl border border-navy-100 dark:border-navy-700 card-lift">
+          <div class="text-2xl mb-3">✍️</div>
+          <h3 class="font-semibold text-sm mb-1.5 text-navy-900 dark:text-white">Signed responses</h3>
+          <p class="text-sm text-navy-400 leading-relaxed">Every review carries an HMAC-SHA256 signature and a public verify link — the proof is independent of us.</p>
         </div>
-        <div class="p-6 rounded-2xl border border-navy-100 dark:border-navy-700 bg-navy-50 dark:bg-navy-700/30 card-lift">
-          <div class="w-10 h-10 rounded-xl bg-navy-500/10 dark:bg-navy-500/20 border border-navy-200 dark:border-navy-600 flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-navy-500 dark:text-navy-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
-          </div>
-          <h3 class="font-semibold text-sm mb-1.5 text-navy-900 dark:text-white">Public verification links</h3>
-          <p class="text-sm text-navy-400 leading-relaxed">Every review has a permanent public URL. Any skeptic can click through and verify the transaction themselves.</p>
+        <div class="p-6 rounded-2xl border border-navy-100 dark:border-navy-700 card-lift">
+          <div class="text-2xl mb-3">⚡</div>
+          <h3 class="font-semibold text-sm mb-1.5 text-navy-900 dark:text-white">Tiered rate limits</h3>
+          <p class="text-sm text-navy-400 leading-relaxed">30 → 1,000 requests/min scaling with your plan, with RateLimit headers on every response.</p>
         </div>
-        <div class="p-6 rounded-2xl border border-gold-200 dark:border-gold-800/50 bg-gold-50/50 dark:bg-gold-900/10 card-lift">
-          <div class="w-10 h-10 rounded-xl bg-gold-500/15 border border-gold-500/20 flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-          </div>
-          <h3 class="font-semibold text-sm mb-1.5 text-navy-900 dark:text-white">Auto brand matching</h3>
-          <p class="text-sm text-navy-400 leading-relaxed">Point us at your website during onboarding and we'll extract your brand colors and logo to pre-configure the widget.</p>
+        <div class="p-6 rounded-2xl border border-gold-200 dark:border-gold-800/50 bg-gold-50/40 dark:bg-gold-900/10 card-lift">
+          <div class="text-2xl mb-3">🧩</div>
+          <h3 class="font-semibold text-sm mb-1.5 text-navy-900 dark:text-white">Your UI, your way</h3>
+          <p class="text-sm text-navy-400 leading-relaxed">A review wall, a carousel, a hero strip, a badge — two endpoints, infinite ways to show proof.</p>
         </div>
       </div>
+
+      <p class="text-center text-sm text-navy-400 mt-10">Available on every plan, including Free. Full reference in your dashboard's API page.</p>
     </div>
   </section>
+
 
   <!-- ─── COMPARISON TABLE ──────────────────────────────────── -->
   <section class="py-24 px-5 bg-[#f0f4f9] dark:bg-navy-900 border-y border-navy-100 dark:border-navy-800 transition-colors">
@@ -1370,7 +1092,7 @@
             <tr><td class="px-5 py-3.5 font-medium text-navy-700 dark:text-navy-200">Social identity verification</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-gold-500 font-bold text-base">✓</td></tr>
             <tr><td class="px-5 py-3.5 font-medium text-navy-700 dark:text-navy-200">Public review verification page</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-gold-500 font-bold text-base">✓</td></tr>
             <tr><td class="px-5 py-3.5 font-medium text-navy-700 dark:text-navy-200">Independent third-party</td><td class="px-4 py-3.5 text-center text-steel-400">✓</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-steel-400">✓</td><td class="px-4 py-3.5 text-center text-gold-500 font-bold text-base">✓</td></tr>
-            <tr><td class="px-5 py-3.5 font-medium text-navy-700 dark:text-navy-200">Embeddable website widget</td><td class="px-4 py-3.5 text-center text-steel-400">✓</td><td class="px-4 py-3.5 text-center text-steel-400">✓</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-gold-500 font-bold text-base">✓</td></tr>
+            <tr><td class="px-5 py-3.5 font-medium text-navy-700 dark:text-navy-200">Read-only public API</td><td class="px-4 py-3.5 text-center text-steel-400">✓</td><td class="px-4 py-3.5 text-center text-steel-400">✓</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-gold-500 font-bold text-base">✓</td></tr>
             <tr><td class="px-5 py-3.5 font-medium text-navy-700 dark:text-navy-200">Free tier</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-steel-400">✓</td><td class="px-4 py-3.5 text-center text-steel-400">✓</td><td class="px-4 py-3.5 text-center text-gold-500 font-bold text-base">✓</td></tr>
             <tr><td class="px-5 py-3.5 font-medium text-navy-700 dark:text-navy-200">No pay-to-play</td><td class="px-4 py-3.5 text-center text-red-400">✗</td><td class="px-4 py-3.5 text-center text-steel-400">✓</td><td class="px-4 py-3.5 text-center text-steel-400">✓</td><td class="px-4 py-3.5 text-center text-gold-500 font-bold text-base">✓</td></tr>
             <tr class="bg-gold-50/60 dark:bg-gold-900/10 border-t-2 border-gold-200 dark:border-gold-800">
@@ -1465,7 +1187,7 @@
           Privacy first
         </div>
         <h2 class="font-serif text-3xl sm:text-4xl font-normal mb-5 leading-tight text-navy-900 dark:text-white">Your data stays<br><span class="text-gold-500">where it belongs.</span></h2>
-        <p class="text-navy-500 dark:text-navy-300 text-base leading-relaxed mb-7 max-w-lg">We never see credit card numbers, addresses, or personal data. We use Stripe's read-only API — just enough to verify the transaction happened. Customer emails are masked in your dashboard and hashed after sending the review invitation. Your customers' privacy is non-negotiable.</p>
+        <p class="text-navy-500 dark:text-navy-300 text-base leading-relaxed mb-7 max-w-lg">We never see full credit card numbers, CVV codes, or billing addresses. We use Stripe's read-only API — just enough to verify the purchase and reach the buyer. Customer emails are masked in your dashboard and hashed after the review invitation is sent. Your customers' privacy is non-negotiable.</p>
         <div class="space-y-4 text-sm text-navy-600 dark:text-navy-300">
           <div class="flex items-start gap-3">
             <div class="w-6 h-6 rounded-full bg-gold-100 dark:bg-gold-900/30 border border-gold-200 dark:border-gold-800 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -1483,7 +1205,7 @@
             <div class="w-6 h-6 rounded-full bg-gold-100 dark:bg-gold-900/30 border border-gold-200 dark:border-gold-800 flex items-center justify-center flex-shrink-0 mt-0.5">
               <svg class="w-3 h-3 text-gold-600 dark:text-gold-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
             </div>
-            <span>Review invitations expire after 15 minutes — no lingering access for anyone</span>
+            <span>Review links are single-use and expire after 14 days — no lingering access</span>
           </div>
           <div class="flex items-start gap-3">
             <div class="w-6 h-6 rounded-full bg-gold-100 dark:bg-gold-900/30 border border-gold-200 dark:border-gold-800 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -1622,8 +1344,11 @@
           <ul class="space-y-2 text-sm">
             <li><a href="/privacy/" class="text-navy-700 dark:text-navy-200 hover:text-gold-500 transition-colors">Privacy Policy</a></li>
             <li><a href="/terms/" class="text-navy-700 dark:text-navy-200 hover:text-gold-500 transition-colors">Terms of Service</a></li>
+            <li><a href="/dpa/" class="text-navy-700 dark:text-navy-200 hover:text-gold-500 transition-colors">Data Processing Agreement</a></li>
+            <li><a href="/dmca/" class="text-navy-700 dark:text-navy-200 hover:text-gold-500 transition-colors">DMCA Policy</a></li>
             <li><a href="/refund-policy/" class="text-navy-700 dark:text-navy-200 hover:text-gold-500 transition-colors">Refund Policy</a></li>
             <li><a href="/subprocessors/" class="text-navy-700 dark:text-navy-200 hover:text-gold-500 transition-colors">Sub-processors</a></li>
+            <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;" class="text-navy-700 dark:text-navy-200 hover:text-gold-500 transition-colors">Privacy choices</a></li>
           </ul>
         </div>
       </div>
@@ -1659,34 +1384,12 @@
       document.documentElement.classList.add('dark');
     }
 
-    /* Hero carousel globals */
-    var heroPage = 0, heroTimer = null;
-    function heroGoTo(p) {
-      heroPage = ((p % 3) + 3) % 3;
-      var outer = document.getElementById('heroCarouselOuter');
-      var track = document.getElementById('heroCarouselTrack');
-      if (!outer || !track) return;
-      /* step = outerWidth + gap (12px) — works for both 2-up desktop & 1-up mobile */
-      track.style.transform = 'translateX(-' + (heroPage * (outer.offsetWidth + 12)) + 'px)';
-      document.querySelectorAll('.hero-dot').forEach(function(d, i) {
-        d.style.background = i === heroPage ? '#b39d45' : 'rgba(179,157,69,0.25)';
-        d.style.width       = i === heroPage ? '20px'   : '6px';
-      });
-    }
-    function heroStartAutoplay() { heroTimer = setInterval(function() { heroGoTo(heroPage + 1); }, 3800); }
-    function heroPause()  { clearInterval(heroTimer); }
-    function heroResume() { heroStartAutoplay(); }
-
     /* ══════════════════════════════════════════════════════════
        DOMContentLoaded: all feature modules
        ══════════════════════════════════════════════════════════ */
     document.addEventListener('DOMContentLoaded', function() {
 
       var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      /* ── Carousel init ──────────────────────────────────────── */
-      heroGoTo(0);
-      heroStartAutoplay();
 
       /* ── Nav scroll-aware glass ─────────────────────────────── */
       (function() {
@@ -1875,19 +1578,6 @@
             setTimeout(function() { r.remove(); }, 650);
           });
         });
-      })();
-
-      /* ── Touch swipe on hero carousel ───────────────────────── */
-      (function() {
-        var outer = document.getElementById('heroCarouselOuter');
-        if (!outer) return;
-        var sx = 0, sy = 0;
-        outer.addEventListener('touchstart', function(e) { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
-        outer.addEventListener('touchend', function(e) {
-          var dx = e.changedTouches[0].clientX - sx;
-          var dy = e.changedTouches[0].clientY - sy;
-          if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) heroGoTo(heroPage + (dx < 0 ? 1 : -1));
-        }, { passive: true });
       })();
 
       /* ── Stat counters ──────────────────────────────────────── */

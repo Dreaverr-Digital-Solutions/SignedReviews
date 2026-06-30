@@ -1071,25 +1071,25 @@ function buildPricing() {
       <article class="tier">
         <header class="tier-header">
           <h2 class="tier-name">Free</h2>
-          <p class="tier-persona">For merchants trying the product with real customers.</p>
+          <p class="tier-persona">Self-service review collection — your customers come to you.</p>
         </header>
         <div class="tier-price-block">
           <div class="tier-price">
             <span class="amount">$0</span>
             <span class="period">forever</span>
           </div>
-          <span class="tier-invitations">100 invitations · total</span>
+          <span class="tier-invitations">25 invitations · lifetime</span>
         </div>
         <p class="tier-cta">
           <a class="btn btn-secondary" href="${PLATFORM_URL}" rel="noopener">Start free</a>
         </p>
         <ul class="tier-features">
-          <li class="feature-primary">100 review invitations, lifetime</li>
+          <li class="feature-primary">25 review invitations, lifetime</li>
+          <li>Self-service: your page + badge carry a "Leave a verified review" CTA — share your link or QR</li>
           <li>All collected reviews visible forever</li>
-          <li>1 automatic reminder · Day 7</li>
+          <li>Hosted public review page + read-only public API + badge</li>
+          <li>Build your own page with the read-only public API</li>
           <li>1 team seat</li>
-          <li>Stripe-native onboarding</li>
-          <li>Hosted public review page + widget</li>
           <li>AI Style Generator · 3 runs/day</li>
           <li>Community support</li>
         </ul>
@@ -1098,7 +1098,7 @@ function buildPricing() {
       <article class="tier">
         <header class="tier-header">
           <h2 class="tier-name">Starter</h2>
-          <p class="tier-persona">For solo merchants building trust on their storefront.</p>
+          <p class="tier-persona">Automation starts here — a verified request on every Stripe sale.</p>
         </header>
         <div class="tier-price-block">
           <div class="tier-price">
@@ -1111,9 +1111,11 @@ function buildPricing() {
           <a class="btn btn-secondary" href="${PLATFORM_URL}" rel="noopener">Sign up free</a>
         </p>
         <ul class="tier-features">
+          <li class="feature-primary">Automated review requests on every Stripe charge</li>
           <li class="feature-primary">250 review invitations / month</li>
+          <li>2 automatic reminders · standard cadence</li>
+          <li>Auto-request delay presets</li>
           <li>All collected reviews visible forever</li>
-          <li>2 automatic reminders · Day 3 + Day 10</li>
           <li>3 team seats</li>
           <li>60-day review link expiry</li>
           <li>Unlimited AI Style Generator runs</li>
@@ -1144,7 +1146,7 @@ function buildPricing() {
           <li>2 automatic reminders · custom cadence preset</li>
           <li>8 team seats</li>
           <li>90-day review link expiry</li>
-          <li>Read-only API · 600 req/min</li>
+          <li>Read-only API · 300 req/min</li>
           <li>Webhooks on new review, reply, refund</li>
           <li>CSV export of reviews + transactions</li>
           <li>Priority support · 24-hour response</li>
@@ -1172,7 +1174,7 @@ function buildPricing() {
           <li>2 automatic reminders · custom cadence + copy</li>
           <li>20 team seats</li>
           <li>90-day review link expiry</li>
-          <li>Read-only API · 2,000 req/min</li>
+          <li>Read-only API · 1,000 req/min</li>
           <li>Webhooks + CSV export</li>
           <li>Priority support · 12-hour response</li>
         </ul>
@@ -1180,14 +1182,6 @@ function buildPricing() {
 
     </div>
   </section>
-
-  <div class="addon-card" role="region" aria-label="Seat add-on">
-    <div>
-      <h2 class="addon-name">Add-on — Extra seat</h2>
-      <p>Stack additional team seats onto any paid plan. Ideal for growing support or moderation teams.</p>
-    </div>
-    <span class="addon-price">$5 / seat / month</span>
-  </div>
 
   <div class="addon-card" role="region" aria-label="Invitation pack add-on">
     <div>
@@ -1214,8 +1208,22 @@ function buildPricing() {
       </thead>
       <tbody>
         <tr>
+          <th scope="row">Automated review requests <span style="font-weight:400;color:var(--muted)">(on every Stripe charge)</span></th>
+          <td class="dim">—</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+        </tr>
+        <tr>
+          <th scope="row">Self-service collection <span style="font-weight:400;color:var(--muted)">(page + badge CTA)</span></th>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+        </tr>
+        <tr>
           <th scope="row">Review invitations</th>
-          <td>100 lifetime</td>
+          <td>25 lifetime</td>
           <td>250 / mo</td>
           <td>1,500 / mo</td>
           <td>5,000 / mo</td>
@@ -1243,14 +1251,14 @@ function buildPricing() {
         </tr>
         <tr>
           <th scope="row">Auto-request delays</th>
-          <td>Immediate + 1-day</td>
+          <td class="dim">—</td>
           <td>All presets</td>
           <td>All presets</td>
           <td>All presets</td>
         </tr>
         <tr>
           <th scope="row">Automatic reminder emails</th>
-          <td>1 reminder · Day 7</td>
+          <td class="dim">—</td>
           <td>2 reminders · standard</td>
           <td>2 · custom cadence</td>
           <td>2 · custom cadence + copy</td>
@@ -1271,10 +1279,10 @@ function buildPricing() {
         </tr>
         <tr>
           <th scope="row">Public API access</th>
-          <td class="dim">—</td>
+          <td>Public page API</td>
           <td>60 req/min</td>
-          <td>600 req/min</td>
-          <td>2,000 req/min</td>
+          <td>300 req/min</td>
+          <td>1,000 req/min</td>
         </tr>
         <tr>
           <th scope="row">Webhooks</th>
@@ -1308,7 +1316,7 @@ function buildPricing() {
     </article>
     <article class="assurance">
       <h3>Read-only Stripe access.</h3>
-      <p>We never charge, refund, or modify anything in your Stripe account. We read completed charges to trigger verified review requests — that's it.</p>
+      <p>We never charge, refund, move funds, or modify anything in your Stripe account. We read your Stripe data only to verify reviews and to compute the Trust Profile metrics you choose to show.</p>
     </article>
     <article class="assurance">
       <h3>The API can't create reviews.</h3>

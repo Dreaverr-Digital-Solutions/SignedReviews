@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date:** April 19, 2026
-**Last updated:** June 8, 2026
+**Last updated:** June 28, 2026
 
 This Privacy Policy explains how Paid Rightly LLC ("we," "us," "our") collects, uses, discloses, and protects information when you use Signed Reviews, available at [signedreviews.com](https://signedreviews.com) and [platform.signedreviews.com](https://platform.signedreviews.com) (collectively, the "Service").
 
@@ -76,7 +76,9 @@ Attaching a social handle and photo is always optional. You can submit a review 
 
 Signed Reviews does not process payments from reviewers, does not take fees from business Stripe accounts, and does not store full card numbers, CVV codes, expiry dates, cardholder names, or full billing addresses.
 
-The only payment-adjacent data we store is a narrow slice of charge metadata received from Stripe webhooks: the charge ID, customer email, card last four digits, amount, and currency. These are used to link a review to a verified purchase.
+The payment-adjacent data we store is a narrow slice of charge metadata received from Stripe: the charge ID, customer email, card last four digits, amount, and currency. These are used to link a review to a verified purchase.
+
+If a business enables metrics on its public Trust Profile, we additionally read aggregate data from that business's Stripe account on a strictly read-only basis — such as charges, customers, subscriptions, refunds, disputes, and balance transactions — and store only the resulting privacy-thresholded aggregate values (for example, a banded refund rate or active-subscriber count), never the underlying raw records. We never store full card numbers, CVV codes, expiry dates, cardholder names, or full billing addresses.
 
 ### 3.4 Technical information
 
@@ -165,8 +167,9 @@ We use a small number of service providers to operate the Service. A complete, c
 - **Stripe** (payments and transaction data)
 - **Resend** (transactional email delivery)
 - **Cloudinary** (image hosting for review photos and brand assets)
-- **Anthropic** (AI logo extraction — see Section 6 for specifics)
+- **Anthropic** and **Google** (business-facing branding AI — logo and brand-style extraction; see Section 6 for specifics)
 - **Railway** (cloud hosting and managed database)
+- **PostHog** (first-party product and marketing-site analytics — see Section 3.4a)
 - **Decodo** (proxy service used only for Instagram public profile lookups)
 - **OAuth providers** (Google, GitHub, LinkedIn, Microsoft, Facebook, Twitter/X, Instagram) — only when you choose to use them
 - **Gravatar** (only when we check whether your email has an associated avatar)
@@ -185,7 +188,9 @@ We may disclose information in response to lawful subpoenas, court orders, or go
 
 ## 6. How we use AI
 
-We use Anthropic's Claude AI (specifically, Claude Haiku with vision capabilities) for one purpose only: helping businesses extract brand logos and visual identity from their own publicly available website during onboarding. The AI is shown the HTML of the website URL a business enters, along with candidate logo images from that site, and selects the most likely logo.
+We use AI only for **business-facing branding features**, and only on content a business provides about its own brand. When a business sets up or restyles its public review page, embeddable widget, badge, or brand profile, we send the HTML of the website URL the business enters — along with any candidate logo or brand images from that site — to a vision-capable large language model, which (a) selects the most likely logo and (b) proposes brand colors and visual style presets the business can accept or discard.
+
+These features run on **Anthropic's Claude** models by default, with **Google's Gemini** models available as an alternate provider we may select on a per-feature basis. Both are used only for the branding tasks described above.
 
 We do **not** use AI to analyze, moderate, score, or train on:
 
@@ -194,7 +199,7 @@ We do **not** use AI to analyze, moderate, score, or train on:
 - Payment or transaction data
 - Private messages, business-reply text, or any business user's account data
 
-Anthropic does not train models on data sent through the Claude API, per Anthropic's commercial terms. The only data that flows to Anthropic is the publicly accessible website content the business asked us to analyze.
+The only data that flows to these AI providers is the publicly accessible website content and brand images the business asked us to analyze. Under the commercial API terms applicable to our use, these providers do not train their models on the data we send.
 
 ---
 

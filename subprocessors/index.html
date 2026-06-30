@@ -525,7 +525,7 @@ main { padding: 0; }
     </section>
     <div class="prose-wrap has-toc">
       <article class="prose">
-<p><strong>Last updated:</strong> June 8, 2026</p>
+<p><strong>Last updated:</strong> June 27, 2026</p>
 <p>This page lists the third-party service providers (&quot;sub-processors&quot;) that Paid Rightly LLC uses to provide Signed Reviews. Each sub-processor is contractually required to use personal data only to provide services to us and to maintain appropriate security safeguards.</p>
 <p>We may update this list from time to time. Material additions will be reflected by updating the &quot;Last updated&quot; date. We recommend checking this page periodically.</p>
 <hr>
@@ -553,8 +553,8 @@ main { padding: 0; }
 </tr>
 <tr>
 <td><strong>Stripe</strong></td>
-<td>Payment-related webhooks and OAuth for business Stripe connections</td>
-<td>Business Stripe credentials; transaction metadata (charge ID, customer email, card last-4, amount, currency)</td>
+<td>Business Stripe account linking (Connect OAuth or a restricted API key) and webhooks. Read-only access used to verify reviews and to compute the metrics a merchant chooses to show on their public Trust Profile. We never charge, refund, move funds, or modify the connected account.</td>
+<td>Stripe account ID or restricted API key (encrypted at rest); transaction metadata (charge ID, customer email, card last-4, amount, currency); aggregate read of charges, customers, subscriptions, refunds, disputes, and balance transactions for merchant-enabled metrics</td>
 <td>United States</td>
 </tr>
 <tr>
@@ -577,9 +577,15 @@ main { padding: 0; }
 </thead>
 <tbody><tr>
 <td><strong>Anthropic</strong></td>
-<td>AI logo extraction during business brand onboarding (Claude Haiku with vision)</td>
-<td>Public website HTML and candidate logo images provided by the business during brand setup</td>
-<td><strong>Not used on reviews, reviewer data, or payment data.</strong> Anthropic does not train on data sent through its API under its commercial terms.</td>
+<td>Business-facing AI features: logo extraction and the AI Style Generator (suggesting brand colors and styles for the public review page, widget, and badge), using Claude models</td>
+<td>Public website HTML/URL and candidate logo or brand images provided by the business during setup</td>
+<td><strong>Not used on review content, reviewer data, or payment data.</strong> Anthropic does not train on data sent through its API under its commercial terms.</td>
+</tr>
+<tr>
+<td><strong>Google (Gemini)</strong></td>
+<td>Alternate AI provider for the same business-facing AI features (logo extraction / AI Style Generator), via the Google Gemini API</td>
+<td>Public website HTML/URL and candidate logo or brand images provided by the business during setup</td>
+<td><strong>Not used on review content, reviewer data, or payment data.</strong></td>
 </tr>
 </tbody></table>
 <hr>

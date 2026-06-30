@@ -1,7 +1,7 @@
 # Terms of Service
 
 **Effective date:** April 19, 2026
-**Last updated:** April 19, 2026
+**Last updated:** June 28, 2026
 
 These Terms of Service ("Terms") are a binding legal agreement between you and **Paid Rightly LLC** ("we," "us," "our"), a New Mexico limited liability company, regarding your use of Signed Reviews ("Service"), available at [signedreviews.com](https://signedreviews.com) and [platform.signedreviews.com](https://platform.signedreviews.com).
 
@@ -76,15 +76,20 @@ You may not:
 
 ## 5. Your Stripe connection
 
-To use most of the Service, you must connect a Stripe account. By connecting your Stripe account, you:
+To use most of the Service, you first create a Signed Reviews account (email and password, magic link, or social sign-in), then **link your Stripe account**. You can link Stripe in one of two ways:
 
-- Grant us read-only access to your charge data for the purpose of triggering review requests
-- Authorize us to create a webhook endpoint on your Stripe account to receive `charge.succeeded` and related events
-- Remain solely responsible for your relationship with Stripe, including compliance with Stripe's Services Agreement
+- **Stripe Connect (OAuth)** — you authorize Signed Reviews from Stripe's hosted consent screen; or
+- **Restricted API key** — you create a read-restricted Stripe API key and paste it into the Service.
 
-We do not take platform fees from your Stripe account, do not initiate charges on your Stripe account, and do not transfer funds. Our access is limited to reading charge metadata necessary to operate the review-request workflow.
+By linking your Stripe account, you:
 
-You can disconnect your Stripe account at any time through the Service. Doing so will stop future review requests from being triggered.
+- Grant us **read-only** access to your Stripe data. We read charge data to trigger and verify review requests and, only for the metrics you explicitly enable on your public Trust Profile, aggregate read access to related data such as charges, customers, subscriptions, refunds, disputes, and balance transactions.
+- Authorize us to receive `charge.succeeded` and `charge.refunded` events. With Stripe Connect these are delivered to our platform webhook automatically; with a restricted API key we register (or you configure) a webhook endpoint on your Stripe account for the same events.
+- Remain solely responsible for your relationship with Stripe, including compliance with Stripe's Services Agreement.
+
+We **never** initiate charges, issue refunds, move or transfer funds, modify your Stripe account, or take platform fees. Our access is strictly read-only and limited to the data needed to verify reviews and compute the Trust Profile metrics you choose to display.
+
+You can disconnect your Stripe account at any time through the Service. Doing so stops future review requests from being triggered; your Signed Reviews account and existing reviews remain intact.
 
 ---
 
@@ -194,7 +199,7 @@ We may suspend or terminate accounts that violate these restrictions.
 If you use the public API or embed the Signed Reviews widget on a third-party website, you additionally agree that:
 
 - Your API key is confidential; sharing it is a breach of these Terms
-- The public API is rate limited to 100 requests per minute per API key; excessive use may result in throttling or termination
+- The public API is rate limited, and the limit depends on your plan (see our [Pricing page](https://signedreviews.com/pricing)); excessive use may result in throttling or suspension
 - Widget-embedded reviews must be displayed in their original form without editing or selective omission of negative reviews
 - You are responsible for ensuring the widget or API data you display on your site complies with applicable law (including disclosure rules for endorsements)
 
