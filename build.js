@@ -571,7 +571,7 @@ const SHARED_HEAD = ({ title, description, canonical, pageType = 'website' }) =>
   <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
   <link rel="preload" href="https://fonts.gstatic.com/s/instrumentserif/v18/jiz2RFNlSmViCztYvS2ZTOdC0D5n.woff2" as="font" type="font/woff2" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
   <style>${SHARED_STYLES}</style>${POSTHOG_SNIPPET}
 `;
@@ -580,8 +580,8 @@ const HEADER = (active = '') => `
 <header class="site-header">
   <div class="nav-inner" id="navInner">
     <a class="brand" href="${B}" aria-label="${COMPANY.brand} home">
-      <img class="brand-icon" src="${B}images/SignedReviews_logo_only.png" alt="">
-      <img class="brand-wordmark" src="${B}images/SignedReviews_font_only.png" alt="${COMPANY.brand}">
+      <img class="brand-icon" src="${B}images/SignedReviews_logo_only.webp" alt="">
+      <img class="brand-wordmark" src="${B}images/SignedReviews_font_only.webp" alt="${COMPANY.brand}">
     </a>
     <ul class="nav-links" role="menu">
       <li><a href="${B}pricing/"${active === 'pricing' ? ' aria-current="page"' : ''}>Pricing</a></li>
@@ -615,8 +615,8 @@ const FOOTER = `
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand footer-brand-link" href="${B}" aria-label="${COMPANY.brand} home">
-        <img class="brand-icon" src="${B}images/SignedReviews_logo_only.png" alt="">
-        <img class="brand-wordmark" src="${B}images/SignedReviews_font_only.png" alt="${COMPANY.brand}">
+        <img class="brand-icon" src="${B}images/SignedReviews_logo_only.webp" alt="">
+        <img class="brand-wordmark" src="${B}images/SignedReviews_font_only.webp" alt="${COMPANY.brand}">
       </a>
       <p>${COMPANY.attribution}</p>
       <p>${COMPANY.copyright}</p>
