@@ -1,0 +1,29 @@
+# Signed Reviews
+> Purchase-verified customer reviews, backed by Stripe.
+
+## About
+Signed Reviews is a SaaS platform that cryptographically links customer reviews to completed Stripe transactions. Every review is tamper-evident and provably authentic, eliminating fake reviews by design.
+
+## Key Pages
+- /: Homepage — product overview, features, and value proposition
+- /pricing/: Pricing plans (free during beta)
+- /about/: Company information and mission
+- /features/: Full feature list and capabilities
+- /how-it-works/: Visual walkthrough of the Stripe verification flow
+- /integrations/: Stripe integration and API documentation
+- /blog/: Articles on review authenticity, e-commerce trust, and Stripe ecosystem
+- /faq/: Frequently asked questions
+- /docs/: Developer documentation
+- /api/: API reference
+
+## Key Facts
+- Every review requires a completed Stripe transaction before submission
+- Reviews are cryptographically signed, creating tamper-evident proof
+- Platform integrates with Stripe via OAuth — no API keys needed
+- Built-in fraud detection, automated review collection, and analytics
+- Founded in 2025. Free during beta period.
+
+## Statistics
+- 98% of consumers read online reviews before buying (BrightLocal, 2023)
+- Displaying verified reviews can increase conversion by up to 270% (Spiegel Research Center)
+- Trustpilot removed 2.7 million fake reviews in 2022 (Trustpilot Transparency Report)

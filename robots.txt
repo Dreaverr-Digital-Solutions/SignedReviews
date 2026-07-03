@@ -1,3 +1,49 @@
+# Signed Reviews — AI Crawler & SEO Policy
+# Google Search (full crawl — must be allowed for indexation)
+User-agent: Googlebot
+Allow: /
+
+# Bing / Microsoft (full crawl)
+User-agent: Bingbot
+Allow: /
+
+# ── AI Search Crawlers (visibility, no training) ──────────────────
+# Google AI Overviews — allow for AI search visibility, block training use
+User-agent: Google-Extended
+Allow: /
+Content-Signal: ai-train=no, use=reference
+
+# ChatGPT / Perplexity — allow for search visibility, block training
+User-agent: GPTBot
+Allow: /
+Content-Signal: ai-train=no, use=reference
+
+# Common Crawl (powers many LLM training datasets)
+User-agent: CCBot
+Allow: /
+Content-Signal: ai-train=no, use=reference
+
+# ── AI Training Crawlers (blocked) ────────────────────────────────
+# These bots are exclusively for training and offer no search visibility.
+# Blocking them protects our content from being used for model training
+# while still allowing the AI search crawlers above to reference our content.
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+# ── Everyone else ──────────────────────────────────────────────────
 User-agent: *
 Allow: /
 

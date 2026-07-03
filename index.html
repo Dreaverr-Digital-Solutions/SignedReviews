@@ -25,6 +25,56 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Signed Reviews",
+    "url": "https://signedreviews.com",
+    "logo": "https://signedreviews.com/images/SignedReviews_logo_only.png",
+    "description": "Purchase-verified customer reviews platform that cryptographically links each review to a completed Stripe transaction.",
+    "foundingDate": "2025",
+    "sameAs": [
+      "https://twitter.com/signedreviews",
+      "https://linkedin.com/company/signedreviews",
+      "https://github.com/signedreviews"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Signed Reviews",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Collect purchase-verified, tamper-evident customer reviews backed by Stripe transactions.",
+    "url": "https://signedreviews.com",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free during beta. No credit card required."
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Signed Reviews",
+    "url": "https://signedreviews.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://signedreviews.com/search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
