@@ -1446,6 +1446,95 @@ function buildAbout() {
   console.log('  ✓ /about/');
 }
 
+// ── Stub SEO pages (coming soon) ──────────────────────────────────────────────
+// These routes currently return the SPA shell with generic <title>SignedReviews</title>.
+// Each stub page gets a unique server-rendered <title>, <meta description>, and
+// <link rel="canonical"> so Google can index them meaningfully. Replace with full
+// content pages in Phase 2.
+const COMING_SOON_PAGES = [
+  {
+    slug: '/features/',
+    title: 'Features — Signed Reviews',
+    desc: 'Explore the full feature set of Signed Reviews: automated review collection, tamper-proof verification, Stripe integration, Trust Profile metrics, and more.',
+    eyebrow: 'Features',
+    heading: 'Signed Reviews Features',
+    subtitle: 'A complete overview of what Signed Reviews can do for your business.',
+  },
+  {
+    slug: '/blog/',
+    title: 'Blog — Signed Reviews',
+    desc: 'Insights on review authenticity, e-commerce trust, Stripe integrations, and verified customer reviews from the Signed Reviews team.',
+    eyebrow: 'Blog',
+    heading: 'Signed Reviews Blog',
+    subtitle: 'Coming soon — insights on review authenticity, trust, and Stripe.',
+  },
+  {
+    slug: '/integrations/',
+    title: 'Integrations — Signed Reviews',
+    desc: 'Signed Reviews integrates with Stripe, Shopify, WooCommerce, and more. Connect your stack with our API and webhooks.',
+    eyebrow: 'Integrations',
+    heading: 'Integrations',
+    subtitle: 'Connect Signed Reviews to your existing stack.',
+  },
+  {
+    slug: '/faq/',
+    title: 'FAQ — Signed Reviews',
+    desc: 'Frequently asked questions about Signed Reviews: how verification works, Stripe integration, pricing, security, and more.',
+    eyebrow: 'FAQ',
+    heading: 'Frequently Asked Questions',
+    subtitle: 'Answers to common questions about review verification, Stripe, and pricing.',
+  },
+  {
+    slug: '/how-it-works/',
+    title: 'How It Works — Signed Reviews',
+    desc: 'Learn how Signed Reviews cryptographically links customer reviews to completed Stripe transactions for tamper-proof verification.',
+    eyebrow: 'How It Works',
+    heading: 'How Signed Reviews Works',
+    subtitle: 'From Stripe purchase to verified review — see the full verification flow.',
+  },
+  {
+    slug: '/demo/',
+    title: 'Request a Demo — Signed Reviews',
+    desc: 'See Signed Reviews in action. Request a personalized demo to learn how verified reviews can build trust for your business.',
+    eyebrow: 'Demo',
+    heading: 'Request a Demo',
+    subtitle: 'See how Signed Reviews works with a personalized walkthrough.',
+  },
+  {
+    slug: '/docs/',
+    title: 'Documentation — Signed Reviews',
+    desc: 'Technical documentation for Signed Reviews: API reference, integration guides, widget setup, and webhook configuration.',
+    eyebrow: 'Docs',
+    heading: 'Documentation',
+    subtitle: 'API reference, integration guides, and technical documentation.',
+  },
+  {
+    slug: '/api/',
+    title: 'API Reference — Signed Reviews',
+    desc: 'Signed Reviews REST API reference: authentication, endpoints, rate limits, and code examples for integrating review collection into your app.',
+    eyebrow: 'API',
+    heading: 'API Reference',
+    subtitle: 'Integrate Signed Reviews into your application with our REST API.',
+  },
+];
+
+function buildComingSoon() {
+  for (const p of COMING_SOON_PAGES) {
+    const body = `<article class="prose" style="max-width: var(--max-prose)">
+      <p>This page is coming soon. In the meantime, explore our <a href="${B}">homepage</a> or check out our <a href="${B}pricing/">pricing</a>.</p>
+    </article>`;
+    const html = page({
+      title: p.title,
+      description: p.desc,
+      slug: p.slug,
+      hero: { eyebrow: p.eyebrow, title: p.heading, subtitle: p.subtitle },
+      body,
+    });
+    writePage(p.slug, html);
+    console.log(`  ✓ ${p.slug}`);
+  }
+}
+
 // ── robots / sitemap / favicon ───────────────────────────────────────────────
 function buildSeoFiles() {
   const today = new Date().toISOString().slice(0, 10);
@@ -1540,6 +1629,8 @@ console.log('\nMarketing pages:');
 buildPricing();
 buildContact();
 buildAbout();
+console.log('\nComing-soon pages:');
+buildComingSoon();
 console.log('\nSEO files:');
 buildSeoFiles();
 
@@ -1557,6 +1648,7 @@ const PUBLISH = [
   'index.html', 'favicon.svg', 'sitemap.xml', 'robots.txt', 'CNAME',
   'about', 'contact', 'dpa', 'files', 'images', 'output.css',
   'privacy', 'refund-policy', 'subprocessors', 'terms', 'pricing', 'dmca',
+  'features', 'blog', 'integrations', 'faq', 'how-it-works', 'demo', 'docs', 'api',
 ];
 
 for (const entry of PUBLISH) {
