@@ -1628,6 +1628,7 @@ function buildBlog() {
   });
   writePage('/blog/', indexHtml);
   console.log('  ✓ /blog/ (index)');
+  return posts.map(p => p.slug);
 }
 
 // ── How It Works page ─────────────────────────────────────────────────────────
@@ -1860,9 +1861,9 @@ function buildComingSoon() {
 }
 
 // ── robots / sitemap / favicon ───────────────────────────────────────────────
-function buildSeoFiles() {
+function buildSeoFiles(blogSlugs = []) {
   const today = new Date().toISOString().slice(0, 10);
-  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/faq/', '/how-it-works/', '/demo/', '/docs/', '/api/', '/trust/', '/vs/trustpilot/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/'];
+  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/faq/', '/how-it-works/', '/demo/', '/docs/', '/api/', '/trust/', '/vs/trustpilot/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/', ...blogSlugs];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
@@ -1902,12 +1903,16 @@ User-agent: CCBot
 Allow: /
 Content-Signal: ai-train=no, use=reference
 
-# ── AI Training Crawlers (blocked) ────────────────────────────────
+# ── AI Search Crawlers (continued) ─────────────────────────────────
+# Claude — allow for search visibility (Claude web search), block training
 User-agent: ClaudeBot
-Disallow: /
+Allow: /
+Content-Signal: ai-train=no, use=reference
 
+# Perplexity — allow for search visibility, block training
 User-agent: PerplexityBot
-Disallow: /
+Allow: /
+Content-Signal: ai-train=no, use=reference
 
 User-agent: Applebot-Extended
 Disallow: /
@@ -1956,12 +1961,12 @@ buildAbout();
 buildFaq();
 buildTrust();
 buildHowItWorks();
-buildBlog();
+const blogSlugs = buildBlog() || [];
 buildComparison();
 console.log('\nComing-soon pages:');
 buildComingSoon();
 console.log('\nSEO files:');
-buildSeoFiles();
+buildSeoFiles(blogSlugs);
 
 // ── Cloudflare Pages output ──────────────────────────────────────────────────
 // The in-place writes above support GitHub Pages, which serves the repo root.
@@ -1978,7 +1983,7 @@ const PUBLISH = [
   'about', 'contact', 'dpa', 'files', 'images', 'output.css', 'trust', 'vs',
   'privacy', 'refund-policy', 'subprocessors', 'terms', 'pricing', 'dmca',
   'features', 'blog', 'integrations', 'faq', 'how-it-works', 'demo', 'docs', 'api',
-  '_headers', 'b2f3a1c8d9e0475f8a6c1d3b5e7f9a2c.txt',
+  '_headers', 'llms.txt', 'b2f3a1c8d9e0475f8a6c1d3b5e7f9a2c.txt',
 ];
 
 for (const entry of PUBLISH) {

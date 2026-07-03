@@ -23,12 +23,16 @@ User-agent: CCBot
 Allow: /
 Content-Signal: ai-train=no, use=reference
 
-# ── AI Training Crawlers (blocked) ────────────────────────────────
+# ── AI Search Crawlers (continued) ─────────────────────────────────
+# Claude — allow for search visibility (Claude web search), block training
 User-agent: ClaudeBot
-Disallow: /
+Allow: /
+Content-Signal: ai-train=no, use=reference
 
+# Perplexity — allow for search visibility, block training
 User-agent: PerplexityBot
-Disallow: /
+Allow: /
+Content-Signal: ai-train=no, use=reference
 
 User-agent: Applebot-Extended
 Disallow: /
