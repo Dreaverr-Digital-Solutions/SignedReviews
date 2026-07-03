@@ -1541,6 +1541,92 @@ function buildFaq() {
   console.log('  ✓ /faq/');
 }
 
+// ── Blog ──────────────────────────────────────────────────────────────────────
+function buildBlog() {
+  const blogDir = path.join(FILES_DIR, 'blog');
+  const posts = [];
+
+  if (fs.existsSync(blogDir)) {
+    const files = fs.readdirSync(blogDir).filter(f => f.endsWith('.md')).sort().reverse();
+    for (const file of files) {
+      const raw = fs.readFileSync(path.join(blogDir, file), 'utf8');
+      const slug = '/blog/' + file.replace(/\.md$/, '/');
+
+      // Extract title from first H1
+      const titleMatch = raw.match(/^# (.+)$/m);
+      const title = titleMatch ? titleMatch[1].trim() : file.replace(/\.md$/, '').replace(/-/g, ' ');
+
+      // Extract first paragraph after frontmatter-like header as description
+      const bodyStart = raw.indexOf('\n---\n');
+      const contentBody = bodyStart >= 0 ? raw.slice(bodyStart + 5) : raw;
+      const firstPara = contentBody.match(/\n\n(.{50,200})\n/);
+      const desc = firstPara ? firstPara[1].replace(/[#*\[\]]/g, '').trim().slice(0, 160) : title;
+
+      // Render markdown body (strip the first H1 — hero shows it)
+      const renderedBody = renderMarkdown(contentBody).replace(/<h1[^>]*>[\s\S]*?<\/h1>/, '');
+
+      const dateMatch = raw.match(/\*\*Published:\*\*\s*(.+?)\s*[*\n]/);
+      const dateStr = dateMatch ? dateMatch[1].trim() : '';
+
+      posts.push({ title, desc, slug, file, renderedBody, dateStr });
+    }
+  }
+
+  // Individual post pages
+  for (const post of posts) {
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: post.title,
+      description: post.desc,
+      datePublished: post.dateStr || undefined,
+      author: { '@type': 'Organization', name: 'Signed Reviews' },
+      publisher: { '@type': 'Organization', name: 'Signed Reviews', logo: { '@type': 'ImageObject', url: `${SITE_URL}/images/SignedReviews_logo_only.png` } },
+    };
+
+    const body = `<article class="prose" style="max-width: var(--max-prose)">
+      ${post.dateStr ? `<p class="post-meta" style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">${escapeHtml(post.dateStr)}</p>` : ''}
+      ${post.renderedBody}
+      <p style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+        <a href="${B}blog/">← Back to blog</a>
+      </p>
+    </article>`;
+
+    const html = page({
+      title: `${post.title} — Signed Reviews Blog`,
+      description: post.desc,
+      slug: post.slug,
+      hero: { eyebrow: 'Blog', title: post.title, subtitle: post.desc },
+      body,
+    });
+
+    const schemaTag = `\n  <script type="application/ld+json">${JSON.stringify(schema)}</script>\n</head>`;
+    writePage(post.slug, html.replace('</head>', schemaTag));
+    console.log(`  ✓ ${post.slug}`);
+  }
+
+  // Blog index page
+  const indexBody = `<article class="prose" style="max-width: var(--max-prose)">
+    <p>Insights on review authenticity, e-commerce trust, Stripe integrations, and verified customer reviews from the Signed Reviews team.</p>
+    ${posts.map(p => `
+    <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
+      <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="${B}${p.slug.replace(/^\//, '')}" style="text-decoration:none;">${escapeHtml(p.title)}</a></h2>
+      ${p.dateStr ? `<p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">${escapeHtml(p.dateStr)}</p>` : ''}
+      <p style="margin:0;color:var(--text);font-size:.95rem;">${escapeHtml(p.desc)}</p>
+    </div>`).join('')}
+  </article>`;
+
+  const indexHtml = page({
+    title: 'Blog — Signed Reviews',
+    description: 'Insights on review authenticity, e-commerce trust, Stripe integrations, and verified customer reviews.',
+    slug: '/blog/',
+    hero: { eyebrow: 'Blog', title: 'Signed Reviews Blog', subtitle: 'Insights on review authenticity, trust, and the Stripe ecosystem.' },
+    body: indexBody,
+  });
+  writePage('/blog/', indexHtml);
+  console.log('  ✓ /blog/ (index)');
+}
+
 // ── How It Works page ─────────────────────────────────────────────────────────
 function buildHowItWorks() {
   const steps = [
@@ -1720,14 +1806,6 @@ const COMING_SOON_PAGES = [
     subtitle: 'A complete overview of what Signed Reviews can do for your business.',
   },
   {
-    slug: '/blog/',
-    title: 'Blog — Signed Reviews',
-    desc: 'Insights on review authenticity, e-commerce trust, Stripe integrations, and verified customer reviews from the Signed Reviews team.',
-    eyebrow: 'Blog',
-    heading: 'Signed Reviews Blog',
-    subtitle: 'Coming soon — insights on review authenticity, trust, and Stripe.',
-  },
-  {
     slug: '/integrations/',
     title: 'Integrations — Signed Reviews',
     desc: 'Signed Reviews integrates with Stripe, Shopify, WooCommerce, and more. Connect your stack with our API and webhooks.',
@@ -1875,6 +1953,7 @@ buildAbout();
 buildFaq();
 buildTrust();
 buildHowItWorks();
+buildBlog();
 buildComparison();
 console.log('\nComing-soon pages:');
 buildComingSoon();
