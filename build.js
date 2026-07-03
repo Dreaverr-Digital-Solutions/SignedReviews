@@ -1446,6 +1446,146 @@ function buildAbout() {
   console.log('  ✓ /about/');
 }
 
+// ── FAQ page ──────────────────────────────────────────────────────────────────
+function buildFaq() {
+  const faqItems = [
+    {
+      q: 'What is a purchase-verified review?',
+      a: 'A purchase-verified review is a customer review that is cryptographically linked to a completed payment transaction. Signed Reviews connects to your Stripe account and only allows reviews from customers who have actually purchased from you, making every review tamper-evident and provably authentic.',
+    },
+    {
+      q: 'How does Signed Reviews verify reviews?',
+      a: 'Signed Reviews links each review to a completed Stripe transaction. When a customer submits a review, the platform verifies the purchase against your Stripe account and cryptographically signs the review, creating a tamper-evident record that proves the reviewer is a real customer and that the review has not been altered.',
+    },
+    {
+      q: 'How is Signed Reviews different from Trustpilot?',
+      a: 'Unlike Trustpilot, which allows anyone to write a review without verifying a purchase, Signed Reviews requires a completed Stripe transaction before a review can be submitted. This means every review on Signed Reviews is backed by proof of purchase, eliminating fake reviews by design. Trustpilot removed 2.7 million fake reviews in 2022 alone — Signed Reviews prevents them from being written in the first place.',
+    },
+    {
+      q: 'Do I need to share my Stripe API keys?',
+      a: 'No. Signed Reviews uses Stripe\'s official OAuth integration, which means you grant read-only access with one click — no API keys to copy, paste, or store. We never have write access to your Stripe account and cannot charge, refund, or modify anything.',
+    },
+    {
+      q: 'Can customers leave reviews without a purchase?',
+      a: 'No. A review can only be submitted through a unique, expiring invitation link that is generated after a Stripe charge succeeds. The link is emailed to the customer\'s verified email address from the Stripe transaction. Without a completed purchase, no invitation link exists.',
+    },
+    {
+      q: 'What happens if a charge is refunded?',
+      a: 'If a charge is refunded, the associated review is automatically hidden from your public page and API responses. The cryptographic signature remains valid — proving the review was authentic — but the content is no longer displayed. This keeps your review feed accurate while preserving the integrity of the verification system.',
+    },
+    {
+      q: 'How long are review invitation links valid?',
+      a: 'Review links are valid for 14 days on the Free plan, 60 days on Starter, and 90 days on Pro and Scale plans. After expiry, the link can no longer be used to submit a review. A new charge generates a fresh invitation.',
+    },
+    {
+      q: 'Can I customize the review request emails?',
+      a: 'Yes. You can customize your logo, brand colors, content alignment, and logo size from the dashboard. The email subject line reflects your business name. Review reminder emails follow the same template with a slightly different subject and lead sentence so they don\'t feel like duplicates. Custom reminder copy is available on the Scale plan.',
+    },
+    {
+      q: 'Does Signed Reviews work with Shopify or WooCommerce?',
+      a: 'Signed Reviews works with any platform that processes payments through Stripe. If your Shopify or WooCommerce store uses Stripe as the payment processor, Signed Reviews connects directly to your Stripe account and works automatically — no Shopify/WooCommerce plugin needed.',
+    },
+    {
+      q: 'Is Signed Reviews free?',
+      a: 'Signed Reviews is free during beta. When paid plans launch, every existing account will receive at least 30 days\' email notice before any charges begin. See our <a href="/pricing/">pricing page</a> for the planned tiers.',
+    },
+  ];
+
+  const faqHtml = faqItems.map((item, i) => `
+    <details class="faq-item"${i === 0 ? ' open' : ''}>
+      <summary class="faq-q">${escapeHtml(item.q)}</summary>
+      <div class="faq-a">${item.a}</div>
+    </details>`).join('');
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map(item => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a.replace(/<[^>]+>/g, ''), // strip HTML for schema
+      },
+    })),
+  };
+
+  const extraStyle = `
+    .faq-item { border: 1px solid var(--border); border-radius: 12px; margin-bottom: .65rem; background: var(--surface); overflow: hidden; }
+    .faq-q { padding: 1.1rem 1.2rem; font-weight: 600; font-size: 1.02rem; color: var(--navy-900); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q::after { content: '+'; font-size: 1.25rem; font-weight: 400; color: var(--gold-500); margin-left: .75rem; flex-shrink: 0; transition: transform .2s ease; }
+    details[open] > .faq-q::after { content: '−'; }
+    :root.theme-dark .faq-q, :root.theme-auto .faq-q { color: #fff; }
+    .faq-a { padding: 0 1.2rem 1.15rem; color: var(--text); line-height: 1.65; font-size: .95rem; }
+    .faq-a p { margin: 0; }
+  `;
+
+  const body = `<article class="prose" style="max-width: var(--max-prose)">
+    <p>Answers to the most common questions about review verification, Stripe integration, and how Signed Reviews works.</p>
+    ${faqHtml}
+  </article>`;
+
+  const html = page({
+    title: 'FAQ — Signed Reviews',
+    description: 'Frequently asked questions about Signed Reviews: how purchase verification works, Stripe integration, pricing, security, and more.',
+    slug: '/faq/',
+    hero: { eyebrow: 'FAQ', title: 'Frequently Asked Questions', subtitle: 'Answers to common questions about review verification, Stripe, and pricing.' },
+    body,
+    extraStyle,
+  });
+
+  // Inject FAQPage schema into <head>
+  const schemaTag = `\n  <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>\n</head>`;
+  writePage('/faq/', html.replace('</head>', schemaTag));
+  console.log('  ✓ /faq/');
+}
+
+// ── Trust / Security page ─────────────────────────────────────────────────────
+function buildTrust() {
+  const body = `<article class="prose" style="max-width: var(--max-prose)">
+    <h2>How we keep reviews authentic</h2>
+    <p>Signed Reviews is built on a simple premise: <strong>a review should only exist if a real purchase backs it</strong>. Every design decision flows from this principle.</p>
+
+    <h3>Cryptographic signing</h3>
+    <p>Every review collected through Signed Reviews is cryptographically signed at the moment of submission. The signature binds together the review content, the Stripe transaction ID, the reviewer's email, and a timestamp — creating a tamper-evident record. Anyone can verify this signature later to confirm the review has not been altered.</p>
+
+    <h3>Read-only Stripe access</h3>
+    <p>Our Stripe integration is scoped to read-only permissions. We <strong>cannot</strong> charge, refund, transfer funds, create customers, update subscriptions, or modify anything in your Stripe account. We read your Stripe data only to:</p>
+    <ul>
+      <li>Verify that a reviewer completed a purchase from your business</li>
+      <li>Match the reviewer to the correct transaction</li>
+      <li>Detect refunds and automatically hide refunded reviews</li>
+      <li>Compute aggregate Trust Profile metrics (when enabled)</li>
+    </ul>
+
+    <h3>No fake reviews by design</h3>
+    <p>Most review platforms fight fake reviews with detection algorithms — a reactive approach. Signed Reviews prevents fake reviews structurally: a review invitation link is only generated when a Stripe charge succeeds, it's sent to the customer's verified payment email, and it expires after a set period. There is no "write a review" button on the platform. No purchase = no invitation = no review.</p>
+
+    <h3>Data ownership</h3>
+    <p>You own your review data. Signed Reviews is the processor; your business is the controller. Reviews collected through our platform belong to you — we do not sell, share, or use your review data for any purpose other than providing the service. See our <a href="/privacy/">Privacy Policy</a> and <a href="/dpa/">Data Processing Agreement</a> for the full legal framework.</p>
+
+    <h3>Infrastructure security</h3>
+    <p>Signed Reviews is hosted on Railway (AWS us-east-1) with PostgreSQL on Supabase. All data is encrypted in transit (TLS 1.3) and at rest (AES-256). API keys and Stripe access tokens are encrypted at the application layer using AES-256-GCM before storage. Our full list of sub-processors is published on our <a href="/subprocessors/">Sub-processors page</a>.</p>
+
+    <h3>Compliance</h3>
+    <p>Signed Reviews is operated by Paid Rightly LLC, a New Mexico limited liability company. Our Data Processing Agreement incorporates Standard Contractual Clauses (SCCs) for GDPR compliance. We maintain a <a href="/dmca/">DMCA policy</a> for copyright matters and publish our <a href="/terms/">Terms of Service</a> transparently.</p>
+
+    <h3>Report a concern</h3>
+    <p>If you believe a review violates our Terms of Service — for example, contains illegal content, harassment, defamation, impersonation, or spam — you can report it through the abuse-report link on any review page. Every report is reviewed by our trust & safety team within 7 business days, per our Terms of Service.</p>
+  </article>`;
+
+  const html = page({
+    title: 'Trust & Security — Signed Reviews',
+    description: 'How Signed Reviews keeps reviews authentic: cryptographic signing, read-only Stripe access, fake-review prevention by design, data ownership, and infrastructure security.',
+    slug: '/trust/',
+    hero: { eyebrow: 'Trust', title: 'Trust & Security', subtitle: 'How we ensure every review is authentic, every transaction is verified, and your data stays yours.' },
+    body,
+  });
+  writePage('/trust/', html);
+  console.log('  ✓ /trust/');
+}
+
 // ── Stub SEO pages (coming soon) ──────────────────────────────────────────────
 // These routes currently return the SPA shell with generic <title>SignedReviews</title>.
 // Each stub page gets a unique server-rendered <title>, <meta description>, and
@@ -1475,14 +1615,6 @@ const COMING_SOON_PAGES = [
     eyebrow: 'Integrations',
     heading: 'Integrations',
     subtitle: 'Connect Signed Reviews to your existing stack.',
-  },
-  {
-    slug: '/faq/',
-    title: 'FAQ — Signed Reviews',
-    desc: 'Frequently asked questions about Signed Reviews: how verification works, Stripe integration, pricing, security, and more.',
-    eyebrow: 'FAQ',
-    heading: 'Frequently Asked Questions',
-    subtitle: 'Answers to common questions about review verification, Stripe, and pricing.',
   },
   {
     slug: '/how-it-works/',
@@ -1538,7 +1670,7 @@ function buildComingSoon() {
 // ── robots / sitemap / favicon ───────────────────────────────────────────────
 function buildSeoFiles() {
   const today = new Date().toISOString().slice(0, 10);
-  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/faq/', '/how-it-works/', '/demo/', '/docs/', '/api/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/'];
+  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/faq/', '/how-it-works/', '/demo/', '/docs/', '/api/', '/trust/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/'];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
@@ -1629,6 +1761,8 @@ console.log('\nMarketing pages:');
 buildPricing();
 buildContact();
 buildAbout();
+buildFaq();
+buildTrust();
 console.log('\nComing-soon pages:');
 buildComingSoon();
 console.log('\nSEO files:');
@@ -1646,7 +1780,7 @@ fs.mkdirSync(DIST_DIR, { recursive: true });
 
 const PUBLISH = [
   'index.html', 'favicon.svg', 'sitemap.xml', 'robots.txt', 'CNAME',
-  'about', 'contact', 'dpa', 'files', 'images', 'output.css',
+  'about', 'contact', 'dpa', 'files', 'images', 'output.css', 'trust',
   'privacy', 'refund-policy', 'subprocessors', 'terms', 'pricing', 'dmca',
   'features', 'blog', 'integrations', 'faq', 'how-it-works', 'demo', 'docs', 'api',
 ];
