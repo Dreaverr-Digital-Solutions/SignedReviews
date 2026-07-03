@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How It Works — Signed Reviews</title>
-  <meta name="description" content="See how Signed Reviews verifies reviews: connect Stripe, customer purchases, auto-send invitation, customer reviews, cryptographic signing, and publishing — all automated.">
-  <link rel="canonical" href="https://signedreviews.com/how-it-works/">
+  <title>Signed Reviews vs Trustpilot — Comparison</title>
+  <meta name="description" content="Detailed comparison of Signed Reviews and Trustpilot: purchase verification, fake review prevention, Stripe integration, pricing, API, review ownership, and more.">
+  <link rel="canonical" href="https://signedreviews.com/vs/trustpilot/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="How It Works — Signed Reviews">
-  <meta property="og:description" content="See how Signed Reviews verifies reviews: connect Stripe, customer purchases, auto-send invitation, customer reviews, cryptographic signing, and publishing — all automated.">
-  <meta property="og:url" content="https://signedreviews.com/how-it-works/">
+  <meta property="og:title" content="Signed Reviews vs Trustpilot — Comparison">
+  <meta property="og:description" content="Detailed comparison of Signed Reviews and Trustpilot: purchase verification, fake review prevention, Stripe integration, pricing, API, review ownership, and more.">
+  <meta property="og:url" content="https://signedreviews.com/vs/trustpilot/">
   <meta property="og:site_name" content="Signed Reviews">
   <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="How It Works — Signed Reviews">
-  <meta name="twitter:description" content="See how Signed Reviews verifies reviews: connect Stripe, customer purchases, auto-send invitation, customer reviews, cryptographic signing, and publishing — all automated.">
+  <meta name="twitter:title" content="Signed Reviews vs Trustpilot — Comparison">
+  <meta name="twitter:description" content="Detailed comparison of Signed Reviews and Trustpilot: purchase verification, fake review prevention, Stripe integration, pricing, API, review ownership, and more.">
 
   <link rel="icon" href="/SignedReviews/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/SignedReviews/images/SignedReviews_logo_only.png">
@@ -481,15 +481,23 @@ main { padding: 0; }
   </script>
 
   <style>
-    .step { display: flex; gap: 1.25rem; align-items: flex-start; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
-    .step:first-of-type { padding-top: 0; }
-    .step:last-of-type { border-bottom: 0; padding-bottom: 0; }
-    .step-num { flex-shrink: 0; width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, var(--gold-400), var(--gold-500)); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; font-family: 'JetBrains Mono', ui-monospace, monospace; }
-    .step-body h3 { font-family: 'Instrument Serif', Georgia, serif; font-size: 1.25rem; margin: 0 0 .35rem; color: var(--navy-900); }
-    :root.theme-dark .step-body h3, :root.theme-auto .step-body h3 { color: #fff; }
-    .step-body p { margin: 0; color: var(--text); line-height: 1.65; }
-    .step-body code { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .88em; background: var(--navy-50); color: var(--navy-700); padding: .1em .4em; border-radius: 4px; }
-    :root.theme-dark .step-body code, :root.theme-auto .step-body code { background: rgba(255,255,255,.08); color: var(--gold-300); }
+    .vs-hero { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; margin: 1rem 0; }
+    .vs-hero .vs-label { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+    .vs-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; font-size: .94rem; margin: 1.5rem 0 2rem; }
+    .vs-table thead th { background: var(--navy-50); color: var(--navy-900); font-weight: 600; text-align: left; padding: .95rem 1.1rem; border-bottom: 1px solid var(--border); }
+    :root.theme-dark .vs-table thead th, :root.theme-auto .vs-table thead th { background: rgba(255,255,255,.04); color: #fff; }
+    .vs-table thead th:first-child { width: 38%; }
+    .vs-table td, .vs-table th { padding: .8rem 1.1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .vs-table td:first-child { font-weight: 600; color: var(--navy-900); }
+    :root.theme-dark .vs-table td:first-child, :root.theme-auto .vs-table td:first-child { color: #fff; }
+    .vs-table .win  { color: var(--gold-600); font-weight: 700; }
+    .vs-table .lose { color: var(--muted); }
+    .vs-table tbody tr:last-child td { border-bottom: 0; }
+    .vs-table .highlight-row { background: rgba(179,157,69,.06); }
+    :root.theme-dark .vs-table .highlight-row, :root.theme-auto .vs-table .highlight-row { background: rgba(179,157,69,.08); }
+    .verdict { background: linear-gradient(135deg, var(--navy-800), var(--navy-900)); border-radius: 14px; padding: 2rem; color: #fff; margin: 2rem 0; }
+    .verdict h3 { font-family: 'Instrument Serif', Georgia, serif; font-size: 1.5rem; margin: 0 0 .5rem; color: #fff; }
+    .verdict p { color: var(--navy-200); margin: 0; line-height: 1.6; }
   </style></head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -529,58 +537,47 @@ main { padding: 0; }
   <main id="main">
     <section class="page-hero">
       <div class="page-hero-inner">
-        <span class="eyebrow">How It Works</span>
-        <h1>From purchase to verified review</h1>
-        <p>Six automated steps. Zero manual work. Every review cryptographically backed by a real Stripe transaction.</p>
+        <span class="eyebrow">Comparison</span>
+        <h1>Signed Reviews vs Trustpilot</h1>
+        <p>A detailed comparison across the dimensions that matter for review authenticity.</p>
       </div>
     </section>
     <div class="prose-wrap">
-      <article class="prose" style="max-width: 760px">
-    <p>From Stripe purchase to verified review in six steps. The entire flow is automated — you connect once, and Signed Reviews handles the rest.</p>
-    
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-body">
-        <h3>Connect your Stripe account</h3>
-        <p>One click. You authorize Signed Reviews via Stripe's official OAuth flow. We get <strong>read-only</strong> access — we can verify charges but can never charge, refund, or modify anything in your Stripe account.</p>
-      </div>
+      <article class="prose" style="max-width: 860px">
+    <p>Choosing a review platform is a trust decision. Here's how Signed Reviews compares to Trustpilot — the largest general-purpose review platform — across the dimensions that matter most for businesses that care about review authenticity.</p>
+
+    <div class="vs-table-wrap" style="overflow-x:auto;">
+    <table class="vs-table">
+      <thead>
+        <tr><th>Capability</th><th>Signed Reviews</th><th>Trustpilot</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row"><td>Purchase verification</td><td class="win">Required — every review is cryptographically linked to a completed Stripe transaction</td><td class="lose">Optional — businesses can invite customers, but anyone can leave a review without proof of purchase</td></tr>
+        <tr><td>Fake review prevention</td><td class="win">Structural — no purchase = no invitation = no review. Impossible to post a review without a verified transaction.</td><td class="lose">Reactive — relies on automated detection and manual moderation. Trustpilot removed 2.7M fake reviews in 2022.</td></tr>
+        <tr class="highlight-row"><td>Review authenticity proof</td><td class="win">Cryptographically signed — every review carries a tamper-evident digital signature that can be independently verified</td><td class="lose">No cryptographic proof — reviews are database records with no external verifiability</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, read-only access, automatic review requests on every charge</td><td class="lose">No native Stripe integration — requires third-party connectors or manual CSV imports</td></tr>
+        <tr class="highlight-row"><td>Review gating</td><td class="win">Automatic — only paying customers receive invitation links, sent to the email on their Stripe transaction</td><td class="lose">Manual — businesses must upload customer lists or send invitations themselves</td></tr>
+        <tr><td>Refund handling</td><td class="win">Automatic — refunded reviews are hidden from public display immediately via Stripe webhook</td><td class="lose">Manual — businesses must flag or report reviews from refunded customers</td></tr>
+        <tr class="highlight-row"><td>API & integrations</td><td class="win">REST API, webhooks, delivery webhook, embeddable widget, public page API</td><td class="win">Extensive API, 100+ integrations, white-label options on Enterprise</td></tr>
+        <tr><td>Pricing model</td><td class="win">Free during beta. Paid plans from $29/mo (Starter) to $199/mo (Scale). Transparent per-invitation pricing.</td><td class="lose">Free tier available, but paid plans start at $299/mo for the "Growth" tier (as of 2025). Enterprise pricing is opaque.</td></tr>
+        <tr class="highlight-row"><td>Organic discoverability</td><td class="lose">Early stage — limited domain authority and no consumer-facing review directory</td><td class="win">Established — Trustpilot.com has massive organic traffic and a consumer-facing review search</td></tr>
+        <tr><td>Trust mark / badge</td><td class="win">"Verified by Signed Reviews" badge links to cryptographic proof. Included on every plan, including Free.</td><td class="win">Trustpilot TrustBox widgets and star ratings. Widely recognized by consumers.</td></tr>
+        <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews — Signed Reviews is the processor. Reviews belong to you.</td><td class="lose">Reviews live on Trustpilot's platform — businesses cannot export and move reviews to another provider.</td></tr>
+      </tbody>
+    </table>
     </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-body">
-        <h3>Customer completes a purchase</h3>
-        <p>A customer buys from you. Stripe processes the payment as usual. Signed Reviews detects the <code>charge.succeeded</code> event and automatically creates a unique, expiring review invitation linked to that specific transaction.</p>
-      </div>
+
+    <div class="verdict">
+      <h3>When to choose Signed Reviews</h3>
+      <p>If review authenticity is your #1 concern — if you want every review to be provably backed by a real purchase, with cryptographic proof — Signed Reviews is the right choice. It's built for businesses that process payments through Stripe and want a zero-fake-review guarantee by design, not by detection.</p>
     </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-body">
-        <h3>Review invitation is sent</h3>
-        <p>The invitation email is sent to the customer's verified payment email from the Stripe transaction. You control the timing — immediately, after a delay (for shipped products), or on delivery via our delivery webhook. The email carries your branding and logo.</p>
-      </div>
+
+    <div class="verdict" style="background:linear-gradient(135deg,#1c2840,#243252)">
+      <h3>When Trustpilot may be a better fit</h3>
+      <p>If you need maximum consumer reach, have a large existing review base, or don't process payments through Stripe, Trustpilot's established brand recognition and consumer-facing directory give it an edge in organic discoverability. Many businesses use both — Trustpilot for breadth, Signed Reviews for verifiable depth.</p>
     </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-body">
-        <h3>Customer submits their review</h3>
-        <p>The customer clicks the unique link, writes their review, and submits it. At the moment of submission, the review content, transaction ID, customer email, and timestamp are <strong>cryptographically signed</strong> — creating a tamper-evident record.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">5</div>
-      <div class="step-body">
-        <h3>Review is verified and published</h3>
-        <p>The signed review appears on your public page and in your dashboard. The cryptographic signature can be independently verified by anyone — proving the review came from a real customer, about a real purchase, and hasn't been altered.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">6</div>
-      <div class="step-body">
-        <h3>Optional: reminders and follow-ups</h3>
-        <p>If the customer hasn't left a review after a few days, automatic reminders are sent (configurable cadence). Reminders stop when the customer clicks the link, submits a review, or unsubscribes. You can also trigger review requests at delivery time via our webhook.</p>
-      </div>
-    </div>
-    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Connect your Stripe account →</a></p>
+
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
   </article>
     </div>
   </main>
