@@ -24,10 +24,6 @@ Allow: /
 Content-Signal: ai-train=no, use=reference
 
 # ── AI Training Crawlers (blocked) ────────────────────────────────
-# These bots are exclusively for training and offer no search visibility.
-# Blocking them protects our content from being used for model training
-# while still allowing the AI search crawlers above to reference our content.
-
 User-agent: ClaudeBot
 Disallow: /
 

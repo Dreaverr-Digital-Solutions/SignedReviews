@@ -1449,7 +1449,7 @@ function buildAbout() {
 // ── robots / sitemap / favicon ───────────────────────────────────────────────
 function buildSeoFiles() {
   const today = new Date().toISOString().slice(0, 10);
-  const urls = ['/', '/pricing/', '/about/', '/contact/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/'];
+  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/faq/', '/how-it-works/', '/demo/', '/docs/', '/api/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/'];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
@@ -1457,8 +1457,6 @@ ${urls
     (u) => `  <url>
     <loc>${SITE_URL}${u}</loc>
     <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>${u === '/' ? '1.0' : '0.7'}</priority>
   </url>`
   )
   .join('\n')}
@@ -1466,7 +1464,49 @@ ${urls
 `;
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap, 'utf8');
 
-  const robots = `User-agent: *
+  const robots = `# Signed Reviews — AI Crawler & SEO Policy
+# Google Search (full crawl — must be allowed for indexation)
+User-agent: Googlebot
+Allow: /
+
+# Bing / Microsoft (full crawl)
+User-agent: Bingbot
+Allow: /
+
+# ── AI Search Crawlers (visibility, no training) ──────────────────
+# Google AI Overviews — allow for AI search visibility, block training use
+User-agent: Google-Extended
+Allow: /
+Content-Signal: ai-train=no, use=reference
+
+# ChatGPT / Perplexity — allow for search visibility, block training
+User-agent: GPTBot
+Allow: /
+Content-Signal: ai-train=no, use=reference
+
+# Common Crawl (powers many LLM training datasets)
+User-agent: CCBot
+Allow: /
+Content-Signal: ai-train=no, use=reference
+
+# ── AI Training Crawlers (blocked) ────────────────────────────────
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+# ── Everyone else ──────────────────────────────────────────────────
+User-agent: *
 Allow: /
 
 Sitemap: ${SITE_URL}/sitemap.xml
@@ -1515,7 +1555,7 @@ fs.mkdirSync(DIST_DIR, { recursive: true });
 
 const PUBLISH = [
   'index.html', 'favicon.svg', 'sitemap.xml', 'robots.txt', 'CNAME',
-  'about', 'contact', 'dpa', 'files', 'images',
+  'about', 'contact', 'dpa', 'files', 'images', 'output.css',
   'privacy', 'refund-policy', 'subprocessors', 'terms', 'pricing', 'dmca',
 ];
 

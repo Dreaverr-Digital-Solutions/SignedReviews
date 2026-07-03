@@ -4,7 +4,8 @@
   "private": true,
   "description": "Marketing site for Signed Reviews (signedreviews.com) — operated by Paid Rightly LLC.",
   "scripts": {
-    "build": "node build.js",
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./output.css --minify",
+    "build": "npm run build:css && node build.js",
     "dev": "node dev-server.js",
     "test": "playwright test"
   },
@@ -17,6 +18,8 @@
     "marked": "^12.0.2"
   },
   "devDependencies": {
-    "@playwright/test": "^1.58.2"
+    "@playwright/test": "^1.58.2",
+    "@tailwindcss/cli": "^4.3.2",
+    "tailwindcss": "^4.3.2"
   }
 }
