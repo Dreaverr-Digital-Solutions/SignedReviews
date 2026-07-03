@@ -568,6 +568,9 @@ const SHARED_HEAD = ({ title, description, canonical, pageType = 'website' }) =>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://us.i.posthog.com">
+  <link rel="dns-prefetch" href="https://platform.signedreviews.com">
+  <link rel="preload" href="https://fonts.gstatic.com/s/instrumentserif/v18/jiz2RFNlSmViCztYvS2ZTOdC0D5n.woff2" as="font" type="font/woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>${SHARED_STYLES}</style>${POSTHOG_SNIPPET}
@@ -1975,6 +1978,7 @@ const PUBLISH = [
   'about', 'contact', 'dpa', 'files', 'images', 'output.css', 'trust', 'vs',
   'privacy', 'refund-policy', 'subprocessors', 'terms', 'pricing', 'dmca',
   'features', 'blog', 'integrations', 'faq', 'how-it-works', 'demo', 'docs', 'api',
+  '_headers', 'b2f3a1c8d9e0475f8a6c1d3b5e7f9a2c.txt',
 ];
 
 for (const entry of PUBLISH) {
