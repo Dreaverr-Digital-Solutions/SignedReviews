@@ -168,10 +168,12 @@
                              box-shadow var(--dur-fast) var(--ease-inout); }
     .card-lift:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(43,59,96,.12); }
 
-    /* Hero — always navy for bold brand impact in both modes */
+    /* Hero */
     .hero-bg {
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(43,59,96,.35) 0%, transparent 70%), #0c1320;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(179,157,69,.12) 0%, transparent 70%),
+                  linear-gradient(180deg, #faf8ee 0%, #f0f4f9 100%);
     }
+    .dark .hero-bg { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(43,59,96,.35) 0%, transparent 70%), #0c1320; }
 
     /* Divider line with gold accent */
     .gold-rule { border: none; height: 2px; background: linear-gradient(90deg, transparent, #b39d45 40%, transparent); opacity: .4; }
@@ -219,8 +221,8 @@
     #heroParticles { position: absolute; inset: 0; z-index: 0; pointer-events: none; width: 100%; height: 100%; }
 
     /* ── Hero treatment: diagonal gold stripes + periodic light sweep ── */
-    .hero-stripes { position: absolute; inset: 0; z-index: 0; pointer-events: none; background-color: #eef1f8;
-      background-image: repeating-linear-gradient(45deg, rgba(179,157,69,.08) 0 2px, transparent 2px 16px);
+    .hero-stripes { position: absolute; inset: 0; z-index: 0; pointer-events: none; background-color: #faf8ee;
+      background-image: repeating-linear-gradient(45deg, rgba(179,157,69,.10) 0 2px, transparent 2px 16px);
       animation: heroStripes 40s linear infinite; }
     .dark .hero-stripes { background-color: #0a0f1a;
       background-image: repeating-linear-gradient(45deg, rgba(212,196,102,.06) 0 2px, transparent 2px 16px); }
@@ -751,18 +753,18 @@
         Purchase-verified reviews
       </div>
 
-      <h1 class="fade-up delay-1 hero-headline font-sans font-bold text-white mb-6 tracking-tight">
-        You earned those reviews.<br><em class="gold-shimmer font-serif font-normal">Now prove it.</em>
+      <h1 class="fade-up delay-1 hero-headline font-serif font-normal text-navy-900 dark:text-white mb-6">
+        You earned those reviews.<br><em class="gold-shimmer">Now prove it.</em>
       </h1>
 
-      <p class="fade-up delay-2 text-lg sm:text-xl text-navy-200 max-w-xl mx-auto mb-10 leading-relaxed">
+      <p class="fade-up delay-2 text-lg sm:text-xl text-navy-500 dark:text-navy-300 max-w-xl mx-auto mb-10 leading-relaxed">
         Every review backed by a real Stripe charge.
       </p>
 
       <div class="fade-up delay-3">
         <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
           <a href="https://platform.signedreviews.com" rel="noopener" id="heroBtn" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
-          <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-200 border border-navy-600 hover:border-navy-400 hover:bg-white/10 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
+          <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-600 dark:text-navy-100 border border-navy-300 dark:border-navy-600 hover:border-navy-400 dark:hover:border-navy-400 hover:bg-white/40 dark:hover:bg-white/5 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
         </div>
         <!-- Trust pills -->
         <div class="flex flex-wrap justify-center gap-2 mt-3 mb-1">
@@ -770,7 +772,7 @@
           <span class="trust-pill">🔒 Cryptographically signed</span>
           <span class="trust-pill">GDPR compliant</span>
         </div>
-        <p class="text-xs text-navy-300 mt-2">Free during beta · No credit card required · Works with any Stripe-powered business</p>
+        <p class="text-xs text-navy-500 dark:text-navy-300 mt-2">Free during beta · No credit card required · Works with any Stripe-powered business</p>
       </div>
     </div>
 
