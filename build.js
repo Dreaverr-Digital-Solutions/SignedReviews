@@ -49,12 +49,12 @@ const B = BASE_PATH; // shorthand
 // Publishable PostHog project token (client-side key — safe in static HTML).
 // Override per-build with POSTHOG_KEY=... if ever needed.
 const POSTHOG_KEY = process.env.POSTHOG_KEY || 'phc_mTGzatRy8CDWz3YnSAgAukvT2QRdR9yd72URWw26UWh2';
-// Set POSTHOG_PROXY=1 + deploy the analytics-proxy Cloudflare Worker, then
-// rebuild. All PostHog + Cloudflare Insights requests go through signedreviews.com
-// so ad blockers see first-party calls. Without the Worker the proxy will 404.
-const POSTHOG_HOST = process.env.POSTHOG_PROXY === '1'
-  ? 'https://signedreviews.com/ph'
-  : (process.env.POSTHOG_HOST || 'https://us.i.posthog.com');
+// PostHog requests are proxied through signedreviews.com/ph so ad blockers
+// see first-party calls. The analytics-proxy Cloudflare Worker must be
+// deployed for this to work. Set POSTHOG_DIRECT=1 to bypass the proxy.
+const POSTHOG_HOST = (process.env.POSTHOG_DIRECT === '1')
+  ? (process.env.POSTHOG_HOST || 'https://us.i.posthog.com')
+  : 'https://signedreviews.com/ph';
 const POSTHOG_SNIPPET = POSTHOG_KEY
   ? `
   <script>
