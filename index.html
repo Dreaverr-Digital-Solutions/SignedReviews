@@ -136,8 +136,9 @@
       will-change: background-position;
     }
 
-    /* Navy gradient for dark sections */
-    .navy-bg { background: linear-gradient(160deg, #0c1320 0%, #141e30 45%, #1c2840 100%); }
+    /* Navy gradient — light by default, dark on .dark */
+    .navy-bg { background: linear-gradient(160deg, #eef1f8 0%, #dce6f0 45%, #b9cedf 100%); }
+    .dark .navy-bg { background: linear-gradient(160deg, #0c1320 0%, #141e30 45%, #1c2840 100%); }
 
     /* Gold CTA button */
     .btn-gold {
@@ -220,9 +221,11 @@
     #heroParticles { position: absolute; inset: 0; z-index: 0; pointer-events: none; width: 100%; height: 100%; }
 
     /* ── Hero treatment: diagonal gold stripes + periodic light sweep ── */
-    .hero-stripes { position: absolute; inset: 0; z-index: 0; pointer-events: none; background-color: #0a0f1a;
-      background-image: repeating-linear-gradient(45deg, rgba(212,196,102,.06) 0 2px, transparent 2px 16px);
+    .hero-stripes { position: absolute; inset: 0; z-index: 0; pointer-events: none; background-color: #eef1f8;
+      background-image: repeating-linear-gradient(45deg, rgba(179,157,69,.08) 0 2px, transparent 2px 16px);
       animation: heroStripes 40s linear infinite; }
+    .dark .hero-stripes { background-color: #0a0f1a;
+      background-image: repeating-linear-gradient(45deg, rgba(212,196,102,.06) 0 2px, transparent 2px 16px); }
     @keyframes heroStripes { to { background-position: 160px 0; } }
     .hero-sweep { position: absolute; top: -10%; left: -35%; width: 35%; height: 120%; z-index: 0; pointer-events: none;
       background: linear-gradient(100deg, transparent, rgba(212,196,102,.16), transparent);
@@ -794,44 +797,44 @@
   </section>
 
   <!-- ─── PROBLEM ───────────────────────────────────────────── -->
-  <section class="relative py-24 px-5 navy-bg text-white grain overflow-hidden">
+  <section class="relative py-24 px-5 navy-bg text-navy-800 dark:text-white grain overflow-hidden transition-colors">
     <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-gold-500/5 blur-3xl pointer-events-none"></div>
     <div class="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-steel-300/5 blur-3xl pointer-events-none"></div>
 
     <div class="relative z-10 max-w-4xl mx-auto text-center">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-navy-300 text-sm font-semibold mb-6">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-navy-200/50 dark:border-white/10 bg-navy-100/60 dark:bg-white/5 text-navy-600 dark:text-navy-300 text-sm font-semibold mb-6">
         The problem
       </div>
       <h2 class="font-serif text-4xl sm:text-5xl font-normal mb-5 leading-tight">Online reviews are broken.</h2>
-      <p class="text-navy-300 text-lg mb-14 max-w-xl mx-auto leading-relaxed">Anyone can write a review. Anywhere. Without ever buying anything. Your customers know it — and they've stopped trusting reviews altogether.</p>
+      <p class="text-navy-600 dark:text-navy-300 text-lg mb-14 max-w-xl mx-auto leading-relaxed">Anyone can write a review. Anywhere. Without ever buying anything. Your customers know it — and they've stopped trusting reviews altogether.</p>
       <div class="grid sm:grid-cols-2 gap-5 text-left">
-        <div class="p-6 rounded-2xl bg-white/[.03] border border-white/[.07] hover:bg-white/[.06] transition-colors card-lift">
+        <div class="p-6 rounded-2xl bg-navy-100/60 dark:bg-white/[.03] border border-navy-200/70 dark:border-white/[.07] hover:bg-navy-200/40 dark:hover:bg-white/[.06] transition-colors card-lift">
           <div class="w-10 h-10 rounded-xl bg-gold-500/15 border border-gold-500/20 flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.27 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+            <svg class="w-5 h-5 text-gold-500 dark:text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.27 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
           </div>
           <h3 class="font-semibold text-base mb-2">Fake Reviews Are Everywhere</h3>
-          <p class="text-navy-300 text-sm leading-relaxed">Trustpilot removed 4.5 million fake reviews in 2024 alone. Competitors game the system — and honest businesses pay the price.</p>
+          <p class="text-navy-600 dark:text-navy-300 text-sm leading-relaxed">Trustpilot removed 4.5 million fake reviews in 2024 alone. Competitors game the system — and honest businesses pay the price.</p>
         </div>
-        <div class="p-6 rounded-2xl bg-white/[.03] border border-white/[.07] hover:bg-white/[.06] transition-colors card-lift">
+        <div class="p-6 rounded-2xl bg-navy-100/60 dark:bg-white/[.03] border border-navy-200/70 dark:border-white/[.07] hover:bg-navy-200/40 dark:hover:bg-white/[.06] transition-colors card-lift">
           <div class="w-10 h-10 rounded-xl bg-gold-500/15 border border-gold-500/20 flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <svg class="w-5 h-5 text-gold-500 dark:text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
           <h3 class="font-semibold text-base mb-2">Platforms Hold Your Reviews Hostage</h3>
-          <p class="text-navy-300 text-sm leading-relaxed">Trustpilot starts at $259/mo. Cancel your subscription and watch your hard-earned positive reviews mysteriously disappear.</p>
+          <p class="text-navy-600 dark:text-navy-300 text-sm leading-relaxed">Trustpilot starts at $259/mo. Cancel your subscription and watch your hard-earned positive reviews mysteriously disappear.</p>
         </div>
-        <div class="p-6 rounded-2xl bg-white/[.03] border border-white/[.07] hover:bg-white/[.06] transition-colors card-lift">
+        <div class="p-6 rounded-2xl bg-navy-100/60 dark:bg-white/[.03] border border-navy-200/70 dark:border-white/[.07] hover:bg-navy-200/40 dark:hover:bg-white/[.06] transition-colors card-lift">
           <div class="w-10 h-10 rounded-xl bg-gold-500/15 border border-gold-500/20 flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <svg class="w-5 h-5 text-gold-500 dark:text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
           <h3 class="font-semibold text-base mb-2">Customers Don't Trust What They Can't Verify</h3>
-          <p class="text-navy-300 text-sm leading-relaxed">Even genuine reviews look fake when there's no proof. Buyers are skeptical by default — and that skepticism is killing your conversion rate.</p>
+          <p class="text-navy-600 dark:text-navy-300 text-sm leading-relaxed">Even genuine reviews look fake when there's no proof. Buyers are skeptical by default — and that skepticism is killing your conversion rate.</p>
         </div>
-        <div class="p-6 rounded-2xl bg-white/[.03] border border-white/[.07] hover:bg-white/[.06] transition-colors card-lift">
+        <div class="p-6 rounded-2xl bg-navy-100/60 dark:bg-white/[.03] border border-navy-200/70 dark:border-white/[.07] hover:bg-navy-200/40 dark:hover:bg-white/[.06] transition-colors card-lift">
           <div class="w-10 h-10 rounded-xl bg-gold-500/15 border border-gold-500/20 flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/></svg>
+            <svg class="w-5 h-5 text-gold-500 dark:text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/></svg>
           </div>
           <h3 class="font-semibold text-base mb-2">Trust Deficit Kills Conversions</h3>
-          <p class="text-navy-300 text-sm leading-relaxed">18% of customers abandon checkout due to trust issues. That's real revenue walking out the door — from real customers you already earned.</p>
+          <p class="text-navy-600 dark:text-navy-300 text-sm leading-relaxed">18% of customers abandon checkout due to trust issues. That's real revenue walking out the door — from real customers you already earned.</p>
         </div>
       </div>
     </div>
@@ -1132,26 +1135,26 @@
   </section>
 
   <!-- ─── PRICING ────────────────────────────────────────────── -->
-  <section class="py-28 px-5 relative navy-bg text-white overflow-hidden">
+  <section class="py-28 px-5 relative navy-bg text-navy-800 dark:text-white overflow-hidden transition-colors">
     <!-- Ambient orbs -->
-    <div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none" style="background:rgba(43,59,96,.35)"></div>
-    <div class="absolute -bottom-32 -right-32 w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none" style="background:rgba(179,157,69,.08)"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(179,157,69,.04),transparent)] pointer-events-none"></div>
+    <div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none" style="background:rgba(43,59,96,.15)"></div>
+    <div class="absolute -bottom-32 -right-32 w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none" style="background:rgba(179,157,69,.06)"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(179,157,69,.03),transparent)] dark:bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(179,157,69,.04),transparent)] pointer-events-none"></div>
 
     <div class="relative z-10 max-w-3xl mx-auto" id="pricing">
       <div class="text-center">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-sm font-semibold mb-5" style="border-color:rgba(255,255,255,0.12);background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.70);">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-navy-200/50 dark:border-white/10 bg-navy-100/60 dark:bg-white/[.06] text-navy-600 dark:text-navy-200 text-sm font-semibold mb-5">
           Pricing
         </div>
-        <h2 class="font-serif text-4xl sm:text-5xl font-normal leading-tight text-white mb-4">Free during beta.</h2>
-        <p class="text-navy-300 text-lg leading-relaxed max-w-xl mx-auto mb-8">
+        <h2 class="font-serif text-4xl sm:text-5xl font-normal leading-tight dark:text-white mb-4">Free during beta.</h2>
+        <p class="text-navy-600 dark:text-navy-300 text-lg leading-relaxed max-w-xl mx-auto mb-8">
           Signed Reviews is currently free for every business — no subscription fees, no per-review fees, no commissions. If we introduce paid plans, we will give at least 30 days' advance notice by email before any charges take effect.
         </p>
         <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-6">
           <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 btn-gold btn-ripple text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
-          <a href="/pricing/" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-white border border-white/20 hover:bg-white/10 transition-colors inline-flex items-center justify-center min-w-[180px]">See what's included</a>
+          <a href="/pricing/" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-700 dark:text-white border border-navy-300/40 dark:border-white/20 hover:bg-steel-100/50 dark:hover:bg-white/10 transition-colors inline-flex items-center justify-center min-w-[180px]">See what's included</a>
         </div>
-        <p class="text-xs text-navy-500">No credit card required · Cancel anytime · See our <a href="/refund-policy/" class="text-navy-300 underline underline-offset-2 hover:text-gold-300">Refund &amp; Cancellation Policy</a></p>
+        <p class="text-xs text-navy-500 dark:text-navy-400">No credit card required · Cancel anytime · See our <a href="/refund-policy/" class="text-navy-600 dark:text-navy-300 underline underline-offset-2 hover:text-gold-600 dark:hover:text-gold-300">Refund &amp; Cancellation Policy</a></p>
       </div>
 
     </div>
