@@ -538,11 +538,14 @@
       0%,100% { transform: scale(1);   opacity: 0.20; }
       50%      { transform: scale(1.18); opacity: 0.06; }
     }
-    /* CTA — always navy for closing punch in both modes */
+    /* CTA — rich light gradient, deep navy in dark mode */
     .cta-gradient-mesh {
-      background: linear-gradient(-45deg, #0c1320 0%, #141e30 25%, #1c2840 50%, #2b3b60 75%, #0c1320 100%);
+      background: linear-gradient(-45deg, #faf8ee 0%, #f2edcc 25%, #faf8ee 50%, #f0f4f9 75%, #faf8ee 100%);
       background-size: 400% 400%;
       animation: gradientShift 14s ease infinite;
+    }
+    .dark .cta-gradient-mesh {
+      background: linear-gradient(-45deg, #0c1320 0%, #141e30 25%, #1c2840 50%, #2b3b60 75%, #0c1320 100%);
     }
     .cta-ring {
       position: absolute;
@@ -1304,7 +1307,7 @@
   </section>
 
   <!-- ─── FINAL CTA ─────────────────────────────────────────── -->
-  <section class="cta-section relative py-28 px-5 cta-gradient-mesh text-white grain overflow-hidden">
+  <section class="cta-section relative py-28 px-5 cta-gradient-mesh text-navy-800 dark:text-white grain overflow-hidden transition-colors">
     <!-- Layered radial glows -->
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_65%_55%_at_50%_50%,rgba(179,157,69,.09),transparent)] pointer-events-none"></div>
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_20%_80%,rgba(43,59,96,.40),transparent)] pointer-events-none"></div>
@@ -1331,12 +1334,12 @@
         </div>
       </div>
 
-      <h2 class="font-serif text-4xl sm:text-5xl font-normal mb-4 leading-tight text-white">Your business deserves<br>reviews people <em class="gold-shimmer">believe.</em></h2>
-      <p class="text-navy-300 text-lg mb-10 leading-relaxed">Sign up free during beta. Connect your Stripe account, and start collecting Purchase Verified reviews tied to real transactions.</p>
+      <h2 class="font-serif text-4xl sm:text-5xl font-normal mb-4 leading-tight text-navy-900 dark:text-white">Your business deserves<br>reviews people <em class="gold-shimmer">believe.</em></h2>
+      <p class="text-navy-500 dark:text-navy-300 text-lg mb-10 leading-relaxed">Sign up free during beta. Connect your Stripe account, and start collecting Purchase Verified reviews tied to real transactions.</p>
 
       <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
         <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
-        <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-white border border-white/20 hover:bg-white/10 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
+        <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-600 dark:text-white border border-navy-300/40 dark:border-white/20 hover:bg-steel-100/50 dark:hover:bg-white/10 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
       </div>
 
       <!-- Trust pills -->
@@ -1345,7 +1348,7 @@
         <span class="trust-pill">🔒 Cryptographically signed</span>
         <span class="trust-pill">GDPR compliant</span>
       </div>
-      <p class="text-xs text-navy-300 mt-2">Free during beta · Any Stripe-powered business · No credit card required</p>
+      <p class="text-xs text-navy-500 dark:text-navy-300 mt-2">Free during beta · Any Stripe-powered business · No credit card required</p>
     </div>
   </section>
   </main>
