@@ -168,12 +168,10 @@
                              box-shadow var(--dur-fast) var(--ease-inout); }
     .card-lift:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(43,59,96,.12); }
 
-    /* Subtle hero bg */
+    /* Hero — always navy for bold brand impact in both modes */
     .hero-bg {
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(135,162,196,.18) 0%, transparent 70%),
-                  linear-gradient(180deg, #f0f4f9 0%, #eef1f8 100%);
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(43,59,96,.35) 0%, transparent 70%), #0c1320;
     }
-    .dark .hero-bg { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(43,59,96,.35) 0%, transparent 70%), #0c1320; }
 
     /* Divider line with gold accent */
     .gold-rule { border: none; height: 2px; background: linear-gradient(90deg, transparent, #b39d45 40%, transparent); opacity: .4; }
@@ -540,13 +538,11 @@
       0%,100% { transform: scale(1);   opacity: 0.20; }
       50%      { transform: scale(1.18); opacity: 0.06; }
     }
+    /* CTA — always navy for closing punch in both modes */
     .cta-gradient-mesh {
-      background: linear-gradient(-45deg, #eef1f8 0%, #dce6f0 25%, #b9cedf 50%, #dce6f0 75%, #eef1f8 100%);
+      background: linear-gradient(-45deg, #0c1320 0%, #141e30 25%, #1c2840 50%, #2b3b60 75%, #0c1320 100%);
       background-size: 400% 400%;
       animation: gradientShift 14s ease infinite;
-    }
-    .dark .cta-gradient-mesh {
-      background: linear-gradient(-45deg, #0c1320 0%, #141e30 25%, #1c2840 50%, #2b3b60 75%, #0c1320 100%);
     }
     .cta-ring {
       position: absolute;
@@ -752,18 +748,18 @@
         Purchase-verified reviews
       </div>
 
-      <h1 class="fade-up delay-1 hero-headline font-serif font-normal text-navy-900 dark:text-white mb-6">
+      <h1 class="fade-up delay-1 hero-headline font-serif font-normal text-white mb-6">
         You earned those reviews.<br><em class="gold-shimmer">Now prove it.</em>
       </h1>
 
-      <p class="fade-up delay-2 text-lg sm:text-xl text-navy-400 dark:text-navy-300 max-w-xl mx-auto mb-10 leading-relaxed">
+      <p class="fade-up delay-2 text-lg sm:text-xl text-navy-300 max-w-xl mx-auto mb-10 leading-relaxed">
         Every review backed by a real Stripe charge.
       </p>
 
       <div class="fade-up delay-3">
         <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
           <a href="https://platform.signedreviews.com" rel="noopener" id="heroBtn" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
-          <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-700 dark:text-navy-100 border border-navy-200 dark:border-navy-600 hover:border-navy-400 dark:hover:border-navy-400 hover:bg-white/60 dark:hover:bg-white/5 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
+          <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-200 border border-navy-600 hover:border-navy-400 hover:bg-white/10 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
         </div>
         <!-- Trust pills -->
         <div class="flex flex-wrap justify-center gap-2 mt-3 mb-1">
@@ -771,7 +767,7 @@
           <span class="trust-pill">🔒 Cryptographically signed</span>
           <span class="trust-pill">GDPR compliant</span>
         </div>
-        <p class="text-xs text-navy-400 dark:text-navy-300 mt-2">Free during beta · No credit card required · Works with any Stripe-powered business</p>
+        <p class="text-xs text-navy-300 mt-2">Free during beta · No credit card required · Works with any Stripe-powered business</p>
       </div>
     </div>
 
@@ -1308,16 +1304,16 @@
   </section>
 
   <!-- ─── FINAL CTA ─────────────────────────────────────────── -->
-  <section class="cta-section relative py-28 px-5 cta-gradient-mesh text-navy-800 dark:text-white grain overflow-hidden transition-colors">
+  <section class="cta-section relative py-28 px-5 cta-gradient-mesh text-white grain overflow-hidden">
     <!-- Layered radial glows -->
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_65%_55%_at_50%_50%,rgba(179,157,69,.06),transparent)] dark:bg-[radial-gradient(ellipse_65%_55%_at_50%_50%,rgba(179,157,69,.09),transparent)] pointer-events-none"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_20%_80%,rgba(43,59,96,.10),transparent)] dark:bg-[radial-gradient(ellipse_40%_40%_at_20%_80%,rgba(43,59,96,.40),transparent)] pointer-events-none"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_35%_35%_at_80%_20%,rgba(135,162,196,.06),transparent)] pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_65%_55%_at_50%_50%,rgba(179,157,69,.09),transparent)] pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_20%_80%,rgba(43,59,96,.40),transparent)] pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_35%_35%_at_80%_20%,rgba(135,162,196,.08),transparent)] pointer-events-none"></div>
 
     <!-- Ambient orbs -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full blur-3xl pointer-events-none" style="background:radial-gradient(circle,rgba(43,59,96,.10) 0%,transparent 70%)"></div>
-    <div class="hero-orb-b absolute -bottom-20 -left-20 w-[360px] h-[360px] rounded-full blur-3xl pointer-events-none dark:block hidden" style="background:rgba(43,59,96,.20)"></div>
-    <div class="hero-orb-a absolute -top-20 -right-20 w-[280px] h-[280px] rounded-full blur-3xl pointer-events-none" style="background:rgba(179,157,69,.05)"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full blur-3xl pointer-events-none" style="background:radial-gradient(circle,rgba(43,59,96,.28) 0%,transparent 70%)"></div>
+    <div class="hero-orb-b absolute -bottom-20 -left-20 w-[360px] h-[360px] rounded-full blur-3xl pointer-events-none" style="background:rgba(43,59,96,.20)"></div>
+    <div class="hero-orb-a absolute -top-20 -right-20 w-[280px] h-[280px] rounded-full blur-3xl pointer-events-none" style="background:rgba(179,157,69,.06)"></div>
 
     <!-- Pulsing rings around logo centre -->
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" style="margin-top:-80px;">
@@ -1335,12 +1331,12 @@
         </div>
       </div>
 
-      <h2 class="font-serif text-4xl sm:text-5xl font-normal mb-4 leading-tight">Your business deserves<br>reviews people <em class="gold-shimmer">believe.</em></h2>
-      <p class="text-navy-600 dark:text-navy-300 text-lg mb-10 leading-relaxed">Sign up free during beta. Connect your Stripe account, and start collecting Purchase Verified reviews tied to real transactions.</p>
+      <h2 class="font-serif text-4xl sm:text-5xl font-normal mb-4 leading-tight text-white">Your business deserves<br>reviews people <em class="gold-shimmer">believe.</em></h2>
+      <p class="text-navy-300 text-lg mb-10 leading-relaxed">Sign up free during beta. Connect your Stripe account, and start collecting Purchase Verified reviews tied to real transactions.</p>
 
       <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
         <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
-        <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-700 dark:text-white border border-navy-300/40 dark:border-white/20 hover:bg-steel-100/50 dark:hover:bg-white/10 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
+        <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-white border border-white/20 hover:bg-white/10 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
       </div>
 
       <!-- Trust pills -->
@@ -1349,7 +1345,7 @@
         <span class="trust-pill">🔒 Cryptographically signed</span>
         <span class="trust-pill">GDPR compliant</span>
       </div>
-      <p class="text-xs text-navy-500 dark:text-navy-300 mt-2">Free during beta · Any Stripe-powered business · No credit card required</p>
+      <p class="text-xs text-navy-300 mt-2">Free during beta · Any Stripe-powered business · No credit card required</p>
     </div>
   </section>
   </main>
