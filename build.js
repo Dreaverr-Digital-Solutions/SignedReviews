@@ -705,6 +705,8 @@ function page({ title, description, slug, hero, body, hasToc = false, active = '
     ${wrappedBody}
   </main>
   ${FOOTER}
+  <!-- Cloudflare Web Analytics (proxied) -->
+  <script defer src="${B}cf/beacon.min.js" data-cf-beacon='{"token": "3db355ae0786403fbe4f7240e1130894"}'></script>
 </body>
 </html>
 `;
