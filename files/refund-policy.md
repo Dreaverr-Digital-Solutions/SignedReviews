@@ -1,7 +1,7 @@
 # Refund and Cancellation Policy
 
 **Effective date:** April 19, 2026
-**Last updated:** April 19, 2026
+**Last updated:** July 7, 2026
 
 This Refund and Cancellation Policy applies to your use of Signed Reviews, a service operated by **Paid Rightly LLC**, a New Mexico limited liability company.
 
@@ -9,20 +9,18 @@ This Refund and Cancellation Policy applies to your use of Signed Reviews, a ser
 
 ## Current pricing
 
-Signed Reviews is currently offered **free of charge**. There are no subscription fees, per-review fees, commissions, or platform fees associated with using the Service.
-
-Because no payments are currently collected from business users, refunds are not applicable at this time.
+Signed Reviews offers a **free plan** (self-service review collection) and paid subscription plans — **Starter ($29/mo), Pro ($79/mo), and Scale ($199/mo)** — each available monthly or annually. Paid plans are billed by Signed Reviews directly via Stripe. The free plan incurs no charges.
 
 ---
 
 ## Cancellation
 
-You may stop using Signed Reviews at any time. To cancel and delete your account:
+You may cancel a paid plan at any time from your account or by emailing **support@signedreviews.com**. Cancellation stops future renewal charges; your account reverts to the free plan and your reviews remain visible. To cancel and delete your account entirely:
 
 1. Email **support@signedreviews.com** from the email address associated with your account, or
 2. Use the account deletion option inside the platform when available
 
-On cancellation:
+On full account deletion:
 
 - Your business user account is soft-deleted and your personal identifiers are anonymized
 - Reviews and transaction records remain in the Service in anonymized form, as described in our [Privacy Policy](https://signedreviews.com/privacy) and [Terms of Service](https://signedreviews.com/terms)
@@ -30,23 +28,26 @@ On cancellation:
 
 ---
 
-## Future paid tiers
+## Refunds
 
-If and when Signed Reviews introduces paid subscription tiers or usage-based fees, we will publish an updated Refund and Cancellation Policy **before** any charges take effect. That updated policy will address:
+- **Monthly plans:** Because you can cancel at any time and charges stop at the next renewal, monthly plan payments are **non-refundable** once a billing period has started. Cancel before the renewal date to avoid the next charge.
+- **Annual plans:** You may request a **full refund within 14 days** of an annual purchase or renewal. After 14 days, annual plans are non-refundable and remain active until the end of the paid term.
+- **Invitation Packs** (one-time +100 / $15): non-refundable once the invitations have been used or sent.
+- **Failed or disputed charges:** If a charge is incorrect, contact **support@signedreviews.com** within 60 days so we can investigate and, where appropriate, reverse it.
 
-- Billing cycles and auto-renewal terms
-- Cancellation timing and proration rules
-- Refund eligibility and timeframes
-- Handling of disputed charges and chargebacks
-- Consequences of failed payments
-
-We will provide at least **30 days' advance notice by email** before introducing any fees, giving you the opportunity to discontinue use of the Service before charges begin.
+We process approved refunds to the original payment method. Refund timing depends on your bank or card issuer.
 
 ---
 
-## Disputes about charges (future)
+## Disputes about charges
 
-Once paid tiers are introduced, if you believe a charge is incorrect, please contact **support@signedreviews.com** within 60 days of the charge so we can investigate. We will work in good faith to resolve billing disputes before any formal dispute resolution process begins under our [Terms of Service](https://signedreviews.com/terms).
+If you believe a charge is incorrect, please contact **support@signedreviews.com** within 60 days of the charge so we can investigate. We will work in good faith to resolve billing disputes before any formal dispute resolution process begins under our [Terms of Service](https://signedreviews.com/terms).
+
+---
+
+## Auto-renewal
+
+Paid plans renew automatically at the end of each billing period (monthly or annually) until you cancel. The price, billing period, and renewal terms are shown at checkout and in your account. You will not be charged any amount you have not agreed to, and we never automatically charge you for exceeding your monthly invitation cap — at the cap you explicitly upgrade or buy a one-time Invitation Pack.
 
 ---
 
