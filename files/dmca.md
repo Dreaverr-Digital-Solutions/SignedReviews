@@ -25,7 +25,7 @@ If you believe content on the Service infringes a copyright you own or control, 
 
 1. **A physical or electronic signature** of the copyright owner or a person authorized to act on their behalf.
 2. **Identification of the copyrighted work** claimed to have been infringed. If the notice covers multiple works on the Service, a representative list is sufficient.
-3. **Identification of the allegedly infringing material** with enough detail for us to locate it — typically the URL of the public review page, the review identifier, or the widget URL where the material is displayed.
+3. **Identification of the allegedly infringing material** with enough detail for us to locate it — typically the URL of the public review page or the review identifier.
 4. **Your contact information** — name, mailing address, telephone number, and email address.
 5. **A good-faith statement** that you have a good-faith belief the contested use is not authorized by the copyright owner, its agent, or the law.
 6. **A statement under penalty of perjury** that the information in the notice is accurate and that you are the copyright owner or are authorized to act on the copyright owner's behalf.

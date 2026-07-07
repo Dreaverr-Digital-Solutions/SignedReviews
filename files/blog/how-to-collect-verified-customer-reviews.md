@@ -26,21 +26,9 @@ Your verified reviews need a public home. Configure:
 
 - **Page URL**: Usually `yourbusiness.reviews` or a sub-path on your domain
 - **Layout**: How reviews are displayed (carousel, grid, list)
-- **Trust signals**: Show the "Verified by Stripe" badge, transaction amounts, and review dates
-- **Widget**: An embeddable review widget for your own website
+- **Trust signals**: Show the "Verified by SignedReviews" badge, transaction amounts, and review dates
 
-## Step 4: Add the review widget to your site
-
-Embed a review widget on your homepage, product pages, or a dedicated testimonials page. Most platforms provide a snippet you can paste into your site:
-
-```html
-<script src="https://platform.signedreviews.com/widget.js"
-        data-business="your-business-slug"></script>
-```
-
-The widget displays your most recent verified reviews and links to your full review page.
-
-## Step 5: Make it easy for customers
+## Step 4: Make it easy for customers
 
 The easier it is to leave a review, the more reviews you'll collect:
 

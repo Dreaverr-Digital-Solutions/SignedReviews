@@ -32,7 +32,7 @@ Before comparing options, know what matters for your business:
 ## Detailed breakdown
 
 ### Signed Reviews
-Built specifically for Stripe businesses. One-click OAuth connection, read-only access, automatic review requests on every charge. Cryptographically signs reviews for tamper-proof verification. Free during beta, then $29–$199/month depending on review volume. Best fit: businesses that process payments through Stripe and want every review backed by proof of purchase.
+Built specifically for Stripe businesses. One-click OAuth connection, read-only access, automatic review requests on every charge. Cryptographically signs reviews for tamper-evident verification. Free during beta, then $29–$199/month depending on review volume. Best fit: businesses that process payments through Stripe and want every review backed by proof of purchase.
 
 ### Google Reviews
 Free, universal, and carries the most weight for local SEO. No purchase verification. Reviews can be left by anyone with a Google account. Best used alongside a verified review platform — collect verified reviews on Signed Reviews for your website, and encourage happy customers to also leave Google reviews for local search visibility.

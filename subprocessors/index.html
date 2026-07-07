@@ -555,7 +555,7 @@ main { padding: 0; }
 </tr>
 <tr>
 <td><strong>Stripe</strong></td>
-<td>Business Stripe account linking (Connect OAuth or a restricted API key) and webhooks. Read-only access used to verify reviews and to compute the metrics a merchant chooses to show on their public Trust Profile. We never charge, refund, move funds, or modify the connected account.</td>
+<td>Business Stripe account linking (Connect OAuth or a restricted API key) and webhooks. Read-only access used to verify reviews and to compute the metrics a merchant chooses to show on their public review page. We never charge, refund, move funds, or modify the connected account.</td>
 <td>Stripe account ID or restricted API key (encrypted at rest); transaction metadata (charge ID, customer email, card last-4, amount, currency); aggregate read of charges, customers, subscriptions, refunds, disputes, and balance transactions for merchant-enabled metrics</td>
 <td>United States</td>
 </tr>
@@ -579,13 +579,13 @@ main { padding: 0; }
 </thead>
 <tbody><tr>
 <td><strong>Anthropic</strong></td>
-<td>Business-facing AI features: logo extraction and the AI Style Generator (suggesting brand colors and styles for the public review page, widget, and badge), using Claude models</td>
+<td>Business-facing AI feature: logo extraction (selecting the most likely logo from a business&#39;s website for the public review page and badge), using Claude models</td>
 <td>Public website HTML/URL and candidate logo or brand images provided by the business during setup</td>
 <td><strong>Not used on review content, reviewer data, or payment data.</strong> Anthropic does not train on data sent through its API under its commercial terms.</td>
 </tr>
 <tr>
 <td><strong>Google (Gemini)</strong></td>
-<td>Alternate AI provider for the same business-facing AI features (logo extraction / AI Style Generator), via the Google Gemini API</td>
+<td>Alternate AI provider for the same business-facing AI feature (logo extraction), via the Google Gemini API</td>
 <td>Public website HTML/URL and candidate logo or brand images provided by the business during setup</td>
 <td><strong>Not used on review content, reviewer data, or payment data.</strong></td>
 </tr>
@@ -608,7 +608,7 @@ main { padding: 0; }
 <td>United States</td>
 </tr>
 </tbody></table>
-<p><strong>Scope and safeguards.</strong> PostHog runs <strong>only</strong> on our marketing site (<code>signedreviews.com</code>) and the authenticated merchant dashboard. It is <strong>not</strong> loaded on public review pages, reviewer-facing review-submission pages, or the embeddable review widget — so review readers and reviewers are not tracked by it. <strong>Session replay is enabled</strong> on the marketing site and merchant dashboard, with <strong>all form-field inputs masked</strong> (passwords, email addresses, and payment details are never captured); replay is suppressed for visitors who send a &quot;Do Not Track&quot; or Global Privacy Control signal. For marketing-site visitors in the <strong>EU, EEA, and UK</strong>, replay is off by default and starts only after opt-in consent via an on-page banner. A &quot;Privacy choices&quot; footer link lets any visitor opt in or out at any time. We use a first-party cookie (not cross-site tracking) and honour browser &quot;Do Not Track.&quot;</p>
+<p><strong>Scope and safeguards.</strong> PostHog runs <strong>only</strong> on our marketing site (<code>signedreviews.com</code>) and the authenticated merchant dashboard. It is <strong>not</strong> loaded on public review pages or reviewer-facing review-submission pages — so review readers and reviewers are not tracked by it. <strong>Session replay is enabled</strong> on the marketing site and merchant dashboard, with <strong>all form-field inputs masked</strong> (passwords, email addresses, and payment details are never captured); replay is suppressed for visitors who send a &quot;Do Not Track&quot; or Global Privacy Control signal. For marketing-site visitors in the <strong>EU, EEA, and UK</strong>, replay is off by default and starts only after opt-in consent via an on-page banner. A &quot;Privacy choices&quot; footer link lets any visitor opt in or out at any time. We use a first-party cookie (not cross-site tracking) and honour browser &quot;Do Not Track.&quot;</p>
 <hr>
 <h2 id="oauth-providers-only-when-used"><a class="anchor" href="#oauth-providers-only-when-used" aria-label="Permalink to OAuth providers (only when used)">#</a> OAuth providers (only when used)</h2>
 <p>These sub-processors receive data only when a user chooses to log in or attach a profile using that provider. If you do not use a given provider, no data is shared with it.</p>

@@ -813,7 +813,6 @@ main { padding: 0; }
           <li>Hosted public review page + read-only public API + badge</li>
           <li>Build your own page with the read-only public API</li>
           <li>1 team seat</li>
-          <li>AI Style Generator · 3 runs/day</li>
           <li>Community support</li>
         </ul>
       </article>
@@ -840,8 +839,6 @@ main { padding: 0; }
           <li>Auto-request delay presets</li>
           <li>All collected reviews visible forever</li>
           <li>3 team seats</li>
-          <li>60-day review link expiry</li>
-          <li>Unlimited AI Style Generator runs</li>
           <li>Read-only API · 60 req/min</li>
           <li>Email support · 72-hour response</li>
         </ul>
@@ -868,7 +865,6 @@ main { padding: 0; }
           <li>All collected reviews visible forever</li>
           <li>2 automatic reminders · custom cadence preset</li>
           <li>8 team seats</li>
-          <li>90-day review link expiry</li>
           <li>Read-only API · 300 req/min</li>
           <li>Webhooks on new review, reply, refund</li>
           <li>CSV export of reviews + transactions</li>
@@ -894,9 +890,8 @@ main { padding: 0; }
         <ul class="tier-features">
           <li class="feature-primary">5,000 review invitations / month</li>
           <li>All collected reviews visible forever</li>
-          <li>2 automatic reminders · custom cadence + copy</li>
+          <li>2 automatic reminders · custom cadence</li>
           <li>20 team seats</li>
-          <li>90-day review link expiry</li>
           <li>Read-only API · 1,000 req/min</li>
           <li>Webhooks + CSV export</li>
           <li>Priority support · 12-hour response</li>
@@ -984,21 +979,14 @@ main { padding: 0; }
           <td class="dim">—</td>
           <td>2 reminders · standard</td>
           <td>2 · custom cadence</td>
-          <td>2 · custom cadence + copy</td>
+          <td>2 · custom cadence</td>
         </tr>
         <tr>
           <th scope="row">Review link expiry</th>
           <td>14 days</td>
-          <td>60 days</td>
-          <td>90 days</td>
-          <td>90 days</td>
-        </tr>
-        <tr>
-          <th scope="row">AI Style Generator</th>
-          <td>3 runs / day</td>
-          <td>Unlimited</td>
-          <td>Unlimited</td>
-          <td>Unlimited</td>
+          <td>14 days</td>
+          <td>14 days</td>
+          <td>14 days</td>
         </tr>
         <tr>
           <th scope="row">Public API access</th>
@@ -1039,11 +1027,11 @@ main { padding: 0; }
     </article>
     <article class="assurance">
       <h3>Read-only Stripe access.</h3>
-      <p>We never charge, refund, move funds, or modify anything in your Stripe account. We read your Stripe data only to verify reviews and to compute the Trust Profile metrics you choose to show.</p>
+      <p>We never charge, refund, move funds, or modify anything in your Stripe account. We read your Stripe data only to verify reviews and to compute the public-page metrics you choose to show.</p>
     </article>
     <article class="assurance">
       <h3>The API can't create reviews.</h3>
-      <p>No matter which plan you're on, reviews only come from real customers clicking real signed invitation links. The write API handles replies, moderation, and sending invitations — never creating review records. The badge stays meaningful because the rule doesn't bend.</p>
+      <p>No matter which plan you're on, reviews only come from real customers clicking real signed invitation links. Our API is read-only — it retrieves and displays reviews but can never create them. The badge stays meaningful because the rule doesn't bend.</p>
     </article>
     <article class="assurance">
       <h3>No surprise billing.</h3>

@@ -1099,7 +1099,6 @@ function buildPricing() {
           <li>Hosted public review page + read-only public API + badge</li>
           <li>Build your own page with the read-only public API</li>
           <li>1 team seat</li>
-          <li>AI Style Generator · 3 runs/day</li>
           <li>Community support</li>
         </ul>
       </article>
@@ -1126,8 +1125,6 @@ function buildPricing() {
           <li>Auto-request delay presets</li>
           <li>All collected reviews visible forever</li>
           <li>3 team seats</li>
-          <li>60-day review link expiry</li>
-          <li>Unlimited AI Style Generator runs</li>
           <li>Read-only API · 60 req/min</li>
           <li>Email support · 72-hour response</li>
         </ul>
@@ -1154,7 +1151,6 @@ function buildPricing() {
           <li>All collected reviews visible forever</li>
           <li>2 automatic reminders · custom cadence preset</li>
           <li>8 team seats</li>
-          <li>90-day review link expiry</li>
           <li>Read-only API · 300 req/min</li>
           <li>Webhooks on new review, reply, refund</li>
           <li>CSV export of reviews + transactions</li>
@@ -1180,9 +1176,8 @@ function buildPricing() {
         <ul class="tier-features">
           <li class="feature-primary">5,000 review invitations / month</li>
           <li>All collected reviews visible forever</li>
-          <li>2 automatic reminders · custom cadence + copy</li>
+          <li>2 automatic reminders · custom cadence</li>
           <li>20 team seats</li>
-          <li>90-day review link expiry</li>
           <li>Read-only API · 1,000 req/min</li>
           <li>Webhooks + CSV export</li>
           <li>Priority support · 12-hour response</li>
@@ -1270,21 +1265,14 @@ function buildPricing() {
           <td class="dim">—</td>
           <td>2 reminders · standard</td>
           <td>2 · custom cadence</td>
-          <td>2 · custom cadence + copy</td>
+          <td>2 · custom cadence</td>
         </tr>
         <tr>
           <th scope="row">Review link expiry</th>
           <td>14 days</td>
-          <td>60 days</td>
-          <td>90 days</td>
-          <td>90 days</td>
-        </tr>
-        <tr>
-          <th scope="row">AI Style Generator</th>
-          <td>3 runs / day</td>
-          <td>Unlimited</td>
-          <td>Unlimited</td>
-          <td>Unlimited</td>
+          <td>14 days</td>
+          <td>14 days</td>
+          <td>14 days</td>
         </tr>
         <tr>
           <th scope="row">Public API access</th>
@@ -1325,11 +1313,11 @@ function buildPricing() {
     </article>
     <article class="assurance">
       <h3>Read-only Stripe access.</h3>
-      <p>We never charge, refund, move funds, or modify anything in your Stripe account. We read your Stripe data only to verify reviews and to compute the Trust Profile metrics you choose to show.</p>
+      <p>We never charge, refund, move funds, or modify anything in your Stripe account. We read your Stripe data only to verify reviews and to compute the public-page metrics you choose to show.</p>
     </article>
     <article class="assurance">
       <h3>The API can't create reviews.</h3>
-      <p>No matter which plan you're on, reviews only come from real customers clicking real signed invitation links. The write API handles replies, moderation, and sending invitations — never creating review records. The badge stays meaningful because the rule doesn't bend.</p>
+      <p>No matter which plan you're on, reviews only come from real customers clicking real signed invitation links. Our API is read-only — it retrieves and displays reviews but can never create them. The badge stays meaningful because the rule doesn't bend.</p>
     </article>
     <article class="assurance">
       <h3>No surprise billing.</h3>
@@ -1414,7 +1402,7 @@ function buildAbout() {
     <article class="prose" style="max-width: var(--max-prose)">
       <h2>What we do</h2>
       <p>${COMPANY.description}</p>
-      <p>Each review collected through our platform is invited only after a real Stripe transaction completes, is delivered to the buyer's verified email address, and is cryptographically signed so anyone can later verify the review hasn't been altered. The result is a review record that ties back to a specific, completed payment — instead of a star rating posted by an anonymous account that may never have purchased anything.</p>
+      <p>Every review collected through our platform is tied to a real, completed Stripe transaction. A review link is issued either automatically after a charge succeeds (emailed to the buyer's verified address) or on request from the business's public page — and in both cases the email must match an actual purchase. Each review is cryptographically signed so anyone can later verify it hasn't been altered. The result is a review record that ties back to a specific, completed payment — instead of a star rating posted by an anonymous account that may never have purchased anything.</p>
 
       <h2>Who operates Signed Reviews</h2>
       <p>${COMPANY.brand} is operated by <strong>${COMPANY.legalName}</strong>, a New Mexico limited liability company headquartered in Albuquerque. ${COMPANY.legalName} is the controller of business-user data and the processor of reviewer data on behalf of our business customers. The full breakdown is described in our <a href="${B}privacy/">Privacy Policy</a> and the third parties we rely on are listed in our <a href="${B}subprocessors/">Sub-processors page</a>.</p>
@@ -1476,7 +1464,7 @@ function buildFaq() {
     },
     {
       q: 'Can customers leave reviews without a purchase?',
-      a: 'No. A review can only be submitted through a unique, expiring invitation link that is generated after a Stripe charge succeeds. The link is emailed to the customer\'s verified email address from the Stripe transaction. Without a completed purchase, no invitation link exists.',
+      a: 'No. Every review requires a verified purchase. A review link is issued in one of two ways: automatically after a Stripe charge succeeds (emailed to the customer\'s verified email from the transaction), or on request — a customer can visit the business\'s public page and enter their checkout email to receive their own link. In both cases, the email must match a real completed purchase on the business\'s Stripe account. Without a matching purchase, no link is issued and no review can be submitted.',
     },
     {
       q: 'What happens if a charge is refunded?',
@@ -1484,11 +1472,11 @@ function buildFaq() {
     },
     {
       q: 'How long are review invitation links valid?',
-      a: 'Review links are valid for 14 days on the Free plan, 60 days on Starter, and 90 days on Pro and Scale plans. After expiry, the link can no longer be used to submit a review. A new charge generates a fresh invitation.',
+      a: 'Review links are valid for 14 days on every plan. After expiry, the link can no longer be used to submit a review. A new charge (or a fresh self-service request) generates a new invitation.',
     },
     {
       q: 'Can I customize the review request emails?',
-      a: 'Yes. You can customize your logo, brand colors, content alignment, and logo size from the dashboard. The email subject line reflects your business name. Review reminder emails follow the same template with a slightly different subject and lead sentence so they don\'t feel like duplicates. Custom reminder copy is available on the Scale plan.',
+      a: 'Yes. You can customize your logo, content alignment, and logo size from the dashboard. The email subject line reflects your business name. Review reminder emails follow the same template with a slightly different subject and lead sentence so they don\'t feel like duplicates.',
     },
     {
       q: 'Does Signed Reviews work with Shopify or WooCommerce?',
@@ -1720,10 +1708,10 @@ function buildComparison() {
         <tr><td>Fake review prevention</td><td class="win">Structural — no purchase = no invitation = no review. Impossible to post a review without a verified transaction.</td><td class="lose">Reactive — relies on automated detection and manual moderation. Trustpilot removed 2.7M fake reviews in 2022.</td></tr>
         <tr class="highlight-row"><td>Review authenticity proof</td><td class="win">Cryptographically signed — every review carries a tamper-evident digital signature that can be independently verified</td><td class="lose">No cryptographic proof — reviews are database records with no external verifiability</td></tr>
         <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, read-only access, automatic review requests on every charge</td><td class="lose">No native Stripe integration — requires third-party connectors or manual CSV imports</td></tr>
-        <tr class="highlight-row"><td>Review gating</td><td class="win">Automatic — only paying customers receive invitation links, sent to the email on their Stripe transaction</td><td class="lose">Manual — businesses must upload customer lists or send invitations themselves</td></tr>
+        <tr class="highlight-row"><td>Review gating</td><td class="win">Automatic — invitations go to the email on each Stripe transaction, and customers can also request their own verified link from the business's public page. Either way, a completed purchase is required.</td><td class="lose">Manual — businesses must upload customer lists or send invitations themselves</td></tr>
         <tr><td>Refund handling</td><td class="win">Automatic — refunded reviews are hidden from public display immediately via Stripe webhook</td><td class="lose">Manual — businesses must flag or report reviews from refunded customers</td></tr>
-        <tr class="highlight-row"><td>API & integrations</td><td class="win">REST API, webhooks, delivery webhook, embeddable widget, public page API</td><td class="win">Extensive API, 100+ integrations, white-label options on Enterprise</td></tr>
-        <tr><td>Pricing model</td><td class="win">Free during beta. Paid plans from $29/mo (Starter) to $199/mo (Scale). Transparent per-invitation pricing.</td><td class="lose">Free tier available, but paid plans start at $299/mo for the "Growth" tier (as of 2025). Enterprise pricing is opaque.</td></tr>
+        <tr class="highlight-row"><td>API & integrations</td><td class="win">REST API, webhooks, delivery webhook, public page API</td><td class="win">Extensive API, 100+ integrations, white-label options on Enterprise</td></tr>
+        <tr><td>Pricing model</td><td class="win">Free during beta. Paid plans from $29/mo (Starter) to $199/mo (Scale). Transparent tiered pricing with monthly invitation caps.</td><td class="lose">Free tier available, but paid plans start at $299/mo for the "Growth" tier (as of 2025). Enterprise pricing is opaque.</td></tr>
         <tr class="highlight-row"><td>Organic discoverability</td><td class="lose">Early stage — limited domain authority and no consumer-facing review directory</td><td class="win">Established — Trustpilot.com has massive organic traffic and a consumer-facing review search</td></tr>
         <tr><td>Trust mark / badge</td><td class="win">"Verified by Signed Reviews" badge links to cryptographic proof. Included on every plan, including Free.</td><td class="win">Trustpilot TrustBox widgets and star ratings. Widely recognized by consumers.</td></tr>
         <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews — Signed Reviews is the processor. Reviews belong to you.</td><td class="lose">Reviews live on Trustpilot's platform — businesses cannot export and move reviews to another provider.</td></tr>
@@ -1771,11 +1759,11 @@ function buildTrust() {
       <li>Verify that a reviewer completed a purchase from your business</li>
       <li>Match the reviewer to the correct transaction</li>
       <li>Detect refunds and automatically hide refunded reviews</li>
-      <li>Compute aggregate Trust Profile metrics (when enabled)</li>
+      <li>Compute aggregate public-page metrics (when enabled)</li>
     </ul>
 
     <h3>No fake reviews by design</h3>
-    <p>Most review platforms fight fake reviews with detection algorithms — a reactive approach. Signed Reviews prevents fake reviews structurally: a review invitation link is only generated when a Stripe charge succeeds, it's sent to the customer's verified payment email, and it expires after a set period. There is no "write a review" button on the platform. No purchase = no invitation = no review.</p>
+    <p>Most review platforms fight fake reviews with detection algorithms — a reactive approach. Signed Reviews prevents fake reviews structurally: every review requires a verified purchase. A review link is issued either automatically after a Stripe charge succeeds or on request from the business's public page — and in both cases the email must match a real completed purchase. Links are single-use and expire after a set period. No matching purchase = no link = no review.</p>
 
     <h3>Data ownership</h3>
     <p>You own your review data. Signed Reviews is the processor; your business is the controller. Reviews collected through our platform belong to you — we do not sell, share, or use your review data for any purpose other than providing the service. See our <a href="/privacy/">Privacy Policy</a> and <a href="/dpa/">Data Processing Agreement</a> for the full legal framework.</p>
@@ -1810,7 +1798,7 @@ const COMING_SOON_PAGES = [
   {
     slug: '/features/',
     title: 'Features — Signed Reviews',
-    desc: 'Explore the full feature set of Signed Reviews: automated review collection, tamper-proof verification, Stripe integration, Trust Profile metrics, and more.',
+    desc: 'Explore the full feature set of Signed Reviews: automated review collection, tamper-evident verification, Stripe integration, and more.',
     eyebrow: 'Features',
     heading: 'Signed Reviews Features',
     subtitle: 'A complete overview of what Signed Reviews can do for your business.',
@@ -1834,7 +1822,7 @@ const COMING_SOON_PAGES = [
   {
     slug: '/docs/',
     title: 'Documentation — Signed Reviews',
-    desc: 'Technical documentation for Signed Reviews: API reference, integration guides, widget setup, and webhook configuration.',
+    desc: 'Technical documentation for Signed Reviews: API reference, integration guides, and webhook configuration.',
     eyebrow: 'Docs',
     heading: 'Documentation',
     subtitle: 'API reference, integration guides, and technical documentation.',
@@ -1860,7 +1848,7 @@ function buildComingSoon() {
       slug: p.slug,
       hero: { eyebrow: p.eyebrow, title: p.heading, subtitle: p.subtitle },
       body,
-    });
+    }).replace('<meta name="robots" content="index, follow">', '<meta name="robots" content="noindex, follow">');
     writePage(p.slug, html);
     console.log(`  ✓ ${p.slug}`);
   }

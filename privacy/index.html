@@ -539,7 +539,7 @@ main { padding: 0; }
 <ul>
 <li><strong>Business users</strong> — the businesses that sign up for Signed Reviews and their team members who log in to the platform at <code>platform.signedreviews.com</code>.</li>
 <li><strong>Reviewers</strong> — the customers of those businesses who receive an email invitation to leave a review and submit one through a one-time link.</li>
-<li><strong>Visitors</strong> — anyone who views a public review page, clicks a review widget embedded on a third-party site, or browses our marketing website.</li>
+<li><strong>Visitors</strong> — anyone who views a public review page or browses our marketing website.</li>
 </ul>
 <p>Different parts of this policy apply to each group. Where relevant, we call this out explicitly.</p>
 <hr>
@@ -561,7 +561,7 @@ main { padding: 0; }
 <li><strong>Display name</strong></li>
 <li><strong>Profile picture</strong> (only if you provide one through SSO or upload)</li>
 <li><strong>Hashed password</strong> (only for email/password signups — we never store your password in readable form; we use bcrypt with cost factor 12)</li>
-<li><strong>Business information you provide:</strong> business name, website URL, brand logo, brand colors, email subject preferences, widget and review page customization settings</li>
+<li><strong>Business information you provide:</strong> business name, website URL, brand logo, brand colors, email subject preferences, review page customization settings</li>
 </ul>
 <p>We do not collect phone numbers, dates of birth, physical addresses, government identification, or tax identification numbers from business users.</p>
 <h3 id="32-from-reviewers"><a class="anchor" href="#32-from-reviewers" aria-label="Permalink to 3.2 From reviewers">#</a> 3.2 From reviewers</h3>
@@ -584,7 +584,7 @@ main { padding: 0; }
 <h3 id="33-payment-information"><a class="anchor" href="#33-payment-information" aria-label="Permalink to 3.3 Payment information">#</a> 3.3 Payment information</h3>
 <p>Signed Reviews does not process payments from reviewers, does not take fees from business Stripe accounts, and does not store full card numbers, CVV codes, expiry dates, cardholder names, or full billing addresses.</p>
 <p>The payment-adjacent data we store is a narrow slice of charge metadata received from Stripe: the charge ID, customer email, card last four digits, amount, and currency. These are used to link a review to a verified purchase.</p>
-<p>If a business enables metrics on its public Trust Profile, we additionally read aggregate data from that business&#39;s Stripe account on a strictly read-only basis — such as charges, customers, subscriptions, refunds, disputes, and balance transactions — and store only the resulting privacy-thresholded aggregate values (for example, a banded refund rate or active-subscriber count), never the underlying raw records. We never store full card numbers, CVV codes, expiry dates, cardholder names, or full billing addresses.</p>
+<p>If a business enables metrics on its public review page, we additionally read aggregate data from that business&#39;s Stripe account on a strictly read-only basis — such as charges, customers, subscriptions, refunds, disputes, and balance transactions — and store only the resulting privacy-thresholded aggregate values (for example, a banded refund rate or active-subscriber count), never the underlying raw records. We never store full card numbers, CVV codes, expiry dates, cardholder names, or full billing addresses.</p>
 <h3 id="34-technical-information"><a class="anchor" href="#34-technical-information" aria-label="Permalink to 3.4 Technical information">#</a> 3.4 Technical information</h3>
 <p>We collect limited technical information to keep the Service working:</p>
 <ul>
@@ -593,8 +593,8 @@ main { padding: 0; }
 </ul>
 <h3 id="34a-analytics"><a class="anchor" href="#34a-analytics" aria-label="Permalink to 3.4a Analytics">#</a> 3.4a Analytics</h3>
 <p>We use <strong>PostHog</strong> for first-party product and marketing analytics, to understand how our marketing site and merchant dashboard are used (pages viewed, features used, sign-up funnels). PostHog sets a first-party analytics cookie and may process usage and device data (pages viewed, UI interactions, approximate location derived from IP, browser/OS); for signed-in merchants it is also associated with your user ID, email, and business. PostHog is listed on our <a href="/subprocessors">Sub-processors</a> page.</p>
-<p><strong>Where analytics runs — and where it does not.</strong> PostHog runs only on our marketing site (<code>signedreviews.com</code>) and the authenticated merchant dashboard. It is <strong>not</strong> loaded on public review pages, the reviewer-facing review-submission flow, or the embeddable review widget — so review readers and reviewers are not tracked by our analytics. We honour your browser&#39;s &quot;Do Not Track&quot; setting.</p>
-<p><strong>Session replay.</strong> On the marketing site and the merchant dashboard, PostHog records anonymised session replays (a reconstruction of page interactions such as clicks, scrolls, and navigation) to help us diagnose usability issues. <strong>All form-field inputs are masked</strong> — values you type into fields, including passwords, email addresses, and payment details, are never captured. Replay is <strong>not</strong> active on public review pages, the reviewer-facing review-submission flow, or the embeddable review widget, and it is suppressed for visitors whose browser sends a &quot;Do Not Track&quot; or Global Privacy Control (GPC) signal. You can also turn replay off at any time using the <strong>&quot;Privacy choices&quot;</strong> link in our site footer.</p>
+<p><strong>Where analytics runs — and where it does not.</strong> PostHog runs only on our marketing site (<code>signedreviews.com</code>) and the authenticated merchant dashboard. It is <strong>not</strong> loaded on public review pages or the reviewer-facing review-submission flow — so review readers and reviewers are not tracked by our analytics. We honour your browser&#39;s &quot;Do Not Track&quot; setting.</p>
+<p><strong>Session replay.</strong> On the marketing site and the merchant dashboard, PostHog records anonymised session replays (a reconstruction of page interactions such as clicks, scrolls, and navigation) to help us diagnose usability issues. <strong>All form-field inputs are masked</strong> — values you type into fields, including passwords, email addresses, and payment details, are never captured. Replay is <strong>not</strong> active on public review pages or the reviewer-facing review-submission flow, and it is suppressed for visitors whose browser sends a &quot;Do Not Track&quot; or Global Privacy Control (GPC) signal. You can also turn replay off at any time using the <strong>&quot;Privacy choices&quot;</strong> link in our site footer.</p>
 <p><strong>Consent in the EU, EEA, and UK.</strong> If you visit our marketing site from the EU, EEA, or UK, session replay is <strong>off by default</strong> and begins <strong>only if you give consent</strong> through the banner shown on your visit. Declining leaves replay off; the rest of our first-party analytics (such as page views and conversion funnels) continues to operate. You can change your choice at any time through the <strong>&quot;Privacy choices&quot;</strong> link in our site footer, and we honour Do Not Track and Global Privacy Control signals automatically.</p>
 <p>Beyond this first-party analytics cookie and masked session replay, we do not use advertising cookies, cross-site tracking, or behavioral-advertising platforms, and we do not embed tracking pixels in the emails we send.</p>
 <h3 id="35-from-third-parties"><a class="anchor" href="#35-from-third-parties" aria-label="Permalink to 3.5 From third parties">#</a> 3.5 From third parties</h3>
@@ -607,7 +607,7 @@ main { padding: 0; }
 <li>Authenticate business users and maintain logged-in sessions (7-day session tokens)</li>
 <li>Deliver review-request emails triggered by successful Stripe charges</li>
 <li>Generate and validate one-time review submission links (valid for 14 days, single-use)</li>
-<li>Display reviews on public review pages, embeddable widgets, and the public API, subject to each business&#39;s configuration</li>
+<li>Display reviews on public review pages and via the public API, subject to each business&#39;s configuration</li>
 <li>Produce aggregate analytics for business users from their own review and transaction data</li>
 </ul>
 <h3 id="42-to-verify-reviews"><a class="anchor" href="#42-to-verify-reviews" aria-label="Permalink to 4.2 To verify reviews">#</a> 4.2 To verify reviews</h3>
@@ -640,14 +640,14 @@ main { padding: 0; }
 <p>We do not sell personal data. We do not share personal data with advertisers. We do not share personal data with data brokers.</p>
 <p>We share personal data in the following limited circumstances:</p>
 <h3 id="51-with-businesses-that-requested-your-review"><a class="anchor" href="#51-with-businesses-that-requested-your-review" aria-label="Permalink to 5.1 With businesses that requested your review">#</a> 5.1 With businesses that requested your review</h3>
-<p>If you are a reviewer, your review — including any content, photos, display name, and social handle you chose to include — is visible to the business that requested it. If that business has enabled public review display, your review is also visible to anyone who views the business&#39;s public review page or any site embedding the business&#39;s widget.</p>
+<p>If you are a reviewer, your review — including any content, photos, display name, and social handle you chose to include — is visible to the business that requested it. If that business has enabled public review display, your review is also visible to anyone who views the business&#39;s public review page.</p>
 <h3 id="52-with-sub-processors"><a class="anchor" href="#52-with-sub-processors" aria-label="Permalink to 5.2 With sub-processors">#</a> 5.2 With sub-processors</h3>
 <p>We use a small number of service providers to operate the Service. A complete, current list is maintained at <a href="https://signedreviews.com/subprocessors">signedreviews.com/subprocessors</a>. At the time this policy was last updated, our sub-processors are:</p>
 <ul>
 <li><strong>Stripe</strong> (payments and transaction data)</li>
 <li><strong>Resend</strong> (transactional email delivery)</li>
 <li><strong>Cloudinary</strong> (image hosting for review photos and brand assets)</li>
-<li><strong>Anthropic</strong> and <strong>Google</strong> (business-facing branding AI — logo and brand-style extraction; see Section 6 for specifics)</li>
+<li><strong>Anthropic</strong> and <strong>Google</strong> (business-facing branding AI — logo extraction; see Section 6 for specifics)</li>
 <li><strong>Railway</strong> (cloud hosting and managed database)</li>
 <li><strong>PostHog</strong> (first-party product and marketing-site analytics — see Section 3.4a)</li>
 <li><strong>Decodo</strong> (proxy service used only for Instagram public profile lookups)</li>
@@ -661,7 +661,7 @@ main { padding: 0; }
 <p>We may disclose information in response to lawful subpoenas, court orders, or government requests; when required by applicable law; or when we believe disclosure is necessary to protect the rights, property, or safety of Paid Rightly LLC, our users, or the public.</p>
 <hr>
 <h2 id="6-how-we-use-ai"><a class="anchor" href="#6-how-we-use-ai" aria-label="Permalink to 6. How we use AI">#</a> 6. How we use AI</h2>
-<p>We use AI only for <strong>business-facing branding features</strong>, and only on content a business provides about its own brand. When a business sets up or restyles its public review page, embeddable widget, badge, or brand profile, we send the HTML of the website URL the business enters — along with any candidate logo or brand images from that site — to a vision-capable large language model, which (a) selects the most likely logo and (b) proposes brand colors and visual style presets the business can accept or discard.</p>
+<p>We use AI only for <strong>business-facing branding features</strong>, and only on content a business provides about its own brand. When a business sets up or restyles its public review page, badge, or brand profile, we send the HTML of the website URL the business enters — along with any candidate logo or brand images from that site — to a vision-capable large language model, which selects the most likely logo for the business to accept or discard.</p>
 <p>These features run on <strong>Anthropic&#39;s Claude</strong> models by default, with <strong>Google&#39;s Gemini</strong> models available as an alternate provider we may select on a per-feature basis. Both are used only for the branding tasks described above.</p>
 <p>We do <strong>not</strong> use AI to analyze, moderate, score, or train on:</p>
 <ul>

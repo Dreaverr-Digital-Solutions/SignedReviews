@@ -46,7 +46,7 @@ Signed Reviews helps businesses collect verified, tamper-evident reviews from th
 2. When a customer makes a purchase (resulting in a successful Stripe charge), Signed Reviews sends the customer an email invitation to leave a review.
 3. The customer clicks a one-time, time-limited link, writes a review, and submits it.
 4. The review is cryptographically signed server-side and stored.
-5. If enabled by the business, the review is displayed publicly on a hosted review page, in an embeddable widget, and via a public API.
+5. If enabled by the business, the review is displayed publicly on a hosted review page and via a public API.
 
 Verified reviews are labeled "Purchase Verified." This label indicates that (a) the review is linked to a specific Stripe charge, (b) the reviewer had access to the email address associated with that charge, and (c) the review content has not been altered since submission. It does not verify the reviewer's legal identity or the subjective truth of the review content.
 
@@ -83,11 +83,11 @@ To use most of the Service, you first create a Signed Reviews account (email and
 
 By linking your Stripe account, you:
 
-- Grant us **read-only** access to your Stripe data. We read charge data to trigger and verify review requests and, only for the metrics you explicitly enable on your public Trust Profile, aggregate read access to related data such as charges, customers, subscriptions, refunds, disputes, and balance transactions.
+- Grant us **read-only** access to your Stripe data. We read charge data to trigger and verify review requests and, only for the metrics you explicitly enable on your public review page, aggregate read access to related data such as charges, customers, subscriptions, refunds, disputes, and balance transactions.
 - Authorize us to receive `charge.succeeded` and `charge.refunded` events. With Stripe Connect these are delivered to our platform webhook automatically; with a restricted API key we register (or you configure) a webhook endpoint on your Stripe account for the same events.
 - Remain solely responsible for your relationship with Stripe, including compliance with Stripe's Services Agreement.
 
-We **never** initiate charges, issue refunds, move or transfer funds, modify your Stripe account, or take platform fees. Our access is strictly read-only and limited to the data needed to verify reviews and compute the Trust Profile metrics you choose to display.
+We **never** initiate charges, issue refunds, move or transfer funds, modify your Stripe account, or take platform fees. Our access is strictly read-only and limited to the data needed to verify reviews and compute the public-page metrics you choose to display.
 
 You can disconnect your Stripe account at any time through the Service. Doing so stops future review requests from being triggered; your Signed Reviews account and existing reviews remain intact.
 
@@ -140,7 +140,7 @@ If you are submitting a review, you agree that:
 
 By submitting a review, you understand and agree that:
 
-- Your review will be displayed publicly on the business's review page, in their widget if embedded on third-party sites, and may be made available through their public API
+- Your review will be displayed publicly on the business's review page and may be made available through their public API
 - The display name, photo, and social handle you choose to include will be displayed alongside your review
 - You may request anonymization of your review at any time by emailing legal@signedreviews.com
 - You can opt out of future review-request emails from any Signed Reviews business by clicking the unsubscribe link in any review-request email
@@ -157,7 +157,7 @@ You retain ownership of the content you submit to the Service, including reviews
 
 You grant us a worldwide, non-exclusive, royalty-free, sublicensable license to host, store, reproduce, modify (for technical purposes like format conversion and resizing), display, distribute, and transmit Your Content solely for the purpose of operating and providing the Service, including:
 
-- Displaying reviews on public review pages and in widgets embedded on third-party sites
+- Displaying reviews on public review pages
 - Making reviews available through the public API to authorized consumers
 - Using anonymized and aggregated data to operate and improve the Service
 - Creating backups and operational copies
@@ -168,11 +168,11 @@ This license continues for as long as Your Content remains on the Service. If Yo
 
 We do not pre-screen, moderate, or verify the accuracy of reviews or other user-generated content before it is published. Reviews go live immediately on submission.
 
-We commit to reviewing every abuse report we receive — whether submitted via the in-product "Report" link on a public review page or by email to legal@signedreviews.com — **within 7 business days** of receipt. We will take appropriate action where warranted, including, in our sole discretion, hiding the content from public surfaces (the public review page, embeddable widget, and public API), terminating the offending account, or referring the matter to law enforcement. For DMCA copyright complaints, see Section 17.
+We commit to reviewing every abuse report we receive — whether submitted via the in-product "Report" link on a public review page or by email to legal@signedreviews.com — **within 7 business days** of receipt. We will take appropriate action where warranted, including, in our sole discretion, hiding the content from public surfaces (the public review page and public API), terminating the offending account, or referring the matter to law enforcement. For DMCA copyright complaints, see Section 17.
 
 ### 8.4 Refunded transactions
 
-If a business refunds the Stripe charge associated with a review, the review will be hidden from public display (widgets, review pages, public API). The underlying record is retained for integrity and audit purposes but is no longer surfaced to the public.
+If a business refunds the Stripe charge associated with a review, the review will be hidden from public display (review pages and public API). The underlying record is retained for integrity and audit purposes but is no longer surfaced to the public.
 
 ---
 
@@ -194,14 +194,13 @@ We may suspend or terminate accounts that violate these restrictions.
 
 ---
 
-## 10. Public API and widget
+## 10. Public API
 
-If you use the public API or embed the Signed Reviews widget on a third-party website, you additionally agree that:
+If you use the public API, you additionally agree that:
 
 - Your API key is confidential; sharing it is a breach of these Terms
 - The public API is rate limited, and the limit depends on your plan (see our [Pricing page](https://signedreviews.com/pricing)); excessive use may result in throttling or suspension
-- Widget-embedded reviews must be displayed in their original form without editing or selective omission of negative reviews
-- You are responsible for ensuring the widget or API data you display on your site complies with applicable law (including disclosure rules for endorsements)
+- You are responsible for ensuring any review data you display via the API on your site complies with applicable law (including disclosure rules for endorsements)
 
 ---
 

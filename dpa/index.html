@@ -568,14 +568,14 @@ main { padding: 0; }
 <li>Reviewer profile picture (if provided)</li>
 <li>Reviewer social-media handle (if provided)</li>
 <li>Stripe charge identifier and transaction metadata (charge ID, amount, currency, card last-4)</li>
-<li>Aggregate Stripe account data read on a read-only basis to compute merchant-enabled Trust Profile metrics (e.g. charges, customers, subscriptions, refunds, disputes, balance transactions), stored only as privacy-thresholded aggregates, not raw records</li>
+<li>Aggregate Stripe account data read on a read-only basis to compute merchant-enabled public-page metrics (e.g. charges, customers, subscriptions, refunds, disputes, balance transactions), stored only as privacy-thresholded aggregates, not raw records</li>
 <li>Review content (rating, title, body, photos)</li>
 <li>Team-member email, display name, and OAuth identifiers</li>
 <li>Server logs containing technical metadata (request timestamps, anonymized rate-limit keys)</li>
 </ul>
 <p>We do <strong>not</strong> process special-category data (Article 9 GDPR), criminal-conviction data (Article 10 GDPR), or full payment-card numbers.</p>
 <h3 id="43-nature-and-purpose-of-processing"><a class="anchor" href="#43-nature-and-purpose-of-processing" aria-label="Permalink to 4.3 Nature and purpose of processing">#</a> 4.3 Nature and purpose of processing</h3>
-<p>We process Personal Data solely to provide the Service: read Stripe charge metadata on a read-only basis (and, for merchant-enabled Trust Profile metrics, aggregate read-only account data), send review-request emails, host signed review-submission links, store cryptographically-signed reviews, render reviews on the public review page and embeddable widget, expose reviews via the Public API, and perform basic operational functions (rate limiting, deliverability suppression, audit logging).</p>
+<p>We process Personal Data solely to provide the Service: read Stripe charge metadata on a read-only basis (and, for merchant-enabled public-page metrics, aggregate read-only account data), send review-request emails, host signed review-submission links, store cryptographically-signed reviews, render reviews on the public review page, expose reviews via the Public API, and perform basic operational functions (rate limiting, deliverability suppression, audit logging).</p>
 <h3 id="44-duration"><a class="anchor" href="#44-duration" aria-label="Permalink to 4.4 Duration">#</a> 4.4 Duration</h3>
 <p>Personal Data is processed for as long as your account is active, plus the retention windows described in our Privacy Policy. On termination, Section 12 applies.</p>
 <hr>

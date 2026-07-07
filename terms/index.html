@@ -558,7 +558,7 @@ main { padding: 0; }
 <li>When a customer makes a purchase (resulting in a successful Stripe charge), Signed Reviews sends the customer an email invitation to leave a review.</li>
 <li>The customer clicks a one-time, time-limited link, writes a review, and submits it.</li>
 <li>The review is cryptographically signed server-side and stored.</li>
-<li>If enabled by the business, the review is displayed publicly on a hosted review page, in an embeddable widget, and via a public API.</li>
+<li>If enabled by the business, the review is displayed publicly on a hosted review page and via a public API.</li>
 </ol>
 <p>Verified reviews are labeled &quot;Purchase Verified.&quot; This label indicates that (a) the review is linked to a specific Stripe charge, (b) the reviewer had access to the email address associated with that charge, and (c) the review content has not been altered since submission. It does not verify the reviewer&#39;s legal identity or the subjective truth of the review content.</p>
 <hr>
@@ -585,11 +585,11 @@ main { padding: 0; }
 </ul>
 <p>By linking your Stripe account, you:</p>
 <ul>
-<li>Grant us <strong>read-only</strong> access to your Stripe data. We read charge data to trigger and verify review requests and, only for the metrics you explicitly enable on your public Trust Profile, aggregate read access to related data such as charges, customers, subscriptions, refunds, disputes, and balance transactions.</li>
+<li>Grant us <strong>read-only</strong> access to your Stripe data. We read charge data to trigger and verify review requests and, only for the metrics you explicitly enable on your public review page, aggregate read access to related data such as charges, customers, subscriptions, refunds, disputes, and balance transactions.</li>
 <li>Authorize us to receive <code>charge.succeeded</code> and <code>charge.refunded</code> events. With Stripe Connect these are delivered to our platform webhook automatically; with a restricted API key we register (or you configure) a webhook endpoint on your Stripe account for the same events.</li>
 <li>Remain solely responsible for your relationship with Stripe, including compliance with Stripe&#39;s Services Agreement.</li>
 </ul>
-<p>We <strong>never</strong> initiate charges, issue refunds, move or transfer funds, modify your Stripe account, or take platform fees. Our access is strictly read-only and limited to the data needed to verify reviews and compute the Trust Profile metrics you choose to display.</p>
+<p>We <strong>never</strong> initiate charges, issue refunds, move or transfer funds, modify your Stripe account, or take platform fees. Our access is strictly read-only and limited to the data needed to verify reviews and compute the public-page metrics you choose to display.</p>
 <p>You can disconnect your Stripe account at any time through the Service. Doing so stops future review requests from being triggered; your Signed Reviews account and existing reviews remain intact.</p>
 <hr>
 <h2 id="6-business-user-obligations-regarding-reviewers"><a class="anchor" href="#6-business-user-obligations-regarding-reviewers" aria-label="Permalink to 6. Business user obligations regarding reviewers">#</a> 6. Business user obligations regarding reviewers</h2>
@@ -625,7 +625,7 @@ main { padding: 0; }
 </ul>
 <p>By submitting a review, you understand and agree that:</p>
 <ul>
-<li>Your review will be displayed publicly on the business&#39;s review page, in their widget if embedded on third-party sites, and may be made available through their public API</li>
+<li>Your review will be displayed publicly on the business&#39;s review page and may be made available through their public API</li>
 <li>The display name, photo, and social handle you choose to include will be displayed alongside your review</li>
 <li>You may request anonymization of your review at any time by emailing <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a></li>
 <li>You can opt out of future review-request emails from any Signed Reviews business by clicking the unsubscribe link in any review-request email</li>
@@ -637,7 +637,7 @@ main { padding: 0; }
 <h3 id="82-license-to-us"><a class="anchor" href="#82-license-to-us" aria-label="Permalink to 8.2 License to us">#</a> 8.2 License to us</h3>
 <p>You grant us a worldwide, non-exclusive, royalty-free, sublicensable license to host, store, reproduce, modify (for technical purposes like format conversion and resizing), display, distribute, and transmit Your Content solely for the purpose of operating and providing the Service, including:</p>
 <ul>
-<li>Displaying reviews on public review pages and in widgets embedded on third-party sites</li>
+<li>Displaying reviews on public review pages</li>
 <li>Making reviews available through the public API to authorized consumers</li>
 <li>Using anonymized and aggregated data to operate and improve the Service</li>
 <li>Creating backups and operational copies</li>
@@ -645,9 +645,9 @@ main { padding: 0; }
 <p>This license continues for as long as Your Content remains on the Service. If Your Content is anonymized pursuant to a deletion or erasure request, the license continues to apply to the anonymized content.</p>
 <h3 id="83-no-pre-screening-7-business-day-abuse-report-sla"><a class="anchor" href="#83-no-pre-screening-7-business-day-abuse-report-sla" aria-label="Permalink to 8.3 No pre-screening; 7-business-day abuse-report SLA">#</a> 8.3 No pre-screening; 7-business-day abuse-report SLA</h3>
 <p>We do not pre-screen, moderate, or verify the accuracy of reviews or other user-generated content before it is published. Reviews go live immediately on submission.</p>
-<p>We commit to reviewing every abuse report we receive — whether submitted via the in-product &quot;Report&quot; link on a public review page or by email to <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a> — <strong>within 7 business days</strong> of receipt. We will take appropriate action where warranted, including, in our sole discretion, hiding the content from public surfaces (the public review page, embeddable widget, and public API), terminating the offending account, or referring the matter to law enforcement. For DMCA copyright complaints, see Section 17.</p>
+<p>We commit to reviewing every abuse report we receive — whether submitted via the in-product &quot;Report&quot; link on a public review page or by email to <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a> — <strong>within 7 business days</strong> of receipt. We will take appropriate action where warranted, including, in our sole discretion, hiding the content from public surfaces (the public review page and public API), terminating the offending account, or referring the matter to law enforcement. For DMCA copyright complaints, see Section 17.</p>
 <h3 id="84-refunded-transactions"><a class="anchor" href="#84-refunded-transactions" aria-label="Permalink to 8.4 Refunded transactions">#</a> 8.4 Refunded transactions</h3>
-<p>If a business refunds the Stripe charge associated with a review, the review will be hidden from public display (widgets, review pages, public API). The underlying record is retained for integrity and audit purposes but is no longer surfaced to the public.</p>
+<p>If a business refunds the Stripe charge associated with a review, the review will be hidden from public display (review pages and public API). The underlying record is retained for integrity and audit purposes but is no longer surfaced to the public.</p>
 <hr>
 <h2 id="9-prohibited-uses"><a class="anchor" href="#9-prohibited-uses" aria-label="Permalink to 9. Prohibited uses">#</a> 9. Prohibited uses</h2>
 <p>You agree not to use the Service to:</p>
@@ -664,13 +664,12 @@ main { padding: 0; }
 </ul>
 <p>We may suspend or terminate accounts that violate these restrictions.</p>
 <hr>
-<h2 id="10-public-api-and-widget"><a class="anchor" href="#10-public-api-and-widget" aria-label="Permalink to 10. Public API and widget">#</a> 10. Public API and widget</h2>
-<p>If you use the public API or embed the Signed Reviews widget on a third-party website, you additionally agree that:</p>
+<h2 id="10-public-api"><a class="anchor" href="#10-public-api" aria-label="Permalink to 10. Public API">#</a> 10. Public API</h2>
+<p>If you use the public API, you additionally agree that:</p>
 <ul>
 <li>Your API key is confidential; sharing it is a breach of these Terms</li>
 <li>The public API is rate limited, and the limit depends on your plan (see our <a href="https://signedreviews.com/pricing">Pricing page</a>); excessive use may result in throttling or suspension</li>
-<li>Widget-embedded reviews must be displayed in their original form without editing or selective omission of negative reviews</li>
-<li>You are responsible for ensuring the widget or API data you display on your site complies with applicable law (including disclosure rules for endorsements)</li>
+<li>You are responsible for ensuring any review data you display via the API on your site complies with applicable law (including disclosure rules for endorsements)</li>
 </ul>
 <hr>
 <h2 id="11-service-availability-and-changes"><a class="anchor" href="#11-service-availability-and-changes" aria-label="Permalink to 11. Service availability and changes">#</a> 11. Service availability and changes</h2>
@@ -814,7 +813,7 @@ main { padding: 0; }
     <nav class="toc" aria-label="On this page">
       <h2>On this page</h2>
       <ul>
-        <li><a href="#1-who-can-use-the-service">1. Who can use the Service</a></li><li><a href="#2-description-of-the-service">2. Description of the Service</a></li><li><a href="#3-current-pricing">3. Current pricing</a></li><li><a href="#4-your-license-to-use-the-service">4. Your license to use the Service</a></li><li><a href="#5-your-stripe-connection">5. Your Stripe connection</a></li><li><a href="#6-business-user-obligations-regarding-reviewers">6. Business user obligations regarding reviewers</a></li><li><a href="#7-reviewer-obligations">7. Reviewer obligations</a></li><li><a href="#8-your-content">8. Your content</a></li><li><a href="#9-prohibited-uses">9. Prohibited uses</a></li><li><a href="#10-public-api-and-widget">10. Public API and widget</a></li><li><a href="#11-service-availability-and-changes">11. Service availability and changes</a></li><li><a href="#12-termination">12. Termination</a></li><li><a href="#13-third-party-services">13. Third-party services</a></li><li><a href="#14-disclaimers">14. Disclaimers</a></li><li><a href="#15-limitation-of-liability">15. Limitation of liability</a></li><li><a href="#16-indemnification">16. Indemnification</a></li><li><a href="#17-dmca-and-copyright-policy">17. DMCA and copyright policy</a></li><li><a href="#18-dispute-resolution-arbitration-and-class-action-waiver">18. Dispute resolution, arbitration, and class action waiver</a></li><li><a href="#19-general">19. General</a></li>
+        <li><a href="#1-who-can-use-the-service">1. Who can use the Service</a></li><li><a href="#2-description-of-the-service">2. Description of the Service</a></li><li><a href="#3-current-pricing">3. Current pricing</a></li><li><a href="#4-your-license-to-use-the-service">4. Your license to use the Service</a></li><li><a href="#5-your-stripe-connection">5. Your Stripe connection</a></li><li><a href="#6-business-user-obligations-regarding-reviewers">6. Business user obligations regarding reviewers</a></li><li><a href="#7-reviewer-obligations">7. Reviewer obligations</a></li><li><a href="#8-your-content">8. Your content</a></li><li><a href="#9-prohibited-uses">9. Prohibited uses</a></li><li><a href="#10-public-api">10. Public API</a></li><li><a href="#11-service-availability-and-changes">11. Service availability and changes</a></li><li><a href="#12-termination">12. Termination</a></li><li><a href="#13-third-party-services">13. Third-party services</a></li><li><a href="#14-disclaimers">14. Disclaimers</a></li><li><a href="#15-limitation-of-liability">15. Limitation of liability</a></li><li><a href="#16-indemnification">16. Indemnification</a></li><li><a href="#17-dmca-and-copyright-policy">17. DMCA and copyright policy</a></li><li><a href="#18-dispute-resolution-arbitration-and-class-action-waiver">18. Dispute resolution, arbitration, and class action waiver</a></li><li><a href="#19-general">19. General</a></li>
       </ul>
     </nav>
     </div>

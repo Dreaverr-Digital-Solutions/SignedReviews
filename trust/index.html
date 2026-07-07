@@ -539,11 +539,11 @@ main { padding: 0; }
       <li>Verify that a reviewer completed a purchase from your business</li>
       <li>Match the reviewer to the correct transaction</li>
       <li>Detect refunds and automatically hide refunded reviews</li>
-      <li>Compute aggregate Trust Profile metrics (when enabled)</li>
+      <li>Compute aggregate public-page metrics (when enabled)</li>
     </ul>
 
     <h3>No fake reviews by design</h3>
-    <p>Most review platforms fight fake reviews with detection algorithms — a reactive approach. Signed Reviews prevents fake reviews structurally: a review invitation link is only generated when a Stripe charge succeeds, it's sent to the customer's verified payment email, and it expires after a set period. There is no "write a review" button on the platform. No purchase = no invitation = no review.</p>
+    <p>Most review platforms fight fake reviews with detection algorithms — a reactive approach. Signed Reviews prevents fake reviews structurally: every review requires a verified purchase. A review link is issued either automatically after a Stripe charge succeeds or on request from the business's public page — and in both cases the email must match a real completed purchase. Links are single-use and expire after a set period. No matching purchase = no link = no review.</p>
 
     <h3>Data ownership</h3>
     <p>You own your review data. Signed Reviews is the processor; your business is the controller. Reviews collected through our platform belong to you — we do not sell, share, or use your review data for any purpose other than providing the service. See our <a href="/privacy/">Privacy Policy</a> and <a href="/dpa/">Data Processing Agreement</a> for the full legal framework.</p>

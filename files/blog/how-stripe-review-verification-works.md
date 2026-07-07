@@ -4,7 +4,7 @@
 
 ---
 
-If you accept payments through Stripe, you already have everything you need to collect verified, tamper-proof customer reviews. Here's how the integration works — from OAuth to cryptographic signing.
+If you accept payments through Stripe, you already have everything you need to collect verified, tamper-evident customer reviews. Here's how the integration works — from OAuth to cryptographic signing.
 
 ## The Stripe connection
 
