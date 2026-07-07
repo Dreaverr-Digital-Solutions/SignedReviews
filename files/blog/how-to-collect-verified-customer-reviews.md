@@ -18,14 +18,14 @@ Once connected, every new Stripe charge can automatically trigger a review invit
 
 - **Timing**: Send immediately (digital products), after a delay (physical products that need shipping time), or on delivery via webhook (most accurate for shipped goods)
 - **Reminders**: How many follow-ups and when. Standard cadences are 3 and 7 days after the initial request.
-- **Branding**: Your logo, colors, and business name appear in every email
+- **Branding**: Your logo and business name appear in every email
 
 ## Step 3: Set up your public review page
 
 Your verified reviews need a public home. Configure:
 
-- **Page URL**: Usually `yourbusiness.reviews` or a sub-path on your domain
-- **Layout**: How reviews are displayed (carousel, grid, list)
+- **Page URL**: A short link like `signedreviews.com/yourbusiness`
+- **Layout**: Your reviews on a clean, hosted public page
 - **Trust signals**: Show the "Verified by SignedReviews" badge, transaction amounts, and review dates
 
 ## Step 4: Make it easy for customers

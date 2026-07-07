@@ -1479,8 +1479,8 @@ function buildFaq() {
       a: 'Yes. You can customize your logo, content alignment, and logo size from the dashboard. The email subject line reflects your business name. Review reminder emails follow the same template with a slightly different subject and lead sentence so they don\'t feel like duplicates.',
     },
     {
-      q: 'Does Signed Reviews work with Shopify or WooCommerce?',
-      a: 'Signed Reviews works with any platform that processes payments through Stripe. If your Shopify or WooCommerce store uses Stripe as the payment processor, Signed Reviews connects directly to your Stripe account and works automatically — no Shopify/WooCommerce plugin needed.',
+      q: 'Does Signed Reviews work with Shopify, WooCommerce, or Squarespace?',
+      a: 'Yes. Signed Reviews is a Stripe App, so it installs in one click and connects to your Stripe account — including accounts that Shopify, WooCommerce, or Squarespace manage on your behalf. If your checkout runs on Stripe, your reviews can be verified, with no separate plugin required.',
     },
     {
       q: 'Is Signed Reviews free?',
@@ -1711,7 +1711,7 @@ function buildComparison() {
         <tr class="highlight-row"><td>Review gating</td><td class="win">Automatic — invitations go to the email on each Stripe transaction, and customers can also request their own verified link from the business's public page. Either way, a completed purchase is required.</td><td class="lose">Manual — businesses must upload customer lists or send invitations themselves</td></tr>
         <tr><td>Refund handling</td><td class="win">Automatic — refunded reviews are hidden from public display immediately via Stripe webhook</td><td class="lose">Manual — businesses must flag or report reviews from refunded customers</td></tr>
         <tr class="highlight-row"><td>API & integrations</td><td class="win">REST API, webhooks, delivery webhook, public page API</td><td class="win">Extensive API, 100+ integrations, white-label options on Enterprise</td></tr>
-        <tr><td>Pricing model</td><td class="win">Free during beta. Paid plans from $29/mo (Starter) to $199/mo (Scale). Transparent tiered pricing with monthly invitation caps.</td><td class="lose">Free tier available, but paid plans start at $299/mo for the "Growth" tier (as of 2025). Enterprise pricing is opaque.</td></tr>
+        <tr><td>Pricing model</td><td class="win">Free during beta. Paid plans from $29/mo (Starter) to $199/mo (Scale). Transparent tiered pricing with monthly invitation caps.</td><td class="lose">Free tier available; paid plans start at $99/mo (Starter, billed annually) and run to $799/mo+ (Premium). Enterprise pricing is opaque.</td></tr>
         <tr class="highlight-row"><td>Organic discoverability</td><td class="lose">Early stage — limited domain authority and no consumer-facing review directory</td><td class="win">Established — Trustpilot.com has massive organic traffic and a consumer-facing review search</td></tr>
         <tr><td>Trust mark / badge</td><td class="win">"Verified by Signed Reviews" badge links to cryptographic proof. Included on every plan, including Free.</td><td class="win">Trustpilot TrustBox widgets and star ratings. Widely recognized by consumers.</td></tr>
         <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews — Signed Reviews is the processor. Reviews belong to you.</td><td class="lose">Reviews live on Trustpilot's platform — businesses cannot export and move reviews to another provider.</td></tr>
@@ -1806,7 +1806,7 @@ const COMING_SOON_PAGES = [
   {
     slug: '/integrations/',
     title: 'Integrations — Signed Reviews',
-    desc: 'Signed Reviews integrates with Stripe, Shopify, WooCommerce, and more. Connect your stack with our API and webhooks.',
+    desc: 'Signed Reviews is a Stripe App — install in one click and connect alongside Shopify, WooCommerce, or Squarespace, plus a read-only public API and webhooks.',
     eyebrow: 'Integrations',
     heading: 'Integrations',
     subtitle: 'Connect Signed Reviews to your existing stack.',
