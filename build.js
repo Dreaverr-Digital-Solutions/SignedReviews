@@ -1061,6 +1061,14 @@ const PRICING_STYLES = `
 }
 .cta-bar p { margin: 0 0 1.4rem; color: var(--navy-200); font-size: 1rem; }
 .cta-bar .btn-primary { padding: .85rem 1.6rem; font-size: 1rem; }
+
+/* ── Billing period toggle ── */
+.billing-toggle { display:flex; align-items:center; justify-content:center; gap:.5rem; max-width:1100px; margin:0 auto 2rem; }
+.billing-toggle .bt-btn { border:1px solid var(--border); background:var(--surface); color:var(--muted); padding:.5rem 1.15rem; border-radius:999px; font-size:.9rem; font-weight:600; cursor:pointer; transition:all .15s ease; }
+.billing-toggle .bt-btn.is-active { background:var(--navy-900); color:#fff; border-color:var(--navy-900); }
+:root.theme-dark .billing-toggle .bt-btn.is-active,
+:root.theme-auto .billing-toggle .bt-btn.is-active { background:#fff; color:var(--navy-900); border-color:#fff; }
+.billing-toggle .bt-save { font-size:.8rem; font-weight:700; color:var(--gold-500, #c9a227); margin-left:.4rem; }
 `;
 
 function buildPricing() {
@@ -1072,6 +1080,12 @@ function buildPricing() {
       Signed Reviews is currently free for every business. The plans below describe how pricing will work when we exit beta. Existing accounts will get at least 30 days' email notice before any charges begin — see our
       <a href="${B}refund-policy/">Refund and Cancellation Policy</a>.
     </p>
+  </div>
+
+  <div class="billing-toggle" role="group" aria-label="Billing period">
+    <button type="button" class="bt-btn is-active" data-period="monthly" aria-pressed="true">Monthly</button>
+    <button type="button" class="bt-btn" data-period="annual" aria-pressed="false">Annual</button>
+    <span class="bt-save">Save 2 months</span>
   </div>
 
   <section class="section" aria-label="Pricing tiers">
@@ -1108,7 +1122,7 @@ function buildPricing() {
           <h2 class="tier-name">Starter</h2>
           <p class="tier-persona">Automation starts here — a verified request on every Stripe sale.</p>
         </header>
-        <div class="tier-price-block">
+        <div class="tier-price-block" data-m-amt="$29" data-m-per="/ month" data-a-amt="$290" data-a-per="/ year">
           <div class="tier-price">
             <span class="amount">$29</span>
             <span class="period">/ month</span>
@@ -1136,7 +1150,7 @@ function buildPricing() {
           <h2 class="tier-name">Pro</h2>
           <p class="tier-persona">For growing brands with a team and integrations.</p>
         </header>
-        <div class="tier-price-block">
+        <div class="tier-price-block" data-m-amt="$79" data-m-per="/ month" data-a-amt="$790" data-a-per="/ year">
           <div class="tier-price">
             <span class="amount">$79</span>
             <span class="period">/ month</span>
@@ -1163,7 +1177,7 @@ function buildPricing() {
           <h2 class="tier-name">Scale</h2>
           <p class="tier-persona">For high-volume DTC brands and review agencies.</p>
         </header>
-        <div class="tier-price-block">
+        <div class="tier-price-block" data-m-amt="$199" data-m-per="/ month" data-a-amt="$1,990" data-a-per="/ year">
           <div class="tier-price">
             <span class="amount">$199</span>
             <span class="period">/ month</span>
@@ -1205,9 +1219,9 @@ function buildPricing() {
         <tr>
           <th scope="col">Feature</th>
           <th scope="col">Free<span class="col-price">$0</span></th>
-          <th scope="col">Starter<span class="col-price">$29/mo</span></th>
-          <th scope="col">Pro<span class="col-price">$79/mo</span></th>
-          <th scope="col">Scale<span class="col-price">$199/mo</span></th>
+          <th scope="col">Starter<span class="col-price" data-m="$29/mo" data-a="$290/yr">$29/mo</span></th>
+          <th scope="col">Pro<span class="col-price" data-m="$79/mo" data-a="$790/yr">$79/mo</span></th>
+          <th scope="col">Scale<span class="col-price" data-m="$199/mo" data-a="$1,990/yr">$199/mo</span></th>
         </tr>
       </thead>
       <tbody>
@@ -1330,6 +1344,32 @@ function buildPricing() {
     <p>Free during beta. No credit card required.</p>
     <a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener">Sign up free →</a>
   </section>
+
+  <script>
+  (function () {
+    function setPeriod(p) {
+      document.querySelectorAll('.tier-price-block[data-m-amt]').forEach(function (b) {
+        b.querySelector('.amount').textContent = p === 'annual' ? b.dataset.aAmt : b.dataset.mAmt;
+        b.querySelector('.period').textContent = p === 'annual' ? b.dataset.aPer : b.dataset.mPer;
+      });
+      document.querySelectorAll('.col-price[data-m]').forEach(function (c) {
+        c.textContent = p === 'annual' ? c.dataset.a : c.dataset.m;
+      });
+    }
+    var btns = document.querySelectorAll('.billing-toggle .bt-btn');
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var period = btn.getAttribute('data-period');
+        btns.forEach(function (b2) {
+          var on = b2 === btn;
+          b2.classList.toggle('is-active', on);
+          b2.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        setPeriod(period);
+      });
+    });
+  })();
+  </script>
 `;
 
   const html = page({
