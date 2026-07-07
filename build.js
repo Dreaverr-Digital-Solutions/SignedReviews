@@ -28,7 +28,7 @@ const PLATFORM_URL = 'https://platform.signedreviews.com';
 // Root-relative URL prefix for internal links and assets. Use "/" for the
 // custom domain (served at root) or "/SignedReviews/" when deploying to the
 // GitHub Pages project URL. Override with BASE_PATH=/ npm run build.
-const BASE_PATH = (process.env.BASE_PATH || '/SignedReviews/').replace(/\/+$/, '/') || '/';
+const BASE_PATH = (process.env.BASE_PATH || '/').replace(/\/+$/, '/') || '/';
 const B = BASE_PATH; // shorthand
 
 // ── PostHog analytics ────────────────────────────────────────────────────────
