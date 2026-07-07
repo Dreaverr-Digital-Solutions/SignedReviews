@@ -32,7 +32,7 @@ Before comparing options, know what matters for your business:
 ## Detailed breakdown
 
 ### Signed Reviews
-Built specifically for Stripe businesses. One-click OAuth connection, read-only access, automatic review requests on every charge. Cryptographically signs reviews for tamper-evident verification. Free during beta, then $29–$199/month depending on review volume. Best fit: businesses that process payments through Stripe and want every review backed by proof of purchase.
+Built specifically for Stripe businesses. One-click OAuth connection, read-only access, automatic review requests on every charge. Cryptographically signs reviews for tamper-evident verification. Free plan for self-service; paid plans $29–$199/month for automation and higher volume. Best fit: businesses that process payments through Stripe and want every review backed by proof of purchase.
 
 ### Google Reviews
 Free, universal, and carries the most weight for local SEO. No purchase verification. Reviews can be left by anyone with a Google account. Best used alongside a verified review platform — collect verified reviews on Signed Reviews for your website, and encourage happy customers to also leave Google reviews for local search visibility.
@@ -57,4 +57,4 @@ Popular Shopify review app. Unlimited reviews on the free plan, paid plans add f
 
 ## Bottom line
 
-If you process payments through Stripe, you have access to purchase-verified reviews that no other platform can match in authenticity. Use them. If you're building a local presence, supplement verified reviews with Google Reviews. And if budget is a concern, start with a platform that's free during beta and scales with you — not one that starts at $299/month.
+If you process payments through Stripe, you have access to purchase-verified reviews that no other platform can match in authenticity. Use them. If you're building a local presence, supplement verified reviews with Google Reviews. And if budget is a concern, start with a platform that has a free plan and scales with you — not one that starts at $299/month.

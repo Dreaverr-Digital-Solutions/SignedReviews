@@ -54,9 +54,9 @@ Verified reviews are labeled "Purchase Verified." This label indicates that (a) 
 
 ## 3. Current pricing
 
-Signed Reviews is currently offered **free of charge**. There is no subscription fee, no per-review charge, no commission on business transactions, and no platform fee taken from any connected Stripe account.
+Signed Reviews offers a **free plan** (self-service review collection) and paid subscription plans — **Starter ($29/mo), Pro ($79/mo), and Scale ($199/mo)**, each available monthly or annually. There is no per-review charge, no commission on business transactions, and no platform fee taken from any connected Stripe account; paid plans are billed by Signed Reviews directly via Stripe and do not affect the fees you pay Stripe.
 
-We reserve the right to introduce paid tiers, usage-based fees, or other charges in the future. We will provide at least 30 days' advance notice by email and an in-product notice before any such change takes effect. If you do not agree to the new pricing, you may discontinue use of the Service before the change takes effect.
+We may change our pricing or introduce new plans, fees, or usage-based charges in the future. We will provide at least 30 days' advance notice by email and an in-product notice before any pricing increase takes effect. If you do not agree to the new pricing, you may discontinue use of the Service before the change takes effect.
 
 ---
 

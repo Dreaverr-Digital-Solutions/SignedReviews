@@ -6,7 +6,7 @@ Signed Reviews is a SaaS platform that cryptographically links customer reviews 
 
 ## Key Pages
 - /: Homepage — product overview, features, and value proposition
-- /pricing/: Pricing plans (free during beta)
+- /pricing/: Pricing plans (free + paid tiers)
 - /about/: Company information and mission
 - /features/: Full feature list and capabilities
 - /how-it-works/: Visual walkthrough of the Stripe verification flow
@@ -21,7 +21,7 @@ Signed Reviews is a SaaS platform that cryptographically links customer reviews 
 - Reviews are cryptographically signed, creating tamper-evident proof
 - Platform integrates with Stripe via OAuth — no API keys needed
 - Built-in fraud detection, automated review collection, and analytics
-- Founded in 2025. Free during beta period.
+- Founded in 2025. Free plan + paid plans from $29/mo.
 
 ## Statistics
 - 98% of consumers read online reviews before buying (BrightLocal, 2023)

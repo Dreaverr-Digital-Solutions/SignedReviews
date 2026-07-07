@@ -760,7 +760,7 @@ const LEGAL_PAGES = [
     title: 'Refund and Cancellation Policy',
     eyebrow: 'Legal',
     subtitle: 'How refunds and cancellations work for Signed Reviews.',
-    metaDesc: 'Refund and Cancellation Policy for Signed Reviews. Currently free during beta — full policy for future paid tiers.',
+    metaDesc: 'Refund and Cancellation Policy for Signed Reviews. Free plan plus paid tiers from $29/mo — full policy.',
   },
   {
     slug: '/subprocessors/',
@@ -1076,8 +1076,8 @@ function buildPricing() {
   <div class="beta-banner" role="note">
     <span class="dot" aria-hidden="true"></span>
     <p>
-      <strong>Free during beta.</strong>
-      Signed Reviews is currently free for every business. The plans below describe how pricing will work when we exit beta. Existing accounts will get at least 30 days' email notice before any charges begin — see our
+      <strong>Free plan, always.</strong>
+      There's a free plan for self-service collection. Paid plans from $29/mo add an automated, verified review request on every Stripe sale — see our
       <a href="${B}refund-policy/">Refund and Cancellation Policy</a>.
     </p>
   </div>
@@ -1335,13 +1335,13 @@ function buildPricing() {
     </article>
     <article class="assurance">
       <h3>No surprise billing.</h3>
-      <p>Beta is free for everyone today. When paid plans activate, every existing account gets at least 30 days' email notice and a chance to choose its tier before any charge.</p>
+      <p>Choose a tier and cancel anytime. Annual billing saves two months, and the Invitation Pack is a one-time top-up — never an auto-charge.</p>
     </article>
   </section>
 
   <section class="cta-bar" aria-label="Get started">
     <h2>Start collecting unfakable reviews today.</h2>
-    <p>Free during beta. No credit card required.</p>
+    <p>Free plan available. No credit card required to start.</p>
     <a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener">Sign up free →</a>
   </section>
 
@@ -1374,7 +1374,7 @@ function buildPricing() {
 
   const html = page({
     title: `Pricing — ${COMPANY.brand}`,
-    description: 'Signed Reviews pricing — Free, Starter, Pro, and Scale plans. Free during beta; no credit card required.',
+    description: 'Signed Reviews pricing — Free, Starter, Pro, and Scale plans. Free plan for self-service; paid plans from $29/mo.',
     slug: '/pricing/',
     hero: {
       eyebrow: 'Pricing',
@@ -1448,7 +1448,7 @@ function buildAbout() {
       <p>${COMPANY.brand} is operated by <strong>${COMPANY.legalName}</strong>, a New Mexico limited liability company headquartered in Albuquerque. ${COMPANY.legalName} is the controller of business-user data and the processor of reviewer data on behalf of our business customers. The full breakdown is described in our <a href="${B}privacy/">Privacy Policy</a> and the third parties we rely on are listed in our <a href="${B}subprocessors/">Sub-processors page</a>.</p>
 
       <h2>How we make money</h2>
-      <p>Signed Reviews is currently free during beta. If and when we introduce paid plans, we will publish updated pricing first and notify users by email at least 30 days before any charges take effect. See the <a href="${B}pricing/">Pricing page</a> and our <a href="${B}refund-policy/">Refund and Cancellation Policy</a>.</p>
+      <p>Signed Reviews offers a free plan for self-service collection, always, plus paid plans from $29/mo for automation and higher volume. See the <a href="${B}pricing/">Pricing page</a> and our <a href="${B}refund-policy/">Refund and Cancellation Policy</a>.</p>
 
       <h2>Things we deliberately don't do</h2>
       <ul class="feature-list">
@@ -1524,7 +1524,7 @@ function buildFaq() {
     },
     {
       q: 'Is Signed Reviews free?',
-      a: 'Signed Reviews is free during beta. When paid plans launch, every existing account will receive at least 30 days\' email notice before any charges begin. See our <a href="/pricing/">pricing page</a> for the planned tiers.',
+      a: 'There is a free plan for self-service collection, forever. Paid plans from $29/mo add automation, reminders, webhooks, and higher volume. See our <a href="/pricing/">pricing page</a> for the tiers.',
     },
   ];
 
@@ -1751,7 +1751,7 @@ function buildComparison() {
         <tr class="highlight-row"><td>Review gating</td><td class="win">Automatic — invitations go to the email on each Stripe transaction, and customers can also request their own verified link from the business's public page. Either way, a completed purchase is required.</td><td class="lose">Manual — businesses must upload customer lists or send invitations themselves</td></tr>
         <tr><td>Refund handling</td><td class="win">Automatic — refunded reviews are hidden from public display immediately via Stripe webhook</td><td class="lose">Manual — businesses must flag or report reviews from refunded customers</td></tr>
         <tr class="highlight-row"><td>API & integrations</td><td class="win">REST API, webhooks, delivery webhook, public page API</td><td class="win">Extensive API, 100+ integrations, white-label options on Enterprise</td></tr>
-        <tr><td>Pricing model</td><td class="win">Free during beta. Paid plans from $29/mo (Starter) to $199/mo (Scale). Transparent tiered pricing with monthly invitation caps.</td><td class="lose">Free tier available; paid plans start at $99/mo (Starter, billed annually) and run to $799/mo+ (Premium). Enterprise pricing is opaque.</td></tr>
+        <tr><td>Pricing model</td><td class="win">Free plan + paid plans from $29/mo (Starter) to $199/mo (Scale). Transparent tiered pricing with monthly invitation caps.</td><td class="lose">Free tier available; paid plans start at $99/mo (Starter, billed annually) and run to $799/mo+ (Premium). Enterprise pricing is opaque.</td></tr>
         <tr class="highlight-row"><td>Organic discoverability</td><td class="lose">Early stage — limited domain authority and no consumer-facing review directory</td><td class="win">Established — Trustpilot.com has massive organic traffic and a consumer-facing review search</td></tr>
         <tr><td>Trust mark / badge</td><td class="win">"Verified by Signed Reviews" badge links to cryptographic proof. Included on every plan, including Free.</td><td class="win">Trustpilot TrustBox widgets and star ratings. Widely recognized by consumers.</td></tr>
         <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews — Signed Reviews is the processor. Reviews belong to you.</td><td class="lose">Reviews live on Trustpilot's platform — businesses cannot export and move reviews to another provider.</td></tr>
