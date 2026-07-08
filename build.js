@@ -1007,28 +1007,6 @@ const PRICING_STYLES = `
 .compare-table td.dim { color: var(--muted); }
 .compare-table .check { color: var(--gold-500); font-weight: 700; }
 
-/* ── Add-on card ── */
-.addon-card {
-  max-width: 1100px; margin: 0 auto 1rem; padding: 1.4rem 1.5rem;
-  display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;
-  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
-}
-.addon-card:last-of-type { margin-bottom: 3rem; }
-.addon-card .addon-name {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 1.35rem; color: var(--navy-900); margin: 0;
-}
-:root.theme-dark .addon-card .addon-name,
-:root.theme-auto .addon-card .addon-name { color: #fff; }
-.addon-card p { margin: .25rem 0 0; color: var(--muted); font-size: .92rem; }
-.addon-card .addon-price {
-  margin-left: auto;
-  font-size: 1.15rem; font-weight: 600; color: var(--navy-900);
-}
-:root.theme-dark .addon-card .addon-price,
-:root.theme-auto .addon-card .addon-price { color: var(--gold-300); }
-@media (max-width: 560px) { .addon-card .addon-price { margin-left: 0; } }
-
 /* ── Assurances ── */
 .assurances {
   max-width: 1100px; margin: 0 auto 3.5rem; padding: 0 1.25rem;
@@ -1077,8 +1055,7 @@ function buildPricing() {
     <span class="dot" aria-hidden="true"></span>
     <p>
       <strong>Free plan, always.</strong>
-      There's a free plan for self-service collection. Paid plans from $29/mo add an automated, verified review request on every Stripe sale — see our
-      <a href="${B}refund-policy/">Refund and Cancellation Policy</a>.
+      There's a free plan for self-service collection. Paid plans from $29/mo add an automated, verified review request on every Stripe sale — see our <a href="${B}refund-policy/">Refund and Cancellation Policy</a>.
     </p>
   </div>
 
@@ -1200,14 +1177,6 @@ function buildPricing() {
 
     </div>
   </section>
-
-  <div class="addon-card" role="region" aria-label="Invitation pack add-on">
-    <div>
-      <h2 class="addon-name">Add-on — Invitation Pack</h2>
-      <p>+100 review invitations, one-time. Stackable on any paid plan — perfect for a bursty sales month without committing to a tier upgrade.</p>
-    </div>
-    <span class="addon-price">$15 / pack</span>
-  </div>
 
   <div class="compare-intro">
     <h2>Compare plans in detail</h2>
@@ -1335,7 +1304,7 @@ function buildPricing() {
     </article>
     <article class="assurance">
       <h3>No surprise billing.</h3>
-      <p>Choose a tier and cancel anytime. Annual billing saves two months, and the Invitation Pack is a one-time top-up — never an auto-charge.</p>
+      <p>Choose a tier and cancel anytime. Annual billing saves two months — never an auto-charge.</p>
     </article>
   </section>
 
