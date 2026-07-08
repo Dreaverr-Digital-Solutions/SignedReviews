@@ -812,7 +812,7 @@ function buildLegal() {
 const PRICING_STYLES = `
 /* ── Beta banner ── */
 .beta-banner {
-  max-width: 1100px; margin: 2rem auto 0; padding: .9rem 1.15rem;
+  max-width: 1100px; margin: 2rem auto 1.5rem; padding: .9rem 1.15rem;
   display: flex; gap: .85rem; align-items: flex-start;
   background: var(--gold-50); border: 1px solid var(--gold-400);
   border-radius: 12px;
