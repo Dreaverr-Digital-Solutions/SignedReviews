@@ -48,7 +48,7 @@ const B = BASE_PATH; // shorthand
 // settings — the client flags alone do not start replay.
 // Publishable PostHog project token (client-side key — safe in static HTML).
 // Override per-build with POSTHOG_KEY=... if ever needed.
-const POSTHOG_KEY = process.env.POSTHOG_KEY || 'phc_mTGzatRy8CDWz3YnSAgAukvT2QRdR9yd72URWw26UWh2';
+const POSTHOG_KEY = process.env.POSTHOG_KEY || 'phc_oks4oQLhwDpmgqTdiwx7tjJ3FZrZPZjDWtsYtvbXG9tu';
 // PostHog requests are proxied through signedreviews.com/ph so ad blockers
 // see first-party calls. The analytics-proxy Cloudflare Worker must be
 // deployed for this to work. Set POSTHOG_DIRECT=1 to bypass the proxy.
