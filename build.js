@@ -104,6 +104,61 @@ const POSTHOG_SNIPPET = POSTHOG_KEY
   </script>`
   : '';
 
+// ── Engagement tracker (scroll depth / section viewed / CTA click) ───────────
+// Additive: uses the posthog global loaded by POSTHOG_SNIPPET above. Does NOT
+// re-init posthog or touch the replay-consent gate. Powers the scroll funnel,
+// section-engagement, and CTA-click charts in the platform admin "Marketing
+// analytics" section. Gated on POSTHOG_KEY (pointless without posthog).
+//   landing_scroll_depth   { depth: 25|50|75|100 }   once per threshold / page
+//   landing_section_viewed { section: <data-track> }  first time a [data-track] enters view
+//   landing_cta_click      { cta: <data-cta>, href }  on click of a [data-cta] element
+// NOTE: no `${}` or backticks inside — it lives inside a template literal.
+const SR_TRACKERS_SNIPPET = POSTHOG_KEY
+  ? `
+  <script>
+    (function () {
+      function setup() {
+        var ph = window.posthog;
+        if (!ph || typeof ph.capture !== 'function') return; // posthog not loaded yet
+        var fired = {};
+        function onScroll() {
+          var doc = document.documentElement, body = document.body;
+          var top = doc.scrollTop || body.scrollTop || 0;
+          var max = (doc.scrollHeight || body.scrollHeight || 0) - (doc.clientHeight || 0);
+          var pct = max > 0 ? (top / max) * 100 : 0;
+          var ts = [25, 50, 75, 100];
+          for (var i = 0; i < ts.length; i++) { var t = ts[i]; if (pct >= t && !fired[t]) { fired[t] = true; ph.capture('landing_scroll_depth', { depth: t }); } }
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+          if (ticking) return; ticking = true;
+          (window.requestAnimationFrame || function (cb) { setTimeout(cb, 66); })(function () { onScroll(); ticking = false; });
+        }, { passive: true });
+        onScroll();
+        if ('IntersectionObserver' in window) {
+          var seen = {};
+          var io = new IntersectionObserver(function (entries) {
+            for (var i = 0; i < entries.length; i++) {
+              var en = entries[i];
+              if (en.isIntersecting) { var n = en.target.getAttribute('data-track'); if (n && !seen[n]) { seen[n] = true; ph.capture('landing_section_viewed', { section: n }); } }
+            }
+          }, { threshold: 0.5 });
+          var tracked = document.querySelectorAll('[data-track]');
+          for (var j = 0; j < tracked.length; j++) io.observe(tracked[j]);
+        }
+        document.addEventListener('click', function (e) {
+          var el = e.target;
+          while (el && el !== document) {
+            if (el.getAttribute && el.getAttribute('data-cta')) { ph.capture('landing_cta_click', { cta: el.getAttribute('data-cta'), href: el.getAttribute('href') || '' }); break; }
+            el = el.parentNode;
+          }
+        }, true);
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
+    })();
+  </script>`
+  : '';
+
 const COMPANY = {
   legalName: 'Paid Rightly LLC',
   brand: 'Signed Reviews',
@@ -577,7 +632,7 @@ const SHARED_HEAD = ({ title, description, canonical, pageType = 'website' }) =>
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
-  <style>${SHARED_STYLES}</style>${POSTHOG_SNIPPET}
+  <style>${SHARED_STYLES}</style>${POSTHOG_SNIPPET}${SR_TRACKERS_SNIPPET}
 `;
 
 const HEADER = (active = '') => `
@@ -597,8 +652,8 @@ const HEADER = (active = '') => `
         <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
         <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a class="btn btn-secondary" href="${PLATFORM_URL}" rel="noopener">Log in</a>
-      <a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener">Sign up</a>
+      <a class="btn btn-secondary" href="${PLATFORM_URL}" rel="noopener" data-cta="login">Log in</a>
+      <a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" data-cta="signup">Sign up</a>
       <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer" onclick="(function(b){var d=document.getElementById('mobileDrawer'); if(!d)return; var open=d.classList.toggle('is-open'); b.setAttribute('aria-expanded', open?'true':'false');})(this);">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -609,7 +664,7 @@ const HEADER = (active = '') => `
       <li><a href="${B}pricing/"${active === 'pricing' ? ' aria-current="page"' : ''}>Pricing</a></li>
       <li><a href="${B}about/"${active === 'about' ? ' aria-current="page"' : ''}>About</a></li>
       <li><a href="${B}contact/"${active === 'contact' ? ' aria-current="page"' : ''}>Contact</a></li>
-      <li><a href="${PLATFORM_URL}" rel="noopener">Log in</a></li>
+      <li><a href="${PLATFORM_URL}" rel="noopener" data-cta="login">Log in</a></li>
     </ul>
   </div>
 </header>`;
@@ -2004,7 +2059,7 @@ if (POSTHOG_SNIPPET) {
   if (fs.existsSync(distIndex)) {
     const html = fs.readFileSync(distIndex, 'utf8');
     if (!html.includes('posthog.init(')) {
-      fs.writeFileSync(distIndex, html.replace('</head>', `${POSTHOG_SNIPPET}\n</head>`), 'utf8');
+      fs.writeFileSync(distIndex, html.replace('</head>', `${POSTHOG_SNIPPET}${SR_TRACKERS_SNIPPET}\n</head>`), 'utf8');
       console.log('  ✓ injected PostHog snippet into index.html');
     }
   }

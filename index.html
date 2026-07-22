@@ -719,8 +719,8 @@
           <svg class="w-5 h-5 hidden dark:block text-navy-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
           <svg class="w-5 h-5 dark:hidden text-navy-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
         </button>
-        <a href="https://platform.signedreviews.com" rel="noopener" class="hidden md:inline-flex px-3 py-2 text-sm font-semibold text-navy-700 dark:text-navy-100 hover:text-navy-900 dark:hover:text-white rounded-lg hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Log in</a>
-        <a href="https://platform.signedreviews.com" rel="noopener" class="px-3 sm:px-4 py-2 btn-gold btn-ripple text-white rounded-xl text-sm font-semibold whitespace-nowrap">Sign up</a>
+        <a href="https://platform.signedreviews.com" rel="noopener" data-cta="nav-login" class="hidden md:inline-flex px-3 py-2 text-sm font-semibold text-navy-700 dark:text-navy-100 hover:text-navy-900 dark:hover:text-white rounded-lg hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Log in</a>
+        <a href="https://platform.signedreviews.com" rel="noopener" data-cta="nav-signup" class="px-3 sm:px-4 py-2 btn-gold btn-ripple text-white rounded-xl text-sm font-semibold whitespace-nowrap">Sign up</a>
         <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 rounded-lg flex items-center justify-center text-navy-700 dark:text-navy-100 hover:bg-navy-50 dark:hover:bg-white/5 transition-colors" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" id="mobileMenuBtn">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
         </button>
@@ -732,14 +732,14 @@
         <li><a href="/pricing/" class="block px-3 py-3 rounded-lg text-base font-medium text-navy-700 dark:text-navy-100 hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Pricing</a></li>
         <li><a href="/about/" class="block px-3 py-3 rounded-lg text-base font-medium text-navy-700 dark:text-navy-100 hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">About</a></li>
         <li><a href="/contact/" class="block px-3 py-3 rounded-lg text-base font-medium text-navy-700 dark:text-navy-100 hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Contact</a></li>
-        <li><a href="https://platform.signedreviews.com" rel="noopener" class="block px-3 py-3 rounded-lg text-base font-semibold text-navy-700 dark:text-navy-100 hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Log in</a></li>
+        <li><a href="https://platform.signedreviews.com" rel="noopener" data-cta="mobile-login" class="block px-3 py-3 rounded-lg text-base font-semibold text-navy-700 dark:text-navy-100 hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Log in</a></li>
       </ul>
     </div>
   </nav>
 
   <main id="main">
   <!-- ─── HERO ─────────────────────────────────────────────── -->
-  <section class="relative hero-section hero-bg pt-36 pb-36 px-5 overflow-hidden grain">
+  <section data-track="hero" class="relative hero-section hero-bg pt-36 pb-36 px-5 overflow-hidden grain">
     <!-- Hero treatment: diagonal gold stripes + periodic light sweep -->
     <div class="hero-stripes"></div>
     <div class="hero-sweep"></div>
@@ -761,8 +761,8 @@
 
       <div class="fade-up delay-3">
         <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
-          <a href="https://platform.signedreviews.com" rel="noopener" id="heroBtn" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
-          <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-600 dark:text-navy-100 border border-navy-300 dark:border-navy-600 hover:border-navy-400 dark:hover:border-navy-400 hover:bg-white/40 dark:hover:bg-white/5 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
+          <a href="https://platform.signedreviews.com" rel="noopener" id="heroBtn" data-cta="hero-signup" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
+          <a href="https://platform.signedreviews.com" rel="noopener" data-cta="hero-login" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-600 dark:text-navy-100 border border-navy-300 dark:border-navy-600 hover:border-navy-400 dark:hover:border-navy-400 hover:bg-white/40 dark:hover:bg-white/5 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
         </div>
         <!-- Trust pills -->
         <div class="flex flex-wrap justify-center gap-2 mt-3 mb-1">
@@ -777,7 +777,7 @@
         </section>
 
   <!-- ─── STATS BAR ─────────────────────────────────────────── -->
-  <section id="statsBar" class="border-y border-navy-100 dark:border-navy-800 bg-white dark:bg-navy-800 transition-colors">
+  <section id="statsBar" data-track="stats" class="border-y border-navy-100 dark:border-navy-800 bg-white dark:bg-navy-800 transition-colors">
     <div class="max-w-5xl mx-auto px-5 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
       <div>
         <div class="font-serif text-4xl text-navy-500 dark:text-navy-200" data-counter="98" data-suffix="%">98%</div>
@@ -919,7 +919,7 @@
   </section>
 
   <!-- ─── HOW IT WORKS ──────────────────────────────────────── -->
-  <section id="how-it-works" class="py-28 px-5 bg-[#f0f4f9] dark:bg-navy-900 border-y border-navy-100 dark:border-navy-800 transition-colors">
+  <section id="how-it-works" data-track="how-it-works" class="py-28 px-5 bg-[#f0f4f9] dark:bg-navy-900 border-y border-navy-100 dark:border-navy-800 transition-colors">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-20">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-navy-800 border border-navy-200 dark:border-navy-700 text-navy-500 dark:text-navy-300 text-sm font-semibold mb-5 shadow-sm">
@@ -1011,7 +1011,7 @@
   </section>
 
     <!-- ─── BUILD WITH THE API ─────────────────────────────────── -->
-  <section id="features" class="py-24 px-5 bg-white dark:bg-navy-800 transition-colors">
+  <section id="features" data-track="features" class="py-24 px-5 bg-white dark:bg-navy-800 transition-colors">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-14">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-navy-50 dark:bg-navy-700 border border-navy-200 dark:border-navy-600 text-navy-500 dark:text-navy-300 text-sm font-semibold mb-5">
@@ -1144,7 +1144,7 @@
     <div class="absolute -bottom-32 -right-32 w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none" style="background:rgba(179,157,69,.06)"></div>
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(179,157,69,.03),transparent)] dark:bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(179,157,69,.04),transparent)] pointer-events-none"></div>
 
-    <div class="relative z-10 max-w-3xl mx-auto" id="pricing">
+    <div class="relative z-10 max-w-3xl mx-auto" id="pricing" data-track="pricing">
       <div class="text-center">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-navy-200/50 dark:border-white/10 bg-navy-100/60 dark:bg-white/[.06] text-navy-600 dark:text-navy-200 text-sm font-semibold mb-5">
           Pricing
@@ -1154,7 +1154,7 @@
           There's a free plan for self-service collection, always — no credit card, no per-review fees, no commissions. Paid plans from $29/mo add an automated, verified review request on every Stripe sale.
         </p>
         <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-6">
-          <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 btn-gold btn-ripple text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
+          <a href="https://platform.signedreviews.com" rel="noopener" data-cta="mid-signup" class="px-7 py-3.5 btn-gold btn-ripple text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
           <a href="/pricing/" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-700 dark:text-white border border-navy-300/40 dark:border-white/20 hover:bg-steel-100/50 dark:hover:bg-white/10 transition-colors inline-flex items-center justify-center min-w-[180px]">See what's included</a>
         </div>
         <p class="text-xs text-navy-500 dark:text-navy-400">No credit card required · Cancel anytime · See our <a href="/refund-policy/" class="text-navy-600 dark:text-navy-300 underline underline-offset-2 hover:text-gold-600 dark:hover:text-gold-300">Refund &amp; Cancellation Policy</a></p>
@@ -1307,7 +1307,7 @@
   </section>
 
   <!-- ─── FINAL CTA ─────────────────────────────────────────── -->
-  <section class="cta-section relative py-28 px-5 cta-gradient-mesh text-navy-800 dark:text-white grain overflow-hidden transition-colors">
+  <section data-track="final-cta" class="cta-section relative py-28 px-5 cta-gradient-mesh text-navy-800 dark:text-white grain overflow-hidden transition-colors">
     <!-- Layered radial glows -->
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_65%_55%_at_50%_50%,rgba(179,157,69,.09),transparent)] pointer-events-none"></div>
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_20%_80%,rgba(43,59,96,.40),transparent)] pointer-events-none"></div>
@@ -1338,8 +1338,8 @@
       <p class="text-navy-500 dark:text-navy-300 text-lg mb-10 leading-relaxed">Sign up free. Connect your Stripe account, and start collecting Purchase Verified reviews tied to real transactions.</p>
 
       <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
-        <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
-        <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-600 dark:text-white border border-navy-300/40 dark:border-white/20 hover:bg-steel-100/50 dark:hover:bg-white/10 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
+        <a href="https://platform.signedreviews.com" rel="noopener" data-cta="final-signup" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
+        <a href="https://platform.signedreviews.com" rel="noopener" data-cta="final-login" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-600 dark:text-white border border-navy-300/40 dark:border-white/20 hover:bg-steel-100/50 dark:hover:bg-white/10 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
       </div>
 
       <!-- Trust pills -->
