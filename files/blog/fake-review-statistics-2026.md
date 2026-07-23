@@ -1,6 +1,6 @@
 # Fake Review Statistics 2026: The Scale of the Problem
 
-**Published:** 2026-07-04 · **Author:** Signed Reviews Team
+**Published:** 2026-07-04 · **Author:** Signed Reviews Team · **Description:** Fake review statistics for 2026: how many reviews are fake, why AI made it worse, what it costs businesses, and why purchase verification is the only fix.
 
 ---
 

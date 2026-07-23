@@ -1,6 +1,6 @@
 # How Stripe Review Verification Works: A Technical Guide
 
-**Published:** 2026-07-04 · **Author:** Signed Reviews Team
+**Published:** 2026-07-04 · **Author:** Signed Reviews Team · **Description:** How Stripe review verification works, end to end: read-only OAuth, matching each review to a real charge, and cryptographic signing that's tamper-evident.
 
 ---
 

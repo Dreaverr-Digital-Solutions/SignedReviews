@@ -1,6 +1,6 @@
 # What Is a Verified Review? Why Purchase Verification Matters in 2026
 
-**Published:** 2026-07-04 · **Author:** Signed Reviews Team
+**Published:** 2026-07-04 · **Author:** Signed Reviews Team · **Description:** What is a verified review? It ties a review to proof of a real purchase — what 'verified' means, how platforms verify, and why it stops fake reviews.
 
 ---
 

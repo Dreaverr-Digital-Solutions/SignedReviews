@@ -170,6 +170,44 @@ const COMPANY = {
   attribution: 'Signed Reviews is a service operated by Paid Rightly LLC.',
 };
 
+// Sitewide Organization node (emitted on every page via SHARED_HEAD; the bespoke
+// homepage carries its own matching copy). `sameAs` is intentionally absent —
+// verified profiles don't exist yet (github.com/signedreviews + the LinkedIn page
+// both 404), and fabricated social URLs damage E-E-A-T more than a missing field.
+const ORG_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: COMPANY.brand,
+  legalName: COMPANY.legalName,
+  url: SITE_URL,
+  logo: `${SITE_URL}/images/SignedReviews_logo_only.png`,
+  description: COMPANY.description,
+  email: COMPANY.supportEmail,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '1209 Mountain Road Pl NE, Ste N',
+    addressLocality: 'Albuquerque',
+    addressRegion: 'NM',
+    postalCode: '87110',
+    addressCountry: 'US',
+  },
+};
+
+// Per-page BreadcrumbList. Skipped on the homepage (a lone "Home" crumb is noise).
+function breadcrumbJsonLd(title, canonical, slug) {
+  if (!slug || slug === '/' || canonical === `${SITE_URL}/` || canonical === SITE_URL) return '';
+  const crumbs = [{ name: 'Home', url: `${SITE_URL}/` }];
+  if (slug.startsWith('/blog/') && slug !== '/blog/') {
+    crumbs.push({ name: 'Blog', url: `${SITE_URL}/blog/` });
+  }
+  crumbs.push({ name: title.split(' — ')[0].trim() || title, url: canonical });
+  return `\n  <script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+  })}</script>`;
+}
+
 // ── Marked configuration: anchor IDs on every heading ────────────────────────
 function slugify(text) {
   return text
@@ -603,7 +641,7 @@ main { padding: 0; }
 .address-block { font-style: normal; }
 `;
 
-const SHARED_HEAD = ({ title, description, canonical, pageType = 'website' }) => `
+const SHARED_HEAD = ({ title, description, canonical, slug, pageType = 'website' }) => `
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escapeHtml(title)}</title>
@@ -633,6 +671,7 @@ const SHARED_HEAD = ({ title, description, canonical, pageType = 'website' }) =>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
   <style>${SHARED_STYLES}</style>${POSTHOG_SNIPPET}${SR_TRACKERS_SNIPPET}
+  <script type="application/ld+json">${JSON.stringify(ORG_SCHEMA)}</script>${breadcrumbJsonLd(title, canonical, slug)}
 `;
 
 const HEADER = (active = '') => `
@@ -736,7 +775,7 @@ function escapeHtml(s) {
     .replace(/"/g, '&quot;');
 }
 
-function page({ title, description, slug, hero, body, hasToc = false, active = '', extraStyle = '', bareBody = false }) {
+function page({ title, description, slug, hero, body, hasToc = false, active = '', extraStyle = '', bareBody = false, pageType = 'website' }) {
   const canonical = `${SITE_URL}${slug}`;
   const wrappedBody = bareBody
     ? body
@@ -745,7 +784,7 @@ function page({ title, description, slug, hero, body, hasToc = false, active = '
     </div>`;
   return `<!DOCTYPE html>
 <html lang="en">
-<head>${SHARED_HEAD({ title, description, canonical })}${extraStyle ? `\n  <style>${extraStyle}</style>` : ''}</head>
+<head>${SHARED_HEAD({ title, description, canonical, slug, pageType })}${extraStyle ? `\n  <style>${extraStyle}</style>` : ''}</head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
   ${HEADER(active)}
@@ -1617,16 +1656,27 @@ function buildBlog() {
       const titleMatch = raw.match(/^# (.+)$/m);
       const title = titleMatch ? titleMatch[1].trim() : file.replace(/\.md$/, '').replace(/-/g, ' ');
 
-      // Extract first paragraph after frontmatter-like header as description
+      // Body = everything after the `---` metadata separator.
       const bodyStart = raw.indexOf('\n---\n');
       const contentBody = bodyStart >= 0 ? raw.slice(bodyStart + 5) : raw;
-      const firstPara = contentBody.match(/\n\n(.{50,200})\n/);
-      const desc = firstPara ? firstPara[1].replace(/[#*\[\]]/g, '').trim().slice(0, 160) : title;
+
+      // Extract description: explicit `**Description:**` metadata wins; else first body paragraph.
+      // The old heuristic grabbed the first SHORT paragraph, which skipped the real (long) intro
+      // and landed on a stray bullet — every post had a garbage <meta description> + hero subtitle.
+      const descMatch = raw.match(/\*\*Description:\*\*\s*(.+)$/m);
+      let desc;
+      if (descMatch) {
+        desc = descMatch[1].replace(/[#*\[\]]/g, '').replace(/\s+/g, ' ').trim().slice(0, 160);
+      } else {
+        const firstPara = (contentBody.trim().split(/\n\n/)[0] || '').replace(/[#*`[\]()]/g, '').replace(/\s+/g, ' ').trim();
+        desc = firstPara ? firstPara.slice(0, 157) + '…' : title;
+      }
 
       // Render markdown body (strip the first H1 — hero shows it)
       const renderedBody = renderMarkdown(contentBody).replace(/<h1[^>]*>[\s\S]*?<\/h1>/, '');
 
-      const dateMatch = raw.match(/\*\*Published:\*\*\s*(.+?)\s*[*\n]/);
+      // Stop at the `·` separator (or newline) so the date doesn't swallow a trailing `·`.
+      const dateMatch = raw.match(/\*\*Published:\*\*\s*([^\n·]+)/);
       const dateStr = dateMatch ? dateMatch[1].trim() : '';
 
       posts.push({ title, desc, slug, file, renderedBody, dateStr });
@@ -1635,13 +1685,17 @@ function buildBlog() {
 
   // Individual post pages
   for (const post of posts) {
+    const canonical = `${SITE_URL}${post.slug}`;
     const schema = {
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
       headline: post.title,
       description: post.desc,
       datePublished: post.dateStr || undefined,
-      author: { '@type': 'Organization', name: 'Signed Reviews' },
+      dateModified: post.dateStr || undefined,
+      mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+      image: [`${SITE_URL}/images/SignedReviews_full_logo.png`],
+      author: { '@type': 'Organization', name: 'Signed Reviews', url: SITE_URL },
       publisher: { '@type': 'Organization', name: 'Signed Reviews', logo: { '@type': 'ImageObject', url: `${SITE_URL}/images/SignedReviews_logo_only.png` } },
     };
 
@@ -1657,6 +1711,7 @@ function buildBlog() {
       title: `${post.title} — Signed Reviews Blog`,
       description: post.desc,
       slug: post.slug,
+      pageType: 'article',
       hero: { eyebrow: 'Blog', title: post.title, subtitle: post.desc },
       body,
     });
@@ -1686,7 +1741,7 @@ function buildBlog() {
   });
   writePage('/blog/', indexHtml);
   console.log('  ✓ /blog/ (index)');
-  return posts.map(p => p.slug);
+  return posts.map(p => ({ slug: p.slug, lastmod: p.dateStr }));
 }
 
 // ── How It Works page ─────────────────────────────────────────────────────────
@@ -1919,16 +1974,21 @@ function buildComingSoon() {
 }
 
 // ── robots / sitemap / favicon ───────────────────────────────────────────────
-function buildSeoFiles(blogSlugs = []) {
-  const today = new Date().toISOString().slice(0, 10);
-  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/faq/', '/how-it-works/', '/demo/', '/docs/', '/api/', '/trust/', '/vs/trustpilot/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/', ...blogSlugs];
+function buildSeoFiles(blogPosts = []) {
+  // Blog posts carry their own publish date as lastmod; static pages share a stable
+  // constant that is bumped ONLY when their content materially changes. Stamping
+  // today's date on every URL makes lastmod flap on every build, which teaches
+  // crawlers to ignore the signal entirely.
+  const STATIC_PAGES_LASTMOD = '2026-07-23';
+  const blogLastmod = new Map(blogPosts.map(p => [p.slug, p.lastmod]));
+  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/faq/', '/how-it-works/', '/demo/', '/docs/', '/api/', '/trust/', '/vs/trustpilot/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/', ...blogPosts.map(p => p.slug)];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
   .map(
     (u) => `  <url>
     <loc>${SITE_URL}${u}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${blogLastmod.get(u) || STATIC_PAGES_LASTMOD}</lastmod>
   </url>`
   )
   .join('\n')}
@@ -2019,12 +2079,12 @@ buildAbout();
 buildFaq();
 buildTrust();
 buildHowItWorks();
-const blogSlugs = buildBlog() || [];
+const blogPosts = buildBlog() || [];
 buildComparison();
 console.log('\nComing-soon pages:');
 buildComingSoon();
 console.log('\nSEO files:');
-buildSeoFiles(blogSlugs);
+buildSeoFiles(blogPosts);
 
 // ── Cloudflare Pages output ──────────────────────────────────────────────────
 // The in-place writes above support GitHub Pages, which serves the repo root.

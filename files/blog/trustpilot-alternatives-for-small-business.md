@@ -1,6 +1,6 @@
 # Trustpilot Alternatives for Small Business: A Comparison Guide
 
-**Published:** 2026-07-04 · **Author:** Signed Reviews Team
+**Published:** 2026-07-04 · **Author:** Signed Reviews Team · **Description:** Best Trustpilot alternatives for small business in 2026, ranked by how reviews are verified — and why purchase-verified, Stripe-native reviews win.
 
 ---
 
