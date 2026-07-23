@@ -283,3 +283,30 @@ Trustpilot help/Trust Report/Wikipedia; Reviews.io moderation FAQs; Yotpo/Judge.
 
 ## Appendix C — Execution note for the dev
 All content-route generation flows through `build.js` (`SHARED_HEAD`, `page()`, `writePage`, `buildBlog`, `buildSeoFiles`). New page types (e.g., `/learn/`, expanded `/vs/`, `/integrations/stripe`) = new builder functions following the existing `writePage` + schema-injection pattern; add their slugs to the `urls` array in `buildSeoFiles()` (`build.js:1924`) so they enter the sitemap automatically.
+
+## Appendix D — Sprint 0.5: DNS handoff (requires your Cloudflare login)
+
+Sprint 0's code shipped and went live (commit `3fdb49f`, 2026-07-23): P0 blog meta-description bug fixed, sitewide Organization + BreadcrumbList schema, richer BlogPosting, per-URL sitemap lastmod, and a rewritten `/llms.txt` declaring the wedge vocabulary. Two items remain that only you can do, both in the Cloudflare dashboard for the `signedreviews.com` zone.
+
+### 1. www → apex 301 redirect (currently broken — www returns HTTP 525)
+`www.signedreviews.com` fails with a 525 (origin SSL mismatch). It must 301 to the apex so www link-equity consolidates on `signedreviews.com` and the www host stops erroring.
+
+Cloudflare → **Rules → Redirect Rules → Create rule**:
+- **If** (custom filter expression): `(http.host eq "www.signedreviews.com")`
+- **Then**: Dynamic redirect → Type `301`, Expression `concat("https://signedreviews.com", http.request.uri.path)`, Preserve query string **ON**.
+- If www has no proxied DNS record yet, first add a `www` CNAME → `signedreviews.com` (proxied / orange cloud) so the host resolves at the edge; the redirect rule then fires before origin is ever hit.
+
+Verify: `curl -sI https://www.signedreviews.com/` should return `HTTP/2 301` with `location: https://signedreviews.com/`.
+
+### 2. Google Search Console + Bing Webmaster Tools (DNS verification)
+This unlocks the #1 free data source — which queries and landing pages actually earn impressions, click-through rate, index coverage, and Core Web Vitals field data.
+
+- **Google Search Console** — add a **Domain** property `signedreviews.com` (covers www + apex + subdomains). It gives a TXT record: `google-site-verification=<CODE>`.
+- **Bing Webmaster Tools** — add `https://signedreviews.com`, choose DNS (CNAME) verification; Bing gives a CNAME to add.
+
+Cloudflare → **DNS → Records → Add record**:
+- TXT → Name `@`, Content `google-site-verification=<CODE from GSC>`.
+- CNAME → Name `<Bing host>`, Target `<Bing-provided target>`.
+(TTL Auto; proxied is fine.) Then click **Verify** in each console. Once GSC is verified, submit the sitemap: `https://signedreviews.com/sitemap.xml`.
+
+These two unblock Sprint 1 measurement — without GSC you're flying blind on which pages and queries actually surface in Google.
