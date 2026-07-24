@@ -59,3 +59,5 @@ Purchase verification eliminates the detection problem entirely. Instead of aski
 This is not a better detection algorithm. It's a different category of solution — one that makes fake reviews impossible rather than making them detectable.
 
 A platform that requires purchase verification simply has no fake reviews to detect. The 2.7 million figure from Trustpilot isn't a sign that their detection works — it's a sign that their model allows fake reviews to exist in the first place.
+
+**Further reading:** [Stripe Verified Reviews: The Only Reviews Backed by Your Payment Processor](/blog/stripe-verified-reviews/) explains the structural fix — how processor-attested verification makes fake reviews impossible by design, not detectable after the fact. And [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/) for the five-level verification spectrum that separates a badge from proof.

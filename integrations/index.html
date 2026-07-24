@@ -4,20 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Integrations — Signed Reviews</title>
-  <meta name="description" content="Signed Reviews is a Stripe App — install in one click and connect alongside Shopify, WooCommerce, or Squarespace, plus a read-only public API and webhooks.">
+  <meta name="description" content="Connect Signed Reviews to your existing stack. Native Stripe App with one-click install, plus REST API, webhooks, and ecosystem integrations.">
   <link rel="canonical" href="https://signedreviews.com/integrations/">
-  <meta name="robots" content="noindex, follow">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Integrations — Signed Reviews">
-  <meta property="og:description" content="Signed Reviews is a Stripe App — install in one click and connect alongside Shopify, WooCommerce, or Squarespace, plus a read-only public API and webhooks.">
+  <meta property="og:description" content="Connect Signed Reviews to your existing stack. Native Stripe App with one-click install, plus REST API, webhooks, and ecosystem integrations.">
   <meta property="og:url" content="https://signedreviews.com/integrations/">
   <meta property="og:site_name" content="Signed Reviews">
   <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Integrations — Signed Reviews">
-  <meta name="twitter:description" content="Signed Reviews is a Stripe App — install in one click and connect alongside Shopify, WooCommerce, or Squarespace, plus a read-only public API and webhooks.">
+  <meta name="twitter:description" content="Connect Signed Reviews to your existing stack. Native Stripe App with one-click install, plus REST API, webhooks, and ecosystem integrations.">
+  <meta name="twitter:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png">
@@ -525,7 +526,23 @@ main { padding: 0; }
   </script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.","email":"support@signedreviews.com","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"Integrations","item":"https://signedreviews.com/integrations/"}]}</script>
-</head>
+
+  <style>
+    .integration-card { border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; margin: 1.25rem 0; background: var(--surface); display: flex; gap: 1.25rem; align-items: flex-start; }
+    .integration-card .ic-icon { flex-shrink: 0; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; }
+    .integration-card .ic-body { flex: 1; }
+    .integration-card .ic-body h3 { margin: 0 0 .35rem; font-size: 1.1rem; color: var(--navy-900); }
+    :root.theme-dark .integration-card .ic-body h3, :root.theme-auto .integration-card .ic-body h3 { color: #fff; }
+    .integration-card .ic-body p { margin: 0 0 .75rem; color: var(--text); line-height: 1.6; font-size: .93rem; }
+    .integration-card .ic-body .ic-cta { font-weight: 600; font-size: .9rem; }
+    .ic-stripe { background: linear-gradient(135deg, #635bff, #827af8); color: #fff; }
+    .ic-api { background: linear-gradient(135deg, var(--navy-700), var(--navy-900)); color: #fff; }
+    .ic-webhook { background: linear-gradient(135deg, var(--gold-400), var(--gold-600)); color: #fff; }
+    .ic-planned { opacity: .65; }
+    .ic-badge { display: inline-block; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; padding: .2rem .55rem; border-radius: 999px; font-weight: 600; }
+    .ic-badge-live { background: rgba(23,173,97,.12); color: #17ad61; border: 1px solid rgba(23,173,97,.25); }
+    .ic-badge-planned { background: rgba(179,157,69,.12); color: var(--gold-600); border: 1px solid rgba(179,157,69,.25); }
+  </style></head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
   
@@ -565,14 +582,79 @@ main { padding: 0; }
     <section class="page-hero">
       <div class="page-hero-inner">
         <span class="eyebrow">Integrations</span>
-        <h1>Integrations</h1>
-        <p>Connect Signed Reviews to your existing stack.</p>
+        <h1>Connect Your Stack</h1>
+        <p>One-click Stripe integration plus REST API, webhooks, and planned ecosystem connectors — every one tied to processor-attested verification.</p>
       </div>
     </section>
     <div class="prose-wrap">
-      <article class="prose" style="max-width: var(--max-prose)">
-      <p>This page is coming soon. In the meantime, explore our <a href="/">homepage</a> or check out our <a href="/pricing/">pricing</a>.</p>
-    </article>
+      <article class="prose" style="max-width: 860px">
+    <p>Signed Reviews plugs into your existing payment and e-commerce stack. Every integration is designed around one principle: <strong>verification against the payment processor, not merchant-supplied data</strong>.</p>
+
+    <div class="integration-card">
+      <div class="ic-icon ic-stripe">S</div>
+      <div class="ic-body">
+        <h3>Stripe <span class="ic-badge ic-badge-live">Live</span></h3>
+        <p>The native integration. One-click OAuth, read-only, zero code. Every Stripe charge automatically generates a verified review invitation. Refund-aware — reviews for refunded charges are hidden automatically. Works with Stripe Billing, Stripe Connect, and Stripe Checkout.</p>
+        <a class="ic-cta" href="/integrations/stripe/">Stripe integration details →</a>
+      </div>
+    </div>
+
+    <div class="integration-card">
+      <div class="ic-icon ic-api">A</div>
+      <div class="ic-body">
+        <h3>REST API <span class="ic-badge ic-badge-live">Live</span></h3>
+        <p>Programmatic access to your verified reviews. Embed reviews on your website, build custom dashboards, or integrate review collection into your own application. Authenticated via publishable + secret keys, with rate limiting and CORS support.</p>
+        <a class="ic-cta" href="/api/">API reference →</a>
+      </div>
+    </div>
+
+    <div class="integration-card">
+      <div class="ic-icon ic-webhook">W</div>
+      <div class="ic-body">
+        <h3>Webhooks <span class="ic-badge ic-badge-live">Live</span></h3>
+        <p>Real-time event delivery: review submitted, review updated, review hidden (refund), invitation sent, invitation expired. Deliver to your own endpoint. Includes a delivery webhook for triggering review invitations at exactly the right moment (e.g., when the tracking number shows "delivered").</p>
+        <a class="ic-cta" href="/docs/">Documentation →</a>
+      </div>
+    </div>
+
+    <div class="integration-card ic-planned">
+      <div class="ic-icon" style="background:rgba(255,255,255,.06);border:1px dashed var(--border);color:var(--muted);">S</div>
+      <div class="ic-body">
+        <h3>Shopify <span class="ic-badge ic-badge-planned">Planned</span></h3>
+        <p>For Shopify merchants using Stripe as their payment processor (including Shopify Payments, which runs on Stripe). Automatic review invitations on every Shopify order. Install from the Shopify App Store.</p>
+      </div>
+    </div>
+
+    <div class="integration-card ic-planned">
+      <div class="ic-icon" style="background:rgba(255,255,255,.06);border:1px dashed var(--border);color:var(--muted);">W</div>
+      <div class="ic-body">
+        <h3>WooCommerce <span class="ic-badge ic-badge-planned">Planned</span></h3>
+        <p>WordPress + WooCommerce plugin for stores using the Stripe payment gateway. Connect once, and every WooCommerce order paid via Stripe triggers a verified review invitation.</p>
+      </div>
+    </div>
+
+    <div class="integration-card ic-planned">
+      <div class="ic-icon" style="background:rgba(255,255,255,.06);border:1px dashed var(--border);color:var(--muted);">C</div>
+      <div class="ic-body">
+        <h3>Custom / SaaS <span class="ic-badge ic-badge-planned">Planned</span></h3>
+        <p>For SaaS companies and custom-built platforms on Stripe Billing. Every subscription payment is a verification opportunity. SDKs and drop-in components for React, Vue, and plain JavaScript.</p>
+      </div>
+    </div>
+
+    <h2 id="how-they-work">How our integrations work</h2>
+    <p>Every Signed Reviews integration follows the same pattern:</p>
+    <ol>
+      <li><strong>Connect</strong> — link your Stripe account (or install the platform-specific app) in one click.</li>
+      <li><strong>Detect</strong> — Signed Reviews watches for new Stripe charges automatically.</li>
+      <li><strong>Invite</strong> — a unique, expiring review invitation is sent to the customer's verified payment email.</li>
+      <li><strong>Sign</strong> — the review is cryptographically signed at submission, creating a tamper-evident record.</li>
+      <li><strong>Publish</strong> — the verified review appears on your public page and via the API.</li>
+    </ol>
+    <p>Because every integration verifies against Stripe — not merchant-supplied data — the verification chain is independent of which platform or plugin you use. <a href="/learn/what-does-verified-buyer-mean/">Learn why that matters →</a></p>
+
+    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Connect your Stripe account →</a></p>
+    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/integrations/stripe/">Stripe integration details</a> · <a href="/api/">API reference</a> · <a href="/docs/">Documentation</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews guide</a></p>
+  </article>
     </div>
   </main>
   
