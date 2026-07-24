@@ -1,6 +1,10 @@
 {
+  "name": "Signed Reviews Knowledge Agent",
+  "description": "Signed Reviews is a processor-attested review verification platform. We do not currently expose an A2A agent. Agent-readable content is available via llms.txt, Markdown for Agents, and Agent Skills.",
+  "version": "0.0.0",
   "available": false,
-  "message": "Signed Reviews does not expose an A2A (Agent-to-Agent) agent. The site is a content and marketing website. Agent-readable content is available via llms.txt, Markdown for Agents content negotiation, and Agent Skills at /.well-known/agent-skills/index.json.",
+  "skills": [],
+  "supportedInterfaces": [],
   "alternatives": {
     "llms": "https://signedreviews.com/llms.txt",
     "agentSkills": "https://signedreviews.com/.well-known/agent-skills/index.json"

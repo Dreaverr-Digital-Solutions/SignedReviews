@@ -1,4 +1,5 @@
 {
+  "issuer": "https://connect.stripe.com",
   "available": false,
   "message": "Signed Reviews uses Stripe OAuth for merchant account connection, not a self-hosted OAuth authorization server. Merchants authenticate via Stripe's OAuth flow (https://stripe.com/docs/connect/oauth-standard-accounts). The platform's own API uses publishable-key + secret-key authentication, not OAuth.",
   "stripeOauth": {

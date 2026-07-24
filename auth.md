@@ -1,4 +1,4 @@
-# Authentication — Signed Reviews
+# Auth.md — Signed Reviews Authentication
 
 ## Platform authentication (platform.signedreviews.com)
 

@@ -182,24 +182,23 @@ Covers Stripe verified reviews, Trustpilot alternatives, fake review detection, 
 export async function onRequest(context) {
   const { request } = context;
   const accept = request.headers.get('Accept') || '';
-
-  // Only intercept markdown requests — browsers get HTML (pass-through)
-  if (!accept.includes('text/markdown')) {
-    return context.next();
-  }
-
   const url = new URL(request.url);
   const pathname = url.pathname;
 
-  // Serve tailored markdown if available, otherwise site overview
-  const markdown = MARKDOWN_PAGES[pathname] || defaultMarkdown(pathname);
+  // Serve markdown when requested by AI agents
+  if (accept.includes('text/markdown')) {
+    const markdown = MARKDOWN_PAGES[pathname] || defaultMarkdown(pathname);
 
-  return new Response(markdown, {
-    status: 200,
-    headers: {
-      'Content-Type': 'text/markdown; charset=utf-8',
-      'Cache-Control': 'public, max-age=3600',
-      'Vary': 'Accept',
-    },
-  });
+    return new Response(markdown, {
+      status: 200,
+      headers: {
+        'Content-Type': 'text/markdown; charset=utf-8',
+        'Cache-Control': 'public, max-age=3600',
+        'Vary': 'Accept',
+      },
+    });
+  }
+
+  // Pass through to static assets for all other requests
+  return context.next();
 }

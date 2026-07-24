@@ -1,17 +1,21 @@
 {
-  "available": true,
-  "apis": [
+  "linkset": [
     {
-      "name": "Signed Reviews Public API",
-      "type": "rest",
-      "description": "Headless public API for verified reviews. Publishable-key authenticated with CORS support. Retrieve reviews, ratings, and business profiles.",
-      "documentation": "https://signedreviews.com/api/",
-      "baseUrl": "https://api.signedreviews.com/v1",
-      "specUrl": "https://api.signedreviews.com/v1/openapi.json",
-      "auth": {
-        "type": "bearer",
-        "key": "publishable_key"
-      }
+      "anchor": "https://signedreviews.com",
+      "apis": [
+        {
+          "name": "Signed Reviews Public API",
+          "type": "rest",
+          "description": "Headless public API for verified reviews. Publishable-key authenticated with CORS support. Retrieve reviews, ratings, and business profiles.",
+          "documentation": "https://signedreviews.com/api/",
+          "baseUrl": "https://api.signedreviews.com/v1",
+          "specUrl": "https://api.signedreviews.com/v1/openapi.json",
+          "auth": {
+            "type": "bearer",
+            "key": "publishable_key"
+          }
+        }
+      ]
     }
   ]
 }
