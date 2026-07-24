@@ -1,0 +1,5 @@
+{
+  "available": false,
+  "message": "Signed Reviews does not implement the Unified Checkout Protocol (UCP). The platform connects to merchants' existing Stripe accounts for review verification and does not process payments directly.",
+  "paymentProcessor": "Stripe (merchant's own account, read-only OAuth connection)"
+}

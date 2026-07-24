@@ -5,6 +5,54 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://us.i.posthog.com https://us.posthog.com https://us-assets.i.posthog.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://us.i.posthog.com https://us.posthog.com https://us-assets.i.posthog.com https://cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  Link: <https://signedreviews.com/sitemap.xml>; rel="sitemap"; type="application/xml"
+  Link: <https://signedreviews.com/llms.txt>; rel="alternate"; type="text/plain"; title="LLMs.txt"
+  Link: <https://signedreviews.com/.well-known/agent-skills/index.json>; rel="alternate"; type="application/json"; title="Agent Skills"
+
+# ── Well-known paths: JSON content-type ──────────────────────────────
+/.well-known/agent-skills/index.json
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/.well-known/mcp/server-card.json
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/.well-known/agent-card.json
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/.well-known/api-catalog
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/.well-known/oauth-authorization-server
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/.well-known/oauth-protected-resource
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/.well-known/ucp
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/.well-known/acp.json
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+# ── OpenAPI spec ──────────────────────────────────────────────────────
+/openapi.json
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+# ── Markdown content ──────────────────────────────────────────────────
+/auth.md
+  Content-Type: text/markdown; charset=utf-8
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
 
 # Cache static assets aggressively (content-hashed or versioned)
 /images/*

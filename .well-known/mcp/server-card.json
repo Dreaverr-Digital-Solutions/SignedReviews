@@ -1,0 +1,8 @@
+{
+  "available": false,
+  "message": "Signed Reviews does not expose an MCP server. The site provides agent-readable content via llms.txt, Markdown for Agents content negotiation, and Agent Skills at /.well-known/agent-skills/index.json.",
+  "alternatives": {
+    "llms": "https://signedreviews.com/llms.txt",
+    "agentSkills": "https://signedreviews.com/.well-known/agent-skills/index.json"
+  }
+}

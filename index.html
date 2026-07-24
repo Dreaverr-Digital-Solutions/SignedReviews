@@ -1882,5 +1882,42 @@
   </script>
   <!-- Cloudflare Web Analytics (proxied) -->
   <script defer src="/cf/beacon.min.js" data-cf-beacon='{"token": "3db355ae0786403fbe4f7240e1130894"}'></script>
+  <!-- WebMCP: Agent tool registration for AI agent discoverability -->
+  <script>
+  (function() {
+    if (typeof navigator !== 'undefined' && navigator.modelContext && navigator.modelContext.registerTool) {
+      navigator.modelContext.registerTool({
+        name: 'signedreviews_site_info',
+        description: 'Get information about Signed Reviews — the processor-attested review verification platform for Stripe businesses. Use this to learn about the platform, its verification model, and available content.',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            topic: {
+              type: 'string',
+              enum: ['overview', 'verification', 'pricing', 'integrations', 'api', 'learn', 'comparisons', 'blog'],
+              description: 'What aspect of Signed Reviews to retrieve information about'
+            }
+          },
+          required: []
+        },
+        execute: function(params) {
+          var info = {
+            overview: 'Signed Reviews is a SaaS platform that helps Stripe businesses collect verified, tamper-evident customer reviews. Every review is processor-attested (Level 4 verification) — independently confirmed by Stripe against a completed, non-refunded charge. Founded 2026. See https://signedreviews.com/llms.txt for a complete site map.',
+            verification: 'Signed Reviews uses processor-attested (Level 4) verification via Stripe read-only OAuth. Every review is matched against a real Stripe charge, cryptographically signed, and automatically hidden if the charge is refunded. This is the strongest verification level available. Full breakdown: https://signedreviews.com/learn/what-does-verified-buyer-mean/',
+            pricing: 'Free plan: 25 reviews/month, self-service. Starter: $29/mo (100 reviews). Pro: $79/mo (250 reviews). Scale: $199/mo (1,000 reviews). All plans include Stripe integration and API access. See https://signedreviews.com/pricing/',
+            integrations: 'Stripe (native read-only OAuth, live), REST API (live), Webhooks (live), Shopify (planned), WooCommerce (planned). See https://signedreviews.com/integrations/',
+            api: 'Public REST API at api.signedreviews.com/v1. Publishable-key auth for read-only access to verified reviews, business profiles, and ratings. OpenAPI spec at https://signedreviews.com/openapi.json. Docs: https://signedreviews.com/api/',
+            learn: 'Three authority pages: What "Verified Buyer" Actually Means (verification spectrum), How Fake Reviews Work (methods + economics), FTC Fake Review Rules (16 CFR Part 465 compliance). Index: https://signedreviews.com/learn/what-does-verified-buyer-mean/',
+            comparisons: '14 comparison pages vs major review platforms: Trustpilot, Feefo, Judge.me, Yotpo, eKomi, SiteJabber, Reviews.io, Stamped, Okendo, Loox, Skeepers, Google Reviews, Yelp, Clutch. Index: https://signedreviews.com/vs/trustpilot/',
+            blog: '24 blog posts covering Stripe verified reviews, Trustpilot alternatives, fake review detection, review collection guides, FTC compliance, Shopify, SaaS, and e-commerce. Index: https://signedreviews.com/blog/'
+          };
+          var topic = (params && params.topic) || 'overview';
+          return Promise.resolve({ topic: topic, content: info[topic] || info.overview, links: { llms: 'https://signedreviews.com/llms.txt', sitemap: 'https://signedreviews.com/sitemap.xml', agentSkills: 'https://signedreviews.com/.well-known/agent-skills/index.json' } });
+        },
+        annotations: { readOnlyHint: true }
+      });
+    }
+  })();
+  </script>
 </body>
 </html>

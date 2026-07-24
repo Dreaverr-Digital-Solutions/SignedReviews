@@ -3574,6 +3574,7 @@ const PUBLISH = [
   'privacy', 'refund-policy', 'subprocessors', 'terms', 'pricing', 'dmca',
   'features', 'blog', 'integrations', 'faq', 'how-it-works', 'demo', 'docs', 'api', 'learn',
   '_headers', 'js', 'llms.txt', 'b2f3a1c8d9e0475f8a6c1d3b5e7f9a2c.txt',
+  '.well-known', 'auth.md', 'openapi.json', 'functions',
 ];
 
 for (const entry of PUBLISH) {

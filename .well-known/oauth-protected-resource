@@ -1,0 +1,8 @@
+{
+  "available": false,
+  "message": "Signed Reviews is a public content and marketing website. No OAuth-protected resources are exposed at this domain. The platform API (api.signedreviews.com) uses key-based authentication, not OAuth bearer tokens.",
+  "resource": {
+    "type": "public",
+    "authorizationServers": []
+  }
+}
