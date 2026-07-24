@@ -17,6 +17,29 @@ The Public API uses a two-key model:
 
 API keys are generated and managed in the platform dashboard under Settings → API Keys.
 
+## Agent registration (for AI agents and automated tools)
+
+AI agents, LLM-based tools, and automated systems can access Signed Reviews resources through the following paths. No separate registration is required beyond the authentication methods described above.
+
+### Read-only agent access (no registration required)
+
+- **Markdown for Agents:** Request any page with `Accept: text/markdown` to receive a markdown representation. The homepage serves a structured overview with links to all key resources.
+- **llms.txt:** Machine-readable site map at `https://signedreviews.com/llms.txt` — lists all key pages and their descriptions in a format optimized for LLM consumption.
+- **Agent Skills:** Structured skill definitions at `https://signedreviews.com/.well-known/agent-skills/index.json` — 5 skills covering verification spectrum, fake review detection, FTC rules, Trustpilot alternatives, and Stripe verification.
+- **OpenAPI spec:** `https://signedreviews.com/openapi.json` — full API specification for the Public API.
+
+### API access for agents (publishable key required)
+
+Agents building on the Signed Reviews Public API must obtain a publishable key from a Signed Reviews account:
+1. Create an account at `https://platform.signedreviews.com`
+2. Verify your email address
+3. Navigate to Settings → API Keys
+4. Generate a publishable key (`pk_...`)
+5. Pass the key as `Authorization: Bearer pk_...` on all API requests
+6. Base URL: `https://api.signedreviews.com/v1`
+
+Rate limits apply. See the API documentation at `https://signedreviews.com/api/` for full details.
+
 ## Stripe OAuth (merchant Stripe account connection)
 
 Connecting a Stripe account uses Stripe's standard OAuth 2.0 flow:

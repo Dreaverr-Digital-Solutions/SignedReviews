@@ -1,7 +1,11 @@
 {
-  "name": "Signed Reviews",
-  "description": "Signed Reviews is a processor-attested review verification platform. We do not currently expose an MCP server. Agent-readable content is available via llms.txt, Markdown for Agents, and Agent Skills.",
-  "available": false,
+  "serverInfo": {
+    "name": "Signed Reviews",
+    "version": "0.0.0",
+    "available": false,
+    "description": "Signed Reviews is a processor-attested review verification platform. We do not currently expose an MCP server."
+  },
+  "message": "Agent-readable content is available via llms.txt, Markdown for Agents, and Agent Skills.",
   "alternatives": {
     "llms": "https://signedreviews.com/llms.txt",
     "agentSkills": "https://signedreviews.com/.well-known/agent-skills/index.json"

@@ -1,5 +1,6 @@
 {
   "protocol": {
+    "name": "acp",
     "available": false,
     "message": "Signed Reviews does not implement the Agentic Commerce Protocol (ACP). The platform is a review verification service that connects to merchants' existing Stripe accounts via read-only OAuth. Commerce transactions remain on the merchant's own Stripe account.",
     "commerceProvider": "Stripe (merchant's own account)"

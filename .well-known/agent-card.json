@@ -3,8 +3,19 @@
   "description": "Signed Reviews is a processor-attested review verification platform. We do not currently expose an A2A agent. Agent-readable content is available via llms.txt, Markdown for Agents, and Agent Skills.",
   "version": "0.0.0",
   "available": false,
-  "skills": [],
-  "supportedInterfaces": [],
+  "skills": [
+    {
+      "id": "verification-guide",
+      "name": "Verification Spectrum Guide",
+      "description": "Explains the 5-level review verification spectrum from email-based to processor-attested"
+    }
+  ],
+  "supportedInterfaces": [
+    {
+      "type": "text",
+      "description": "Text-based interaction via llms.txt and Markdown for Agents content negotiation"
+    }
+  ],
   "alternatives": {
     "llms": "https://signedreviews.com/llms.txt",
     "agentSkills": "https://signedreviews.com/.well-known/agent-skills/index.json"
