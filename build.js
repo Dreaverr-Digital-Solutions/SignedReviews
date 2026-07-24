@@ -2437,6 +2437,49 @@ function buildComparisonYelp() {
   console.log('  ✓ /vs/yelp/');
 }
 
+// ── Comparison: Signed Reviews vs Clutch ──────────────────────────────────────
+function buildComparisonClutch() {
+  const slug = '/vs/clutch/';
+  const body = `<article class="prose" style="max-width: 860px">
+    <p>Clutch is the dominant review platform for B2B services — agencies, consultancies, IT firms, and professional service providers. Its review model relies on analyst-led interviews and client verification, which is fundamentally different from transaction-based verification. Here's how they compare — and why B2B service providers may need both.</p>
+    <div class="vs-table-wrap" style="overflow-x:auto;">
+    <table class="vs-table">
+      <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Clutch</th></tr></thead>
+      <tbody>
+        <tr class="highlight-row"><td>Verification method</td><td class="win">Processor-attested (Level 4) — Stripe independently confirms every charge. Every review requires a verified, non-refunded payment.</td><td class="lose">Analyst-verified (Level 2–3) — Clutch analysts interview clients and verify their identity, but there is no independent payment verification. The verification is the analyst's judgment, not a processor's data.</td></tr>
+        <tr><td>Review depth</td><td class="lose">Standard review format — rating, text, optional details. Focused on authenticity over length.</td><td class="win">Deep — Clutch reviews are structured interviews covering project scope, budget, outcomes, and feedback. Often 500–2,000 words with detailed ratings across multiple dimensions.</td></tr>
+        <tr class="highlight-row"><td>Collection process</td><td class="win">Automated — every Stripe charge triggers an invitation. No manual work. Scales with transaction volume.</td><td class="lose">Manual — Clutch analysts conduct phone or video interviews with clients. High-touch, high-effort, doesn't scale with volume. Quality over quantity by design.</td></tr>
+        <tr><td>Best for</td><td class="win">Stripe businesses of all types — SaaS, e-commerce, services, digital products. Transactional verification across any industry.</td><td class="win">B2B service providers — agencies, consultancies, IT firms, developers, marketing firms. The B2B services directory is Clutch's core use case.</td></tr>
+        <tr class="highlight-row"><td>Discovery value</td><td class="lose">Your own site and search — reviews live on your domain. Not a discovery platform.</td><td class="win">Directory-dominant — Clutch is a primary discovery channel for B2B service buyers. High-intent traffic from companies searching for agency/consultancy partners.</td></tr>
+        <tr><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="lose">Free to list. Clutch's revenue comes from sponsored placements, advertising, and premium profiles — not from review collection. But visibility often requires paid sponsorship.</td></tr>
+        <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews — exportable, portable, accessible via API. Display on any site.</td><td class="lose">Clutch hosts the reviews — they live on Clutch's directory. Not exportable for use on your own site.</td></tr>
+        <tr><td>Industry focus</td><td class="tie">Cross-industry — any business processing payments through Stripe.</td><td class="win">B2B services — Clutch's taxonomy and directory structure are purpose-built for agencies, IT services, and consultancies.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="verdict">
+      <h3>They serve fundamentally different purposes</h3>
+      <p>Clutch and Signed Reviews don't compete — they occupy different layers of the B2B trust stack. Clutch is a <strong>discovery channel</strong>: B2B buyers search Clutch to find service providers, compare them by rating and category, and shortlist candidates. Signed Reviews is a <strong>verification layer</strong>: every review is independently attested by Stripe, so the authenticity signal is structural rather than procedural. For a B2B service provider, the optimal setup is both: a Clutch profile for discovery and category presence, and processor-attested reviews on your own site for verification strength that Clutch's analyst-led model can't provide.</p>
+    </div>
+    <div class="verdict verdict-alt">
+      <h3>When Clutch is the priority</h3>
+      <p>If you're a B2B agency or consultancy and your clients find you through Clutch searches, invest in your Clutch presence first — it's where your buyers are. But supplement Clutch reviews with verified reviews on your own site. Clutch reviews live on Clutch's domain. Verified reviews on your own domain strengthen your site's authority, can rank for branded and long-tail queries, and provide a verification signal (processor-attested) that Clutch's analyst-verification model can't match.</p>
+    </div>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
+    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/google-reviews/">Signed Reviews vs Google Reviews</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a></p>
+  </article>`;
+  const html = page({
+    title: 'Signed Reviews vs Clutch — Comparison',
+    description: 'Signed Reviews vs Clutch: Clutch is the B2B services directory with analyst-verified reviews. Signed Reviews provides processor-attested verification. For B2B providers, they serve complementary roles.',
+    slug,
+    hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Clutch', subtitle: 'Clutch is discovery. We\'re verification. For B2B service providers, you probably need both.' },
+    body,
+    extraStyle: COMPARISON_STYLES,
+  });
+  writePage(slug, html);
+  console.log('  ✓ /vs/clutch/');
+}
+
 // ── Learn: canonical explainer (citation target for /vs/* + blog) ─────────────
 // Answer-first structure: the opening paragraph is a self-contained, quotable
 // definition so AI answer engines (Google AI Overviews, ChatGPT, Perplexity) can
@@ -3390,7 +3433,7 @@ function buildSeoFiles(blogPosts = []) {
   // crawlers to ignore the signal entirely.
   const STATIC_PAGES_LASTMOD = '2026-07-24';
   const blogLastmod = new Map(blogPosts.map(p => [p.slug, p.lastmod]));
-  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/integrations/stripe/', '/integrations/shopify/', '/integrations/woocommerce/', '/faq/', '/how-it-works/', '/demo/', '/docs/', '/api/', '/trust/', '/vs/trustpilot/', '/vs/feefo/', '/vs/judge-me/', '/vs/yotpo/', '/vs/ekomi/', '/vs/sitejabber/', '/vs/reviews-io/', '/vs/stamped/', '/vs/okendo/', '/vs/loox/', '/vs/skeepers/', '/vs/google-reviews/', '/vs/yelp/', '/learn/what-does-verified-buyer-mean/', '/learn/how-fake-reviews-work/', '/learn/ftc-fake-reviews-rules/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/', ...blogPosts.map(p => p.slug)];
+  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/integrations/stripe/', '/integrations/shopify/', '/integrations/woocommerce/', '/faq/', '/how-it-works/', '/demo/', '/docs/', '/api/', '/trust/', '/vs/trustpilot/', '/vs/feefo/', '/vs/judge-me/', '/vs/yotpo/', '/vs/ekomi/', '/vs/sitejabber/', '/vs/reviews-io/', '/vs/stamped/', '/vs/okendo/', '/vs/loox/', '/vs/skeepers/', '/vs/google-reviews/', '/vs/yelp/', '/vs/clutch/', '/learn/what-does-verified-buyer-mean/', '/learn/how-fake-reviews-work/', '/learn/ftc-fake-reviews-rules/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/', ...blogPosts.map(p => p.slug)];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
@@ -3502,6 +3545,7 @@ buildComparisonLoox();
 buildComparisonSkeepers();
 buildComparisonGoogleReviews();
 buildComparisonYelp();
+buildComparisonClutch();
 buildLearn();
 buildLearnFakeReviewsWork();
 buildLearnFtcRules();
