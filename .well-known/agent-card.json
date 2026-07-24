@@ -17,6 +17,14 @@
       "description": "Text-based interaction via llms.txt and Markdown for Agents content negotiation"
     }
   ],
+  "supportedProtocols": [
+    {
+      "id": "ap2",
+      "name": "Agent Payments Protocol v2",
+      "available": false,
+      "description": "AP2 is not currently implemented. Signed Reviews does not process payments - merchants use their own Stripe accounts."
+    }
+  ],
   "alternatives": {
     "llms": "https://signedreviews.com/llms.txt",
     "agentSkills": "https://signedreviews.com/.well-known/agent-skills/index.json"
