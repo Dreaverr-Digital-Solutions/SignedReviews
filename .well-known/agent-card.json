@@ -13,6 +13,7 @@
   "supportedInterfaces": [
     {
       "type": "text",
+      "url": "https://signedreviews.com/llms.txt",
       "description": "Text-based interaction via llms.txt and Markdown for Agents content negotiation"
     }
   ],
