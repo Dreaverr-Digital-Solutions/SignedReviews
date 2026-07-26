@@ -6,9 +6,11 @@
 
 Online reviews are broken. In 2022 alone, Trustpilot removed 2.7 million fake reviews from its platform. Amazon battles an endless flood of paid and incentivized reviews. Yelp's recommendation software struggles to separate genuine experiences from noise. The fundamental problem: **anyone can write a review, whether they purchased the product or not.**
 
+What is a verified review? It's a review tied to proof of a real purchase — independently confirmed, not self-attested. Here's how verification works and why it's the only structural fix for fake reviews.
+
 A **verified review** solves this by tying each review to proof of purchase. It's the difference between "someone on the internet said this" and "a real customer who actually paid for this product said this."
 
-## What makes a review "verified"?
+## What is a verified review, and what makes it "verified"?
 
 A verified review connects three things that most review platforms keep separate:
 
