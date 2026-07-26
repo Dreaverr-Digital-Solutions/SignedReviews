@@ -6,7 +6,7 @@
 
 AI-generated text has made fake reviews harder to spot than ever. A 2024 Fakespot study found that AI-written reviews are **virtually indistinguishable from human-written ones** in blind testing. The old tells — broken English, repetitive phrasing, generic praise — no longer work when each AI-generated review is grammatically perfect and stylistically unique.
 
-But you can still spot unreliable reviews. You just need to look at different signals. Here's how.
+But you can still learn how to spot fake reviews. You just need to look at different signals. Here's how to do it.
 
 ## The signals that still work
 
@@ -59,13 +59,13 @@ AI-generated reviews have gotten very good, but they still have subtle tells:
 
 If you're a business evaluating a competitor's reviews: products with unusually high review counts relative to their market position, coupled with unusually high average ratings, often have manufactured review profiles. The economics of fake reviews make this pattern easy to produce and hard to hide.
 
-## For businesses: how to show your reviews are real
+## For businesses: how to spot fake reviews and show yours are real
 
 Consumers are getting more skeptical. The best defense is transparency:
 
 ### Show your verification chain
 
-Don't just say "verified." Show the chain: purchase → payment processor confirmation → invitation → review → cryptographic signature. The more links in the chain the consumer can verify independently, the more trustworthy each review becomes.
+Don't just say "verified." Show the chain: purchase → payment processor confirmation → invitation → review → cryptographic signature. The more links in the chain the consumer can verify independently, the more trustworthy each review becomes. See [how Signed Reviews works](/how-it-works/) for an example of full-chain verification.
 
 ### Publish your review policy
 
