@@ -109,31 +109,39 @@ Every fake-review method exploits the same vulnerability: the platform doesn't i
 - [What "Verified Buyer" Means](https://signedreviews.com/learn/what-does-verified-buyer-mean/)
 `,
 
-  '/auth.md': `# Auth.md — Signed Reviews Authentication
+  '/auth.md': `# Auth.md — Signed Reviews Agent Registration & Authentication
 
-## Authentication Methods
+## Agent Registration
 
-Signed Reviews uses two authentication models:
+AI agents and automated clients can access Signed Reviews content through the following channels:
 
-### 1. User Authentication (Dashboard)
+### Unauthenticated Access (Agents & Bots)
+- **llms.txt** — Machine-readable site map at [/llms.txt](https://signedreviews.com/llms.txt)
+- **Markdown for Agents** — Content negotiation via \\\`Accept: text/markdown\\\` header
+- **Agent Skills** — Structured skill definitions at [/.well-known/agent-skills/index.json](https://signedreviews.com/.well-known/agent-skills/index.json)
+- **API Catalog** — Available APIs at [/.well-known/api-catalog](https://signedreviews.com/.well-known/api-catalog)
+- **MCP Server Card** — Model Context Protocol at [/.well-known/mcp/server-card.json](https://signedreviews.com/.well-known/mcp/server-card.json)
+- **WebMCP** — Browser-based tool registration via \\\`navigator.modelContext.registerTool()\\\`
+
+### Authenticated API Access
+- **Publishable Key** — Bearer token (\\\`pk_...\\\`) for public read-only API access
+- **OAuth 2.0** — Authorization server metadata at [/.well-known/oauth-authorization-server](https://signedreviews.com/.well-known/oauth-authorization-server)
+- **OAuth Protected Resource** — Resource metadata at [/.well-known/oauth-protected-resource](https://signedreviews.com/.well-known/oauth-protected-resource)
+
+## Human Authentication
 - **Social OAuth** — Google, GitHub, LinkedIn, Microsoft
 - **Email Magic Link** — Passwordless sign-in via email
 - **Session** — HTTP-only cookies with short-lived JWT
 
-### 2. API Authentication (Public API)
-- **Publishable Key** — Bearer token (\\\`pk_...\\\`) for public read-only access
-- **CORS** — Open to registered origins
-- **Rate Limiting** — Applied per publishable key
-
-### 3. Stripe App Authentication
+## Stripe App Authentication
 - **Stripe App OAuth** — Read-only Stripe Connect authorization
 - **Scopes** — Read transactions, customers, and charges
 - **No Write Access** — The platform never initiates charges or modifies Stripe data
 
-## Security Notes
-- All connections use TLS 1.3
-- Cryptographic signing of reviews ensures tamper-evidence
-- Publishable keys are designed for public exposure (read-only)
+## Security
+- TLS 1.3 for all connections
+- Cryptographic signing of reviews for tamper-evidence
+- Publishable keys designed for public exposure (read-only)
 
 ## Links
 - [API Documentation](https://signedreviews.com/api/)
