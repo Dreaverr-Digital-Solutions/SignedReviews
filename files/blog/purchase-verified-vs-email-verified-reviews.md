@@ -1,12 +1,12 @@
-# Payment Verified Reviews vs Purchase Verification: What's the Real Difference?
+# Proof of Purchase Reviews vs Email-Verified Reviews: What's the Real Difference?
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Payment verified reviews are independently confirmed by a payment processor like Stripe — here's how they differ from purchase-verified and email-verified reviews, why it matters for trust, and how to tell which kind you're reading.**
+**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Proof of purchase reviews are structurally harder to fake than email-verified ones — here's what each actually means and how to tell which kind you're looking at.**
 
 ---
 
-Two reviews. Both say "Verified." One means the platform confirmed the reviewer's email address exists. The other means an independent payment processor confirmed the reviewer actually paid for the product — these are **payment verified reviews**, and they're structurally impossible to fake. They're not the same thing — but most review platforms use language that blurs the distinction.
+Two reviews. Both say "Verified." One means the platform confirmed the reviewer's email address exists. The other means an independent payment processor confirmed the reviewer actually paid for the product — these are **proof of purchase reviews**, and they're structurally impossible to fake. They're not the same thing — but most review platforms use language that blurs the distinction.
 
-Here's what each actually means, why payment verified reviews are structurally harder to fake than purchase-verified ones, and how to tell which kind you're looking at.
+Here's what each actually means, why proof of purchase reviews are structurally harder to fake than email-verified ones, and how to tell which kind you're looking at.
 
 ---
 
@@ -27,7 +27,7 @@ Here's what each actually means, why payment verified reviews are structurally h
 
 ---
 
-## Purchase-verified reviews (and payment verified reviews)
+## Proof of purchase reviews (processor-attested verification)
 
 **What it checks:** That a purchase actually occurred — but **who confirms it** is the critical variable.
 
@@ -44,9 +44,9 @@ The review platform checks the reviewer against **the merchant's own order or cu
 
 **The gap:** The merchant controls the data being verified against. A merchant could create a test order in their own store, write a review against it, and the platform would mark it "Verified Buyer." Most merchants don't do this — but the system doesn't prevent it. The trust root is the merchant's data, and the merchant controls that data.
 
-### Level 4: Processor-attested purchase verification (payment verified reviews)
+### Level 4: Processor-attested proof of purchase reviews
 
-This is what **payment verified reviews** actually means at its strongest: the review platform checks the reviewer against **the payment processor's independent records** — not the merchant's store data.
+This is what **proof of purchase reviews** actually means at its strongest: the review platform checks the reviewer against **the payment processor's independent records** — not the merchant's store data.
 
 **How it works:**
 - The platform connects to the business's Stripe account via OAuth (read-only)
@@ -95,7 +95,7 @@ When you see a "Verified" badge on a review, ask three questions:
 
 ## The bottom line
 
-"Verified" is a magic word in e-commerce — it increases trust, improves conversion, and signals credibility. But the word is doing too much work. It can mean "has an email address," "matched a merchant's order record," or "independently confirmed by a payment processor" — and consumers can't easily tell which.
+"Verified" is a magic word in e-commerce — it increases trust, improves conversion, and signals credibility. But the word is doing too much work. It can mean "has an email address," "matched a merchant's order record," or "independently confirmed by a payment processor." Proof of purchase reviews sit at the top of this hierarchy — and consumers can't easily tell which kind they're looking at.
 
 As a business, the verification level you choose is a strategic decision about what kind of trust you want to build with your customers. Email-verified says "we made it slightly harder to spam." Purchase-verified (merchant-supplied) says "we checked our own records." Processor-attested says **"an independent party verified this — and we can't fake it."**
 
