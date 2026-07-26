@@ -4,11 +4,9 @@
 
 ---
 
-Every review platform has a "verified" badge. But almost none of them verify against the one thing that actually proves a purchase happened: **the payment processor.**
+Stripe verified reviews are independently attested by a payment processor — not by merchant-supplied data. Each review is cryptographically tied to a completed, non-refunded Stripe charge.
 
-Stripe verified reviews close that gap. Each review is cryptographically tied to a completed Stripe charge — confirmed independently by Stripe, not by data the merchant supplies. No purchase, no review. No refund, no display. It's the difference between "the merchant says this person bought" and "Stripe confirms this person paid."
-
-This post explains what Stripe verified reviews are, how they work, why they're fundamentally different from every other "verified" badge on the market, and how to start collecting them for your business.
+Here's how Stripe verified reviews work, why they're fundamentally different from every other "verified" badge, and how to start collecting them for your business.
 
 ## What is a Stripe verified review?
 
@@ -24,7 +22,7 @@ When all three align — the reviewer is the payer, the payment is independently
 
 The flow is automated from end to end. You connect once; Signed Reviews handles the rest.
 
-1. **Connect your Stripe account.** One-click OAuth. The connection is read-only — Signed Reviews can verify charges but can never charge, refund, or modify anything in your Stripe account.
+1. **Connect your Stripe account.** One-click OAuth. The connection is read-only — Signed Reviews can verify charges but can never charge, refund, or modify anything in your Stripe account. See [how it works](/how-it-works/) for the full technical flow.
 2. **A customer completes a purchase.** Stripe processes the payment as usual. Signed Reviews detects the `charge.succeeded` webhook and automatically creates a unique, expiring review invitation linked to that specific transaction.
 3. **The invitation is sent.** The email goes to the customer's verified payment email from the Stripe transaction. You control the timing — immediately, after a delay for shipped products, or triggered by your delivery webhook.
 4. **The customer writes their review.** They click the unique link, write their review, and submit. At the moment of submission, the review content, transaction ID, customer email, and timestamp are cryptographically signed — creating a tamper-evident record.
@@ -119,7 +117,7 @@ If you're on Stripe, you're eligible. The integration takes one click.
 
 ## How to start collecting Stripe verified reviews
 
-1. **Sign up** at [platform.signedreviews.com](https://platform.signedreviews.com). Free plan available — no credit card required.
+1. **Sign up** at [platform.signedreviews.com](https://platform.signedreviews.com). Free plan available — no credit card required. See [pricing](/pricing/) for plan details.
 2. **Connect your Stripe account.** One-click OAuth. Read-only permissions. Takes 30 seconds.
 3. **Configure your timing.** Choose when invitations go out: immediately after purchase, after a delay (for shipped products), or on your delivery webhook.
 4. **Customize your branding.** Add your logo, brand colors, and email sender name.
