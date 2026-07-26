@@ -4,7 +4,9 @@
 
 ---
 
-Every business collecting reviews faces the same question: how do you know the person writing a review actually bought something? The answer depends on your tech stack, your payment processor, and how much certainty you want. Here are the four methods, ranked from weakest to strongest.
+Every business collecting reviews faces the same question: how to verify a customer actually bought something. The answer depends on your tech stack, your payment processor, and how much certainty you want.
+
+How to verify a customer actually bought: four methods ranked by how hard each is to fake, from email confirmation to processor attestation.
 
 ---
 
@@ -85,7 +87,7 @@ The economics of faking reviews at Level 4 are terrible: every fake review costs
 
 ---
 
-## Comparison at a glance
+## How to verify a customer actually bought: comparison at a glance
 
 | Method | Verification level | Who attests | Fake difficulty | Stripe-native |
 |--------|-------------------|-------------|-----------------|---------------|
