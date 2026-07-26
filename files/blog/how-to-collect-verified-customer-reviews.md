@@ -4,7 +4,9 @@
 
 ---
 
-Collecting verified customer reviews doesn't require technical expertise, a marketing team, or a large budget. If you process payments through Stripe, you can automate the entire process in about five minutes. Here's how.
+Learn how to collect verified customer reviews automatically using Stripe — a practical step-by-step guide covering setup, timing, and best practices.
+
+Learning how to collect verified customer reviews doesn't require technical expertise or a large budget. If you process payments through Stripe, you can automate the entire process in minutes.
 
 ## Step 1: Connect your Stripe account
 
