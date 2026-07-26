@@ -1,0 +1,8 @@
+{
+  "x402": {
+    "version": "0.0.0",
+    "available": false,
+    "description": "Signed Reviews does not implement the x402 payment protocol. The platform's public API is free to use. Paid plans are for dashboard access (Stripe-hosted checkout), not per-API-call billing.",
+    "paymentProcessor": "Stripe (merchant's own account for review verification)"
+  }
+}

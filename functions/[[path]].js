@@ -109,6 +109,38 @@ Every fake-review method exploits the same vulnerability: the platform doesn't i
 - [What "Verified Buyer" Means](https://signedreviews.com/learn/what-does-verified-buyer-mean/)
 `,
 
+  '/auth.md': `# Auth.md — Signed Reviews Authentication
+
+## Authentication Methods
+
+Signed Reviews uses two authentication models:
+
+### 1. User Authentication (Dashboard)
+- **Social OAuth** — Google, GitHub, LinkedIn, Microsoft
+- **Email Magic Link** — Passwordless sign-in via email
+- **Session** — HTTP-only cookies with short-lived JWT
+
+### 2. API Authentication (Public API)
+- **Publishable Key** — Bearer token (\\\`pk_...\\\`) for public read-only access
+- **CORS** — Open to registered origins
+- **Rate Limiting** — Applied per publishable key
+
+### 3. Stripe App Authentication
+- **Stripe App OAuth** — Read-only Stripe Connect authorization
+- **Scopes** — Read transactions, customers, and charges
+- **No Write Access** — The platform never initiates charges or modifies Stripe data
+
+## Security Notes
+- All connections use TLS 1.3
+- Cryptographic signing of reviews ensures tamper-evidence
+- Publishable keys are designed for public exposure (read-only)
+
+## Links
+- [API Documentation](https://signedreviews.com/api/)
+- [Trust & Security](https://signedreviews.com/trust/)
+- [Platform Login](https://platform.signedreviews.com)
+`,
+
   '/learn/ftc-fake-reviews-rules/': `# FTC Fake Review Rules (2024) — 16 CFR Part 465
 
 ## Timeline

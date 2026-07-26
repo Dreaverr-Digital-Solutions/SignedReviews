@@ -24,6 +24,7 @@
       "get": {
         "summary": "Get business profile",
         "description": "Returns public business profile including aggregate rating, review count, and public metadata.",
+        "x-payment-info": { "type": "free", "description": "No charge — public API accessible with publishable key" },
         "parameters": [
           {
             "name": "slug",
@@ -43,6 +44,7 @@
       "get": {
         "summary": "List verified reviews",
         "description": "Returns paginated list of verified reviews for a business. All reviews are processor-attested (Level 4).",
+        "x-payment-info": { "type": "free", "description": "No charge — public API accessible with publishable key" },
         "parameters": [
           {
             "name": "slug",
