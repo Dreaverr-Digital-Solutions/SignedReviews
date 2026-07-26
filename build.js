@@ -48,7 +48,7 @@ const B = BASE_PATH; // shorthand
 // settings — the client flags alone do not start replay.
 // Publishable PostHog project token (client-side key — safe in static HTML).
 // Override per-build with POSTHOG_KEY=... if ever needed.
-const POSTHOG_KEY = process.env.POSTHOG_KEY || 'phc_mTGzatRy8CDWz3YnSAgAukvT2QRdR9yd72URWw26UWh2';
+const POSTHOG_KEY = process.env.POSTHOG_KEY || 'phc_oks4oQLhwDpmgqTdiwx7tjJ3FZrZPZjDWtsYtvbXG9tu';
 const POSTHOG_HOST = process.env.POSTHOG_HOST || 'https://us.i.posthog.com';
 const POSTHOG_SNIPPET = POSTHOG_KEY
   ? `
