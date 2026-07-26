@@ -340,7 +340,7 @@ main { padding: 0; }
   padding: clamp(1.5rem, 3vw, 3rem);
   max-width: var(--max-prose);
   width: 100%;
-  margin: 0;
+  margin: 0 auto;
 }
 .prose h1 { display: none; } /* page hero already shows the h1 */
 .prose h2, .prose h3, .prose h4 {
