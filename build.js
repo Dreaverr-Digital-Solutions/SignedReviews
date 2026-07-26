@@ -35,7 +35,7 @@ const B = BASE_PATH; // shorthand
 // Injected into every page (home + generated) when POSTHOG_KEY is set at build
 // time. Leave unset to ship the site with no analytics (the snippet is omitted
 // entirely). The key is a publishable client key — safe in static HTML.
-//   POSTHOG_KEY=phc_xxx POSTHOG_HOST=https://us.i.posthog.com npm run build
+//   POSTHOG_KEY=phc_xxx POSTHOG_HOST=https://signedreviews.com/ph npm run build
 // person_profiles:'identified_only' → anonymous visitors are measured for
 // funnels but no person profile is created until they sign up (and the dashboard
 // calls identify()). Session replay uses maskAllInputs (form fields —
@@ -49,7 +49,7 @@ const B = BASE_PATH; // shorthand
 // Publishable PostHog project token (client-side key — safe in static HTML).
 // Override per-build with POSTHOG_KEY=... if ever needed.
 const POSTHOG_KEY = process.env.POSTHOG_KEY || 'phc_oks4oQLhwDpmgqTdiwx7tjJ3FZrZPZjDWtsYtvbXG9tu';
-const POSTHOG_HOST = process.env.POSTHOG_HOST || 'https://us.i.posthog.com';
+const POSTHOG_HOST = process.env.POSTHOG_HOST || 'https://signedreviews.com/ph';
 const POSTHOG_SNIPPET = POSTHOG_KEY
   ? `
   <script>
@@ -568,7 +568,7 @@ const SHARED_HEAD = ({ title, description, canonical, pageType = 'website' }) =>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://us.i.posthog.com">
+  <link rel="preconnect" href="https://signedreviews.com/ph">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
   <link rel="preload" href="https://fonts.gstatic.com/s/instrumentserif/v18/jiz2RFNlSmViCztYvS2ZTOdC0D5n.woff2" as="font" type="font/woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">

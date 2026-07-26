@@ -1,0 +1,8 @@
+{
+  "name": "analytics-proxy",
+  "compatibility_date": "2026-05-04",
+  "main": "./analytics-proxy.js",
+  "routes": [
+    { "pattern": "signedreviews.com/ph/*", "zone_name": "signedreviews.com" }
+  ]
+}
