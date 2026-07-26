@@ -8,6 +8,8 @@ Search for "best review platform for SaaS" and you'll get G2, Capterra, and Trus
 
 If you're a SaaS company processing payments through Stripe, you have access to verification that no other business model can match — recurring subscription charges that independently confirm your customers are real, active, and paying. This guide ranks the platforms that do (and don't) take advantage of that.
 
+The best review platform for saas is one that verifies against independent payment data — not merchant-supplied records. Here's our 2026 ranking of the top six options.
+
 ## How we score
 
 Each platform is scored on five dimensions:
@@ -20,7 +22,7 @@ Each platform is scored on five dimensions:
 | **Pricing for SaaS** | Transparent pricing at SaaS-relevant volumes |
 | **API & embeddability** | Can you embed reviews on your own marketing site and in-app? |
 
-## The rankings
+## The best review platform for saas: our rankings
 
 ### 1. Signed Reviews — Best for Stripe-native SaaS
 
