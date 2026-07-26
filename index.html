@@ -26,8 +26,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <!-- Preload LCP font (Instrument Serif used in hero headlines) -->
-  <link rel="preload" href="https://fonts.gstatic.com/s/instrumentserif/v18/jiz2RFNlSmViCztYvS2ZTOdC0D5n.woff2" as="font" type="font/woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -35,15 +33,20 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Signed Reviews",
+    "legalName": "Paid Rightly LLC",
     "url": "https://signedreviews.com",
     "logo": "https://signedreviews.com/images/SignedReviews_logo_only.png",
-    "description": "Purchase-verified customer reviews platform that cryptographically links each review to a completed Stripe transaction.",
+    "description": "Transaction-verified customer reviews platform that cryptographically links each review to a completed Stripe transaction.",
+    "email": "support@signedreviews.com",
     "foundingDate": "2025",
-    "sameAs": [
-      "https://twitter.com/signedreviews",
-      "https://linkedin.com/company/signedreviews",
-      "https://github.com/signedreviews"
-    ]
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1209 Mountain Road Pl NE, Ste N",
+      "addressLocality": "Albuquerque",
+      "addressRegion": "NM",
+      "postalCode": "87110",
+      "addressCountry": "US"
+    }
   }
   </script>
   <script type="application/ld+json">
@@ -59,7 +62,7 @@
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD",
-      "description": "Free during beta. No credit card required."
+      "description": "Free plan for self-service. Paid plans from $29/mo."
     }
   }
   </script>
@@ -69,14 +72,7 @@
     "@type": "WebSite",
     "name": "Signed Reviews",
     "url": "https://signedreviews.com",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://signedreviews.com/search?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
-    }
+    "publisher": { "@type": "Organization", "name": "Signed Reviews" }
   }
   </script>
   <link rel="stylesheet" href="/output.css">
@@ -136,8 +132,9 @@
       will-change: background-position;
     }
 
-    /* Navy gradient for dark sections */
-    .navy-bg { background: linear-gradient(160deg, #0c1320 0%, #141e30 45%, #1c2840 100%); }
+    /* Navy gradient — light by default, dark on .dark */
+    .navy-bg { background: linear-gradient(160deg, #eef1f8 0%, #dce6f0 45%, #b9cedf 100%); }
+    .dark .navy-bg { background: linear-gradient(160deg, #0c1320 0%, #141e30 45%, #1c2840 100%); }
 
     /* Gold CTA button */
     .btn-gold {
@@ -167,10 +164,10 @@
                              box-shadow var(--dur-fast) var(--ease-inout); }
     .card-lift:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(43,59,96,.12); }
 
-    /* Subtle hero bg */
+    /* Hero */
     .hero-bg {
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(135,162,196,.18) 0%, transparent 70%),
-                  linear-gradient(180deg, #f0f4f9 0%, #eef1f8 100%);
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(179,157,69,.12) 0%, transparent 70%),
+                  linear-gradient(180deg, #faf8ee 0%, #f0f4f9 100%);
     }
     .dark .hero-bg { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(43,59,96,.35) 0%, transparent 70%), #0c1320; }
 
@@ -220,9 +217,11 @@
     #heroParticles { position: absolute; inset: 0; z-index: 0; pointer-events: none; width: 100%; height: 100%; }
 
     /* ── Hero treatment: diagonal gold stripes + periodic light sweep ── */
-    .hero-stripes { position: absolute; inset: 0; z-index: 0; pointer-events: none; background-color: #0a0f1a;
-      background-image: repeating-linear-gradient(45deg, rgba(212,196,102,.06) 0 2px, transparent 2px 16px);
+    .hero-stripes { position: absolute; inset: 0; z-index: 0; pointer-events: none; background-color: #faf8ee;
+      background-image: repeating-linear-gradient(45deg, rgba(179,157,69,.10) 0 2px, transparent 2px 16px);
       animation: heroStripes 40s linear infinite; }
+    .dark .hero-stripes { background-color: #0a0f1a;
+      background-image: repeating-linear-gradient(45deg, rgba(212,196,102,.06) 0 2px, transparent 2px 16px); }
     @keyframes heroStripes { to { background-position: 160px 0; } }
     .hero-sweep { position: absolute; top: -10%; left: -35%; width: 35%; height: 120%; z-index: 0; pointer-events: none;
       background: linear-gradient(100deg, transparent, rgba(212,196,102,.16), transparent);
@@ -386,9 +385,9 @@
       text-transform: uppercase;
       padding: 3px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(179,157,69,0.30);
-      color: #b39d45;
-      background: rgba(179,157,69,0.06);
+      border: 1px solid rgba(30,58,95,0.20);
+      color: #1e3a5f;
+      background: rgba(30,58,95,0.05);
       white-space: nowrap;
     }
     .dark .trust-pill {
@@ -537,10 +536,14 @@
       0%,100% { transform: scale(1);   opacity: 0.20; }
       50%      { transform: scale(1.18); opacity: 0.06; }
     }
+    /* CTA — rich light gradient, deep navy in dark mode */
     .cta-gradient-mesh {
-      background: linear-gradient(-45deg, #0c1320 0%, #141e30 25%, #1c2840 50%, #2b3b60 75%, #0c1320 100%);
+      background: linear-gradient(-45deg, #faf8ee 0%, #f2edcc 25%, #faf8ee 50%, #f0f4f9 75%, #faf8ee 100%);
       background-size: 400% 400%;
       animation: gradientShift 14s ease infinite;
+    }
+    .dark .cta-gradient-mesh {
+      background: linear-gradient(-45deg, #0c1320 0%, #141e30 25%, #1c2840 50%, #2b3b60 75%, #0c1320 100%);
     }
     .cta-ring {
       position: absolute;
@@ -714,8 +717,8 @@
           <svg class="w-5 h-5 hidden dark:block text-navy-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
           <svg class="w-5 h-5 dark:hidden text-navy-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
         </button>
-        <a href="https://platform.signedreviews.com" rel="noopener" class="hidden md:inline-flex px-3 py-2 text-sm font-semibold text-navy-700 dark:text-navy-100 hover:text-navy-900 dark:hover:text-white rounded-lg hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Log in</a>
-        <a href="https://platform.signedreviews.com" rel="noopener" class="px-3 sm:px-4 py-2 btn-gold btn-ripple text-white rounded-xl text-sm font-semibold whitespace-nowrap">Sign up</a>
+        <a href="https://platform.signedreviews.com" rel="noopener" data-cta="nav-login" class="hidden md:inline-flex px-3 py-2 text-sm font-semibold text-navy-700 dark:text-navy-100 hover:text-navy-900 dark:hover:text-white rounded-lg hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Log in</a>
+        <a href="https://platform.signedreviews.com" rel="noopener" data-cta="nav-signup" class="px-3 sm:px-4 py-2 btn-gold btn-ripple text-white rounded-xl text-sm font-semibold whitespace-nowrap">Sign up</a>
         <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 rounded-lg flex items-center justify-center text-navy-700 dark:text-navy-100 hover:bg-navy-50 dark:hover:bg-white/5 transition-colors" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" id="mobileMenuBtn">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
         </button>
@@ -727,14 +730,14 @@
         <li><a href="/pricing/" class="block px-3 py-3 rounded-lg text-base font-medium text-navy-700 dark:text-navy-100 hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Pricing</a></li>
         <li><a href="/about/" class="block px-3 py-3 rounded-lg text-base font-medium text-navy-700 dark:text-navy-100 hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">About</a></li>
         <li><a href="/contact/" class="block px-3 py-3 rounded-lg text-base font-medium text-navy-700 dark:text-navy-100 hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Contact</a></li>
-        <li><a href="https://platform.signedreviews.com" rel="noopener" class="block px-3 py-3 rounded-lg text-base font-semibold text-navy-700 dark:text-navy-100 hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Log in</a></li>
+        <li><a href="https://platform.signedreviews.com" rel="noopener" data-cta="mobile-login" class="block px-3 py-3 rounded-lg text-base font-semibold text-navy-700 dark:text-navy-100 hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Log in</a></li>
       </ul>
     </div>
   </nav>
 
   <main id="main">
   <!-- ─── HERO ─────────────────────────────────────────────── -->
-  <section class="relative hero-section hero-bg dark pt-36 pb-36 px-5 overflow-hidden grain">
+  <section data-track="hero" class="relative hero-section hero-bg pt-36 pb-36 px-5 overflow-hidden grain">
     <!-- Hero treatment: diagonal gold stripes + periodic light sweep -->
     <div class="hero-stripes"></div>
     <div class="hero-sweep"></div>
@@ -743,21 +746,21 @@
       <!-- Pill badge -->
       <div class="fade-up inline-flex items-center gap-2 mb-7 font-mono text-gold-500 text-xs font-semibold uppercase" style="letter-spacing:.22em;">
         <span class="w-1.5 h-1.5 rounded-full bg-gold-500 pulse-dot"></span>
-        Purchase-verified reviews
+        Transaction-verified reviews
       </div>
 
       <h1 class="fade-up delay-1 hero-headline font-serif font-normal text-navy-900 dark:text-white mb-6">
         You earned those reviews.<br><em class="gold-shimmer">Now prove it.</em>
       </h1>
 
-      <p class="fade-up delay-2 text-lg sm:text-xl text-navy-400 dark:text-navy-300 max-w-xl mx-auto mb-10 leading-relaxed">
+      <p class="fade-up delay-2 text-lg sm:text-xl text-navy-500 dark:text-navy-300 max-w-xl mx-auto mb-10 leading-relaxed">
         Every review backed by a real Stripe charge.
       </p>
 
       <div class="fade-up delay-3">
         <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
-          <a href="https://platform.signedreviews.com" rel="noopener" id="heroBtn" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
-          <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-700 dark:text-navy-100 border border-navy-200 dark:border-navy-600 hover:border-navy-400 dark:hover:border-navy-400 hover:bg-white/60 dark:hover:bg-white/5 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
+          <a href="https://platform.signedreviews.com" rel="noopener" id="heroBtn" data-cta="hero-signup" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
+          <a href="https://platform.signedreviews.com" rel="noopener" data-cta="hero-login" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-600 dark:text-navy-100 border border-navy-300 dark:border-navy-600 hover:border-navy-400 dark:hover:border-navy-400 hover:bg-white/40 dark:hover:bg-white/5 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
         </div>
         <!-- Trust pills -->
         <div class="flex flex-wrap justify-center gap-2 mt-3 mb-1">
@@ -765,17 +768,17 @@
           <span class="trust-pill">🔒 Cryptographically signed</span>
           <span class="trust-pill">GDPR compliant</span>
         </div>
-        <p class="text-xs text-navy-400 dark:text-navy-300 mt-2">Free during beta · No credit card required · Works with any Stripe-powered business</p>
+        <p class="text-xs text-navy-500 dark:text-navy-300 mt-2">Free plan · Paid plans from $29/mo · Connects even alongside Shopify & Squarespace</p>
       </div>
     </div>
 
         </section>
 
   <!-- ─── STATS BAR ─────────────────────────────────────────── -->
-  <section id="statsBar" class="border-y border-navy-100 dark:border-navy-800 bg-white dark:bg-navy-800 transition-colors">
+  <section id="statsBar" data-track="stats" class="border-y border-navy-100 dark:border-navy-800 bg-white dark:bg-navy-800 transition-colors">
     <div class="max-w-5xl mx-auto px-5 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
       <div>
-        <div class="font-serif text-4xl text-navy-500 dark:text-navy-200" data-counter="93" data-suffix="%">93%</div>
+        <div class="font-serif text-4xl text-navy-500 dark:text-navy-200" data-counter="98" data-suffix="%">98%</div>
         <div class="text-xs text-navy-400 mt-1.5 leading-snug">of consumers read reviews<br>before buying<br><span class="opacity-60">BrightLocal, 2023</span></div>
       </div>
       <div>
@@ -787,51 +790,52 @@
         <div class="text-xs text-navy-400 mt-1.5 leading-snug">fake reviews removed<br>by Trustpilot in 2022<br><span class="opacity-60">Trustpilot Transparency Report</span></div>
       </div>
       <div>
-        <div class="font-serif text-4xl text-gold-500" data-counter="350" data-prefix="$">$350</div>
-        <div class="text-xs text-navy-400 mt-1.5 leading-snug">per month for<br>Trustpilot's Standard plan<br><span class="opacity-60">trustpilot.com/pricing</span></div>
+        <div class="font-serif text-4xl text-gold-500" data-counter="319" data-prefix="$">$319</div>
+        <div class="text-xs text-navy-400 mt-1.5 leading-snug">per month for<br>Trustpilot's Plus plan<br><span class="opacity-60">trustpilot.com/pricing</span></div>
       </div>
     </div>
   </section>
 
   <!-- ─── PROBLEM ───────────────────────────────────────────── -->
-  <section class="relative py-24 px-5 navy-bg text-white grain overflow-hidden">
-    <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-gold-500/5 blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-steel-300/5 blur-3xl pointer-events-none"></div>
+  <section class="relative py-28 px-5 navy-bg grain overflow-hidden transition-colors">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-gold-500/[0.04] dark:bg-gold-500/[0.06] blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-steel-300/[0.04] blur-3xl pointer-events-none"></div>
 
-    <div class="relative z-10 max-w-4xl mx-auto text-center">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-navy-300 text-sm font-semibold mb-6">
+    <div class="relative z-10 max-w-5xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-6 border border-navy-200/50 dark:border-white/10 bg-white/60 dark:bg-white/[0.04] text-navy-600 dark:text-gold-300">
         The problem
       </div>
-      <h2 class="font-serif text-4xl sm:text-5xl font-normal mb-5 leading-tight">Online reviews are broken.</h2>
-      <p class="text-navy-300 text-lg mb-14 max-w-xl mx-auto leading-relaxed">Anyone can write a review. Anywhere. Without ever buying anything. Your customers know it — and they've stopped trusting reviews altogether.</p>
+      <h2 class="font-serif text-4xl sm:text-5xl font-normal mb-5 leading-tight text-navy-900 dark:text-white">Online reviews are broken.</h2>
+      <p class="text-navy-500 dark:text-navy-300 text-lg max-w-2xl mx-auto mb-16 leading-relaxed">Anyone can write a review. Anywhere. Without ever buying anything. Your customers know it — and they've stopped trusting reviews altogether.</p>
       <div class="grid sm:grid-cols-2 gap-5 text-left">
-        <div class="p-6 rounded-2xl bg-white/[.03] border border-white/[.07] hover:bg-white/[.06] transition-colors card-lift">
-          <div class="w-10 h-10 rounded-xl bg-gold-500/15 border border-gold-500/20 flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.27 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+        <div class="group p-6 rounded-2xl bg-white dark:bg-white/[0.04] border border-navy-100 dark:border-white/[0.08] hover:border-navy-300 dark:hover:border-white/[0.15] hover:shadow-lg dark:hover:shadow-none dark:hover:bg-white/[0.07] transition-all card-lift">
+          <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-4 group-hover:bg-gold-500/15 transition-colors">
+            <svg class="w-5 h-5 text-gold-600 dark:text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.27 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
           </div>
-          <h3 class="font-semibold text-base mb-2">Fake Reviews Are Everywhere</h3>
-          <p class="text-navy-300 text-sm leading-relaxed">Trustpilot removed 4.5 million fake reviews in 2024 alone. Competitors game the system — and honest businesses pay the price.</p>
+          <h3 class="font-semibold text-base mb-2 text-navy-900 dark:text-white">Fake Reviews Are Everywhere</h3>
+          <p class="text-navy-500 dark:text-navy-300 text-sm leading-relaxed">Trustpilot removed 4.5 million fake reviews in 2024 alone. Competitors game the system — and honest businesses pay the price.</p>
         </div>
-        <div class="p-6 rounded-2xl bg-white/[.03] border border-white/[.07] hover:bg-white/[.06] transition-colors card-lift">
-          <div class="w-10 h-10 rounded-xl bg-gold-500/15 border border-gold-500/20 flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="group p-6 rounded-2xl bg-white dark:bg-white/[0.04] border border-navy-100 dark:border-white/[0.08] hover:border-navy-300 dark:hover:border-white/[0.15] hover:shadow-lg dark:hover:shadow-none dark:hover:bg-white/[0.07] transition-all card-lift">
+          <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-4 group-hover:bg-gold-500/15 transition-colors">
+            <svg class="w-5 h-5 text-gold-600 dark:text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <h3 class="font-semibold text-base mb-2">Platforms Hold Your Reviews Hostage</h3>
-          <p class="text-navy-300 text-sm leading-relaxed">Trustpilot starts at $259/mo. Cancel your subscription and watch your hard-earned positive reviews mysteriously disappear.</p>
+          <h3 class="font-semibold text-base mb-2 text-navy-900 dark:text-white">Platforms Hold Your Reviews Hostage</h3>
+          <p class="text-navy-500 dark:text-navy-300 text-sm leading-relaxed">Trustpilot's paid plans start at $99/mo and climb past $799/mo. Cancel your subscription and watch your hard-earned positive reviews mysteriously disappear.</p>
         </div>
-        <div class="p-6 rounded-2xl bg-white/[.03] border border-white/[.07] hover:bg-white/[.06] transition-colors card-lift">
-          <div class="w-10 h-10 rounded-xl bg-gold-500/15 border border-gold-500/20 flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="group p-6 rounded-2xl bg-white dark:bg-white/[0.04] border border-navy-100 dark:border-white/[0.08] hover:border-navy-300 dark:hover:border-white/[0.15] hover:shadow-lg dark:hover:shadow-none dark:hover:bg-white/[0.07] transition-all card-lift">
+          <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-4 group-hover:bg-gold-500/15 transition-colors">
+            <svg class="w-5 h-5 text-gold-600 dark:text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <h3 class="font-semibold text-base mb-2">Customers Don't Trust What They Can't Verify</h3>
-          <p class="text-navy-300 text-sm leading-relaxed">Even genuine reviews look fake when there's no proof. Buyers are skeptical by default — and that skepticism is killing your conversion rate.</p>
+          <h3 class="font-semibold text-base mb-2 text-navy-900 dark:text-white">Customers Don't Trust What They Can't Verify</h3>
+          <p class="text-navy-500 dark:text-navy-300 text-sm leading-relaxed">Even genuine reviews look fake when there's no proof. Buyers are skeptical by default — and that skepticism is killing your conversion rate.</p>
         </div>
-        <div class="p-6 rounded-2xl bg-white/[.03] border border-white/[.07] hover:bg-white/[.06] transition-colors card-lift">
-          <div class="w-10 h-10 rounded-xl bg-gold-500/15 border border-gold-500/20 flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/></svg>
+        <div class="group p-6 rounded-2xl bg-white dark:bg-white/[0.04] border border-navy-100 dark:border-white/[0.08] hover:border-navy-300 dark:hover:border-white/[0.15] hover:shadow-lg dark:hover:shadow-none dark:hover:bg-white/[0.07] transition-all card-lift">
+          <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-4 group-hover:bg-gold-500/15 transition-colors">
+            <svg class="w-5 h-5 text-gold-600 dark:text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/></svg>
           </div>
-          <h3 class="font-semibold text-base mb-2">Trust Deficit Kills Conversions</h3>
-          <p class="text-navy-300 text-sm leading-relaxed">18% of customers abandon checkout due to trust issues. That's real revenue walking out the door — from real customers you already earned.</p>
+          <h3 class="font-semibold text-base mb-2 text-navy-900 dark:text-white">Trust Deficit Kills Conversions</h3>
+          <p class="text-navy-500 dark:text-navy-300 text-sm leading-relaxed">18% of customers abandon checkout due to trust issues. That's real revenue walking out the door — from real customers you already earned.</p>
+        </div>
         </div>
       </div>
     </div>
@@ -869,7 +873,7 @@
         <h2 class="font-serif text-3xl sm:text-4xl font-normal mb-5 leading-tight text-navy-900 dark:text-white">
           Every review,<br><span class="text-gold-500">cryptographically signed.</span>
         </h2>
-        <p class="text-navy-500 dark:text-navy-300 text-base leading-relaxed mb-7 max-w-lg">SignedReviews links every review to the actual Stripe transaction — amount, date, and a cryptographic signature that can't be faked or tampered with. Reviewers can optionally verify their identity via Instagram, LinkedIn, or Google for an extra layer of authenticity. Anyone can check any review is real. It's not trust by promise. It's trust by proof.</p>
+        <p class="text-navy-500 dark:text-navy-300 text-base leading-relaxed mb-7 max-w-lg">SignedReviews links every review to the actual Stripe transaction — amount, date, and a cryptographic signature that can't be faked or tampered with. Reviewers can optionally verify their identity via a social account — Instagram, LinkedIn, Google, Facebook, X, or GitHub — for an extra layer of authenticity. Anyone can check any review is real. It's not trust by promise. It's trust by proof.</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-navy-600 dark:text-navy-300">
           <div class="flex items-center gap-2">
             <div class="w-5 h-5 rounded-full bg-gold-100 dark:bg-gold-900/30 flex items-center justify-center flex-shrink-0">
@@ -913,7 +917,7 @@
   </section>
 
   <!-- ─── HOW IT WORKS ──────────────────────────────────────── -->
-  <section id="how-it-works" class="py-28 px-5 bg-[#f0f4f9] dark:bg-navy-900 border-y border-navy-100 dark:border-navy-800 transition-colors">
+  <section id="how-it-works" data-track="how-it-works" class="py-28 px-5 bg-[#f0f4f9] dark:bg-navy-900 border-y border-navy-100 dark:border-navy-800 transition-colors">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-20">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-navy-800 border border-navy-200 dark:border-navy-700 text-navy-500 dark:text-navy-300 text-sm font-semibold mb-5 shadow-sm">
@@ -942,7 +946,7 @@
             Connect
           </div>
           <h3 class="font-semibold text-base mb-2.5 text-navy-900 dark:text-white">Connect Stripe</h3>
-          <p class="text-sm text-navy-400 leading-relaxed">Link your Stripe account in one click. Read-only access — we read transaction details to verify purchases, never full card numbers or billing data.</p>
+          <p class="text-sm text-navy-400 leading-relaxed">Install from the Stripe App Marketplace in one click. Genuinely read-only — we verify transactions, never full card numbers or billing data. Connects even alongside Shopify, Squarespace, or WooCommerce.</p>
         </div>
 
         <!-- Step 2 -->
@@ -974,7 +978,7 @@
             Signed
           </div>
           <h3 class="font-semibold text-base mb-2.5 text-navy-900 dark:text-white">Reviews Get Signed</h3>
-          <p class="text-sm text-navy-400 leading-relaxed">Each review is cryptographically signed and permanently linked to the real transaction. Identity confirmed via Instagram, LinkedIn, or Google.</p>
+          <p class="text-sm text-navy-400 leading-relaxed">Each review is cryptographically signed and permanently linked to the real transaction. Identity can optionally be confirmed via a social account (Instagram, LinkedIn, Google, Facebook, X, or GitHub).</p>
         </div>
 
         <!-- Step 4 — gold highlight -->
@@ -999,13 +1003,13 @@
       <div class="mt-12 flex flex-wrap items-center justify-center gap-6 text-xs text-navy-400 dark:text-navy-500">
         <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-gold-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Fully automated after setup</span>
         <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-gold-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>No manual work required</span>
-        <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-gold-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Works with any Stripe-powered business</span>
+        <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-gold-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Connects even alongside Shopify & Squarespace</span>
       </div>
     </div>
   </section>
 
     <!-- ─── BUILD WITH THE API ─────────────────────────────────── -->
-  <section id="features" class="py-24 px-5 bg-white dark:bg-navy-800 transition-colors">
+  <section id="features" data-track="features" class="py-24 px-5 bg-white dark:bg-navy-800 transition-colors">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-14">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-navy-50 dark:bg-navy-700 border border-navy-200 dark:border-navy-600 text-navy-500 dark:text-navy-300 text-sm font-semibold mb-5">
@@ -1132,26 +1136,26 @@
   </section>
 
   <!-- ─── PRICING ────────────────────────────────────────────── -->
-  <section class="py-28 px-5 relative navy-bg text-white overflow-hidden">
+  <section class="py-28 px-5 relative navy-bg text-navy-800 dark:text-white overflow-hidden transition-colors">
     <!-- Ambient orbs -->
-    <div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none" style="background:rgba(43,59,96,.35)"></div>
-    <div class="absolute -bottom-32 -right-32 w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none" style="background:rgba(179,157,69,.08)"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(179,157,69,.04),transparent)] pointer-events-none"></div>
+    <div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none" style="background:rgba(43,59,96,.15)"></div>
+    <div class="absolute -bottom-32 -right-32 w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none" style="background:rgba(179,157,69,.06)"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(179,157,69,.03),transparent)] dark:bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(179,157,69,.04),transparent)] pointer-events-none"></div>
 
-    <div class="relative z-10 max-w-3xl mx-auto" id="pricing">
+    <div class="relative z-10 max-w-3xl mx-auto" id="pricing" data-track="pricing">
       <div class="text-center">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-sm font-semibold mb-5" style="border-color:rgba(255,255,255,0.12);background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.70);">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-navy-200/50 dark:border-white/10 bg-navy-100/60 dark:bg-white/[.06] text-navy-600 dark:text-navy-200 text-sm font-semibold mb-5">
           Pricing
         </div>
-        <h2 class="font-serif text-4xl sm:text-5xl font-normal leading-tight text-white mb-4">Free during beta.</h2>
-        <p class="text-navy-300 text-lg leading-relaxed max-w-xl mx-auto mb-8">
-          Signed Reviews is currently free for every business — no subscription fees, no per-review fees, no commissions. If we introduce paid plans, we will give at least 30 days' advance notice by email before any charges take effect.
+        <h2 class="font-serif text-4xl sm:text-5xl font-normal leading-tight dark:text-white mb-4">Free plan. Paid plans from $29/mo.</h2>
+        <p class="text-navy-600 dark:text-navy-300 text-lg leading-relaxed max-w-xl mx-auto mb-8">
+          There's a free plan for self-service collection, always — no credit card, no per-review fees, no commissions. Paid plans from $29/mo add an automated, verified review request on every Stripe sale.
         </p>
         <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-6">
-          <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 btn-gold btn-ripple text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
-          <a href="/pricing/" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-white border border-white/20 hover:bg-white/10 transition-colors inline-flex items-center justify-center min-w-[180px]">See what's included</a>
+          <a href="https://platform.signedreviews.com" rel="noopener" data-cta="mid-signup" class="px-7 py-3.5 btn-gold btn-ripple text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
+          <a href="/pricing/" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-700 dark:text-white border border-navy-300/40 dark:border-white/20 hover:bg-steel-100/50 dark:hover:bg-white/10 transition-colors inline-flex items-center justify-center min-w-[180px]">See what's included</a>
         </div>
-        <p class="text-xs text-navy-500">No credit card required · Cancel anytime · See our <a href="/refund-policy/" class="text-navy-300 underline underline-offset-2 hover:text-gold-300">Refund &amp; Cancellation Policy</a></p>
+        <p class="text-xs text-navy-500 dark:text-navy-400">No credit card required · Cancel anytime · See our <a href="/refund-policy/" class="text-navy-600 dark:text-navy-300 underline underline-offset-2 hover:text-gold-600 dark:hover:text-gold-300">Refund &amp; Cancellation Policy</a></p>
       </div>
 
     </div>
@@ -1165,13 +1169,13 @@
           Built for
         </div>
         <h2 class="font-serif text-4xl sm:text-5xl font-normal leading-tight text-navy-900 dark:text-white mb-3">If you get paid via Stripe,<br><span class="text-gold-500">you belong here.</span></h2>
-        <p class="text-navy-400 text-base max-w-xl mx-auto">SignedReviews works for any business that processes payments through Stripe — no extra integration, no plugins required.</p>
+        <p class="text-navy-400 text-base max-w-xl mx-auto">SignedReviews installs in one click from the Stripe App Marketplace — and connects even alongside Shopify, Squarespace, or WooCommerce, with genuinely read-only access.</p>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         <div class="p-6 rounded-2xl border border-navy-100 dark:border-navy-700 card-lift">
           <div class="text-2xl mb-3">🛍️</div>
           <h3 class="font-semibold text-sm mb-1.5 text-navy-900 dark:text-white">E-commerce brands</h3>
-          <p class="text-sm text-navy-400 leading-relaxed">Shopify, WooCommerce, or custom-built — if your checkout runs on Stripe, your reviews can be verified instantly.</p>
+          <p class="text-sm text-navy-400 leading-relaxed">Shopify, WooCommerce, Squarespace, or custom-built — install alongside your existing platform and verify every checkout in seconds. Read-only, every step.</p>
         </div>
         <div class="p-6 rounded-2xl border border-navy-100 dark:border-navy-700 card-lift">
           <div class="text-2xl mb-3">💻</div>
@@ -1196,7 +1200,7 @@
         <div class="p-6 rounded-2xl border border-gold-200 dark:border-gold-800/50 bg-gold-50/40 dark:bg-gold-900/10 card-lift">
           <div class="text-2xl mb-3">⚡</div>
           <h3 class="font-semibold text-sm mb-1.5 text-navy-900 dark:text-white">Any Stripe business</h3>
-          <p class="text-sm text-navy-400 leading-relaxed">If a customer paid you through Stripe, that transaction is the proof. We handle everything else — verification, signing, and display.</p>
+          <p class="text-sm text-navy-400 leading-relaxed">If a customer paid you through Stripe, that transaction is the proof — and we connect whether your account is standalone or platform-linked.</p>
         </div>
       </div>
     </div>
@@ -1301,7 +1305,7 @@
   </section>
 
   <!-- ─── FINAL CTA ─────────────────────────────────────────── -->
-  <section class="cta-section relative py-28 px-5 cta-gradient-mesh text-white grain overflow-hidden">
+  <section data-track="final-cta" class="cta-section relative py-28 px-5 cta-gradient-mesh text-navy-800 dark:text-white grain overflow-hidden transition-colors">
     <!-- Layered radial glows -->
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_65%_55%_at_50%_50%,rgba(179,157,69,.09),transparent)] pointer-events-none"></div>
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_20%_80%,rgba(43,59,96,.40),transparent)] pointer-events-none"></div>
@@ -1323,17 +1327,17 @@
       <!-- Logo with glow -->
       <div class="flex justify-center mb-8">
         <div class="relative">
-          <div class="absolute inset-0 rounded-full blur-2xl" style="background:rgba(179,157,69,.20);transform:scale(1.5)"></div>
+          <div class="absolute inset-0 rounded-full blur-2xl" style="background:rgba(179,157,69,.12);transform:scale(1.5)"></div>
           <img src="images/SignedReviews_logo_only.webp" alt="SignedReviews" class="relative w-20 h-20 object-contain opacity-90 float-anim">
         </div>
       </div>
 
-      <h2 class="font-serif text-4xl sm:text-5xl font-normal mb-4 leading-tight">Your business deserves<br>reviews people <em class="gold-shimmer">believe.</em></h2>
-      <p class="text-navy-300 text-lg mb-10 leading-relaxed">Sign up free during beta. Connect your Stripe account, and start collecting Purchase Verified reviews tied to real transactions.</p>
+      <h2 class="font-serif text-4xl sm:text-5xl font-normal mb-4 leading-tight text-navy-900 dark:text-white">Your business deserves<br>reviews people <em class="gold-shimmer">believe.</em></h2>
+      <p class="text-navy-500 dark:text-navy-300 text-lg mb-10 leading-relaxed">Sign up free. Connect your Stripe account, and start collecting Purchase Verified reviews tied to real transactions.</p>
 
       <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
-        <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
-        <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-white border border-white/20 hover:bg-white/10 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
+        <a href="https://platform.signedreviews.com" rel="noopener" data-cta="final-signup" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
+        <a href="https://platform.signedreviews.com" rel="noopener" data-cta="final-login" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-600 dark:text-white border border-navy-300/40 dark:border-white/20 hover:bg-steel-100/50 dark:hover:bg-white/10 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
       </div>
 
       <!-- Trust pills -->
@@ -1342,7 +1346,7 @@
         <span class="trust-pill">🔒 Cryptographically signed</span>
         <span class="trust-pill">GDPR compliant</span>
       </div>
-      <p class="text-xs text-navy-300 mt-2">Free during beta · Any Stripe-powered business · No credit card required</p>
+      <p class="text-xs text-navy-500 dark:text-navy-300 mt-2">Free plan · Paid plans from $29/mo · Connects even alongside Shopify & Squarespace</p>
     </div>
   </section>
   </main>
@@ -1677,8 +1681,8 @@
   </script>
 
   <!-- ── GSAP + ScrollTrigger: animated shield ─────────────────── -->
-  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="js/gsap.min.js"></script>
+  <script src="js/ScrollTrigger.min.js"></script>
   <script>
     (function () {
       var log = function (m) { try { console.debug('[shield]', m); } catch (_) {} };
@@ -1875,6 +1879,45 @@
         }
       }, 8000);
     })();
+  </script>
+  <!-- Cloudflare Web Analytics (proxied) -->
+  <script defer src="/cf/beacon.min.js" data-cf-beacon='{"token": "3db355ae0786403fbe4f7240e1130894"}'></script>
+  <!-- WebMCP: Agent tool registration for AI agent discoverability -->
+  <script>
+  (function() {
+    if (typeof navigator !== 'undefined' && navigator.modelContext && navigator.modelContext.registerTool) {
+      navigator.modelContext.registerTool({
+        name: 'signedreviews_site_info',
+        description: 'Get information about Signed Reviews — the processor-attested review verification platform for Stripe businesses. Use this to learn about the platform, its verification model, and available content.',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            topic: {
+              type: 'string',
+              enum: ['overview', 'verification', 'pricing', 'integrations', 'api', 'learn', 'comparisons', 'blog'],
+              description: 'What aspect of Signed Reviews to retrieve information about'
+            }
+          },
+          required: []
+        },
+        execute: function(params) {
+          var info = {
+            overview: 'Signed Reviews is a SaaS platform that helps Stripe businesses collect verified, tamper-evident customer reviews. Every review is processor-attested (Level 4 verification) — independently confirmed by Stripe against a completed, non-refunded charge. Founded 2026. See https://signedreviews.com/llms.txt for a complete site map.',
+            verification: 'Signed Reviews uses processor-attested (Level 4) verification via Stripe read-only OAuth. Every review is matched against a real Stripe charge, cryptographically signed, and automatically hidden if the charge is refunded. This is the strongest verification level available. Full breakdown: https://signedreviews.com/learn/what-does-verified-buyer-mean/',
+            pricing: 'Free plan: 25 reviews/month, self-service. Starter: $29/mo (100 reviews). Pro: $79/mo (250 reviews). Scale: $199/mo (1,000 reviews). All plans include Stripe integration and API access. See https://signedreviews.com/pricing/',
+            integrations: 'Stripe (native read-only OAuth, live), REST API (live), Webhooks (live), Shopify (planned), WooCommerce (planned). See https://signedreviews.com/integrations/',
+            api: 'Public REST API at api.signedreviews.com/v1. Publishable-key auth for read-only access to verified reviews, business profiles, and ratings. OpenAPI spec at https://signedreviews.com/openapi.json. Docs: https://signedreviews.com/api/',
+            learn: 'Three authority pages: What "Verified Buyer" Actually Means (verification spectrum), How Fake Reviews Work (methods + economics), FTC Fake Review Rules (16 CFR Part 465 compliance). Index: https://signedreviews.com/learn/what-does-verified-buyer-mean/',
+            comparisons: '14 comparison pages vs major review platforms: Trustpilot, Feefo, Judge.me, Yotpo, eKomi, SiteJabber, Reviews.io, Stamped, Okendo, Loox, Skeepers, Google Reviews, Yelp, Clutch. Index: https://signedreviews.com/vs/trustpilot/',
+            blog: '24 blog posts covering Stripe verified reviews, Trustpilot alternatives, fake review detection, review collection guides, FTC compliance, Shopify, SaaS, and e-commerce. Index: https://signedreviews.com/blog/'
+          };
+          var topic = (params && params.topic) || 'overview';
+          return Promise.resolve({ topic: topic, content: info[topic] || info.overview, links: { llms: 'https://signedreviews.com/llms.txt', sitemap: 'https://signedreviews.com/sitemap.xml', agentSkills: 'https://signedreviews.com/.well-known/agent-skills/index.json' } });
+        },
+        annotations: { readOnlyHint: true }
+      });
+    }
+  })();
   </script>
 </body>
 </html>

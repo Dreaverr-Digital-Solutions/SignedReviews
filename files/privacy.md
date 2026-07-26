@@ -18,7 +18,7 @@ Signed Reviews has three types of people whose personal data we handle:
 
 - **Business users** — the businesses that sign up for Signed Reviews and their team members who log in to the platform at `platform.signedreviews.com`.
 - **Reviewers** — the customers of those businesses who receive an email invitation to leave a review and submit one through a one-time link.
-- **Visitors** — anyone who views a public review page, clicks a review widget embedded on a third-party site, or browses our marketing website.
+- **Visitors** — anyone who views a public review page or browses our marketing website.
 
 Different parts of this policy apply to each group. Where relevant, we call this out explicitly.
 
@@ -49,7 +49,7 @@ When you register for a Signed Reviews account, either directly or through Googl
 - **Display name**
 - **Profile picture** (only if you provide one through SSO or upload)
 - **Hashed password** (only for email/password signups — we never store your password in readable form; we use bcrypt with cost factor 12)
-- **Business information you provide:** business name, website URL, brand logo, brand colors, email subject preferences, widget and review page customization settings
+- **Business information you provide:** business name, website URL, brand logo, brand colors, email subject preferences, review page customization settings
 
 We do not collect phone numbers, dates of birth, physical addresses, government identification, or tax identification numbers from business users.
 
@@ -78,7 +78,7 @@ Signed Reviews does not process payments from reviewers, does not take fees from
 
 The payment-adjacent data we store is a narrow slice of charge metadata received from Stripe: the charge ID, customer email, card last four digits, amount, and currency. These are used to link a review to a verified purchase.
 
-If a business enables metrics on its public Trust Profile, we additionally read aggregate data from that business's Stripe account on a strictly read-only basis — such as charges, customers, subscriptions, refunds, disputes, and balance transactions — and store only the resulting privacy-thresholded aggregate values (for example, a banded refund rate or active-subscriber count), never the underlying raw records. We never store full card numbers, CVV codes, expiry dates, cardholder names, or full billing addresses.
+If a business enables metrics on its public review page, we additionally read aggregate data from that business's Stripe account on a strictly read-only basis — such as charges, customers, subscriptions, refunds, disputes, and balance transactions — and store only the resulting privacy-thresholded aggregate values (for example, a banded refund rate or active-subscriber count), never the underlying raw records. We never store full card numbers, CVV codes, expiry dates, cardholder names, or full billing addresses.
 
 ### 3.4 Technical information
 
@@ -91,9 +91,9 @@ We collect limited technical information to keep the Service working:
 
 We use **PostHog** for first-party product and marketing analytics, to understand how our marketing site and merchant dashboard are used (pages viewed, features used, sign-up funnels). PostHog sets a first-party analytics cookie and may process usage and device data (pages viewed, UI interactions, approximate location derived from IP, browser/OS); for signed-in merchants it is also associated with your user ID, email, and business. PostHog is listed on our [Sub-processors](/subprocessors) page.
 
-**Where analytics runs — and where it does not.** PostHog runs only on our marketing site (`signedreviews.com`) and the authenticated merchant dashboard. It is **not** loaded on public review pages, the reviewer-facing review-submission flow, or the embeddable review widget — so review readers and reviewers are not tracked by our analytics. We honour your browser's "Do Not Track" setting.
+**Where analytics runs — and where it does not.** PostHog runs only on our marketing site (`signedreviews.com`) and the authenticated merchant dashboard. It is **not** loaded on public review pages or the reviewer-facing review-submission flow — so review readers and reviewers are not tracked by our analytics. We honour your browser's "Do Not Track" setting.
 
-**Session replay.** On the marketing site and the merchant dashboard, PostHog records anonymised session replays (a reconstruction of page interactions such as clicks, scrolls, and navigation) to help us diagnose usability issues. **All form-field inputs are masked** — values you type into fields, including passwords, email addresses, and payment details, are never captured. Replay is **not** active on public review pages, the reviewer-facing review-submission flow, or the embeddable review widget, and it is suppressed for visitors whose browser sends a "Do Not Track" or Global Privacy Control (GPC) signal. You can also turn replay off at any time using the **"Privacy choices"** link in our site footer.
+**Session replay.** On the marketing site and the merchant dashboard, PostHog records anonymised session replays (a reconstruction of page interactions such as clicks, scrolls, and navigation) to help us diagnose usability issues. **All form-field inputs are masked** — values you type into fields, including passwords, email addresses, and payment details, are never captured. Replay is **not** active on public review pages or the reviewer-facing review-submission flow, and it is suppressed for visitors whose browser sends a "Do Not Track" or Global Privacy Control (GPC) signal. You can also turn replay off at any time using the **"Privacy choices"** link in our site footer.
 
 **Consent in the EU, EEA, and UK.** If you visit our marketing site from the EU, EEA, or UK, session replay is **off by default** and begins **only if you give consent** through the banner shown on your visit. Declining leaves replay off; the rest of our first-party analytics (such as page views and conversion funnels) continues to operate. You can change your choice at any time through the **"Privacy choices"** link in our site footer, and we honour Do Not Track and Global Privacy Control signals automatically.
 
@@ -114,7 +114,7 @@ When a business enters their website URL during branding setup, we fetch that we
 - Authenticate business users and maintain logged-in sessions (7-day session tokens)
 - Deliver review-request emails triggered by successful Stripe charges
 - Generate and validate one-time review submission links (valid for 14 days, single-use)
-- Display reviews on public review pages, embeddable widgets, and the public API, subject to each business's configuration
+- Display reviews on public review pages and via the public API, subject to each business's configuration
 - Produce aggregate analytics for business users from their own review and transaction data
 
 ### 4.2 To verify reviews
@@ -158,7 +158,7 @@ We share personal data in the following limited circumstances:
 
 ### 5.1 With businesses that requested your review
 
-If you are a reviewer, your review — including any content, photos, display name, and social handle you chose to include — is visible to the business that requested it. If that business has enabled public review display, your review is also visible to anyone who views the business's public review page or any site embedding the business's widget.
+If you are a reviewer, your review — including any content, photos, display name, and social handle you chose to include — is visible to the business that requested it. If that business has enabled public review display, your review is also visible to anyone who views the business's public review page.
 
 ### 5.2 With sub-processors
 
@@ -167,7 +167,7 @@ We use a small number of service providers to operate the Service. A complete, c
 - **Stripe** (payments and transaction data)
 - **Resend** (transactional email delivery)
 - **Cloudinary** (image hosting for review photos and brand assets)
-- **Anthropic** and **Google** (business-facing branding AI — logo and brand-style extraction; see Section 6 for specifics)
+- **Anthropic** and **Google** (business-facing branding AI — logo extraction; see Section 6 for specifics)
 - **Railway** (cloud hosting and managed database)
 - **PostHog** (first-party product and marketing-site analytics — see Section 3.4a)
 - **Decodo** (proxy service used only for Instagram public profile lookups)
@@ -188,7 +188,7 @@ We may disclose information in response to lawful subpoenas, court orders, or go
 
 ## 6. How we use AI
 
-We use AI only for **business-facing branding features**, and only on content a business provides about its own brand. When a business sets up or restyles its public review page, embeddable widget, badge, or brand profile, we send the HTML of the website URL the business enters — along with any candidate logo or brand images from that site — to a vision-capable large language model, which (a) selects the most likely logo and (b) proposes brand colors and visual style presets the business can accept or discard.
+We use AI only for **business-facing branding features**, and only on content a business provides about its own brand. When a business sets up or restyles its public review page, badge, or brand profile, we send the HTML of the website URL the business enters — along with any candidate logo or brand images from that site — to a vision-capable large language model, which selects the most likely logo for the business to accept or discard.
 
 These features run on **Anthropic's Claude** models by default, with **Google's Gemini** models available as an alternate provider we may select on a per-feature basis. Both are used only for the branding tasks described above.
 

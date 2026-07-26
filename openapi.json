@@ -1,0 +1,81 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Signed Reviews Public API",
+    "version": "1.0.0",
+    "description": "Public API for retrieving verified reviews, business profiles, and ratings from Signed Reviews. All endpoints are read-only and authenticated via publishable key (bearer token). For full documentation see https://signedreviews.com/api/",
+    "contact": {
+      "email": "api@signedreviews.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.signedreviews.com/v1",
+      "description": "Production API"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/businesses/{slug}": {
+      "get": {
+        "summary": "Get business profile",
+        "description": "Returns public business profile including aggregate rating, review count, and public metadata.",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Business profile with aggregate rating"
+          }
+        }
+      }
+    },
+    "/businesses/{slug}/reviews": {
+      "get": {
+        "summary": "List verified reviews",
+        "description": "Returns paginated list of verified reviews for a business. All reviews are processor-attested (Level 4).",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": { "type": "integer", "default": 1 }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": { "type": "integer", "default": 20, "maximum": 100 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginated list of verified reviews"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Publishable key (pk_...) for public read-only access"
+      }
+    }
+  }
+}

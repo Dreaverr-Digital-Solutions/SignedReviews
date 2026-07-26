@@ -14,7 +14,7 @@ We may update this list from time to time. Material additions will be reflected 
 |---|---|---|---|
 | **Railway** | Cloud hosting and managed PostgreSQL database | All Service data at rest | United States |
 | **Cloudinary** | Image hosting for review photos and business brand assets | User-uploaded images (review photos, logos) | United States |
-| **Stripe** | Business Stripe account linking (Connect OAuth or a restricted API key) and webhooks. Read-only access used to verify reviews and to compute the metrics a merchant chooses to show on their public Trust Profile. We never charge, refund, move funds, or modify the connected account. | Stripe account ID or restricted API key (encrypted at rest); transaction metadata (charge ID, customer email, card last-4, amount, currency); aggregate read of charges, customers, subscriptions, refunds, disputes, and balance transactions for merchant-enabled metrics | United States |
+| **Stripe** | Business Stripe account linking (Connect OAuth or a restricted API key) and webhooks. Read-only access used to verify reviews and to compute the metrics a merchant chooses to show on their public review page. We never charge, refund, move funds, or modify the connected account. | Stripe account ID or restricted API key (encrypted at rest); transaction metadata (charge ID, customer email, card last-4, amount, currency); aggregate read of charges, customers, subscriptions, refunds, disputes, and balance transactions for merchant-enabled metrics | United States |
 | **Resend** | Transactional email delivery | Recipient email addresses; email content (verification links, magic links, team invitations, review-request emails) | United States |
 
 ---
@@ -23,8 +23,8 @@ We may update this list from time to time. Material additions will be reflected 
 
 | Sub-processor | Purpose | Data categories | Notes |
 |---|---|---|---|
-| **Anthropic** | Business-facing AI features: logo extraction and the AI Style Generator (suggesting brand colors and styles for the public review page, widget, and badge), using Claude models | Public website HTML/URL and candidate logo or brand images provided by the business during setup | **Not used on review content, reviewer data, or payment data.** Anthropic does not train on data sent through its API under its commercial terms. |
-| **Google (Gemini)** | Alternate AI provider for the same business-facing AI features (logo extraction / AI Style Generator), via the Google Gemini API | Public website HTML/URL and candidate logo or brand images provided by the business during setup | **Not used on review content, reviewer data, or payment data.** |
+| **Anthropic** | Business-facing AI feature: logo extraction (selecting the most likely logo from a business's website for the public review page and badge), using Claude models | Public website HTML/URL and candidate logo or brand images provided by the business during setup | **Not used on review content, reviewer data, or payment data.** Anthropic does not train on data sent through its API under its commercial terms. |
+| **Google (Gemini)** | Alternate AI provider for the same business-facing AI feature (logo extraction), via the Google Gemini API | Public website HTML/URL and candidate logo or brand images provided by the business during setup | **Not used on review content, reviewer data, or payment data.** |
 
 ---
 
@@ -34,7 +34,7 @@ We may update this list from time to time. Material additions will be reflected 
 |---|---|---|---|
 | **PostHog** | First-party product and marketing-site analytics (page views, feature usage, and conversion funnels) on our marketing site and the merchant dashboard | Usage and device data (pages viewed, UI interactions, approximate location from IP, browser/OS). For signed-in merchants only: user ID, email, and business association | United States |
 
-**Scope and safeguards.** PostHog runs **only** on our marketing site (`signedreviews.com`) and the authenticated merchant dashboard. It is **not** loaded on public review pages, reviewer-facing review-submission pages, or the embeddable review widget — so review readers and reviewers are not tracked by it. **Session replay is enabled** on the marketing site and merchant dashboard, with **all form-field inputs masked** (passwords, email addresses, and payment details are never captured); replay is suppressed for visitors who send a "Do Not Track" or Global Privacy Control signal. For marketing-site visitors in the **EU, EEA, and UK**, replay is off by default and starts only after opt-in consent via an on-page banner. A "Privacy choices" footer link lets any visitor opt in or out at any time. We use a first-party cookie (not cross-site tracking) and honour browser "Do Not Track."
+**Scope and safeguards.** PostHog runs **only** on our marketing site (`signedreviews.com`) and the authenticated merchant dashboard. It is **not** loaded on public review pages or reviewer-facing review-submission pages — so review readers and reviewers are not tracked by it. **Session replay is enabled** on the marketing site and merchant dashboard, with **all form-field inputs masked** (passwords, email addresses, and payment details are never captured); replay is suppressed for visitors who send a "Do Not Track" or Global Privacy Control signal. For marketing-site visitors in the **EU, EEA, and UK**, replay is off by default and starts only after opt-in consent via an on-page banner. A "Privacy choices" footer link lets any visitor opt in or out at any time. We use a first-party cookie (not cross-site tracking) and honour browser "Do Not Track."
 
 ---
 

@@ -5,7 +5,7 @@
   "description": "Marketing site for Signed Reviews (signedreviews.com) — operated by Paid Rightly LLC.",
   "scripts": {
     "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./output.css --minify",
-    "build": "npm run build:css && node build.js",
+    "build": "npm run build:css && node build.js && node build-og-images.js",
     "dev": "node dev-server.js",
     "test": "playwright test"
   },

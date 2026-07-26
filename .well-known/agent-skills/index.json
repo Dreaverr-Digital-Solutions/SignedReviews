@@ -1,0 +1,50 @@
+{
+  "version": "1.0.0",
+  "skills": [
+    {
+      "id": "signedreviews-verification",
+      "name": "Signed Reviews — Review Verification Guide",
+      "description": "Understand how review verification works across every major platform. Covers the 5-level verification spectrum from Level 0 (no verification) to Level 4 (processor-attested via Stripe), with platform-specific breakdowns for Trustpilot, Yotpo, Judge.me, Reviews.io, and more.",
+      "format": "markdown",
+      "url": "https://signedreviews.com/learn/what-does-verified-buyer-mean/",
+      "capabilities": ["read", "reference"]
+    },
+    {
+      "id": "signedreviews-fake-reviews",
+      "name": "Signed Reviews — Fake Review Detection Guide",
+      "description": "How fake reviews are manufactured, detected, and structurally prevented. Covers click farms, AI generation, brushing schemes, and the economics of the $152B fake-review industry.",
+      "format": "markdown",
+      "url": "https://signedreviews.com/learn/how-fake-reviews-work/",
+      "capabilities": ["read", "reference"]
+    },
+    {
+      "id": "signedreviews-ftc-rules",
+      "name": "Signed Reviews — FTC Fake Review Rules (16 CFR Part 465)",
+      "description": "Complete guide to the FTC's 2024 Trade Regulation Rule on Consumer Reviews. What's banned, who it applies to, penalties, and how to achieve structural compliance.",
+      "format": "markdown",
+      "url": "https://signedreviews.com/learn/ftc-fake-reviews-rules/",
+      "capabilities": ["read", "reference"]
+    },
+    {
+      "id": "signedreviews-trustpilot-alternatives",
+      "name": "Signed Reviews — Trustpilot Alternatives Comparison",
+      "description": "Comprehensive ranking of 10 Trustpilot alternatives scored by verification method, covering SaaS, e-commerce, local business, and enterprise. Includes pricing, platform comparison table, and recommendations by business type.",
+      "format": "markdown",
+      "url": "https://signedreviews.com/blog/trustpilot-alternatives-for-small-business/",
+      "capabilities": ["read", "reference"]
+    },
+    {
+      "id": "signedreviews-stripe-verification",
+      "name": "Signed Reviews — Stripe Verified Reviews Guide",
+      "description": "How Stripe-native review verification works: read-only OAuth, processor-attested verification (Level 4), cryptographic signing, and automatic refund handling. The definitive technical guide to Stripe-based review collection.",
+      "format": "markdown",
+      "url": "https://signedreviews.com/blog/stripe-verified-reviews/",
+      "capabilities": ["read", "reference"]
+    }
+  ],
+  "metadata": {
+    "site": "Signed Reviews",
+    "description": "Processor-attested verified reviews for Stripe businesses. Every review is independently verified against a confirmed Stripe charge.",
+    "url": "https://signedreviews.com"
+  }
+}

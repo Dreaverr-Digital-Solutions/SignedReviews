@@ -1,1 +1,40 @@
 @import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  --color-navy-50: #eef1f8;
+  --color-navy-100: #d5dcee;
+  --color-navy-200: #aab9dc;
+  --color-navy-300: #87a2c4;
+  --color-navy-400: #5d7aaa;
+  --color-navy-500: #2b3b60;
+  --color-navy-600: #243252;
+  --color-navy-700: #1c2840;
+  --color-navy-800: #141e30;
+  --color-navy-900: #0c1320;
+
+  --color-gold-50: #faf8ee;
+  --color-gold-100: #f2edcc;
+  --color-gold-200: #e5db99;
+  --color-gold-300: #d4c466;
+  --color-gold-400: #c4ae4e;
+  --color-gold-500: #b39d45;
+  --color-gold-600: #967f36;
+  --color-gold-700: #786329;
+  --color-gold-800: #5a491e;
+  --color-gold-900: #3c3013;
+
+  --color-steel-50: #f0f4f9;
+  --color-steel-100: #dce6f0;
+  --color-steel-200: #b9cedf;
+  --color-steel-300: #87a2c4;
+  --color-steel-400: #6488b0;
+  --color-steel-500: #4a6e98;
+  --color-steel-600: #3c5a7e;
+  --color-steel-700: #2e4664;
+}

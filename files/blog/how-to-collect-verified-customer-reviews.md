@@ -1,6 +1,6 @@
 # How to Collect Verified Customer Reviews: A Practical Guide
 
-**Published:** 2026-07-04 · **Author:** Signed Reviews Team
+**Published:** 2026-07-04 · **Author:** Signed Reviews Team · **Description:** How to collect verified customer reviews with Stripe: connect read-only, trigger a request per charge, and publish a verified review page in minutes.
 
 ---
 
@@ -18,29 +18,17 @@ Once connected, every new Stripe charge can automatically trigger a review invit
 
 - **Timing**: Send immediately (digital products), after a delay (physical products that need shipping time), or on delivery via webhook (most accurate for shipped goods)
 - **Reminders**: How many follow-ups and when. Standard cadences are 3 and 7 days after the initial request.
-- **Branding**: Your logo, colors, and business name appear in every email
+- **Branding**: Your logo and business name appear in every email
 
 ## Step 3: Set up your public review page
 
 Your verified reviews need a public home. Configure:
 
-- **Page URL**: Usually `yourbusiness.reviews` or a sub-path on your domain
-- **Layout**: How reviews are displayed (carousel, grid, list)
-- **Trust signals**: Show the "Verified by Stripe" badge, transaction amounts, and review dates
-- **Widget**: An embeddable review widget for your own website
+- **Page URL**: A short link like `signedreviews.com/yourbusiness`
+- **Layout**: Your reviews on a clean, hosted public page
+- **Trust signals**: Show the "Verified by SignedReviews" badge, transaction amounts, and review dates
 
-## Step 4: Add the review widget to your site
-
-Embed a review widget on your homepage, product pages, or a dedicated testimonials page. Most platforms provide a snippet you can paste into your site:
-
-```html
-<script src="https://platform.signedreviews.com/widget.js"
-        data-business="your-business-slug"></script>
-```
-
-The widget displays your most recent verified reviews and links to your full review page.
-
-## Step 5: Make it easy for customers
+## Step 4: Make it easy for customers
 
 The easier it is to leave a review, the more reviews you'll collect:
 
@@ -66,3 +54,5 @@ The easier it is to leave a review, the more reviews you'll collect:
 ## Start collecting today
 
 The technical setup takes minutes. The hard part — building a reputation of authentic, verified reviews — happens over time, one real purchase at a time. But that's exactly what makes verified reviews valuable.
+
+**Further reading:** [Stripe Verified Reviews](/blog/stripe-verified-reviews/) — learn why processor-attested verification (Level 4) is fundamentally different from merchant-supplied badges. And [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/) for the honest, platform-by-platform breakdown.

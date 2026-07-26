@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trustpilot Alternatives for SaaS: Why Most Review Platforms Don't Fit Subscription Businesses — Signed Reviews Blog</title>
+  <meta name="description" content="Why SaaS companies need a different review platform than e-commerce brands — and the 5 best Trustpilot alternatives built for subscription businesses with recur">
+  <link rel="canonical" href="https://signedreviews.com/blog/trustpilot-alternatives-for-saas/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0c1320">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Trustpilot Alternatives for SaaS: Why Most Review Platforms Don't Fit Subscription Businesses — Signed Reviews Blog">
+  <meta property="og:description" content="Why SaaS companies need a different review platform than e-commerce brands — and the 5 best Trustpilot alternatives built for subscription businesses with recur">
+  <meta property="og:url" content="https://signedreviews.com/blog/trustpilot-alternatives-for-saas/">
+  <meta property="og:site_name" content="Signed Reviews">
+  <meta property="og:image" content="https://signedreviews.com/images/og/trustpilot-alternatives-for-saas.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Trustpilot Alternatives for SaaS: Why Most Review Platforms Don't Fit Subscription Businesses — Signed Reviews Blog">
+  <meta name="twitter:description" content="Why SaaS companies need a different review platform than e-commerce brands — and the 5 best Trustpilot alternatives built for subscription businesses with recur">
+  <meta name="twitter:image" content="https://signedreviews.com/images/og/trustpilot-alternatives-for-saas.png">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png">
+  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://us.i.posthog.com">
+  <link rel="dns-prefetch" href="https://platform.signedreviews.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <style>
+:root {
+  --navy-900:#0c1320; --navy-800:#141e30; --navy-700:#1c2840; --navy-600:#243252;
+  --navy-500:#2b3b60; --navy-400:#5d7aaa; --navy-300:#87a2c4; --navy-200:#aab9dc;
+  --navy-100:#d5dcee; --navy-50:#eef1f8;
+  --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
+  --gold-100:#f2edcc; --gold-50:#faf8ee;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
+  --max-prose: 72ch;
+}
+@media (prefers-color-scheme: dark) {
+  :root.theme-auto {
+    --bg:#0c1320; --surface:#141e30; --text:#eef1f8; --muted:#87a2c4;
+    --border:rgba(255,255,255,.10);
+  }
+}
+:root.theme-dark {
+  --bg:#0c1320; --surface:#141e30; --text:#eef1f8; --muted:#87a2c4;
+  --border:rgba(255,255,255,.10);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: var(--navy-500); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--gold-500); }
+:root.theme-dark a, :root.theme-auto a { color: var(--gold-300); }
+
+/* ── Skip link ── */
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--navy-900); color: #fff; padding: .75rem 1rem;
+  border-radius: 0 0 .5rem 0; z-index: 100;
+}
+.skip-link:focus { left: 0; outline: 3px solid var(--gold-400); }
+
+/* ── Header / nav ── */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: saturate(1.6) blur(14px);
+  -webkit-backdrop-filter: saturate(1.6) blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+:root.theme-dark .site-header, :root.theme-auto .site-header {
+  background: rgba(20,30,48,.85);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 1.25rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; gap: 1rem;
+}
+.brand { display: inline-flex; align-items: center; gap: .5rem; text-decoration: none; }
+.brand img { width: auto; display: block; }
+.brand .brand-icon     { height: 30px; }
+.brand .brand-wordmark { height: 20px; }
+@media (min-width: 640px) {
+  .brand .brand-icon     { height: 34px; }
+  .brand .brand-wordmark { height: 24px; }
+}
+/* Auto-invert the black wordmark in dark mode so it's readable */
+:root.theme-dark .brand .brand-wordmark,
+:root.theme-auto .brand .brand-wordmark { filter: brightness(0) invert(1); opacity: .92; }
+@media (prefers-color-scheme: light) {
+  :root.theme-auto .brand .brand-wordmark { filter: none; opacity: 1; }
+}
+
+.nav-links {
+  display: flex; align-items: center; gap: .35rem; list-style: none; margin: 0; padding: 0;
+}
+.nav-links a {
+  display: inline-flex; align-items: center; padding: .5rem .85rem;
+  font-size: .92rem; font-weight: 500; text-decoration: none;
+  color: var(--navy-700); border-radius: .55rem;
+}
+:root.theme-dark .nav-links a, :root.theme-auto .nav-links a { color: var(--navy-100); }
+.nav-links a:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .nav-links a:hover, :root.theme-auto .nav-links a:hover { background: rgba(255,255,255,.06); color: #fff; }
+
+.nav-cta {
+  display: inline-flex; align-items: center; gap: .55rem; margin-left: .35rem;
+}
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 999px;
+  background: transparent; border: 0; cursor: pointer;
+  color: var(--navy-700);
+}
+:root.theme-dark .theme-toggle, :root.theme-auto .theme-toggle { color: var(--navy-100); }
+.theme-toggle:hover { background: var(--navy-50); }
+:root.theme-dark .theme-toggle:hover, :root.theme-auto .theme-toggle:hover { background: rgba(255,255,255,.06); }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+:root.theme-dark .theme-toggle .icon-sun { display: block; }
+:root.theme-dark .theme-toggle .icon-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root.theme-auto .theme-toggle .icon-sun { display: block; }
+  :root.theme-auto .theme-toggle .icon-moon { display: none; }
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: .55rem 1rem; border-radius: .65rem; font-weight: 600; font-size: .9rem;
+  text-decoration: none; border: 1px solid transparent;
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+  cursor: pointer;
+}
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--gold-400), var(--gold-500) 60%, var(--gold-600));
+  box-shadow: 0 4px 14px rgba(179,157,69,.32);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(179,157,69,.44); color: #fff; }
+.btn-secondary {
+  color: var(--navy-700); background: transparent; border-color: var(--navy-200);
+}
+.btn-secondary:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .btn-secondary, :root.theme-auto .btn-secondary {
+  color: var(--navy-100); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.02);
+}
+:root.theme-dark .btn-secondary:hover, :root.theme-auto .btn-secondary:hover {
+  background: rgba(255,255,255,.08); color: #fff;
+}
+
+/* ── Mobile nav: hide inline links + secondary CTA, show hamburger ── */
+.menu-toggle {
+  display: none; background: transparent; border: 0; padding: 0;
+  width: 40px; height: 40px; border-radius: .5rem;
+  align-items: center; justify-content: center;
+  color: var(--navy-700); cursor: pointer;
+}
+:root.theme-dark .menu-toggle, :root.theme-auto .menu-toggle { color: var(--navy-100); }
+.menu-toggle:hover { background: var(--navy-50); }
+:root.theme-dark .menu-toggle:hover, :root.theme-auto .menu-toggle:hover { background: rgba(255,255,255,.06); }
+
+.mobile-drawer { display: none; }
+.mobile-drawer ul { list-style: none; margin: 0; padding: .5rem 1rem .75rem; }
+.mobile-drawer li { margin: 0; }
+.mobile-drawer a {
+  display: block; padding: .75rem 1rem; border-radius: .5rem;
+  font-size: 1rem; font-weight: 500; text-decoration: none;
+  color: var(--navy-700);
+}
+:root.theme-dark .mobile-drawer a, :root.theme-auto .mobile-drawer a { color: var(--navy-100); }
+.mobile-drawer a:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .mobile-drawer a:hover, :root.theme-auto .mobile-drawer a:hover { background: rgba(255,255,255,.06); color: #fff; }
+
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .nav-cta .btn-secondary { display: none; }
+  .nav-cta .btn { padding: .45rem .85rem; font-size: .85rem; }
+  .menu-toggle { display: inline-flex; }
+  .mobile-drawer.is-open {
+    display: block;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+  }
+}
+
+/* ── Main / prose ── */
+main { padding: 0; }
+.page-hero {
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-inner {
+  max-width: 1100px; margin: 0 auto; padding: 3.5rem 1.25rem 2.25rem;
+}
+.page-hero h1 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(2rem, 4vw + 1rem, 3.25rem);
+  line-height: 1.1; margin: 0 0 .5rem; color: var(--navy-900); letter-spacing: -0.02em;
+}
+:root.theme-dark .page-hero h1, :root.theme-auto .page-hero h1 { color: #fff; }
+.page-hero p { color: var(--muted); margin: 0; max-width: 60ch; font-size: 1.05rem; }
+.eyebrow {
+  display: inline-block;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold-600); margin-bottom: .9rem;
+}
+
+.prose-wrap {
+  max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem;
+}
+@media (min-width: 980px) {
+  .prose-wrap.has-toc { grid-template-columns: minmax(0, 1fr) 240px; }
+}
+
+.prose {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  max-width: var(--max-prose);
+  width: 100%;
+  margin: 0;
+}
+.prose h1 { display: none; } /* page hero already shows the h1 */
+.prose h2, .prose h3, .prose h4 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  color: var(--navy-900);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 2.4rem 0 .9rem;
+}
+:root.theme-dark .prose h2, :root.theme-dark .prose h3, :root.theme-dark .prose h4,
+:root.theme-auto .prose h2, :root.theme-auto .prose h3, :root.theme-auto .prose h4 { color: #fff; }
+.prose h2 { font-size: 1.65rem; padding-top: .25rem; }
+.prose h3 { font-size: 1.25rem; }
+.prose h4 { font-size: 1.05rem; font-family: 'Inter', system-ui, sans-serif; font-weight: 700; }
+.prose h2:first-of-type { margin-top: 0; }
+
+.prose p, .prose li { color: var(--text); }
+.prose p { margin: 0 0 1rem; }
+.prose ul, .prose ol { padding-left: 1.4rem; margin: 0 0 1rem; }
+.prose li { margin: .35rem 0; }
+
+.prose strong { color: var(--navy-900); }
+:root.theme-dark .prose strong, :root.theme-auto .prose strong { color: #fff; }
+
+.prose hr {
+  border: 0; height: 1px; background: var(--border); margin: 2.5rem 0;
+}
+
+.prose code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size: .9em;
+  background: var(--navy-50); color: var(--navy-700);
+  padding: .12em .42em; border-radius: 4px;
+}
+:root.theme-dark .prose code, :root.theme-auto .prose code {
+  background: rgba(255,255,255,.08); color: var(--gold-300);
+}
+
+.prose a.anchor {
+  text-decoration: none; color: var(--navy-200); margin-right: .35rem;
+  font-weight: 400; opacity: 0; transition: opacity .15s ease;
+}
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding: 1.1rem 1.25rem;
+  border-left: 4px solid var(--gold-500);
+  background: var(--gold-50);
+  color: var(--navy-800);
+  border-radius: 0 .5rem .5rem 0;
+}
+.prose blockquote p { margin: 0; }
+.prose blockquote strong { color: var(--gold-600); }
+:root.theme-dark .prose blockquote, :root.theme-auto .prose blockquote {
+  background: rgba(179,157,69,.10); color: #fff;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0 1.5rem;
+  font-size: .92rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  display: block;
+  overflow-x: auto;
+}
+.prose thead { background: var(--navy-50); }
+:root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
+.prose th, .prose td {
+  padding: .7rem .9rem; text-align: left; vertical-align: top;
+  border-bottom: 1px solid var(--border);
+}
+.prose th { font-weight: 600; color: var(--navy-900); }
+:root.theme-dark .prose th, :root.theme-auto .prose th { color: #fff; }
+.prose tbody tr:last-child td { border-bottom: 0; }
+.prose tbody tr:nth-child(even) td { background: rgba(43,59,96,.025); }
+:root.theme-dark .prose tbody tr:nth-child(even) td,
+:root.theme-auto .prose tbody tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+
+/* ── ToC sidebar (legal pages) ── */
+.toc {
+  position: sticky; top: 88px; align-self: start;
+  font-size: .88rem; max-height: calc(100vh - 110px); overflow-y: auto;
+  padding: 1rem 1.1rem; border: 1px solid var(--border);
+  background: var(--surface); border-radius: 12px;
+}
+.toc h2 {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 .6rem;
+}
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: .15rem 0; }
+.toc a {
+  color: var(--navy-700); text-decoration: none; display: block;
+  padding: .25rem .35rem; border-radius: .35rem; line-height: 1.35;
+}
+:root.theme-dark .toc a, :root.theme-auto .toc a { color: var(--navy-100); }
+.toc a:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .toc a:hover, :root.theme-auto .toc a:hover { background: rgba(255,255,255,.06); color: #fff; }
+@media (max-width: 980px) { .toc { display: none; } }
+
+/* ── Marketing utility blocks ── */
+.section { max-width: 1100px; margin: 0 auto; padding: 3rem 1.25rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.5rem;
+}
+.card h3 {
+  font-family: 'Instrument Serif', Georgia, serif; font-size: 1.4rem;
+  margin: 0 0 .5rem; color: var(--navy-900);
+}
+:root.theme-dark .card h3, :root.theme-auto .card h3 { color: #fff; }
+.card p { margin: 0; color: var(--muted); }
+.card-featured {
+  border-color: var(--gold-400);
+  box-shadow: 0 6px 26px rgba(179,157,69,.18);
+}
+.badge {
+  display: inline-block; padding: .25rem .55rem; border-radius: 999px;
+  font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  background: var(--gold-100); color: var(--gold-600); margin-bottom: .65rem;
+}
+:root.theme-dark .badge, :root.theme-auto .badge {
+  background: rgba(179,157,69,.18); color: var(--gold-300);
+}
+
+.feature-list { list-style: none; padding: 0; margin: 1rem 0 1.5rem; }
+.feature-list li {
+  display: flex; gap: .55rem; align-items: flex-start; margin: .45rem 0;
+  color: var(--text);
+}
+.feature-list li::before {
+  content: '✓'; color: var(--gold-500); font-weight: 700; flex-shrink: 0;
+}
+
+.callout {
+  border: 1px solid var(--border); border-left: 4px solid var(--gold-500);
+  background: var(--surface); border-radius: 10px; padding: 1rem 1.25rem;
+  margin: 1.25rem 0; color: var(--text);
+}
+
+/* ── Contact list ── */
+.contact-list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;
+}
+.contact-list li {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.1rem 1.25rem;
+}
+.contact-list .label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .7rem; text-transform: uppercase; letter-spacing: .12em;
+  color: var(--muted); display: block; margin-bottom: .35rem;
+}
+.contact-list a { color: var(--navy-500); }
+:root.theme-dark .contact-list a, :root.theme-auto .contact-list a { color: var(--gold-300); }
+
+/* ── Footer ── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  margin-top: 2rem;
+  padding: 3rem 1.25rem 2rem;
+}
+.footer-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; gap: 2rem;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+}
+@media (max-width: 880px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+.footer-brand p { margin: .35rem 0; color: var(--muted); font-size: .9rem; }
+.footer-brand .brand-icon     { height: 28px; }
+.footer-brand .brand-wordmark { height: 20px; }
+.footer-col h4 {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 .8rem;
+}
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col li { margin: .35rem 0; }
+.footer-col a {
+  color: var(--navy-700); text-decoration: none; font-size: .92rem;
+}
+:root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
+.footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+
+.footer-fineprint {
+  max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex; flex-wrap: wrap; gap: .75rem 2rem; justify-content: space-between;
+  font-size: .82rem; color: var(--muted);
+}
+.address-block { font-style: normal; }
+</style>
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_oks4oQLhwDpmgqTdiwx7tjJ3FZrZPZjDWtsYtvbXG9tu',{api_host:'https://signedreviews.com/ph',person_profiles:'identified_only',session_recording:{maskAllInputs:true},disable_session_recording:true,respect_dnt:true});
+    (function(){
+      var CK='sr_replay_consent', GK='sr_geo';
+      var REGION=['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH','BR'];
+      function get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+      function set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+      function start(){ try{ posthog.startSessionRecording(); }catch(e){} }
+      function stop(){ try{ posthog.stopSessionRecording(); }catch(e){} }
+      function banner(){
+        if(document.getElementById('sr-consent')) return;
+        var d=document.createElement('div'); d.id='sr-consent'; d.setAttribute('role','dialog'); d.setAttribute('aria-label','Session recording consent');
+        d.style.cssText='position:fixed;left:16px;right:16px;bottom:16px;margin:0 auto;max-width:520px;z-index:2147483647;background:#0b1220;color:#e7ecf3;border:1px solid #243044;border-radius:12px;padding:16px 18px;box-shadow:0 10px 30px rgba(0,0,0,.35);font:14px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif';
+        var p=document.createElement('div'); p.style.marginBottom='10px';
+        p.innerHTML='We would like to record an anonymised, form-masked replay of your visit to help improve our site. Analytics work either way. See our <a href="/privacy/" style="color:#8ab4ff">Privacy Policy</a>.';
+        var row=document.createElement('div'); row.style.cssText='display:flex;gap:8px;justify-content:flex-end';
+        var dec=document.createElement('button'); dec.type='button'; dec.textContent='Decline'; dec.style.cssText='padding:8px 14px;border-radius:8px;border:1px solid #3a475c;background:transparent;color:#e7ecf3;cursor:pointer';
+        var acc=document.createElement('button'); acc.type='button'; acc.textContent='Accept'; acc.style.cssText='padding:8px 14px;border-radius:8px;border:0;background:#2f6df6;color:#fff;font-weight:600;cursor:pointer';
+        dec.onclick=function(){ set(CK,'denied'); stop(); d.remove(); };
+        acc.onclick=function(){ set(CK,'granted'); d.remove(); start(); };
+        row.appendChild(dec); row.appendChild(acc); d.appendChild(p); d.appendChild(row);
+        (document.body||document.documentElement).appendChild(d);
+      }
+      // Footer "Privacy choices" entry point — lets anyone re-open the banner to
+      // opt in or out at any time, in any region.
+      window.srPrivacy=function(){ banner(); };
+      // Browser-level opt-out signals (Do Not Track, Global Privacy Control):
+      // never record and don't prompt.
+      var dnt=navigator.doNotTrack=='1'||navigator.doNotTrack=='yes'||window.doNotTrack=='1';
+      var gpc=navigator.globalPrivacyControl===true;
+      if(dnt||gpc){ stop(); return; }
+      function decide(inRegion){
+        var c=get(CK);
+        if(c==='denied'){ return; }            // persistent opt-out, honoured everywhere
+        if(c==='granted'){ start(); return; }
+        if(!inRegion){ start(); return; }      // outside EU/EEA/UK: record by default
+        if(document.body){ banner(); }         // inside, no choice yet: ask
+        else { document.addEventListener('DOMContentLoaded',banner); }
+      }
+      var g=get(GK);
+      if(g){ decide(REGION.indexOf(g)>=0); }
+      else { fetch('/cdn-cgi/trace').then(function(r){return r.text();}).then(function(t){ var m=/loc=([A-Z]{2})/.exec(t); var loc=m?m[1]:''; if(loc) set(GK,loc); decide(loc?REGION.indexOf(loc)>=0:true); }).catch(function(){ decide(true); }); }
+    })();
+  </script>
+  <script>
+    (function () {
+      function setup() {
+        var ph = window.posthog;
+        if (!ph || typeof ph.capture !== 'function') return; // posthog not loaded yet
+        var fired = {};
+        function onScroll() {
+          var doc = document.documentElement, body = document.body;
+          var top = doc.scrollTop || body.scrollTop || 0;
+          var max = (doc.scrollHeight || body.scrollHeight || 0) - (doc.clientHeight || 0);
+          var pct = max > 0 ? (top / max) * 100 : 0;
+          var ts = [25, 50, 75, 100];
+          for (var i = 0; i < ts.length; i++) { var t = ts[i]; if (pct >= t && !fired[t]) { fired[t] = true; ph.capture('landing_scroll_depth', { depth: t }); } }
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+          if (ticking) return; ticking = true;
+          (window.requestAnimationFrame || function (cb) { setTimeout(cb, 66); })(function () { onScroll(); ticking = false; });
+        }, { passive: true });
+        onScroll();
+        if ('IntersectionObserver' in window) {
+          var seen = {};
+          var io = new IntersectionObserver(function (entries) {
+            for (var i = 0; i < entries.length; i++) {
+              var en = entries[i];
+              if (en.isIntersecting) { var n = en.target.getAttribute('data-track'); if (n && !seen[n]) { seen[n] = true; ph.capture('landing_section_viewed', { section: n }); } }
+            }
+          }, { threshold: 0.5 });
+          var tracked = document.querySelectorAll('[data-track]');
+          for (var j = 0; j < tracked.length; j++) io.observe(tracked[j]);
+        }
+        document.addEventListener('click', function (e) {
+          var el = e.target;
+          while (el && el !== document) {
+            if (el.getAttribute && el.getAttribute('data-cta')) { ph.capture('landing_cta_click', { cta: el.getAttribute('data-cta'), href: el.getAttribute('href') || '' }); break; }
+            el = el.parentNode;
+          }
+        }, true);
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
+    })();
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.","email":"support@signedreviews.com","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://signedreviews.com/blog/"},{"@type":"ListItem","position":3,"name":"Trustpilot Alternatives for SaaS: Why Most Review Platforms Don't Fit Subscription Businesses","item":"https://signedreviews.com/blog/trustpilot-alternatives-for-saas/"}]}</script>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Trustpilot Alternatives for SaaS: Why Most Review Platforms Don't Fit Subscription Businesses","description":"Why SaaS companies need a different review platform than e-commerce brands — and the 5 best Trustpilot alternatives built for subscription businesses with recur","datePublished":"2026-07-24","dateModified":"2026-07-24","mainEntityOfPage":{"@type":"WebPage","@id":"https://signedreviews.com/blog/trustpilot-alternatives-for-saas/"},"image":["https://signedreviews.com/images/og/trustpilot-alternatives-for-saas.png"],"author":{"@type":"Organization","name":"Signed Reviews","url":"https://signedreviews.com"},"publisher":{"@type":"Organization","name":"Signed Reviews","logo":{"@type":"ImageObject","url":"https://signedreviews.com/images/SignedReviews_logo_only.png"}}}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  
+<header class="site-header">
+  <div class="nav-inner" id="navInner">
+    <a class="brand" href="/" aria-label="Signed Reviews home">
+      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+      <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
+    </a>
+    <ul class="nav-links" role="menu">
+      <li><a href="/pricing/">Pricing</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="theme-toggle" aria-label="Toggle dark mode" onclick="(function(){var d=document.documentElement; d.classList.remove('theme-auto'); var dark=d.classList.toggle('theme-dark'); try{localStorage.setItem('theme', dark?'dark':'light');}catch(_){}})();">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener" data-cta="login">Log in</a>
+      <a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener" data-cta="signup">Sign up</a>
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer" onclick="(function(b){var d=document.getElementById('mobileDrawer'); if(!d)return; var open=d.classList.toggle('is-open'); b.setAttribute('aria-expanded', open?'true':'false');})(this);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileDrawer" class="mobile-drawer" aria-label="Mobile navigation">
+    <ul>
+      <li><a href="/pricing/">Pricing</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+      <li><a href="https://platform.signedreviews.com" rel="noopener" data-cta="login">Log in</a></li>
+    </ul>
+  </div>
+</header>
+  <main id="main">
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="eyebrow">Blog</span>
+        <h1>Trustpilot Alternatives for SaaS: Why Most Review Platforms Don't Fit Subscription Businesses</h1>
+        <p>Why SaaS companies need a different review platform than e-commerce brands — and the 5 best Trustpilot alternatives built for subscription businesses with recur</p>
+      </div>
+    </section>
+    <div class="prose-wrap">
+      <article class="prose" style="max-width: var(--max-prose)">
+      <p class="post-meta" style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">2026-07-24</p>
+      <p>SaaS companies are underserved by review platforms. Most review tools — Trustpilot included — are built for one-time purchases: buy a product, get an invitation, leave a review. The subscription model breaks this flow. A SaaS customer might pay you 50 times over three years. Each payment is a new data point about their experience. Most review platforms capture at most one of those moments.</p>
+<p>Here&#39;s why SaaS needs a different kind of review platform, and which alternatives actually fit.</p>
+<hr>
+<h2 id="why-trustpilot-isn39t-built-for-saas"><a class="anchor" href="#why-trustpilot-isn39t-built-for-saas" aria-label="Permalink to Why Trustpilot isn&amp;#39;t built for SaaS">#</a> Why Trustpilot isn&#39;t built for SaaS</h2>
+<p>Trustpilot&#39;s model assumes a transaction is a discrete event: customer buys, business invites, customer reviews. This works for e-commerce. It doesn&#39;t work well for SaaS:</p>
+<table>
+<thead>
+<tr>
+<th>Trustpilot assumption</th>
+<th>SaaS reality</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>One purchase = one review opportunity</td>
+<td>Subscription = recurring charges = many review opportunities</td>
+</tr>
+<tr>
+<td>Review soon after purchase</td>
+<td>Meaningful SaaS reviews require months of usage</td>
+</tr>
+<tr>
+<td>Review reflects a product</td>
+<td>SaaS reviews reflect a product, a team, support, uptime, and a relationship</td>
+</tr>
+<tr>
+<td>Volume = credibility</td>
+<td>A SaaS company with 20 detailed, time-anchored reviews may be more credible than one with 200 generic ones</td>
+</tr>
+<tr>
+<td>The B2C review-reading experience</td>
+<td>SaaS buyers read reviews differently — they want use-case fit, role relevance, and time depth</td>
+</tr>
+</tbody></table>
+<p>SaaS companies that treat Trustpilot as their primary review platform are contorting a B2C model to fit a B2B purchasing process. It can work, but it&#39;s not optimal.</p>
+<hr>
+<h2 id="what-saas-companies-actually-need-from-a-review-platform"><a class="anchor" href="#what-saas-companies-actually-need-from-a-review-platform" aria-label="Permalink to What SaaS companies actually need from a review platform">#</a> What SaaS companies actually need from a review platform</h2>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Why it matters for SaaS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Subscription-aware verification</strong></td>
+<td>Recurring payments mean recurring verification. A review written after 2 months should be distinguishable from one written after 24 months.</td>
+</tr>
+<tr>
+<td><strong>Stripe Billing integration</strong></td>
+<td>Most SaaS companies use Stripe Billing. The review platform should understand invoices, subscriptions, upgrades, downgrades, and cancellations — not just one-time charges.</td>
+</tr>
+<tr>
+<td><strong>Review freshness</strong></td>
+<td>A 3-year-old review of a SaaS product may describe features that no longer exist. The platform should surface review age and encourage updated reviews.</td>
+</tr>
+<tr>
+<td><strong>Use-case specificity</strong></td>
+<td>SaaS buyers search for &quot;[tool] for [use case]&quot; — your reviews should capture the use case so they rank for those long-tail queries.</td>
+</tr>
+<tr>
+<td><strong>Aggregator presence</strong></td>
+<td>G2, Capterra, and TrustRadius are where SaaS buyers search. Your review platform should complement (not replace) aggregator presence.</td>
+</tr>
+<tr>
+<td><strong>API-first</strong></td>
+<td>SaaS companies have engineering teams. A review platform with a good API can be embedded into the product, the docs, and the sales site — not just a standalone review page.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="the-5-best-trustpilot-alternatives-for-saas"><a class="anchor" href="#the-5-best-trustpilot-alternatives-for-saas" aria-label="Permalink to The 5 best Trustpilot alternatives for SaaS">#</a> The 5 best Trustpilot alternatives for SaaS</h2>
+<h3 id="1-signed-reviews-best-for-stripe-powered-saas"><a class="anchor" href="#1-signed-reviews-best-for-stripe-powered-saas" aria-label="Permalink to 1. Signed Reviews — ★ Best for Stripe-powered SaaS">#</a> 1. Signed Reviews — ★ Best for Stripe-powered SaaS</h3>
+<p>| Verification | Level 4 — Processor-attested (Stripe) |
+| Stripe Billing | Native — subscriptions, invoices, upgrades, cancellations |
+| Starting price | Free (25 reviews/mo) / $29–$199/mo |</p>
+<p>The only platform built specifically for Stripe businesses — which describes almost every SaaS company. Connects via read-only OAuth. Understands Stripe Billing natively: invoices, subscriptions, proration, upgrades, downgrades. Every subscription payment is a new verification opportunity. Reviews are cryptographically signed.</p>
+<p><strong>Why it wins for SaaS:</strong> It&#39;s the only platform that treats subscription payments as recurring verification events rather than one-and-done purchases. A customer who&#39;s paid 24 monthly invoices generates a review with 24 verification data points, not one.</p>
+<h3 id="2-g2-a-verified-review-platform-best-for-saas-buyer-discovery"><a class="anchor" href="#2-g2-a-verified-review-platform-best-for-saas-buyer-discovery" aria-label="Permalink to 2. G2 + a verified-review platform — ★ Best for SaaS buyer discovery">#</a> 2. G2 + a verified-review platform — ★ Best for SaaS buyer discovery</h3>
+<p>G2 is where SaaS buyers search. It&#39;s not a review-collection platform — it&#39;s a review-aggregation platform. The reviews on your G2 profile come from G2&#39;s own collection mechanisms (which have minimal verification). But G2 is non-negotiable for SaaS visibility.</p>
+<p><strong>The optimal setup:</strong> Use a verified-review platform (Level 4) for your website and sales process. Maintain a G2 profile for discovery. Link between them — your G2 profile points to your verified reviews; your verified-review page mentions your G2 presence. They serve different purposes and don&#39;t compete.</p>
+<h3 id="3-capterra-getapp-for-software-category-visibility"><a class="anchor" href="#3-capterra-getapp-for-software-category-visibility" aria-label="Permalink to 3. Capterra / GetApp — ★ For software-category visibility">#</a> 3. Capterra / GetApp — ★ For software-category visibility</h3>
+<p>Capterra and GetApp (both Gartner properties) are major SaaS discovery channels — particularly for SMB and mid-market buyers. Like G2, they&#39;re aggregators, not verification platforms. List your product, collect reviews through their mechanisms, and use a separate verified-review platform for on-site social proof.</p>
+<h3 id="4-trustradius-for-enterprise-saas"><a class="anchor" href="#4-trustradius-for-enterprise-saas" aria-label="Permalink to 4. TrustRadius — ★ For enterprise SaaS">#</a> 4. TrustRadius — ★ For enterprise SaaS</h3>
+<p>TrustRadius is the enterprise SaaS review aggregator — longer, more detailed reviews, often from practitioners rather than decision-makers. Reviews go through a human vetting process. Not a replacement for verified reviews on your own site, but an important enterprise discovery channel.</p>
+<h3 id="5-product-hunt-for-launch-and-early-stage-saas"><a class="anchor" href="#5-product-hunt-for-launch-and-early-stage-saas" aria-label="Permalink to 5. Product Hunt — ★ For launch and early-stage SaaS">#</a> 5. Product Hunt — ★ For launch and early-stage SaaS</h3>
+<p>Product Hunt isn&#39;t a review platform in the traditional sense, but for early-stage SaaS companies, it&#39;s the highest-signal &quot;social proof&quot; surface. Reviews on Product Hunt come from a tech-savvy, early-adopter audience. They&#39;re not verified (Level 0–1), but they carry disproportionate influence in the tech community. Use Product Hunt for launch credibility; use a verified-review platform for ongoing customer proof.</p>
+<hr>
+<h2 id="the-saas-review-stack"><a class="anchor" href="#the-saas-review-stack" aria-label="Permalink to The SaaS review stack">#</a> The SaaS review stack</h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Platform</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Verified reviews (your site)</strong></td>
+<td>Signed Reviews</td>
+<td>Processor-attested reviews you own and control. Embed on your pricing page, docs, and sales site.</td>
+</tr>
+<tr>
+<td><strong>Aggregator presence</strong></td>
+<td>G2, Capterra, TrustRadius</td>
+<td>Discovery — SaaS buyers search here. Claim your profiles, keep them updated.</td>
+</tr>
+<tr>
+<td><strong>Community credibility</strong></td>
+<td>Product Hunt, relevant subreddits</td>
+<td>Launch and community presence. Not verified, but valued by early adopters.</td>
+</tr>
+<tr>
+<td><strong>Customer evidence</strong></td>
+<td>Case studies, ROI calculators</td>
+<td>High-touch sales support. Pair with verified reviews from the same customer.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="why-stripe-billing-is-the-saas-review-superpower"><a class="anchor" href="#why-stripe-billing-is-the-saas-review-superpower" aria-label="Permalink to Why Stripe Billing is the SaaS review superpower">#</a> Why Stripe Billing is the SaaS review superpower</h2>
+<p>Most SaaS companies already have the strongest possible review-verification infrastructure — they just aren&#39;t using it for reviews.</p>
+<p>Every Stripe subscription creates a paper trail: when the customer started, what plan they&#39;re on, every invoice they&#39;ve paid, every upgrade and downgrade, whether they cancelled, and whether any payment failed. This data is <strong>independent of your application database.</strong> You can modify a &quot;customer&quot; record in your own database for free. You can&#39;t modify a Stripe invoice without Stripe&#39;s API recording the change.</p>
+<p>A review platform that connects to Stripe Billing can:</p>
+<ul>
+<li><strong>Verify review freshness</strong> — is this review from a customer whose subscription is still active?</li>
+<li><strong>Weight review credibility</strong> — a review from a customer with 18 paid invoices carries more signal than one from a customer with 2</li>
+<li><strong>Automatically age out reviews</strong> — if a customer churns, the review can be marked as &quot;from a former customer&quot; (still valuable, but contextualized)</li>
+<li><strong>Trigger review requests at natural moments</strong> — after the 3rd successful invoice, after an upgrade, at annual renewal</li>
+</ul>
+<p>No e-commerce review platform does this, because they&#39;re built for one-time purchases. The subscription model is fundamentally different, and the review platform should reflect that.</p>
+<hr>
+<h2 id="bottom-line"><a class="anchor" href="#bottom-line" aria-label="Permalink to Bottom line">#</a> Bottom line</h2>
+<p>SaaS companies need a review strategy that reflects how SaaS is bought and sold — subscription-aware, Stripe-integrated, and multi-layered (aggregators for discovery, verified reviews for conversion). Trustpilot is a B2C platform applied to a B2B purchasing process. The alternatives that fit SaaS best are those that treat subscription payments as recurring verification events, not one-and-done transactions.</p>
+<p><strong>Further reading:</strong></p>
+<ul>
+<li><a href="/blog/how-to-collect-reviews-for-saas/">How to Collect Reviews for SaaS</a> — timing, strategy, and Stripe Billing integration</li>
+<li><a href="/blog/best-review-platform-for-saas/">Best Review Platform for SaaS</a> — the SERP-mismatch opportunity explained</li>
+<li><a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews</a> — why Stripe-native verification matters for SaaS</li>
+<li><a href="/blog/transaction-verified-reviews/">Transaction-Verified Reviews</a> — processor-attested verification explained</li>
+</ul>
+
+      <p style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+        <a href="/blog/">← Back to blog</a>
+      </p>
+    </article>
+    </div>
+  </main>
+  
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="brand footer-brand-link" href="/" aria-label="Signed Reviews home">
+        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+        <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
+      </a>
+      <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
+      <p>© 2026 Paid Rightly LLC. All rights reserved.</p>
+      <address class="address-block"><strong>Paid Rightly LLC</strong><br>1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States</address>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#how-it-works">How it works</a></li>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/pricing/">Pricing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="mailto:support@signedreviews.com">Support</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Service</a></li>
+        <li><a href="/dpa/">Data Processing Agreement</a></li>
+        <li><a href="/dmca/">DMCA Policy</a></li>
+        <li><a href="/refund-policy/">Refund Policy</a></li>
+        <li><a href="/subprocessors/">Sub-processors</a></li>
+        <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;">Privacy choices</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-fineprint">
+    <span>© 2026 Paid Rightly LLC. All rights reserved.</span>
+    <span>Signed Reviews is a service operated by Paid Rightly LLC.</span>
+  </div>
+</footer>
+<script>
+  // Honor stored theme preference set by index.html.
+  (function () {
+    try {
+      var stored = localStorage.getItem('theme');
+      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
+      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
+      else document.documentElement.classList.add('theme-auto');
+    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+  })();
+</script>
+  <!-- Cloudflare Web Analytics (proxied) -->
+  <script defer src="/cf/beacon.min.js" data-cf-beacon='{"token": "3db355ae0786403fbe4f7240e1130894"}'></script>
+</body>
+</html>
