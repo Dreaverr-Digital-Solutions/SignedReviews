@@ -1552,7 +1552,9 @@ function buildBlog() {
   if (fs.existsSync(blogDir)) {
     const files = fs.readdirSync(blogDir).filter(f => f.endsWith('.md')).sort().reverse();
     for (const file of files) {
-      const raw = fs.readFileSync(path.join(blogDir, file), 'utf8');
+      let raw = fs.readFileSync(path.join(blogDir, file), 'utf8');
+      // Normalize CRLF → LF so regex patterns work on Windows
+      raw = raw.replace(/\r\n/g, '\n');
       const slug = '/blog/' + file.replace(/\.md$/, '/');
 
       // Extract title from first H1
