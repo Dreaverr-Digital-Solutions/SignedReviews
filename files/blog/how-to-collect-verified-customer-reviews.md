@@ -10,7 +10,7 @@ Collecting verified customer reviews doesn't require technical expertise, a mark
 
 The foundation of verified reviews is purchase verification. Connect your Stripe account to your review platform using Stripe's official OAuth flow. This grants read-only access — the platform can verify charges but cannot modify anything in your Stripe account.
 
-**What to look for**: Make sure the integration is read-only. Some platforms request `read_write` access, which allows them to create charges and issue refunds. Signed Reviews uses `charge_read`, `customer_read`, and `subscription_read` permissions — no write access.
+**What to look for**: Make sure the integration is read-only. Some platforms request `read_write` access, which allows them to create charges and issue refunds. Signed Reviews uses `charge_read`, `customer_read`, and `subscription_read` permissions — no write access. See [how it works](/how-it-works/) for the full setup flow.
 
 ## Step 2: Configure your auto-request settings
 
@@ -51,8 +51,8 @@ The easier it is to leave a review, the more reviews you'll collect:
 - **Review gating**: Don't ask happy customers to leave a public review while funneling unhappy customers to private feedback. This is against FTC guidelines.
 - **Editing reviews**: Don't modify customer reviews. If a review violates content guidelines, report it — don't alter it.
 
-## Start collecting today
+## How to collect verified customer reviews: start today
 
-The technical setup takes minutes. The hard part — building a reputation of authentic, verified reviews — happens over time, one real purchase at a time. But that's exactly what makes verified reviews valuable.
+The technical setup takes minutes. The hard part — building a reputation of authentic, verified reviews — happens over time, one real purchase at a time. But that's exactly what makes verified reviews valuable. See [pricing](/pricing/) for plan details and start collecting verified customer reviews today.
 
 **Further reading:** [Stripe Verified Reviews](/blog/stripe-verified-reviews/) — learn why processor-attested verification (Level 4) is fundamentally different from merchant-supplied badges. And [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/) for the honest, platform-by-platform breakdown.
