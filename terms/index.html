@@ -25,7 +25,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://us.i.posthog.com">
+  <link rel="preconnect" href="https://signedreviews.com/ph">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
   <link rel="preload" href="https://fonts.gstatic.com/s/instrumentserif/v18/jiz2RFNlSmViCztYvS2ZTOdC0D5n.woff2" as="font" type="font/woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
@@ -439,7 +439,7 @@ main { padding: 0; }
 </style>
   <script>
     !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_oks4oQLhwDpmgqTdiwx7tjJ3FZrZPZjDWtsYtvbXG9tu',{api_host:'https://us.i.posthog.com',person_profiles:'identified_only',session_recording:{maskAllInputs:true},disable_session_recording:true,respect_dnt:true});
+    posthog.init('phc_oks4oQLhwDpmgqTdiwx7tjJ3FZrZPZjDWtsYtvbXG9tu',{api_host:'https://signedreviews.com/ph',person_profiles:'identified_only',session_recording:{maskAllInputs:true},disable_session_recording:true,respect_dnt:true});
     (function(){
       var CK='sr_replay_consent', GK='sr_geo';
       var REGION=['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH','BR'];
@@ -559,13 +559,13 @@ main { padding: 0; }
 <li>When a customer makes a purchase (resulting in a successful Stripe charge), Signed Reviews sends the customer an email invitation to leave a review.</li>
 <li>The customer clicks a one-time, time-limited link, writes a review, and submits it.</li>
 <li>The review is cryptographically signed server-side and stored.</li>
-<li>If enabled by the business, the review is displayed publicly on a hosted review page, in an embeddable widget, and via a public API.</li>
+<li>If enabled by the business, the review is displayed publicly on a hosted review page and via a public API.</li>
 </ol>
 <p>Verified reviews are labeled &quot;Purchase Verified.&quot; This label indicates that (a) the review is linked to a specific Stripe charge, (b) the reviewer had access to the email address associated with that charge, and (c) the review content has not been altered since submission. It does not verify the reviewer&#39;s legal identity or the subjective truth of the review content.</p>
 <hr>
 <h2 id="3-current-pricing"><a class="anchor" href="#3-current-pricing" aria-label="Permalink to 3. Current pricing">#</a> 3. Current pricing</h2>
-<p>Signed Reviews is currently offered <strong>free of charge</strong>. There is no subscription fee, no per-review charge, no commission on business transactions, and no platform fee taken from any connected Stripe account.</p>
-<p>We reserve the right to introduce paid tiers, usage-based fees, or other charges in the future. We will provide at least 30 days&#39; advance notice by email and an in-product notice before any such change takes effect. If you do not agree to the new pricing, you may discontinue use of the Service before the change takes effect.</p>
+<p>Signed Reviews offers a <strong>free plan</strong> (self-service review collection) and paid subscription plans — <strong>Starter ($29/mo), Pro ($79/mo), and Scale ($199/mo)</strong>, each available monthly or annually. There is no per-review charge, no commission on business transactions, and no platform fee taken from any connected Stripe account; paid plans are billed by Signed Reviews directly via Stripe and do not affect the fees you pay Stripe.</p>
+<p>We may change our pricing or introduce new plans, fees, or usage-based charges in the future. We will provide at least 30 days&#39; advance notice by email and an in-product notice before any pricing increase takes effect. If you do not agree to the new pricing, you may discontinue use of the Service before the change takes effect.</p>
 <hr>
 <h2 id="4-your-license-to-use-the-service"><a class="anchor" href="#4-your-license-to-use-the-service" aria-label="Permalink to 4. Your license to use the Service">#</a> 4. Your license to use the Service</h2>
 <p>Subject to your ongoing compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to access and use the Service for your own internal business purposes.</p>
@@ -586,11 +586,11 @@ main { padding: 0; }
 </ul>
 <p>By linking your Stripe account, you:</p>
 <ul>
-<li>Grant us <strong>read-only</strong> access to your Stripe data. We read charge data to trigger and verify review requests and, only for the metrics you explicitly enable on your public Trust Profile, aggregate read access to related data such as charges, customers, subscriptions, refunds, disputes, and balance transactions.</li>
+<li>Grant us <strong>read-only</strong> access to your Stripe data. We read charge data to trigger and verify review requests and, only for the metrics you explicitly enable on your public review page, aggregate read access to related data such as charges, customers, subscriptions, refunds, disputes, and balance transactions.</li>
 <li>Authorize us to receive <code>charge.succeeded</code> and <code>charge.refunded</code> events. With Stripe Connect these are delivered to our platform webhook automatically; with a restricted API key we register (or you configure) a webhook endpoint on your Stripe account for the same events.</li>
 <li>Remain solely responsible for your relationship with Stripe, including compliance with Stripe&#39;s Services Agreement.</li>
 </ul>
-<p>We <strong>never</strong> initiate charges, issue refunds, move or transfer funds, modify your Stripe account, or take platform fees. Our access is strictly read-only and limited to the data needed to verify reviews and compute the Trust Profile metrics you choose to display.</p>
+<p>We <strong>never</strong> initiate charges, issue refunds, move or transfer funds, modify your Stripe account, or take platform fees. Our access is strictly read-only and limited to the data needed to verify reviews and compute the public-page metrics you choose to display.</p>
 <p>You can disconnect your Stripe account at any time through the Service. Doing so stops future review requests from being triggered; your Signed Reviews account and existing reviews remain intact.</p>
 <hr>
 <h2 id="6-business-user-obligations-regarding-reviewers"><a class="anchor" href="#6-business-user-obligations-regarding-reviewers" aria-label="Permalink to 6. Business user obligations regarding reviewers">#</a> 6. Business user obligations regarding reviewers</h2>
@@ -626,7 +626,7 @@ main { padding: 0; }
 </ul>
 <p>By submitting a review, you understand and agree that:</p>
 <ul>
-<li>Your review will be displayed publicly on the business&#39;s review page, in their widget if embedded on third-party sites, and may be made available through their public API</li>
+<li>Your review will be displayed publicly on the business&#39;s review page and may be made available through their public API</li>
 <li>The display name, photo, and social handle you choose to include will be displayed alongside your review</li>
 <li>You may request anonymization of your review at any time by emailing <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a></li>
 <li>You can opt out of future review-request emails from any Signed Reviews business by clicking the unsubscribe link in any review-request email</li>
@@ -638,7 +638,7 @@ main { padding: 0; }
 <h3 id="82-license-to-us"><a class="anchor" href="#82-license-to-us" aria-label="Permalink to 8.2 License to us">#</a> 8.2 License to us</h3>
 <p>You grant us a worldwide, non-exclusive, royalty-free, sublicensable license to host, store, reproduce, modify (for technical purposes like format conversion and resizing), display, distribute, and transmit Your Content solely for the purpose of operating and providing the Service, including:</p>
 <ul>
-<li>Displaying reviews on public review pages and in widgets embedded on third-party sites</li>
+<li>Displaying reviews on public review pages</li>
 <li>Making reviews available through the public API to authorized consumers</li>
 <li>Using anonymized and aggregated data to operate and improve the Service</li>
 <li>Creating backups and operational copies</li>
@@ -646,9 +646,9 @@ main { padding: 0; }
 <p>This license continues for as long as Your Content remains on the Service. If Your Content is anonymized pursuant to a deletion or erasure request, the license continues to apply to the anonymized content.</p>
 <h3 id="83-no-pre-screening-7-business-day-abuse-report-sla"><a class="anchor" href="#83-no-pre-screening-7-business-day-abuse-report-sla" aria-label="Permalink to 8.3 No pre-screening; 7-business-day abuse-report SLA">#</a> 8.3 No pre-screening; 7-business-day abuse-report SLA</h3>
 <p>We do not pre-screen, moderate, or verify the accuracy of reviews or other user-generated content before it is published. Reviews go live immediately on submission.</p>
-<p>We commit to reviewing every abuse report we receive — whether submitted via the in-product &quot;Report&quot; link on a public review page or by email to <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a> — <strong>within 7 business days</strong> of receipt. We will take appropriate action where warranted, including, in our sole discretion, hiding the content from public surfaces (the public review page, embeddable widget, and public API), terminating the offending account, or referring the matter to law enforcement. For DMCA copyright complaints, see Section 17.</p>
+<p>We commit to reviewing every abuse report we receive — whether submitted via the in-product &quot;Report&quot; link on a public review page or by email to <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a> — <strong>within 7 business days</strong> of receipt. We will take appropriate action where warranted, including, in our sole discretion, hiding the content from public surfaces (the public review page and public API), terminating the offending account, or referring the matter to law enforcement. For DMCA copyright complaints, see Section 17.</p>
 <h3 id="84-refunded-transactions"><a class="anchor" href="#84-refunded-transactions" aria-label="Permalink to 8.4 Refunded transactions">#</a> 8.4 Refunded transactions</h3>
-<p>If a business refunds the Stripe charge associated with a review, the review will be hidden from public display (widgets, review pages, public API). The underlying record is retained for integrity and audit purposes but is no longer surfaced to the public.</p>
+<p>If a business refunds the Stripe charge associated with a review, the review will be hidden from public display (review pages and public API). The underlying record is retained for integrity and audit purposes but is no longer surfaced to the public.</p>
 <hr>
 <h2 id="9-prohibited-uses"><a class="anchor" href="#9-prohibited-uses" aria-label="Permalink to 9. Prohibited uses">#</a> 9. Prohibited uses</h2>
 <p>You agree not to use the Service to:</p>
@@ -665,13 +665,12 @@ main { padding: 0; }
 </ul>
 <p>We may suspend or terminate accounts that violate these restrictions.</p>
 <hr>
-<h2 id="10-public-api-and-widget"><a class="anchor" href="#10-public-api-and-widget" aria-label="Permalink to 10. Public API and widget">#</a> 10. Public API and widget</h2>
-<p>If you use the public API or embed the Signed Reviews widget on a third-party website, you additionally agree that:</p>
+<h2 id="10-public-api"><a class="anchor" href="#10-public-api" aria-label="Permalink to 10. Public API">#</a> 10. Public API</h2>
+<p>If you use the public API, you additionally agree that:</p>
 <ul>
 <li>Your API key is confidential; sharing it is a breach of these Terms</li>
 <li>The public API is rate limited, and the limit depends on your plan (see our <a href="https://signedreviews.com/pricing">Pricing page</a>); excessive use may result in throttling or suspension</li>
-<li>Widget-embedded reviews must be displayed in their original form without editing or selective omission of negative reviews</li>
-<li>You are responsible for ensuring the widget or API data you display on your site complies with applicable law (including disclosure rules for endorsements)</li>
+<li>You are responsible for ensuring any review data you display via the API on your site complies with applicable law (including disclosure rules for endorsements)</li>
 </ul>
 <hr>
 <h2 id="11-service-availability-and-changes"><a class="anchor" href="#11-service-availability-and-changes" aria-label="Permalink to 11. Service availability and changes">#</a> 11. Service availability and changes</h2>
@@ -815,7 +814,7 @@ main { padding: 0; }
     <nav class="toc" aria-label="On this page">
       <h2>On this page</h2>
       <ul>
-        <li><a href="#1-who-can-use-the-service">1. Who can use the Service</a></li><li><a href="#2-description-of-the-service">2. Description of the Service</a></li><li><a href="#3-current-pricing">3. Current pricing</a></li><li><a href="#4-your-license-to-use-the-service">4. Your license to use the Service</a></li><li><a href="#5-your-stripe-connection">5. Your Stripe connection</a></li><li><a href="#6-business-user-obligations-regarding-reviewers">6. Business user obligations regarding reviewers</a></li><li><a href="#7-reviewer-obligations">7. Reviewer obligations</a></li><li><a href="#8-your-content">8. Your content</a></li><li><a href="#9-prohibited-uses">9. Prohibited uses</a></li><li><a href="#10-public-api-and-widget">10. Public API and widget</a></li><li><a href="#11-service-availability-and-changes">11. Service availability and changes</a></li><li><a href="#12-termination">12. Termination</a></li><li><a href="#13-third-party-services">13. Third-party services</a></li><li><a href="#14-disclaimers">14. Disclaimers</a></li><li><a href="#15-limitation-of-liability">15. Limitation of liability</a></li><li><a href="#16-indemnification">16. Indemnification</a></li><li><a href="#17-dmca-and-copyright-policy">17. DMCA and copyright policy</a></li><li><a href="#18-dispute-resolution-arbitration-and-class-action-waiver">18. Dispute resolution, arbitration, and class action waiver</a></li><li><a href="#19-general">19. General</a></li>
+        <li><a href="#1-who-can-use-the-service">1. Who can use the Service</a></li><li><a href="#2-description-of-the-service">2. Description of the Service</a></li><li><a href="#3-current-pricing">3. Current pricing</a></li><li><a href="#4-your-license-to-use-the-service">4. Your license to use the Service</a></li><li><a href="#5-your-stripe-connection">5. Your Stripe connection</a></li><li><a href="#6-business-user-obligations-regarding-reviewers">6. Business user obligations regarding reviewers</a></li><li><a href="#7-reviewer-obligations">7. Reviewer obligations</a></li><li><a href="#8-your-content">8. Your content</a></li><li><a href="#9-prohibited-uses">9. Prohibited uses</a></li><li><a href="#10-public-api">10. Public API</a></li><li><a href="#11-service-availability-and-changes">11. Service availability and changes</a></li><li><a href="#12-termination">12. Termination</a></li><li><a href="#13-third-party-services">13. Third-party services</a></li><li><a href="#14-disclaimers">14. Disclaimers</a></li><li><a href="#15-limitation-of-liability">15. Limitation of liability</a></li><li><a href="#16-indemnification">16. Indemnification</a></li><li><a href="#17-dmca-and-copyright-policy">17. DMCA and copyright policy</a></li><li><a href="#18-dispute-resolution-arbitration-and-class-action-waiver">18. Dispute resolution, arbitration, and class action waiver</a></li><li><a href="#19-general">19. General</a></li>
       </ul>
     </nav>
     </div>
