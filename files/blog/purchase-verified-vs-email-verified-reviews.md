@@ -1,12 +1,12 @@
-# Purchase-Verified vs Email-Verified Reviews: What's the Difference?
+# Payment Verified Reviews vs Purchase Verification: What's the Real Difference?
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** The difference between purchase-verified and email-verified reviews, why it matters for trust, and how to tell which kind you're reading.**
+**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Payment verified reviews are independently confirmed by a payment processor like Stripe — here's how they differ from purchase-verified and email-verified reviews, why it matters for trust, and how to tell which kind you're reading.**
 
 ---
 
-Two reviews. Both say "Verified." One means the platform confirmed the reviewer's email address exists. The other means an independent payment processor confirmed the reviewer actually paid for the product. They're not the same thing — but most review platforms use language that blurs the distinction.
+Two reviews. Both say "Verified." One means the platform confirmed the reviewer's email address exists. The other means an independent payment processor confirmed the reviewer actually paid for the product — these are **payment verified reviews**, and they're structurally impossible to fake. They're not the same thing — but most review platforms use language that blurs the distinction.
 
-Here's what each actually means, why the difference matters for both businesses and consumers, and how to tell which one you're looking at.
+Here's what each actually means, why payment verified reviews are structurally harder to fake than purchase-verified ones, and how to tell which kind you're looking at.
 
 ---
 
@@ -27,7 +27,7 @@ Here's what each actually means, why the difference matters for both businesses 
 
 ---
 
-## Purchase-verified reviews
+## Purchase-verified reviews (and payment verified reviews)
 
 **What it checks:** That a purchase actually occurred — but **who confirms it** is the critical variable.
 
@@ -44,9 +44,9 @@ The review platform checks the reviewer against **the merchant's own order or cu
 
 **The gap:** The merchant controls the data being verified against. A merchant could create a test order in their own store, write a review against it, and the platform would mark it "Verified Buyer." Most merchants don't do this — but the system doesn't prevent it. The trust root is the merchant's data, and the merchant controls that data.
 
-### Level 4: Processor-attested purchase verification
+### Level 4: Processor-attested purchase verification (payment verified reviews)
 
-The review platform checks the reviewer against **the payment processor's independent records** — not the merchant's store data.
+This is what **payment verified reviews** actually means at its strongest: the review platform checks the reviewer against **the payment processor's independent records** — not the merchant's store data.
 
 **How it works:**
 - The platform connects to the business's Stripe account via OAuth (read-only)
@@ -74,7 +74,7 @@ This is the heart of the matter: **moving from "the merchant attests" to "the pr
 
 ## Why this matters for your business
 
-If you run a business that collects reviews, the verification level you offer is a **competitive signal.** Consider two competitors:
+If you run a business that collects reviews, the verification level you offer is a **competitive signal.** See [how Signed Reviews works](/how-it-works/) for the full verification flow. Consider two competitors:
 
 - **Competitor A** uses a Level 3 platform. Their reviews say "Verified Buyer" — meaning the competitor's own Shopify store confirmed an order existed.
 - **Your business** uses a Level 4 platform. Your reviews say "Verified by Stripe" — meaning Stripe independently confirmed a charge occurred.
