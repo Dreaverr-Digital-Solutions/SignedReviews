@@ -39,11 +39,11 @@ When a customer completes a purchase through your Stripe account, Stripe records
 
 5. **Verification**: The signature uses HMAC-SHA256 with a platform-wide signing key. Anyone can verify the signature independently — it proves the review was created through the platform and has not been altered.
 
-## Refund handling
+## Refund handling — how Stripe review verification works after a refund
 
 If a charge is refunded, Stripe sends a `charge.refunded` event. Signed Reviews automatically hides the associated review from your public page and API. The cryptographic signature remains valid (the review *was* authentic), but the content is no longer displayed publicly.
 
-This is automatic — you don't need to flag, report, or manually hide anything.
+This is automatic — you don't need to flag, report, or manually hide anything. That's how Stripe review verification works end-to-end: the same payment processor that confirms the charge also confirms the refund, and the review follows automatically.
 
 ## The invitation lifecycle
 
@@ -65,6 +65,22 @@ At the end of this process, every review on your Signed Reviews page has a verif
 Stripe charge → invitation token → review signature → published review
 ```
 
-Break any link in that chain, and the review doesn't exist. This is what separates purchase-verified reviews from all other review platforms.
+Break any link in that chain, and the review doesn't exist. This is how Stripe review verification works at the architectural level — it's not a policy claim, it's a chain of cryptographic evidence. See [how Signed Reviews works](/how-it-works/) for the full verification flow, from OAuth connection to published review.
 
 **Further reading:** [Stripe Verified Reviews: The Only Reviews Backed by Your Payment Processor](/blog/stripe-verified-reviews/) — our definitive guide to why processor-attested verification is structurally different from every other "verified" badge. Also see: [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/) for the full verification spectrum breakdown.
+
+---
+
+## FAQ: how Stripe review verification works
+
+### Does Stripe review verification require API keys?
+
+No. Signed Reviews connects via Stripe's official OAuth flow — one click, read-only permissions. You never copy an API key, and the connection can be revoked at any time from your Stripe dashboard. This is a core part of how Stripe review verification works: Stripe's OAuth permission model enforces the read-only scope, not the app's own policy.
+
+### Can Stripe review verification be faked?
+
+No — not without creating a real, settled Stripe charge that costs real processing fees (~2.9% + $0.30). A fake charge would require a real payment method, would appear in your Stripe dashboard, and would risk your Stripe account being flagged. The economics make fabrication structurally irrational.
+
+### How is Stripe review verification different from email verification?
+
+Email verification confirms the reviewer controls an email address — nothing more. Stripe review verification confirms the reviewer paid you through Stripe, the charge settled, and the charge hasn't been refunded. One is identity-lite; the other is a financial attestation backed by a regulated payment processor. [See pricing](/pricing/) for plan options.
