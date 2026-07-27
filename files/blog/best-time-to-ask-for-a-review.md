@@ -4,11 +4,13 @@
 
 ---
 
-Timing is the single largest variable in review-collection response rates. Send the request too early and the customer hasn't formed an opinion. Send it too late and the purchase is a distant memory. This guide breaks down the optimal timing for every business type, backed by what we've observed across thousands of review invitations.
+Timing is the single largest variable in review-collection response rates. Send the request too early and the customer hasn't formed an opinion. Send it too late and the purchase is a distant memory. This guide breaks down the best time to ask for a review for every business type, backed by what we've observed across thousands of review invitations.
+
+Here's the best time to ask for a review — broken down by product type, day of week, and reminder cadence. Data-backed timing that maximizes response rates without annoying customers.
 
 ---
 
-## The golden rule: ask when the experience is complete
+## The golden rule for the best time to ask for a review
 
 The universal principle: **don't ask for a review until the customer has received and experienced what they paid for.** Obvious, but widely violated. E-commerce stores that send review requests 24 hours after ordering — before the product has shipped — get low response rates and worse reviews, because the customer hasn't used the product yet.
 
@@ -75,15 +77,15 @@ Most people don't write a review on the first request. A structured reminder seq
 
 ---
 
-## Transaction-verified: why timing matters even more
+## Transaction-verified: why the best time to ask for a review matters even more
 
 With processor-attested (Level 4) verification, review requests are tied to **specific Stripe charges.** That means:
 
 - **You can't send a request without a real charge.** No "batch-invite everyone in my customer list." Every invitation traces back to a confirmed transaction.
-- **Timing is deterministic.** The invitation fires when the charge settles — not when you remember to send it. For physical products, configure a delivery delay.
+- **Timing is deterministic.** The invitation fires when the charge settles — not when you remember to send it. For physical products, configure a delivery delay. See [how it works](/how-it-works/) for the full verification flow.
 - **Refunds auto-hide reviews.** If a customer requests a refund after leaving a review, the review is hidden automatically. So you don't need to worry about reviews from customers who ultimately weren't satisfied.
 
-The net effect: processor-attested review collection encourages you to **get the timing right upfront**, because you can't retroactively invite or exclude customers. The system is neutral — it sends to every paying customer, at the right time, without you curating the list.
+The net effect: processor-attested review collection encourages you to **get the timing right upfront**, because you can't retroactively invite or exclude customers. The system is neutral — it sends to every paying customer, at the best time to ask for a review, without you curating the list. [See pricing](/pricing/) for plans with automated review timing.
 
 ---
 
