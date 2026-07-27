@@ -1,10 +1,12 @@
 # How Stripe Review Verification Works: A Technical Guide
 
-**Published:** 2026-07-04 · **Author:** Signed Reviews Team · **Description:** How Stripe review verification works, end to end: read-only OAuth, matching each review to a real charge, and cryptographic signing that's tamper-evident.
+**Published:** 2026-07-04 · **Author:** Signed Reviews Team · **Description:** Learn how Stripe review verification works — from OAuth connection and charge verification to cryptographic signing and automatic refund handling.
 
 ---
 
-If you accept payments through Stripe, you already have everything you need to collect verified, tamper-evident customer reviews. Here's how the integration works — from OAuth to cryptographic signing.
+If you accept payments through Stripe, you already have everything you need to collect verified, tamper-evident customer reviews. Here's how Stripe review verification works — from OAuth to cryptographic signing.
+
+Set up in under a minute with no API keys or webhooks. Check [pricing](/pricing/) to find the right plan for your volume.
 
 ## The Stripe connection
 
@@ -19,7 +21,7 @@ Critically, the connection is **read-only.** The OAuth scope grants permission t
 
 We **cannot** create charges, issue refunds, update subscriptions, or modify anything in your Stripe account. This is enforced by Stripe's OAuth permission model — not just by our promise.
 
-## How a review gets verified
+## How Stripe review verification works: step by step
 
 When a customer completes a purchase through your Stripe account, Stripe records a `charge.succeeded` event. Here's what happens next, step by step:
 

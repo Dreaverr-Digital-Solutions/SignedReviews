@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How Stripe Review Verification Works: A Technical Guide — Signed Reviews Blog</title>
-  <meta name="description" content="Critically, the connection is read-only. The OAuth scope grants permission to:">
+  <meta name="description" content="Set up in under a minute with no API keys or webhooks. Check pricing(/pricing/) to find the right plan for your volume.">
   <link rel="canonical" href="https://signedreviews.com/blog/how-stripe-review-verification-works/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="How Stripe Review Verification Works: A Technical Guide — Signed Reviews Blog">
-  <meta property="og:description" content="Critically, the connection is read-only. The OAuth scope grants permission to:">
+  <meta property="og:description" content="Set up in under a minute with no API keys or webhooks. Check pricing(/pricing/) to find the right plan for your volume.">
   <meta property="og:url" content="https://signedreviews.com/blog/how-stripe-review-verification-works/">
   <meta property="og:site_name" content="Signed Reviews">
   <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="How Stripe Review Verification Works: A Technical Guide — Signed Reviews Blog">
-  <meta name="twitter:description" content="Critically, the connection is read-only. The OAuth scope grants permission to:">
+  <meta name="twitter:description" content="Set up in under a minute with no API keys or webhooks. Check pricing(/pricing/) to find the right plan for your volume.">
 
   <link rel="icon" href="/SignedReviews/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/SignedReviews/images/SignedReviews_logo_only.png">
@@ -483,7 +483,7 @@ main { padding: 0; }
     })();
   </script>
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How Stripe Review Verification Works: A Technical Guide","description":"Critically, the connection is read-only. The OAuth scope grants permission to:","datePublished":"2026-07-04 ·","author":{"@type":"Organization","name":"Signed Reviews"},"publisher":{"@type":"Organization","name":"Signed Reviews","logo":{"@type":"ImageObject","url":"https://signedreviews.com/images/SignedReviews_logo_only.png"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How Stripe Review Verification Works: A Technical Guide","description":"Set up in under a minute with no API keys or webhooks. Check pricing(/pricing/) to find the right plan for your volume.","datePublished":"2026-07-04 ·","author":{"@type":"Organization","name":"Signed Reviews"},"publisher":{"@type":"Organization","name":"Signed Reviews","logo":{"@type":"ImageObject","url":"https://signedreviews.com/images/SignedReviews_logo_only.png"}}}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -525,13 +525,14 @@ main { padding: 0; }
       <div class="page-hero-inner">
         <span class="eyebrow">Blog</span>
         <h1>How Stripe Review Verification Works: A Technical Guide</h1>
-        <p>Critically, the connection is read-only. The OAuth scope grants permission to:</p>
+        <p>Set up in under a minute with no API keys or webhooks. Check pricing(/pricing/) to find the right plan for your volume.</p>
       </div>
     </section>
     <div class="prose-wrap">
       <article class="prose" style="max-width: var(--max-prose)">
       <p class="post-meta" style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">2026-07-04 ·</p>
-      <p>If you accept payments through Stripe, you already have everything you need to collect verified, tamper-evident customer reviews. Here&#39;s how the integration works — from OAuth to cryptographic signing.</p>
+      <p>If you accept payments through Stripe, you already have everything you need to collect verified, tamper-evident customer reviews. Here&#39;s how Stripe review verification works — from OAuth to cryptographic signing.</p>
+<p>Set up in under a minute with no API keys or webhooks. Check <a href="/pricing/">pricing</a> to find the right plan for your volume.</p>
 <h2 id="the-stripe-connection"><a class="anchor" href="#the-stripe-connection" aria-label="Permalink to The Stripe connection">#</a> The Stripe connection</h2>
 <p>Signed Reviews connects to your Stripe account via Stripe&#39;s official OAuth flow. You click &quot;Connect,&quot; authorize the integration, and that&#39;s it. No API keys to copy and paste. No webhook configuration. No server changes.</p>
 <p>Critically, the connection is <strong>read-only.</strong> The OAuth scope grants permission to:</p>
@@ -542,7 +543,7 @@ main { padding: 0; }
 <li>Read balance transactions (for refund detection)</li>
 </ul>
 <p>We <strong>cannot</strong> create charges, issue refunds, update subscriptions, or modify anything in your Stripe account. This is enforced by Stripe&#39;s OAuth permission model — not just by our promise.</p>
-<h2 id="how-a-review-gets-verified"><a class="anchor" href="#how-a-review-gets-verified" aria-label="Permalink to How a review gets verified">#</a> How a review gets verified</h2>
+<h2 id="how-stripe-review-verification-works-step-by-step"><a class="anchor" href="#how-stripe-review-verification-works-step-by-step" aria-label="Permalink to How Stripe review verification works: step by step">#</a> How Stripe review verification works: step by step</h2>
 <p>When a customer completes a purchase through your Stripe account, Stripe records a <code>charge.succeeded</code> event. Here&#39;s what happens next, step by step:</p>
 <ol>
 <li><p><strong>Event detection</strong>: Signed Reviews detects the new charge via Stripe&#39;s event system. The charge contains the customer&#39;s email, the amount, the currency, and a unique charge ID.</p>
