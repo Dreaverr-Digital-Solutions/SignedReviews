@@ -6,11 +6,11 @@
 
 If you accept payments through Stripe, you already have everything you need to collect verified, tamper-evident customer reviews. Here's how Stripe review verification works — from OAuth to cryptographic signing.
 
-Set up in under a minute with no API keys or webhooks. Check [pricing](/pricing/) to find the right plan for your volume.
+Set up in under a minute — that's how Stripe review verification works. No API keys, no webhooks, no server changes. See the pricing page for plan details.
 
 ## The Stripe connection
 
-Signed Reviews connects to your Stripe account via Stripe's official OAuth flow. You click "Connect," authorize the integration, and that's it. No API keys to copy and paste. No webhook configuration. No server changes.
+Signed Reviews connects to your Stripe account via Stripe's official OAuth flow. You click "Connect," authorize the integration, and that's it. No API keys to copy and paste. No webhook configuration. No server changes. See [pricing](/pricing/) for plan details.
 
 Critically, the connection is **read-only.** The OAuth scope grants permission to:
 
