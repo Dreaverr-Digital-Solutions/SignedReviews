@@ -4,9 +4,9 @@
 
 ---
 
-SaaS companies have a review problem that e-commerce businesses don't: there's no package to photograph, no unboxing experience to describe, and the "product" changes every month. A review written three days into a free trial is fundamentally different from one written after two years of paid subscription — but most review platforms treat them identically.
+SaaS companies have a review problem that e-commerce businesses don't: there's no package to photograph, no unboxing experience to describe, and the "product" changes every month. If you're trying to collect reviews for SaaS, the timing and verification model matter more than they do for any other business type. A review written three days into a free trial is fundamentally different from one written after two years of paid subscription — but most review platforms treat them identically.
 
-Here's how to collect SaaS reviews that reflect genuine, sustained product experience — and why your Stripe subscription data is the strongest verification signal you have.
+Here's how to collect reviews for SaaS — timing around the subscription lifecycle, Stripe-native verification, and the tools that turn recurring payments into recurring social proof.
 
 ---
 
@@ -95,7 +95,7 @@ SaaS reviews need to appear where prospects make buying decisions — which is d
 
 ---
 
-## The SaaS review stack
+## The best tools to collect reviews for SaaS
 
 | Layer | Tool | Purpose |
 |-------|------|---------|
@@ -108,7 +108,7 @@ SaaS reviews need to appear where prospects make buying decisions — which is d
 
 ## Bottom line
 
-SaaS review collection is fundamentally different from e-commerce review collection because the product experience is ongoing and the billing relationship is recurring. Every Stripe subscription payment is a verification opportunity. The best SaaS review strategies time requests around the subscription lifecycle (not calendar-arbitrary dates), ask for specific use-case details (not generic praise), and verify against the payment processor (not the merchant's own customer database).
+The way you collect reviews for SaaS is fundamentally different from e-commerce — the product experience is ongoing and the billing relationship is recurring. Every Stripe subscription payment is a verification opportunity. The best strategies to collect reviews for SaaS time requests around the subscription lifecycle, ask for specific use-case details, and verify against the payment processor — not the merchant's own customer database. [See how it works](/how-it-works/) for the full verification flow, or [check pricing](/pricing/) for plans with automated review collection.
 
 **Further reading:**
 - [Best Time to Ask for a Review](/blog/best-time-to-ask-for-a-review/) — timing by product type, including SaaS-specific guidance
