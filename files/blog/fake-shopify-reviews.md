@@ -6,7 +6,7 @@
 
 Shopify powers roughly 10% of U.S. e-commerce. With millions of merchants and over 13,000 apps in the App Store, it's also a significant target for fake-review operations. The problem isn't just Amazon's anymore — fake reviews on Shopify stores are rising, and Shopify's architecture makes certain kinds of fake-review fraud uniquely difficult to detect.
 
-Fake reviews on Shopify exploit a structural weakness: the platform delegates verification to third-party apps with inconsistent standards. Here's how the schemes work, how to spot them, and how to stop them.
+Fake reviews on Shopify exploit a structural weakness: verification is delegated to third-party apps with inconsistent standards. Here's how the schemes work, how to spot them, and how to stop them.
 
 ---
 
