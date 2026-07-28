@@ -4,6 +4,9 @@
 
 ---
 
+
+**The difference between verified and unverified reviews** is what separates real customer feedback from noise. A verified review requires proof of purchase — without it, anyone can post anything.
+
 Online reviews are broken. In 2022 alone, Trustpilot removed 2.7 million fake reviews from its platform. Amazon battles an endless flood of paid and incentivized reviews. The fundamental problem: **anyone can write a review, whether they purchased the product or not.**
 
 The difference between verified and unverified reviews comes down to proof. What is a verified review? It's a review tied to proof of a real purchase — independently confirmed, not self-attested. An unverified review needs no proof at all. Here's how verification works and why that difference matters to your business.
