@@ -563,9 +563,9 @@ const SHARED_HEAD = ({ title, description, canonical, pageType = 'website' }) =>
   <meta name="twitter:title" content="${escapeHtml(title)}">
   <meta name="twitter:description" content="${escapeHtml(description)}">
 
-  <link rel="icon" type="image/png" href="${B}images/SignedReviews_logo_only.png">
+  <link rel="icon" type="image/png" href="${B}images/SignedReviews_logo_only.png?v=636aec71">
   <link rel="icon" href="${B}favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="${B}images/SignedReviews_logo_only.png">
+  <link rel="apple-touch-icon" href="${B}images/SignedReviews_logo_only.png?v=636aec71">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
