@@ -314,17 +314,16 @@ main { padding: 0; }
 .page-hero h1 {
   font-family: 'Instrument Serif', Georgia, serif;
   font-size: clamp(2rem, 4vw + 1rem, 3.25rem);
-  line-height: 1.1; margin: 0 auto .5rem auto; color: var(--navy-900); letter-spacing: -0.02em;
+  line-height: 1.1; margin: 0 0 .5rem; color: var(--navy-900); letter-spacing: -0.02em;
   max-width: var(--max-prose);
 }
 :root.theme-dark .page-hero h1, :root.theme-auto .page-hero h1 { color: #fff; }
-.page-hero p { color: var(--muted); margin: 0 auto; max-width: var(--max-prose); font-size: 1.05rem; }
+.page-hero p { color: var(--muted); margin: 0; max-width: var(--max-prose); font-size: 1.05rem; }
 .eyebrow {
-  display: block;
+  display: inline-block;
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
   color: var(--gold-600); margin-bottom: .9rem;
-  max-width: var(--max-prose); margin-left: auto; margin-right: auto;
 }
 
 .prose-wrap {
@@ -564,8 +563,8 @@ const SHARED_HEAD = ({ title, description, canonical, pageType = 'website' }) =>
   <meta name="twitter:title" content="${escapeHtml(title)}">
   <meta name="twitter:description" content="${escapeHtml(description)}">
 
+  <link rel="icon" type="image/png" href="${B}images/SignedReviews_logo_only.png">
   <link rel="icon" href="${B}favicon.svg" type="image/svg+xml">
-  <link rel="icon" type="image/png" sizes="32x32" href="${B}images/SignedReviews_logo_only.png">
   <link rel="apple-touch-icon" href="${B}images/SignedReviews_logo_only.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1658,7 +1657,7 @@ function buildHowItWorks() {
     :root.theme-dark .step-body code, :root.theme-auto .step-body code { background: rgba(255,255,255,.08); color: var(--gold-300); }
   `;
 
-  const body = `<article class="prose" style="max-width: 760px">
+  const body = `<article class="prose" style="max-width: var(--max-prose)">
     <p>From Stripe purchase to verified review in six steps. The entire flow is automated — you connect once, and Signed Reviews handles the rest.</p>
     ${steps.map(s => `
     <div class="step">
@@ -1705,7 +1704,7 @@ function buildComparison() {
     .verdict p { color: var(--navy-200); margin: 0; line-height: 1.6; }
   `;
 
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose" style="max-width: var(--max-prose)">
     <p>Choosing a review platform is a trust decision. Here's how Signed Reviews compares to Trustpilot — the largest general-purpose review platform — across the dimensions that matter most for businesses that care about review authenticity.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">

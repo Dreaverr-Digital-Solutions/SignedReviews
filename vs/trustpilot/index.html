@@ -19,8 +19,8 @@
   <meta name="twitter:title" content="Signed Reviews vs Trustpilot — Comparison">
   <meta name="twitter:description" content="Detailed comparison of Signed Reviews and Trustpilot: purchase verification, fake review prevention, Stripe integration, pricing, API, review ownership, and more.">
 
+  <link rel="icon" type="image/png" href="/images/SignedReviews_logo_only.png">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png">
   <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -209,17 +209,16 @@ main { padding: 0; }
 .page-hero h1 {
   font-family: 'Instrument Serif', Georgia, serif;
   font-size: clamp(2rem, 4vw + 1rem, 3.25rem);
-  line-height: 1.1; margin: 0 auto .5rem auto; color: var(--navy-900); letter-spacing: -0.02em;
+  line-height: 1.1; margin: 0 0 .5rem; color: var(--navy-900); letter-spacing: -0.02em;
   max-width: var(--max-prose);
 }
 :root.theme-dark .page-hero h1, :root.theme-auto .page-hero h1 { color: #fff; }
-.page-hero p { color: var(--muted); margin: 0 auto; max-width: var(--max-prose); font-size: 1.05rem; }
+.page-hero p { color: var(--muted); margin: 0; max-width: var(--max-prose); font-size: 1.05rem; }
 .eyebrow {
-  display: block;
+  display: inline-block;
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
   color: var(--gold-600); margin-bottom: .9rem;
-  max-width: var(--max-prose); margin-left: auto; margin-right: auto;
 }
 
 .prose-wrap {
@@ -548,7 +547,7 @@ main { padding: 0; }
       </div>
     </section>
     <div class="prose-wrap">
-      <article class="prose" style="max-width: 860px">
+      <article class="prose" style="max-width: var(--max-prose)">
     <p>Choosing a review platform is a trust decision. Here's how Signed Reviews compares to Trustpilot — the largest general-purpose review platform — across the dimensions that matter most for businesses that care about review authenticity.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
