@@ -25,10 +25,10 @@ const ROOT = __dirname;
 const FILES_DIR = path.join(ROOT, 'files');
 const SITE_URL = 'https://signedreviews.com';
 const PLATFORM_URL = 'https://platform.signedreviews.com';
-// Root-relative URL prefix for internal links and assets. Use "/" for the
-// custom domain (served at root) or "/SignedReviews/" when deploying to the
-// GitHub Pages project URL. Override with BASE_PATH=/ npm run build.
-const BASE_PATH = (process.env.BASE_PATH || '/SignedReviews/').replace(/\/+$/, '/') || '/';
+// Root-relative URL prefix for internal links and assets. Defaults to "/" for
+// the custom domain (served at root). Override with BASE_PATH=/SignedReviews/ to
+// restore GitHub Pages project-URL deployment.
+const BASE_PATH = (process.env.BASE_PATH || '/').replace(/\/+$/, '/') || '/';
 const B = BASE_PATH; // shorthand
 
 // ── PostHog analytics ────────────────────────────────────────────────────────
