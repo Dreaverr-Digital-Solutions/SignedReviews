@@ -78,6 +78,6 @@
 /*.woff2
   Cache-Control: public, max-age=31536000, immutable
 
-# HTML pages: short cache with revalidation
+# HTML pages: validate immediately so SEO verification sees the latest deploy
 /*.html
-  Cache-Control: public, max-age=3600, must-revalidate
+  Cache-Control: public, max-age=0, must-revalidate
