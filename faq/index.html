@@ -18,16 +18,16 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="FAQ — Signed Reviews">
   <meta name="twitter:description" content="Frequently asked questions about Signed Reviews: how purchase verification works, Stripe integration, pricing, security, and more.">
+  <meta name="twitter:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
 
-  <link rel="icon" type="image/png" href="/images/SignedReviews_logo_only.png?v=636aec71">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png?v=636aec71">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png">
+  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://signedreviews.com/ph">
+  <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link rel="preload" href="https://fonts.gstatic.com/s/instrumentserif/v18/jiz2RFNlSmViCztYvS2ZTOdC0D5n.woff2" as="font" type="font/woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
   <style>
@@ -209,17 +209,15 @@ main { padding: 0; }
 .page-hero h1 {
   font-family: 'Instrument Serif', Georgia, serif;
   font-size: clamp(2rem, 4vw + 1rem, 3.25rem);
-  line-height: 1.1; margin: 0 auto .5rem auto; color: var(--navy-900); letter-spacing: -0.02em;
-  max-width: var(--max-prose);
+  line-height: 1.1; margin: 0 0 .5rem; color: var(--navy-900); letter-spacing: -0.02em;
 }
 :root.theme-dark .page-hero h1, :root.theme-auto .page-hero h1 { color: #fff; }
-.page-hero p { color: var(--muted); margin: 0 auto; max-width: var(--max-prose); font-size: 1.05rem; }
+.page-hero p { color: var(--muted); margin: 0; max-width: 60ch; font-size: 1.05rem; }
 .eyebrow {
-  display: block;
+  display: inline-block;
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--gold-600); margin: 0 auto .9rem auto;
-  max-width: var(--max-prose);
+  color: var(--gold-600); margin-bottom: .9rem;
 }
 
 .prose-wrap {
@@ -237,7 +235,7 @@ main { padding: 0; }
   padding: clamp(1.5rem, 3vw, 3rem);
   max-width: var(--max-prose);
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
 }
 .prose h1 { display: none; } /* page hero already shows the h1 */
 .prose h2, .prose h3, .prose h4 {
@@ -484,6 +482,50 @@ main { padding: 0; }
       else { fetch('/cdn-cgi/trace').then(function(r){return r.text();}).then(function(t){ var m=/loc=([A-Z]{2})/.exec(t); var loc=m?m[1]:''; if(loc) set(GK,loc); decide(loc?REGION.indexOf(loc)>=0:true); }).catch(function(){ decide(true); }); }
     })();
   </script>
+  <script>
+    (function () {
+      function setup() {
+        var ph = window.posthog;
+        if (!ph || typeof ph.capture !== 'function') return; // posthog not loaded yet
+        var fired = {};
+        function onScroll() {
+          var doc = document.documentElement, body = document.body;
+          var top = doc.scrollTop || body.scrollTop || 0;
+          var max = (doc.scrollHeight || body.scrollHeight || 0) - (doc.clientHeight || 0);
+          var pct = max > 0 ? (top / max) * 100 : 0;
+          var ts = [25, 50, 75, 100];
+          for (var i = 0; i < ts.length; i++) { var t = ts[i]; if (pct >= t && !fired[t]) { fired[t] = true; ph.capture('landing_scroll_depth', { depth: t }); } }
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+          if (ticking) return; ticking = true;
+          (window.requestAnimationFrame || function (cb) { setTimeout(cb, 66); })(function () { onScroll(); ticking = false; });
+        }, { passive: true });
+        onScroll();
+        if ('IntersectionObserver' in window) {
+          var seen = {};
+          var io = new IntersectionObserver(function (entries) {
+            for (var i = 0; i < entries.length; i++) {
+              var en = entries[i];
+              if (en.isIntersecting) { var n = en.target.getAttribute('data-track'); if (n && !seen[n]) { seen[n] = true; ph.capture('landing_section_viewed', { section: n }); } }
+            }
+          }, { threshold: 0.5 });
+          var tracked = document.querySelectorAll('[data-track]');
+          for (var j = 0; j < tracked.length; j++) io.observe(tracked[j]);
+        }
+        document.addEventListener('click', function (e) {
+          var el = e.target;
+          while (el && el !== document) {
+            if (el.getAttribute && el.getAttribute('data-cta')) { ph.capture('landing_cta_click', { cta: el.getAttribute('data-cta'), href: el.getAttribute('href') || '' }); break; }
+            el = el.parentNode;
+          }
+        }, true);
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
+    })();
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.","email":"support@signedreviews.com","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"FAQ","item":"https://signedreviews.com/faq/"}]}</script>
 
   <style>
     .faq-item { border: 1px solid var(--border); border-radius: 12px; margin-bottom: .65rem; background: var(--surface); overflow: hidden; }
@@ -495,7 +537,7 @@ main { padding: 0; }
     .faq-a { padding: 0 1.2rem 1.15rem; color: var(--text); line-height: 1.65; font-size: .95rem; }
     .faq-a p { margin: 0; }
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a purchase-verified review?","acceptedAnswer":{"@type":"Answer","text":"A purchase-verified review is a customer review that is cryptographically linked to a completed payment transaction. Signed Reviews connects to your Stripe account and only allows reviews from customers who have actually purchased from you, making every review tamper-evident and provably authentic."}},{"@type":"Question","name":"How does Signed Reviews verify reviews?","acceptedAnswer":{"@type":"Answer","text":"Signed Reviews links each review to a completed Stripe transaction. When a customer submits a review, the platform verifies the purchase against your Stripe account and cryptographically signs the review, creating a tamper-evident record that proves the reviewer is a real customer and that the review has not been altered."}},{"@type":"Question","name":"How is Signed Reviews different from Trustpilot?","acceptedAnswer":{"@type":"Answer","text":"Unlike Trustpilot, which allows anyone to write a review without verifying a purchase, Signed Reviews requires a completed Stripe transaction before a review can be submitted. This means every review on Signed Reviews is backed by proof of purchase, eliminating fake reviews by design. Trustpilot removed 2.7 million fake reviews in 2022 alone — Signed Reviews prevents them from being written in the first place."}},{"@type":"Question","name":"Do I need to share my Stripe API keys?","acceptedAnswer":{"@type":"Answer","text":"No. Signed Reviews uses Stripe's official OAuth integration, which means you grant read-only access with one click — no API keys to copy, paste, or store. We never have write access to your Stripe account and cannot charge, refund, or modify anything."}},{"@type":"Question","name":"Can customers leave reviews without a purchase?","acceptedAnswer":{"@type":"Answer","text":"No. A review can only be submitted through a unique, expiring invitation link that is generated after a Stripe charge succeeds. The link is emailed to the customer's verified email address from the Stripe transaction. Without a completed purchase, no invitation link exists."}},{"@type":"Question","name":"What happens if a charge is refunded?","acceptedAnswer":{"@type":"Answer","text":"If a charge is refunded, the associated review is automatically hidden from your public page and API responses. The cryptographic signature remains valid — proving the review was authentic — but the content is no longer displayed. This keeps your review feed accurate while preserving the integrity of the verification system."}},{"@type":"Question","name":"How long are review invitation links valid?","acceptedAnswer":{"@type":"Answer","text":"Review links are valid for 14 days on the Free plan, 60 days on Starter, and 90 days on Pro and Scale plans. After expiry, the link can no longer be used to submit a review. A new charge generates a fresh invitation."}},{"@type":"Question","name":"Can I customize the review request emails?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can customize your logo, brand colors, content alignment, and logo size from the dashboard. The email subject line reflects your business name. Review reminder emails follow the same template with a slightly different subject and lead sentence so they don't feel like duplicates. Custom reminder copy is available on the Scale plan."}},{"@type":"Question","name":"Does Signed Reviews work with Shopify or WooCommerce?","acceptedAnswer":{"@type":"Answer","text":"Signed Reviews works with any platform that processes payments through Stripe. If your Shopify or WooCommerce store uses Stripe as the payment processor, Signed Reviews connects directly to your Stripe account and works automatically — no Shopify/WooCommerce plugin needed."}},{"@type":"Question","name":"Is Signed Reviews free?","acceptedAnswer":{"@type":"Answer","text":"Signed Reviews is free during beta. When paid plans launch, every existing account will receive at least 30 days' email notice before any charges begin. See our pricing page for the planned tiers."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a purchase-verified review?","acceptedAnswer":{"@type":"Answer","text":"A purchase-verified review is a customer review that is cryptographically linked to a completed payment transaction. Signed Reviews connects to your Stripe account and only allows reviews from customers who have actually purchased from you, making every review tamper-evident and provably authentic."}},{"@type":"Question","name":"How does Signed Reviews verify reviews?","acceptedAnswer":{"@type":"Answer","text":"Signed Reviews links each review to a completed Stripe transaction. When a customer submits a review, the platform verifies the purchase against your Stripe account and cryptographically signs the review, creating a tamper-evident record that proves the reviewer is a real customer and that the review has not been altered."}},{"@type":"Question","name":"How is Signed Reviews different from Trustpilot?","acceptedAnswer":{"@type":"Answer","text":"Unlike Trustpilot, which allows anyone to write a review without verifying a purchase, Signed Reviews requires a completed Stripe transaction before a review can be submitted. This means every review on Signed Reviews is backed by proof of purchase, eliminating fake reviews by design. Trustpilot removed 2.7 million fake reviews in 2022 alone — Signed Reviews prevents them from being written in the first place."}},{"@type":"Question","name":"Do I need to share my Stripe API keys?","acceptedAnswer":{"@type":"Answer","text":"No. Signed Reviews uses Stripe's official OAuth integration, which means you grant read-only access with one click — no API keys to copy, paste, or store. We never have write access to your Stripe account and cannot charge, refund, or modify anything."}},{"@type":"Question","name":"Can customers leave reviews without a purchase?","acceptedAnswer":{"@type":"Answer","text":"No. Every review requires a verified purchase. A review link is issued in one of two ways: automatically after a Stripe charge succeeds (emailed to the customer's verified email from the transaction), or on request — a customer can visit the business's public page and enter their checkout email to receive their own link. In both cases, the email must match a real completed purchase on the business's Stripe account. Without a matching purchase, no link is issued and no review can be submitted."}},{"@type":"Question","name":"What happens if a charge is refunded?","acceptedAnswer":{"@type":"Answer","text":"If a charge is refunded, the associated review is automatically hidden from your public page and API responses. The cryptographic signature remains valid — proving the review was authentic — but the content is no longer displayed. This keeps your review feed accurate while preserving the integrity of the verification system."}},{"@type":"Question","name":"How long are review invitation links valid?","acceptedAnswer":{"@type":"Answer","text":"Review links are valid for 14 days on every plan. After expiry, the link can no longer be used to submit a review. A new charge (or a fresh self-service request) generates a new invitation."}},{"@type":"Question","name":"Can I customize the review request emails?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can customize your logo, content alignment, and logo size from the dashboard. The email subject line reflects your business name. Review reminder emails follow the same template with a slightly different subject and lead sentence so they don't feel like duplicates."}},{"@type":"Question","name":"Does Signed Reviews work with Shopify, WooCommerce, or Squarespace?","acceptedAnswer":{"@type":"Answer","text":"Yes. Signed Reviews is a Stripe App, so it installs in one click and connects to your Stripe account — including accounts that Shopify, WooCommerce, or Squarespace manage on your behalf. If your checkout runs on Stripe, your reviews can be verified, with no separate plugin required."}},{"@type":"Question","name":"Is Signed Reviews free?","acceptedAnswer":{"@type":"Answer","text":"There is a free plan for self-service collection, forever. Paid plans from $29/mo add automation, reminders, webhooks, and higher volume. See our pricing page for the tiers."}}]}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -516,8 +558,8 @@ main { padding: 0; }
         <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
         <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener">Log in</a>
-      <a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener">Sign up</a>
+      <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener" data-cta="login">Log in</a>
+      <a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener" data-cta="signup">Sign up</a>
       <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer" onclick="(function(b){var d=document.getElementById('mobileDrawer'); if(!d)return; var open=d.classList.toggle('is-open'); b.setAttribute('aria-expanded', open?'true':'false');})(this);">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -528,7 +570,7 @@ main { padding: 0; }
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
-      <li><a href="https://platform.signedreviews.com" rel="noopener">Log in</a></li>
+      <li><a href="https://platform.signedreviews.com" rel="noopener" data-cta="login">Log in</a></li>
     </ul>
   </div>
 </header>
@@ -562,7 +604,7 @@ main { padding: 0; }
     </details>
     <details class="faq-item">
       <summary class="faq-q">Can customers leave reviews without a purchase?</summary>
-      <div class="faq-a">No. A review can only be submitted through a unique, expiring invitation link that is generated after a Stripe charge succeeds. The link is emailed to the customer's verified email address from the Stripe transaction. Without a completed purchase, no invitation link exists.</div>
+      <div class="faq-a">No. Every review requires a verified purchase. A review link is issued in one of two ways: automatically after a Stripe charge succeeds (emailed to the customer's verified email from the transaction), or on request — a customer can visit the business's public page and enter their checkout email to receive their own link. In both cases, the email must match a real completed purchase on the business's Stripe account. Without a matching purchase, no link is issued and no review can be submitted.</div>
     </details>
     <details class="faq-item">
       <summary class="faq-q">What happens if a charge is refunded?</summary>
@@ -570,19 +612,19 @@ main { padding: 0; }
     </details>
     <details class="faq-item">
       <summary class="faq-q">How long are review invitation links valid?</summary>
-      <div class="faq-a">Review links are valid for 14 days on the Free plan, 60 days on Starter, and 90 days on Pro and Scale plans. After expiry, the link can no longer be used to submit a review. A new charge generates a fresh invitation.</div>
+      <div class="faq-a">Review links are valid for 14 days on every plan. After expiry, the link can no longer be used to submit a review. A new charge (or a fresh self-service request) generates a new invitation.</div>
     </details>
     <details class="faq-item">
       <summary class="faq-q">Can I customize the review request emails?</summary>
-      <div class="faq-a">Yes. You can customize your logo, brand colors, content alignment, and logo size from the dashboard. The email subject line reflects your business name. Review reminder emails follow the same template with a slightly different subject and lead sentence so they don't feel like duplicates. Custom reminder copy is available on the Scale plan.</div>
+      <div class="faq-a">Yes. You can customize your logo, content alignment, and logo size from the dashboard. The email subject line reflects your business name. Review reminder emails follow the same template with a slightly different subject and lead sentence so they don't feel like duplicates.</div>
     </details>
     <details class="faq-item">
-      <summary class="faq-q">Does Signed Reviews work with Shopify or WooCommerce?</summary>
-      <div class="faq-a">Signed Reviews works with any platform that processes payments through Stripe. If your Shopify or WooCommerce store uses Stripe as the payment processor, Signed Reviews connects directly to your Stripe account and works automatically — no Shopify/WooCommerce plugin needed.</div>
+      <summary class="faq-q">Does Signed Reviews work with Shopify, WooCommerce, or Squarespace?</summary>
+      <div class="faq-a">Yes. Signed Reviews is a Stripe App, so it installs in one click and connects to your Stripe account — including accounts that Shopify, WooCommerce, or Squarespace manage on your behalf. If your checkout runs on Stripe, your reviews can be verified, with no separate plugin required.</div>
     </details>
     <details class="faq-item">
       <summary class="faq-q">Is Signed Reviews free?</summary>
-      <div class="faq-a">Signed Reviews is free during beta. When paid plans launch, every existing account will receive at least 30 days' email notice before any charges begin. See our <a href="/pricing/">pricing page</a> for the planned tiers.</div>
+      <div class="faq-a">There is a free plan for self-service collection, forever. Paid plans from $29/mo add automation, reminders, webhooks, and higher volume. See our <a href="/pricing/">pricing page</a> for the tiers.</div>
     </details>
   </article>
     </div>
@@ -645,5 +687,7 @@ main { padding: 0; }
     } catch (_) { document.documentElement.classList.add('theme-auto'); }
   })();
 </script>
+  <!-- Cloudflare Web Analytics (proxied) -->
+  <script defer src="/cf/beacon.min.js" data-cf-beacon='{"token": "3db355ae0786403fbe4f7240e1130894"}'></script>
 </body>
 </html>

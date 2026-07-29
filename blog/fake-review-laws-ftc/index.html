@@ -4,30 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FTC Fake Review Rule 2024: What It Means for Your Business — Signed Reviews Blog</title>
-  <meta name="description" content="This post explains what the rule covers, what it means for your business, and why the verification method you choose now determines your regulatory exposure.">
+  <meta name="description" content="The FTC's 2024 fake review rule (16 CFR Part 465) bans fake reviews, review buying, and undisclosed insider reviews with civil penalties up to $51,744 per viola">
   <link rel="canonical" href="https://signedreviews.com/blog/fake-review-laws-ftc/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
 
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
   <meta property="og:title" content="FTC Fake Review Rule 2024: What It Means for Your Business — Signed Reviews Blog">
-  <meta property="og:description" content="This post explains what the rule covers, what it means for your business, and why the verification method you choose now determines your regulatory exposure.">
+  <meta property="og:description" content="The FTC's 2024 fake review rule (16 CFR Part 465) bans fake reviews, review buying, and undisclosed insider reviews with civil penalties up to $51,744 per viola">
   <meta property="og:url" content="https://signedreviews.com/blog/fake-review-laws-ftc/">
   <meta property="og:site_name" content="Signed Reviews">
-  <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
+  <meta property="og:image" content="https://signedreviews.com/images/og/fake-review-laws-ftc.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="FTC Fake Review Rule 2024: What It Means for Your Business — Signed Reviews Blog">
-  <meta name="twitter:description" content="This post explains what the rule covers, what it means for your business, and why the verification method you choose now determines your regulatory exposure.">
+  <meta name="twitter:description" content="The FTC's 2024 fake review rule (16 CFR Part 465) bans fake reviews, review buying, and undisclosed insider reviews with civil penalties up to $51,744 per viola">
+  <meta name="twitter:image" content="https://signedreviews.com/images/og/fake-review-laws-ftc.png">
 
-  <link rel="icon" type="image/png" href="/images/SignedReviews_logo_only.png?v=636aec71">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png?v=636aec71">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png">
+  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://signedreviews.com/ph">
+  <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link rel="preload" href="https://fonts.gstatic.com/s/instrumentserif/v18/jiz2RFNlSmViCztYvS2ZTOdC0D5n.woff2" as="font" type="font/woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
   <style>
@@ -209,17 +209,15 @@ main { padding: 0; }
 .page-hero h1 {
   font-family: 'Instrument Serif', Georgia, serif;
   font-size: clamp(2rem, 4vw + 1rem, 3.25rem);
-  line-height: 1.1; margin: 0 auto .5rem auto; color: var(--navy-900); letter-spacing: -0.02em;
-  max-width: var(--max-prose);
+  line-height: 1.1; margin: 0 0 .5rem; color: var(--navy-900); letter-spacing: -0.02em;
 }
 :root.theme-dark .page-hero h1, :root.theme-auto .page-hero h1 { color: #fff; }
-.page-hero p { color: var(--muted); margin: 0 auto; max-width: var(--max-prose); font-size: 1.05rem; }
+.page-hero p { color: var(--muted); margin: 0; max-width: 60ch; font-size: 1.05rem; }
 .eyebrow {
-  display: block;
+  display: inline-block;
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--gold-600); margin: 0 auto .9rem auto;
-  max-width: var(--max-prose);
+  color: var(--gold-600); margin-bottom: .9rem;
 }
 
 .prose-wrap {
@@ -237,7 +235,7 @@ main { padding: 0; }
   padding: clamp(1.5rem, 3vw, 3rem);
   max-width: var(--max-prose);
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
 }
 .prose h1 { display: none; } /* page hero already shows the h1 */
 .prose h2, .prose h3, .prose h4 {
@@ -484,8 +482,52 @@ main { padding: 0; }
       else { fetch('/cdn-cgi/trace').then(function(r){return r.text();}).then(function(t){ var m=/loc=([A-Z]{2})/.exec(t); var loc=m?m[1]:''; if(loc) set(GK,loc); decide(loc?REGION.indexOf(loc)>=0:true); }).catch(function(){ decide(true); }); }
     })();
   </script>
+  <script>
+    (function () {
+      function setup() {
+        var ph = window.posthog;
+        if (!ph || typeof ph.capture !== 'function') return; // posthog not loaded yet
+        var fired = {};
+        function onScroll() {
+          var doc = document.documentElement, body = document.body;
+          var top = doc.scrollTop || body.scrollTop || 0;
+          var max = (doc.scrollHeight || body.scrollHeight || 0) - (doc.clientHeight || 0);
+          var pct = max > 0 ? (top / max) * 100 : 0;
+          var ts = [25, 50, 75, 100];
+          for (var i = 0; i < ts.length; i++) { var t = ts[i]; if (pct >= t && !fired[t]) { fired[t] = true; ph.capture('landing_scroll_depth', { depth: t }); } }
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+          if (ticking) return; ticking = true;
+          (window.requestAnimationFrame || function (cb) { setTimeout(cb, 66); })(function () { onScroll(); ticking = false; });
+        }, { passive: true });
+        onScroll();
+        if ('IntersectionObserver' in window) {
+          var seen = {};
+          var io = new IntersectionObserver(function (entries) {
+            for (var i = 0; i < entries.length; i++) {
+              var en = entries[i];
+              if (en.isIntersecting) { var n = en.target.getAttribute('data-track'); if (n && !seen[n]) { seen[n] = true; ph.capture('landing_section_viewed', { section: n }); } }
+            }
+          }, { threshold: 0.5 });
+          var tracked = document.querySelectorAll('[data-track]');
+          for (var j = 0; j < tracked.length; j++) io.observe(tracked[j]);
+        }
+        document.addEventListener('click', function (e) {
+          var el = e.target;
+          while (el && el !== document) {
+            if (el.getAttribute && el.getAttribute('data-cta')) { ph.capture('landing_cta_click', { cta: el.getAttribute('data-cta'), href: el.getAttribute('href') || '' }); break; }
+            el = el.parentNode;
+          }
+        }, true);
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
+    })();
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.","email":"support@signedreviews.com","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://signedreviews.com/blog/"},{"@type":"ListItem","position":3,"name":"FTC Fake Review Rule 2024: What It Means for Your Business","item":"https://signedreviews.com/blog/fake-review-laws-ftc/"}]}</script>
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"FTC Fake Review Rule 2024: What It Means for Your Business","description":"This post explains what the rule covers, what it means for your business, and why the verification method you choose now determines your regulatory exposure.","datePublished":"2026-07-24 ·","author":{"@type":"Organization","name":"Signed Reviews"},"publisher":{"@type":"Organization","name":"Signed Reviews","logo":{"@type":"ImageObject","url":"https://signedreviews.com/images/SignedReviews_logo_only.png"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"FTC Fake Review Rule 2024: What It Means for Your Business","description":"The FTC's 2024 fake review rule (16 CFR Part 465) bans fake reviews, review buying, and undisclosed insider reviews with civil penalties up to $51,744 per viola","datePublished":"2026-07-24","dateModified":"2026-07-24","mainEntityOfPage":{"@type":"WebPage","@id":"https://signedreviews.com/blog/fake-review-laws-ftc/"},"image":["https://signedreviews.com/images/og/fake-review-laws-ftc.png"],"author":{"@type":"Organization","name":"Signed Reviews","url":"https://signedreviews.com"},"publisher":{"@type":"Organization","name":"Signed Reviews","logo":{"@type":"ImageObject","url":"https://signedreviews.com/images/SignedReviews_logo_only.png"}}}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -506,8 +548,8 @@ main { padding: 0; }
         <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
         <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener">Log in</a>
-      <a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener">Sign up</a>
+      <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener" data-cta="login">Log in</a>
+      <a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener" data-cta="signup">Sign up</a>
       <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer" onclick="(function(b){var d=document.getElementById('mobileDrawer'); if(!d)return; var open=d.classList.toggle('is-open'); b.setAttribute('aria-expanded', open?'true':'false');})(this);">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -518,7 +560,7 @@ main { padding: 0; }
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
-      <li><a href="https://platform.signedreviews.com" rel="noopener">Log in</a></li>
+      <li><a href="https://platform.signedreviews.com" rel="noopener" data-cta="login">Log in</a></li>
     </ul>
   </div>
 </header>
@@ -527,12 +569,12 @@ main { padding: 0; }
       <div class="page-hero-inner">
         <span class="eyebrow">Blog</span>
         <h1>FTC Fake Review Rule 2024: What It Means for Your Business</h1>
-        <p>This post explains what the rule covers, what it means for your business, and why the verification method you choose now determines your regulatory exposure.</p>
+        <p>The FTC's 2024 fake review rule (16 CFR Part 465) bans fake reviews, review buying, and undisclosed insider reviews with civil penalties up to $51,744 per viola</p>
       </div>
     </section>
     <div class="prose-wrap">
       <article class="prose" style="max-width: var(--max-prose)">
-      <p class="post-meta" style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">2026-07-24 ·</p>
+      <p class="post-meta" style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">2026-07-24</p>
       <p>On 21 October 2024, the Federal Trade Commission&#39;s <strong>Trade Regulation Rule on the Use of Consumer Reviews and Testimonials</strong> (16 CFR Part 465) took effect. It&#39;s the most significant U.S. regulation of online reviews ever enacted — and it changes the compliance landscape for every business that collects, displays, or relies on customer reviews.</p>
 <p>This post explains what the rule covers, what it means for your business, and why the verification method you choose now determines your regulatory exposure.</p>
 <h2 id="what-the-rule-prohibits"><a class="anchor" href="#what-the-rule-prohibits" aria-label="Permalink to What the rule prohibits">#</a> What the rule prohibits</h2>
@@ -667,5 +709,7 @@ main { padding: 0; }
     } catch (_) { document.documentElement.classList.add('theme-auto'); }
   })();
 </script>
+  <!-- Cloudflare Web Analytics (proxied) -->
+  <script defer src="/cf/beacon.min.js" data-cf-beacon='{"token": "3db355ae0786403fbe4f7240e1130894"}'></script>
 </body>
 </html>
