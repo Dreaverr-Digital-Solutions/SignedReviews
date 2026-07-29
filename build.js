@@ -1676,7 +1676,7 @@ function buildHowItWorks() {
         <p>${s.body}</p>
       </div>
     </div>`).join('')}
-    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Connect your Stripe account →</a></p>
+    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.8rem;font-size:1rem">Connect your Stripe account →</a></p>
   </article>`;
 
   const html = page({
@@ -1749,7 +1749,7 @@ function buildComparison() {
       <p>If you need maximum consumer reach, have a large existing review base, or don't process payments through Stripe, Trustpilot's established brand recognition and consumer-facing directory give it an edge in organic discoverability. Ultimately, the <strong>Signed Reviews vs Trustpilot</strong> decision comes down to whether you prioritize verified proof or organic reach. Many businesses use both — Trustpilot for breadth, Signed Reviews for verifiable depth.</p>
     </div>
 
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.8rem;font-size:1rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:.75rem;font-size:.9rem;color:var(--muted);"><a href="/pricing/">Plans from $29/mo</a> · <a href="/blog/stripe-verified-reviews/">Learn how Stripe verification works</a></p>
   </article>`;
 
