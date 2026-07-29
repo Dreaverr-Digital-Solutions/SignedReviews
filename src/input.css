@@ -38,3 +38,9 @@
   --color-steel-600: #3c5a7e;
   --color-steel-700: #2e4664;
 }
+
+.footer-heading {
+  display: block;
+  font-weight: 700;
+  color: inherit;
+}

@@ -3,31 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signed Reviews vs Trustpilot — Comparison</title>
-  <meta name="description" content="Signed Reviews vs Trustpilot — detailed comparison across purchase verification, fake review prevention, Stripe integration, pricing, API, review ownership, and more.">
+  <title>Trustpilot Alternative: Signed Reviews vs Trustpilot — 2026 Comparison</title>
+  <meta name="description" content="The best Trustpilot alternative for businesses that want purchase-verified reviews. Compare verification, pricing, Stripe integration, and review ownership.">
   <link rel="canonical" href="https://signedreviews.com/vs/trustpilot/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Signed Reviews vs Trustpilot — Comparison">
-  <meta property="og:description" content="Signed Reviews vs Trustpilot — detailed comparison across purchase verification, fake review prevention, Stripe integration, pricing, API, review ownership, and more.">
+  <meta property="og:title" content="Trustpilot Alternative: Signed Reviews vs Trustpilot — 2026 Comparison">
+  <meta property="og:description" content="The best Trustpilot alternative for businesses that want purchase-verified reviews. Compare verification, pricing, Stripe integration, and review ownership.">
   <meta property="og:url" content="https://signedreviews.com/vs/trustpilot/">
   <meta property="og:site_name" content="Signed Reviews">
   <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Signed Reviews vs Trustpilot — Comparison">
-  <meta name="twitter:description" content="Signed Reviews vs Trustpilot — detailed comparison across purchase verification, fake review prevention, Stripe integration, pricing, API, review ownership, and more.">
+  <meta name="twitter:title" content="Trustpilot Alternative: Signed Reviews vs Trustpilot — 2026 Comparison">
+  <meta name="twitter:description" content="The best Trustpilot alternative for businesses that want purchase-verified reviews. Compare verification, pricing, Stripe integration, and review ownership.">
+  <meta name="twitter:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
 
-  <link rel="icon" type="image/png" href="/images/SignedReviews_logo_only.png?v=636aec71">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png?v=636aec71">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png">
+  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://signedreviews.com/ph">
+  <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link rel="preload" href="https://fonts.gstatic.com/s/instrumentserif/v18/jiz2RFNlSmViCztYvS2ZTOdC0D5n.woff2" as="font" type="font/woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
   <style>
@@ -209,17 +209,15 @@ main { padding: 0; }
 .page-hero h1 {
   font-family: 'Instrument Serif', Georgia, serif;
   font-size: clamp(2rem, 4vw + 1rem, 3.25rem);
-  line-height: 1.1; margin: 0 auto .5rem auto; color: var(--navy-900); letter-spacing: -0.02em;
-  max-width: var(--max-prose);
+  line-height: 1.1; margin: 0 0 .5rem; color: var(--navy-900); letter-spacing: -0.02em;
 }
 :root.theme-dark .page-hero h1, :root.theme-auto .page-hero h1 { color: #fff; }
-.page-hero p { color: var(--muted); margin: 0 auto; max-width: var(--max-prose); font-size: 1.05rem; }
+.page-hero p { color: var(--muted); margin: 0; max-width: 60ch; font-size: 1.05rem; }
 .eyebrow {
-  display: block;
+  display: inline-block;
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--gold-600); margin: 0 auto .9rem auto;
-  max-width: var(--max-prose);
+  color: var(--gold-600); margin-bottom: .9rem;
 }
 
 .prose-wrap {
@@ -237,7 +235,7 @@ main { padding: 0; }
   padding: clamp(1.5rem, 3vw, 3rem);
   max-width: var(--max-prose);
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
 }
 .prose h1 { display: none; } /* page hero already shows the h1 */
 .prose h2, .prose h3, .prose h4 {
@@ -484,26 +482,70 @@ main { padding: 0; }
       else { fetch('/cdn-cgi/trace').then(function(r){return r.text();}).then(function(t){ var m=/loc=([A-Z]{2})/.exec(t); var loc=m?m[1]:''; if(loc) set(GK,loc); decide(loc?REGION.indexOf(loc)>=0:true); }).catch(function(){ decide(true); }); }
     })();
   </script>
+  <script>
+    (function () {
+      function setup() {
+        var ph = window.posthog;
+        if (!ph || typeof ph.capture !== 'function') return; // posthog not loaded yet
+        var fired = {};
+        function onScroll() {
+          var doc = document.documentElement, body = document.body;
+          var top = doc.scrollTop || body.scrollTop || 0;
+          var max = (doc.scrollHeight || body.scrollHeight || 0) - (doc.clientHeight || 0);
+          var pct = max > 0 ? (top / max) * 100 : 0;
+          var ts = [25, 50, 75, 100];
+          for (var i = 0; i < ts.length; i++) { var t = ts[i]; if (pct >= t && !fired[t]) { fired[t] = true; ph.capture('landing_scroll_depth', { depth: t }); } }
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+          if (ticking) return; ticking = true;
+          (window.requestAnimationFrame || function (cb) { setTimeout(cb, 66); })(function () { onScroll(); ticking = false; });
+        }, { passive: true });
+        onScroll();
+        if ('IntersectionObserver' in window) {
+          var seen = {};
+          var io = new IntersectionObserver(function (entries) {
+            for (var i = 0; i < entries.length; i++) {
+              var en = entries[i];
+              if (en.isIntersecting) { var n = en.target.getAttribute('data-track'); if (n && !seen[n]) { seen[n] = true; ph.capture('landing_section_viewed', { section: n }); } }
+            }
+          }, { threshold: 0.5 });
+          var tracked = document.querySelectorAll('[data-track]');
+          for (var j = 0; j < tracked.length; j++) io.observe(tracked[j]);
+        }
+        document.addEventListener('click', function (e) {
+          var el = e.target;
+          while (el && el !== document) {
+            if (el.getAttribute && el.getAttribute('data-cta')) { ph.capture('landing_cta_click', { cta: el.getAttribute('data-cta'), href: el.getAttribute('href') || '' }); break; }
+            el = el.parentNode;
+          }
+        }, true);
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
+    })();
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.","email":"support@signedreviews.com","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"Trustpilot Alternative: Signed Reviews vs Trustpilot","item":"https://signedreviews.com/vs/trustpilot/"}]}</script>
 
   <style>
-    .vs-hero { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; margin: 1rem 0; }
-    .vs-hero .vs-label { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-    .vs-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; font-size: .94rem; margin: 1.5rem 0 2rem; }
-    .vs-table thead th { background: var(--navy-50); color: var(--navy-900); font-weight: 600; text-align: left; padding: .95rem 1.1rem; border-bottom: 1px solid var(--border); }
-    :root.theme-dark .vs-table thead th, :root.theme-auto .vs-table thead th { background: rgba(255,255,255,.04); color: #fff; }
-    .vs-table thead th:first-child { width: 38%; }
-    .vs-table td, .vs-table th { padding: .8rem 1.1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
-    .vs-table td:first-child { font-weight: 600; color: var(--navy-900); }
-    :root.theme-dark .vs-table td:first-child, :root.theme-auto .vs-table td:first-child { color: #fff; }
-    .vs-table .win  { color: var(--gold-600); font-weight: 700; }
-    .vs-table .lose { color: var(--muted); }
-    .vs-table tbody tr:last-child td { border-bottom: 0; }
-    .vs-table .highlight-row { background: rgba(179,157,69,.06); }
-    :root.theme-dark .vs-table .highlight-row, :root.theme-auto .vs-table .highlight-row { background: rgba(179,157,69,.08); }
-    .verdict { background: linear-gradient(135deg, var(--navy-800), var(--navy-900)); border-radius: 14px; padding: 2rem; color: #fff; margin: 2rem 0; }
-    .verdict h3 { font-family: 'Instrument Serif', Georgia, serif; font-size: 1.5rem; margin: 0 0 .5rem; color: #fff; }
-    .verdict p { color: var(--navy-200); margin: 0; line-height: 1.6; }
-  </style></head>
+  .vs-table { width:100%; border-collapse:separate; border-spacing:0; border:1px solid var(--border); border-radius:14px; overflow:hidden; font-size:.94rem; margin:1.5rem 0 2rem; }
+  .vs-table thead th { background:var(--navy-50); color:var(--navy-900); font-weight:600; text-align:left; padding:.95rem 1.1rem; border-bottom:1px solid var(--border); }
+  :root.theme-dark .vs-table thead th, :root.theme-auto .vs-table thead th { background:rgba(255,255,255,.04); color:#fff; }
+  .vs-table thead th:first-child { width:35%; }
+  .vs-table td, .vs-table th { padding:.8rem 1.1rem; border-bottom:1px solid var(--border); vertical-align:top; }
+  .vs-table td:first-child { font-weight:600; color:var(--navy-900); }
+  :root.theme-dark .vs-table td:first-child, :root.theme-auto .vs-table td:first-child { color:#fff; }
+  .vs-table .win  { color:var(--gold-600); font-weight:700; }
+  .vs-table .lose { color:var(--muted); }
+  .vs-table .tie { color:var(--text); }
+  .vs-table tbody tr:last-child td { border-bottom:0; }
+  .vs-table .highlight-row { background:rgba(179,157,69,.06); }
+  :root.theme-dark .vs-table .highlight-row, :root.theme-auto .vs-table .highlight-row { background:rgba(179,157,69,.08); }
+  .verdict { background:linear-gradient(135deg,var(--navy-800),var(--navy-900)); border-radius:14px; padding:2rem; color:#fff; margin:2rem 0; }
+  .verdict h3 { font-family:'Instrument Serif',Georgia,serif; font-size:1.5rem; margin:0 0 .5rem; color:#fff; }
+  .verdict p { color:var(--navy-200); margin:0; line-height:1.6; }
+  .verdict-alt { background:linear-gradient(135deg,#1c2840,#243252); }
+</style></head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
   
@@ -523,8 +565,8 @@ main { padding: 0; }
         <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
         <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener">Log in</a>
-      <a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener">Sign up</a>
+      <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener" data-cta="login">Log in</a>
+      <a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener" data-cta="signup">Sign up</a>
       <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer" onclick="(function(b){var d=document.getElementById('mobileDrawer'); if(!d)return; var open=d.classList.toggle('is-open'); b.setAttribute('aria-expanded', open?'true':'false');})(this);">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -535,23 +577,21 @@ main { padding: 0; }
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
-      <li><a href="https://platform.signedreviews.com" rel="noopener">Log in</a></li>
+      <li><a href="https://platform.signedreviews.com" rel="noopener" data-cta="login">Log in</a></li>
     </ul>
   </div>
 </header>
   <main id="main">
     <section class="page-hero">
       <div class="page-hero-inner">
-        <span class="eyebrow">Comparison</span>
+        <span class="eyebrow">Trustpilot Alternative</span>
         <h1>Signed Reviews vs Trustpilot</h1>
-        <p>A detailed comparison across the dimensions that matter for review authenticity.</p>
+        <p>Compare the leading general-purpose review platform with the first processor-attested alternative across the dimensions that matter for authenticity.</p>
       </div>
     </section>
     <div class="prose-wrap">
-      <article class="prose" style="max-width: var(--max-prose)">
-    <p>Choosing a review platform is a trust decision. This <strong>Signed Reviews vs Trustpilot</strong> comparison breaks down the differences across the dimensions that matter most for businesses that care about review authenticity — from purchase verification and fake review prevention to pricing and API access.</p>
-
-    <h2>Signed Reviews vs Trustpilot: key differences at a glance</h2>
+      <article class="prose" style="max-width: 860px">
+    <p>Choosing a review platform is a trust decision. Here's how Signed Reviews compares to Trustpilot — the largest general-purpose review platform — across the dimensions that matter most for businesses that care about review authenticity.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
@@ -563,10 +603,10 @@ main { padding: 0; }
         <tr><td>Fake review prevention</td><td class="win">Structural — no purchase = no invitation = no review. Impossible to post a review without a verified transaction.</td><td class="lose">Reactive — relies on automated detection and manual moderation. Trustpilot removed 2.7M fake reviews in 2022.</td></tr>
         <tr class="highlight-row"><td>Review authenticity proof</td><td class="win">Cryptographically signed — every review carries a tamper-evident digital signature that can be independently verified</td><td class="lose">No cryptographic proof — reviews are database records with no external verifiability</td></tr>
         <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, read-only access, automatic review requests on every charge</td><td class="lose">No native Stripe integration — requires third-party connectors or manual CSV imports</td></tr>
-        <tr class="highlight-row"><td>Review gating</td><td class="win">Automatic — only paying customers receive invitation links, sent to the email on their Stripe transaction</td><td class="lose">Manual — businesses must upload customer lists or send invitations themselves</td></tr>
+        <tr class="highlight-row"><td>Review gating</td><td class="win">Automatic — invitations go to the email on each Stripe transaction, and customers can also request their own verified link from the business's public page. Either way, a completed purchase is required.</td><td class="lose">Manual — businesses must upload customer lists or send invitations themselves</td></tr>
         <tr><td>Refund handling</td><td class="win">Automatic — refunded reviews are hidden from public display immediately via Stripe webhook</td><td class="lose">Manual — businesses must flag or report reviews from refunded customers</td></tr>
-        <tr class="highlight-row"><td>API & integrations</td><td class="win">REST API, webhooks, delivery webhook, embeddable widget, public page API</td><td class="win">Extensive API, 100+ integrations, white-label options on Enterprise</td></tr>
-        <tr><td>Pricing model</td><td class="win">Free during beta. Paid plans from $29/mo (Starter) to $199/mo (Scale). Transparent per-invitation pricing.</td><td class="lose">Free tier available, but paid plans start at $299/mo for the "Growth" tier (as of 2025). Enterprise pricing is opaque.</td></tr>
+        <tr class="highlight-row"><td>API & integrations</td><td class="win">REST API, webhooks, delivery webhook, public page API</td><td class="win">Extensive API, 100+ integrations, white-label options on Enterprise</td></tr>
+        <tr><td>Pricing model</td><td class="win">Free plan + paid plans from $29/mo (Starter) to $199/mo (Scale). Transparent tiered pricing with monthly invitation caps.</td><td class="lose">Free tier available; paid plans start at $99/mo (Starter, billed annually) and run to $799/mo+ (Premium). Enterprise pricing is opaque.</td></tr>
         <tr class="highlight-row"><td>Organic discoverability</td><td class="lose">Early stage — limited domain authority and no consumer-facing review directory</td><td class="win">Established — Trustpilot.com has massive organic traffic and a consumer-facing review search</td></tr>
         <tr><td>Trust mark / badge</td><td class="win">"Verified by Signed Reviews" badge links to cryptographic proof. Included on every plan, including Free.</td><td class="win">Trustpilot TrustBox widgets and star ratings. Widely recognized by consumers.</td></tr>
         <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews — Signed Reviews is the processor. Reviews belong to you.</td><td class="lose">Reviews live on Trustpilot's platform — businesses cannot export and move reviews to another provider.</td></tr>
@@ -575,17 +615,16 @@ main { padding: 0; }
     </div>
 
     <div class="verdict">
-      <h3>When to choose Signed Reviews</h3>
-      <p>In any <strong>Signed Reviews vs Trustpilot</strong> evaluation, if review authenticity is your #1 concern — if you want every review to be provably backed by a real purchase, with cryptographic proof — Signed Reviews is the right choice. It's built for businesses that process payments through Stripe and want a zero-fake-review guarantee by design, not by detection. <a href="/how-it-works/">See how the verification engine works</a>.</p>
+      <h3>When to choose Signed Reviews — the best Trustpilot alternative for Stripe businesses</h3>
+      <p>If review authenticity is your #1 concern — if you want every review to be provably backed by a real purchase, with cryptographic proof — Signed Reviews is the right choice. It's the best Trustpilot alternative for businesses processing payments through Stripe: a zero-fake-review guarantee by design, not by detection.</p>
     </div>
 
     <div class="verdict" style="background:linear-gradient(135deg,#1c2840,#243252)">
       <h3>When Trustpilot may be a better fit</h3>
-      <p>If you need maximum consumer reach, have a large existing review base, or don't process payments through Stripe, Trustpilot's established brand recognition and consumer-facing directory give it an edge in organic discoverability. Ultimately, the <strong>Signed Reviews vs Trustpilot</strong> decision comes down to whether you prioritize verified proof or organic reach. Many businesses use both — Trustpilot for breadth, Signed Reviews for verifiable depth.</p>
+      <p>If you need maximum consumer reach, have a large existing review base, or don't process payments through Stripe, Trustpilot's established brand recognition and consumer-facing directory give it an edge in organic discoverability. Many businesses use both — Trustpilot for breadth, Signed Reviews for verifiable depth.</p>
     </div>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
-    <p style="text-align:center;margin-top:.75rem;font-size:.9rem;color:var(--muted);"><a href="/pricing/">Plans from $29/mo</a> · <a href="/blog/stripe-verified-reviews/">Learn how Stripe verification works</a></p>
   </article>
     </div>
   </main>
@@ -602,7 +641,7 @@ main { padding: 0; }
       <address class="address-block"><strong>Paid Rightly LLC</strong><br>1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States</address>
     </div>
     <div class="footer-col">
-      <h4>Product</h4>
+      <strong class="footer-heading">Product</strong>
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/#how-it-works">How it works</a></li>
@@ -611,7 +650,7 @@ main { padding: 0; }
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Company</h4>
+      <strong class="footer-heading">Company</strong>
       <ul>
         <li><a href="/about/">About</a></li>
         <li><a href="/contact/">Contact</a></li>
@@ -619,7 +658,7 @@ main { padding: 0; }
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Legal</h4>
+      <strong class="footer-heading">Legal</strong>
       <ul>
         <li><a href="/privacy/">Privacy Policy</a></li>
         <li><a href="/terms/">Terms of Service</a></li>
@@ -647,5 +686,7 @@ main { padding: 0; }
     } catch (_) { document.documentElement.classList.add('theme-auto'); }
   })();
 </script>
+  <!-- Cloudflare Web Analytics (proxied) -->
+  <script defer src="/cf/beacon.min.js" data-cf-beacon='{"token": "3db355ae0786403fbe4f7240e1130894"}'></script>
 </body>
 </html>

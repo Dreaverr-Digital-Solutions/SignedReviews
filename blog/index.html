@@ -18,16 +18,16 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Blog — Signed Reviews">
   <meta name="twitter:description" content="Insights on review authenticity, e-commerce trust, Stripe integrations, and verified customer reviews.">
+  <meta name="twitter:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
 
-  <link rel="icon" type="image/png" href="/images/SignedReviews_logo_only.png?v=636aec71">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png?v=636aec71">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png">
+  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://signedreviews.com/ph">
+  <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link rel="preload" href="https://fonts.gstatic.com/s/instrumentserif/v18/jiz2RFNlSmViCztYvS2ZTOdC0D5n.woff2" as="font" type="font/woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
   <style>
@@ -209,17 +209,15 @@ main { padding: 0; }
 .page-hero h1 {
   font-family: 'Instrument Serif', Georgia, serif;
   font-size: clamp(2rem, 4vw + 1rem, 3.25rem);
-  line-height: 1.1; margin: 0 auto .5rem auto; color: var(--navy-900); letter-spacing: -0.02em;
-  max-width: var(--max-prose);
+  line-height: 1.1; margin: 0 0 .5rem; color: var(--navy-900); letter-spacing: -0.02em;
 }
 :root.theme-dark .page-hero h1, :root.theme-auto .page-hero h1 { color: #fff; }
-.page-hero p { color: var(--muted); margin: 0 auto; max-width: var(--max-prose); font-size: 1.05rem; }
+.page-hero p { color: var(--muted); margin: 0; max-width: 60ch; font-size: 1.05rem; }
 .eyebrow {
-  display: block;
+  display: inline-block;
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--gold-600); margin: 0 auto .9rem auto;
-  max-width: var(--max-prose);
+  color: var(--gold-600); margin-bottom: .9rem;
 }
 
 .prose-wrap {
@@ -237,7 +235,7 @@ main { padding: 0; }
   padding: clamp(1.5rem, 3vw, 3rem);
   max-width: var(--max-prose);
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
 }
 .prose h1 { display: none; } /* page hero already shows the h1 */
 .prose h2, .prose h3, .prose h4 {
@@ -484,6 +482,50 @@ main { padding: 0; }
       else { fetch('/cdn-cgi/trace').then(function(r){return r.text();}).then(function(t){ var m=/loc=([A-Z]{2})/.exec(t); var loc=m?m[1]:''; if(loc) set(GK,loc); decide(loc?REGION.indexOf(loc)>=0:true); }).catch(function(){ decide(true); }); }
     })();
   </script>
+  <script>
+    (function () {
+      function setup() {
+        var ph = window.posthog;
+        if (!ph || typeof ph.capture !== 'function') return; // posthog not loaded yet
+        var fired = {};
+        function onScroll() {
+          var doc = document.documentElement, body = document.body;
+          var top = doc.scrollTop || body.scrollTop || 0;
+          var max = (doc.scrollHeight || body.scrollHeight || 0) - (doc.clientHeight || 0);
+          var pct = max > 0 ? (top / max) * 100 : 0;
+          var ts = [25, 50, 75, 100];
+          for (var i = 0; i < ts.length; i++) { var t = ts[i]; if (pct >= t && !fired[t]) { fired[t] = true; ph.capture('landing_scroll_depth', { depth: t }); } }
+        }
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+          if (ticking) return; ticking = true;
+          (window.requestAnimationFrame || function (cb) { setTimeout(cb, 66); })(function () { onScroll(); ticking = false; });
+        }, { passive: true });
+        onScroll();
+        if ('IntersectionObserver' in window) {
+          var seen = {};
+          var io = new IntersectionObserver(function (entries) {
+            for (var i = 0; i < entries.length; i++) {
+              var en = entries[i];
+              if (en.isIntersecting) { var n = en.target.getAttribute('data-track'); if (n && !seen[n]) { seen[n] = true; ph.capture('landing_section_viewed', { section: n }); } }
+            }
+          }, { threshold: 0.5 });
+          var tracked = document.querySelectorAll('[data-track]');
+          for (var j = 0; j < tracked.length; j++) io.observe(tracked[j]);
+        }
+        document.addEventListener('click', function (e) {
+          var el = e.target;
+          while (el && el !== document) {
+            if (el.getAttribute && el.getAttribute('data-cta')) { ph.capture('landing_cta_click', { cta: el.getAttribute('data-cta'), href: el.getAttribute('href') || '' }); break; }
+            el = el.parentNode;
+          }
+        }, true);
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
+    })();
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.","email":"support@signedreviews.com","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://signedreviews.com/blog/"}]}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -504,8 +546,8 @@ main { padding: 0; }
         <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
         <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener">Log in</a>
-      <a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener">Sign up</a>
+      <a class="btn btn-secondary" href="https://platform.signedreviews.com" rel="noopener" data-cta="login">Log in</a>
+      <a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener" data-cta="signup">Sign up</a>
       <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer" onclick="(function(b){var d=document.getElementById('mobileDrawer'); if(!d)return; var open=d.classList.toggle('is-open'); b.setAttribute('aria-expanded', open?'true':'false');})(this);">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -516,7 +558,7 @@ main { padding: 0; }
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
-      <li><a href="https://platform.signedreviews.com" rel="noopener">Log in</a></li>
+      <li><a href="https://platform.signedreviews.com" rel="noopener" data-cta="login">Log in</a></li>
     </ul>
   </div>
 </header>
@@ -533,124 +575,124 @@ main { padding: 0; }
     <p>Insights on review authenticity, e-commerce trust, Stripe integrations, and verified customer reviews from the Signed Reviews team.</p>
     
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
-      <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/what-is-a-verified-review/" style="text-decoration:none;">What Is a Verified Review? The Difference Between Verified and Unverified Reviews</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-04 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">The difference between verified and unverified reviews is what separates real customer feedback from noise. A verified review requires proof of purchase — witho</p>
+      <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/what-is-a-verified-review/" style="text-decoration:none;">What Is a Verified Review? Why Purchase Verification Matters in 2026</a></h2>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-04</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">What is a verified review? It ties a review to proof of a real purchase — what 'verified' means, how platforms verify, and why it stops fake reviews.</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
       <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/trustpilot-pricing-explained/" style="text-decoration:none;">Trustpilot Pricing Explained: What Each Plan Actually Costs in 2026</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">- You can't buy individual features à la carte. Features are bundled into tiers. If you want one feature from a higher tier, you pay for the whole tier.</p>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">Trustpilot pricing explained: what each plan actually costs in 2026. See the real prices, hidden costs, and how alternatives compare.</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
-      <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/trustpilot-alternatives-for-small-business/" style="text-decoration:none;">Trustpilot Alternatives for Small Business: 10 Best Options Including the Top Yotpo Alternative (2026)</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">Looking for a yotpo alternative? This guide ranks the 10 best trustpilot alternatives for small business by verification strength — including the top yotpo alte</p>
+      <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/trustpilot-alternatives-for-small-business/" style="text-decoration:none;">The 10 Best Trustpilot Alternatives in 2026 — Ranked by Verification Method</a></h2>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">The 10 best Trustpilot alternatives ranked by how they verify reviews — from none to processor-attested. Covers SaaS, e-commerce, local business, and enterprise</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
       <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/trustpilot-alternatives-for-saas/" style="text-decoration:none;">Trustpilot Alternatives for SaaS: Why Most Review Platforms Don't Fit Subscription Businesses</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">Here's why SaaS needs a different kind of review platform, and which alternatives actually fit.</p>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">Why SaaS companies need a different review platform than e-commerce brands — and the 5 best Trustpilot alternatives built for subscription businesses with recur</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
       <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/trustpilot-alternatives-for-ecommerce/" style="text-decoration:none;">Trustpilot Alternatives for E-Commerce: 6 Platforms Ranked by Verification</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">Here are six alternatives built for e-commerce, ranked by how they verify purchases — not by monthly price.</p>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">The best Trustpilot alternatives for e-commerce brands in 2026 — ranked by how they verify purchases. Covers Shopify-native apps, Stripe-verified platforms, and</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
-      <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/transaction-verified-reviews/" style="text-decoration:none;">Transaction Verified Reviews: What They Are and Why They're the Hardest to Fake</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">Transaction verified reviews sit at the strongest end of that spectrum. Here's what they are and why the distinction matters.</p>
+      <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/transaction-verified-reviews/" style="text-decoration:none;">Transaction-Verified Reviews: What They Are and Why They're the Hardest to Fake</a></h2>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">What transaction-verified reviews are, how they differ from email-verified and merchant-verified reviews, and why processor-attested verification is the stronge</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
-      <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/stripe-verified-reviews/" style="text-decoration:none;">Stripe Verified Reviews: Cryptographically Signed Reviews Backed by Your Payment Processor</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">Here's how Stripe verified reviews work, why cryptographically signed reviews are fundamentally different from every other &quot;verified&quot; badge, and how to start co</p>
+      <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/stripe-verified-reviews/" style="text-decoration:none;">Stripe Verified Reviews: The Only Reviews Backed by Your Payment Processor</a></h2>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">Stripe verified reviews are cryptographically tied to real Stripe transactions — the only review type independently attested by a payment processor, not merchan</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
-      <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/stripe-app-for-reviews/" style="text-decoration:none;">Stripe App for Reviews: Collect Verified Customer Reviews Automatically</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">Looking for a Stripe app for reviews? SignedReviews collects Stripe-verified reviews automatically after every payment. Setup in 5 minutes with read-only OAuth </p>
+      <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/stripe-app-for-reviews/" style="text-decoration:none;">The Stripe App for Verified Reviews: What It Does and Why It's Different</a></h2>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">What the Signed Reviews Stripe App does, how the read-only OAuth connection works, and why a Stripe-native review app delivers processor-attested verification t</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
       <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/review-app-for-stripe-payments/" style="text-decoration:none;">The Best Review Apps for Stripe Payments in 2026</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">The three types of Stripe-compatible review tools</p>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">Review apps that work with Stripe payments — ranked by how they verify purchases. Covers Stripe-native apps, Shopify apps that work with Stripe, and direct API </p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
-      <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/purchase-verified-vs-email-verified-reviews/" style="text-decoration:none;">Verified Buyer Meaning: Proof of Purchase Reviews vs Email-Verified, Explained</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">Here's the real verified buyer meaning across every platform — why proof of purchase reviews are structurally harder to fake than email-verified ones, and how t</p>
+      <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/purchase-verified-vs-email-verified-reviews/" style="text-decoration:none;">Purchase-Verified vs Email-Verified Reviews: What's the Difference?</a></h2>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">The difference between purchase-verified and email-verified reviews, why it matters for trust, and how to tell which kind you're reading.</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
       <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/post-purchase-review-email-templates/" style="text-decoration:none;">Post-Purchase Review Email Templates That Actually Work</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">Before the templates, three principles that determine whether your emails get opened — or deleted:</p>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">Tried-and-tested post-purchase review email templates for e-commerce, SaaS, and services. Plus timing, subject lines, and the one mistake that kills response ra</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
       <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/how-to-verify-a-customer-actually-bought/" style="text-decoration:none;">How to Verify a Customer Actually Bought: 4 Methods, Ranked</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">How to verify a customer actually bought: four methods ranked by how hard each is to fake, from email confirmation to processor attestation.</p>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">Four ways to verify a reviewer is a real customer — from email confirmation to processor attestation — ranked by how hard each is to fake.</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
       <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/how-to-spot-fake-reviews/" style="text-decoration:none;">How to Spot Fake Reviews: A Practical Guide for Consumers and Businesses</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">But you can still learn how to spot fake reviews. You just need to look at different signals. Here's how to do it.</p>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">How to spot fake reviews in 2026: AI has made detection harder, but these practical techniques — from language patterns to verification checks — help you identi</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
       <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/how-to-get-reviews-on-shopify/" style="text-decoration:none;">How to Get Reviews on Shopify: A Complete Guide for 2026</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">This guide covers app selection, timing, email strategy, and the one verification approach that Shopify apps don't offer.</p>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">How to collect customer reviews on Shopify — app selection by verification method, timing strategy, email templates, and how to use Stripe-native verification f</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
       <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/how-to-collect-verified-customer-reviews/" style="text-decoration:none;">How to Collect Verified Customer Reviews: A Practical Guide</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-04 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">Learning how to collect verified customer reviews doesn't require technical expertise or a large budget. If you process payments through Stripe, you can automat</p>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-04</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">How to collect verified customer reviews with Stripe: connect read-only, trigger a request per charge, and publish a verified review page in minutes.</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
       <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/how-to-collect-reviews-for-saas/" style="text-decoration:none;">How to Collect Reviews for SaaS: A Guide for Subscription Businesses</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">Here's how to collect reviews for SaaS — timing around the subscription lifecycle, Stripe-native verification, and the tools that turn recurring payments into r</p>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">How SaaS companies can collect verified reviews — timing around the subscription lifecycle, review platforms that work with Stripe Billing, and why recurring pa</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
       <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/how-stripe-review-verification-works/" style="text-decoration:none;">How Stripe Review Verification Works: A Technical Guide</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-04 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">Set up in under a minute — that's how Stripe review verification works. No API keys, no webhooks, no server changes. See the pricing page for plan details.</p>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-04</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">How Stripe review verification works, end to end: read-only OAuth, matching each review to a real charge, and cryptographic signing that's tamper-evident.</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
-      <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/fake-shopify-reviews/" style="text-decoration:none;">Fake Reviews on Shopify: How They Work, How to Spot Them, and How to Prevent Them</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">Fake reviews on Shopify exploit a structural weakness: verification is delegated to third-party apps with inconsistent standards. Here's how the schemes work, h</p>
+      <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/fake-shopify-reviews/" style="text-decoration:none;">Fake Shopify Reviews: How They Work, How to Spot Them, and How to Prevent Them</a></h2>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">Fake reviews on Shopify are a growing problem — brushing schemes, incentivized reviews, and app-based manipulation. How they work, how Shopify fights them, and </p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
       <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/fake-reviews/" style="text-decoration:none;">The Fake Review Problem: Why Detection Will Never Be Enough</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">The standard industry response is detection: build better algorithms, hire more moderators, catch fakes faster. Every major platform does this. Every major plat</p>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">Fake reviews cost businesses billions and detection is a losing battle. Here's why structural prevention — processor-attested verification — is the only fix, no</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
       <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/fake-review-statistics-2026/" style="text-decoration:none;">Fake Review Statistics 2026: The Scale of the Problem</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-04 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">These fake review statistics 2026 reveal the true scale of the problem — and why AI has made detection-based solutions obsolete.</p>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-04</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">Fake review statistics for 2026: how many reviews are fake, why AI made it worse, what it costs businesses, and why purchase verification is the only fix.</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
       <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/fake-review-laws-ftc/" style="text-decoration:none;">FTC Fake Review Rule 2024: What It Means for Your Business</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">This post explains what the rule covers, what it means for your business, and why the verification method you choose now determines your regulatory exposure.</p>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">The FTC's 2024 fake review rule (16 CFR Part 465) bans fake reviews, review buying, and undisclosed insider reviews with civil penalties up to $51,744 per viola</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
       <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/best-time-to-ask-for-a-review/" style="text-decoration:none;">Best Time to Ask for a Review: Data-Backed Timing That Maximizes Response Rates</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">Here's the best time to ask for a review — broken down by product type, day of week, and reminder cadence. Data-backed timing that maximizes response rates with</p>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">When to ask customers for reviews to maximize response rates — segmented by product type (digital, physical, subscription, service).</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
       <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/best-review-platform-for-saas/" style="text-decoration:none;">Best Review Platform for SaaS Companies in 2026: A Comparison Guide</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">The best review platform for saas is one that verifies against independent payment data — not merchant-supplied records. Here's our 2026 ranking of the top six </p>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">The best review platforms for SaaS companies in 2026, ranked by verification method — not just features. Most &quot;best review platform&quot; lists rank aggregators, not</p>
     </div>
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
       <h2 style="margin:0 0 .3rem;font-size:1.25rem;"><a href="/blog/are-trustpilot-reviews-reliable/" style="text-decoration:none;">Are Trustpilot Reviews Reliable? What the Transparency Report Actually Tells You</a></h2>
-      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24 ·</p>
-      <p style="margin:0;color:var(--text);font-size:.95rem;">This article answers the question honestly — not with marketing language, but by walking through how Trustpilot's verification model actually works, what the da</p>
+      <p class="post-meta" style="color:var(--muted);font-size:.85rem;margin:0 0 .4rem;">2026-07-24</p>
+      <p style="margin:0;color:var(--text);font-size:.95rem;">An honest look at Trustpilot's reliability — what the Transparency Report data reveals, how the open-platform model creates fake-review exposure, and how to tel</p>
     </div>
   </article>
     </div>
@@ -668,7 +710,7 @@ main { padding: 0; }
       <address class="address-block"><strong>Paid Rightly LLC</strong><br>1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States</address>
     </div>
     <div class="footer-col">
-      <h4>Product</h4>
+      <strong class="footer-heading">Product</strong>
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/#how-it-works">How it works</a></li>
@@ -677,7 +719,7 @@ main { padding: 0; }
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Company</h4>
+      <strong class="footer-heading">Company</strong>
       <ul>
         <li><a href="/about/">About</a></li>
         <li><a href="/contact/">Contact</a></li>
@@ -685,7 +727,7 @@ main { padding: 0; }
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Legal</h4>
+      <strong class="footer-heading">Legal</strong>
       <ul>
         <li><a href="/privacy/">Privacy Policy</a></li>
         <li><a href="/terms/">Terms of Service</a></li>
@@ -713,5 +755,7 @@ main { padding: 0; }
     } catch (_) { document.documentElement.classList.add('theme-auto'); }
   })();
 </script>
+  <!-- Cloudflare Web Analytics (proxied) -->
+  <script defer src="/cf/beacon.min.js" data-cf-beacon='{"token": "3db355ae0786403fbe4f7240e1130894"}'></script>
 </body>
 </html>

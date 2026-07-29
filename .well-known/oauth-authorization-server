@@ -1,10 +1,44 @@
 {
-  "issuer": "https://connect.stripe.com",
-  "available": false,
-  "message": "Signed Reviews uses Stripe OAuth for merchant account connection, not a self-hosted OAuth authorization server. Merchants authenticate via Stripe's OAuth flow (https://stripe.com/docs/connect/oauth-standard-accounts). The platform's own API uses publishable-key + secret-key authentication, not OAuth.",
-  "stripeOauth": {
-    "authorizationEndpoint": "https://connect.stripe.com/oauth/authorize",
-    "tokenEndpoint": "https://connect.stripe.com/oauth/token",
+  "resource": "https://signedreviews.com",
+  "authorization_servers": ["https://signedreviews.com"],
+  "scopes_supported": ["read:reviews", "read:profile", "write:invitations"],
+  "bearer_methods_supported": ["header"],
+
+  "issuer": "https://signedreviews.com",
+  "token_endpoint": "https://api.signedreviews.com/v1/auth/token",
+  "revocation_endpoint": "https://api.signedreviews.com/v1/auth/revoke",
+  "grant_types_supported": [
+    "urn:ietf:params:oauth:grant-type:jwt-bearer",
+    "urn:workos:agent-auth:grant-type:claim"
+  ],
+
+  "agent_auth": {
+    "skill": "https://signedreviews.com/auth.md",
+    "register_uri": "https://api.signedreviews.com/v1/agent/identity",
+    "identity_endpoint": "https://api.signedreviews.com/v1/agent/identity",
+    "claim_endpoint": "https://api.signedreviews.com/v1/agent/identity/claim",
+    "claim_uri": "https://api.signedreviews.com/v1/agent/identity/claim",
+    "revocation_endpoint": "https://api.signedreviews.com/v1/auth/revoke",
+    "revocation_uri": "https://api.signedreviews.com/v1/auth/revoke",
+    "events_endpoint": "https://api.signedreviews.com/v1/agent/event/notify",
+    "identity_types_supported": ["anonymous", "identity_assertion", "service_auth"],
+    "credential_types_supported": ["access_token"],
+    "anonymous": {
+      "credential_types_supported": ["access_token"]
+    },
+    "identity_assertion": {
+      "assertion_types_supported": [
+        "urn:ietf:params:oauth:token-type:id-jag"
+      ]
+    },
+    "events_supported": [
+      "https://schemas.workos.com/events/agent/auth/identity/assertion/revoked"
+    ]
+  },
+
+  "stripe_oauth": {
+    "authorization_endpoint": "https://connect.stripe.com/oauth/authorize",
+    "token_endpoint": "https://connect.stripe.com/oauth/token",
     "scopes": ["read_only"],
     "documentation": "https://signedreviews.com/integrations/stripe/"
   }

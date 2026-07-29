@@ -1,6 +1,6 @@
 # Trustpilot Pricing Explained: What Each Plan Actually Costs in 2026
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** A detailed breakdown of Trustpilot's pricing plans in 2026 — what each tier actually costs, what's included, what's hidden, and how the pricing model compares to alternatives.**
+**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Trustpilot pricing explained: what each plan actually costs in 2026. See the real prices, hidden costs, and how alternatives compare.**
 
 ---
 

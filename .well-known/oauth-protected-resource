@@ -1,7 +1,8 @@
 {
   "resource": "https://signedreviews.com",
-  "available": false,
-  "message": "Signed Reviews is a public content and marketing website. No OAuth-protected resources are exposed at this domain. The platform API (api.signedreviews.com) uses key-based authentication, not OAuth bearer tokens.",
-  "authorizationServers": ["https://signedreviews.com"],
-  "scopesSupported": ["read:reviews", "read:profile", "write:invitations"]
+  "resource_name": "Signed Reviews",
+  "resource_logo_uri": "https://signedreviews.com/images/SignedReviews_logo_only.png",
+  "authorization_servers": ["https://signedreviews.com"],
+  "scopes_supported": ["read:reviews", "read:profile", "write:invitations"],
+  "bearer_methods_supported": ["header"]
 }

@@ -1,20 +1,20 @@
 /**
- * Cloudflare Pages Function — Markdown for Agents content negotiation.
+ * Apex domain router for signedreviews.com.
  *
- * When a request arrives with `Accept: text/markdown`, we serve a markdown
- * representation of the requested page. Browsers and search crawlers receive
- * the standard HTML version (pass-through to static assets via context.next()).
+ * Uses a service binding (env.LANDING) to talk to the landing Worker —
+ * bypasses the public *.workers.dev URL where same-account cross-Worker
+ * fetches return 404 for valid paths.
  *
- * This implements the Cloudflare "Markdown for Agents" standard:
- * https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/
+ * Strategy: try the landing first via service binding; fall through to the
+ * platform SPA on Railway if landing returns 404.
  *
- * File-based routing catches all paths ([[path]].js). The function only
- * intercepts markdown requests; everything else falls through to the static
- * site unchanged.
+ * Markdown for Agents: when Accept: text/markdown is present, serve a
+ * markdown version of the requested page directly — no HTML conversion needed.
  */
 
+const PLATFORM_ORIGIN = 'https://platform.signedreviews.com';
+
 // ── Page-specific markdown content ──────────────────────────────────────────
-// Key pages get tailored markdown; all other paths receive the site overview.
 
 const MARKDOWN_PAGES = {
   '/': `# Signed Reviews — Processor-Attested Verified Reviews for Stripe Businesses
@@ -109,46 +109,6 @@ Every fake-review method exploits the same vulnerability: the platform doesn't i
 - [What "Verified Buyer" Means](https://signedreviews.com/learn/what-does-verified-buyer-mean/)
 `,
 
-  '/auth.md': `# Auth.md — Signed Reviews Agent Registration & Authentication
-
-## Agent Registration
-
-AI agents and automated clients can access Signed Reviews content through the following channels:
-
-### Unauthenticated Access (Agents & Bots)
-- **llms.txt** — Machine-readable site map at [/llms.txt](https://signedreviews.com/llms.txt)
-- **Markdown for Agents** — Content negotiation via \\\`Accept: text/markdown\\\` header
-- **Agent Skills** — Structured skill definitions at [/.well-known/agent-skills/index.json](https://signedreviews.com/.well-known/agent-skills/index.json)
-- **API Catalog** — Available APIs at [/.well-known/api-catalog](https://signedreviews.com/.well-known/api-catalog)
-- **MCP Server Card** — Model Context Protocol at [/.well-known/mcp/server-card.json](https://signedreviews.com/.well-known/mcp/server-card.json)
-- **WebMCP** — Browser-based tool registration via \\\`navigator.modelContext.registerTool()\\\`
-
-### Authenticated API Access
-- **Publishable Key** — Bearer token (\\\`pk_...\\\`) for public read-only API access
-- **OAuth 2.0** — Authorization server metadata at [/.well-known/oauth-authorization-server](https://signedreviews.com/.well-known/oauth-authorization-server)
-- **OAuth Protected Resource** — Resource metadata at [/.well-known/oauth-protected-resource](https://signedreviews.com/.well-known/oauth-protected-resource)
-
-## Human Authentication
-- **Social OAuth** — Google, GitHub, LinkedIn, Microsoft
-- **Email Magic Link** — Passwordless sign-in via email
-- **Session** — HTTP-only cookies with short-lived JWT
-
-## Stripe App Authentication
-- **Stripe App OAuth** — Read-only Stripe Connect authorization
-- **Scopes** — Read transactions, customers, and charges
-- **No Write Access** — The platform never initiates charges or modifies Stripe data
-
-## Security
-- TLS 1.3 for all connections
-- Cryptographic signing of reviews for tamper-evidence
-- Publishable keys designed for public exposure (read-only)
-
-## Links
-- [API Documentation](https://signedreviews.com/api/)
-- [Trust & Security](https://signedreviews.com/trust/)
-- [Platform Login](https://platform.signedreviews.com)
-`,
-
   '/learn/ftc-fake-reviews-rules/': `# FTC Fake Review Rules (2024) — 16 CFR Part 465
 
 ## Timeline
@@ -176,54 +136,7 @@ Businesses, review platforms, marketing agencies, e-commerce platforms, and anyo
 `,
 };
 
-// ── Default markdown (site overview for any path without a tailored page) ────
-
-function defaultMarkdown(pathname) {
-  return `# Signed Reviews — Site Overview
-
-> Requested path: \`${pathname}\`
-
-Signed Reviews is the only review platform that verifies every review against the payment processor (Stripe), not the merchant's own data.
-
-## Core Pages
-- [How It Works](https://signedreviews.com/how-it-works/) — The 5-step verification flow
-- [Pricing](https://signedreviews.com/pricing/) — Free plan available, paid from $29/mo
-- [Trust & Security](https://signedreviews.com/trust/) — Cryptographic signing, read-only OAuth
-- [API Reference](https://signedreviews.com/api/) — Public API documentation
-
-## Learn (Authority Pages)
-- [What Does "Verified Buyer" Actually Mean?](https://signedreviews.com/learn/what-does-verified-buyer-mean/) — The 5-level verification spectrum
-- [How Fake Reviews Work](https://signedreviews.com/learn/how-fake-reviews-work/) — Methods, economics, structural defenses
-- [FTC Fake Review Rules (2024)](https://signedreviews.com/learn/ftc-fake-reviews-rules/) — 16 CFR Part 465 explained
-
-## Comparisons (14 /vs/ pages)
-Trustpilot, Feefo, Judge.me, Yotpo, eKomi, SiteJabber, Reviews.io, Stamped, Okendo, Loox, Skeepers, Google Reviews, Yelp, Clutch.
-→ [Full list at signedreviews.com/vs/trustpilot/](https://signedreviews.com/vs/trustpilot/)
-
-## Blog (24 posts)
-Covers Stripe verified reviews, Trustpilot alternatives, fake review detection, review collection guides, FTC compliance, and platform-specific guides for Shopify, SaaS, and e-commerce.
-→ [Blog index](https://signedreviews.com/blog/)
-
-## Integrations
-- [Stripe](https://signedreviews.com/integrations/stripe/) — Native, read-only OAuth (Live)
-- [Shopify](https://signedreviews.com/integrations/shopify/) — Planned
-- [WooCommerce](https://signedreviews.com/integrations/woocommerce/) — Planned
-
-## For AI Agents
-- [LLMs.txt](https://signedreviews.com/llms.txt) — Machine-readable site map
-- [Agent Skills](https://signedreviews.com/.well-known/agent-skills/index.json) — Structured skill definitions
-- [Sitemap](https://signedreviews.com/sitemap.xml) — XML sitemap
-- [auth.md](https://signedreviews.com/auth.md) — Authentication documentation
-`;
-}
-
-// ── Token count estimate ─────────────────────────────────────────────────────
-// Rough heuristic: ~4 chars/token for English. Used for x-markdown-tokens.
-function estimateTokens(markdown) {
-  return Math.ceil(markdown.length / 4);
-}
-
-// ── More tailored pages ──────────────────────────────────────────────────────
+// ── Additional tailored pages ──────────────────────────────────────────────
 
 MARKDOWN_PAGES['/pricing/'] = `# Signed Reviews — Pricing
 
@@ -309,112 +222,96 @@ Get your API keys at [platform.signedreviews.com](https://platform.signedreviews
 [Full API documentation](https://signedreviews.com/api/) · [OpenAPI spec](https://signedreviews.com/openapi.json)
 `;
 
-// ── Web Bot Auth — JWKS directory ──────────────────────────────────────────
-// Ed25519 key pair for signing outbound bot/agent requests.
-// The public JWK is served at /.well-known/http-message-signatures-directory.
-// The private key signs the response to prove key ownership (RFC 9421).
+// ── Default markdown fallback ──────────────────────────────────────────────
 
-const WEB_BOT_AUTH_PRIVATE_JWK = {
-  kty: 'OKP',
-  crv: 'Ed25519',
-  x: 'jJH-4K0InHujI7tXJbkUkxw2cLFvmLg3JXfR5LpVrFU',
-  d: 'mmL7MHR7dCFYkl539ncC_91FFULzsXaX_FyuwvXyx_M',
-};
+function defaultMarkdown(pathname) {
+  return `# Signed Reviews — Site Overview
 
-const WEB_BOT_AUTH_DIRECTORY = {
-  keys: [
-    {
-      kty: 'OKP',
-      crv: 'Ed25519',
-      x: 'jJH-4K0InHujI7tXJbkUkxw2cLFvmLg3JXfR5LpVrFU',
-    },
-  ],
-};
+> Requested path: \`${pathname}\`
 
-// JWK Thumbprint (RFC 7638) — pre-computed for the public key above.
-const JWK_THUMBPRINT = '8ZKMcknlicIPt03USL4eO5qoVxV0a-JybV7_RnzSw6s';
+Signed Reviews is the only review platform that verifies every review against the payment processor (Stripe), not the merchant's own data.
 
-/**
- * Sign the JWKS directory response with HTTP Message Signatures.
- * Uses WebCrypto (available in Workers runtime) for Ed25519 signing.
- */
-async function serveWebBotAuthDirectory(hostname) {
-  // Import the private key
-  const key = await crypto.subtle.importKey(
-    'jwk',
-    WEB_BOT_AUTH_PRIVATE_JWK,
-    { name: 'Ed25519' },
-    false,
-    ['sign'],
-  );
+## Core Pages
+- [How It Works](https://signedreviews.com/how-it-works/) — The 5-step verification flow
+- [Pricing](https://signedreviews.com/pricing/) — Free plan available, paid from $29/mo
+- [Trust & Security](https://signedreviews.com/trust/) — Cryptographic signing, read-only OAuth
+- [API Reference](https://signedreviews.com/api/) — Public API documentation
 
-  // Build signature parameters
-  const created = Math.floor(Date.now() / 1000);
-  const expires = created + 10;
-  const nonceBytes = crypto.getRandomValues(new Uint8Array(64));
-  const nonce = btoa(String.fromCharCode(...nonceBytes))
-    .replace(/\+/g, '-')
-    .replace(/\//g, '_')
-    .replace(/=/g, '');
+## Learn (Authority Pages)
+- [What Does "Verified Buyer" Actually Mean?](https://signedreviews.com/learn/what-does-verified-buyer-mean/) — The 5-level verification spectrum
+- [How Fake Reviews Work](https://signedreviews.com/learn/how-fake-reviews-work/) — Methods, economics, structural defenses
+- [FTC Fake Review Rules (2024)](https://signedreviews.com/learn/ftc-fake-reviews-rules/) — 16 CFR Part 465 explained
 
-  const sigParams = `sig1=("@authority";req);alg="ed25519";keyid="${JWK_THUMBPRINT}";nonce="${nonce}";tag="http-message-signatures-directory";created=${created};expires=${expires}`;
+## Comparisons (14 /vs/ pages)
+Trustpilot, Feefo, Judge.me, Yotpo, eKomi, SiteJabber, Reviews.io, Stamped, Okendo, Loox, Skeepers, Google Reviews, Yelp, Clutch.
+→ [Full list at signedreviews.com/vs/trustpilot/](https://signedreviews.com/vs/trustpilot/)
 
-  // Build signature base (RFC 9421)
-  const signatureBase = `"@authority": ${hostname}\n"@signature-params": ${sigParams}`;
+## Blog (24 posts)
+Covers Stripe verified reviews, Trustpilot alternatives, fake review detection, review collection guides, FTC compliance, and platform-specific guides for Shopify, SaaS, and e-commerce.
+→ [Blog index](https://signedreviews.com/blog/)
 
-  // Sign
-  const sigBytes = await crypto.subtle.sign(
-    'Ed25519',
-    key,
-    new TextEncoder().encode(signatureBase),
-  );
-  const sig = btoa(String.fromCharCode(...new Uint8Array(sigBytes)))
-    .replace(/\+/g, '-')
-    .replace(/\//g, '_')
-    .replace(/=/g, '');
+## Integrations
+- [Stripe](https://signedreviews.com/integrations/stripe/) — Native, read-only OAuth (Live)
+- [Shopify](https://signedreviews.com/integrations/shopify/) — Planned
+- [WooCommerce](https://signedreviews.com/integrations/woocommerce/) — Planned
 
-  return new Response(JSON.stringify(WEB_BOT_AUTH_DIRECTORY, null, 2) + '\n', {
+## For AI Agents
+- [LLMs.txt](https://signedreviews.com/llms.txt) — Machine-readable site map
+- [Agent Skills](https://signedreviews.com/.well-known/agent-skills/index.json) — Structured skill definitions
+- [Sitemap](https://signedreviews.com/sitemap.xml) — XML sitemap
+- [auth.md](https://signedreviews.com/auth.md) — Authentication documentation
+`;
+}
+
+// ── Token count estimate ───────────────────────────────────────────────────
+
+function estimateTokens(markdown) {
+  return Math.ceil(markdown.length / 4);
+}
+
+// ── Markdown response helper ───────────────────────────────────────────────
+
+function serveMarkdown(pathname) {
+  const markdown = MARKDOWN_PAGES[pathname] || defaultMarkdown(pathname);
+  return new Response(markdown, {
     status: 200,
     headers: {
-      'Content-Type':
-        'application/http-message-signatures-directory+json',
-      'Signature-Input': sigParams,
-      'Signature': `sig1=:${sig}:`,
-      'Cache-Control': 'public, max-age=86400',
-      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'text/markdown; charset=utf-8',
+      'x-markdown-tokens': String(estimateTokens(markdown)),
+      'x-debug-source': 'apex-router-worker',
+      'Cache-Control': 'public, max-age=3600',
+      'Vary': 'Accept',
     },
   });
 }
 
-// ── Function handler ────────────────────────────────────────────────────────
+// ── Main handler ───────────────────────────────────────────────────────────
 
-export async function onRequest(context) {
-  const { request } = context;
-  const accept = request.headers.get('Accept') || '';
-  const url = new URL(request.url);
-  const pathname = url.pathname;
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    const accept = request.headers.get('Accept') || '';
 
-  // Web Bot Auth: JWKS directory for bot/agent identity
-  if (pathname === '/.well-known/http-message-signatures-directory') {
-    return serveWebBotAuthDirectory(url.hostname);
-  }
+    // Markdown for Agents — serve markdown directly without invoking landing
+    if (accept.includes('text/markdown')) {
+      return serveMarkdown(url.pathname);
+    }
 
-  // Serve markdown when requested by AI agents
-  if (accept.includes('text/markdown')) {
-    const markdown = MARKDOWN_PAGES[pathname] || defaultMarkdown(pathname);
+    // Try the landing first via service binding.
+    const landingResponse = await env.LANDING.fetch(request);
+    if (landingResponse.status !== 404) {
+      return landingResponse;
+    }
 
-    return new Response(markdown, {
-      status: 200,
-      headers: {
-        'Content-Type': 'text/markdown; charset=utf-8',
-        'x-markdown-tokens': String(estimateTokens(markdown)),
-        'x-debug-function': 'markdown-negotiation-v2',
-        'Cache-Control': 'public, max-age=3600',
-        'Vary': 'Accept',
-      },
-    });
-  }
-
-  // Pass through to static assets for all other requests
-  return context.next();
-}
+    // Landing has no such path → fall through to the platform SPA.
+    const target = PLATFORM_ORIGIN + url.pathname + url.search;
+    const init = {
+      method: request.method,
+      redirect: 'manual',
+    };
+    if (request.method !== 'GET' && request.method !== 'HEAD') {
+      init.body = request.body;
+    }
+    return fetch(target, init);
+  },
+};
