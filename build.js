@@ -144,7 +144,7 @@ const SHARED_STYLES = `
   --gold-100:#f2edcc; --gold-50:#faf8ee;
   --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
   --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
-  --max-prose: 72ch;
+  --max-prose: 44rem; /* rem (not ch) so all elements share the same pixel width */
 }
 @media (prefers-color-scheme: dark) {
   :root.theme-auto {
