@@ -251,9 +251,10 @@ a:hover { color: var(--gold-500); }
   cursor: pointer;
 }
 .btn-primary {
-  color: #fff;
-  background: linear-gradient(135deg, var(--gold-400), var(--gold-500) 60%, var(--gold-600));
+  color: #fff; font-weight: 700;
+  background: linear-gradient(135deg, var(--gold-500), var(--gold-600) 55%, #7a6528);
   box-shadow: 0 4px 14px rgba(179,157,69,.32);
+  text-shadow: 0 1px 2px rgba(0,0,0,.18);
 }
 .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(179,157,69,.44); color: #fff; }
 .btn-secondary {
