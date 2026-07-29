@@ -252,10 +252,10 @@ a:hover { color: var(--gold-500); }
 }
 .btn-primary {
   color: #fff; font-weight: 700;
-  background: linear-gradient(135deg, var(--navy-800), var(--navy-900));
-  box-shadow: 0 4px 14px rgba(12,19,32,.28);
+  background: linear-gradient(135deg, var(--gold-600), #7a6528);
+  box-shadow: 0 4px 14px rgba(179,157,69,.30);
 }
-.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(12,19,32,.40); color: #fff; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(179,157,69,.42); color: #fff; }
 .btn-secondary {
   color: var(--navy-700); background: transparent; border-color: var(--navy-200);
 }
