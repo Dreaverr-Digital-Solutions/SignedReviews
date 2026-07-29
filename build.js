@@ -344,6 +344,14 @@ main { padding: 0; }
   width: 100%;
   margin: 0 auto;
 }
+/* Plain variant — no card chrome. Use on pages where the content
+   already carries its own visual identity (tables, verdict cards, etc.) */
+.prose--plain {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
 .prose h1 { display: none; } /* page hero already shows the h1 */
 .prose h2, .prose h3, .prose h4 {
   font-family: 'Instrument Serif', Georgia, serif;
@@ -1688,7 +1696,7 @@ function buildComparison() {
   const extraStyle = `
     .vs-hero { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; margin: 1rem 0; }
     .vs-hero .vs-label { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-    .vs-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; font-size: .94rem; margin: 1.5rem 0 2rem; }
+    .prose .vs-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; font-size: .94rem; margin: 1.5rem 0 2rem; }
     .vs-table thead th { background: var(--navy-50); color: var(--navy-900); font-weight: 600; text-align: left; padding: .95rem 1.1rem; border-bottom: 1px solid var(--border); }
     :root.theme-dark .vs-table thead th, :root.theme-auto .vs-table thead th { background: rgba(255,255,255,.04); color: #fff; }
     .vs-table thead th:first-child { width: 38%; }
@@ -1705,7 +1713,7 @@ function buildComparison() {
     .verdict p { color: var(--navy-200); margin: 0; line-height: 1.6; }
   `;
 
-  const body = `<article class="prose" style="max-width: var(--max-prose)">
+  const body = `<article class="prose prose--plain" style="max-width: var(--max-prose)">
     <p>Choosing a review platform is a trust decision. This <strong>Signed Reviews vs Trustpilot</strong> comparison breaks down the differences across the dimensions that matter most for businesses that care about review authenticity — from purchase verification and fake review prevention to pricing and API access.</p>
 
     <h2>Signed Reviews vs Trustpilot: key differences at a glance</h2>
