@@ -251,11 +251,11 @@ a:hover { color: var(--gold-500); }
   cursor: pointer;
 }
 .btn-primary {
-  color: var(--navy-900); font-weight: 700;
-  background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
-  box-shadow: 0 4px 14px rgba(179,157,69,.28);
+  color: #fff; font-weight: 700;
+  background: linear-gradient(135deg, var(--navy-800), var(--navy-900));
+  box-shadow: 0 4px 14px rgba(12,19,32,.28);
 }
-.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(179,157,69,.40); color: var(--navy-900); }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(12,19,32,.40); color: #fff; }
 .btn-secondary {
   color: var(--navy-700); background: transparent; border-color: var(--navy-200);
 }
