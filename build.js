@@ -315,16 +315,16 @@ main { padding: 0; }
   font-family: 'Instrument Serif', Georgia, serif;
   font-size: clamp(2rem, 4vw + 1rem, 3.25rem);
   line-height: 1.1; margin: 0 auto .5rem auto; color: var(--navy-900); letter-spacing: -0.02em;
-  max-width: var(--max-prose);
+  max-width: var(--max-prose); width: 100%;
 }
 :root.theme-dark .page-hero h1, :root.theme-auto .page-hero h1 { color: #fff; }
-.page-hero p { color: var(--muted); margin: 0 auto; max-width: var(--max-prose); font-size: 1.05rem; }
+.page-hero p { color: var(--muted); margin: 0 auto; max-width: var(--max-prose); width: 100%; font-size: 1.05rem; }
 .eyebrow {
   display: block;
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
   color: var(--gold-600); margin: 0 auto .9rem auto;
-  max-width: var(--max-prose);
+  max-width: var(--max-prose); width: 100%;
 }
 
 .prose-wrap {
