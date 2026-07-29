@@ -1706,7 +1706,9 @@ function buildComparison() {
   `;
 
   const body = `<article class="prose" style="max-width: var(--max-prose)">
-    <p>Choosing a review platform is a trust decision. Here's how Signed Reviews compares to Trustpilot — the largest general-purpose review platform — across the dimensions that matter most for businesses that care about review authenticity.</p>
+    <p>Choosing a review platform is a trust decision. This <strong>Signed Reviews vs Trustpilot</strong> comparison breaks down the differences across the dimensions that matter most for businesses that care about review authenticity — from purchase verification and fake review prevention to pricing and API access.</p>
+
+    <h2>Signed Reviews vs Trustpilot: key differences at a glance</h2>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
@@ -1731,20 +1733,21 @@ function buildComparison() {
 
     <div class="verdict">
       <h3>When to choose Signed Reviews</h3>
-      <p>If review authenticity is your #1 concern — if you want every review to be provably backed by a real purchase, with cryptographic proof — Signed Reviews is the right choice. It's built for businesses that process payments through Stripe and want a zero-fake-review guarantee by design, not by detection.</p>
+      <p>In any <strong>Signed Reviews vs Trustpilot</strong> evaluation, if review authenticity is your #1 concern — if you want every review to be provably backed by a real purchase, with cryptographic proof — Signed Reviews is the right choice. It's built for businesses that process payments through Stripe and want a zero-fake-review guarantee by design, not by detection. <a href="/how-it-works/">See how the verification engine works</a>.</p>
     </div>
 
     <div class="verdict" style="background:linear-gradient(135deg,#1c2840,#243252)">
       <h3>When Trustpilot may be a better fit</h3>
-      <p>If you need maximum consumer reach, have a large existing review base, or don't process payments through Stripe, Trustpilot's established brand recognition and consumer-facing directory give it an edge in organic discoverability. Many businesses use both — Trustpilot for breadth, Signed Reviews for verifiable depth.</p>
+      <p>If you need maximum consumer reach, have a large existing review base, or don't process payments through Stripe, Trustpilot's established brand recognition and consumer-facing directory give it an edge in organic discoverability. Ultimately, the <strong>Signed Reviews vs Trustpilot</strong> decision comes down to whether you prioritize verified proof or organic reach. Many businesses use both — Trustpilot for breadth, Signed Reviews for verifiable depth.</p>
     </div>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
+    <p style="text-align:center;margin-top:.75rem;font-size:.9rem;color:var(--muted);"><a href="/pricing/">Plans from $29/mo</a> · <a href="/blog/stripe-verified-reviews/">Learn how Stripe verification works</a></p>
   </article>`;
 
   const html = page({
     title: 'Signed Reviews vs Trustpilot — Comparison',
-    description: 'Detailed comparison of Signed Reviews and Trustpilot: purchase verification, fake review prevention, Stripe integration, pricing, API, review ownership, and more.',
+    description: 'Signed Reviews vs Trustpilot — detailed comparison across purchase verification, fake review prevention, Stripe integration, pricing, API, review ownership, and more.',
     slug: '/vs/trustpilot/',
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Trustpilot', subtitle: 'A detailed comparison across the dimensions that matter for review authenticity.' },
     body,
