@@ -661,9 +661,8 @@ const SHARED_HEAD = ({ title, description, canonical, slug, pageType = 'website'
   <meta name="twitter:description" content="${escapeHtml(description)}">
   <meta name="twitter:image" content="${SITE_URL}/images/SignedReviews_full_logo.png">
 
-  <link rel="icon" href="${B}favicon.svg" type="image/svg+xml">
-  <link rel="icon" type="image/png" sizes="32x32" href="${B}images/SignedReviews_logo_only.png">
-  <link rel="apple-touch-icon" href="${B}images/SignedReviews_logo_only.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="${B}images/SignedReviews_logo_only.png?v=20260729a">
+  <link rel="apple-touch-icon" href="${B}images/SignedReviews_logo_only.png?v=20260729a">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -3501,21 +3500,11 @@ Sitemap: ${SITE_URL}/sitemap.xml
 `;
   fs.writeFileSync(path.join(ROOT, 'robots.txt'), robots, 'utf8');
 
-  const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#1c2840"/>
-      <stop offset="1" stop-color="#2b3b60"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="14" fill="url(#g)"/>
-  <text x="32" y="42" text-anchor="middle"
-        font-family="Georgia, 'Instrument Serif', serif"
-        font-size="34" font-weight="400" fill="#d4c466"
-        font-style="italic">SR</text>
-</svg>
-`;
-  fs.writeFileSync(path.join(ROOT, 'favicon.svg'), favicon, 'utf8');
+  // favicon.svg = the real SignedReviews logo mark (star + fingerprint + check),
+  // sourced from images/favicon-mark.svg. Pages reference the PNG favicon
+  // (SignedReviews_logo_only.png) via the <link> tags; this SVG is kept for
+  // direct /favicon.svg requests and any hand-maintained pages that link it.
+  fs.copyFileSync(path.join(ROOT, 'images', 'favicon-mark.svg'), path.join(ROOT, 'favicon.svg'));
 
   console.log('  ✓ sitemap.xml, robots.txt, favicon.svg');
 }
