@@ -326,6 +326,19 @@ function serveMarkdown(pathname) {
 
 // ── Main handler ───────────────────────────────────────────────────────────
 
+// Helper: proxy this request to the platform SPA origin.
+function proxyToPlatform(request, url) {
+  const target = PLATFORM_ORIGIN + url.pathname + url.search;
+  const init = {
+    method: request.method,
+    redirect: 'manual',
+  };
+  if (request.method !== 'GET' && request.method !== 'HEAD') {
+    init.body = request.body;
+  }
+  return fetch(target, init);
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -340,29 +353,29 @@ export default {
     // must bypass the landing worker — the landing SPA catches all paths
     // and never returns 404, so the fallthrough would never trigger.
     if (BP_SUB_RE.test(url.pathname)) {
-      const target = PLATFORM_ORIGIN + url.pathname + url.search;
-      return fetch(target, {
-        method: request.method,
-        redirect: 'manual',
-        ...(request.method !== 'GET' && request.method !== 'HEAD' ? { body: request.body } : {}),
-      });
+      return proxyToPlatform(request, url);
     }
 
-    // Try the landing first via service binding.
-    const landingResponse = await env.LANDING.fetch(request);
-    if (landingResponse.status !== 404) {
-      return landingResponse;
+    // Single-segment paths that aren't known landing pages are business
+    // profiles (/:slug). Route them to the platform SPA first.
+    const SINGLE_SEGMENT_RE = /^\/[^/]+\/?$/;
+    if (SINGLE_SEGMENT_RE.test(url.pathname) && !isLandingPath(url.pathname)) {
+      return proxyToPlatform(request, url);
     }
 
-    // Landing has no such path → fall through to the platform SPA.
-    const target = PLATFORM_ORIGIN + url.pathname + url.search;
-    const init = {
-      method: request.method,
-      redirect: 'manual',
-    };
-    if (request.method !== 'GET' && request.method !== 'HEAD') {
-      init.body = request.body;
+    // Everything else: try the landing first via service binding.
+    // Wrap in try/catch — if the binding is missing or the landing worker
+    // errors, fall through to the platform rather than returning a 500.
+    try {
+      const landingResponse = await env.LANDING.fetch(request);
+      if (landingResponse.status !== 404 && landingResponse.status < 500) {
+        return landingResponse;
+      }
+    } catch (_) {
+      // landing unreachable — fall through to platform
     }
-    return fetch(target, init);
+
+    // Landing has no such path (or errored) → fall through to platform SPA.
+    return proxyToPlatform(request, url);
   },
 };
