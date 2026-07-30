@@ -14,6 +14,45 @@
 
 const PLATFORM_ORIGIN = 'https://platform.signedreviews.com';
 
+// ── Known landing-page path prefixes ─────────────────────────────────────
+// Single-segment paths that belong to the landing site, not business slugs.
+const LANDING_PAGES = new Set([
+  '/',
+  '/pricing/',
+  '/how-it-works/',
+  '/blog/',
+  '/api/',
+  '/about/',
+  '/contact/',
+  '/privacy/',
+  '/terms/',
+  '/trust/',
+  '/affiliates/',
+  '/sitemap/',
+]);
+
+// Prefixes that are always landing content (not business profiles).
+const LANDING_PREFIXES = [
+  '/blog/',
+  '/learn/',
+  '/vs/',
+  '/integrations/',
+  '/legal/',
+];
+
+function isLandingPath(pathname) {
+  if (LANDING_PAGES.has(pathname)) return true;
+  // Normalize to trailing slash for comparison.
+  const p = pathname.endsWith('/') ? pathname : pathname + '/';
+  if (LANDING_PAGES.has(p)) return true;
+  return LANDING_PREFIXES.some(pref => p.startsWith(pref));
+}
+
+// Business-profile sub-paths: /:slug/leave-a-review and /:slug/reviews.
+// Route these directly to the platform SPA — they should never hit the
+// landing worker (which catches all paths as a SPA and never returns 404).
+const BP_SUB_RE = /^\/[^/]+\/(leave-a-review|reviews)(\/.*)?$/;
+
 // ── Page-specific markdown content ──────────────────────────────────────────
 
 const MARKDOWN_PAGES = {
@@ -295,6 +334,18 @@ export default {
     // Markdown for Agents — serve markdown directly without invoking landing
     if (accept.includes('text/markdown')) {
       return serveMarkdown(url.pathname);
+    }
+
+    // Business-profile sub-paths (/:slug/leave-a-review, /:slug/reviews)
+    // must bypass the landing worker — the landing SPA catches all paths
+    // and never returns 404, so the fallthrough would never trigger.
+    if (BP_SUB_RE.test(url.pathname)) {
+      const target = PLATFORM_ORIGIN + url.pathname + url.search;
+      return fetch(target, {
+        method: request.method,
+        redirect: 'manual',
+        ...(request.method !== 'GET' && request.method !== 'HEAD' ? { body: request.body } : {}),
+      });
     }
 
     // Try the landing first via service binding.
