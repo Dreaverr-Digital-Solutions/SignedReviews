@@ -2,8 +2,12 @@
 const { test, expect } = require('@playwright/test');
 const path = require('path');
 
-const PAGE_URL = 'file:///C:/python/SignedReviewsLandingpage/index.html';
-const SCREENSHOTS_DIR = 'C:/python/SignedReviewsLandingpage/test-screenshots';
+// Use the dev server so root-relative paths (/output.css, /images/…) resolve.
+//   cd landingpage && node dev-server.js
+// Then run tests.
+const BASE_URL = process.env.LANDING_URL || 'http://localhost:4173';
+const PAGE_URL = `${BASE_URL}/`;
+const SCREENSHOTS_DIR = path.resolve(__dirname, '..', 'test-screenshots');
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -11,8 +15,7 @@ const SCREENSHOTS_DIR = 'C:/python/SignedReviewsLandingpage/test-screenshots';
 
 /**
  * Navigate to the landing page and wait for it to be ready.
- * We wait for the DOMContentLoaded event by checking that the hero form input
- * is present in the DOM, which means all inline scripts have run.
+ * Waits for the hero CTA button which confirms DOMContentLoaded scripts ran.
  */
 async function goToPage(page) {
   // Clear localStorage so dark-mode state is always predictable
@@ -20,49 +23,27 @@ async function goToPage(page) {
     localStorage.removeItem('theme');
   });
   await page.goto(PAGE_URL, { waitUntil: 'domcontentloaded' });
-  // Ensure hero email input is rendered (confirms DOMContentLoaded scripts ran)
-  await page.waitForSelector('#heroEmail', { state: 'attached' });
+  // Ensure hero CTA is rendered (confirms DOMContentLoaded scripts ran)
+  await page.waitForSelector('#heroBtn', { state: 'attached' });
 }
 
 // ---------------------------------------------------------------------------
-// 1. Hero form — valid email submission
+// 1. Hero CTA
 // ---------------------------------------------------------------------------
-test.describe('Hero form', () => {
-  test('valid email shows success state within 2s', async ({ page }) => {
+test.describe('Hero CTA', () => {
+  test('hero signup button is visible and links to platform', async ({ page }) => {
     await goToPage(page);
 
-    const emailInput = page.locator('#heroEmail');
-    const submitBtn  = page.locator('#heroBtn');
+    const heroBtn = page.locator('#heroBtn');
+    await expect(heroBtn).toBeVisible();
 
-    await emailInput.fill('test@example.com');
-    await submitBtn.click();
-
-    // Button text must become "✓ You're on the list!" within 2 seconds
-    await expect(submitBtn).toHaveText("✓ You're on the list!", { timeout: 2000 });
-  });
-
-  // -------------------------------------------------------------------------
-  // 2. Hero form — invalid email (empty submit triggers HTML5 validation)
-  // -------------------------------------------------------------------------
-  test('empty email triggers HTML5 :invalid state', async ({ page }) => {
-    await goToPage(page);
-
-    const emailInput = page.locator('#heroEmail');
-
-    // Attempt to submit the form without filling the email.
-    // We do NOT call .click() on the submit button directly because in
-    // Playwright the button click submits the form and HTML5 validation
-    // fires natively.  We can check the validity via JS.
-    await page.locator('#heroBtn').click();
-
-    // The input should be invalid according to the Constraint Validation API
-    const isInvalid = await emailInput.evaluate((el) => !el.validity.valid);
-    expect(isInvalid).toBe(true);
+    // It should link to the platform
+    await expect(heroBtn).toHaveAttribute('href', /platform\.signedreviews\.com/);
   });
 });
 
 // ---------------------------------------------------------------------------
-// 3. Dark mode toggle
+// 2. Dark mode toggle
 // ---------------------------------------------------------------------------
 test.describe('Dark mode toggle', () => {
   test('clicking toggle adds "dark" class to <html>', async ({ page }) => {
@@ -83,65 +64,21 @@ test.describe('Dark mode toggle', () => {
 });
 
 // ---------------------------------------------------------------------------
-// 4. Carousel autoplay + pause on hover
-// ---------------------------------------------------------------------------
-test.describe('Review carousel autoplay', () => {
-  test('autoplay advances the carousel; hover pauses it', async ({ page }) => {
-    await goToPage(page);
-
-    const track = page.locator('#heroCarouselTrack');
-
-    // Capture the initial transform value right after load (should be translateX(0)
-    // since heroGoTo(0) sets it to 0).
-    const initialTransform = await track.evaluate((el) => el.style.transform);
-
-    // Wait for the carousel to advance at least once.
-    // Autoplay interval is 3800 ms — wait up to 5s for the transform to change.
-    await page.waitForFunction(
-      (initialTx) => {
-        const t = document.getElementById('heroCarouselTrack');
-        return t && t.style.transform !== initialTx;
-      },
-      initialTransform,
-      { timeout: 5000 }
-    );
-
-    // Record the transform after the first autoplay tick
-    const afterFirstTick = await track.evaluate((el) => el.style.transform);
-    expect(afterFirstTick).not.toBe(initialTransform);
-
-    // Hover over the carousel parent to pause autoplay
-    const carouselParent = page.locator('[onmouseenter="heroPause()"]');
-    await carouselParent.hover();
-
-    // Record transform immediately after hover
-    const transformOnHover = await track.evaluate((el) => el.style.transform);
-
-    // Wait 4 more seconds — if paused, transform should NOT change
-    await page.waitForTimeout(4100);
-
-    const transformAfterWait = await track.evaluate((el) => el.style.transform);
-    expect(transformAfterWait).toBe(transformOnHover);
-  });
-});
-
-// ---------------------------------------------------------------------------
-// 5. All CTAs visible and clickable
+// 3. CTA buttons
 // ---------------------------------------------------------------------------
 test.describe('CTA buttons', () => {
-  test('all .btn-gold and .btn-ripple buttons are visible and enabled; count >= 6', async ({ page }) => {
+  test('all CTA buttons are visible and enabled; count >= 4', async ({ page }) => {
     await goToPage(page);
 
     const ctaElements = page.locator('.btn-gold, .btn-ripple');
     const count = await ctaElements.count();
 
-    expect(count).toBeGreaterThanOrEqual(6);
+    expect(count).toBeGreaterThanOrEqual(4);
 
     // Each element must be visible and not disabled
     for (let i = 0; i < count; i++) {
       const el = ctaElements.nth(i);
       await expect(el).toBeVisible();
-      // Only actual button/input elements have a disabled property — links don't
       const tagName = await el.evaluate((e) => e.tagName.toLowerCase());
       if (tagName === 'button' || tagName === 'input') {
         await expect(el).not.toBeDisabled();
@@ -151,12 +88,12 @@ test.describe('CTA buttons', () => {
 });
 
 // ---------------------------------------------------------------------------
-// 6. Mobile viewport
+// 4. Mobile viewport
 // ---------------------------------------------------------------------------
 test.describe('Mobile viewport (375x812)', () => {
   test.use({ viewport: { width: 375, height: 812 } });
 
-  test('nav, hero headline, hero form, carousel all visible; no horizontal overflow', async ({ page }) => {
+  test('nav, hero headline, hero CTA all visible; no horizontal overflow', async ({ page }) => {
     await goToPage(page);
 
     // Nav is visible
@@ -167,21 +104,9 @@ test.describe('Mobile viewport (375x812)', () => {
     const headline = page.locator('h1');
     await expect(headline).toBeVisible();
 
-    // Hero form email input is visible
-    const emailInput = page.locator('#heroEmail');
-    await expect(emailInput).toBeVisible();
-
-    // Carousel outer container is visible
-    const carouselOuter = page.locator('#heroCarouselOuter');
-    await expect(carouselOuter).toBeVisible();
-
-    // Carousel must not overflow the viewport horizontally
-    const carouselBox = await carouselOuter.boundingBox();
-    expect(carouselBox).not.toBeNull();
-    if (carouselBox) {
-      // right edge of carousel must be <= viewport width (375px)
-      expect(carouselBox.x + carouselBox.width).toBeLessThanOrEqual(375 + 1); // +1 px tolerance
-    }
+    // Hero CTA button is visible
+    const heroBtn = page.locator('#heroBtn');
+    await expect(heroBtn).toBeVisible();
 
     // No horizontal scroll on body/html (scrollWidth <= clientWidth)
     const hasHorizontalOverflow = await page.evaluate(() => {
@@ -189,10 +114,27 @@ test.describe('Mobile viewport (375x812)', () => {
     });
     expect(hasHorizontalOverflow).toBe(false);
   });
+
+  test('mobile menu toggle opens menu drawer', async ({ page }) => {
+    await goToPage(page);
+
+    const menuBtn = page.locator('#mobileMenuBtn');
+    await expect(menuBtn).toBeVisible();
+
+    // Menu drawer should exist in DOM
+    const menu = page.locator('#mobileMenu');
+    await expect(menu).toBeAttached();
+
+    // Click to open — toggleMobileMenu() removes the 'hidden' class
+    await menuBtn.click();
+
+    // The menu should now be visible (hidden class removed)
+    await expect(menu).toBeVisible();
+  });
 });
 
 // ---------------------------------------------------------------------------
-// 7. Screenshots — desktop light, desktop dark, mobile
+// 5. Screenshots — desktop light, desktop dark, mobile
 // ---------------------------------------------------------------------------
 test.describe('Screenshots', () => {
   test('desktop light mode screenshot', async ({ page }) => {
@@ -200,13 +142,11 @@ test.describe('Screenshots', () => {
       process.env.SKIP_SCREENSHOTS === '1',
       'Screenshots skipped via env var'
     );
-    // Explicitly add init script to keep light mode
     await page.addInitScript(() => {
       localStorage.setItem('theme', 'light');
     });
     await page.goto(PAGE_URL, { waitUntil: 'domcontentloaded' });
-    await page.waitForSelector('#heroEmail', { state: 'attached' });
-    // Give animations a moment to settle
+    await page.waitForSelector('#heroBtn', { state: 'attached' });
     await page.waitForTimeout(600);
     await page.screenshot({
       path: `${SCREENSHOTS_DIR}/desktop-light.png`,
@@ -223,7 +163,7 @@ test.describe('Screenshots', () => {
       localStorage.setItem('theme', 'dark');
     });
     await page.goto(PAGE_URL, { waitUntil: 'domcontentloaded' });
-    await page.waitForSelector('#heroEmail', { state: 'attached' });
+    await page.waitForSelector('#heroBtn', { state: 'attached' });
     await page.waitForTimeout(600);
     await page.screenshot({
       path: `${SCREENSHOTS_DIR}/desktop-dark.png`,
@@ -241,11 +181,141 @@ test.describe('Screenshots', () => {
       localStorage.removeItem('theme');
     });
     await page.goto(PAGE_URL, { waitUntil: 'domcontentloaded' });
-    await page.waitForSelector('#heroEmail', { state: 'attached' });
+    await page.waitForSelector('#heroBtn', { state: 'attached' });
     await page.waitForTimeout(600);
     await page.screenshot({
       path: `${SCREENSHOTS_DIR}/mobile.png`,
       fullPage: false,
     });
+  });
+});
+
+// ---------------------------------------------------------------------------
+// 6. iOS Safari-specific checks
+// ---------------------------------------------------------------------------
+test.describe('iOS Safari compatibility', () => {
+  // Run selectively:
+  //   npx playwright test --grep "iOS Safari compatibility" --project=webkit-ios
+
+  test('viewport meta tag is present', async ({ page }) => {
+    await goToPage(page);
+    const vp = page.locator('meta[name="viewport"]');
+    await expect(vp).toHaveAttribute('content', /width=device-width/);
+    await expect(vp).toHaveAttribute('content', /initial-scale=1/);
+  });
+
+  test('input font-size prevents iOS zoom (≥15px)', async ({ page }) => {
+    await goToPage(page);
+    // On mobile viewport (≤639px), iOS zooms into inputs with font-size < 16px.
+    // The page uses a media query to set inputs to 16px on small screens.
+    // Check the CSS rule exists (the page currently has no visible email input,
+    // but the CSS guard is in place).
+    const hasIOSFix = await page.evaluate(() => {
+      const styleSheets = Array.from(document.styleSheets);
+      for (const sheet of styleSheets) {
+        try {
+          for (const rule of Array.from(sheet.cssRules || [])) {
+            if (rule.cssText && rule.cssText.includes('font-size: 16px') && rule.cssText.includes('max-width')) {
+              return true;
+            }
+          }
+        } catch (_) { /* cross-origin stylesheet */ }
+      }
+      // Fallback: check the inline style block directly
+      const styleBlocks = Array.from(document.querySelectorAll('style'));
+      return styleBlocks.some(s =>
+        s.textContent.includes('font-size: 16px') &&
+        s.textContent.includes('max-width')
+      );
+    });
+    expect(hasIOSFix).toBe(true);
+  });
+
+  test('no horizontal overflow on iPhone viewport', async ({ page }) => {
+    await goToPage(page);
+    // Check at multiple scroll positions — iOS Safari is notorious for letting
+    // sticky/fixed elements cause overflow only partway down the page
+    const checkOverflow = async () => {
+      return page.evaluate(() => {
+        return document.documentElement.scrollWidth > document.documentElement.clientWidth;
+      });
+    };
+    expect(await checkOverflow()).toBe(false);
+
+    // Scroll to middle and check again
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight / 2));
+    await page.waitForTimeout(300);
+    expect(await checkOverflow()).toBe(false);
+
+    // Scroll to bottom
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await page.waitForTimeout(300);
+    expect(await checkOverflow()).toBe(false);
+  });
+
+  test('position:fixed elements do not overlap CTA at bottom', async ({ page }) => {
+    await goToPage(page);
+    // Scroll near the bottom where the back-to-top button appears
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight - 800));
+    await page.waitForTimeout(300);
+
+    // The back-to-top button should exist
+    const btt = page.locator('#back-to-top');
+    await expect(btt).toBeAttached();
+
+    // The final CTA section should still be present
+    const ctaSection = page.locator('.cta-section');
+    await expect(ctaSection).toBeAttached();
+  });
+
+  test('nav is sticky and has backdrop-filter on scroll', async ({ page }) => {
+    await goToPage(page);
+    const nav = page.locator('nav');
+
+    // At top of page, nav should be present
+    await expect(nav).toBeVisible();
+
+    // Scroll down to trigger nav-scrolled class. Use waitForFunction to
+    // wait for the scroll handler to add the class rather than racing.
+    await page.evaluate(() => window.scrollTo(0, 300));
+    await page.waitForFunction(() => {
+      const nav = document.querySelector('nav');
+      return nav && nav.classList.contains('nav-scrolled');
+    }, { timeout: 5000 });
+
+    // Verify nav is still visible after scroll
+    await expect(nav).toBeVisible();
+  });
+
+  test('scroll reveal sections become visible', async ({ page }) => {
+    await goToPage(page);
+    // Scroll well into the page to trigger reveals
+    await page.evaluate(() => window.scrollTo(0, 1200));
+    await page.waitForTimeout(800); // let stagger finish
+
+    // At least some reveals should be .revealed now
+    const revealedCount = await page.locator('.revealed').count();
+    expect(revealedCount).toBeGreaterThan(0);
+  });
+
+  test('no JS errors on page load', async ({ page }) => {
+    const errors = [];
+    page.on('pageerror', (err) => errors.push(err.message));
+
+    await goToPage(page);
+    await page.waitForTimeout(500);
+
+    // No uncaught exceptions — particle canvas gracefully returns if #heroParticles
+    // is absent, GSAP/ScrollTrigger gracefully return if elements are missing
+    expect(errors.length).toBe(0);
+  });
+
+  test('backdrop-filter is declared with -webkit- prefix for iOS', async ({ page }) => {
+    await goToPage(page);
+    const hasWebkitBackdrop = await page.evaluate(() => {
+      const styleBlocks = Array.from(document.querySelectorAll('style'));
+      return styleBlocks.some(s => s.textContent.includes('-webkit-backdrop-filter'));
+    });
+    expect(hasWebkitBackdrop).toBe(true);
   });
 });

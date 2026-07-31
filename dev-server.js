@@ -2,14 +2,21 @@
 /**
  * Tiny zero-dependency static file server for local preview.
  * Resolves /foo/ to /foo/index.html so the deployed routing matches GitHub Pages.
- *   node dev-server.js  →  http://localhost:4173
+ *
+ *   node dev-server.js              →  http://localhost:4173
+ *   node dev-server.js --host       →  http://0.0.0.0:4173 (accessible from LAN / iOS devices)
+ *   node dev-server.js --host 8080  →  http://0.0.0.0:8080
  */
 const http = require('node:http');
-const fs = require('node:fs');
+const fs   = require('node:fs');
 const path = require('node:path');
-const url = require('node:url');
+const url  = require('node:url');
+const os   = require('node:os');
 
-const PORT = Number(process.env.PORT || 4173);
+const HOST = process.argv.includes('--host') ? '0.0.0.0' : '127.0.0.1';
+const PORT = Number(process.env.PORT || (process.argv.includes('--host') && /^\d+$/.test(process.argv[process.argv.indexOf('--host') + 1])
+  ? process.argv[process.argv.indexOf('--host') + 1]
+  : 4173));
 const ROOT = __dirname;
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -50,6 +57,23 @@ http
       res.end(data);
     });
   })
-  .listen(PORT, () => {
-    console.log(`signedreviews.com preview at http://localhost:${PORT}`);
+  .listen(PORT, HOST, () => {
+    const addr = HOST === '0.0.0.0' ? '0.0.0.0' : 'localhost';
+    console.log(`signedreviews.com preview at http://${addr}:${PORT}`);
+
+    // When bound to all interfaces, print LAN addresses for device testing
+    if (HOST === '0.0.0.0') {
+      const ifaces = os.networkInterfaces();
+      const seen = new Set();
+      for (const name of Object.keys(ifaces)) {
+        for (const iface of ifaces[name] || []) {
+          if (iface.family === 'IPv4' && !iface.internal) {
+            if (seen.has(iface.address)) continue;
+            seen.add(iface.address);
+            console.log(`  → iOS device: http://${iface.address}:${PORT}`);
+          }
+        }
+      }
+      console.log('  (open that URL in Safari on your iPhone/iPad — same Wi-Fi network)');
+    }
   });
