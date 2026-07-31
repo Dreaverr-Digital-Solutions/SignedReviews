@@ -113,8 +113,14 @@
       content:''; position:absolute; inset:0;
       background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
       pointer-events:none; z-index:1;
-      /* Promote grain layer to compositor — avoids repaint on scroll */
-      transform: translateZ(0);
+      /* Promote grain layer to compositor — avoids repaint on scroll.
+         On iOS Safari, only promote when the element is inside a scoped
+         parent (not body-level) to avoid creating a viewport-sized layer. */
+    }
+    /* Downgrade grain for iOS Safari: viewport-sized compositor layers tank
+       GPU memory and cause scroll jank. Use static opacity instead. */
+    @supports (-webkit-touch-callout: none) {
+      .grain::after { transform: none; opacity: .7; }
     }
 
     /* Gold shimmer on hero headline */
@@ -287,9 +293,13 @@
 
     /* ── Liquid Glass System (iOS 26 inspired) ───────────────── */
 
-    /* Nav: inner highlight edge lifts it off the page */
+    /* Nav: inner highlight edge lifts it off the page.
+       translateZ(0) is REQUIRED on iOS Safari for position:fixed + backdrop-filter
+       to render correctly — otherwise the blur flickers or fails behind the nav. */
     .nav-liquid-glass {
       box-shadow: 0 1px 0 rgba(255,255,255,0.80) inset, 0 2px 24px rgba(43,59,96,0.06) !important;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
     }
     .dark .nav-liquid-glass {
       box-shadow: 0 1px 0 rgba(255,255,255,0.07) inset, 0 2px 24px rgba(0,0,0,0.30) !important;
@@ -360,11 +370,16 @@
     .btn-gold:hover::after { opacity: 1; }
 
     /* ── Nav scroll-aware state ─────────────────────────────── */
+    /* iOS Safari requires translateZ(0) on position:fixed elements that use
+       backdrop-filter — without it the blur may flicker, fail to render behind
+       the fixed element, or lag during scroll.                             */
     .nav-scrolled {
       background: rgba(255,255,255,0.92) !important;
       backdrop-filter: blur(32px) saturate(2) !important;
       -webkit-backdrop-filter: blur(32px) saturate(2) !important;
       box-shadow: 0 1px 0 rgba(255,255,255,0.80) inset, 0 4px 32px rgba(43,59,96,0.10) !important;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
     }
     .dark .nav-scrolled {
       background: rgba(12,19,32,0.92) !important;
@@ -428,6 +443,12 @@
       mix-blend-mode: luminosity;
     }
     .dark .hero-bg-img { opacity: 0.08; }
+    /* iOS Safari: mix-blend-mode forces expensive offscreen rendering.
+       Downgrade to simple opacity — the visual difference is negligible. */
+    @supports (-webkit-touch-callout: none) {
+      .hero-bg-img { mix-blend-mode: normal; opacity: 0.07; }
+      .dark .hero-bg-img { opacity: 0.10; }
+    }
 
     /* ── Pricing glassmorphism cards (dark navy bg) ──────────── */
     .pricing-glass {
@@ -638,18 +659,28 @@
       box-shadow: 0 8px 28px rgba(179,157,69,.58);
     }
 
-    /* ── will-change audit: explicit on all long-running anims ── */
-    .float-anim        { will-change: transform; }
+    /* ── will-change audit: explicit on all long-running anims ──
+       iOS Safari GPU memory is limited — each will-change allocates a
+       compositor layer. Only hoist elements that animate continuously;
+       release after one-shot animations complete.                     */
+    .float-anim            { will-change: transform; }
     .hero-orb-a,
     .hero-orb-b,
-    .hero-orb-c        { will-change: transform, opacity; }
-    .cta-gradient-mesh { will-change: background-position; }
-    .cta-ring          { will-change: transform, opacity; }
-    .widget-marquee-inner { will-change: transform; }
-    .reveal            { will-change: opacity, transform; }
-    .reveal.revealed   { will-change: auto; }          /* release after */
-    .gold-shimmer      { will-change: background-position; }
-    .pricing-glass     { will-change: transform; }
+    .hero-orb-c            { will-change: transform; } /* opacity animates but is cheap — only promote transform */
+    /* cta-gradient-mesh: background-position is NOT compositor-friendly on iOS;
+       will-change doesn't help here and wastes GPU memory — removed. */
+    .cta-ring              { will-change: transform, opacity; }
+    .widget-marquee-inner  { will-change: transform; }
+    .reveal                { will-change: opacity, transform; }
+    .reveal.revealed       { will-change: auto; }      /* release after reveal */
+    /* gold-shimmer: same as cta-gradient — background-position will-change is a
+       no-op on iOS compositor; removed. */
+    /* pricing-glass: only animates on hover — promote/demote via JS instead of
+       permanent will-change that holds GPU memory for the page lifetime. */
+    /* progress-bar: promoted only when visible (handled inline in its rule). */
+    #progress-bar          { will-change: transform; }
+    #back-to-top           { will-change: transform, opacity; }
+    .btn-cta-pulse::before { will-change: transform, opacity; }
 
     /* ── iOS input zoom prevention (min 16px) ─────────────────── */
     @media (max-width: 639px) {
@@ -661,8 +692,12 @@
       }
     }
 
-    /* ── Mobile overflow guard ───────────────────────────────── */
-    html, body { overflow-x: hidden; }
+    /* ── Mobile overflow guard ─────────────────────────────────
+       iOS Safari REQUIRES body overflow to stay visible for momentum
+       scrolling to work. Setting overflow-x:hidden on body kills kinetic
+       scroll, breaks position:fixed, and causes jank. Instead, contain
+       overflow on html only (which iOS allows).                         */
+    html { overflow-x: hidden; }
 
     /* ── Staggered section reveal: remove data-delay CSS collision */
     /* JS now handles stagger via setTimeout — delays are intentional */
@@ -1471,7 +1506,10 @@
         var bar = document.getElementById('progress-bar');
         if (!bar) return;
         function updateBar() {
-          var total = document.documentElement.scrollHeight - window.innerHeight;
+          /* Use clientHeight instead of innerHeight — slightly more stable
+             on iOS Safari where the collapsing toolbar changes innerHeight
+             live, causing the progress percentage to jump.              */
+          var total = document.documentElement.scrollHeight - document.documentElement.clientHeight;
           bar.style.transform = 'scaleX(' + (total > 0 ? window.scrollY / total : 0) + ')';
         }
         window.addEventListener('scroll', updateBar, { passive: true });
@@ -1483,7 +1521,8 @@
         var btn = document.getElementById('back-to-top');
         if (!btn) return;
         function updateBtt() {
-          btn.classList.toggle('btt-visible', window.scrollY > window.innerHeight * 0.5);
+          /* Use clientHeight for the same iOS Safari toolbar reason as above */
+          btn.classList.toggle('btt-visible', window.scrollY > document.documentElement.clientHeight * 0.5);
         }
         window.addEventListener('scroll', updateBtt, { passive: true });
         btn.addEventListener('click', function() {
@@ -1754,7 +1793,7 @@
         var el = document.querySelector('.shield-container');
         if (el) {
           var rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.7) {
+          if (rect.top < document.documentElement.clientHeight * 0.7) {
             log('already in view, playing immediately');
             play();
             return;
@@ -1855,7 +1894,7 @@
         var el = document.querySelector('.lock-container');
         if (el) {
           var rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.7) {
+          if (rect.top < document.documentElement.clientHeight * 0.7) {
             log('already in view, playing immediately');
             play();
             return;

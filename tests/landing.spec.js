@@ -272,16 +272,24 @@ test.describe('iOS Safari compatibility', () => {
     await goToPage(page);
     const nav = page.locator('nav');
 
-    // At top of page, nav should be present
+    // At top of page, nav should be present and initially without scrolled class
     await expect(nav).toBeVisible();
 
-    // Scroll down to trigger nav-scrolled class. Use waitForFunction to
-    // wait for the scroll handler to add the class rather than racing.
+    // Scroll down past 20px to trigger nav-scrolled class.
+    // The scroll listener is passive and fires asynchronously — use a
+    // small delay after scrollTo so the browser processes the event.
     await page.evaluate(() => window.scrollTo(0, 300));
-    await page.waitForFunction(() => {
-      const nav = document.querySelector('nav');
-      return nav && nav.classList.contains('nav-scrolled');
-    }, { timeout: 5000 });
+    await page.waitForTimeout(200);
+
+    // Verify the nav-scrolled class was added
+    await nav.locator('.nav-scrolled').waitFor({ state: 'attached', timeout: 3000 })
+      .catch(() => {
+        // Fallback: check the class directly on the nav element
+        return page.waitForFunction(() => {
+          const n = document.querySelector('nav');
+          return n && n.classList.contains('nav-scrolled');
+        }, { timeout: 3000 });
+      });
 
     // Verify nav is still visible after scroll
     await expect(nav).toBeVisible();
