@@ -13,6 +13,7 @@
  */
 
 const PLATFORM_ORIGIN = 'https://platform.signedreviews.com';
+const LANDING_ORIGIN = 'https://signedreviews-landing.pages.dev';
 
 // ── Known landing-page path prefixes ─────────────────────────────────────
 // Single-segment paths that belong to the landing site, not business slugs.
@@ -356,18 +357,26 @@ export default {
       return proxyToPlatform(request, url);
     }
 
-    // Single-segment paths that aren't known landing pages are business
-    // profiles (/:slug). Route them to the platform SPA first.
+    // Single-segment paths that aren't known landing pages AND don't look
+    // like static assets are business profiles (/:slug). Route them to the
+    // platform SPA.  Static assets (.css, .js, images, fonts, etc.) should
+    // always go to the landing Pages project.
     const SINGLE_SEGMENT_RE = /^\/[^/]+\/?$/;
-    if (SINGLE_SEGMENT_RE.test(url.pathname) && !isLandingPath(url.pathname)) {
+    const STATIC_ASSET_RE = /\.(css|js|png|jpe?g|gif|svg|ico|webp|woff2?|ttf|xml|txt|json|webmanifest|pdf|map)$/i;
+    if (SINGLE_SEGMENT_RE.test(url.pathname) && !isLandingPath(url.pathname) && !STATIC_ASSET_RE.test(url.pathname)) {
       return proxyToPlatform(request, url);
     }
 
-    // Everything else: try the landing first via service binding.
-    // Wrap in try/catch — if the binding is missing or the landing worker
-    // errors, fall through to the platform rather than returning a 500.
+    // Everything else: try the landing Pages project first.
+    // Use the public pages.dev URL — service bindings to Pages projects
+    // sometimes don't serve static assets correctly.
     try {
-      const landingResponse = await env.LANDING.fetch(request);
+      const target = LANDING_ORIGIN + url.pathname + url.search;
+      const landingResponse = await fetch(target, {
+        method: request.method,
+        headers: request.headers,
+        redirect: 'manual',
+      });
       if (landingResponse.status !== 404 && landingResponse.status < 500) {
         return landingResponse;
       }
