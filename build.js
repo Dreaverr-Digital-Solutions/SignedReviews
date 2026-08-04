@@ -1830,6 +1830,8 @@ function buildComparison() {
   const body = `<article class="prose" style="max-width: 860px">
     <p>Choosing a review platform is a trust decision. Here's how Signed Reviews compares to Trustpilot — the largest general-purpose review platform — across the dimensions that matter most for businesses that care about review authenticity.</p>
 
+    <h2>Signed Reviews vs Trustpilot: Feature Comparison</h2>
+
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead>
@@ -1866,7 +1868,7 @@ function buildComparison() {
 
   const html = page({
     title: 'Trustpilot Alternative: Signed Reviews vs Trustpilot — 2026 Comparison',
-    description: 'The best Trustpilot alternative for businesses that want purchase-verified reviews. Compare verification, pricing, Stripe integration, and review ownership.',
+    description: 'Looking for signed reviews vs trustpilot? Compare verification, pricing, and review ownership. The best Trustpilot alternative for businesses that want purchase-verified reviews with cryptographic proof.',
     slug: '/vs/trustpilot/',
     hero: { eyebrow: 'Trustpilot Alternative', title: 'Signed Reviews vs Trustpilot', subtitle: 'Compare the leading general-purpose review platform with the first processor-attested alternative across the dimensions that matter for authenticity.' },
     body,
