@@ -1,4 +1,4 @@
-# The Post-Purchase Review Email Template Guide: 5 Templates That Actually Work
+# Post Purchase Review Email Template Guide: 5 Templates That Actually Work
 
 **Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Need a post purchase review email template that gets responses? Copy-and-paste templates for e-commerce, SaaS, and services — plus timing, subject lines, and the one mistake that kills response rates.
 
