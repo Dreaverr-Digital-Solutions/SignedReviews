@@ -48,8 +48,17 @@ http
 
     fs.readFile(filePath, (err, data) => {
       if (err) {
-        res.statusCode = 404;
-        res.end('404 — ' + pathname);
+        // Serve the custom 404 page for missing files.
+        fs.readFile(path.join(ROOT, '404.html'), (err404, data404) => {
+          res.statusCode = 404;
+          if (err404) {
+            res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+            res.end('404 — ' + pathname);
+          } else {
+            res.setHeader('Content-Type', 'text/html; charset=utf-8');
+            res.end(data404);
+          }
+        });
         return;
       }
       const ext = path.extname(filePath).toLowerCase();

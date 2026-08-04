@@ -4,11 +4,11 @@
 
 ---
 
-Trustpilot doesn't publish prices on its pricing page. You need to request a demo, talk to sales, or dig through the help center to piece together what things cost. This article does that work — so you can see what each plan includes, what it actually costs, and where the hidden expenses sit before you book the call.
+Trustpilot doesn't publish prices on its pricing page. Understanding Trustpilot pricing requires digging through the help center, talking to sales, or requesting a demo. This article does that work — so you can see what each plan includes, what it actually costs, and where the hidden expenses sit before you book the call.
 
 ---
 
-## The pricing model: how Trustpilot charges
+## Trustpilot pricing: how the pricing model works
 
 Trustpilot charges by **plan tier** (not by review volume directly), but higher tiers unlock higher invitation volumes. There's no per-review pricing — you pay a fixed monthly or annual amount for a bundle of features, and your review volume is capped by your tier's invitation limits.
 
@@ -111,7 +111,7 @@ Beyond the plan price, these cost Trustpilot users real money:
 | Platform | Starting price | Free plan? | Pricing model | Google Seller Ratings |
 |----------|---------------|-----------|---------------|----------------------|
 | **Trustpilot** | $299/mo (Growth) | Yes (no invitations) | Tiered + add-ons | Add-on or Enterprise |
-| Signed Reviews | Free (25 reviews/mo) | Yes (with invitations) | Tiered, transparent | Planned |
+| **[Signed Reviews](/pricing/)** | Free (25 reviews/mo) | Yes (with invitations) | Tiered, transparent | Planned |
 | Judge.me | Free (unlimited reviews) | Yes | Flat + add-ons | Via Shopify |
 | Reviews.io | £89/mo (~$113) | No | Tiered | Included |
 | Feefo | Custom | No | Custom-quoted | Included |
@@ -137,7 +137,7 @@ Before committing to a Trustpilot annual contract, ask: **is the Trustpilot bran
 
 ## Bottom line
 
-Trustpilot's pricing starts at "free" but the plan most businesses need starts at $299/month — and the hidden costs (Google Seller Ratings, API access, seat licenses, setup fees) mean the real cost is often higher. The free plan is a reputation-monitoring tool, not a review-collection one. Before signing an annual contract, understand exactly which features are in your tier, which are add-ons, and whether a Level 3 (merchant-supplied) verification model is the strongest signal you can offer your customers.
+Trustpilot pricing starts at "free" but the plan most businesses need starts at $299/month — and the hidden costs (Google Seller Ratings, API access, seat licenses, setup fees) mean the real cost is often higher. The free plan is a reputation-monitoring tool, not a review-collection one. Before signing an annual contract, understand exactly which features are in your tier, which are add-ons, and whether a Level 3 (merchant-supplied) verification model is the strongest signal you can offer your customers. <a href="/pricing/">See Signed Reviews pricing →</a>
 
 **Further reading:**
 - [Trustpilot Alternatives for Small Business](/blog/trustpilot-alternatives-for-small-business/) — 10 platforms ranked by verification method

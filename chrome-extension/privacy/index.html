@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — SignedReviews Trust Detector Chrome Extension</title>
+  <title>Privacy Policy — SignedReviews Trust Detector</title>
   <meta name="description" content="Privacy Policy for the SignedReviews Trust Detector Chrome Extension. This extension does not collect, store, or transmit any personal information or browsing history.">
   <link rel="canonical" href="https://signedreviews.com/chrome-extension/privacy/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
 
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
   <meta property="og:title" content="Privacy Policy — SignedReviews Trust Detector">
-  <meta property="og:description" content="Privacy Policy for the SignedReviews Trust Detector Chrome Extension. No personal data or browsing history is collected.">
+  <meta property="og:description" content="Privacy Policy for the SignedReviews Trust Detector Chrome Extension. This extension does not collect, store, or transmit any personal information or browsing history.">
   <meta property="og:url" content="https://signedreviews.com/chrome-extension/privacy/">
   <meta property="og:site_name" content="Signed Reviews">
   <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Privacy Policy — SignedReviews Trust Detector">
-  <meta name="twitter:description" content="Privacy Policy for the SignedReviews Trust Detector Chrome Extension. No personal data or browsing history is collected.">
+  <meta name="twitter:description" content="Privacy Policy for the SignedReviews Trust Detector Chrome Extension. This extension does not collect, store, or transmit any personal information or browsing history.">
   <meta name="twitter:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
 
   <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png?v=20260729a">
@@ -98,6 +98,7 @@ a:hover { color: var(--gold-500); }
   .brand .brand-icon     { height: 34px; }
   .brand .brand-wordmark { height: 24px; }
 }
+/* Auto-invert the black wordmark in dark mode so it's readable */
 :root.theme-dark .brand .brand-wordmark,
 :root.theme-auto .brand .brand-wordmark { filter: brightness(0) invert(1); opacity: .92; }
 @media (prefers-color-scheme: light) {
@@ -160,7 +161,7 @@ a:hover { color: var(--gold-500); }
   background: rgba(255,255,255,.08); color: #fff;
 }
 
-/* ── Mobile nav ── */
+/* ── Mobile nav: hide inline links + secondary CTA, show hamburger ── */
 .menu-toggle {
   display: none; background: transparent; border: 0; padding: 0;
   width: 40px; height: 40px; border-radius: .5rem;
@@ -231,11 +232,10 @@ main { padding: 0; }
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: clamp(1.5rem, 3vw, 3rem);
-  max-width: var(--max-prose);
   width: 100%;
-  margin: 0;
+  margin: 0 auto;
 }
-.prose h1 { display: none; }
+.prose h1 { display: none; } /* page hero already shows the h1 */
 .prose h2, .prose h3, .prose h4 {
   font-family: 'Instrument Serif', Georgia, serif;
   color: var(--navy-900);
@@ -272,6 +272,26 @@ main { padding: 0; }
   background: rgba(255,255,255,.08); color: var(--gold-300);
 }
 
+.prose a.anchor {
+  text-decoration: none; color: var(--navy-200); margin-right: .35rem;
+  font-weight: 400; opacity: 0; transition: opacity .15s ease;
+}
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding: 1.1rem 1.25rem;
+  border-left: 4px solid var(--gold-500);
+  background: var(--gold-50);
+  color: var(--navy-800);
+  border-radius: 0 .5rem .5rem 0;
+}
+.prose blockquote p { margin: 0; }
+.prose blockquote strong { color: var(--gold-600); }
+:root.theme-dark .prose blockquote, :root.theme-auto .prose blockquote {
+  background: rgba(179,157,69,.10); color: #fff;
+}
+
 .prose table {
   width: 100%;
   border-collapse: collapse;
@@ -295,6 +315,87 @@ main { padding: 0; }
 .prose tbody tr:nth-child(even) td { background: rgba(43,59,96,.025); }
 :root.theme-dark .prose tbody tr:nth-child(even) td,
 :root.theme-auto .prose tbody tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+
+/* ── ToC sidebar (legal pages) ── */
+.toc {
+  position: sticky; top: 88px; align-self: start;
+  font-size: .88rem; max-height: calc(100vh - 110px); overflow-y: auto;
+  padding: 1rem 1.1rem; border: 1px solid var(--border);
+  background: var(--surface); border-radius: 12px;
+}
+.toc h2 {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 .6rem;
+}
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: .15rem 0; }
+.toc a {
+  color: var(--navy-700); text-decoration: none; display: block;
+  padding: .25rem .35rem; border-radius: .35rem; line-height: 1.35;
+}
+:root.theme-dark .toc a, :root.theme-auto .toc a { color: var(--navy-100); }
+.toc a:hover { background: var(--navy-50); color: var(--navy-900); }
+:root.theme-dark .toc a:hover, :root.theme-auto .toc a:hover { background: rgba(255,255,255,.06); color: #fff; }
+@media (max-width: 980px) { .toc { display: none; } }
+
+/* ── Marketing utility blocks ── */
+.section { max-width: 1100px; margin: 0 auto; padding: 3rem 1.25rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.5rem;
+}
+.card h3 {
+  font-family: 'Instrument Serif', Georgia, serif; font-size: 1.4rem;
+  margin: 0 0 .5rem; color: var(--navy-900);
+}
+:root.theme-dark .card h3, :root.theme-auto .card h3 { color: #fff; }
+.card p { margin: 0; color: var(--muted); }
+.card-featured {
+  border-color: var(--gold-400);
+  box-shadow: 0 6px 26px rgba(179,157,69,.18);
+}
+.badge {
+  display: inline-block; padding: .25rem .55rem; border-radius: 999px;
+  font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  background: var(--gold-100); color: var(--gold-600); margin-bottom: .65rem;
+}
+:root.theme-dark .badge, :root.theme-auto .badge {
+  background: rgba(179,157,69,.18); color: var(--gold-300);
+}
+
+.feature-list { list-style: none; padding: 0; margin: 1rem 0 1.5rem; }
+.feature-list li {
+  display: flex; gap: .55rem; align-items: flex-start; margin: .45rem 0;
+  color: var(--text);
+}
+.feature-list li::before {
+  content: '✓'; color: var(--gold-500); font-weight: 700; flex-shrink: 0;
+}
+
+.callout {
+  border: 1px solid var(--border); border-left: 4px solid var(--gold-500);
+  background: var(--surface); border-radius: 10px; padding: 1rem 1.25rem;
+  margin: 1.25rem 0; color: var(--text);
+}
+
+/* ── Contact list ── */
+.contact-list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;
+}
+.contact-list li {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.1rem 1.25rem;
+}
+.contact-list .label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: .7rem; text-transform: uppercase; letter-spacing: .12em;
+  color: var(--muted); display: block; margin-bottom: .35rem;
+}
+.contact-list a { color: var(--navy-500); }
+:root.theme-dark .contact-list a, :root.theme-auto .contact-list a { color: var(--gold-300); }
 
 /* ── Footer ── */
 .site-footer {
@@ -358,16 +459,20 @@ main { padding: 0; }
         row.appendChild(dec); row.appendChild(acc); d.appendChild(p); d.appendChild(row);
         (document.body||document.documentElement).appendChild(d);
       }
+      // Footer "Privacy choices" entry point — lets anyone re-open the banner to
+      // opt in or out at any time, in any region.
       window.srPrivacy=function(){ banner(); };
+      // Browser-level opt-out signals (Do Not Track, Global Privacy Control):
+      // never record and don't prompt.
       var dnt=navigator.doNotTrack=='1'||navigator.doNotTrack=='yes'||window.doNotTrack=='1';
       var gpc=navigator.globalPrivacyControl===true;
       if(dnt||gpc){ stop(); return; }
       function decide(inRegion){
         var c=get(CK);
-        if(c==='denied'){ return; }
+        if(c==='denied'){ return; }            // persistent opt-out, honoured everywhere
         if(c==='granted'){ start(); return; }
-        if(!inRegion){ start(); return; }
-        if(document.body){ banner(); }
+        if(!inRegion){ start(); return; }      // outside EU/EEA/UK: record by default
+        if(document.body){ banner(); }         // inside, no choice yet: ask
         else { document.addEventListener('DOMContentLoaded',banner); }
       }
       var g=get(GK);
@@ -379,7 +484,7 @@ main { padding: 0; }
     (function () {
       function setup() {
         var ph = window.posthog;
-        if (!ph || typeof ph.capture !== 'function') return;
+        if (!ph || typeof ph.capture !== 'function') return; // posthog not loaded yet
         var fired = {};
         function onScroll() {
           var doc = document.documentElement, body = document.body;
@@ -418,11 +523,11 @@ main { padding: 0; }
     })();
   </script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.","email":"support@signedreviews.com","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"Chrome Extension","item":"https://signedreviews.com/chrome-extension/"},{"@type":"ListItem","position":3,"name":"Privacy Policy","item":"https://signedreviews.com/chrome-extension/privacy/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"Privacy Policy","item":"https://signedreviews.com/chrome-extension/privacy/"}]}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
-
+  
 <header class="site-header">
   <div class="nav-inner" id="navInner">
     <a class="brand" href="/" aria-label="Signed Reviews home">
@@ -463,47 +568,33 @@ main { padding: 0; }
         <p>Last updated: 2026-07-30</p>
       </div>
     </section>
-
     <div class="prose-wrap">
-      <article class="prose">
-
-        <h2>Data Collection</h2>
-        <p>This extension does <strong>not</strong> collect, store, or transmit any personal information or browsing history.</p>
-
-        <h2>What the Extension Does</h2>
-
-        <h3>1. Page scanning (local only)</h3>
-        <p>The extension reads the HTML of the page you're currently viewing to detect known review platform signatures (e.g., Trustpilot widgets, SignedReviews badges, JSON-LD review schema). This scanning happens entirely inside your browser. No page content is sent anywhere.</p>
-
-        <h3>2. API calls (only when a SignedReviews badge is detected)</h3>
-        <p>If the page contains a SignedReviews badge, the extension fetches public aggregate review statistics (average rating, review count, rating distribution) from the SignedReviews API. The API key used is the business's public widget key found in the page's HTML — it is not a user key. These API calls return only aggregate numbers, never individual reviews or personal data.</p>
-
-        <h2>Data Storage</h2>
-        <p>Detection results (platform name and trust tier) are stored temporarily in the browser's memory while the tab is open. This data is cleared when the tab is closed or navigated away. Nothing is written to disk or persisted between sessions.</p>
-
-        <h2>Third-Party Services</h2>
-        <p>The only external request this extension makes is to the <strong>SignedReviews Badge API</strong> (<code>api.signedreviews.com/api/badge/*</code>) — and only when a SignedReviews badge is present on the current page. These requests contain no user-identifiable information.</p>
-
-        <h2>Permissions</h2>
-        <ul>
-          <li><strong><code>activeTab</code></strong> — to read the current page's DOM for review platform detection</li>
-          <li><strong><code>&lt;all_urls&gt;</code> host permission</strong> — to inject the content script on every page you visit (so detection works everywhere) and to allow the service worker to call the SignedReviews API</li>
-        </ul>
-
-        <h2>Contact</h2>
-        <p>For questions about this privacy policy, contact: <strong><a href="mailto:billing@dreaverr.com">billing@dreaverr.com</a></strong></p>
-
-        <h2>Changes</h2>
-        <p>We will post any privacy policy changes on this page.</p>
-
-        <hr>
-
-        <p>This extension is published by <strong>SignedReviews</strong> (<a href="https://signedreviews.com">signedreviews.com</a>).</p>
-
-      </article>
+      <article class="prose"><h2 id="data-collection"><a class="anchor" href="#data-collection" aria-label="Permalink to Data Collection">#</a> Data Collection</h2>
+<p>This extension does <strong>not</strong> collect, store, or transmit any personal information or browsing history.</p>
+<h2 id="what-the-extension-does"><a class="anchor" href="#what-the-extension-does" aria-label="Permalink to What the Extension Does">#</a> What the Extension Does</h2>
+<h3 id="1-page-scanning-local-only"><a class="anchor" href="#1-page-scanning-local-only" aria-label="Permalink to 1. Page scanning (local only)">#</a> 1. Page scanning (local only)</h3>
+<p>The extension reads the HTML of the page you&#39;re currently viewing to detect known review platform signatures (e.g., Trustpilot widgets, SignedReviews badges, JSON-LD review schema). This scanning happens entirely inside your browser. No page content is sent anywhere.</p>
+<h3 id="2-api-calls-only-when-a-signedreviews-badge-is-detected"><a class="anchor" href="#2-api-calls-only-when-a-signedreviews-badge-is-detected" aria-label="Permalink to 2. API calls (only when a SignedReviews badge is detected)">#</a> 2. API calls (only when a SignedReviews badge is detected)</h3>
+<p>If the page contains a SignedReviews badge, the extension fetches public aggregate review statistics (average rating, review count, rating distribution) from the SignedReviews API. The API key used is the business&#39;s public widget key found in the page&#39;s HTML — it is not a user key. These API calls return only aggregate numbers, never individual reviews or personal data.</p>
+<h2 id="data-storage"><a class="anchor" href="#data-storage" aria-label="Permalink to Data Storage">#</a> Data Storage</h2>
+<p>Detection results (platform name and trust tier) are stored temporarily in the browser&#39;s memory while the tab is open. This data is cleared when the tab is closed or navigated away. Nothing is written to disk or persisted between sessions.</p>
+<h2 id="third-party-services"><a class="anchor" href="#third-party-services" aria-label="Permalink to Third-Party Services">#</a> Third-Party Services</h2>
+<p>The only external request this extension makes is to the <strong>SignedReviews Badge API</strong> (<code>api.signedreviews.com/api/badge/*</code>) — and only when a SignedReviews badge is present on the current page. These requests contain no user-identifiable information.</p>
+<h2 id="permissions"><a class="anchor" href="#permissions" aria-label="Permalink to Permissions">#</a> Permissions</h2>
+<ul>
+<li><strong><code>activeTab</code></strong> — to read the current page&#39;s DOM for review platform detection</li>
+<li><strong><code>&lt;all_urls&gt;</code> host permission</strong> — to inject the content script on every page you visit (so detection works everywhere) and to allow the service worker to call the SignedReviews API</li>
+</ul>
+<h2 id="contact"><a class="anchor" href="#contact" aria-label="Permalink to Contact">#</a> Contact</h2>
+<p>For questions about this privacy policy, contact: <strong><a href="mailto:billing@dreaverr.com">billing@dreaverr.com</a></strong></p>
+<h2 id="changes"><a class="anchor" href="#changes" aria-label="Permalink to Changes">#</a> Changes</h2>
+<p>We will post any privacy policy changes on this page.</p>
+<hr>
+<p>This extension is published by <strong>SignedReviews</strong> (<a href="https://signedreviews.com">signedreviews.com</a>).</p>
+</article>
     </div>
   </main>
-
+  
 <footer class="site-footer" role="contentinfo">
   <div class="footer-grid">
     <div class="footer-brand">
@@ -551,6 +642,7 @@ main { padding: 0; }
   </div>
 </footer>
 <script>
+  // Honor stored theme preference set by index.html.
   (function () {
     try {
       var stored = localStorage.getItem('theme');

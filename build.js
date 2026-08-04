@@ -436,9 +436,8 @@ main { padding: 0; }
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: clamp(1.5rem, 3vw, 3rem);
-  max-width: var(--max-prose);
   width: 100%;
-  margin: 0;
+  margin: 0 auto;
 }
 .prose h1 { display: none; } /* page hero already shows the h1 */
 .prose h2, .prose h3, .prose h4 {
@@ -3426,6 +3425,22 @@ function buildComingSoon() {
   }
 }
 
+// ── Chrome Extension pages ────────────────────────────────────────────────────
+function buildChromeExtensionPrivacy() {
+  const md = fs.readFileSync(path.join(FILES_DIR, 'chrome-extension-privacy.md'), 'utf8');
+  const bodyNoH1 = renderMarkdown(md).replace(/<h1[^>]*>[\s\S]*?<\/h1>/, '');
+  const html = page({
+    title: 'Privacy Policy — SignedReviews Trust Detector',
+    description: 'Privacy Policy for the SignedReviews Trust Detector Chrome Extension. This extension does not collect, store, or transmit any personal information or browsing history.',
+    slug: '/chrome-extension/privacy/',
+    hero: { eyebrow: 'Chrome Extension', title: 'Privacy Policy — Trust Detector', subtitle: 'Last updated: 2026-07-30' },
+    body: `<article class="prose">${bodyNoH1}</article>`,
+    pageType: 'article',
+  });
+  writePage('/chrome-extension/privacy/', html);
+  console.log('  ✓ /chrome-extension/privacy/');
+}
+
 // ── robots / sitemap / favicon ───────────────────────────────────────────────
 function buildSeoFiles(blogPosts = []) {
   // Blog posts carry their own publish date as lastmod; static pages share a stable
@@ -3434,7 +3449,7 @@ function buildSeoFiles(blogPosts = []) {
   // crawlers to ignore the signal entirely.
   const STATIC_PAGES_LASTMOD = '2026-07-24';
   const blogLastmod = new Map(blogPosts.map(p => [p.slug, p.lastmod]));
-  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/integrations/stripe/', '/integrations/shopify/', '/integrations/woocommerce/', '/faq/', '/how-it-works/', '/demo/', '/docs/', '/api/', '/trust/', '/vs/trustpilot/', '/vs/feefo/', '/vs/judge-me/', '/vs/yotpo/', '/vs/ekomi/', '/vs/sitejabber/', '/vs/reviews-io/', '/vs/stamped/', '/vs/okendo/', '/vs/loox/', '/vs/skeepers/', '/vs/google-reviews/', '/vs/yelp/', '/vs/clutch/', '/learn/what-does-verified-buyer-mean/', '/learn/how-fake-reviews-work/', '/learn/ftc-fake-reviews-rules/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/', ...blogPosts.map(p => p.slug)];
+  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/integrations/stripe/', '/integrations/shopify/', '/integrations/woocommerce/', '/faq/', '/how-it-works/', '/demo/', '/docs/', '/api/', '/trust/', '/chrome-extension/privacy/', '/vs/trustpilot/', '/vs/feefo/', '/vs/judge-me/', '/vs/yotpo/', '/vs/ekomi/', '/vs/sitejabber/', '/vs/reviews-io/', '/vs/stamped/', '/vs/okendo/', '/vs/loox/', '/vs/skeepers/', '/vs/google-reviews/', '/vs/yelp/', '/vs/clutch/', '/learn/what-does-verified-buyer-mean/', '/learn/how-fake-reviews-work/', '/learn/ftc-fake-reviews-rules/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/', ...blogPosts.map(p => p.slug)];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
@@ -3546,6 +3561,8 @@ buildIntegrationsShopify();
 buildIntegrationsWooCommerce();
 console.log('\nComing-soon pages:');
 buildComingSoon();
+console.log('\nOther pages:');
+buildChromeExtensionPrivacy();
 console.log('\nSEO files:');
 buildSeoFiles(blogPosts);
 
@@ -3560,7 +3577,7 @@ fs.rmSync(DIST_DIR, { recursive: true, force: true });
 fs.mkdirSync(DIST_DIR, { recursive: true });
 
 const PUBLISH = [
-  'index.html', 'favicon.svg', 'sitemap.xml', 'robots.txt', 'CNAME',
+  'index.html', '404.html', 'favicon.svg', 'sitemap.xml', 'robots.txt', 'CNAME',
   'about', 'contact', 'dpa', 'files', 'images', 'output.css', 'trust', 'vs',
   'privacy', 'refund-policy', 'subprocessors', 'terms', 'pricing', 'dmca',
   'features', 'blog', 'integrations', 'faq', 'how-it-works', 'demo', 'docs', 'api', 'learn',
