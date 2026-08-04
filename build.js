@@ -1827,9 +1827,9 @@ const COMPARISON_STYLES = `
 // ── Comparison page: Signed Reviews vs Trustpilot ──────────────────────────────
 function buildComparison() {
   const body = `<article class="prose" style="max-width: 860px">
-    <p>Choosing a review platform is a trust decision. Here's how Signed Reviews compares to Trustpilot — the largest general-purpose review platform — across the dimensions that matter most for businesses that care about review authenticity.</p>
+    <p>Choosing a review platform is a trust decision. This Trustpilot vs Signed Reviews comparison breaks down how the largest general-purpose review platform stacks up against the first processor-attested alternative — across the dimensions that matter most for businesses that care about review authenticity.</p>
 
-    <h2>Signed Reviews vs Trustpilot: Feature Comparison</h2>
+    <h2>Trustpilot vs Signed Reviews: Feature Comparison</h2>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
@@ -1854,7 +1854,7 @@ function buildComparison() {
 
     <div class="verdict">
       <h3>When to choose Signed Reviews — the best Trustpilot alternative for Stripe businesses</h3>
-      <p>If review authenticity is your #1 concern — if you want every review to be provably backed by a real purchase, with cryptographic proof — Signed Reviews is the right choice. It's the best Trustpilot alternative for businesses processing payments through Stripe: a zero-fake-review guarantee by design, not by detection.</p>
+      <p>If review authenticity is your #1 concern — if you want every review to be provably backed by a real purchase, with cryptographic proof — Signed Reviews is the right choice in this Trustpilot vs Signed Reviews comparison. It's the best Trustpilot alternative for businesses processing payments through Stripe: a zero-fake-review guarantee by design, not by detection.</p>
     </div>
 
     <div class="verdict" style="background:linear-gradient(135deg,#1c2840,#243252)">
@@ -1863,13 +1863,14 @@ function buildComparison() {
     </div>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
+    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/pricing/">Pricing plans</a> · <a href="/how-it-works/">How verification works</a> · <a href="/blog/are-trustpilot-reviews-reliable/">Are Trustpilot reviews reliable?</a></p>
   </article>`;
 
   const html = page({
-    title: 'Trustpilot Alternative: Signed Reviews vs Trustpilot — 2026 Comparison',
-    description: 'Looking for signed reviews vs trustpilot? Compare verification, pricing, and review ownership. The best Trustpilot alternative for businesses that want purchase-verified reviews with cryptographic proof.',
+    title: 'Trustpilot vs Signed Reviews: The Complete 2026 Comparison',
+    description: 'Trustpilot vs Signed Reviews — complete 2026 comparison. Compare verification methods, pricing, Stripe integration, and review ownership. Find the best platform for purchase-verified, cryptographically signed reviews.',
     slug: '/vs/trustpilot/',
-    hero: { eyebrow: 'Trustpilot Alternative', title: 'Signed Reviews vs Trustpilot', subtitle: 'Compare the leading general-purpose review platform with the first processor-attested alternative across the dimensions that matter for authenticity.' },
+    hero: { eyebrow: 'Comparison', title: 'Trustpilot vs Signed Reviews', subtitle: 'Compare the leading general-purpose review platform with the first processor-attested alternative across the dimensions that matter for authenticity.' },
     body,
     extraStyle: COMPARISON_STYLES,
   });
