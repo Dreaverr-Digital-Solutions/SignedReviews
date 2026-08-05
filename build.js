@@ -1930,7 +1930,7 @@ function buildComparison() {
   </article>`;
 
   const html = page({
-    title: 'Trustpilot vs Signed Reviews: The Complete 2026 Comparison',
+    title: 'Signed Reviews vs Trustpilot: Cryptographic Verification vs Open Invitation',
     description: 'Signed Reviews vs Trustpilot: Complete 2026 comparison. Find out why cryptographically verified reviews beat Trustpilot for authenticity. Compare pricing, Stripe integration, and fake review prevention.',
     slug: '/vs/trustpilot/',
     hero: { eyebrow: 'Comparison', title: 'Trustpilot vs Signed Reviews', subtitle: 'Compare the leading general-purpose review platform with the first processor-attested alternative across the dimensions that matter for authenticity.' },
