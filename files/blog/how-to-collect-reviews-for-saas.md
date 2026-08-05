@@ -119,6 +119,12 @@ Aim for 10 reviews on your primary platform to establish baseline social proof. 
 
 ---
 
+## How to turn SaaS reviews into a product development feedback loop
+
+Collecting reviews for SaaS isn't just about social proof—it's raw product intelligence. Analyze sentiment across recurring reviews to spot trends, prioritize feature requests, and reduce churn. Use a platform like SignedReviews to automatically tag feedback by subscription tier and close the loop with reviewers when your team ships a fix they asked for. [See how verification and automation work together](/how-it-works).
+
+---
+
 ## Bottom line
 
 The way you collect reviews for SaaS is fundamentally different from e-commerce — the product experience is ongoing and the billing relationship is recurring. Every Stripe subscription payment is a verification opportunity. The best strategies to collect reviews for SaaS time requests around the subscription lifecycle, ask for specific use-case details, and verify against the payment processor — not the merchant's own customer database. [See how it works](/how-it-works/) for the full verification flow, or [check pricing](/pricing/) for plans with automated review collection.
