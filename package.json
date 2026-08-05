@@ -10,7 +10,8 @@
     "dev:host": "node dev-server.js --host",
     "test": "playwright test",
     "test:ios": "playwright test --project=webkit-ios",
-    "test:ios:headed": "playwright test --project=webkit-ios --headed"
+    "test:ios:headed": "playwright test --project=webkit-ios --headed",
+    "notify-deploy": "node notify-deploy.js"
   },
   "repository": {
     "type": "git",

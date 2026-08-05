@@ -9,6 +9,9 @@ playwright-report/
 test-results/
 test-screenshots/
 
+# Local environment (contains secrets, never committed)
+.env
+
 # OS / editor
 .DS_Store
 Thumbs.db
