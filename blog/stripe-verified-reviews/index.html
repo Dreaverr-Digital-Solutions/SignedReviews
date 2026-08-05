@@ -297,13 +297,16 @@ main { padding: 0; }
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.25rem 0 1.5rem;
+  margin: 0;
   font-size: .92rem;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
+}
+.table-wrap {
   display: block;
   overflow-x: auto;
+  margin: 1.25rem 0 1.5rem;
 }
 .prose thead { background: var(--navy-50); }
 :root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
@@ -601,7 +604,7 @@ main { padding: 0; }
 <h2 id="why-quotverifiedquot-usually-doesn39t-mean-verified"><a class="anchor" href="#why-quotverifiedquot-usually-doesn39t-mean-verified" aria-label="Permalink to Why &amp;quot;verified&amp;quot; usually doesn&amp;#39;t mean verified">#</a> Why &quot;verified&quot; usually doesn&#39;t mean verified</h2>
 <p>To understand why Stripe verified reviews are different, you need to understand what &quot;verified&quot; means on most platforms.</p>
 <p>Every &quot;verified&quot; review on the internet sits on a verification spectrum. The level determines <strong>who is attesting</strong> that a purchase happened:</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Level</th>
@@ -640,7 +643,7 @@ main { padding: 0; }
 <td>The payment processor</td>
 <td><strong>Signed Reviews (via Stripe)</strong></td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>Most major platforms — Trustpilot, Yotpo, Judge.me, Reviews.io, Okendo, Stamped, Loox — operate at <strong>Level 3</strong>. Their &quot;Verified Buyer&quot; badge means the reviewer matches a record in the merchant&#39;s system: an order, a customer list, or an invitation the merchant sent. The verification is performed against data the <strong>merchant supplies.</strong></p>
 <p>Stripe verified reviews operate at <strong>Level 4</strong>: the payment processor — an independent third party to both the merchant and the reviewer — confirms the charge occurred and whether it still stands. This verification cannot be derived from data the merchant curates or fabricates.</p>
 <p>This is the fundamental difference, and it&#39;s why no other review platform can claim what Stripe verified reviews claim. We&#39;ve written the full breakdown on our <a href="/learn/what-does-verified-buyer-mean/">learn page</a>.</p>
@@ -667,7 +670,7 @@ main { padding: 0; }
 <h3 id="5-ftc-compliant-by-construction"><a class="anchor" href="#5-ftc-compliant-by-construction" aria-label="Permalink to 5. FTC-compliant by construction">#</a> 5. FTC-compliant by construction</h3>
 <p>The FTC&#39;s 2024 Trade Regulation Rule on Consumer Reviews (16 CFR Part 465, effective 21 October 2024) prohibits reviews that misrepresent genuine experience, plus buying or selling reviews, undisclosed insider reviews, and suppression of negative reviews. Because Stripe verified reviews require an independently confirmed payment, it is structurally impossible to post a review that misrepresents a purchase — the purchase either happened on Stripe, or it didn&#39;t.</p>
 <h2 id="stripe-verified-reviews-vs-the-alternatives"><a class="anchor" href="#stripe-verified-reviews-vs-the-alternatives" aria-label="Permalink to Stripe verified reviews vs. the alternatives">#</a> Stripe verified reviews vs. the alternatives</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Platform</th>
@@ -740,7 +743,7 @@ main { padding: 0; }
 <td>❌ No</td>
 <td>❌ Manual</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>Every alternative in the table verifies against data the merchant supplies. Only Stripe verified reviews verify against the payment processor.</p>
 <h2 id="who-are-stripe-verified-reviews-for"><a class="anchor" href="#who-are-stripe-verified-reviews-for" aria-label="Permalink to Who are Stripe verified reviews for?">#</a> Who are Stripe verified reviews for?</h2>
 <p>Stripe verified reviews are built for any business that processes payments through Stripe:</p>

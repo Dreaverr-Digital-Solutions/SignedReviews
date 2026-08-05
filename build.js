@@ -222,7 +222,7 @@ function renderMarkdown(md) {
   const html = marked.parse(md, { gfm: true, breaks: false });
   // Post-process: add stable IDs and anchor links to h1-h4.
   const seen = new Map();
-  return html.replace(/<(h[1-4])>([\s\S]*?)<\/\1>/g, (_, tag, inner) => {
+  const withAnchors = html.replace(/<(h[1-4])>([\s\S]*?)<\/\1>/g, (_, tag, inner) => {
     const plain = inner.replace(/<[^>]+>/g, '').trim();
     let slug = slugify(plain);
     const count = seen.get(slug) || 0;
@@ -230,6 +230,8 @@ function renderMarkdown(md) {
     if (count > 0) slug = `${slug}-${count}`;
     return `<${tag} id="${slug}"><a class="anchor" href="#${slug}" aria-label="Permalink to ${escapeHtml(plain)}">#</a> ${inner}</${tag}>`;
   });
+  // Wrap tables in a scrollable container so they don't break on narrow screens
+  return withAnchors.replace(/<table>/g, '<div class="table-wrap"><table>').replace(/<\/table>/g, '</table></div>');
 }
 
 // ── Shared layout ────────────────────────────────────────────────────────────
@@ -501,13 +503,16 @@ main { padding: 0; }
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.25rem 0 1.5rem;
+  margin: 0;
   font-size: .92rem;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
+}
+.table-wrap {
   display: block;
   overflow-x: auto;
+  margin: 1.25rem 0 1.5rem;
 }
 .prose thead { background: var(--navy-50); }
 :root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }

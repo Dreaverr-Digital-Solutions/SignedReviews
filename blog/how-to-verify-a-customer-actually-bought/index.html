@@ -297,13 +297,16 @@ main { padding: 0; }
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.25rem 0 1.5rem;
+  margin: 0;
   font-size: .92rem;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
+}
+.table-wrap {
   display: block;
   overflow-x: auto;
+  margin: 1.25rem 0 1.5rem;
 }
 .prose thead { background: var(--navy-50); }
 :root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
@@ -628,7 +631,7 @@ main { padding: 0; }
 <p><strong>The verdict:</strong> Processor attestation is the only method where the attesting party is <strong>independent of the merchant.</strong> It&#39;s the difference between &quot;we checked our own records&quot; and &quot;Stripe confirmed the charge.&quot; For businesses that want review authenticity to be a structural guarantee rather than a policy promise, it&#39;s the only option.</p>
 <hr>
 <h2 id="how-to-verify-a-customer-actually-bought-comparison-at-a-glance"><a class="anchor" href="#how-to-verify-a-customer-actually-bought-comparison-at-a-glance" aria-label="Permalink to How to verify a customer actually bought: comparison at a glance">#</a> How to verify a customer actually bought: comparison at a glance</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Method</th>
@@ -666,10 +669,10 @@ main { padding: 0; }
 <td><strong>Very high</strong></td>
 <td>✅</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="how-to-implement-each-method"><a class="anchor" href="#how-to-implement-each-method" aria-label="Permalink to How to implement each method">#</a> How to implement each method</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Method</th>
@@ -692,7 +695,7 @@ main { padding: 0; }
 <td>Processor attestation</td>
 <td>A Stripe account + a review platform that connects to Stripe via read-only OAuth (e.g., <a href="https://platform.signedreviews.com">Signed Reviews</a>)</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="the-bottom-line"><a class="anchor" href="#the-bottom-line" aria-label="Permalink to The bottom line">#</a> The bottom line</h2>
 <p>How you verify a customer bought something is a choice about <strong>who you trust to tell the truth.</strong> At Level 1–2, you trust the reviewer. At Level 3, you trust the merchant. At Level 4, you trust the payment processor — an independent third party whose entire business depends on accurately reporting financial transactions.</p>

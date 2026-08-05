@@ -297,13 +297,16 @@ main { padding: 0; }
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.25rem 0 1.5rem;
+  margin: 0;
   font-size: .92rem;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
+}
+.table-wrap {
   display: block;
   overflow-x: auto;
+  margin: 1.25rem 0 1.5rem;
 }
 .prose thead { background: var(--navy-50); }
 :root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
@@ -587,7 +590,7 @@ main { padding: 0; }
 <hr>
 <h2 id="how-we-score-the-verification-spectrum"><a class="anchor" href="#how-we-score-the-verification-spectrum" aria-label="Permalink to How we score: the verification spectrum">#</a> How we score: the verification spectrum</h2>
 <p>Every review platform sits somewhere on this spectrum. The column on the right is where verification is structurally impossible to fake — and almost no one operates there.</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Level</th>
@@ -626,7 +629,7 @@ main { padding: 0; }
 <td>Independent payment processor</td>
 <td><strong>No</strong> — the processor is a neutral third party</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>(Full explanation with platform-by-platform breakdown: <a href="/learn/what-does-verified-buyer-mean/">What Does &quot;Verified Buyer&quot; Actually Mean?</a>)</p>
 <hr>
 <h2 id="the-10-best-trustpilot-alternatives-for-small-business"><a class="anchor" href="#the-10-best-trustpilot-alternatives-for-small-business" aria-label="Permalink to The 10 best trustpilot alternatives for small business">#</a> The 10 best trustpilot alternatives for small business</h2>
@@ -722,7 +725,7 @@ main { padding: 0; }
 <p><strong>Why it&#39;s #10:</strong> Essential for local SEO — no business should ignore Google Reviews. But they&#39;re Level 0 on the verification spectrum. Supplement them with verified reviews on your own site.</p>
 <hr>
 <h2 id="comparison-table"><a class="anchor" href="#comparison-table" aria-label="Permalink to Comparison table">#</a> Comparison table</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>#</th>
@@ -824,11 +827,11 @@ main { padding: 0; }
 <td>❌</td>
 <td>Local SEO supplement</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Key insight:</strong> 9 out of 10 platforms sit at Level 3 — they verify against data the merchant supplies. Only one operates at Level 4, where an independent payment processor confirms the charge. If you&#39;re on Stripe, you&#39;re one of the rare businesses that can offer processor-attested verification.</p>
 <hr>
 <h2 id="recommendations-by-business-type"><a class="anchor" href="#recommendations-by-business-type" aria-label="Permalink to Recommendations by business type">#</a> Recommendations by business type</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Business type</th>
@@ -876,7 +879,7 @@ main { padding: 0; }
 <td>Signed Reviews Free</td>
 <td>Google Reviews</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="what-about-trustpilot"><a class="anchor" href="#what-about-trustpilot" aria-label="Permalink to What about Trustpilot?">#</a> What about Trustpilot?</h2>
 <p>Trustpilot&#39;s not going anywhere. For some businesses — especially those selling to consumers who search &quot;company name + reviews&quot; — being present on Trustpilot is table stakes. The issue isn&#39;t that Trustpilot is useless; it&#39;s that Trustpilot alone leaves your review credibility on a platform where <strong>unverified reviews sit next to invited ones</strong> and the distinction is easily missed.</p>

@@ -297,13 +297,16 @@ main { padding: 0; }
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.25rem 0 1.5rem;
+  margin: 0;
   font-size: .92rem;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
+}
+.table-wrap {
   display: block;
   overflow-x: auto;
+  margin: 1.25rem 0 1.5rem;
 }
 .prose thead { background: var(--navy-50); }
 :root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
@@ -592,7 +595,7 @@ main { padding: 0; }
 <hr>
 <h2 id="the-five-levels-of-review-verification"><a class="anchor" href="#the-five-levels-of-review-verification" aria-label="Permalink to The five levels of review verification">#</a> The five levels of review verification</h2>
 <p>Every &quot;verified&quot; review sits somewhere on this spectrum:</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Level</th>
@@ -637,7 +640,7 @@ main { padding: 0; }
 <td>Payment processor</td>
 <td>✅ Structurally hard</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>Level 4 — processor-attested, transaction-verified — is the only level where the attesting party is independent of both the business and the reviewer. It&#39;s also the rarest. Almost every major review platform operates at Level 3.</p>
 <p>(For the full breakdown of every major platform: <a href="/learn/what-does-verified-buyer-mean/">What Does &quot;Verified Buyer&quot; Actually Mean?</a>.)</p>
 <hr>

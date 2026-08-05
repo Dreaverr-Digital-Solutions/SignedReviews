@@ -297,13 +297,16 @@ main { padding: 0; }
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.25rem 0 1.5rem;
+  margin: 0;
   font-size: .92rem;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
+}
+.table-wrap {
   display: block;
   overflow-x: auto;
+  margin: 1.25rem 0 1.5rem;
 }
 .prose thead { background: var(--navy-50); }
 :root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
@@ -583,7 +586,7 @@ main { padding: 0; }
 <hr>
 <h2 id="why-saas-reviews-are-different"><a class="anchor" href="#why-saas-reviews-are-different" aria-label="Permalink to Why SaaS reviews are different">#</a> Why SaaS reviews are different</h2>
 <p>SaaS products create a different review dynamic than physical or even digital one-time purchases:</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th></th>
@@ -616,7 +619,7 @@ main { padding: 0; }
 <td>Once per purchase</td>
 <td>Every billing cycle</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>The key insight for SaaS: <strong>every subscription renewal is a new verification opportunity.</strong> A customer who&#39;s been paying for 18 months has a fundamentally different relationship with your product than one who&#39;s been paying for 2. Good SaaS review collection reflects this timeline.</p>
 <hr>
 <h2 id="when-to-ask-saas-customers-for-reviews"><a class="anchor" href="#when-to-ask-saas-customers-for-reviews" aria-label="Permalink to When to ask SaaS customers for reviews">#</a> When to ask SaaS customers for reviews</h2>
@@ -670,7 +673,7 @@ main { padding: 0; }
 </ol>
 <hr>
 <h2 id="the-best-tools-to-collect-reviews-for-saas"><a class="anchor" href="#the-best-tools-to-collect-reviews-for-saas" aria-label="Permalink to The best tools to collect reviews for SaaS">#</a> The best tools to collect reviews for SaaS</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Layer</th>
@@ -698,7 +701,7 @@ main { padding: 0; }
 <td>In-app surveys, NPS tools</td>
 <td>Internal measurement — not public reviews. These tell you how you&#39;re doing, not prospects.</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="bottom-line"><a class="anchor" href="#bottom-line" aria-label="Permalink to Bottom line">#</a> Bottom line</h2>
 <p>The way you collect reviews for SaaS is fundamentally different from e-commerce — the product experience is ongoing and the billing relationship is recurring. Every Stripe subscription payment is a verification opportunity. The best strategies to collect reviews for SaaS time requests around the subscription lifecycle, ask for specific use-case details, and verify against the payment processor — not the merchant&#39;s own customer database. <a href="/how-it-works/">See how it works</a> for the full verification flow, or <a href="/pricing/">check pricing</a> for plans with automated review collection.</p>

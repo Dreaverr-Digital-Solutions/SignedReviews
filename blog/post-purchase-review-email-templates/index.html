@@ -297,13 +297,16 @@ main { padding: 0; }
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.25rem 0 1.5rem;
+  margin: 0;
   font-size: .92rem;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
+}
+.table-wrap {
   display: block;
   overflow-x: auto;
+  margin: 1.25rem 0 1.5rem;
 }
 .prose thead { background: var(--navy-50); }
 :root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
@@ -595,7 +598,7 @@ main { padding: 0; }
 <p>&quot;Quick question about your order&quot; consistently outperforms &quot;Please review your purchase&quot; by 2–3× on open rates.</p>
 <h3 id="3-timing-matters-more-than-copy"><a class="anchor" href="#3-timing-matters-more-than-copy" aria-label="Permalink to 3. Timing matters more than copy">#</a> 3. Timing matters more than copy</h3>
 <p>The best-written email sent at the wrong time will get ignored. The rules:</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Product type</th>
@@ -628,7 +631,7 @@ main { padding: 0; }
 <td>5–10 days after delivery</td>
 <td>Time to try the product</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Never send a review request before the customer has received the product.</strong> This is the single most common mistake, and it&#39;s the one that got SiteJabber in trouble with the FTC in 2024. Sending a review request at checkout — before the customer has the product — generates reviews about expectations, not experience. Those reviews are misleading, and they&#39;re now a regulatory risk.</p>
 <h2 id="template-1-e-commerce-physical-products"><a class="anchor" href="#template-1-e-commerce-physical-products" aria-label="Permalink to Template 1: E-commerce — physical products">#</a> Template 1: E-commerce — physical products</h2>
 <p><strong>Subject:</strong> How was your [Product Name]?</p>

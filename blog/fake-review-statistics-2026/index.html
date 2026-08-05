@@ -297,13 +297,16 @@ main { padding: 0; }
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.25rem 0 1.5rem;
+  margin: 0;
   font-size: .92rem;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
+}
+.table-wrap {
   display: block;
   overflow-x: auto;
+  margin: 1.25rem 0 1.5rem;
 }
 .prose thead { background: var(--navy-50); }
 :root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
@@ -592,7 +595,7 @@ main { padding: 0; }
 <p>Generative AI has democratized fake review creation. Before 2023, fake reviews were typically short, poorly written, and easy to spot. Today, a single prompt to ChatGPT or Claude can generate hundreds of unique, grammatically perfect, emotionally nuanced reviews — each with different phrasing, different sentence structures, and different details.</p>
 <p>A 2024 study by Fakespot found that <strong>AI-generated reviews are virtually indistinguishable from human-written ones</strong> in blind testing. The traditional signals that platforms use to detect fakes — repetitive language, generic praise, lack of detail — no longer work when each generated review is unique.</p>
 <h2 id="review-fraud-by-industry"><a class="anchor" href="#review-fraud-by-industry" aria-label="Permalink to Review fraud by industry">#</a> Review fraud by industry</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Industry</th>
@@ -623,7 +626,7 @@ main { padding: 0; }
 <td>Software &amp; SaaS</td>
 <td>10–15%</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>Source: aggregated from Fakespot, ReviewMeta, and platform transparency reports (2023–2025).</p>
 <h2 id="fake-review-statistics-2026-platform-breakdown"><a class="anchor" href="#fake-review-statistics-2026-platform-breakdown" aria-label="Permalink to Fake review statistics 2026: platform breakdown">#</a> Fake review statistics 2026: platform breakdown</h2>
 <p>Each major platform publishes transparency data on fake review volumes. Here are the most recent (2025–2026) figures:</p>

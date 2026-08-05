@@ -297,13 +297,16 @@ main { padding: 0; }
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.25rem 0 1.5rem;
+  margin: 0;
   font-size: .92rem;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
+}
+.table-wrap {
   display: block;
   overflow-x: auto;
+  margin: 1.25rem 0 1.5rem;
 }
 .prose thead { background: var(--navy-50); }
 :root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
@@ -701,7 +704,7 @@ main { padding: 0; }
 <h2 id="the-alternative-verification-first-embeds"><a class="anchor" href="#the-alternative-verification-first-embeds" aria-label="Permalink to The alternative: verification-first embeds">#</a> The alternative: verification-first embeds</h2>
 <p>Signed Reviews takes a different approach to the widget problem: instead of pulling from a public profile where anyone can contribute, every embedded review carries cryptographic proof that it came from a completed Stripe transaction.</p>
 <p>The embed isn&#39;t a third-party <code>&lt;script&gt;</code> from an external CDN — it&#39;s a self-contained element rendered server-side from your own review data. No external requests, no third-party cookies, no widget loading delay.</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Widget feature</th>
@@ -754,11 +757,11 @@ main { padding: 0; }
 <td>Limited (themes)</td>
 <td>Full CSS control</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="where-to-use-each-widget-type-and-where-it39s-wasted-effort"><a class="anchor" href="#where-to-use-each-widget-type-and-where-it39s-wasted-effort" aria-label="Permalink to Where to use each widget type (and where it&amp;#39;s wasted effort)">#</a> Where to use each widget type (and where it&#39;s wasted effort)</h2>
 <p>Widget placement matters as much as widget type. A widget in the wrong place is invisible; in the right place, it lifts conversion.</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Page</th>
@@ -801,7 +804,7 @@ main { padding: 0; }
 <td>Grid Widget</td>
 <td>Deep browse for the small percentage of visitors who want to read multiple reviews</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>The key insight: <strong>the more expensive your product, the more review detail you should show.</strong> A $10 impulse purchase needs a star rating. A $299/month SaaS subscription needs individual review cards with verification proof.</p>
 <hr>
 <h2 id="bottom-line"><a class="anchor" href="#bottom-line" aria-label="Permalink to Bottom line">#</a> Bottom line</h2>

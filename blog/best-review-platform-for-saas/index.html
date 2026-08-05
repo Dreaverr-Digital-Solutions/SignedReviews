@@ -297,13 +297,16 @@ main { padding: 0; }
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.25rem 0 1.5rem;
+  margin: 0;
   font-size: .92rem;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
+}
+.table-wrap {
   display: block;
   overflow-x: auto;
+  margin: 1.25rem 0 1.5rem;
 }
 .prose thead { background: var(--navy-50); }
 :root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
@@ -583,7 +586,7 @@ main { padding: 0; }
 <p>The best review platform for saas is one that verifies against independent payment data — not merchant-supplied records. Here&#39;s our 2026 ranking of the top six options.</p>
 <h2 id="how-we-score"><a class="anchor" href="#how-we-score" aria-label="Permalink to How we score">#</a> How we score</h2>
 <p>Each platform is scored on five dimensions:</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Dimension</th>
@@ -610,10 +613,10 @@ main { padding: 0; }
 <td><strong>API &amp; embeddability</strong></td>
 <td>Can you embed reviews on your own marketing site and in-app?</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <h2 id="the-best-review-platform-for-saas-our-rankings"><a class="anchor" href="#the-best-review-platform-for-saas-our-rankings" aria-label="Permalink to The best review platform for saas: our rankings">#</a> The best review platform for saas: our rankings</h2>
 <h3 id="1-signed-reviews-best-for-stripe-native-saas"><a class="anchor" href="#1-signed-reviews-best-for-stripe-native-saas" aria-label="Permalink to 1. Signed Reviews — Best for Stripe-native SaaS">#</a> 1. Signed Reviews — Best for Stripe-native SaaS</h3>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Dimension</th>
@@ -646,13 +649,13 @@ main { padding: 0; }
 <td>★★★★★</td>
 <td>REST API, webhooks, delivery webhook, embeddable reviews.</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Why it&#39;s #1 for SaaS:</strong> Signed Reviews is the only platform where verification comes from Stripe itself — not from matching an email to your customer database. For SaaS companies, where trust is the product and churn is the enemy, the ability to say &quot;every review on this page is backed by a verified Stripe subscription payment&quot; is a conversion asset no competitor can replicate. The automatic refund handling is uniquely valuable for SaaS trials and money-back guarantees.</p>
 <p><strong>Best for:</strong> SaaS companies on Stripe who want review authenticity as a competitive advantage. Early-stage to growth-stage.</p>
 <p><strong>Pricing:</strong> Free (25 invitations/mo) → Starter $29/mo (100/mo) → Growth $79/mo (500/mo) → Scale $199/mo (2,000/mo).</p>
 <p><a href="/blog/stripe-verified-reviews/">Full Stripe Verified Reviews guide →</a></p>
 <h3 id="2-trustpilot-best-for-consumer-reach"><a class="anchor" href="#2-trustpilot-best-for-consumer-reach" aria-label="Permalink to 2. Trustpilot — Best for consumer reach">#</a> 2. Trustpilot — Best for consumer reach</h3>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Dimension</th>
@@ -685,11 +688,11 @@ main { padding: 0; }
 <td>★★★★★</td>
 <td>Extensive API, 100+ integrations, TrustBox widgets. Best-in-class embeddability.</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>The case for Trustpilot:</strong> Massive consumer brand recognition. If your SaaS sells to consumers who search for reviews on Trustpilot, being there matters. But for B2B SaaS — where the buyer does due diligence, not casual browsing — Trustpilot&#39;s consumer reach is less relevant, and its weak verification model (anyone can post) is a liability.</p>
 <p><strong>Best for:</strong> B2C SaaS and companies that want maximum consumer-facing review presence, budget permitting.</p>
 <h3 id="3-g2-capterra-trustradius-best-for-b2b-buyer-discovery"><a class="anchor" href="#3-g2-capterra-trustradius-best-for-b2b-buyer-discovery" aria-label="Permalink to 3. G2 / Capterra / TrustRadius — Best for B2B buyer discovery">#</a> 3. G2 / Capterra / TrustRadius — Best for B2B buyer discovery</h3>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Dimension</th>
@@ -722,11 +725,11 @@ main { padding: 0; }
 <td>★★★☆☆</td>
 <td>G2 offers review widgets and badges. Limited compared to a dedicated review platform.</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>The case for G2/Capterra:</strong> These are where SaaS buyers <em>discover</em> you. You should be listed on all three regardless of which review collection tool you use. But they don&#39;t replace a review collection platform — they&#39;re directories, not tools. Use them for discovery; use a dedicated platform for verified review collection.</p>
 <p><strong>Best for:</strong> Every SaaS company should maintain a presence on G2, Capterra, and TrustRadius. This is table stakes, not a choice.</p>
 <h3 id="4-yotpo-best-for-enterprise-dtc-but-overkill-for-most-saas"><a class="anchor" href="#4-yotpo-best-for-enterprise-dtc-but-overkill-for-most-saas" aria-label="Permalink to 4. Yotpo — Best for enterprise DTC (but overkill for most SaaS)">#</a> 4. Yotpo — Best for enterprise DTC (but overkill for most SaaS)</h3>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Dimension</th>
@@ -759,12 +762,12 @@ main { padding: 0; }
 <td>★★★★☆</td>
 <td>Good API, extensive integrations. Visual UGC galleries are best-in-class.</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>The case for Yotpo:</strong> If your SaaS also sells physical products or merchandise, Yotpo&#39;s visual UGC and loyalty features are powerful. For pure SaaS, Yotpo is feature-rich but verification-weak — you&#39;re paying for marketing tools, not stronger review authenticity.</p>
 <p><strong>Best for:</strong> DTC brands that also have a SaaS component, or SaaS companies that want the full marketing suite and are less focused on verification strength.</p>
 <p><a href="/vs/yotpo/">Full Signed Reviews vs Yotpo comparison →</a></p>
 <h3 id="5-judgeme-best-for-shopify-saas-if-you-sell-through-shopify"><a class="anchor" href="#5-judgeme-best-for-shopify-saas-if-you-sell-through-shopify" aria-label="Permalink to 5. Judge.me — Best for Shopify SaaS (if you sell through Shopify)">#</a> 5. Judge.me — Best for Shopify SaaS (if you sell through Shopify)</h3>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Dimension</th>
@@ -797,12 +800,12 @@ main { padding: 0; }
 <td>★★★☆☆</td>
 <td>Decent API for a Shopify app. Limited outside the Shopify ecosystem.</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>The case for Judge.me:</strong> If you sell a SaaS-related product through a Shopify store (e.g., a hardware companion device, a book, merchandise), Judge.me is excellent and affordable. For pure SaaS with Stripe Billing, it&#39;s the wrong tool — it doesn&#39;t connect to your actual payment flow.</p>
 <p><strong>Best for:</strong> Shopify merchants who also run a SaaS. Not suitable for pure SaaS companies.</p>
 <p><a href="/vs/judge-me/">Full Signed Reviews vs Judge.me comparison →</a></p>
 <h3 id="6-reviewsio-best-for-ukeuropean-saas"><a class="anchor" href="#6-reviewsio-best-for-ukeuropean-saas" aria-label="Permalink to 6. Reviews.io — Best for UK/European SaaS">#</a> 6. Reviews.io — Best for UK/European SaaS</h3>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Dimension</th>
@@ -835,11 +838,11 @@ main { padding: 0; }
 <td>★★★★☆</td>
 <td>Good API, strong UK/European presence.</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>The case for Reviews.io:</strong> Strong in the UK and Europe, with better pricing than Trustpilot. A solid general-purpose platform. But like most alternatives, verification is merchant-supplied rather than processor-attested.</p>
 <p><strong>Best for:</strong> UK/European SaaS companies who want a local provider with strong regional presence.</p>
 <h2 id="comparison-matrix"><a class="anchor" href="#comparison-matrix" aria-label="Permalink to Comparison matrix">#</a> Comparison matrix</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Platform</th>
@@ -898,7 +901,7 @@ main { padding: 0; }
 <td>£89/mo</td>
 <td>UK/European</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Key insight:</strong> Only Signed Reviews operates at verification Level 4 — where the independent payment processor (Stripe) attests to the purchase. Every other platform in this list operates at Level 3 or below — where verification derives from data the merchant supplies. For SaaS companies, where recurring Stripe subscriptions are the source of truth for who&#39;s a real customer, that difference is fundamental.</p>
 <h2 id="what-to-look-for-as-a-saas-company"><a class="anchor" href="#what-to-look-for-as-a-saas-company" aria-label="Permalink to What to look for as a SaaS company">#</a> What to look for as a SaaS company</h2>
 <p>SaaS review collection is different from e-commerce review collection in three ways:</p>

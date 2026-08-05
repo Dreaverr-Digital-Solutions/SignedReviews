@@ -297,13 +297,16 @@ main { padding: 0; }
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.25rem 0 1.5rem;
+  margin: 0;
   font-size: .92rem;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
+}
+.table-wrap {
   display: block;
   overflow-x: auto;
+  margin: 1.25rem 0 1.5rem;
 }
 .prose thead { background: var(--navy-50); }
 :root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
@@ -633,7 +636,7 @@ main { padding: 0; }
 <p>This isn&#39;t a policy promise — it&#39;s enforced by Stripe&#39;s OAuth permission model. If Signed Reviews tried to make a write request to Stripe, Stripe&#39;s API would reject it with a 403 Forbidden. The limitation is structural, not contractual.</p>
 <hr>
 <h2 id="stripe-app-for-reviews-vs-generic-review-platforms"><a class="anchor" href="#stripe-app-for-reviews-vs-generic-review-platforms" aria-label="Permalink to Stripe App for Reviews vs. Generic Review Platforms">#</a> Stripe App for Reviews vs. Generic Review Platforms</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th></th>
@@ -666,12 +669,12 @@ main { padding: 0; }
 <td>Level 1–3 (email to merchant-supplied)</td>
 <td>Level 4 (processor-attested)</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>Most review platforms verify against data you provide — which means you&#39;re both the subject of the review and the source of the verification. A Stripe app for reviews breaks that conflict of interest by using Stripe as an independent third party. Your <a href="/trust">Stripe-verified reviews</a> carry a trust signal no generic platform can replicate.</p>
 <hr>
 <h2 id="why-the-stripe-app-model-prevents-fake-reviews"><a class="anchor" href="#why-the-stripe-app-model-prevents-fake-reviews" aria-label="Permalink to Why the Stripe App model prevents fake reviews">#</a> Why the Stripe App model prevents fake reviews</h2>
 <p>Every fake-review method relies on the reviewer or the merchant being able to fabricate evidence that a purchase occurred. A Stripe-native review app makes this structurally impossible:</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Fake-review method</th>
@@ -698,12 +701,12 @@ main { padding: 0; }
 <td><strong>AI-generated review from non-customer</strong></td>
 <td>No Stripe charge → no invitation → no review path exists</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>The economics change completely. At Level 3 (merchant-supplied verification), a fake review costs whatever the merchant pays for the fake order — which can be zero (with discount codes, test orders, or manual order creation). At Level 4 (processor-attested), every fake review costs at minimum the Stripe processing fee (~2.9% + $0.30) plus the product cost, and risks Stripe account suspension for fraudulent activity. The cost-benefit of fake reviews flips from &quot;cheap and low-risk&quot; to &quot;expensive and account-threatening.&quot;</p>
 <hr>
 <h2 id="how-the-stripe-app-compares-to-shopify-review-apps"><a class="anchor" href="#how-the-stripe-app-compares-to-shopify-review-apps" aria-label="Permalink to How the Stripe App compares to Shopify review apps">#</a> How the Stripe App compares to Shopify review apps</h2>
 <p>Most review apps live in the Shopify App Store, not the Stripe App Marketplace. Here&#39;s the architectural difference:</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th></th>
@@ -741,7 +744,7 @@ main { padding: 0; }
 <td>Tied to Shopify</td>
 <td>Works with any platform that uses Stripe</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>A Shopify review app is excellent for Shopify-only businesses. A Stripe app for reviews works anywhere Stripe processes payments — Shopify, WooCommerce, custom-built SaaS, digital products, invoices, subscriptions. The verification model is independent of the commerce platform.</p>
 <hr>
 <h2 id="what-to-look-for-in-a-stripe-review-app"><a class="anchor" href="#what-to-look-for-in-a-stripe-review-app" aria-label="Permalink to What to look for in a Stripe review app">#</a> What to look for in a Stripe review app</h2>

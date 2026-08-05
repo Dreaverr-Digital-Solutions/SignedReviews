@@ -297,13 +297,16 @@ main { padding: 0; }
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.25rem 0 1.5rem;
+  margin: 0;
   font-size: .92rem;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
+}
+.table-wrap {
   display: block;
   overflow-x: auto;
+  margin: 1.25rem 0 1.5rem;
 }
 .prose thead { background: var(--navy-50); }
 :root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
@@ -592,7 +595,7 @@ main { padding: 0; }
 <hr>
 <h2 id="plan-breakdown"><a class="anchor" href="#plan-breakdown" aria-label="Permalink to Plan breakdown">#</a> Plan breakdown</h2>
 <h3 id="free"><a class="anchor" href="#free" aria-label="Permalink to Free">#</a> Free</h3>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Feature</th>
@@ -635,13 +638,13 @@ main { padding: 0; }
 <td>Remove Trustpilot branding</td>
 <td>❌</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>What you actually get:</strong> A listing on Trustpilot.com that anyone can review — without you having any control over who reviews you or when. You can respond publicly, which matters, but you can&#39;t proactively collect reviews, can&#39;t integrate with your checkout or post-purchase flow, and can&#39;t display reviews anywhere except Trustpilot.</p>
 <p><strong>Who it&#39;s for:</strong> Businesses that just want to exist on Trustpilot and respond to reviews as they come in. Not a review-collection strategy — a reputation-monitoring one.</p>
 <p><strong>The catch:</strong> Organic reviews skew negative. People who had a bad experience seek out Trustpilot to complain; happy customers rarely do. Without the ability to send invitations (which would balance the ratio by prompting satisfied customers), your Trustpilot profile will disproportionately reflect negative experiences. Trustpilot knows this — it&#39;s the incentive to upgrade.</p>
 <h3 id="growth-from-299month"><a class="anchor" href="#growth-from-299month" aria-label="Permalink to Growth — from $299/month">#</a> Growth — from $299/month</h3>
 <p>This is the tier most small-to-mid businesses consider, and it&#39;s where Trustpilot&#39;s pricing starts to have real teeth.</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Feature</th>
@@ -680,7 +683,7 @@ main { padding: 0; }
 <td>Custom branding</td>
 <td>❌</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>What you actually get:</strong> The ability to invite customers to leave reviews — Trustpilot&#39;s core value proposition. You BCC order-confirmation emails to Trustpilot&#39;s AFS, which triggers review invitations automatically. This is what generates &quot;Verified&quot; reviews on your profile.</p>
 <p><strong>The catch at this tier:</strong></p>
 <ul>
@@ -691,7 +694,7 @@ main { padding: 0; }
 <p><strong>Who it&#39;s for:</strong> Small-to-mid businesses that want to start actively collecting reviews and can afford $3,600/year as a starting point.</p>
 <h3 id="scale-enterprise-custom-pricing-typically-5991500month"><a class="anchor" href="#scale-enterprise-custom-pricing-typically-5991500month" aria-label="Permalink to Scale / Enterprise — custom pricing (typically $599–$1,500+/month)">#</a> Scale / Enterprise — custom pricing (typically $599–$1,500+/month)</h3>
 <p>Trustpilot&#39;s upper tiers are custom-quoted and vary by business size, industry, and negotiation. Based on user reports and industry discussion:</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Feature</th>
@@ -734,14 +737,14 @@ main { padding: 0; }
 <td>Social proof widgets</td>
 <td>✅</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>What you actually get:</strong> The full Trustpilot suite. Google Seller Ratings, API access, dedicated support, and enough invitation volume for a business doing significant transaction volume.</p>
 <p><strong>The catch:</strong> Pricing is opaque and negotiable. Businesses report paying anywhere from $599 to $2,000+/month depending on size, industry, geography, and how they came through the sales pipeline. Annual contracts are standard; month-to-month is rare and more expensive.</p>
 <p><strong>Who it&#39;s for:</strong> Mid-market and enterprise businesses for whom $7,000–$25,000/year is an acceptable marketing expense. If you&#39;re a small business, this tier is almost certainly out of reach.</p>
 <hr>
 <h2 id="hidden-and-additional-costs"><a class="anchor" href="#hidden-and-additional-costs" aria-label="Permalink to Hidden and additional costs">#</a> Hidden and additional costs</h2>
 <p>Beyond the plan price, these cost Trustpilot users real money:</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Cost</th>
@@ -772,10 +775,10 @@ main { padding: 0; }
 <td><strong>Time cost of moderation</strong></td>
 <td>Trustpilot is an open platform. You or your team will spend time flagging fake reviews, responding to unverified complaints, and managing your profile — costs that don&#39;t appear on the invoice.</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="how-trustpilot39s-pricing-compares"><a class="anchor" href="#how-trustpilot39s-pricing-compares" aria-label="Permalink to How Trustpilot&amp;#39;s pricing compares">#</a> How Trustpilot&#39;s pricing compares</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Platform</th>
@@ -827,7 +830,7 @@ main { padding: 0; }
 <td>Usage-based</td>
 <td>Add-on</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>Key difference:</strong> Trustpilot&#39;s free plan doesn&#39;t include review invitations — the core feature you need to proactively collect reviews. By contrast, Judge.me offers unlimited reviews on its free plan (Shopify-only), and Signed Reviews offers 25 review invitations/month on its free plan (Stripe businesses). Trustpilot&#39;s free tier is a listening post, not a collection tool.</p>
 <hr>
 <h2 id="is-trustpilot-worth-the-price"><a class="anchor" href="#is-trustpilot-worth-the-price" aria-label="Permalink to Is Trustpilot worth the price?">#</a> Is Trustpilot worth the price?</h2>

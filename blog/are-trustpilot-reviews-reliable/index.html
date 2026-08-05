@@ -297,13 +297,16 @@ main { padding: 0; }
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.25rem 0 1.5rem;
+  margin: 0;
   font-size: .92rem;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
+}
+.table-wrap {
   display: block;
   overflow-x: auto;
+  margin: 1.25rem 0 1.5rem;
 }
 .prose thead { background: var(--navy-50); }
 :root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
@@ -596,7 +599,7 @@ main { padding: 0; }
 <hr>
 <h2 id="what-the-data-says"><a class="anchor" href="#what-the-data-says" aria-label="Permalink to What the data says">#</a> What the data says</h2>
 <p>Trustpilot publishes an annual Transparency Report. The 2024 edition reported:</p>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Metric</th>
@@ -627,7 +630,7 @@ main { padding: 0; }
 <td>Reviews removed after being reported</td>
 <td>~700,000</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p><strong>What this tells us:</strong> Trustpilot&#39;s automated systems catch most fakes before they&#39;re published, but the pipeline is large enough that fake reviews are a constant, industrial-scale problem. A 7.4% fake submission rate means <strong>roughly 1 in 13 reviews submitted to Trustpilot is fake.</strong></p>
 <hr>
 <h2 id="the-verification-gap"><a class="anchor" href="#the-verification-gap" aria-label="Permalink to The verification gap">#</a> The verification gap</h2>

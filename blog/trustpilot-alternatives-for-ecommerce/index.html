@@ -297,13 +297,16 @@ main { padding: 0; }
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.25rem 0 1.5rem;
+  margin: 0;
   font-size: .92rem;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
+}
+.table-wrap {
   display: block;
   overflow-x: auto;
+  margin: 1.25rem 0 1.5rem;
 }
 .prose thead { background: var(--navy-50); }
 :root.theme-dark .prose thead, :root.theme-auto .prose thead { background: rgba(255,255,255,.04); }
@@ -662,7 +665,7 @@ main { padding: 0; }
 <p><a href="/vs/google-reviews/">Full comparison: Signed Reviews vs Google Reviews →</a></p>
 <hr>
 <h2 id="how-to-choose-for-your-e-commerce-store"><a class="anchor" href="#how-to-choose-for-your-e-commerce-store" aria-label="Permalink to How to choose for your e-commerce store">#</a> How to choose for your e-commerce store</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Your store runs on</th>
@@ -695,7 +698,7 @@ main { padding: 0; }
 <td>Stripe-native platform (Level 4)</td>
 <td>Signed Reviews — works with any Stripe-integrated stack</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <hr>
 <h2 id="bottom-line"><a class="anchor" href="#bottom-line" aria-label="Permalink to Bottom line">#</a> Bottom line</h2>
 <p>The best trustpilot alternatives for ecommerce fall into two camps: those that verify against your store data (Level 3 — Shopify-native apps like Judge.me and Yotpo) and those that verify against your payment processor (Level 4 — Stripe-native platforms like Signed Reviews). The Level 3 options are mature, feature-rich, and well-integrated. The Level 4 option gives you independent, cryptographic verification that can&#39;t be gamed from your store admin.</p>
