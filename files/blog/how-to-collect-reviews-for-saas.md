@@ -1,6 +1,6 @@
 # How to Collect Reviews for SaaS: A Guide for Subscription Businesses
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** How SaaS companies can collect verified reviews — timing around the subscription lifecycle, review platforms that work with Stripe Billing, and why recurring payments create recurring verification opportunities.**
+**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Learn how to collect reviews for SaaS: timing by subscription lifecycle, Stripe Billing verification, and platforms that turn recurring payments into social proof.**
 
 ---
 

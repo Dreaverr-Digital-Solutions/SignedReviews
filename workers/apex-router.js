@@ -351,36 +351,50 @@ export default {
     }
 
     // Business-profile sub-paths (/:slug/leave-a-review, /:slug/reviews)
-    // always go to the platform SPA.
+    // must bypass the landing worker — the landing SPA catches all paths
+    // and never returns 404, so the fallthrough would never trigger.
     if (BP_SUB_RE.test(url.pathname)) {
       return proxyToPlatform(request, url);
     }
 
-    const SINGLE_SEGMENT_RE = /^\/[^/]+\/?$/;
-    const STATIC_ASSET_RE = /\.(css|js|png|jpe?g|gif|svg|ico|webp|woff2?|ttf|xml|txt|json|webmanifest|pdf|map)$/i;
+    // ── Platform assets (must bypass the landing SPA) ──────────────────────────
+    // The landing Pages project is a SPA that returns 200 for every path. Any
+    // static asset that isn't explicitly a landing path would be served as HTML,
+    // which breaks JS/CSS bundles and images. Route platform-owned paths directly.
 
-    // Single-segment paths that aren't known landing pages and aren't static
-    // assets could be business profiles (/:slug). Try the landing first:
-    // if 200 → serve the landing page.  If 404 → fall through to the
-    // platform SPA (likely a business profile slug).
-    if (SINGLE_SEGMENT_RE.test(url.pathname) && !isLandingPath(url.pathname) && !STATIC_ASSET_RE.test(url.pathname)) {
-      try {
-        const target = LANDING_ORIGIN + url.pathname + url.search;
-        const landingResponse = await fetch(target, {
-          method: request.method,
-          headers: request.headers,
-          redirect: 'manual',
-        });
-        if (landingResponse.status >= 200 && landingResponse.status < 300) {
-          return landingResponse;
-        }
-      } catch (_) {}
+    // Vite build output — the SPA's hashed JS/CSS bundles live under /assets/.
+    if (url.pathname.startsWith('/assets/')) {
       return proxyToPlatform(request, url);
     }
 
-    // Everything else (multi-segment paths, known landing pages, static
-    // assets): serve from landing. 404s from the landing are real 404s
-    // (the platform doesn't have these paths either) — return the 404 page.
+    // Root-level images referenced by the platform SPA (logo marks).
+    const PLATFORM_ROOT_ASSETS = [
+      '/SignedReviews_logo_only.png',
+      '/SignedReviews_font_only.png',
+    ];
+    if (PLATFORM_ROOT_ASSETS.includes(url.pathname)) {
+      return proxyToPlatform(request, url);
+    }
+
+    // Single-segment paths that aren't known landing pages are business
+    // profiles (/:slug). Route them to the platform SPA. Static assets at
+    // root level (.css, .js, images, etc.) may belong to either project;
+    // the platform-specific ones are handled above — the rest fall through
+    // to the landing-first logic below.
+    const SINGLE_SEGMENT_RE = /^\/[^/]+\/?$/;
+    const STATIC_ASSET_RE = /\.(css|js|png|jpe?g|gif|svg|ico|webp|woff2?|ttf|xml|txt|json|webmanifest|pdf|map)$/i;
+    if (SINGLE_SEGMENT_RE.test(url.pathname) && !isLandingPath(url.pathname) && !STATIC_ASSET_RE.test(url.pathname)) {
+      return proxyToPlatform(request, url);
+    }
+
+    // Everything else: try the landing Pages project first.
+    // Use the public pages.dev URL — service bindings to Pages projects
+    // sometimes don't serve static assets correctly.
+    //
+    // NOTE: the landing Pages project is a SPA and returns 200 for *every*
+    // path (including /assets/* and random slugs). The guards above ensure
+    // platform-owned paths never reach this block. If you add a new platform
+    // asset prefix, add it above — not here.
     try {
       const target = LANDING_ORIGIN + url.pathname + url.search;
       const landingResponse = await fetch(target, {
@@ -388,14 +402,14 @@ export default {
         headers: request.headers,
         redirect: 'manual',
       });
-      if (landingResponse.status < 500) {
+      if (landingResponse.status !== 404 && landingResponse.status < 500) {
         return landingResponse;
       }
     } catch (_) {
       // landing unreachable — fall through to platform
     }
 
-    // Landing returned 5xx (or errored) → fall through to platform SPA.
+    // Landing has no such path (or errored) → fall through to platform SPA.
     return proxyToPlatform(request, url);
   },
 };
