@@ -45,6 +45,26 @@ Here's how it works with Signed Reviews:
 
 ## The difference between verified and unverified reviews: why it matters for your business
 
+## FAQ: The Difference Between Verified and Unverified Reviews
+
+### What's the difference between verified and unverified reviews?
+A verified review comes from a buyer whose purchase has been independently confirmed, typically via a payment provider like Stripe. An unverified review requires no such proof—anyone can leave feedback, making it open to fake or biased ratings. This key difference shields businesses from review fraud and builds genuine trust.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What's the difference between verified and unverified reviews?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A verified review comes from a buyer whose purchase has been independently confirmed, typically via a payment provider like Stripe. An unverified review requires no such proof—anyone can leave feedback, making it open to fake or biased ratings."
+    }
+  }]
+}
+</script>
+
 Grasping the verified review meaning — and the gap between verified and unverified feedback — directly impacts your bottom line. Here's how:
 
 - **Higher trust**: 98% of consumers read reviews before buying (BrightLocal, 2023). A review with purchase verification is inherently more trustworthy than one without.
