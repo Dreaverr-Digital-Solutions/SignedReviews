@@ -1,6 +1,6 @@
-# Stripe Verified Reviews: Cryptographically Signed Reviews Backed by Your Payment Processor
+# Stripe Verified Reviews: Cryptographically Signed, Tamper-Evident Customer Feedback — Signed Reviews Blog
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Stripe verified reviews are cryptographically tied to real Stripe transactions — the only review type independently attested by a payment processor, not merchant-supplied data.
+**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Stripe verified reviews are tamper evident reviews independently attested by the payment processor. Each signed review is cryptographically hashed together with the Stripe charge ID, making tampering autodetected without relying on manual audits or merchant policies.
 
 ---
 
@@ -73,7 +73,7 @@ The verification doesn't come from the merchant. It comes from Stripe — a sepa
 
 ### 2. Tamper-evident reviews
 
-Cryptographically signed reviews are created at the moment of submission. The signature binds together the review content, the Stripe transaction ID, the reviewer's email, and a timestamp. Anyone can verify this signature later to confirm the review hasn't been altered — not by the merchant, not by Signed Reviews, not by anyone. This is what makes them cryptographically signed reviews: the evidence of authenticity is built into the design, not bolted on after the fact.
+Cryptographically signed reviews are created at the moment of submission. The signature covers the review text, star rating, and the Stripe charge ID. Even a one-character edit immediately invalidates the cryptographic hash, so any tampering is autodetected without needing manual audits or merchant policies. (Learn more about [how this prevents fake reviews](/how-it-works/).) The signature binds together the review content, the Stripe transaction ID, the reviewer's email, and a timestamp. Anyone can verify this signature later to confirm the review hasn't been altered — not by the merchant, not by Signed Reviews, not by anyone. This is what makes them cryptographically signed reviews: the evidence of authenticity is built into the design, not bolted on after the fact.
 
 ### 3. Refund-aware
 
