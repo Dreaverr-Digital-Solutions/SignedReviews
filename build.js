@@ -1701,7 +1701,7 @@ function buildBlog() {
       publisher: { '@type': 'Organization', name: 'Signed Reviews', logo: { '@type': 'ImageObject', url: `${SITE_URL}/images/SignedReviews_logo_only.png` } },
     };
 
-    const body = `<article class="prose" style="max-width: var(--max-prose)">
+    const body = `<article class="prose">
       ${post.dateStr ? `<p class="post-meta" style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">${escapeHtml(post.dateStr)}</p>` : ''}
       ${post.renderedBody}
       <p style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
@@ -1733,7 +1733,7 @@ function buildBlog() {
   }
 
   // Blog index page
-  const indexBody = `<article class="prose" style="max-width: var(--max-prose)">
+  const indexBody = `<article class="prose">
     <p>Insights on review authenticity, e-commerce trust, Stripe integrations, and verified customer reviews from the Signed Reviews team.</p>
     ${posts.map(p => `
     <div style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
