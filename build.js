@@ -1454,7 +1454,7 @@ function buildPricing() {
 
 function buildContact() {
   const body = `
-    <article class="prose" style="max-width: var(--max-prose)">
+    <article class="prose">
       <h2>Get in touch</h2>
       <p>For product support use the support address. For privacy requests, legal matters, data subject requests, or anything related to the Sub-processor list, use the legal address.</p>
 
@@ -1501,7 +1501,7 @@ function buildContact() {
 
 function buildAbout() {
   const body = `
-    <article class="prose" style="max-width: var(--max-prose)">
+    <article class="prose">
       <h2>What we do</h2>
       <p>${COMPANY.description}</p>
       <p>Every review collected through our platform is tied to a real, completed Stripe transaction. A review link is issued either automatically after a charge succeeds (emailed to the buyer's verified address) or on request from the business's public page — and in both cases the email must match an actual purchase. Each review is cryptographically signed so anyone can later verify it hasn't been altered. The result is a review record that ties back to a specific, completed payment — instead of a star rating posted by an anonymous account that may never have purchased anything.</p>
@@ -1620,7 +1620,7 @@ function buildFaq() {
     .faq-a p { margin: 0; }
   `;
 
-  const body = `<article class="prose" style="max-width: var(--max-prose)">
+  const body = `<article class="prose">
     <p>Answers to the most common questions about review verification, Stripe integration, and how Signed Reviews works.</p>
     ${faqHtml}
   </article>`;
@@ -1778,7 +1778,7 @@ function buildHowItWorks() {
     :root.theme-dark .step-body code, :root.theme-auto .step-body code { background: rgba(255,255,255,.08); color: var(--gold-300); }
   `;
 
-  const body = `<article class="prose" style="max-width: 760px">
+  const body = `<article class="prose">
     <p>From Stripe purchase to verified review in six steps. The entire flow is automated — you connect once, and Signed Reviews handles the rest.</p>
     ${steps.map(s => `
     <div class="step">
@@ -1826,7 +1826,7 @@ const COMPARISON_STYLES = `
 
 // ── Comparison page: Signed Reviews vs Trustpilot ──────────────────────────────
 function buildComparison() {
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p>Choosing a review platform is a trust decision. This Trustpilot vs Signed Reviews comparison breaks down how the largest general-purpose review platform stacks up against the first processor-attested alternative — across the dimensions that matter most for businesses that care about review authenticity.</p>
 
     <h2>Trustpilot vs Signed Reviews: Feature Comparison</h2>
@@ -1881,7 +1881,7 @@ function buildComparison() {
 // ── Comparison: Signed Reviews vs Feefo ───────────────────────────────────────
 function buildComparisonFeefo() {
   const slug = '/vs/feefo/';
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p>Feefo is the closest positioning competitor to Signed Reviews — both platforms emphasize verified, invitation-only reviews. But the verification source is fundamentally different: Feefo trusts the merchant's transaction feed; Signed Reviews trusts Stripe. Here's how they compare across every dimension that matters.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
@@ -1931,7 +1931,7 @@ function buildComparisonFeefo() {
 // ── Comparison: Signed Reviews vs Judge.me ────────────────────────────────────
 function buildComparisonJudgeMe() {
   const slug = '/vs/judge-me/';
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p>Judge.me is the #1 Shopify review app with 127 million reviews collected. It's excellent at what it does — but its "verified" badge trusts your Shopify order data, not an independent payment processor. Here's how they compare.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
@@ -1981,7 +1981,7 @@ function buildComparisonJudgeMe() {
 // ── Comparison: Signed Reviews vs Yotpo ───────────────────────────────────────
 function buildComparisonYotpo() {
   const slug = '/vs/yotpo/';
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p>Yotpo is the enterprise DTC default — used by brands like Patagonia, Steve Madden, and Brooklinen. Its "Verified Buyer" badge means the merchant's Mail-After-Purchase email matched a customer record. Signed Reviews' badge means Stripe independently confirms the charge. Here's the detailed comparison.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
@@ -2031,7 +2031,7 @@ function buildComparisonYotpo() {
 // ── Comparison: Signed Reviews vs eKomi ───────────────────────────────────────
 function buildComparisonEkomi() {
   const slug = '/vs/ekomi/';
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p>eKomi is the closest "transaction-verified" competitor — a Google Review Partner that verifies reviews against a merchant-supplied transaction feed. The positioning is similar; the verification source is not. eKomi trusts the feed you supply; Signed Reviews trusts Stripe. Here's how they compare.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
@@ -2081,7 +2081,7 @@ function buildComparisonEkomi() {
 // ── Comparison: Signed Reviews vs SiteJabber (FTC news hook) ──────────────────
 function buildComparisonSiteJabber() {
   const slug = '/vs/sitejabber/';
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p><strong>In November 2024, the FTC issued a formal order against SiteJabber</strong> for publishing reviews from people who had never received the products they reviewed. SiteJabber's system allowed businesses to collect reviews at the point of sale — before the customer ever received the product. The FTC found this deceptive. Here's how Signed Reviews compares — and why our model structurally can't have the problem that got SiteJabber in trouble.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
@@ -2129,7 +2129,7 @@ function buildComparisonSiteJabber() {
 // ── Comparison: Signed Reviews vs Reviews.io ──────────────────────────────────
 function buildComparisonReviewsIo() {
   const slug = '/vs/reviews-io/';
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p>Reviews.io is the most frequently recommended Trustpilot alternative — particularly in the UK and Europe. Its "Verified Reviewer" badge marks reviews that came through the merchant's invitation system. Here's how that compares to processor-attested verification.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
@@ -2179,7 +2179,7 @@ function buildComparisonReviewsIo() {
 // ── Comparison: Signed Reviews vs Stamped ─────────────────────────────────────
 function buildComparisonStamped() {
   const slug = '/vs/stamped/';
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p>Stamped.io (also known as Stamped) is a well-established review and loyalty platform popular with mid-market e-commerce brands. Its purchase verification matches reviews to merchant order data — solid, but still merchant-supplied. Here's how it compares to processor-attested verification.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
@@ -2226,7 +2226,7 @@ function buildComparisonStamped() {
 // ── Comparison: Signed Reviews vs Okendo ──────────────────────────────────────
 function buildComparisonOkendo() {
   const slug = '/vs/okendo/';
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p>Okendo is the premium Shopify review app — favored by DTC brands like Skims, Haus Labs, and Olipop for its visual, brand-forward review display. Its "Verified Buyer" badge matches reviews to Shopify orders. Here's how processor-attested verification stacks up.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
@@ -2274,7 +2274,7 @@ function buildComparisonOkendo() {
 // ── Comparison: Signed Reviews vs Loox ────────────────────────────────────────
 function buildComparisonLoox() {
   const slug = '/vs/loox/';
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p>Loox is a popular Shopify review app known for its photo-first review displays and auto-discount features for photo reviews. Like other Shopify apps, its "Verified" badge matches reviews to Shopify orders. Here's how processor-attested verification compares.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
@@ -2322,7 +2322,7 @@ function buildComparisonLoox() {
 // ── Comparison: Signed Reviews vs Skeepers ────────────────────────────────────
 function buildComparisonSkeepers() {
   const slug = '/vs/skeepers/';
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p>Skeepers (formerly Verified Reviews) is a European review and UGC platform. Its verification model relies on merchant-provided transaction data — a Level 3 approach common among enterprise-focused platforms. Here's how that compares to processor-attested verification.</p>
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
@@ -2364,7 +2364,7 @@ function buildComparisonSkeepers() {
 // ── Comparison: Signed Reviews vs Google Reviews ───────────────────────────────
 function buildComparisonGoogleReviews() {
   const slug = '/vs/google-reviews/';
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p>Google Reviews is the most visible review platform on the internet — powering star ratings in search results, Google Maps, and the local pack. It's free, universal, and essential for local SEO. But it has no purchase verification at all. Here's how it compares to processor-attested reviews — and why most businesses need both.</p>
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
@@ -2402,7 +2402,7 @@ function buildComparisonGoogleReviews() {
 // ── Comparison: Signed Reviews vs Yelp ─────────────────────────────────────────
 function buildComparisonYelp() {
   const slug = '/vs/yelp/';
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p>Yelp is the dominant review platform for local businesses — restaurants, home services, salons, and brick-and-mortar retail. It has zero purchase verification and a controversial review-filtering algorithm. Here's how it compares to processor-attested reviews.</p>
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
@@ -2441,7 +2441,7 @@ function buildComparisonYelp() {
 // ── Comparison: Signed Reviews vs Clutch ──────────────────────────────────────
 function buildComparisonClutch() {
   const slug = '/vs/clutch/';
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p>Clutch is the dominant review platform for B2B services — agencies, consultancies, IT firms, and professional service providers. Its review model relies on analyst-led interviews and client verification, which is fundamentally different from transaction-based verification. Here's how they compare — and why B2B service providers may need both.</p>
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
@@ -2597,7 +2597,7 @@ function buildLearn() {
     .faq-a p { margin:0; }
   `;
 
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p><strong>"Verified Buyer" does not mean the same thing on every review platform</strong> — and on most of them it does <em>not</em> mean the reviewer's payment was independently checked. A "verified" review is usually verified against data <em>the merchant supplies</em> (an invitation email, an order record, or an uploaded customer list), not against an independent payment processor. So the badge tells you the merchant <em>believed</em> this person was a customer — not that an independent party <em>confirmed</em> money changed hands.</p>
 
     <p>This page explains exactly what "verified" means on each major platform, lays out the five-level verification spectrum that makes the differences legible, and shows why the distinction matters under the U.S. Federal Trade Commission's 2024 fake-review rule.</p>
@@ -2734,7 +2734,7 @@ function buildLearnFakeReviewsWork() {
     .verdict p { color:var(--navy-200); margin:0; line-height:1.6; }
   `;
 
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p>Fake reviews are a multi-billion-dollar underground industry. The World Economic Forum estimates fake reviews influence <strong>\$152 billion in global consumer spending annually</strong>. They're produced at industrial scale — click farms in the Philippines, bot networks in Russia, AI-generated text farms, and "brushing" schemes where sellers ship empty boxes to fabricate verified-purchase badges. This article explains how each method works, what it costs, and — critically — why some verification models make fakes structurally impossible while others only make them slightly harder.</p>
 
     <h2 id="scale">The scale of the problem</h2>
@@ -2855,7 +2855,7 @@ function buildLearnFtcRules() {
     .timeline-item h4 { margin:.2rem 0 .3rem; font-size:1rem; }
   `;
 
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p>On <strong>October 21, 2024</strong>, the U.S. Federal Trade Commission's <strong>Trade Regulation Rule on the Use of Consumer Reviews and Testimonials</strong> (16 CFR Part 465) took effect. It's the most significant U.S. regulation of online reviews ever enacted — and it changes the compliance landscape for every business that collects, displays, or purchases reviews. Here's what the rule covers, what it bans, who's exposed, and how to be structurally compliant rather than policy-compliant.</p>
 
     <h2 id="timeline">How we got here</h2>
@@ -2978,7 +2978,7 @@ function buildIntegrations() {
     .ic-badge-planned { background: rgba(179,157,69,.12); color: var(--gold-600); border: 1px solid rgba(179,157,69,.25); }
   `;
 
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p>Signed Reviews plugs into your existing payment and e-commerce stack. Every integration is designed around one principle: <strong>verification against the payment processor, not merchant-supplied data</strong>.</p>
 
     <div class="integration-card">
@@ -3147,7 +3147,7 @@ function buildIntegrationsStripe() {
     })),
   };
 
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <p>The Signed Reviews Stripe integration connects in one click — no code, no API keys, no webhook configuration. Once connected, every new Stripe charge automatically generates a verified review invitation. The connection is <strong>read-only</strong> (enforced by Stripe's OAuth model), so there is zero risk to your Stripe account.</p>
 
     <h2 id="permissions">What we can (and can't) do</h2>
@@ -3228,7 +3228,7 @@ function buildIntegrationsShopify() {
     .feature-card p { margin:0; font-size:.88rem; color:var(--text); line-height:1.5; }
   `;
 
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <div class="planned-banner">
       <div class="badge">Planned</div>
       <h2>Shopify integration — coming soon</h2>
@@ -3289,7 +3289,7 @@ function buildIntegrationsWooCommerce() {
     .feature-card p { margin:0; font-size:.88rem; color:var(--text); line-height:1.5; }
   `;
 
-  const body = `<article class="prose" style="max-width: 860px">
+  const body = `<article class="prose">>
     <div class="planned-banner">
       <div class="badge">Planned</div>
       <h2>WooCommerce integration — coming soon</h2>
@@ -3326,7 +3326,7 @@ function buildIntegrationsWooCommerce() {
 
 // ── Trust / Security page ─────────────────────────────────────────────────────
 function buildTrust() {
-  const body = `<article class="prose" style="max-width: var(--max-prose)">
+  const body = `<article class="prose">
     <h2>How we keep reviews authentic</h2>
     <p>Signed Reviews is built on a simple premise: <strong>a review should only exist if a real purchase backs it</strong>. Every design decision flows from this principle.</p>
 
@@ -3411,7 +3411,7 @@ const COMING_SOON_PAGES = [
 
 function buildComingSoon() {
   for (const p of COMING_SOON_PAGES) {
-    const body = `<article class="prose" style="max-width: var(--max-prose)">
+    const body = `<article class="prose">
       <p>This page is coming soon. In the meantime, explore our <a href="${B}">homepage</a> or check out our <a href="${B}pricing/">pricing</a>.</p>
     </article>`;
     const html = page({
