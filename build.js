@@ -3613,16 +3613,29 @@ for (const entry of PUBLISH) {
 }
 
 // The home page (index.html) is bespoke and not generated through SHARED_HEAD,
-// so inject the PostHog snippet into its dist copy here (keeps the source file
-// clean and the key in one place). No-op when POSTHOG_KEY is unset.
-if (POSTHOG_SNIPPET) {
-  const distIndex = path.join(DIST_DIR, 'index.html');
-  if (fs.existsSync(distIndex)) {
-    const html = fs.readFileSync(distIndex, 'utf8');
-    if (!html.includes('posthog.init(')) {
-      fs.writeFileSync(distIndex, html.replace('</head>', `${POSTHOG_SNIPPET}${SR_TRACKERS_SNIPPET}\n</head>`), 'utf8');
-      console.log('  ✓ injected PostHog snippet into index.html');
-    }
+// so inject PostHog + build metadata into its dist copy here (keeps the source
+// file clean and the key in one place). No-op when POSTHOG_KEY is unset.
+const distIndex = path.join(DIST_DIR, 'index.html');
+if (fs.existsSync(distIndex)) {
+  let html = fs.readFileSync(distIndex, 'utf8');
+  let patched = false;
+
+  if (POSTHOG_SNIPPET && !html.includes('posthog.init(')) {
+    html = html.replace('</head>', `${POSTHOG_SNIPPET}${SR_TRACKERS_SNIPPET}\n</head>`);
+    console.log('  ✓ injected PostHog snippet into index.html');
+    patched = true;
+  }
+
+  // Inject build metadata so the SEO dashboard can compare the live commit
+  // against GitHub to determine deploy status.
+  if (!html.includes('name="build-commit"')) {
+    html = html.replace('</head>', `  <meta name="build-commit" content="${BUILD_COMMIT}">\n  <meta name="build-time" content="${BUILD_TIME}">\n</head>`);
+    console.log(`  ✓ injected build meta into index.html (${BUILD_COMMIT.slice(0, 7)})`);
+    patched = true;
+  }
+
+  if (patched) {
+    fs.writeFileSync(distIndex, html, 'utf8');
   }
 }
 console.log(`  ✓ dist/ (${PUBLISH.length} entries)`);
