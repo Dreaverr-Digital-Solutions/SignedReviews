@@ -19,7 +19,15 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const { execSync } = require('node:child_process');
 const { marked } = require('marked');
+
+// ── Build metadata: commit SHA for deploy-status comparison ──────────────────
+let BUILD_COMMIT = 'unknown';
+try {
+  BUILD_COMMIT = execSync('git rev-parse HEAD', { encoding: 'utf8', timeout: 5000 }).trim();
+} catch { /* not a git repo or git unavailable */ }
+const BUILD_TIME = new Date().toISOString();
 
 const ROOT = __dirname;
 const FILES_DIR = path.join(ROOT, 'files');
@@ -656,6 +664,8 @@ const SHARED_HEAD = ({ title, description, canonical, slug, pageType = 'website'
   <link rel="canonical" href="${canonical}">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
+  <meta name="build-commit" content="${BUILD_COMMIT}">
+  <meta name="build-time" content="${BUILD_TIME}">
 
   <meta property="og:type" content="${pageType}">
   <meta property="og:title" content="${escapeHtml(title)}">
