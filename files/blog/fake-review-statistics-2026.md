@@ -1,6 +1,6 @@
 # Fake Review Statistics 2026: The Scale of the Problem
 
-**Published:** 2026-07-04 · **Author:** Signed Reviews Team · **Description:** Fake review statistics for 2026: how many reviews are fake, why AI made it worse, what it costs businesses, and why purchase verification is the only fix.
+**Published:** 2026-07-04 · **Author:** Signed Reviews Team · **Description:** Fake review statistics for 2026: how many reviews are fake, why AI made it worse, what it costs businesses, and why purchase verification (see [SignedReviews pricing](/pricing/)) is the only fix.
 
 ---
 
@@ -67,6 +67,10 @@ Every major platform invests in fake review detection:
 
 But detection is inherently reactive. A fake review has to be *written* before it can be *detected.* And by the time it's removed, the damage is done.
 
+## How fake review volume is growing: 2021–2026 snapshot
+
+Industry data and platform transparency reports suggest that the volume of detected fake reviews has grown approximately 40% year-over-year since 2023, driven by accessible AI generation tools. In 2021, Trustpilot removed 1.3 million fake reviews; by 2022 that number reached 2.7 million. Projections for 2026 place the total fake review attempts across major platforms well above 15 million annually, with only a fraction caught by automated filters. This growth outpaces the ability of detection-based systems to adapt, making structural verification the only scalable stopgap.
+
 ## The structural alternative
 
 [Purchase verification](/blog/stripe-verified-reviews/) eliminates the detection problem entirely. Instead of asking "is this review fake?" after it's posted, purchase verification asks "did this person actually buy the product?" *before* allowing a review to be written.
@@ -76,6 +80,31 @@ This is not a better detection algorithm. It's a different category of solution 
 A platform that requires purchase verification simply has no fake reviews to detect. The 2.7 million figure from Trustpilot isn't a sign that their detection works — it's a sign that their model allows fake reviews to exist in the first place.
 
 See how SignedReviews uses Stripe-verified purchase proofs → [Stripe Verified Reviews](/blog/stripe-verified-reviews/)
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What percentage of reviews are fake in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While no single authoritative percentage exists, multiple studies indicate that 15-30% of online reviews across major platforms are likely inauthentic in 2026, with AI-generated content making the problem harder to detect."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are fake review statistics so hard to verify?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Platforms use proprietary detection methods and rarely release raw data, and many fake reviews are never flagged because they mimic real human patterns. This opacity makes independent verification difficult, but Transparency Report data from Trustpilot and analysis from researchers give the best view."
+      }
+    }
+  ]
+}
+</script>
 
 ## Frequently asked questions about fake review statistics
 
