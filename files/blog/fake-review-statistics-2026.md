@@ -1,6 +1,6 @@
 # Fake Review Statistics 2026: The Scale of the Problem
 
-**Published:** 2026-07-04 · **Author:** Signed Reviews Team · **Description:** Fake review statistics for 2026: how many reviews are fake, why AI made it worse, what it costs businesses, and why purchase verification (see [SignedReviews pricing](/pricing/)) is the only fix.
+**Published:** 2026-07-04 · **Author:** Signed Reviews Team · **Description:** Discover 2026 fake review statistics: 2.7M Trustpilot removals, AI-generated fraud surge, industry breakdowns, and why purchase verification (like SignedReviews) is the only structural solution.
 
 ---
 
@@ -45,6 +45,10 @@ Each major platform publishes transparency data on fake review volumes. Here are
 - **Tripadvisor**: Tripadvisor saw a **60% jump** in fraudulent review attempts linked to AI-generated text in 2025 compared to the prior year (Tripadvisor Transparency Report 2025).
 
 > **Note:** The figures above are drawn from platform-published transparency reports and third-party analyses available as of mid-2025. Verify against the latest reports for up-to-date numbers; the structural trend is clear — AI is accelerating fake review volume across every platform.
+
+## Fake review statistics 2026: regional differences
+
+Fake review prevalence varies sharply by market. US e‑commerce faces the highest absolute volume due to its scale, while EU regulators (under the Digital Services Act) are forcing faster platform transparency, creating a growing delta in detection rates. Asia‑Pacific sees rising social‑commerce‑driven fraud that often goes unreported.
 
 ## The cost to businesses
 
