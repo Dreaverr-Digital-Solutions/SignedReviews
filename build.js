@@ -1745,7 +1745,41 @@ function buildBlog() {
         /<meta name="twitter:image" content="[^"]*">/,
         `<meta name="twitter:image" content="${ogImage}">`
       );
-    const schemaTag = `\n  <script type="application/ld+json">${JSON.stringify(schema)}</script>\n</head>`;
+    // Per-post FAQPage schema (conditionally injected for targeted blog posts)
+    let faqPageSchema = '';
+    if (post.file === 'how-to-collect-reviews-for-saas.md') {
+      faqPageSchema = `\n  <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'How often should I ask for reviews?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Ask SaaS customers once per subscription milestone—end of free trial, first month payment, annual renewal—rather than after every interaction.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Can I automate review requests?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes, use Stripe webhooks to trigger review emails when a payment succeeds or integrate review platforms with your CRM so requests align with the subscription lifecycle.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: "What's the minimum number of reviews I need?",
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Aim for 10 reviews on your primary platform, then add one new verified review per week from paying users to keep social proof fresh.',
+            },
+          },
+        ],
+      })}</script>`;
+    }
+    const schemaTag = `\n  <script type="application/ld+json">${JSON.stringify(schema)}</script>${faqPageSchema}\n</head>`;
     writePage(post.slug, ogReplace.replace('</head>', schemaTag));
     console.log(`  ✓ ${post.slug}`);
   }

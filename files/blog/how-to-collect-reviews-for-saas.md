@@ -106,6 +106,19 @@ SaaS reviews need to appear where prospects make buying decisions — which is d
 
 ---
 
+## Common questions about collecting reviews for SaaS
+
+### How often should I ask for reviews?
+Ask SaaS customers once per subscription milestone—end of free trial, first month payment, annual renewal—rather than after every interaction. Over-requesting dilutes authenticity and annoys power users.
+
+### Can I automate review requests?
+Yes. Use Stripe webhooks to trigger review emails when a payment succeeds, or integrate review platforms with your CRM so requests sync with the subscription lifecycle automatically.
+
+### What's the minimum number of reviews I need?
+Aim for 10 reviews on your primary platform to establish baseline social proof. Then add a new review every week, prioritizing verified reviews from paying users.
+
+---
+
 ## Bottom line
 
 The way you collect reviews for SaaS is fundamentally different from e-commerce — the product experience is ongoing and the billing relationship is recurring. Every Stripe subscription payment is a verification opportunity. The best strategies to collect reviews for SaaS time requests around the subscription lifecycle, ask for specific use-case details, and verify against the payment processor — not the merchant's own customer database. [See how it works](/how-it-works/) for the full verification flow, or [check pricing](/pricing/) for plans with automated review collection.
