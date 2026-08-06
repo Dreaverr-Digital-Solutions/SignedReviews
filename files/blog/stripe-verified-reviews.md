@@ -1,4 +1,4 @@
-# Stripe Verified Reviews: Cryptographically Signed, Tamper-Evident Customer Feedback
+# Tamper Evident Reviews: Verified by Stripe
 
 **Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Stripe verified reviews are tamper evident reviews independently attested by Stripe. Each signed review is cryptographically tied to a completed payment, making fake feedback impossible. Discover how tamper-evident reviews work, why they outrank every other verified badge, and how to start collecting them today.
 
