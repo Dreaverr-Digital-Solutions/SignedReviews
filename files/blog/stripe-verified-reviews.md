@@ -1,6 +1,6 @@
-# Tamper Evident Reviews: Verified by Stripe
+# Cryptographically Signed Reviews: Tamper-Evident & Verified by Stripe
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Stripe verified reviews are tamper evident reviews independently attested by Stripe. Each signed review is cryptographically tied to a completed payment, making fake feedback impossible. Discover how tamper-evident reviews work, why they outrank every other verified badge, and how to start collecting them today.
+**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Stripe verified reviews are cryptographically signed reviews independently attested by Stripe. Each signed review is tamper-evident and tied to a completed payment, making them fraud‑proof and FTC‑compliant.
 
 ---
 
@@ -66,6 +66,8 @@ This isn't theoretical. In 2022 alone, Trustpilot removed 2.7 million fake revie
 Level 3 verification is reactive: platforms detect fake reviews after they're posted. Level 4 verification is structural: fake reviews can't be posted in the first place, because you can't fake a Stripe charge without paying real Stripe fees and risking account closure.
 
 ## What makes cryptographically signed reviews different from other verified reviews
+
+Learn how our platform ensures every review is a cryptographically signed review on our [How It Works](/how-it-works/) page.
 
 ### 1. Independent attestation
 
