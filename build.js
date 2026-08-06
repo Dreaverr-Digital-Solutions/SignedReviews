@@ -745,6 +745,7 @@ const FOOTER = `
         <li><a href="${B}features/">Features</a></li>
         <li><a href="${B}demo/">Demo</a></li>
         <li><a href="${B}integrations/">Integrations</a></li>
+        <li><a href="${B}integrations/woocommerce/">WooCommerce</a></li>
         <li><a href="${B}pricing/">Pricing</a></li>
       </ul>
     </div>
