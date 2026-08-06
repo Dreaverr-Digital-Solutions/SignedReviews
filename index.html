@@ -24,7 +24,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <!-- Preload key font for LCP (hero headline uses Instrument Serif) -->
+  <link rel="preload" as="font" href="https://fonts.gstatic.com/s/instrumentserif/v4/jiz2RF8MsmDkLJrwWkR6fv0N.woff2" crossorigin type="font/woff2">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" fetchpriority="high">
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
@@ -189,6 +191,11 @@
     .dark .logo-wordmark,
     .dark footer .logo-img { filter: brightness(0) invert(1); opacity: .92; }
 
+    /* Dark mode contrast fixes — navy-400/500 are designed for light bg,
+       need lighter variants on dark mode backgrounds */
+    .dark .text-navy-400 { color: #87a2c4; } /* navy-300 on dark */
+    .dark .text-navy-500 { color: #aab9dc; } /* navy-200 on dark */
+
     /* ── Phase 1: Scroll Reveal ─────────────────────────────── */
     .reveal {
       opacity: 0;
@@ -230,7 +237,7 @@
     .hero-sweep { position: absolute; top: -10%; left: -35%; width: 35%; height: 120%; z-index: 0; pointer-events: none;
       background: linear-gradient(100deg, transparent, rgba(212,196,102,.16), transparent);
       transform: skewX(-18deg); animation: heroSweep 7s ease-in-out infinite; }
-    @keyframes heroSweep { 0% { left: -35%; } 55%, 100% { left: 130%; } }
+    @keyframes heroSweep { 0% { transform: skewX(-18deg) translateX(0); } 55%, 100% { transform: skewX(-18deg) translateX(471%); } }
     @media (prefers-reduced-motion: reduce) { .hero-stripes, .hero-sweep { animation: none; } }
 
     /* ── Phase 4: Micro-interactions ───────────────────────── */
@@ -281,7 +288,10 @@
 
     /* ── CLS prevention ──────────────────────────────────────
        Reserve logo image height before the network image loads.
-       Avoids layout shift from collapsing img elements.         */
+       Avoids layout shift from collapsing img elements.
+       Also reserve hero height to prevent content shift during
+       font loading and animation.                                */
+    .hero-section { min-height: 450px; }
     .logo-img { display: block; width: auto; }
     nav .logo-icon     { height: 1.85rem; }                /* compact on mobile */
     nav .logo-wordmark { height: 1.25rem; }                /* compact on mobile */
@@ -727,7 +737,7 @@
 
   <script>
     !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_oks4oQLhwDpmgqTdiwx7tjJ3FZrZPZjDWtsYtvbXG9tu',{api_host:'https://signedreviews.com/ph',person_profiles:'identified_only',session_recording:{maskAllInputs:true},disable_session_recording:true,respect_dnt:true});
+    posthog.init('phc_oks4oQLhwDpmgqTdiwx7tjJ3FZrZPZjDWtsYtvbXG9tu',{api_host:'https://signedreviews.com/ph',person_profiles:'identified_only',session_recording:{maskAllInputs:true},disable_session_recording:true,disable_surveys:true,respect_dnt:true});
   </script>
 
 </head>
@@ -743,8 +753,8 @@
   <nav class="fixed top-0 left-0 right-0 z-50 nav-liquid-glass bg-white/80 dark:bg-navy-900/75 backdrop-blur-2xl border-b border-white/30 dark:border-white/8 transition-colors" aria-label="Primary">
     <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16 gap-2">
       <a href="/" class="flex items-center gap-2 shrink-0" aria-label="Signed Reviews — home">
-        <img src="images/SignedReviews_logo_only.webp" alt="" class="logo-img logo-icon object-contain">
-        <img src="images/SignedReviews_font_only.webp" alt="Signed Reviews" class="logo-img logo-wordmark object-contain">
+        <img src="images/SignedReviews_logo_only.webp" alt="" width="34" height="34" class="logo-img logo-icon object-contain">
+        <img src="images/SignedReviews_font_only.webp" alt="Signed Reviews" width="140" height="24" class="logo-img logo-wordmark object-contain">
       </a>
       <ul class="hidden md:flex items-center gap-1 list-none m-0 p-0">
         <li><a href="/pricing/" class="px-3 py-2 text-sm font-medium text-navy-700 dark:text-navy-100 hover:text-navy-900 dark:hover:text-white rounded-lg hover:bg-navy-50 dark:hover:bg-white/5 transition-colors">Pricing</a></li>
@@ -818,19 +828,19 @@
     <div class="max-w-5xl mx-auto px-5 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
       <div>
         <div class="font-serif text-4xl text-navy-500 dark:text-navy-200" data-counter="98" data-suffix="%">98%</div>
-        <div class="text-xs text-navy-400 mt-1.5 leading-snug">of consumers read reviews<br>before buying<br><span class="opacity-60">BrightLocal, 2023</span></div>
+        <div class="text-xs text-navy-400 dark:text-navy-300 mt-1.5 leading-snug">of consumers read reviews<br>before buying<br><span class="dark:text-navy-200">BrightLocal, 2023</span></div>
       </div>
       <div>
         <div class="font-serif text-4xl text-gold-500" data-counter="270" data-suffix="%">270%</div>
-        <div class="text-xs text-navy-400 mt-1.5 leading-snug">conversion lift from<br>verified reviews<br><span class="opacity-60">Spiegel Research Center</span></div>
+        <div class="text-xs text-navy-400 dark:text-navy-300 mt-1.5 leading-snug">conversion lift from<br>verified reviews<br><span class="dark:text-navy-200">Spiegel Research Center</span></div>
       </div>
       <div>
         <div class="font-serif text-4xl text-navy-500 dark:text-navy-200" data-counter="2.7" data-suffix="M" data-decimals="1">2.7M</div>
-        <div class="text-xs text-navy-400 mt-1.5 leading-snug">fake reviews removed<br>by Trustpilot in 2022<br><span class="opacity-60">Trustpilot Transparency Report</span></div>
+        <div class="text-xs text-navy-400 dark:text-navy-300 mt-1.5 leading-snug">fake reviews removed<br>by Trustpilot in 2022<br><span class="dark:text-navy-200">Trustpilot Transparency Report</span></div>
       </div>
       <div>
         <div class="font-serif text-4xl text-gold-500" data-counter="319" data-prefix="$">$319</div>
-        <div class="text-xs text-navy-400 mt-1.5 leading-snug">per month for<br>Trustpilot's Plus plan<br><span class="opacity-60">trustpilot.com/pricing</span></div>
+        <div class="text-xs text-navy-400 dark:text-navy-300 mt-1.5 leading-snug">per month for<br>Trustpilot's Plus plan<br><span class="dark:text-navy-200">trustpilot.com/pricing</span></div>
       </div>
     </div>
   </section>
@@ -1367,7 +1377,7 @@
       <div class="flex justify-center mb-8">
         <div class="relative">
           <div class="absolute inset-0 rounded-full blur-2xl" style="background:rgba(179,157,69,.12);transform:scale(1.5)"></div>
-          <img src="images/SignedReviews_logo_only.webp" alt="SignedReviews" class="relative w-20 h-20 object-contain opacity-90 float-anim">
+          <img src="images/SignedReviews_logo_only.webp" alt="SignedReviews" width="80" height="80" loading="lazy" decoding="async" class="relative w-20 h-20 object-contain opacity-90 float-anim">
         </div>
       </div>
 
@@ -1404,7 +1414,7 @@
         <!-- Brand block -->
         <div>
           <a href="/" class="flex items-center mb-3" aria-label="Signed Reviews — home">
-            <img src="images/SignedReviews_font_only.webp" alt="Signed Reviews" class="logo-img h-7 object-contain">
+            <img src="images/SignedReviews_font_only.webp" alt="Signed Reviews" width="140" height="28" loading="lazy" decoding="async" class="logo-img h-7 object-contain">
           </a>
           <p class="text-sm text-navy-500 dark:text-navy-300 leading-relaxed mb-3 max-w-sm">Purchase Verified, tamper-evident customer reviews — every one tied to a real Stripe transaction.</p>
           <p class="text-xs text-navy-400 dark:text-navy-400 leading-relaxed mb-3">Signed Reviews is a service operated by Paid Rightly LLC.</p>

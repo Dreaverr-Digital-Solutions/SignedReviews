@@ -9,30 +9,26 @@ Allow: /
 
 # ── AI Search Crawlers (visibility, no training) ──────────────────
 # Google AI Overviews — allow for AI search visibility, block training use
+# Note: Content-Signal (ai-train=no, use=reference) conveyed via HTTP header instead
 User-agent: Google-Extended
 Allow: /
-Content-Signal: ai-train=no, use=reference
 
 # ChatGPT / Perplexity — allow for search visibility, block training
 User-agent: GPTBot
 Allow: /
-Content-Signal: ai-train=no, use=reference
 
 # Common Crawl (powers many LLM training datasets)
 User-agent: CCBot
 Allow: /
-Content-Signal: ai-train=no, use=reference
 
 # ── AI Search Crawlers (continued) ─────────────────────────────────
 # Claude — allow for search visibility (Claude web search), block training
 User-agent: ClaudeBot
 Allow: /
-Content-Signal: ai-train=no, use=reference
 
 # Perplexity — allow for search visibility, block training
 User-agent: PerplexityBot
 Allow: /
-Content-Signal: ai-train=no, use=reference
 
 User-agent: Applebot-Extended
 Disallow: /
