@@ -1779,6 +1779,46 @@ function buildBlog() {
         ],
       })}</script>`;
     }
+    if (post.file === 'trustpilot-alternatives-for-ecommerce.md') {
+      faqPageSchema = `\n  <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Is Trustpilot free for ecommerce stores?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Trustpilot offers a free plan, but it is limited to basic manual review invitations with no automation, no Google Shopping integration, and no advanced analytics. The features most ecommerce stores actually need are gated behind Trustpilot\'s $299/month Standard plan.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'What is the cheapest Trustpilot alternative?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Judge.me is the cheapest at $0/month with unlimited reviews on Shopify. Loox starts at $9.99/month for automated photo reviews. Signed Reviews starts at $29/month with Stripe-verified purchase proof included.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Can I import my Trustpilot reviews?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes. You can export all your Trustpilot reviews via their API or by requesting a data export. Most alternative platforms support bulk CSV import with tools that preserve your review history, star ratings, and dates.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Do review widgets slow down my store?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Poorly implemented review widgets can add 300-500ms to page load time, but all modern platforms listed in this guide load widgets asynchronously. Judge.me, Loox, and Signed Reviews are particularly lightweight, typically adding under 100ms.',
+            },
+          },
+        ],
+      })}</script>`;
+    }
     const schemaTag = `\n  <script type="application/ld+json">${JSON.stringify(schema)}</script>${faqPageSchema}\n</head>`;
     writePage(post.slug, ogReplace.replace('</head>', schemaTag));
     console.log(`  ✓ ${post.slug}`);
