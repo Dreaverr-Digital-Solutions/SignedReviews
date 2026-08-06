@@ -1,6 +1,6 @@
 # Best Time to Ask for a Review: Data-Backed Timing That Maximizes Response Rates
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** When to ask customers for reviews to maximize response rates — segmented by product type (digital, physical, subscription, service).**
+**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Discover the best time to ask for a review: data-backed timing that maximizes response rates for digital products, physical goods, services, and more.
 
 ---
 
