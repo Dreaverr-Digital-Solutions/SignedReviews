@@ -1,6 +1,6 @@
 # How to Verify a Customer Actually Bought: 4 Methods, Ranked
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Four ways to verify a reviewer is a real customer — from email confirmation to processor attestation — ranked by how hard each is to fake.**
+**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** How to verify a customer actually bought: four methods ranked by falsifiability, from email confirmation to processor attestation. Learn which verification level fits your business.**
 
 ---
 
@@ -98,6 +98,12 @@ The economics of faking reviews at Level 4 are terrible: every fake review costs
 
 ---
 
+## How to verify a customer actually bought: a step‑by‑step approach
+
+Follow this progression to choose the right verification method for your business. Start with Level 1 for low‑risk testimonials, move to Level 3 for product reviews that influence purchase decisions, and adopt Level 4 when trust is your competitive advantage.
+
+---
+
 ## How to implement each method
 
 | Method | What you need |
@@ -119,3 +125,17 @@ If you process payments through Stripe, you already have the infrastructure for 
 - [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/) — the verification spectrum explained
 - [Transaction-Verified Reviews](/blog/transaction-verified-reviews/) — why Level 4 is the hardest to fake
 - [Purchase-Verified vs Email-Verified Reviews](/blog/purchase-verified-vs-email-verified-reviews/) — the difference that matters
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Verify a Customer Actually Bought",
+  "step": [
+    {"@type": "HowToStep", "text": "Email confirmation", "description": "Send a confirmation link; proves email ownership, not purchase."},
+    {"@type": "HowToStep", "text": "Invitation-only", "description": "Send review invitations to known customers; increases authenticity but still relies on email."},
+    {"@type": "HowToStep", "text": "Order matching", "description": "Match review request to a specific order record; confirms transaction exists."},
+    {"@type": "HowToStep", "text": "Processor attestation", "description": "Direct API check with payment processor; near‑impossible to fake."}
+  ]
+}
+</script>
