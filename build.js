@@ -1819,6 +1819,38 @@ function buildBlog() {
         ],
       })}</script>`;
     }
+    if (post.file === 'purchase-verified-vs-email-verified-reviews.md') {
+      faqPageSchema = `\n  <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: "What does 'verified buyer' mean on product reviews?",
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'It means the platform claims the reviewer bought the product. The credibility depends entirely on who attests to the purchase — an independent payment processor (strong) or only the merchant (weak). Always check which system is used.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'How does payment verification compare to email verification?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Email verification checks only that the reviewer owns an email address, which can be created in seconds. Payment verification confirms a real financial transaction occurred, making fake reviews far harder to publish.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Can a verified buyer badge be faked?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'A badge from an email-verified system can be faked with a disposable email. Processor-attested proof-of-purchase badges are structurally impossible to fake because they require a real, successful payment inside a secure payment network.',
+            },
+          },
+        ],
+      })}</script>`;
+    }
     const schemaTag = `\n  <script type="application/ld+json">${JSON.stringify(schema)}</script>${faqPageSchema}\n</head>`;
     writePage(post.slug, ogReplace.replace('</head>', schemaTag));
     console.log(`  ✓ ${post.slug}`);
