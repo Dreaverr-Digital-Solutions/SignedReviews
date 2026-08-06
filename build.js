@@ -742,7 +742,9 @@ const FOOTER = `
       <ul>
         <li><a href="${B}">Home</a></li>
         <li><a href="${B}#how-it-works">How it works</a></li>
-        <li><a href="${B}#features">Features</a></li>
+        <li><a href="${B}features/">Features</a></li>
+        <li><a href="${B}demo/">Demo</a></li>
+        <li><a href="${B}integrations/">Integrations</a></li>
         <li><a href="${B}pricing/">Pricing</a></li>
       </ul>
     </div>
@@ -763,7 +765,18 @@ const FOOTER = `
         <li><a href="${B}dmca/">DMCA Policy</a></li>
         <li><a href="${B}refund-policy/">Refund Policy</a></li>
         <li><a href="${B}subprocessors/">Sub-processors</a></li>
+        <li><a href="${B}chrome-extension/privacy/">Chrome Extension Privacy</a></li>
         <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;">Privacy choices</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <strong class="footer-heading">Comparisons</strong>
+      <ul>
+        <li><a href="${B}vs/trustpilot/">vs Trustpilot</a></li>
+        <li><a href="${B}vs/clutch/">vs Clutch</a></li>
+        <li><a href="${B}vs/sitejabber/">vs SiteJabber</a></li>
+        <li><a href="${B}vs/skeepers/">vs Skeepers</a></li>
+        <li><a href="${B}blog/">Blog</a></li>
       </ul>
     </div>
   </div>
