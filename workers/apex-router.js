@@ -30,6 +30,16 @@ const LANDING_PAGES = new Set([
   '/trust/',
   '/affiliates/',
   '/sitemap/',
+  '/subprocessors/',
+  '/features/',
+  '/demo/',
+  '/dpa/',
+  '/dmca/',
+  '/refund-policy/',
+  '/faq/',
+  '/docs/',
+  '/integrations/',
+  '/chrome-extension/',
 ]);
 
 // Prefixes that are always landing content (not business profiles).
@@ -260,6 +270,41 @@ POST https://api.signedreviews.com/v1/invitations
 Get your API keys at [platform.signedreviews.com](https://platform.signedreviews.com) → Settings → API Keys.
 
 [Full API documentation](https://signedreviews.com/api/) · [OpenAPI spec](https://signedreviews.com/openapi.json)
+`;
+
+MARKDOWN_PAGES['/subprocessors/'] = `# Sub-processors — Signed Reviews
+
+Signed Reviews is operated by Paid Rightly LLC. This page lists the third-party service providers ("sub-processors") we use to operate Signed Reviews.
+
+## Core Infrastructure
+
+| Sub-processor | Purpose | Data Categories | Location |
+|--------------|---------|-----------------|----------|
+| Railway | Cloud hosting and managed PostgreSQL database | All Service data at rest | United States |
+| Cloudinary | Image hosting for review photos and brand assets | User-uploaded images | United States |
+| Stripe | Business Stripe account linking (Connect OAuth or restricted API key). Read-only access to verify reviews. | Stripe account ID, transaction metadata | United States |
+| Resend | Transactional email delivery | Recipient email addresses, email content | United States |
+
+## AI Services
+
+| Sub-processor | Purpose | Data Categories |
+|--------------|---------|-----------------|
+| Anthropic (Claude) | Logo extraction from business websites | Public website HTML and images |
+| Google (Gemini) | Alternate AI provider for logo extraction | Public website HTML and images |
+
+**AI services are NOT used on review content, reviewer data, or payment data.**
+
+## Analytics
+
+| Sub-processor | Purpose | Data Categories | Location |
+|--------------|---------|-----------------|----------|
+| PostHog | Product analytics and session replay | Anonymized usage data, page views | United States (via Cloudflare proxy) |
+| Cloudflare Web Analytics | Privacy-first traffic analytics | Aggregated page view counts | Global |
+
+## Links
+- [Full list on signedreviews.com](https://signedreviews.com/subprocessors/)
+- [Privacy Policy](https://signedreviews.com/privacy/)
+- [DPA](https://signedreviews.com/dpa/)
 `;
 
 // ── Default markdown fallback ──────────────────────────────────────────────
