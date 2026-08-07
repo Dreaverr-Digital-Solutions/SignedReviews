@@ -76,6 +76,12 @@ This is the heart of the matter: **moving from "the merchant attests" to "the pr
 
 ---
 
+## Payment Verified Reviews: The Only Verification That Matters
+
+When ranking platforms, only payment verified reviews provide tamper-proof proof of purchase. Processor-attested verifications like Stripe's mean the merchant can't fake buyer credentials — making these reviews the gold standard for online trust. This is the core of the verified buyer meaning: the reviewer actually paid. [See how SignedReviews implements payment verified reviews.](/how-it-works/)
+
+---
+
 ## Why this matters for your business
 
 If you run a business that collects reviews, the verification level you offer is a **competitive signal.** See [how Signed Reviews works](/how-it-works/) for the full verification flow. Consider two competitors:
@@ -84,6 +90,8 @@ If you run a business that collects reviews, the verification level you offer is
 - **Your business** uses a Level 4 platform. Your reviews say "Verified by Stripe" — meaning Stripe independently confirmed a charge occurred.
 
 To a consumer, both say "Verified." To a sophisticated buyer — or a journalist, or a regulator, or a prospect comparison-shopping — the difference is stark. **One is self-attested by the business ecosystem. The other is attested by the payment network.**
+
+Consumers increasingly search for "payment verified reviews" before purchasing, making them a critical conversion factor. Learn how to [publish payment verified reviews](/pricing/) to build instant credibility.
 
 ---
 
