@@ -1,12 +1,14 @@
-# Post Purchase Review Email Template Guide: 5 Templates That Actually Work
+# Post Purchase Review Email Templates: 5 Templates That Drive Verified Reviews
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Need a post purchase review email template that gets responses? Copy-and-paste templates for e-commerce, SaaS, and services — plus timing, subject lines, and the one mistake that kills response rates.
+**Published:** 2026-07-24 · **Updated:** 2026-08-07 · **Author:** Signed Reviews Team · **Description:** Post purchase review email templates that drive verified reviews — copy-and-paste templates for e-commerce, SaaS, and services, with Stripe-triggered automation, timing rules, subject lines, and FTC compliance guidance.
 
 ---
 
 The best time to ask for a review is right after a customer has experienced your product — but not so soon that they haven't formed an opinion. The worst time is when they're annoyed by yet another marketing email. A well-crafted post purchase review email template can double your response rates — but only if you get the timing, structure, and ask right.
 
 This guide covers when to send, what to say, and how to structure your review request emails for maximum response rates. Every template is based on patterns that consistently outperform generic "please leave us a review" messages.
+
+**New in this update:** All five templates now include Stripe-automation notes — so if you use Stripe, you can trigger these emails automatically on charge events, skip the manual work, and collect transaction-verified reviews that carry a "Verified Stripe Purchase" badge instead of a generic "Verified Reviewer" tag.
 
 ## The golden rules of any post purchase review email template
 
@@ -64,6 +66,8 @@ Thanks,
 
 **Why it works:** Short, personal, and explicitly invites honest feedback. "Good, bad, or in-between" signals that you're not fishing for 5-star reviews, which increases both response rate and review authenticity. The founder's name as the sender (rather than a generic brand email) increases open rates.
 
+**Stripe automation:** Set this to trigger 3–7 days after a `charge.succeeded` event for physical products. The platform automatically pulls the product name from the Stripe charge metadata and inserts it into the subject line and body.
+
 ## Template 2: SaaS — subscription products
 
 **Subject:** [X] days in — how's it going?
@@ -88,6 +92,8 @@ P.S. If something isn't working, reply to this email. It goes directly to me, an
 
 **Why it works:** The P.S. is the highest-read element of any email. Making it a direct line to the founder converts people who wouldn't leave a review but might report a problem — reducing churn and negative reviews simultaneously. The "we built it to [specific problem]" line reminds them of the value proposition without being salesy.
 
+**Stripe automation:** For SaaS, trigger on `invoice.paid` rather than a one-time charge. Set a 14-day delay from the first successful subscription payment to give the customer time to experience the product. Subsequent renewal payments can trigger follow-up invitations if the customer hasn't left a review yet.
+
 ## Template 3: Services / freelancers / agencies
 
 **Subject:** Thanks for trusting us with [project/engagement]
@@ -110,6 +116,8 @@ Best,
 ---
 
 **Why it works:** Services are personal. The review request should be personal too — from the specific person they worked with, referencing the specific project. Generic service review requests ("Please review our company") get ignored. Specific ones get responses.
+
+**Stripe automation:** Trigger on a `charge.succeeded` event for the final project payment. If you invoice in milestones, set the trigger to fire after the final invoice is paid — not mid-project when the outcome is still uncertain.
 
 ## Template 4: Short follow-up (for non-responders)
 
@@ -179,12 +187,40 @@ One initial request + one follow-up, max. A third email is spam. If the customer
 
 A no-reply sender address says "we want your opinion but not your conversation." It depresses response rates and damages brand perception. Use a real address, even if it's just a team alias.
 
-## How Stripe-native review collection changes the equation
+## How Stripe-native review collection automates everything above
 
-If you process payments through Stripe, you can automate all of this. Every charge triggers a review invitation automatically. The timing rules above are configurable — same-day, delayed, or delivery-triggered. And because the invitation is tied to the Stripe transaction, the review is processor-attested: verified independently by Stripe, not just matched to an order in your system.
+If you process payments through Stripe, you can automate every template on this page. Here's how it works:
 
-The templates still matter. The timing still matters. But the automation removes the operational overhead — and the independent verification makes every review more credible once it arrives. <a href="/how-it-works/">See how the automated verification engine works</a> — one click and every post purchase review email template is sent at the right time, automatically.
+1. **Connect your Stripe account** via OAuth (one click, read-only permissions)
+2. **Configure your timing rules** — same-day, delayed, delivery-triggered, or custom
+3. **The platform detects every new charge** through Stripe's event system
+4. **Review invitations send automatically** at the timing you configured, with your template, your branding, and your sender name
+5. **Every review is tied to a Stripe charge** — the review carries a "Verified Stripe Purchase" badge, not a generic "Verified Reviewer" tag
+
+The templates above still matter — good copy drives response rates. The timing rules still matter — send too early and you annoy, too late and you're forgotten. But the automation removes the operational overhead of manually sending review requests, and the Stripe verification makes every review more credible when it arrives.
+
+### The Stripe events that can trigger review invitations
+
+| Stripe Event | When It Fires | Best For |
+|---|---|---|
+| `charge.succeeded` | A one-time payment succeeds | Physical products, digital downloads, services |
+| `invoice.paid` | A subscription invoice is paid | SaaS, memberships, recurring billing |
+| `checkout.session.completed` | A Stripe Checkout session completes | Checkout-based flows with metadata |
+| `payment_intent.succeeded` | A PaymentIntent succeeds | Custom payment flows |
+
+### Why Stripe-triggered emails beat manual sends
+
+| | Manual Email | Stripe-Triggered |
+|---|---|---|
+| **Timing accuracy** | Whenever you remember to send | Within minutes of the charge clearing |
+| **Personalization** | Generic "Dear customer" | Auto-populated with product name, charge amount, date |
+| **Verification** | Email confirmed only | Stripe charge ID cryptographically bound to review |
+| **Refund handling** | Manual — you must track refunds | Automatic — review hidden on refund |
+| **Scale** | Breaks down above ~50 orders/month | Handles any volume |
+| **FTC compliance** | Depends on your process | Built in — no pre-delivery reviews, no review gating |
+
+The combination of automated timing + transaction verification means every review on your page is backed by a real Stripe charge. No email-only "verified" badge. No manual invitation list. No wondering whether the reviewer actually bought something. See [Stripe proof of purchase verification](/blog/stripe-proof-of-purchase-verification/) for how the verification architecture works end-to-end.
 
 ---
 
-**Further reading:** [How to Collect Verified Customer Reviews](/blog/how-to-collect-verified-customer-reviews/) · [Stripe Verified Reviews](/blog/stripe-verified-reviews/) · [How Stripe Review Verification Works](/blog/how-stripe-review-verification-works/)
+**Further reading:** [How to Collect Verified Customer Reviews](/blog/how-to-collect-verified-customer-reviews/) · [Stripe Verified Reviews](/blog/stripe-verified-reviews/) · [Stripe Proof of Purchase Verification](/blog/stripe-proof-of-purchase-verification/) · [How Stripe Review Verification Works](/blog/how-stripe-review-verification-works/)

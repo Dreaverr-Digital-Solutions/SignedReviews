@@ -2677,6 +2677,48 @@ function buildComparisonClutch() {
   console.log('  ✓ /vs/clutch/');
 }
 
+function buildComparisonPodium() {
+  const slug = '/vs/podium/';
+  const body = `<article class="prose">
+    <p>Podium is the leader in SMS-based review collection for local businesses — text invitations, multi-platform publishing, and deep Google Reviews integration. But its verification is email/SMS-based, not transaction-based. Here's how they compare.</p>
+    <div class="vs-table-wrap" style="overflow-x:auto;">
+    <table class="vs-table">
+      <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Podium</th></tr></thead>
+      <tbody>
+        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe — independent payment processor. Processor-attested (Level 4).</td><td class="lose">Email/SMS — reviewer confirms they received a text or email. No transaction verification.</td></tr>
+        <tr><td>Fake review prevention</td><td class="win">Structural — no Stripe charge = no review. Faking requires real Stripe payments with real fees.</td><td class="lose">Invitation-only — reduces fake reviews by limiting who can be invited, but provides no transaction proof.</td></tr>
+        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native — one-click Stripe OAuth. No feed setup, no API configuration.</td><td class="win">Multi-platform — integrates with Google, Facebook, and 100+ review sites. Broadest distribution in the category.</td></tr>
+        <tr><td>Google Reviews / Local SEO</td><td class="lose">Not a core focus — signed reviews display on your own page and via API/embeds.</td><td class="win">Deep Google integration — Podium is built around driving Google Reviews, which directly impacts local SEO and map pack rankings.</td></tr>
+        <tr class="highlight-row"><td>Cryptographic proof</td><td class="win">Yes — every review carries a tamper-evident digital signature. Independently verifiable.</td><td class="lose">No — reviews are database records with no cryptographic signature.</td></tr>
+        <tr><td>Review invitation method</td><td class="tie">Email — Stripe-triggered, automated. Sends to the payment email on file.</td><td class="win">SMS + Email — text messaging is Podium's core differentiator. SMS open rates (~98%) far exceed email (~20%).</td></tr>
+        <tr class="highlight-row"><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve pricing.</td><td class="lose">Sales-quote — Podium does not publish pricing. User reports suggest $249-$499+/mo with annual contracts.</td></tr>
+        <tr><td>Target customer</td><td class="tie">E-commerce, SaaS, and services on Stripe — any business that processes payments online.</td><td class="win">Local service businesses — dentists, plumbers, auto shops, medical practices. Brick-and-mortar focus.</td></tr>
+        <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic — Stripe refund webhook hides refunded reviews immediately.</td><td class="lose">Manual — no automatic refund detection. Reviews from refunded customers stay up unless manually removed.</td></tr>
+        <tr><td>Review ownership</td><td class="win">Business owns the reviews — exportable, portable, accessible via API.</td><td class="win">Business owns the reviews — Podium's model is merchant-owned reviews.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="verdict">
+      <h3>When to choose Signed Reviews</h3><p>If you sell online and process payments through Stripe, Signed Reviews gives you something Podium can't: transaction-attested verification with cryptographic proof. Every review is backed by a real Stripe charge — not just a text message click. If you want reviews that say "Verified Stripe Purchase" rather than "Verified Reviewer," and transparent pricing over sales calls, Signed Reviews is the stronger choice.</p>
+    </div>
+    <div class="verdict verdict-alt">
+      <h3>When Podium may be a better fit</h3><p>If you run a brick-and-mortar local business (dental practice, auto shop, medical office) where Google Reviews and local SEO are your top priority, Podium's SMS-based invitations and deep Google integration are hard to beat. Text messages get read. Google Reviews drive map-pack rankings. Multi-location management is purpose-built for businesses with 5-500 locations. If you don't sell online and don't use Stripe, Podium is the relevant choice — but you won't get transaction verification.</p>
+    </div>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
+    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/judge-me/">Signed Reviews vs Judge.me</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews</a></p>
+  </article>`;
+  const html = page({
+    title: 'Signed Reviews vs Podium — Comparison',
+    description: 'Signed Reviews vs Podium: Podium dominates SMS-based review collection for local businesses, but Signed Reviews adds Stripe-verified, cryptographically signed reviews. 10-dimension comparison for local service businesses.',
+    slug,
+    hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Podium', subtitle: 'Podium leads on SMS review collection for local businesses. We lead on transaction-attested, cryptographically signed reviews.' },
+    body,
+    extraStyle: COMPARISON_STYLES,
+  });
+  writePage(slug, html);
+  console.log('  ✓ /vs/podium/');
+}
+
 // ── Learn: canonical explainer (citation target for /vs/* + blog) ─────────────
 // Answer-first structure: the opening paragraph is a self-contained, quotable
 // definition so AI answer engines (Google AI Overviews, ChatGPT, Perplexity) can
@@ -3749,6 +3791,7 @@ buildComparisonSkeepers();
 buildComparisonGoogleReviews();
 buildComparisonYelp();
 buildComparisonClutch();
+buildComparisonPodium();
 buildLearn();
 buildLearnFakeReviewsWork();
 buildLearnFtcRules();
