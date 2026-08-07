@@ -2698,6 +2698,8 @@ function buildComparisonPodium() {
   const slug = '/vs/podium/';
   const body = `<article class="prose">
     <p>Podium is the leader in SMS-based review collection for local businesses — text invitations, multi-platform publishing, and deep Google Reviews integration. But its verification is email/SMS-based, not transaction-based. Here's how they compare.</p>
+    <h2>Why businesses search for a Podium alternative</h2>
+    <p>Podium dominates SMS reviews, but some businesses want transaction-attested proof that reviews are from real customers. <a href="${B}pricing/">A Podium alternative</a> like Signed Reviews <a href="${B}features/">uses Stripe verification</a> to prevent fake feedback that SMS invites can't guarantee.</p>
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Podium</th></tr></thead>
@@ -2716,7 +2718,7 @@ function buildComparisonPodium() {
     </table>
     </div>
     <div class="verdict">
-      <h3>When to choose Signed Reviews</h3><p>If you sell online and process payments through Stripe, Signed Reviews gives you something Podium can't: transaction-attested verification with cryptographic proof. Every review is backed by a real Stripe charge — not just a text message click. If you want reviews that say "Verified Stripe Purchase" rather than "Verified Reviewer," and transparent pricing over sales calls, Signed Reviews is the stronger choice.</p>
+      <h3>When to choose Signed Reviews</h3><p>If you sell online and process payments through Stripe, Signed Reviews gives you something Podium can't: transaction-attested verification with cryptographic proof. Every review is backed by a real Stripe charge — not just a text message click. If you want reviews that say "Verified Stripe Purchase" rather than "Verified Reviewer," and transparent pricing over sales calls, Signed Reviews is the stronger choice. If you need more than an SMS-based Podium alternative, choose Signed Reviews for Stripe-attested trust.</p>
     </div>
     <div class="verdict verdict-alt">
       <h3>When Podium may be a better fit</h3><p>If you run a brick-and-mortar local business (dental practice, auto shop, medical office) where Google Reviews and local SEO are your top priority, Podium's SMS-based invitations and deep Google integration are hard to beat. Text messages get read. Google Reviews drive map-pack rankings. Multi-location management is purpose-built for businesses with 5-500 locations. If you don't sell online and don't use Stripe, Podium is the relevant choice — but you won't get transaction verification.</p>
@@ -2725,14 +2727,33 @@ function buildComparisonPodium() {
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/judge-me/">Signed Reviews vs Judge.me</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews</a></p>
   </article>`;
   const html = page({
-    title: 'Signed Reviews vs Podium — Comparison',
-    description: 'Signed Reviews vs Podium: Podium dominates SMS-based review collection for local businesses, but Signed Reviews adds Stripe-verified, cryptographically signed reviews. 10-dimension comparison for local service businesses.',
+    title: 'Podium Alternative: Signed Reviews vs Podium Comparison 2025',
+    description: 'Looking for a Podium alternative? Compare Signed Reviews vs Podium: Stripe-verified, cryptographically signed reviews vs SMS-based collection. Full 10-dimension breakdown for local service businesses.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Podium', subtitle: 'Podium leads on SMS review collection for local businesses. We lead on transaction-attested, cryptographically signed reviews.' },
     body,
     extraStyle: COMPARISON_STYLES,
   });
-  writePage(slug, html);
+  // Inject WebPage + FAQPage schema for "podium alternative" keyword targeting
+  const podiumSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Podium Alternative: Signed Reviews vs Podium',
+    description: 'Looking for a Podium alternative? Compare Signed Reviews vs Podium: Stripe-verified, cryptographically signed reviews vs SMS-based collection.',
+    mainEntity: {
+      '@type': 'FAQPage',
+      mainEntity: [{
+        '@type': 'Question',
+        name: 'What is a good Podium alternative?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Signed Reviews is a Stripe-verified review platform that ensures only paying customers can leave reviews, unlike Podium\'s SMS-based invitations.',
+        },
+      }],
+    },
+  };
+  const podiumHtml = html.replace('</head>', `\n  <script type="application/ld+json">${JSON.stringify(podiumSchema)}</script>\n</head>`);
+  writePage(slug, podiumHtml);
   console.log('  ✓ /vs/podium/');
 }
 
