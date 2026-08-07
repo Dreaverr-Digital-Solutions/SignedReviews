@@ -1697,7 +1697,7 @@ function buildBlog() {
       const descMatch = raw.match(/\*\*Description:\*\*\s*(.+)$/m);
       let desc;
       if (descMatch) {
-        desc = descMatch[1].replace(/[#*\[\]]/g, '').replace(/\s+/g, ' ').trim().slice(0, 160);
+        desc = descMatch[1].replace(/[#*\[\]]/g, '').replace(/\s+/g, ' ').trim();
       } else {
         const firstPara = (contentBody.trim().split(/\n\n/)[0] || '').replace(/[#*`[\]()]/g, '').replace(/\s+/g, ' ').trim();
         desc = firstPara ? firstPara.slice(0, 157) + '…' : title;
@@ -1742,7 +1742,7 @@ function buildBlog() {
     </article>`;
 
     const html = page({
-      title: `${post.title} — Signed Reviews Blog`,
+      title: post.title.includes('Signed Reviews') ? post.title : `${post.title} — Signed Reviews Blog`,
       description: post.desc,
       slug: post.slug,
       pageType: 'article',
