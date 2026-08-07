@@ -1,6 +1,6 @@
-# What Is a Verified Review? Complete Guide | Signed Reviews
+# Verified Review Meaning: What Is a Verified Review? Complete Guide | Signed Reviews
 
-**Published:** 2026-07-04 · **Updated:** 2026-07-28 · **Author:** Signed Reviews Team · **Description:** Verified vs unverified reviews: what's the real difference? Learn how proof of purchase separates genuine feedback from noise, and why it's crucial for trust and SEO.
+**Published:** 2026-07-04 · **Updated:** 2026-07-28 · **Author:** Signed Reviews Team · **Description:** Verified review meaning: a complete guide. Learn how verified reviews work, why proof of purchase matters, and what separates them from unverified feedback.
 
 ---
 
@@ -95,6 +95,10 @@ Learn more: [What does verified buyer mean?](/learn/what-does-verified-buyer-mea
 ### Why the difference matters for SEO and conversions
 
 Search engines and shoppers both penalize unverified reviews. Google's review guidelines explicitly warn against reviews that lack proof of purchase. Fake unverified reviews can trigger algorithm demotions, while verified reviews—especially from Stripe-confirmed buyers—help your pages earn rich snippets and higher click‑through rates. On the conversion side, a 2023 BrightLocal survey found that 62% of consumers said they would not buy from a business if they suspected fake reviews. The practical difference between verified and unverified reviews is not just theoretical; it directly impacts your rankings and revenue. For a real‑world example, see [how purchase‑verified reviews outperform email‑verified ones](/blog/purchase-verified-vs-email-verified-reviews/).
+
+## Verified review meaning in the age of AI‑generated fakes
+
+AI now creates convincing fake reviews at scale — full paragraphs with realistic sentiment, specific details, and natural variation. In this landscape, the verified review meaning sharpens to one non‑negotiable: hard proof of purchase is the only reliable signal left. Signed Reviews blocks AI‑generated abuse at its root by requiring a Stripe‑confirmed transaction before any review can be written — [see how SignedReviews prevents AI‑generated reviews](/how-it-works/).
 
 ## The future of reviews is verified
 
