@@ -45,7 +45,7 @@ SaaS companies are increasingly looking for Trustpilot alternatives for SaaS bec
 
 | Verification | Level 4 — Processor-attested (Stripe) |
 | Stripe Billing | Native — subscriptions, invoices, upgrades, cancellations |
-| Starting price | Free (25 reviews/mo) / $29–$199/mo |
+| Starting price | Free (up to 10 verified reviews) / $29–$199/mo |
 
 The only platform built specifically for Stripe businesses — which describes almost every SaaS company. Connects via read-only OAuth. Understands Stripe Billing natively: invoices, subscriptions, proration, upgrades, downgrades. Every subscription payment is a new verification opportunity. Reviews are cryptographically signed.
 
@@ -125,7 +125,7 @@ If you're evaluating Trustpilot alternatives for SaaS, here's how the two compar
 | Dimension | Trustpilot | Signed Reviews |
 |-----------|-----------|----------------|
 | **Verification method** | Level 3 — Merchant-supplied (invited by business email) | Level 4 — Processor-attested (Stripe confirms each charge) |
-| **SaaS pricing** | $299/mo (Growth tier with invitations) | Free (25 reviews/mo) / $29–$199/mo |
+| **SaaS pricing** | $299/mo (Growth tier with invitations) | Free (up to 10 verified reviews) / $29–$199/mo |
 | **Stripe Billing integration** | ❌ No native integration | ✅ Native — subscriptions, invoices, upgrades, cancellations |
 | **Subscription-aware reviews** | ❌ One-time purchase model | ✅ Recurring verification events — 24 payments = 24 data points |
 | **Fake review prevention** | Reactive — automated detection + moderation | Structural — no Stripe charge = no invitation = no review |
@@ -152,7 +152,7 @@ Yes — and this is where most Trustpilot alternatives for SaaS fall short. Plat
 
 ### Are there any free Trustpilot alternatives for SaaS?
 
-Trustpilot's free plan doesn't include review invitations — it's a reputation-monitoring tool, not a review-collection one. Several alternatives offer genuine free tiers: Signed Reviews includes 25 verified review invitations per month on its free plan; G2 and Capterra are free to list your product (though review collection is through their own mechanisms); and Product Hunt reviews are free but unverified. For SaaS startups that want to start collecting verified reviews without a monthly commitment, a free plan with real invitation capability is the most practical starting point.
+Trustpilot's free plan doesn't include review invitations — it's a reputation-monitoring tool, not a review-collection one. Several alternatives offer genuine free tiers: Signed Reviews includes up to 10 verified reviews on its free plan; G2 and Capterra are free to list your product (though review collection is through their own mechanisms); and Product Hunt reviews are free but unverified. For SaaS startups that want to start collecting verified reviews without a monthly commitment, a free plan with real invitation capability is the most practical starting point.
 
 <script type="application/ld+json">
 {
@@ -164,7 +164,7 @@ Trustpilot's free plan doesn't include review invitations — it's a reputation-
       "name": "What is the best Trustpilot alternative for SaaS startups?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For SaaS startups on Stripe, Signed Reviews offers the strongest verification at the lowest starting price — free for 25 reviews/month. It verifies reviews against Stripe charges, integrates natively with Stripe Billing for subscription-aware verification, and publishes transparent pricing. Pair with a G2 profile for discovery visibility."
+        "text": "For SaaS startups on Stripe, Signed Reviews offers the strongest verification at the lowest starting price — free for up to 10 verified reviews. It verifies reviews against Stripe charges, integrates natively with Stripe Billing for subscription-aware verification, and publishes transparent pricing. Pair with a G2 profile for discovery visibility."
       }
     },
     {
@@ -188,7 +188,7 @@ Trustpilot's free plan doesn't include review invitations — it's a reputation-
       "name": "Are there any free Trustpilot alternatives for SaaS?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Trustpilot's free plan lacks review invitations. Signed Reviews offers 25 verified review invitations/month on its free plan. G2 and Capterra are free to list. Product Hunt reviews are free but unverified. For SaaS startups, a free plan with real invitation capability is the most practical option."
+        "text": "Yes. Trustpilot's free plan lacks review invitations. Signed Reviews offers up to 10 verified reviews on its free plan. G2 and Capterra are free to list. Product Hunt reviews are free but unverified. For SaaS startups, a free plan with real invitation capability is the most practical option."
       }
     }
   ]

@@ -47,7 +47,7 @@ Yotpo is powerful for enterprise DTC brands, but its pricing, complexity, and en
 ### 1. Signed Reviews — ★ Best for Stripe businesses
 
 | Verification level | **Level 4 — Processor-attested** |
-| Starting price | Free (up to 25 reviews/mo) / $29–$199/mo |
+| Starting price | Free (up to 10 verified reviews) / $29–$199/mo |
 | Stripe-native | ✅ Yes — one-click OAuth, read-only |
 | Review ownership | ✅ You own your reviews |
 | Best for | SaaS, e-commerce, services on Stripe |
@@ -56,7 +56,7 @@ Signed Reviews is the only platform in this list that operates at **Level 4 — 
 
 **Why it ranks #1:** If you process payments through Stripe, this is the only review tool purpose-built for you. The verification model is FTC-compliant by construction — you can't fake a review without faking a real Stripe charge, which costs Stripe fees and risks account closure. The free plan is genuinely usable for small businesses.
 
-**Pricing:** Free (self-service, 25 reviews/mo) → Starter $29/mo (automation, 100 reviews/mo) → Pro $79/mo (250 reviews/mo) → Scale $199/mo (1,000 reviews/mo).
+**Pricing:** Free (self-service, up to 10 verified reviews) → Starter $29/mo (automation, 100 reviews/mo) → Pro $79/mo (250 reviews/mo) → Scale $199/mo (1,000 reviews/mo).
 
 → [Signed Reviews vs Trustpilot](/vs/trustpilot/) — full head-to-head comparison
 
@@ -264,7 +264,7 @@ If the answer is "the merchant," you're at Level 3 — and so is every major pla
     "name": "What is the best Feefo alternative for small businesses?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "The best Feefo alternative for small businesses is Signed Reviews. Unlike Feefo's sales data feed integration, Signed Reviews uses automatic Stripe payment verification to confirm every reviewer is a real customer — no manual integration required. Signed Reviews offers transparent, affordable pricing with a free plan starting at 25 reviews per month. See the full comparison at /vs/feefo/."
+      "text": "The best Feefo alternative for small businesses is Signed Reviews. Unlike Feefo's sales data feed integration, Signed Reviews uses automatic Stripe payment verification to confirm every reviewer is a real customer — no manual integration required. Signed Reviews offers transparent, affordable pricing with a free plan to collect up to 10 verified reviews. See the full comparison at /vs/feefo/."
     }
   }]
 }

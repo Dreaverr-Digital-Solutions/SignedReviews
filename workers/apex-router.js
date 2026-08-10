@@ -194,7 +194,7 @@ MARKDOWN_PAGES['/pricing/'] = `# Signed Reviews — Pricing
 
 | Tier | Price (/mo) | Invitations | Key Features |
 |------|------------|-------------|--------------|
-| Free | $0 | 50/mo | Public profile, verified badge, Stripe connection |
+| Free | $0 | 10 verified | Public profile, verified badge, Stripe connection |
 | Starter | $29 | 250/mo | + Email invitations, custom branding, review widgets |
 | Pro | $79 | 1,000/mo | + API access, webhooks, priority support, team seats |
 | Scale | $199 | 5,000/mo | + SSO, dedicated support, SLA, custom integrations |

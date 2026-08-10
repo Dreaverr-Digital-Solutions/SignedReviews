@@ -65,7 +65,7 @@ See how our pricing scales with your SaaS revenue on the [pricing page](/pricing
 
 **Best for:** SaaS companies on Stripe who want review authenticity as a competitive advantage. Early-stage to growth-stage.
 
-**Pricing:** Free (25 invitations/mo) → Starter $29/mo (100/mo) → Growth $79/mo (500/mo) → Scale $199/mo (2,000/mo).
+**Pricing:** Free (up to 10 verified reviews) → Starter $29/mo (100/mo) → Growth $79/mo (500/mo) → Scale $199/mo (2,000/mo).
 
 [Full Stripe Verified Reviews guide →](/blog/stripe-verified-reviews/)
 
