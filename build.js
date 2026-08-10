@@ -3663,6 +3663,22 @@ const MARKETING_PAGES = [
     subtitle: 'See Signed Reviews in action. Book a personalized walkthrough to learn how verified reviews build trust for your Stripe business.',
     metaDesc: 'Request a personalized demo of Signed Reviews. See how Stripe-verified, cryptographically signed reviews work in a live walkthrough.',
   },
+  {
+    slug: '/api/',
+    file: 'api.md',
+    title: 'Public API',
+    eyebrow: 'API Reference',
+    subtitle: 'Fetch verified reviews, ratings, and business profile data into your own site. Read-only REST API with publishable-key auth — safe for browser use.',
+    metaDesc: 'Signed Reviews Public API reference: REST endpoints for verified reviews and business profiles. Publishable-key authentication, rate limits, and code examples.',
+  },
+  {
+    slug: '/docs/',
+    file: 'docs.md',
+    title: 'Documentation',
+    eyebrow: 'Docs',
+    subtitle: 'Integrate Signed Reviews into your business. Covers Stripe connection, review collection, public pages, API, webhooks, and team management.',
+    metaDesc: 'Signed Reviews documentation: getting started guide, API reference, webhook setup, review submission flow, team access, and compliance information.',
+  },
 ];
 
 function buildMarketingPages() {
@@ -3687,24 +3703,7 @@ function buildMarketingPages() {
 // Each stub page gets a unique server-rendered <title>, <meta description>, and
 // <link rel="canonical"> so Google can index them meaningfully. Replace with full
 // content pages in Phase 2.
-const COMING_SOON_PAGES = [
-  {
-    slug: '/docs/',
-    title: 'Documentation — Signed Reviews',
-    desc: 'Technical documentation for Signed Reviews: API reference, integration guides, and webhook configuration.',
-    eyebrow: 'Docs',
-    heading: 'Documentation',
-    subtitle: 'API reference, integration guides, and technical documentation.',
-  },
-  {
-    slug: '/api/',
-    title: 'API Reference — Signed Reviews',
-    desc: 'Signed Reviews REST API reference: authentication, endpoints, rate limits, and code examples for integrating review collection into your app.',
-    eyebrow: 'API',
-    heading: 'API Reference',
-    subtitle: 'Integrate Signed Reviews into your application with our REST API.',
-  },
-];
+const COMING_SOON_PAGES = [];
 
 function buildComingSoon() {
   for (const p of COMING_SOON_PAGES) {
