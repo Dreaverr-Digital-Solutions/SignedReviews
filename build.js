@@ -3894,6 +3894,11 @@ for (const entry of PUBLISH) {
   }
 }
 
+	// Redirect stale GitHub Pages project-URL paths (e.g.
+	// /SignedReviews/blog/<E2><80><A6>) to the custom-domain root equivalents so
+	// Googlebot stops reporting them as 404s.
+	fs.writeFileSync(path.join(DIST_DIR, '_redirects'),
+		'/SignedReviews/* /:splat 301\n');
 // The home page (index.html) is bespoke and not generated through SHARED_HEAD,
 // so inject PostHog + build metadata into its dist copy here (keeps the source
 // file clean and the key in one place). No-op when POSTHOG_KEY is unset.
