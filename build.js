@@ -1203,7 +1203,7 @@ function buildPricing() {
             <span class="amount">$0</span>
             <span class="period">forever</span>
           </div>
-          <span class="tier-invitations">Unlimited self-service reviews</span>
+          <span class="tier-invitations">Self-service · unlimited</span>
         </div>
         <p class="tier-cta">
           <a class="btn btn-secondary" href="${PLATFORM_URL}" rel="noopener">Start free</a>
