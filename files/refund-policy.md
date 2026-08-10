@@ -23,7 +23,7 @@ You may cancel a paid plan at any time from your account or by emailing **suppor
 On full account deletion:
 
 - Your business user account is soft-deleted and your personal identifiers are anonymized
-- Reviews and transaction records remain in the Service in anonymized form, as described in our [Privacy Policy](https://signedreviews.com/privacy) and [Terms of Service](https://signedreviews.com/terms)
+- Reviews and transaction records remain in the Service in anonymized form, as described in our [Privacy Policy](https://signedreviews.com/privacy/) and [Terms of Service](https://signedreviews.com/terms/)
 - Your Stripe connection is revoked and future review requests stop being triggered
 
 ---
@@ -41,7 +41,7 @@ We process approved refunds to the original payment method. Refund timing depend
 
 ## Disputes about charges
 
-If you believe a charge is incorrect, please contact **support@signedreviews.com** within 60 days of the charge so we can investigate. We will work in good faith to resolve billing disputes before any formal dispute resolution process begins under our [Terms of Service](https://signedreviews.com/terms).
+If you believe a charge is incorrect, please contact **support@signedreviews.com** within 60 days of the charge so we can investigate. We will work in good faith to resolve billing disputes before any formal dispute resolution process begins under our [Terms of Service](https://signedreviews.com/terms/).
 
 ---
 

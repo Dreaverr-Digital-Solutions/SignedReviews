@@ -162,7 +162,7 @@ If you are a reviewer, your review — including any content, photos, display na
 
 ### 5.2 With sub-processors
 
-We use a small number of service providers to operate the Service. A complete, current list is maintained at [signedreviews.com/subprocessors](https://signedreviews.com/subprocessors). At the time this policy was last updated, our sub-processors are:
+We use a small number of service providers to operate the Service. A complete, current list is maintained at [signedreviews.com/subprocessors](https://signedreviews.com/subprocessors/). At the time this policy was last updated, our sub-processors are:
 
 - **Stripe** (payments and transaction data)
 - **Resend** (transactional email delivery)

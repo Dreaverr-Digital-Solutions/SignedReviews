@@ -7,7 +7,7 @@ These Terms of Service ("Terms") are a binding legal agreement between you and *
 
 Signed Reviews is a service operated by Paid Rightly LLC.
 
-**By registering for an account, accessing the Service, or submitting a review through the Service, you agree to these Terms and to our [Privacy Policy](https://signedreviews.com/privacy).** If you do not agree, do not use the Service.
+**By registering for an account, accessing the Service, or submitting a review through the Service, you agree to these Terms and to our [Privacy Policy](https://signedreviews.com/privacy/).** If you do not agree, do not use the Service.
 
 > **Important:** Section 18 contains an agreement to resolve most disputes through binding arbitration on an individual basis rather than in court, and a waiver of the right to participate in class actions and jury trials. Please read it carefully.
 
@@ -199,7 +199,7 @@ We may suspend or terminate accounts that violate these restrictions.
 If you use the public API, you additionally agree that:
 
 - Your API key is confidential; sharing it is a breach of these Terms
-- The public API is rate limited, and the limit depends on your plan (see our [Pricing page](https://signedreviews.com/pricing)); excessive use may result in throttling or suspension
+- The public API is rate limited, and the limit depends on your plan (see our [Pricing page](https://signedreviews.com/pricing/)); excessive use may result in throttling or suspension
 - You are responsible for ensuring any review data you display via the API on your site complies with applicable law (including disclosure rules for endorsements)
 
 ---
@@ -243,7 +243,7 @@ On termination, your right to use the Service ends immediately. Sections of thes
 
 ## 13. Third-party services
 
-The Service integrates with third-party services, including Stripe, Resend, Cloudinary, Anthropic, OAuth providers (Google, GitHub, LinkedIn, Microsoft, Facebook, Twitter/X, Instagram), and others listed at [signedreviews.com/subprocessors](https://signedreviews.com/subprocessors). Your use of those services is governed by their own terms. We are not responsible for the acts, omissions, or policies of third-party services.
+The Service integrates with third-party services, including Stripe, Resend, Cloudinary, Anthropic, OAuth providers (Google, GitHub, LinkedIn, Microsoft, Facebook, Twitter/X, Instagram), and others listed at [signedreviews.com/subprocessors](https://signedreviews.com/subprocessors/). Your use of those services is governed by their own terms. We are not responsible for the acts, omissions, or policies of third-party services.
 
 When we process personal data of your customers (reviewers) on your behalf, we act as your processor under GDPR Article 28 and equivalent privacy laws. The terms of that processing relationship are set out in our [Data Processing Agreement](/dpa/), which is incorporated into these Terms by reference and applies automatically when you accept these Terms.
 
