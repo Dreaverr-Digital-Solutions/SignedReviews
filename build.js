@@ -1335,7 +1335,7 @@ function buildPricing() {
         </tr>
         <tr>
           <th scope="row">Review invitations</th>
-          <td>25 lifetime</td>
+          <td>10 automated · self-service unlimited</td>
           <td>250 / mo</td>
           <td>1,500 / mo</td>
           <td>5,000 / mo</td>
