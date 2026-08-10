@@ -1203,13 +1203,13 @@ function buildPricing() {
             <span class="amount">$0</span>
             <span class="period">forever</span>
           </div>
-          <span class="tier-invitations">Up to 10 verified reviews</span>
+          <span class="tier-invitations">Unlimited self-service reviews</span>
         </div>
         <p class="tier-cta">
           <a class="btn btn-secondary" href="${PLATFORM_URL}" rel="noopener">Start free</a>
         </p>
         <ul class="tier-features">
-          <li class="feature-primary">Up to 10 verified reviews, free</li>
+          <li class="feature-primary">10 free automated review invitations</li>
           <li>Self-service: your page + badge carry a "Leave a verified review" CTA — share your link or QR</li>
           <li>All collected reviews visible forever</li>
           <li>Hosted public review page + read-only public API + badge</li>
@@ -2156,7 +2156,7 @@ function buildComparisonJudgeMe() {
         <tr class="highlight-row"><td>Platform</td><td class="win">Stripe — works with any platform that uses Stripe: Shopify, WooCommerce, Squarespace, custom, SaaS.</td><td class="lose">Shopify-only — Judge.me is exclusively a Shopify app. No support for other platforms.</td></tr>
         <tr><td>Cryptographic proof</td><td class="win">Yes — every review is cryptographically signed at submission. Tamper-evident, independently verifiable.</td><td class="lose">No — reviews are database records with no cryptographic signature.</td></tr>
         <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic — Stripe refund webhook hides refunded reviews immediately.</td><td class="tie">Manual — merchants can hide reviews, but there's no automatic refund→hide pipeline.</td></tr>
-        <tr><td>Pricing</td><td class="win">Free plan (up to 10 verified reviews) + paid from $29/mo to $199/mo.</td><td class="win">Free plan (unlimited reviews) + Awesome plan at $15/mo. Very competitive pricing.</td></tr>
+        <tr><td>Pricing</td><td class="win">Free plan (unlimited self-service + 10 automated reviews) + paid from $29/mo to $199/mo.</td><td class="win">Free plan (unlimited reviews) + Awesome plan at $15/mo. Very competitive pricing.</td></tr>
         <tr class="highlight-row"><td>Review volume</td><td class="lose">Early stage — growing review base.</td><td class="win">127M+ reviews collected. Massive volume, high consumer trust through sheer scale.</td></tr>
         <tr><td>Shopify integration</td><td class="tie">Works with Shopify if you use Stripe as your payment processor (including Shopify Payments, which runs on Stripe).</td><td class="win">Native Shopify app — one-click install from the Shopify App Store. Deep Shopify admin integration.</td></tr>
         <tr class="highlight-row"><td>Review request automation</td><td class="win">Automatic — every Stripe charge triggers a review invitation. Configurable timing and reminders.</td><td class="win">Automatic — sends review requests based on order fulfillment status. Highly configurable.</td></tr>
@@ -3438,7 +3438,7 @@ function buildIntegrationsStripe() {
 
     <h2 id="setup">How to connect</h2>
     <ol class="howto-steps">
-      <li><div class="step-num"></div><div><h3>Sign up or log in</h3><p>Create a free Signed Reviews account at <a href="${PLATFORM_URL}" rel="noopener">platform.signedreviews.com</a>. No credit card required. The Free plan includes Stripe integration — collect up to 10 verified reviews at no cost.</p></div></li>
+      <li><div class="step-num"></div><div><h3>Sign up or log in</h3><p>Create a free Signed Reviews account at <a href="${PLATFORM_URL}" rel="noopener">platform.signedreviews.com</a>. No credit card required. The Free plan includes Stripe integration with unlimited self-service reviews and 10 free automated review invitations.</p></div></li>
       <li><div class="step-num"></div><div><h3>Click "Connect Stripe"</h3><p>In your dashboard, click the Stripe connection button. You'll be redirected to Stripe's official OAuth authorization page — the same flow used by thousands of Stripe App installations.</p></div></li>
       <li><div class="step-num"></div><div><h3>Authorize read-only access</h3><p>Stripe shows you exactly which permissions are requested. All are read-only. Review and click "Connect." The redirect brings you back to your Signed Reviews dashboard.</p></div></li>
       <li><div class="step-num"></div><div><h3>Configure auto-requests</h3><p>Choose your invitation timing: immediately after purchase (digital products), after a configurable delay (physical products), or triggered by your delivery webhook. Set reminder cadence — standard is 3 and 7 days.</p></div></li>

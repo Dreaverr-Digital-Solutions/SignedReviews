@@ -12,7 +12,7 @@ Looking for trustpilot alternatives for ecommerce? You're not alone. Ecommerce b
 
 | Tool | Best For | Verification Method | Starting Price | Free Plan |
 |------|----------|-------------------|----------------|-----------|
-| [SignedReviews](#1-signed-reviews--best-for-stripe-verified-stores) | Stripe-verified stores | Processor-attested (Stripe) | $29/mo | Up to 10 verified reviews |
+| [SignedReviews](#1-signed-reviews--best-for-stripe-verified-stores) | Stripe-verified stores | Processor-attested (Stripe) | $29/mo | Self-service + 10 automated |
 | [Judge.me](#2-judgeme--best-for-shopify-first-stores) | Shopify-first stores | Order data matching | Free / $15/mo | Unlimited reviews |
 | [Loox](#3-loox--best-for-budget-shopify-photo-reviews) | Budget photo reviews | Order data (Shopify) | $9.99/mo | No |
 | [Yotpo](#4-yotpo--best-for-enterprise-dtc) | Enterprise DTC brands | MAP email + order data | $15/mo+ | Limited |
@@ -61,7 +61,7 @@ Every platform in this list is scored on two dimensions:
 
 ### 1. Signed Reviews — Best for Stripe-Verified Stores
 
-Signed Reviews is the only review platform that verifies purchases directly against Stripe payment data rather than your store's own order records. When a customer completes a Stripe transaction, the platform automatically sends a verified review invitation — and if a charge is refunded, the associated review hides automatically. The verification is cryptographic: each review carries a tamper-evident signature proving a real Stripe transaction occurred, giving you the strongest "Verified Buyer" signal available. Pricing starts at $29/month with automated review collection, and the free plan lets you collect up to 10 verified reviews at no cost. The honest limitation: Signed Reviews requires Stripe as your payment processor, so stores running exclusively on non-Stripe gateways like Braintree or Authorize.net can't use it.
+Signed Reviews is the only review platform that verifies purchases directly against Stripe payment data rather than your store's own order records. When a customer completes a Stripe transaction, the platform automatically sends a verified review invitation — and if a charge is refunded, the associated review hides automatically. The verification is cryptographic: each review carries a tamper-evident signature proving a real Stripe transaction occurred, giving you the strongest "Verified Buyer" signal available. Pricing starts at $29/month with full automation, and the free plan includes unlimited self-service reviews plus 10 free automated review invitations. The honest limitation: Signed Reviews requires Stripe as your payment processor, so stores running exclusively on non-Stripe gateways like Braintree or Authorize.net can't use it.
 
 → [See pricing](/pricing/) · [How Stripe verification works](/trust/) · [Signed Reviews vs Trustpilot](/vs/trustpilot/)
 

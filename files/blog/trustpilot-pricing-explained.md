@@ -111,13 +111,13 @@ Beyond the plan price, these cost Trustpilot users real money:
 | Platform | Starting price | Free plan? | Pricing model | Google Seller Ratings |
 |----------|---------------|-----------|---------------|----------------------|
 | **Trustpilot** | $299/mo (Growth) | Yes (no invitations) | Tiered + add-ons | Add-on or Enterprise |
-| **[Signed Reviews](/pricing/)** | Free (up to 10 verified reviews) | Yes (with invitations) | Tiered, transparent | Planned |
+| **[Signed Reviews](/pricing/)** | Free (self-service + 10 automated) | Yes (with invitations) | Tiered, transparent | Planned |
 | Judge.me | Free (unlimited reviews) | Yes | Flat + add-ons | Via Shopify |
 | Reviews.io | £89/mo (~$113) | No | Tiered | Included |
 | Feefo | Custom | No | Custom-quoted | Included |
 | Yotpo | $15/mo+ | No (free trial) | Usage-based | Add-on |
 
-**Key difference:** Trustpilot's free plan doesn't include review invitations — the core feature you need to proactively collect reviews. By contrast, Judge.me offers unlimited reviews on its free plan (Shopify-only), and Signed Reviews offers up to 10 verified reviews on its free plan (Stripe businesses). Trustpilot's free tier is a listening post, not a collection tool.
+**Key difference:** Trustpilot's free plan doesn't include review invitations — the core feature you need to proactively collect reviews. By contrast, Judge.me offers unlimited reviews on its free plan (Shopify-only), and Signed Reviews offers unlimited self-service reviews plus 10 free automated invitations on its free plan (Stripe businesses). Trustpilot's free tier is a listening post, not a collection tool.
 
 ---
 
