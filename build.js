@@ -3645,28 +3645,49 @@ function buildTrust() {
   console.log('  ✓ /trust/');
 }
 
+// ── Marketing content pages (built from markdown, indexable) ──────────────
+const MARKETING_PAGES = [
+  {
+    slug: '/features/',
+    file: 'features.md',
+    title: 'Features',
+    eyebrow: 'Features',
+    subtitle: 'Stripe-verified reviews with cryptographic signing. Everything you need to collect, verify, and publish reviews your customers can trust.',
+    metaDesc: 'Explore Signed Reviews features: Stripe-native verification, cryptographic signing, automated review collection, public review pages, REST API, and team dashboard.',
+  },
+  {
+    slug: '/demo/',
+    file: 'demo.md',
+    title: 'Request a Demo',
+    eyebrow: 'Demo',
+    subtitle: 'See Signed Reviews in action. Book a personalized walkthrough to learn how verified reviews build trust for your Stripe business.',
+    metaDesc: 'Request a personalized demo of Signed Reviews. See how Stripe-verified, cryptographically signed reviews work in a live walkthrough.',
+  },
+];
+
+function buildMarketingPages() {
+  for (const p of MARKETING_PAGES) {
+    const md = fs.readFileSync(path.join(FILES_DIR, p.file), 'utf8');
+    const renderedBody = renderMarkdown(md);
+    const bodyNoH1 = renderedBody.replace(/<h1[^>]*>[\s\S]*?<\/h1>/, '');
+    const html = page({
+      title: `${p.title} — ${COMPANY.brand}`,
+      description: p.metaDesc,
+      slug: p.slug,
+      hero: { eyebrow: p.eyebrow, title: p.title, subtitle: p.subtitle },
+      body: `<article class="prose">${bodyNoH1}</article>`,
+    });
+    writePage(p.slug, html);
+    console.log(`  ✓ ${p.slug}`);
+  }
+}
+
 // ── Stub SEO pages (coming soon) ──────────────────────────────────────────────
 // These routes currently return the SPA shell with generic <title>SignedReviews</title>.
 // Each stub page gets a unique server-rendered <title>, <meta description>, and
 // <link rel="canonical"> so Google can index them meaningfully. Replace with full
 // content pages in Phase 2.
 const COMING_SOON_PAGES = [
-  {
-    slug: '/features/',
-    title: 'Features — Signed Reviews',
-    desc: 'Explore the full feature set of Signed Reviews: automated review collection, tamper-evident verification, Stripe integration, and more.',
-    eyebrow: 'Features',
-    heading: 'Signed Reviews Features',
-    subtitle: 'A complete overview of what Signed Reviews can do for your business.',
-  },
-  {
-    slug: '/demo/',
-    title: 'Request a Demo — Signed Reviews',
-    desc: 'See Signed Reviews in action. Request a personalized demo to learn how verified reviews can build trust for your business.',
-    eyebrow: 'Demo',
-    heading: 'Request a Demo',
-    subtitle: 'See how Signed Reviews works with a personalized walkthrough.',
-  },
   {
     slug: '/docs/',
     title: 'Documentation — Signed Reviews',
@@ -3837,6 +3858,8 @@ buildIntegrations();
 buildIntegrationsStripe();
 buildIntegrationsShopify();
 buildIntegrationsWooCommerce();
+console.log('\nMarketing pages:');
+buildMarketingPages();
 console.log('\nComing-soon pages:');
 buildComingSoon();
 console.log('\nOther pages:');
