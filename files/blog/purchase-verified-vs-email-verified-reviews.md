@@ -1,4 +1,4 @@
-# Proof of Purchase Reviews: Payment Verified vs Email-Verified Buyer Meaning
+# Verified Buyer Meaning: Purchase-Verified vs Email-Verified Reviews Explained
 
 **Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Proof of purchase reviews (payment verified) vs email-only — learn how processor-attested purchases beat fake badges. Read the real verified buyer meaning now.
 
@@ -7,6 +7,14 @@
 Two reviews. Both say "Verified." But the verified buyer meaning changes completely depending on who did the verifying. One badge means the platform confirmed the reviewer's email address exists. The other means an independent payment processor confirmed the reviewer actually paid for the product — these are **payment verified reviews**, and they're structurally impossible to fake. They're not the same thing — but most review platforms use language that deliberately blurs the distinction.
 
 Here's the real verified buyer meaning across every platform — and why **proof of purchase reviews** are structurally harder to fake than email-verified ones, and how to tell which kind you're reading.
+
+---
+
+## Verified Buyer Meaning: What the Badge Actually Proves
+
+A **verified buyer** is a reviewer confirmed to have actually purchased the product or service — not just someone who holds an email account. The verified buyer meaning depends entirely on the verification source. A badge that says "Verified Buyer" because the reviewer clicked a confirmation link in an email proves only that someone controls an inbox. Creating a Gmail account takes 30 seconds; making a real purchase costs real money. That gap is everything.
+
+The strongest verified buyer meaning comes from **transaction-level verification** — where an independent payment processor like Stripe confirms the charge independently of anything the merchant supplies. This is structurally different from email-only verification (Level 1–2) and from merchant-supplied purchase verification (Level 3, where the business provides the order data being checked against). When Stripe attests to the transaction, the merchant cannot fabricate the proof without incurring real payment processing fees and risking account closure. That's the verified buyer meaning that actually protects consumers — and it's the one Signed Reviews delivers. See [how Stripe-verified reviews work](/blog/stripe-verified-reviews/) for the full technical breakdown.
 
 ---
 
