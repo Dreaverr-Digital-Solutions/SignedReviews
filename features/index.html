@@ -4,22 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Features — Signed Reviews</title>
-  <meta name="description" content="Explore the full feature set of Signed Reviews: automated review collection, tamper-evident verification, Stripe integration, and more.">
+  <meta name="description" content="Explore Signed Reviews features: Stripe-native verification, cryptographic signing, automated review collection, public review pages, REST API, and team dashboard.">
   <link rel="canonical" href="https://signedreviews.com/features/">
-  <meta name="robots" content="noindex, follow">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="e7b44f7b4ad93d25357042d303d253e2ec958590">
-  <meta name="build-time" content="2026-08-10T08:43:04.666Z">
+  <meta name="build-commit" content="4caed7b5b3332e8f8e130cc3a1f22c42ee6efbb1">
+  <meta name="build-time" content="2026-08-12T09:34:47.661Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Features — Signed Reviews">
-  <meta property="og:description" content="Explore the full feature set of Signed Reviews: automated review collection, tamper-evident verification, Stripe integration, and more.">
+  <meta property="og:description" content="Explore Signed Reviews features: Stripe-native verification, cryptographic signing, automated review collection, public review pages, REST API, and team dashboard.">
   <meta property="og:url" content="https://signedreviews.com/features/">
   <meta property="og:site_name" content="Signed Reviews">
   <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Features — Signed Reviews">
-  <meta name="twitter:description" content="Explore the full feature set of Signed Reviews: automated review collection, tamper-evident verification, Stripe integration, and more.">
+  <meta name="twitter:description" content="Explore Signed Reviews features: Stripe-native verification, cryptographic signing, automated review collection, public review pages, REST API, and team dashboard.">
   <meta name="twitter:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
 
   <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png?v=20260729a">
@@ -572,14 +572,60 @@ main { padding: 0; }
     <section class="page-hero">
       <div class="page-hero-inner">
         <span class="eyebrow">Features</span>
-        <h1>Signed Reviews Features</h1>
-        <p>A complete overview of what Signed Reviews can do for your business.</p>
+        <h1>Features</h1>
+        <p>Stripe-verified reviews with cryptographic signing. Everything you need to collect, verify, and publish reviews your customers can trust.</p>
       </div>
     </section>
     <div class="prose-wrap">
       <article class="prose">
-      <p>This page is coming soon. In the meantime, explore our <a href="/">homepage</a> or check out our <a href="/pricing/">pricing</a>.</p>
-    </article>
+<p>Signed Reviews is a verification-first review platform built on Stripe. Every review is cryptographically signed and backed by a real, non-refunded payment.</p>
+<hr>
+<h2 id="stripe-native-verification"><a class="anchor" href="#stripe-native-verification" aria-label="Permalink to Stripe-native verification">#</a> Stripe-native verification</h2>
+<p>Connect your Stripe account in one click via Stripe&#39;s official OAuth. We get read-only access — we can verify charges but can never charge, refund, or modify anything in your Stripe account.</p>
+<ul>
+<li><strong>Automatic review invitations</strong> — every successful Stripe charge triggers a verified review invitation</li>
+<li><strong>Refund-aware</strong> — if a charge is refunded, the associated review is automatically hidden</li>
+<li><strong>Processor-attested</strong> — the strongest verification level available; Stripe independently confirms each transaction</li>
+</ul>
+<h2 id="cryptographic-signing"><a class="anchor" href="#cryptographic-signing" aria-label="Permalink to Cryptographic signing">#</a> Cryptographic signing</h2>
+<p>Every review is signed with HMAC-SHA256 at submission time. The signed payload includes review content, rating, timestamp, and transaction reference.</p>
+<ul>
+<li><strong>Tamper-proof</strong> — any modification after signing invalidates the signature</li>
+<li><strong>Public verification page</strong> — every review gets a verification URL showing the full cryptographic proof</li>
+</ul>
+<h2 id="public-review-page"><a class="anchor" href="#public-review-page" aria-label="Permalink to Public review page">#</a> Public review page</h2>
+<p>Your business gets a public profile at <code>signedreviews.com/your-slug</code> where customers browse verified reviews.</p>
+<ul>
+<li><strong>Customizable branding</strong> — your logo, brand color, and business name</li>
+<li><strong>Review metrics</strong> — star distribution, review count, and response rate</li>
+<li><strong>Verified badge</strong> — &quot;Purchase Verified&quot; badge on every review</li>
+</ul>
+<h2 id="automated-review-collection"><a class="anchor" href="#automated-review-collection" aria-label="Permalink to Automated review collection">#</a> Automated review collection</h2>
+<p>Set your cadence and let the platform handle the rest.</p>
+<ul>
+<li><strong>Configurable delay</strong> — send invitations N days after purchase</li>
+<li><strong>Smart suppression</strong> — customers who already reviewed aren&#39;t asked again</li>
+<li><strong>Email + photo review</strong> — text reviews with up to 3 photo attachments</li>
+</ul>
+<h2 id="api-and-integrations"><a class="anchor" href="#api-and-integrations" aria-label="Permalink to API and integrations">#</a> API and integrations</h2>
+<ul>
+<li><strong>REST API</strong> — fetch reviews, check verification status, display on your site</li>
+<li><strong>Publishable-key auth</strong> — safe for client-side use</li>
+<li><strong>Stripe App</strong> — install from the Stripe Marketplace for dashboard-native access</li>
+<li><strong>Webhooks</strong> — real-time events for new reviews, replies, and status changes</li>
+</ul>
+<h2 id="dashboard"><a class="anchor" href="#dashboard" aria-label="Permalink to Dashboard">#</a> Dashboard</h2>
+<p>Manage everything from <code>platform.signedreviews.com</code>: review moderation, analytics, team access with role-based permissions, and self-serve billing.</p>
+<h2 id="privacy-and-compliance"><a class="anchor" href="#privacy-and-compliance" aria-label="Permalink to Privacy and compliance">#</a> Privacy and compliance</h2>
+<ul>
+<li><strong>GDPR-ready</strong> — Data Processing Agreement with Standard Contractual Clauses</li>
+<li><strong>Sub-processor transparency</strong> — full list at <a href="/subprocessors/">signedreviews.com/subprocessors</a></li>
+<li><strong>Reviewer rights</strong> — request removal or anonymization at any time</li>
+<li><strong>No data selling</strong> — your review data is yours</li>
+</ul>
+<hr>
+<p>Ready to start? <a href="/pricing/">See pricing</a> or <a href="https://platform.signedreviews.com/register">create a free account</a>.</p>
+</article>
     </div>
   </main>
   

@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>API Reference — Signed Reviews</title>
-  <meta name="description" content="Signed Reviews REST API reference: authentication, endpoints, rate limits, and code examples for integrating review collection into your app.">
+  <title>Public API — Signed Reviews</title>
+  <meta name="description" content="Signed Reviews Public API reference: REST endpoints for verified reviews and business profiles. Publishable-key authentication, rate limits, and code examples.">
   <link rel="canonical" href="https://signedreviews.com/api/">
-  <meta name="robots" content="noindex, follow">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="e7b44f7b4ad93d25357042d303d253e2ec958590">
-  <meta name="build-time" content="2026-08-10T08:43:04.666Z">
+  <meta name="build-commit" content="4caed7b5b3332e8f8e130cc3a1f22c42ee6efbb1">
+  <meta name="build-time" content="2026-08-12T09:34:47.661Z">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="API Reference — Signed Reviews">
-  <meta property="og:description" content="Signed Reviews REST API reference: authentication, endpoints, rate limits, and code examples for integrating review collection into your app.">
+  <meta property="og:title" content="Public API — Signed Reviews">
+  <meta property="og:description" content="Signed Reviews Public API reference: REST endpoints for verified reviews and business profiles. Publishable-key authentication, rate limits, and code examples.">
   <meta property="og:url" content="https://signedreviews.com/api/">
   <meta property="og:site_name" content="Signed Reviews">
   <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="API Reference — Signed Reviews">
-  <meta name="twitter:description" content="Signed Reviews REST API reference: authentication, endpoints, rate limits, and code examples for integrating review collection into your app.">
+  <meta name="twitter:title" content="Public API — Signed Reviews">
+  <meta name="twitter:description" content="Signed Reviews Public API reference: REST endpoints for verified reviews and business profiles. Publishable-key authentication, rate limits, and code examples.">
   <meta name="twitter:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
 
   <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png?v=20260729a">
@@ -531,7 +531,7 @@ main { padding: 0; }
     })();
   </script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.","email":"support@signedreviews.com","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"API Reference","item":"https://signedreviews.com/api/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"Public API","item":"https://signedreviews.com/api/"}]}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -571,15 +571,151 @@ main { padding: 0; }
   <main id="main">
     <section class="page-hero">
       <div class="page-hero-inner">
-        <span class="eyebrow">API</span>
-        <h1>API Reference</h1>
-        <p>Integrate Signed Reviews into your application with our REST API.</p>
+        <span class="eyebrow">API Reference</span>
+        <h1>Public API</h1>
+        <p>Fetch verified reviews, ratings, and business profile data into your own site. Read-only REST API with publishable-key auth — safe for browser use.</p>
       </div>
     </section>
     <div class="prose-wrap">
       <article class="prose">
-      <p>This page is coming soon. In the meantime, explore our <a href="/">homepage</a> or check out our <a href="/pricing/">pricing</a>.</p>
-    </article>
+<p>The Signed Reviews Public API lets you fetch verified reviews, ratings, and business profile data directly into your own site or app. Every review is processor-attested — backed by a real, non-refunded Stripe payment.</p>
+<hr>
+<h2 id="quickstart"><a class="anchor" href="#quickstart" aria-label="Permalink to Quickstart">#</a> Quickstart</h2>
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer YOUR_PUBLISHABLE_KEY&quot; \
+  https://api.signedreviews.com/v1/public/profile
+</code></pre>
+<p>That&#39;s it. One endpoint for profile data, one for reviews. Both are read-only and safe for client-side use with a publishable key.</p>
+<h2 id="authentication"><a class="anchor" href="#authentication" aria-label="Permalink to Authentication">#</a> Authentication</h2>
+<p>Two key types, both read-only:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Key type</th>
+<th>Prefix</th>
+<th>Safe for</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Publishable key</strong></td>
+<td><code>rvwpk_live_…</code></td>
+<td>Browser, mobile apps, client-side code</td>
+</tr>
+<tr>
+<td><strong>Secret key</strong></td>
+<td><code>rvw_live_…</code></td>
+<td>Server-to-server only</td>
+</tr>
+</tbody></table></div>
+<p>Get your keys from the API Keys section of your dashboard. Publishable keys are available on Starter plans and above.</p>
+<p>Pass your key as a Bearer token in the <code>Authorization</code> header, or as a <code>?key=</code> query parameter.</p>
+<h2 id="endpoints"><a class="anchor" href="#endpoints" aria-label="Permalink to Endpoints">#</a> Endpoints</h2>
+<p>Base URL: <code>https://api.signedreviews.com/v1/public</code></p>
+<h3 id="get-profile"><a class="anchor" href="#get-profile" aria-label="Permalink to GET /profile">#</a> GET /profile</h3>
+<p>Returns your business identity, aggregate rating, star distribution, and verified trust metrics.</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;data&quot;: {
+    &quot;business&quot;: {
+      &quot;name&quot;: &quot;Acme Widgets&quot;,
+      &quot;slug&quot;: &quot;acme-widgets&quot;,
+      &quot;profileUrl&quot;: &quot;https://signedreviews.com/acme-widgets&quot;,
+      &quot;logoUrl&quot;: &quot;https://…&quot;,
+      &quot;brandColor&quot;: &quot;#1a56db&quot;
+    },
+    &quot;summary&quot;: {
+      &quot;average&quot;: 4.7,
+      &quot;total&quot;: 142,
+      &quot;distribution&quot;: { &quot;1&quot;: 2, &quot;2&quot;: 3, &quot;3&quot;: 8, &quot;4&quot;: 31, &quot;5&quot;: 98 }
+    },
+    &quot;metrics&quot;: [
+      { &quot;key&quot;: &quot;refund_rate&quot;, &quot;label&quot;: &quot;Refund rate&quot;, &quot;value&quot;: { &quot;rate&quot;: 0.012 } }
+    ]
+  },
+  &quot;error&quot;: null,
+  &quot;meta&quot;: { &quot;generatedAt&quot;: &quot;2026-08-10T12:00:00.000Z&quot; }
+}
+</code></pre>
+<p>Metrics are computed from your Stripe data. Each metric respects a k-anonymity cohort floor — if there aren&#39;t enough transactions to compute a metric without identifying individual customers, it&#39;s suppressed.</p>
+<h3 id="get-reviews"><a class="anchor" href="#get-reviews" aria-label="Permalink to GET /reviews">#</a> GET /reviews</h3>
+<p>Returns paginated, privacy-masked reviews.</p>
+<p><strong>Parameters:</strong> <code>page</code> (default 1), <code>limit</code> (default 10, max 100), <code>sort</code> (<code>date_desc</code>, <code>date_asc</code>, <code>rating_desc</code>, <code>rating_asc</code>), <code>minRating</code> (1-5), <code>from</code>, <code>to</code> (ISO 8601 dates).</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: &quot;rev_abc123&quot;,
+      &quot;rating&quot;: 5,
+      &quot;title&quot;: &quot;Exactly what we needed&quot;,
+      &quot;body&quot;: &quot;Switched from Trustpilot. The Stripe verification alone…&quot;,
+      &quot;createdAt&quot;: &quot;2026-07-15T09:30:00.000Z&quot;,
+      &quot;reviewer&quot;: {
+        &quot;displayName&quot;: &quot;James K.&quot;,
+        &quot;photoUrl&quot;: &quot;https://…&quot;
+      },
+      &quot;social&quot;: { &quot;provider&quot;: &quot;linkedin&quot;, &quot;handle&quot;: &quot;jamesk&quot; },
+      &quot;purchase&quot;: { &quot;amount&quot;: 49.00, &quot;currency&quot;: &quot;usd&quot; },
+      &quot;photos&quot;: [&quot;https://…&quot;],
+      &quot;businessReply&quot;: {
+        &quot;body&quot;: &quot;Thanks James!&quot;,
+        &quot;repliedAt&quot;: &quot;2026-07-16T10:00:00.000Z&quot;
+      },
+      &quot;verification&quot;: {
+        &quot;method&quot;: &quot;stripe_payment&quot;,
+        &quot;signature&quot;: &quot;sha256:abc123…&quot;,
+        &quot;url&quot;: &quot;https://signedreviews.com/verify/rev_abc123&quot;
+      }
+    }
+  ],
+  &quot;error&quot;: null,
+  &quot;meta&quot;: { &quot;page&quot;: 1, &quot;limit&quot;: 10, &quot;total&quot;: 142, &quot;totalPages&quot;: 15 }
+}
+</code></pre>
+<p>Privacy masking is applied server-side: purchase amounts and social handles are only included when the reviewer explicitly opted to show them.</p>
+<h2 id="response-format"><a class="anchor" href="#response-format" aria-label="Permalink to Response format">#</a> Response format</h2>
+<p>Every response uses a consistent envelope:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;data&quot;: { … },
+  &quot;error&quot;: null,
+  &quot;meta&quot;: { &quot;page&quot;: 1, &quot;limit&quot;: 10 }
+}
+</code></pre>
+<p>On error:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;data&quot;: null,
+  &quot;error&quot;: &quot;Invalid API key&quot;
+}
+</code></pre>
+<h2 id="rate-limits"><a class="anchor" href="#rate-limits" aria-label="Permalink to Rate limits">#</a> Rate limits</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>Requests per minute</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Starter</td>
+<td>60</td>
+</tr>
+<tr>
+<td>Pro</td>
+<td>300</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>1,000</td>
+</tr>
+</tbody></table></div>
+<p>Responses include <code>Cache-Control: public, max-age=60, stale-while-revalidate=300</code> headers. Cache responses on your side where possible to stay well within limits.</p>
+<h2 id="cors"><a class="anchor" href="#cors" aria-label="Permalink to CORS">#</a> CORS</h2>
+<p>The Public API v1 is accessible from any origin. You can call it directly from browser JavaScript without a proxy.</p>
+<h2 id="full-openapi-spec"><a class="anchor" href="#full-openapi-spec" aria-label="Permalink to Full OpenAPI spec">#</a> Full OpenAPI spec</h2>
+<p>Download the complete machine-readable spec at <a href="/openapi.json">signedreviews.com/openapi.json</a>.</p>
+<hr>
+<p>Questions? Email <strong><a href="mailto:api@signedreviews.com">api@signedreviews.com</a></strong>.</p>
+</article>
     </div>
   </main>
   

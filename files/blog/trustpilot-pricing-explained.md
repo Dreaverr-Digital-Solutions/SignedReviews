@@ -1,4 +1,4 @@
-# Trustpilot Pricing Explained: What Each Plan Actually Costs in 2026
+# Trustpilot Pricing 2026: Plans, Hidden Costs & Cheaper Alternatives
 
 **Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Trustpilot pricing explained: what each plan actually costs in 2026. See the real prices, hidden costs, and how alternatives compare.**
 
