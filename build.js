@@ -1687,6 +1687,11 @@ function buildBlog() {
       const titleMatch = raw.match(/^# (.+)$/m);
       const title = titleMatch ? titleMatch[1].trim() : file.replace(/\.md$/, '').replace(/-/g, ' ');
 
+      // Optional explicit `**Title:**` metadata lets the <title>/og/twitter tags
+      // differ from the visible H1 (which keeps using the first-H1 title above).
+      const titleMetaMatch = raw.match(/^\*\*Title:\*\*\s*(.+)$/m);
+      const metaTitle = titleMetaMatch ? titleMetaMatch[1].trim() : title;
+
       // Body = everything after the `---` metadata separator.
       const bodyStart = raw.indexOf('\n---\n');
       const contentBody = bodyStart >= 0 ? raw.slice(bodyStart + 5) : raw;
@@ -1710,7 +1715,7 @@ function buildBlog() {
       const dateMatch = raw.match(/\*\*Published:\*\*\s*([^\n·]+)/);
       const dateStr = dateMatch ? dateMatch[1].trim() : '';
 
-      posts.push({ title, desc, slug, file, renderedBody, dateStr });
+      posts.push({ title, metaTitle, desc, slug, file, renderedBody, dateStr });
     }
   }
 
@@ -1742,7 +1747,7 @@ function buildBlog() {
     </article>`;
 
     const html = page({
-      title: post.title.includes('Signed Reviews') ? post.title : `${post.title} — Signed Reviews Blog`,
+      title: post.metaTitle.includes('Signed Reviews') ? post.metaTitle : `${post.metaTitle} — Signed Reviews Blog`,
       description: post.desc,
       slug: post.slug,
       pageType: 'article',
