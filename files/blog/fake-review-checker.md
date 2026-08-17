@@ -1,5 +1,6 @@
 # Fake Review Checker: 7 Ways to Tell if Reviews Are Real
 
+**Title:** How to Check if Reviews Are Fake: 7-Point Fake Review Checker
 **Published:** 2026-08-07 · **Author:** Signed Reviews Team · **Description:** How to check if reviews are fake — a practical 7-point fake review checker methodology covering language patterns, reviewer profiles, timing analysis, photo verification, platform signals, cross-referencing, and verification badges.
 
 ---
