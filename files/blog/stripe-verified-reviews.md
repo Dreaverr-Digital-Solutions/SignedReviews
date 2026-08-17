@@ -6,7 +6,7 @@
 
 Stripe verified reviews are independently attested by a payment processor — not by merchant-supplied data. Each review is cryptographically tied to a completed, non-refunded Stripe charge, making them tamper evident reviews that can't be faked.
 
-Here's how Stripe verified reviews work, why cryptographically signed reviews are fundamentally different from every other "verified" badge, and how to start collecting them for your business.
+Here's how Stripe verified reviews work, why [cryptographically signed reviews](/blog/how-stripe-review-verification-works/) are fundamentally different from every other "verified" badge, and how to start collecting them for your business.
 
 ## What is a Stripe verified review?
 
