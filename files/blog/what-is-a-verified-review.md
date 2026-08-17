@@ -13,7 +13,9 @@ The verified review meaning comes down to one thing: proof. A <a href="/learn/wh
 
 A **verified review** solves this by tying each review to proof of purchase. It's the difference between "someone on the internet said this" and "a real customer who actually paid for this product said this."
 
-## What is a verified review? Verified review meaning, explained
+## What Is a Verified Review? Definition, Proof Requirements, and Examples
+
+A verified review is customer feedback tied to a confirmed purchase. Proof requirements for [Stripe-verified purchases](/blog/stripe-verified-reviews/) include an order ID, receipt, or transaction token matched to the reviewer before publishing.
 
 A verified review connects three things that most review platforms keep separate:
 
