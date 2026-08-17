@@ -107,6 +107,10 @@ Every alternative in the table verifies against data the merchant supplies. Only
 
 ## Why Tamper-Evident Reviews Are the Foundation of Fraud-Proof Customer Feedback
 
+### What are tamper evident reviews?
+
+Tamper evident reviews are customer reviews cryptographically bound to a verified transaction, so any alteration after submission breaks the cryptographic signature and is immediately detectable. Stripe Verified Reviews use this mechanism to guarantee that the review text, rating, and purchase context have not changed since the customer submitted them.
+
 Tamper evident reviews are the only feedback type that can't be silently manipulated after publication. Unlike plain text or even "verified" badges, a cryptographically signed review permanently links the review content to the original transaction—if anyone tries to alter it, the signature breaks and the tampering becomes immediately detectable. This makes tamper evident reviews the gold standard for review integrity, especially for businesses that rely on trust at scale. Learn more about [how independent attestation works](/how-it-works/).
 
 ## How to Get Stripe Verified Reviews for Your Business
