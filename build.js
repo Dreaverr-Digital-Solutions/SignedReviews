@@ -2085,8 +2085,8 @@ function buildComparison() {
   </article>`;
 
   const html = page({
-    title: 'Signed Reviews vs Trustpilot: Stripe-Verified Reviews vs Open Invitations',
-    description: 'Signed Reviews vs Trustpilot: see how Stripe-verified, cryptographically signed reviews stop fake feedback. Compare features, authenticity, pricing, and ROI for Stripe businesses.',
+    title: 'Trustpilot vs Signed Reviews: Stripe-Verified Reviews vs Open Invitations',
+    description: 'Trustpilot vs Signed Reviews: see how Stripe-verified, cryptographically signed reviews stop fake feedback. Compare features, authenticity, pricing, and ROI for Stripe businesses.',
     slug: '/vs/trustpilot/',
     hero: { eyebrow: 'Comparison', title: 'Trustpilot vs Signed Reviews', subtitle: 'Compare the leading general-purpose review platform with the first processor-attested alternative across the dimensions that matter for authenticity.' },
     body,
