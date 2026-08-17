@@ -18,7 +18,9 @@ The strongest verified buyer meaning comes from **transaction-level verification
 
 ---
 
-## Email-verified reviews
+## Proof of Purchase Reviews vs Email-Verified Reviews: Key Differences
+
+Proof of purchase reviews rely on payment-processor confirmation, while email-verified reviews only confirm the reviewer controls an inbox. This distinction is why buyers searching for 'proof of purchase reviews' should look for processor-attested badges before trusting a review.
 
 **What it checks:** The reviewer controls the email address they used to sign up.
 
