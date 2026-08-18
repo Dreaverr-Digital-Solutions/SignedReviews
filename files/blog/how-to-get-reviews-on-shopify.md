@@ -1,4 +1,4 @@
-# How to Get Verified Reviews on Shopify (Not Fake Ones)
+# How to Get Reviews on Shopify (Verified, Not Fake)
 
 **Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** How to get reviews on Shopify — the complete 2026 guide. Covers app selection by verification method, timing strategy, email templates, and Stripe-native verification for Shopify Payments stores.
 
