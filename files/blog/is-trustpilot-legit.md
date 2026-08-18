@@ -16,7 +16,9 @@ Trustpilot also publishes a transparency report, maintains a content integrity t
 
 So: **Trustpilot the company is legit.** Now let's talk about the reviews on it.
 
-## Can you trust the reviews on Trustpilot?
+## Can I Trust Trustpilot Reviews? What Business Owners Need to Know
+
+If you're asking 'can I trust Trustpilot reviews,' the short answer is sometimes — it depends on whether reviews are verified and how the business collects them. Below we break down exactly when Trustpilot reviews are trustworthy and when they are not.
 
 This is where it gets complicated. Trustpilot reviews come in two types:
 
