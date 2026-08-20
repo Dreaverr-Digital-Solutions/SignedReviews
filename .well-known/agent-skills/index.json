@@ -36,7 +36,7 @@
     {
       "id": "signedreviews-stripe-verification",
       "name": "Signed Reviews — Stripe Verified Reviews Guide",
-      "description": "How Stripe-native review verification works: read-only OAuth, processor-attested verification (Level 4), cryptographic signing, and automatic refund handling. The definitive technical guide to Stripe-based review collection.",
+      "description": "How Stripe-native review verification works: least-privilege OAuth, processor-attested verification (Level 4), cryptographic signing, and automatic refund handling. The definitive technical guide to Stripe-based review collection.",
       "format": "markdown",
       "url": "https://signedreviews.com/blog/stripe-verified-reviews/",
       "capabilities": ["read", "reference"]

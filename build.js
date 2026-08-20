@@ -1420,8 +1420,8 @@ function buildPricing() {
       <p>"Verified by Signed Reviews" is how your visitors know each review was signed by a real Stripe purchase. It's a trust mark, not a paywall — it's included at every tier, including Free.</p>
     </article>
     <article class="assurance">
-      <h3>Read-only Stripe access.</h3>
-      <p>We never charge, refund, move funds, or modify anything in your Stripe account. We read your Stripe data only to verify reviews and to compute the public-page metrics you choose to show.</p>
+      <h3>Minimal Stripe permissions.</h3>
+      <p>We never charge, refund, or move funds — and we never change your customers, subscriptions, or prices. The only thing we can ever create in your Stripe account is a discount coupon for a reviewer, and only when you enable review incentives. We read your Stripe data only to verify reviews and to compute the public-page metrics you choose to show.</p>
     </article>
     <article class="assurance">
       <h3>The API can't create reviews.</h3>
@@ -1548,7 +1548,7 @@ function buildAbout() {
       <ul class="feature-list">
         <li>No advertising networks, cross-site tracking, or data brokers — our only analytics is first-party PostHog (form inputs masked, no third-party trackers)</li>
         <li>No selling or sharing of personal data — we are not in the data-broker business</li>
-        <li>No write access to your Stripe account — our Stripe connection is read-only</li>
+        <li>Limited Stripe permissions — we read charges, customers, and subscriptions, and only ever write review-incentive coupons when you enable them</li>
         <li>No fake or seeded reviews — a review only exists if a real, completed Stripe transaction backs it</li>
       </ul>
 
@@ -1594,7 +1594,7 @@ function buildFaq() {
     },
     {
       q: 'Do I need to share my Stripe API keys?',
-      a: 'No. Signed Reviews uses Stripe\'s official OAuth integration, which means you grant read-only access with one click — no API keys to copy, paste, or store. We never have write access to your Stripe account and cannot charge, refund, or modify anything.',
+      a: 'No. Signed Reviews uses Stripe\'s official OAuth integration, which means you grant minimal permissions with one click — no API keys to copy, paste, or store. We can never charge, refund, or move funds, and we never change your customers, subscriptions, or prices. The only thing we can ever create is a discount coupon for a reviewer, and only when you enable review incentives.',
     },
     {
       q: 'Can customers leave reviews without a purchase?',
@@ -1901,7 +1901,7 @@ function buildBlog() {
 // ── How It Works page ─────────────────────────────────────────────────────────
 function buildHowItWorks() {
   const steps = [
-    { num: '1', title: 'Connect your Stripe account', body: 'One click. You authorize Signed Reviews via Stripe\'s official OAuth flow. We get <strong>read-only</strong> access — we can verify charges but can never charge, refund, or modify anything in your Stripe account.' },
+    { num: '1', title: 'Connect your Stripe account', body: 'One click. You authorize Signed Reviews via Stripe\'s official OAuth flow. We get <strong>minimal permissions</strong> — we can verify charges but can never charge, refund, or move funds. The only write we use is creating discount coupons for reviewers, and only when you enable review incentives.' },
     { num: '2', title: 'Customer completes a purchase', body: 'A customer buys from you. Stripe processes the payment as usual. Signed Reviews detects the <code>charge.succeeded</code> event and automatically creates a unique, expiring review invitation linked to that specific transaction.' },
     { num: '3', title: 'Review invitation is sent', body: 'The invitation email is sent to the customer\'s verified payment email from the Stripe transaction. You control the timing — immediately, after a delay (for shipped products), or on delivery via our delivery webhook. The email carries your branding and logo.' },
     { num: '4', title: 'Customer submits their review', body: 'The customer clicks the unique link, writes their review, and submits it. At the moment of submission, the review content, transaction ID, customer email, and timestamp are <strong>cryptographically signed</strong> — creating a tamper-evident record.' },
@@ -1998,7 +1998,7 @@ function buildComparison() {
         <tr class="highlight-row"><td>Purchase verification</td><td class="win">Required — every review is cryptographically linked to a completed Stripe transaction</td><td class="lose">Optional — businesses can invite customers, but anyone can leave a review without proof of purchase</td></tr>
         <tr><td>Fake review prevention</td><td class="win">Structural — no purchase = no invitation = no review. Impossible to post a review without a verified transaction.</td><td class="lose">Reactive — relies on automated detection and manual moderation. Trustpilot removed 2.7M fake reviews in 2022.</td></tr>
         <tr class="highlight-row"><td>Review authenticity proof</td><td class="win">Cryptographically signed — every review carries a tamper-evident digital signature that can be independently verified</td><td class="lose">No cryptographic proof — reviews are database records with no external verifiability</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, read-only access, automatic review requests on every charge</td><td class="lose">No native Stripe integration — requires third-party connectors or manual CSV imports</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions, automatic review requests on every charge</td><td class="lose">No native Stripe integration — requires third-party connectors or manual CSV imports</td></tr>
         <tr class="highlight-row"><td>Review gating</td><td class="win">Automatic — invitations go to the email on each Stripe transaction, and customers can also request their own verified link from the business's public page. Either way, a completed purchase is required.</td><td class="lose">Manual — businesses must upload customer lists or send invitations themselves</td></tr>
         <tr><td>Refund handling</td><td class="win">Automatic — refunded reviews are hidden from public display immediately via Stripe webhook</td><td class="lose">Manual — businesses must flag or report reviews from refunded customers</td></tr>
         <tr class="highlight-row"><td>API & integrations</td><td class="win">REST API, webhooks, delivery webhook, public page API</td><td class="win">Extensive API, 100+ integrations, white-label options on Enterprise</td></tr>
@@ -2111,7 +2111,7 @@ function buildComparisonFeefo() {
         <tr class="highlight-row"><td>Integration setup</td><td class="win">One-click Stripe OAuth. No code, no feed configuration, no manual data upload. Works immediately.</td><td class="lose">Requires the merchant to integrate a transaction feed — more setup overhead for the same verification concept.</td></tr>
         <tr><td>Cryptographic proof</td><td class="win">Every review is cryptographically signed at submission — tamper-evident, independently verifiable.</td><td class="lose">No cryptographic signing — reviews are database records with no external verifiability.</td></tr>
         <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic — Stripe webhook hides refunded reviews immediately. No merchant action required.</td><td class="lose">Depends on the merchant updating their transaction feed with refund status.</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native — built exclusively for Stripe. One-click, read-only, zero maintenance.</td><td class="lose">No native Stripe integration — works through a generic transaction feed API.</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native — built exclusively for Stripe. One-click, minimal permissions, zero maintenance.</td><td class="lose">No native Stripe integration — works through a generic transaction feed API.</td></tr>
         <tr class="highlight-row"><td>Pricing model</td><td class="win">Free plan + paid plans from $29/mo (Starter) to $199/mo (Scale). Transparent, per-invitation caps.</td><td class="lose">Custom pricing — typically £99–£399/month for SMB tiers. Enterprise pricing is opaque.</td></tr>
         <tr><td>Google Seller Ratings</td><td class="tie">Planned — on the roadmap for Q4 2026.</td><td class="win">Yes — Feefo is a Google Review Partner and feeds into Google Seller Ratings.</td></tr>
         <tr class="highlight-row"><td>Platform maturity</td><td class="lose">Early stage — launched 2026, building domain authority and customer base.</td><td class="win">Established — founded 2010, strong UK presence, mature enterprise offering.</td></tr>
@@ -2208,7 +2208,7 @@ function buildComparisonYotpo() {
       <tbody>
         <tr class="highlight-row"><td>Verification method</td><td class="win">Processor-attested — Stripe confirms the charge independently. Level 4 on the verification spectrum.</td><td class="lose">Mail-After-Purchase (MAP) — the review invitation email is matched to a merchant order record. Level 3 — merchant-supplied.</td></tr>
         <tr><td>Fake review prevention</td><td class="win">Structural — no Stripe charge = no review. Impossible to manufacture without faking a real payment.</td><td class="lose">Order-matched — reviews are matched to orders in the merchant's system. Stronger than open platforms, but the merchant controls the order data.</td></tr>
-        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native — one-click OAuth, read-only, zero code. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration — works through e-commerce platform connectors (Shopify, Magento, BigCommerce).</td></tr>
+        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions, zero code. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration — works through e-commerce platform connectors (Shopify, Magento, BigCommerce).</td></tr>
         <tr><td>Cryptographic proof</td><td class="win">Yes — every review carries a tamper-evident digital signature. Verifiable by anyone, anytime.</td><td class="lose">No — reviews are database records. Yotpo's moderation is algorithmic, not cryptographic.</td></tr>
         <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic — Stripe webhook hides refunded reviews immediately. No configuration needed.</td><td class="lose">Manual — merchants must manage review display for refunded orders themselves.</td></tr>
         <tr><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent tiered pricing with invitation caps.</td><td class="lose">Free plan (limited) + paid plans from $15/mo (Silver) to $119/mo+ (Enterprise). Many features — including Google Seller Ratings — are locked behind higher tiers.</td></tr>
@@ -2311,7 +2311,7 @@ function buildComparisonSiteJabber() {
         <tr class="highlight-row"><td>Review timing</td><td class="win">After purchase — reviews are only possible after a Stripe charge succeeds. Configurable delay for shipped products.</td><td class="lose">Point-of-sale — SiteJabber's model encouraged reviews at checkout, before the customer had the product. The FTC found this deceptive.</td></tr>
         <tr><td>Fake review prevention</td><td class="win">Structural — impossible to post a review without a verified Stripe transaction backing it.</td><td class="lose">Reactive — reviews are open to anyone with an email address. Optional receipt verification is self-attested.</td></tr>
         <tr class="highlight-row"><td>Regulatory standing</td><td class="win">Clean — launched after the FTC's 2024 rule took effect. Designed for compliance from day one.</td><td class="lose">Under FTC order — required to change practices and stop misrepresenting review authenticity.</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, read-only. Automatic on every charge.</td><td class="lose">No Stripe integration. Reviews are collected independently of payment processing.</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions. Automatic on every charge.</td><td class="lose">No Stripe integration. Reviews are collected independently of payment processing.</td></tr>
         <tr class="highlight-row"><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="lose">Custom pricing — not publicly listed. Typically requires a sales conversation.</td></tr>
         <tr><td>Review ownership</td><td class="win">Business owns the reviews. Exportable, portable via API.</td><td class="win">Business owns the reviews.</td></tr>
       </tbody>
@@ -2356,7 +2356,7 @@ function buildComparisonReviewsIo() {
       <tbody>
         <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe — independent payment processor. Processor-attested (Level 4).</td><td class="lose">Merchant customer data — the business provides customer lists or integrates its CRM. Merchant-supplied (Level 3).</td></tr>
         <tr><td>Fake review prevention</td><td class="win">Structural — no Stripe charge = no review. Cannot be gamed without faking a real payment.</td><td class="lose">Invitation-gated — reviews require an invitation, but invitations are sent to lists the merchant controls.</td></tr>
-        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native — one-click OAuth, read-only. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration — works through CRM integrations and manual customer list uploads.</td></tr>
+        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration — works through CRM integrations and manual customer list uploads.</td></tr>
         <tr><td>Cryptographic proof</td><td class="win">Yes — tamper-evident digital signature on every review. Independently verifiable.</td><td class="lose">No — reviews are database records with no cryptographic proof of integrity.</td></tr>
         <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic — Stripe webhook hides refunded reviews immediately.</td><td class="lose">Manual — merchants must manage review display for refunded orders.</td></tr>
         <tr><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve pricing.</td><td class="lose">From £89/mo (~$113). Mid-range pricing. No free plan.</td></tr>
@@ -2405,7 +2405,7 @@ function buildComparisonStamped() {
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Stamped</th></tr></thead>
       <tbody>
         <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe — independent payment processor. Processor-attested (Level 4).</td><td class="lose">Merchant order data — matches reviews to orders in the merchant's e-commerce platform. Merchant-supplied (Level 3).</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, read-only. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration — works through e-commerce platform connectors (Shopify, BigCommerce, etc.).</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration — works through e-commerce platform connectors (Shopify, BigCommerce, etc.).</td></tr>
         <tr class="highlight-row"><td>Feature breadth</td><td class="lose">Focused — core review collection, verification, API, and publishing.</td><td class="win">Broad — reviews, ratings, Q&A, loyalty & rewards, community, checkout upsells. Full retention suite.</td></tr>
         <tr><td>Cryptographic proof</td><td class="win">Yes — tamper-evident digital signature on every review.</td><td class="lose">No cryptographic signing.</td></tr>
         <tr class="highlight-row"><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="lose">From $23/mo (Lite) to $149/mo+ (Enterprise). Mid-range but features gated behind tiers.</td></tr>
@@ -2452,7 +2452,7 @@ function buildComparisonOkendo() {
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Okendo</th></tr></thead>
       <tbody>
         <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe — independent payment processor. Processor-attested (Level 4).</td><td class="lose">Shopify order data — matches reviews to orders. Merchant-supplied (Level 3).</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, read-only. Works with any Stripe-connected platform.</td><td class="lose">Shopify-only — no direct Stripe integration. Depends on the Shopify-Stripe connection.</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions. Works with any Stripe-connected platform.</td><td class="lose">Shopify-only — no direct Stripe integration. Depends on the Shopify-Stripe connection.</td></tr>
         <tr class="highlight-row"><td>Review display & branding</td><td class="tie">Clean, brandable public page. Embeddable reviews via API.</td><td class="win">Best-in-class visual design — highly customizable review displays, photo/video reviews, shoppable galleries. Okendo leads on aesthetics.</td></tr>
         <tr><td>Cryptographic proof</td><td class="win">Yes — tamper-evident digital signature on every review.</td><td class="lose">No cryptographic signing.</td></tr>
         <tr class="highlight-row"><td>Customer insights</td><td class="lose">Focused on verification data — purchase confirmation, review authenticity metrics.</td><td class="win">Rich zero-party data — customer attributes, preferences, and profiles derived from reviews. Strong for segmentation.</td></tr>
@@ -2500,7 +2500,7 @@ function buildComparisonLoox() {
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Loox</th></tr></thead>
       <tbody>
         <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe — independent payment processor. Processor-attested (Level 4).</td><td class="lose">Shopify order data — matches reviews to orders. Merchant-supplied (Level 3).</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, read-only. Works with any Stripe-connected platform.</td><td class="lose">Shopify-only — no direct Stripe integration.</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions. Works with any Stripe-connected platform.</td><td class="lose">Shopify-only — no direct Stripe integration.</td></tr>
         <tr class="highlight-row"><td>Photo reviews</td><td class="tie">Photo reviews supported — customers can attach images.</td><td class="win">Best-in-class photo reviews — auto-discount incentives for photo submissions, beautiful photo-first gallery displays. Loox leads here.</td></tr>
         <tr><td>Cryptographic proof</td><td class="win">Yes — tamper-evident digital signature on every review.</td><td class="lose">No cryptographic signing.</td></tr>
         <tr class="highlight-row"><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="win">From $9.99/mo (Beginner) to $34.99/mo+ (Scale). Very affordable, especially for photo-heavy review collection.</td></tr>
@@ -2548,7 +2548,7 @@ function buildComparisonSkeepers() {
       <tbody>
         <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe — independent payment processor. Processor-attested (Level 4).</td><td class="lose">Merchant transaction feed — the business supplies the data being verified against. Merchant-supplied (Level 3).</td></tr>
         <tr><td>Fake review prevention</td><td class="win">Structural — no Stripe charge = no review. Refunds auto-hide reviews.</td><td class="lose">Feed-gated — verification quality depends on what the merchant chooses to include in the feed.</td></tr>
-        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native — one-click OAuth, read-only. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration — relies on merchant-provided data feeds.</td></tr>
+        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration — relies on merchant-provided data feeds.</td></tr>
         <tr><td>UGC breadth</td><td class="lose">Focused — review collection, verification, and publishing.</td><td class="win">Broad — reviews, ratings, video UGC, social proof widgets, influencer content.</td></tr>
         <tr class="highlight-row"><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="lose">Custom pricing — enterprise-focused. Not publicly listed.</td></tr>
         <tr><td>Geographic strength</td><td class="tie">Global — Stripe is the payment processor in 40+ countries.</td><td class="win">European — strong presence in France, Germany, and Southern Europe.</td></tr>
@@ -2593,7 +2593,7 @@ function buildComparisonGoogleReviews() {
         <tr class="highlight-row"><td>SEO value</td><td class="tie">On-site — reviews on your own pages, eligible for review rich results via schema.</td><td class="win">Search-dominant — star ratings in SERPs, Google Maps visibility, local pack ranking factor. The most visible review surface.</td></tr>
         <tr><td>Cost</td><td class="win">Free plan + $29–$199/mo for automation and volume.</td><td class="win">Free — no cost to the business or reviewer.</td></tr>
         <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews — exportable, portable, accessible via API. Display on any site.</td><td class="lose">Google owns the reviews — they live on Google's platform. No export, no API for display elsewhere.</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, read-only. Automatic on every charge.</td><td class="lose">No Stripe integration. Reviews are completely decoupled from payment processing.</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions. Automatic on every charge.</td><td class="lose">No Stripe integration. Reviews are completely decoupled from payment processing.</td></tr>
         <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic — Stripe webhook hides refunded-charge reviews immediately.</td><td class="lose">Manual — businesses must report and request removal of reviews from non-customers. Slow, inconsistent process.</td></tr>
       </tbody>
     </table>
@@ -2629,7 +2629,7 @@ function buildComparisonYelp() {
         <tr class="highlight-row"><td>Verification</td><td class="win">Processor-attested (Level 4) — Stripe independently confirms every charge. Tamper-evident cryptographic signatures.</td><td class="lose">None (Level 0) — anyone can review any business. Yelp's "Not Recommended" filter is algorithmic, not purchase-based.</td></tr>
         <tr><td>Review filtering</td><td class="win">Deterministic — refund = review hidden. No algorithmic guesswork. Every visible review has a confirmed transaction behind it.</td><td class="lose">Algorithmic "Not Recommended" filter — opaque, controversial. Genuinely useful reviews are often hidden; some fake reviews slip through.</td></tr>
         <tr class="highlight-row"><td>Business model</td><td class="win">SaaS — business pays for the review platform. Revenue aligned with the business's success.</td><td class="lose">Advertising — business pays Yelp for visibility. Revenue model creates tension with objective review presentation.</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, read-only. Automatic on every charge.</td><td class="lose">No Stripe integration. Reviews are completely decoupled from payment processing.</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions. Automatic on every charge.</td><td class="lose">No Stripe integration. Reviews are completely decoupled from payment processing.</td></tr>
         <tr class="highlight-row"><td>Local discovery</td><td class="lose">Not a local discovery platform — focused on verification and publishing.</td><td class="win">Dominant — Yelp is a primary local-business discovery channel in the US, particularly restaurants and services.</td></tr>
         <tr><td>Cost</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve pricing.</td><td class="lose">Free to list, but advertising costs can be significant. Aggressive ad-sales reputation.</td></tr>
         <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews — exportable, portable via API.</td><td class="lose">Yelp owns the reviews — they live on Yelp's platform. Explicitly prohibits review export or display elsewhere.</td></tr>
@@ -2940,7 +2940,7 @@ function buildLearn() {
     <div class="platform-card win">
       <span class="level">Level 4 · Processor-attested</span>
       <h3>Signed Reviews — "Verified by Signed Reviews"</h3>
-      <p>Signed Reviews operates one level to the right: every review is <strong>processor-attested</strong>. The platform connects to a business's Stripe account (read-only) and only permits a review when the reviewer's email matches a completed Stripe charge — and it automatically hides the review if that charge is later refunded. Because the attestation comes from the <strong>payment processor</strong> — an independent third party to both the merchant and the reviewer — it isn't derived from data the merchant could curate or fabricate. Each review also carries a tamper-evident cryptographic signature so its authenticity can be checked independently later. (See <a href="/trust/">how Signed Reviews verifies reviews</a>.)</p>
+      <p>Signed Reviews operates one level to the right: every review is <strong>processor-attested</strong>. The platform connects to a business's Stripe account (minimal permissions) and only permits a review when the reviewer's email matches a completed Stripe charge — and it automatically hides the review if that charge is later refunded. Because the attestation comes from the <strong>payment processor</strong> — an independent third party to both the merchant and the reviewer — it isn't derived from data the merchant could curate or fabricate. Each review also carries a tamper-evident cryptographic signature so its authenticity can be checked independently later. (See <a href="/trust/">how Signed Reviews verifies reviews</a>.)</p>
     </div>
 
     <h2 id="why-matters">Why the level matters — the FTC's 2024 fake-review rule</h2>
@@ -3266,7 +3266,7 @@ function buildIntegrations() {
       <div class="ic-icon ic-stripe">S</div>
       <div class="ic-body">
         <h3>Stripe <span class="ic-badge ic-badge-live">Live</span></h3>
-        <p>The native integration. One-click OAuth, read-only, zero code. Every Stripe charge automatically generates a verified review invitation. Refund-aware — reviews for refunded charges are hidden automatically. Works with Stripe Billing, Stripe Connect, and Stripe Checkout.</p>
+        <p>The native integration. One-click OAuth, minimal permissions, zero code. Every Stripe charge automatically generates a verified review invitation. Refund-aware — reviews for refunded charges are hidden automatically. Works with Stripe Billing, Stripe Connect, and Stripe Checkout.</p>
         <a class="ic-cta" href="${B}integrations/stripe/">Stripe integration details →</a>
       </div>
     </div>
@@ -3347,7 +3347,7 @@ function buildIntegrationsStripe() {
   const slug = '/integrations/stripe/';
   const canonical = `${SITE_URL}${slug}`;
   const title = 'Stripe Integration for Verified Reviews — Signed Reviews';
-  const description = 'Connect your Stripe account in one click and automatically collect verified, tamper-evident reviews on every charge. Read-only, no-code setup.';
+  const description = 'Connect your Stripe account in one click and automatically collect verified, tamper-evident reviews on every charge. Minimal-permission, no-code setup.';
 
   const softwareSchema = {
     '@context': 'https://schema.org',
@@ -3368,11 +3368,11 @@ function buildIntegrationsStripe() {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
     name: 'Connect Stripe to Signed Reviews',
-    description: 'One-click OAuth setup — no code, no API keys, read-only access.',
+    description: 'One-click OAuth setup — no code, no API keys, minimal permissions.',
     step: [
       { '@type': 'HowToStep', position: 1, name: 'Sign up or log in', text: 'Create a free Signed Reviews account at platform.signedreviews.com. No credit card required.' },
       { '@type': 'HowToStep', position: 2, name: 'Click "Connect Stripe"', text: 'In your dashboard, click the Stripe connection button. You\'ll be redirected to Stripe\'s official OAuth page.' },
-      { '@type': 'HowToStep', position: 3, name: 'Authorize read-only access', text: 'Stripe shows you exactly which permissions are requested: read charges, read customers, read subscriptions. No write access — Signed Reviews cannot charge, refund, or modify anything in your Stripe account.' },
+      { '@type': 'HowToStep', position: 3, name: 'Authorize the permissions', text: 'Stripe shows you exactly which permissions are requested: read charges, read customers, read subscriptions, plus two coupon permissions used only for review incentives. Signed Reviews cannot charge, refund, move funds, or change your customers, subscriptions, or prices.' },
       { '@type': 'HowToStep', position: 4, name: 'Configure auto-requests', text: 'Choose when review invitations go out: immediately after purchase, after a delay for shipped products, or on your delivery webhook.' },
       { '@type': 'HowToStep', position: 5, name: 'Customize your branding', text: 'Add your logo, brand colors, and email sender name. Review invitations carry your branding.' },
       { '@type': 'HowToStep', position: 6, name: 'Go live', text: 'Every new Stripe charge automatically generates a verified review invitation. No ongoing management needed.' },
@@ -3404,7 +3404,7 @@ function buildIntegrationsStripe() {
   `;
 
   const faqItems = [
-    { q: 'Is the Stripe connection really read-only?', a: 'Yes. The OAuth scope is limited to reading charges, customers, and subscriptions. Signed Reviews cannot create charges, issue refunds, update subscriptions, modify customers, or initiate any write operation in your Stripe account. This is enforced by Stripe\'s permission model — not by policy.' },
+    { q: 'What can Signed Reviews do in my Stripe account?', a: 'You grant read access to charges, customers, subscriptions, and balance transactions — plus two coupon permissions that are used only when you enable review incentives. Signed Reviews cannot create charges, issue refunds, move funds, update subscriptions, modify customers, or initiate any other write operation in your Stripe account. This is enforced by Stripe\'s permission model — not by policy.' },
     { q: 'Does this work with Stripe Connect platforms?', a: 'Yes — if your platform processes payments through Stripe Connect and you have access to the Stripe account, you can connect it. Each connected account is treated independently.' },
     { q: 'What happens if a charge is refunded?', a: 'Stripe sends a charge.refunded webhook. Signed Reviews automatically hides the associated review from your public page. No manual moderation. The review record is preserved for audit but not displayed.' },
     { q: 'Do I need to change anything in my Stripe account?', a: 'No. You don\'t need to add webhooks, modify API keys, or change any settings in your Stripe dashboard. The OAuth connection handles everything.' },
@@ -3429,7 +3429,7 @@ function buildIntegrationsStripe() {
   };
 
   const body = `<article class="prose">>
-    <p>The Signed Reviews Stripe integration connects in one click — no code, no API keys, no webhook configuration. Once connected, every new Stripe charge automatically generates a verified review invitation. The connection is <strong>read-only</strong> (enforced by Stripe's OAuth model), so there is zero risk to your Stripe account.</p>
+    <p>The Signed Reviews Stripe integration connects in one click — no code, no API keys, no webhook configuration. Once connected, every new Stripe charge automatically generates a verified review invitation. The connection is <strong>limited to four read scopes plus two opt-in coupon permissions</strong> (enforced by Stripe's OAuth model), so there is zero risk to your Stripe account.</p>
 
     <h2 id="permissions">What we can (and can't) do</h2>
     <div class="perm-grid">
@@ -3445,7 +3445,7 @@ function buildIntegrationsStripe() {
     <ol class="howto-steps">
       <li><div class="step-num"></div><div><h3>Sign up or log in</h3><p>Create a free Signed Reviews account at <a href="${PLATFORM_URL}" rel="noopener">platform.signedreviews.com</a>. No credit card required. The Free plan includes Stripe integration with unlimited self-service reviews and 10 free automated review invitations.</p></div></li>
       <li><div class="step-num"></div><div><h3>Click "Connect Stripe"</h3><p>In your dashboard, click the Stripe connection button. You'll be redirected to Stripe's official OAuth authorization page — the same flow used by thousands of Stripe App installations.</p></div></li>
-      <li><div class="step-num"></div><div><h3>Authorize read-only access</h3><p>Stripe shows you exactly which permissions are requested. All are read-only. Review and click "Connect." The redirect brings you back to your Signed Reviews dashboard.</p></div></li>
+      <li><div class="step-num"></div><div><h3>Authorize the permissions</h3><p>Stripe shows you exactly which permissions are requested — four read scopes plus two coupon permissions used only for review incentives. Review and click "Connect." The redirect brings you back to your Signed Reviews dashboard.</p></div></li>
       <li><div class="step-num"></div><div><h3>Configure auto-requests</h3><p>Choose your invitation timing: immediately after purchase (digital products), after a configurable delay (physical products), or triggered by your delivery webhook. Set reminder cadence — standard is 3 and 7 days.</p></div></li>
       <li><div class="step-num"></div><div><h3>Customize your branding</h3><p>Upload your logo, set brand colors, and customize the email sender name. Every review invitation carries your branding — your customers see your business, not ours.</p></div></li>
       <li><div class="step-num"></div><div><h3>Go live</h3><p>Switch from test mode to live. Every new Stripe charge automatically generates a verified review invitation. Your public review page is live immediately at <code>signedreviews.com/yourbusiness</code>.</p></div></li>
@@ -3473,7 +3473,7 @@ function buildIntegrationsStripe() {
     description,
     slug,
     pageType: 'article',
-    hero: { eyebrow: 'Integrations', title: 'Stripe Integration', subtitle: 'One click. Read-only. Automatically collect verified reviews on every Stripe charge.' },
+    hero: { eyebrow: 'Integrations', title: 'Stripe Integration', subtitle: 'One click. Minimal permissions. Automatically collect verified reviews on every Stripe charge.' },
     body,
     extraStyle,
   });
@@ -3614,8 +3614,8 @@ function buildTrust() {
     <h3>Cryptographic signing</h3>
     <p>Every review collected through Signed Reviews is cryptographically signed at the moment of submission. The signature binds together the review content, the Stripe transaction ID, the reviewer's email, and a timestamp — creating a tamper-evident record. Anyone can verify this signature later to confirm the review has not been altered.</p>
 
-    <h3>Read-only Stripe access</h3>
-    <p>Our Stripe integration is scoped to read-only permissions. We <strong>cannot</strong> charge, refund, transfer funds, create customers, update subscriptions, or modify anything in your Stripe account. We read your Stripe data only to:</p>
+    <h3>Minimal Stripe permissions</h3>
+    <p>Our Stripe integration requests the least privilege needed to verify reviews. We <strong>cannot</strong> charge, refund, transfer funds, or change your customers, subscriptions, or prices. The only object we can ever create is a discount coupon for a reviewer — and only when you enable review incentives. We read your Stripe data only to:</p>
     <ul>
       <li>Verify that a reviewer completed a purchase from your business</li>
       <li>Match the reviewer to the correct transaction</li>
@@ -3641,7 +3641,7 @@ function buildTrust() {
 
   const html = page({
     title: 'Trust & Security — Signed Reviews',
-    description: 'How Signed Reviews keeps reviews authentic: cryptographic signing, read-only Stripe access, fake-review prevention by design, data ownership, and infrastructure security.',
+    description: 'How Signed Reviews keeps reviews authentic: cryptographic signing, minimal Stripe permissions, fake-review prevention by design, data ownership, and infrastructure security.',
     slug: '/trust/',
     hero: { eyebrow: 'Trust', title: 'Trust & Security', subtitle: 'How we ensure every review is authentic, every transaction is verified, and your data stays yours.' },
     body,

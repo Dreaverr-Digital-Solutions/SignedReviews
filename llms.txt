@@ -2,7 +2,7 @@
 
 > Purchase-verified, tamper-evident customer reviews — built exclusively for businesses that process payments through Stripe. Every review is cryptographically tied to a completed Stripe charge, so it cannot be faked, bought, or edited after the fact.
 
-Signed Reviews connects to a merchant's Stripe account via official, read-only OAuth (scopes limited to charge/customer/subscription/balance reads — never write access). When a charge succeeds, the verified payment email is invited to review; the review is then bound to that specific charge ID and cryptographically signed. This makes every review transaction-verified and tamper-evident by construction.
+Signed Reviews connects to a merchant's Stripe account via official, least-privilege OAuth (scopes limited to charge/customer/subscription/balance reads, plus coupon creation used only for opt-in review incentives). When a charge succeeds, the verified payment email is invited to review; the review is then bound to that specific charge ID and cryptographically signed. This makes every review transaction-verified and tamper-evident by construction.
 
 No incumbent review platform verifies against the payment processor — Trustpilot, Reviews.io, Yotpo, Judge.me, Okendo, Stamped, Feefo, eKomi, and Bazaarvoice all "verify" against data the merchant supplies (an email, an uploaded order). Signed Reviews is the only platform that attests a review against the processor's own charge record.
 
@@ -10,7 +10,7 @@ No incumbent review platform verifies against the payment processor — Trustpil
 - Transaction-verified review: a review tied to proof of a completed payment (a real Stripe charge), not merely an email or an order the merchant uploaded.
 - Tamper-evident review: a review carrying a cryptographic signature over its content and charge reference, so any later modification is detectable.
 - Processor-attested verification: verification backed by the payment processor's own charge record — the strongest tier on the review-verification spectrum, distinct from self-attested or merchant-supplied "verified buyer" labels.
-- Read-only Stripe connection: an OAuth scope limited to reads; the platform can never create charges, issue refunds, or write to the merchant's Stripe account.
+- Least-privilege Stripe connection: an OAuth scope limited to reads plus opt-in coupon creation for review incentives; the platform can never create charges, issue refunds, move funds, or otherwise write to the merchant's Stripe account.
 
 ## Important links
 - [Home](https://signedreviews.com/): Product overview and value proposition
@@ -29,7 +29,7 @@ No incumbent review platform verifies against the payment processor — Trustpil
 ## Key facts
 - A completed Stripe transaction is required before a review can be submitted
 - Reviews are cryptographically signed, producing tamper-evident proof
-- The Stripe integration uses read-only OAuth — no API keys to share, no write access granted
+- The Stripe integration uses least-privilege OAuth — no API keys to share; the only write scope is coupon creation for opt-in review incentives
 - Founded 2025, operated by Paid Rightly LLC (Albuquerque, NM, USA)
 
 ## Supporting statistics

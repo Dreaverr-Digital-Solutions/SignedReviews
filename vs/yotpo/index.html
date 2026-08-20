@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/vs/yotpo/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="b470e6c1aef19d3e1d9fd0a8b5a100f1eb06bd0c">
-  <meta name="build-time" content="2026-08-20T15:49:30.055Z">
+  <meta name="build-commit" content="c4bec87f9daa71cba28cb322f02b03fa782cb02a">
+  <meta name="build-time" content="2026-08-20T18:21:19.901Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Signed Reviews vs Yotpo — Comparison">
@@ -605,7 +605,7 @@ main { padding: 0; }
       <tbody>
         <tr class="highlight-row"><td>Verification method</td><td class="win">Processor-attested — Stripe confirms the charge independently. Level 4 on the verification spectrum.</td><td class="lose">Mail-After-Purchase (MAP) — the review invitation email is matched to a merchant order record. Level 3 — merchant-supplied.</td></tr>
         <tr><td>Fake review prevention</td><td class="win">Structural — no Stripe charge = no review. Impossible to manufacture without faking a real payment.</td><td class="lose">Order-matched — reviews are matched to orders in the merchant's system. Stronger than open platforms, but the merchant controls the order data.</td></tr>
-        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native — one-click OAuth, read-only, zero code. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration — works through e-commerce platform connectors (Shopify, Magento, BigCommerce).</td></tr>
+        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions, zero code. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration — works through e-commerce platform connectors (Shopify, Magento, BigCommerce).</td></tr>
         <tr><td>Cryptographic proof</td><td class="win">Yes — every review carries a tamper-evident digital signature. Verifiable by anyone, anytime.</td><td class="lose">No — reviews are database records. Yotpo's moderation is algorithmic, not cryptographic.</td></tr>
         <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic — Stripe webhook hides refunded reviews immediately. No configuration needed.</td><td class="lose">Manual — merchants must manage review display for refunded orders themselves.</td></tr>
         <tr><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent tiered pricing with invitation caps.</td><td class="lose">Free plan (limited) + paid plans from $15/mo (Silver) to $119/mo+ (Enterprise). Many features — including Google Seller Ratings — are locked behind higher tiers.</td></tr>

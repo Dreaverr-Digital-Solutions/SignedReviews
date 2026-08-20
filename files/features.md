@@ -6,7 +6,7 @@ Signed Reviews is a verification-first review platform built on Stripe. Every re
 
 ## Stripe-native verification
 
-Connect your Stripe account in one click via Stripe's official OAuth. We get read-only access — we can verify charges but can never charge, refund, or modify anything in your Stripe account.
+Connect your Stripe account in one click via Stripe's official OAuth. We get minimal permissions — we can verify charges but can never charge, refund, or move funds. The only thing we can ever create is a discount coupon for a reviewer, and only when you enable review incentives.
 
 - **Automatic review invitations** — every successful Stripe charge triggers a verified review invitation
 - **Refund-aware** — if a charge is refunded, the associated review is automatically hidden

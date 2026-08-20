@@ -9,7 +9,7 @@ See Signed Reviews in action. Book a personalized walkthrough to learn how verif
 A 20-30 minute screen share covering:
 
 - **Live product demo** — dashboard, review collection flow, and public review page in real time
-- **Stripe integration** — one-click OAuth, read-only access, and automatic invitation triggering
+- **Stripe integration** — one-click OAuth, minimal permissions, and automatic invitation triggering
 - **Verification walkthrough** — see a Stripe transaction become a cryptographically signed review
 - **Your use case** — discuss your business, current review stack, and how Signed Reviews fits
 

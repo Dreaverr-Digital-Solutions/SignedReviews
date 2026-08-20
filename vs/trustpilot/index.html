@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/vs/trustpilot/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="b470e6c1aef19d3e1d9fd0a8b5a100f1eb06bd0c">
-  <meta name="build-time" content="2026-08-20T15:49:30.055Z">
+  <meta name="build-commit" content="c4bec87f9daa71cba28cb322f02b03fa782cb02a">
+  <meta name="build-time" content="2026-08-20T18:21:19.901Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Trustpilot vs Signed Reviews: Stripe-Verified Reviews vs Open Invitations">
@@ -625,7 +625,7 @@ main { padding: 0; }
         <tr class="highlight-row"><td>Purchase verification</td><td class="win">Required — every review is cryptographically linked to a completed Stripe transaction</td><td class="lose">Optional — businesses can invite customers, but anyone can leave a review without proof of purchase</td></tr>
         <tr><td>Fake review prevention</td><td class="win">Structural — no purchase = no invitation = no review. Impossible to post a review without a verified transaction.</td><td class="lose">Reactive — relies on automated detection and manual moderation. Trustpilot removed 2.7M fake reviews in 2022.</td></tr>
         <tr class="highlight-row"><td>Review authenticity proof</td><td class="win">Cryptographically signed — every review carries a tamper-evident digital signature that can be independently verified</td><td class="lose">No cryptographic proof — reviews are database records with no external verifiability</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, read-only access, automatic review requests on every charge</td><td class="lose">No native Stripe integration — requires third-party connectors or manual CSV imports</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions, automatic review requests on every charge</td><td class="lose">No native Stripe integration — requires third-party connectors or manual CSV imports</td></tr>
         <tr class="highlight-row"><td>Review gating</td><td class="win">Automatic — invitations go to the email on each Stripe transaction, and customers can also request their own verified link from the business's public page. Either way, a completed purchase is required.</td><td class="lose">Manual — businesses must upload customer lists or send invitations themselves</td></tr>
         <tr><td>Refund handling</td><td class="win">Automatic — refunded reviews are hidden from public display immediately via Stripe webhook</td><td class="lose">Manual — businesses must flag or report reviews from refunded customers</td></tr>
         <tr class="highlight-row"><td>API & integrations</td><td class="win">REST API, webhooks, delivery webhook, public page API</td><td class="win">Extensive API, 100+ integrations, white-label options on Enterprise</td></tr>

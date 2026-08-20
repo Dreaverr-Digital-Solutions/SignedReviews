@@ -952,7 +952,7 @@
             <div class="w-5 h-5 rounded-full bg-gold-100 dark:bg-gold-900/30 flex items-center justify-center flex-shrink-0">
               <svg class="w-3 h-3 text-gold-600 dark:text-gold-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
             </div>
-            Read-only Stripe access
+            Minimal Stripe permissions
           </div>
           <div class="flex items-center gap-2">
             <div class="w-5 h-5 rounded-full bg-gold-100 dark:bg-gold-900/30 flex items-center justify-center flex-shrink-0">
@@ -995,7 +995,7 @@
             Connect
           </div>
           <h3 class="font-semibold text-base mb-2.5 text-navy-900 dark:text-white">Connect Stripe</h3>
-          <p class="text-sm text-navy-400 leading-relaxed">Install from the Stripe App Marketplace in one click. Genuinely read-only — we verify transactions, never full card numbers or billing data. Connects even alongside Shopify, Squarespace, or WooCommerce.</p>
+          <p class="text-sm text-navy-400 leading-relaxed">Install from the Stripe App Marketplace in one click. Minimal permissions — we verify transactions, never full card numbers or billing data. Connects even alongside Shopify, Squarespace, or WooCommerce.</p>
         </div>
 
         <!-- Step 2 -->
@@ -1218,13 +1218,13 @@
           Built for
         </div>
         <h2 class="font-serif text-4xl sm:text-5xl font-normal leading-tight text-navy-900 dark:text-white mb-3">If you get paid via Stripe,<br><span class="text-gold-500">you belong here.</span></h2>
-        <p class="text-navy-400 text-base max-w-xl mx-auto">SignedReviews installs in one click from the Stripe App Marketplace — and connects even alongside Shopify, Squarespace, or WooCommerce, with genuinely read-only access.</p>
+        <p class="text-navy-400 text-base max-w-xl mx-auto">SignedReviews installs in one click from the Stripe App Marketplace — and connects even alongside Shopify, Squarespace, or WooCommerce, with a genuinely minimal permission set.</p>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         <div class="p-6 rounded-2xl border border-navy-100 dark:border-navy-700 card-lift">
           <div class="text-2xl mb-3">🛍️</div>
           <h3 class="font-semibold text-sm mb-1.5 text-navy-900 dark:text-white">E-commerce brands</h3>
-          <p class="text-sm text-navy-400 leading-relaxed">Shopify, WooCommerce, Squarespace, or custom-built — install alongside your existing platform and verify every checkout in seconds. Read-only, every step.</p>
+          <p class="text-sm text-navy-400 leading-relaxed">Shopify, WooCommerce, Squarespace, or custom-built — install alongside your existing platform and verify every checkout in seconds. Minimal permissions, every step.</p>
         </div>
         <div class="p-6 rounded-2xl border border-navy-100 dark:border-navy-700 card-lift">
           <div class="text-2xl mb-3">💻</div>
@@ -1263,13 +1263,13 @@
           Privacy first
         </div>
         <h2 class="font-serif text-3xl sm:text-4xl font-normal mb-5 leading-tight text-navy-900 dark:text-white">Your data stays<br><span class="text-gold-500">where it belongs.</span></h2>
-        <p class="text-navy-500 dark:text-navy-300 text-base leading-relaxed mb-7 max-w-lg">We never see full credit card numbers, CVV codes, or billing addresses. We use Stripe's read-only API — just enough to verify the purchase and reach the buyer. Customer emails are masked in your dashboard and hashed after the review invitation is sent. Your customers' privacy is non-negotiable.</p>
+        <p class="text-navy-500 dark:text-navy-300 text-base leading-relaxed mb-7 max-w-lg">We never see full credit card numbers, CVV codes, or billing addresses. We use Stripe's least-privilege API scopes — just enough to verify the purchase and reach the buyer. Customer emails are masked in your dashboard and hashed after the review invitation is sent. Your customers' privacy is non-negotiable.</p>
         <div class="space-y-4 text-sm text-navy-600 dark:text-navy-300">
           <div class="flex items-start gap-3">
             <div class="w-6 h-6 rounded-full bg-gold-100 dark:bg-gold-900/30 border border-gold-200 dark:border-gold-800 flex items-center justify-center flex-shrink-0 mt-0.5">
               <svg class="w-3 h-3 text-gold-600 dark:text-gold-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
             </div>
-            <span>Read-only Stripe access — we can't charge, refund, or modify anything</span>
+            <span>Minimal Stripe permissions — we can't charge, refund, or move funds</span>
           </div>
           <div class="flex items-start gap-3">
             <div class="w-6 h-6 rounded-full bg-gold-100 dark:bg-gold-900/30 border border-gold-200 dark:border-gold-800 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -1348,7 +1348,7 @@
       </div>
 
       <div class="text-center">
-        <p class="text-sm text-navy-400 dark:text-slate-500">Built for Stripe-powered businesses. Read-only access. No fake reviews, by design.</p>
+        <p class="text-sm text-navy-400 dark:text-slate-500">Built for Stripe-powered businesses. Minimal permissions. No fake reviews, by design.</p>
       </div>
     </div>
   </section>
@@ -1972,9 +1972,9 @@
         execute: function(params) {
           var info = {
             overview: 'Signed Reviews is a SaaS platform that helps Stripe businesses collect verified, tamper-evident customer reviews. Every review is processor-attested (Level 4 verification) — independently confirmed by Stripe against a completed, non-refunded charge. Founded 2026. See https://signedreviews.com/llms.txt for a complete site map.',
-            verification: 'Signed Reviews uses processor-attested (Level 4) verification via Stripe read-only OAuth. Every review is matched against a real Stripe charge, cryptographically signed, and automatically hidden if the charge is refunded. This is the strongest verification level available. Full breakdown: https://signedreviews.com/learn/what-does-verified-buyer-mean/',
+            verification: 'Signed Reviews uses processor-attested (Level 4) verification via Stripe least-privilege OAuth. Every review is matched against a real Stripe charge, cryptographically signed, and automatically hidden if the charge is refunded. This is the strongest verification level available. Full breakdown: https://signedreviews.com/learn/what-does-verified-buyer-mean/',
             pricing: 'Free plan: unlimited self-service reviews + 10 automated review invitations. Starter: $29/mo (250 reviews). Pro: $79/mo (1,500 reviews). Scale: $199/mo (5,000 reviews). All plans include Stripe integration and API access. See https://signedreviews.com/pricing/',
-            integrations: 'Stripe (native read-only OAuth, live), REST API (live), Webhooks (live), Shopify (planned), WooCommerce (planned). See https://signedreviews.com/integrations/',
+            integrations: 'Stripe (native least-privilege OAuth, live), REST API (live), Webhooks (live), Shopify (planned), WooCommerce (planned). See https://signedreviews.com/integrations/',
             api: 'Public REST API at api.signedreviews.com/v1. Publishable-key auth for read-only access to verified reviews, business profiles, and ratings. OpenAPI spec at https://signedreviews.com/openapi.json. Docs: https://signedreviews.com/api/',
             learn: 'Three authority pages: What "Verified Buyer" Actually Means (verification spectrum), How Fake Reviews Work (methods + economics), FTC Fake Review Rules (16 CFR Part 465 compliance). Index: https://signedreviews.com/learn/what-does-verified-buyer-mean/',
             comparisons: '14 comparison pages vs major review platforms: Trustpilot, Feefo, Judge.me, Yotpo, eKomi, SiteJabber, Reviews.io, Stamped, Okendo, Loox, Skeepers, Google Reviews, Yelp, Clutch. Index: https://signedreviews.com/vs/trustpilot/',

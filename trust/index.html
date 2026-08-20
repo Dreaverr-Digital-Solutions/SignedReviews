@@ -4,22 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trust &amp; Security — Signed Reviews</title>
-  <meta name="description" content="How Signed Reviews keeps reviews authentic: cryptographic signing, read-only Stripe access, fake-review prevention by design, data ownership, and infrastructure security.">
+  <meta name="description" content="How Signed Reviews keeps reviews authentic: cryptographic signing, minimal Stripe permissions, fake-review prevention by design, data ownership, and infrastructure security.">
   <link rel="canonical" href="https://signedreviews.com/trust/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="b470e6c1aef19d3e1d9fd0a8b5a100f1eb06bd0c">
-  <meta name="build-time" content="2026-08-20T15:49:30.055Z">
+  <meta name="build-commit" content="c4bec87f9daa71cba28cb322f02b03fa782cb02a">
+  <meta name="build-time" content="2026-08-20T18:21:19.901Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Trust &amp; Security — Signed Reviews">
-  <meta property="og:description" content="How Signed Reviews keeps reviews authentic: cryptographic signing, read-only Stripe access, fake-review prevention by design, data ownership, and infrastructure security.">
+  <meta property="og:description" content="How Signed Reviews keeps reviews authentic: cryptographic signing, minimal Stripe permissions, fake-review prevention by design, data ownership, and infrastructure security.">
   <meta property="og:url" content="https://signedreviews.com/trust/">
   <meta property="og:site_name" content="Signed Reviews">
   <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Trust &amp; Security — Signed Reviews">
-  <meta name="twitter:description" content="How Signed Reviews keeps reviews authentic: cryptographic signing, read-only Stripe access, fake-review prevention by design, data ownership, and infrastructure security.">
+  <meta name="twitter:description" content="How Signed Reviews keeps reviews authentic: cryptographic signing, minimal Stripe permissions, fake-review prevention by design, data ownership, and infrastructure security.">
   <meta name="twitter:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
 
   <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png?v=20260729a">
@@ -584,8 +584,8 @@ main { padding: 0; }
     <h3>Cryptographic signing</h3>
     <p>Every review collected through Signed Reviews is cryptographically signed at the moment of submission. The signature binds together the review content, the Stripe transaction ID, the reviewer's email, and a timestamp — creating a tamper-evident record. Anyone can verify this signature later to confirm the review has not been altered.</p>
 
-    <h3>Read-only Stripe access</h3>
-    <p>Our Stripe integration is scoped to read-only permissions. We <strong>cannot</strong> charge, refund, transfer funds, create customers, update subscriptions, or modify anything in your Stripe account. We read your Stripe data only to:</p>
+    <h3>Minimal Stripe permissions</h3>
+    <p>Our Stripe integration requests the least privilege needed to verify reviews. We <strong>cannot</strong> charge, refund, transfer funds, or change your customers, subscriptions, or prices. The only object we can ever create is a discount coupon for a reviewer — and only when you enable review incentives. We read your Stripe data only to:</p>
     <ul>
       <li>Verify that a reviewer completed a purchase from your business</li>
       <li>Match the reviewer to the correct transaction</li>

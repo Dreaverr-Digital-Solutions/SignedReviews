@@ -20,7 +20,7 @@ const MARKDOWN_PAGES = {
   '/': `# Signed Reviews — Processor-Attested Verified Reviews for Stripe Businesses
 
 ## What We Do
-Signed Reviews is the only review platform that verifies every review against the **payment processor** (Stripe), not the merchant's own data. Connect your Stripe account via read-only OAuth and automatically collect verified, tamper-evident reviews on every charge. Refunds automatically hide their associated reviews.
+Signed Reviews is the only review platform that verifies every review against the **payment processor** (Stripe), not the merchant's own data. Connect your Stripe account via least-privilege OAuth and automatically collect verified, tamper-evident reviews on every charge. Refunds automatically hide their associated reviews.
 
 ## Key Links
 - [How It Works](https://signedreviews.com/how-it-works/)
@@ -134,9 +134,9 @@ AI agents and automated clients can access Signed Reviews content through the fo
 - **Session** — HTTP-only cookies with short-lived JWT
 
 ## Stripe App Authentication
-- **Stripe App OAuth** — Read-only Stripe Connect authorization
+- **Stripe App OAuth** — Least-privilege Stripe Connect authorization
 - **Scopes** — Read transactions, customers, and charges
-- **No Write Access** — The platform never initiates charges or modifies Stripe data
+- **No Money Movement** — The platform never charges, refunds, or moves funds; the only write is opt-in review-incentive coupons
 
 ## Security
 - TLS 1.3 for all connections
@@ -188,7 +188,7 @@ Signed Reviews is the only review platform that verifies every review against th
 ## Core Pages
 - [How It Works](https://signedreviews.com/how-it-works/) — The 5-step verification flow
 - [Pricing](https://signedreviews.com/pricing/) — Free plan available, paid from $29/mo
-- [Trust & Security](https://signedreviews.com/trust/) — Cryptographic signing, read-only OAuth
+- [Trust & Security](https://signedreviews.com/trust/) — Cryptographic signing, least-privilege OAuth
 - [API Reference](https://signedreviews.com/api/) — Public API documentation
 
 ## Learn (Authority Pages)
@@ -205,7 +205,7 @@ Covers Stripe verified reviews, Trustpilot alternatives, fake review detection, 
 → [Blog index](https://signedreviews.com/blog/)
 
 ## Integrations
-- [Stripe](https://signedreviews.com/integrations/stripe/) — Native, read-only OAuth (Live)
+- [Stripe](https://signedreviews.com/integrations/stripe/) — Native, least-privilege OAuth (Live)
 - [Shopify](https://signedreviews.com/integrations/shopify/) — Planned
 - [WooCommerce](https://signedreviews.com/integrations/woocommerce/) — Planned
 
@@ -243,7 +243,7 @@ Switch to annual billing and save 20% on any paid plan.
 
 ## What Makes Us Different
 - **Processor-attested (Level 4):** Reviews are independently verified against Stripe charges — not merchant-supplied data
-- **Read-only OAuth:** You never share your Stripe API keys. Read-only access only.
+- **Least-privilege OAuth:** You never share your Stripe API keys — read scopes plus opt-in coupon creation, no charge or refund capability.
 - **Automatic refund handling:** Refunds hide their associated reviews automatically
 - **Tamper-evident:** Every review is cryptographically signed
 
@@ -254,7 +254,7 @@ MARKDOWN_PAGES['/how-it-works/'] = `# How Signed Reviews Works
 
 ## The 5-Step Verification Flow
 
-1. **Connect Stripe** — One-click read-only OAuth. We never see or store your API keys.
+1. **Connect Stripe** — One-click least-privilege OAuth. We never see or store your API keys.
 2. **Customer purchases** — A real Stripe charge happens on your site.
 3. **Review invitation sent** — We email the customer using the Stripe charge metadata. Or you call our API.
 4. **Customer writes review** — The review is cryptographically linked to the Stripe charge.
@@ -319,7 +319,7 @@ Signed Reviews is operated by Paid Rightly LLC. This page lists the third-party 
 |--------------|---------|-----------------|----------|
 | Railway | Cloud hosting and managed PostgreSQL database | All Service data at rest | United States |
 | Cloudinary | Image hosting for review photos and brand assets | User-uploaded images | United States |
-| Stripe | Business Stripe account linking (Connect OAuth or restricted API key). Read-only access to verify reviews. | Stripe account ID, transaction metadata | United States |
+| Stripe | Business Stripe account linking (Connect OAuth or restricted API key). Limited access to verify reviews and compute merchant-enabled metrics. We never charge, refund, or move funds; the only write is opt-in review-incentive coupons. | Stripe account ID, transaction metadata | United States |
 | Resend | Transactional email delivery | Recipient email addresses, email content | United States |
 
 ## AI Services
