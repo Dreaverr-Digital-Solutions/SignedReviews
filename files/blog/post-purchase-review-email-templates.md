@@ -191,7 +191,7 @@ A no-reply sender address says "we want your opinion but not your conversation."
 
 If you process payments through Stripe, you can automate every template on this page. Here's how it works:
 
-1. **Connect your Stripe account** via OAuth (one click, read-only permissions)
+1. **Connect your Stripe account** via OAuth (one click, minimal permissions)
 2. **Configure your timing rules** — same-day, delayed, delivery-triggered, or custom
 3. **The platform detects every new charge** through Stripe's event system
 4. **Review invitations send automatically** at the timing you configured, with your template, your branding, and your sender name

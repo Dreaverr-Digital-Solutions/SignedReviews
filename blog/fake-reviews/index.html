@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/fake-reviews/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="c4bec87f9daa71cba28cb322f02b03fa782cb02a">
-  <meta name="build-time" content="2026-08-20T18:21:19.901Z">
+  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
+  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="The Fake Review Problem: Why Detection Will Never Be Enough — Signed Reviews Blog">
@@ -665,7 +665,7 @@ main { padding: 0; }
 <h3 id="how-it-works"><a class="anchor" href="#how-it-works" aria-label="Permalink to How it works">#</a> How it works</h3>
 <ol>
 <li>A customer completes a purchase through Stripe.</li>
-<li>Signed Reviews detects the charge (read-only access) and creates a unique, expiring review invitation tied to that specific transaction.</li>
+<li>Signed Reviews detects the charge (read access) and creates a unique, expiring review invitation tied to that specific transaction.</li>
 <li>The invitation is sent to the email address on the Stripe payment — the customer&#39;s verified payment email.</li>
 <li>The customer clicks, writes their review, and submits it. The review is cryptographically signed at submission.</li>
 <li>If the charge is refunded, Stripe sends a webhook and the review is automatically hidden.</li>

@@ -57,7 +57,7 @@ From the code audit (`build.js`, rendered pages, `sitemap.xml`, `robots.txt`). P
 
 ### 🔴 P0 — Fix broken blog meta descriptions
 **Evidence:** `build.js:1620–1624` extracts the description as "first line after `\n---\n`", which grabs a stray bullet. All 5 posts confirmed broken:
-- `how-stripe-review-verification-works` → `"Critically, the connection is read-only. The OAuth scope grants permission to:"`
+- `how-stripe-review-verification-works` → `"Critically, the connection is least-privilege. The OAuth scope grants permission to:"`
 - `fake-review-statistics-2026` → `"- 2.7 million fake reviews were removed by Trustpilot in 2022 alone…"`
 - (etc. — all mid-sentence fragments)
 

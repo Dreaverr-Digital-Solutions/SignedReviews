@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/stripe-verified-reviews/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="c4bec87f9daa71cba28cb322f02b03fa782cb02a">
-  <meta name="build-time" content="2026-08-20T18:21:19.901Z">
+  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
+  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Stripe Verified Reviews: Tamper-Evident &amp; Cryptographically Signed | Signed Reviews Blog">
@@ -597,7 +597,7 @@ main { padding: 0; }
 <h2 id="how-it-works"><a class="anchor" href="#how-it-works" aria-label="Permalink to How it works">#</a> How it works</h2>
 <p>The flow is automated from end to end. You connect once; Signed Reviews handles the rest.</p>
 <ol>
-<li><strong>Connect your Stripe account.</strong> One-click OAuth. The connection is read-only — Signed Reviews can verify charges but can never charge, refund, or modify anything in your Stripe account. See <a href="/how-it-works/">how it works</a> for the full technical flow.</li>
+<li><strong>Connect your Stripe account.</strong> One-click OAuth. The connection uses minimal permissions — Signed Reviews can verify charges but can never charge, refund, or move funds. The only write is creating discount coupons for reviewers, and only when you enable review incentives. See <a href="/how-it-works/">how it works</a> for the full technical flow.</li>
 <li><strong>A customer completes a purchase.</strong> Stripe processes the payment as usual. Signed Reviews detects the <code>charge.succeeded</code> webhook and automatically creates a unique, expiring review invitation linked to that specific transaction.</li>
 <li><strong>The invitation is sent.</strong> The email goes to the customer&#39;s verified payment email from the Stripe transaction. You control the timing — immediately, after a delay for shipped products, or triggered by your delivery webhook.</li>
 <li><strong>The customer writes their review.</strong> They click the unique link, write their review, and submit. At the moment of submission, the review content, transaction ID, customer email, and timestamp are bundled into a cryptographic signature — producing cryptographically signed reviews that anyone can independently verify.</li>
@@ -664,7 +664,7 @@ main { padding: 0; }
 <h2 id="what-makes-cryptographically-signed-reviews-different-from-other-verified-review"><a class="anchor" href="#what-makes-cryptographically-signed-reviews-different-from-other-verified-review" aria-label="Permalink to What makes cryptographically signed reviews different from other verified reviews">#</a> What makes cryptographically signed reviews different from other verified reviews</h2>
 <p>Learn how our platform ensures every review is a cryptographically signed review on our <a href="/how-it-works/">How It Works</a> page.</p>
 <h3 id="1-independent-attestation"><a class="anchor" href="#1-independent-attestation" aria-label="Permalink to 1. Independent attestation">#</a> 1. Independent attestation</h3>
-<p>The verification doesn&#39;t come from the merchant. It comes from Stripe — a separate company, a regulated financial institution, and an independent third party to every transaction. Stripe has no incentive to lie about whether a charge occurred, and Signed Reviews has no ability to alter Stripe&#39;s records (the connection is read-only).</p>
+<p>The verification doesn&#39;t come from the merchant. It comes from Stripe — a separate company, a regulated financial institution, and an independent third party to every transaction. Stripe has no incentive to lie about whether a charge occurred, and Signed Reviews has no ability to alter Stripe&#39;s records (the connection grants no write access to transactions).</p>
 <h3 id="2-tamper-evident-reviews"><a class="anchor" href="#2-tamper-evident-reviews" aria-label="Permalink to 2. Tamper-evident reviews">#</a> 2. Tamper-evident reviews</h3>
 <p>Cryptographically signed reviews are created at the moment of submission. The signature covers the review text, star rating, and the Stripe charge ID. Even a one-character edit immediately invalidates the cryptographic hash, so any tampering is autodetected without needing manual audits or merchant policies. (Learn more about <a href="/how-it-works/">how this prevents fake reviews</a>.) The signature binds together the review content, the Stripe transaction ID, the reviewer&#39;s email, and a timestamp. Anyone can verify this signature later to confirm the review hasn&#39;t been altered — not by the merchant, not by Signed Reviews, not by anyone. This is what makes them cryptographically signed reviews: the evidence of authenticity is built into the design, not bolted on after the fact.</p>
 <h3 id="3-refund-aware"><a class="anchor" href="#3-refund-aware" aria-label="Permalink to 3. Refund-aware">#</a> 3. Refund-aware</h3>
@@ -754,7 +754,7 @@ main { padding: 0; }
 <p>Tamper evident reviews are customer reviews cryptographically bound to a verified transaction, so any alteration after submission breaks the cryptographic signature and is immediately detectable. Stripe Verified Reviews use this mechanism to guarantee that the review text, rating, and purchase context have not changed since the customer submitted them.</p>
 <p>Tamper evident reviews are the only feedback type that can&#39;t be silently manipulated after publication. Unlike plain text or even &quot;verified&quot; badges, a cryptographically signed review permanently links the review content to the original transaction—if anyone tries to alter it, the signature breaks and the tampering becomes immediately detectable. This makes tamper evident reviews the gold standard for review integrity, especially for businesses that rely on trust at scale. Learn more about <a href="/how-it-works/">how independent attestation works</a>.</p>
 <h2 id="how-to-get-stripe-verified-reviews-for-your-business"><a class="anchor" href="#how-to-get-stripe-verified-reviews-for-your-business" aria-label="Permalink to How to Get Stripe Verified Reviews for Your Business">#</a> How to Get Stripe Verified Reviews for Your Business</h2>
-<p>Getting started with Stripe verified reviews is straightforward. First, sign up for a Signed Reviews account and connect your Stripe account with one click — the connection is read-only, so your Stripe data stays secure. Once connected, every new Stripe charge automatically generates a verified review invitation sent to your customer&#39;s payment email. You control the timing and branding, and reviews start appearing on your public page immediately. <a href="/how-it-works/">See how it works →</a></p>
+<p>Getting started with Stripe verified reviews is straightforward. First, sign up for a Signed Reviews account and connect your Stripe account with one click — the connection uses minimal permissions, so your Stripe data stays secure. Once connected, every new Stripe charge automatically generates a verified review invitation sent to your customer&#39;s payment email. You control the timing and branding, and reviews start appearing on your public page immediately. <a href="/how-it-works/">See how it works →</a></p>
 <h2 id="who-are-stripe-verified-reviews-for"><a class="anchor" href="#who-are-stripe-verified-reviews-for" aria-label="Permalink to Who are Stripe verified reviews for?">#</a> Who are Stripe verified reviews for?</h2>
 <p>Stripe verified reviews are built for any business that processes payments through Stripe:</p>
 <ul>
@@ -768,7 +768,7 @@ main { padding: 0; }
 <h2 id="how-to-start-collecting-stripe-verified-reviews"><a class="anchor" href="#how-to-start-collecting-stripe-verified-reviews" aria-label="Permalink to How to start collecting Stripe verified reviews">#</a> How to start collecting Stripe verified reviews</h2>
 <ol>
 <li><strong>Sign up</strong> at <a href="https://platform.signedreviews.com">platform.signedreviews.com</a>. Free plan available — no credit card required. See <a href="/pricing/">pricing</a> for plan details.</li>
-<li><strong>Connect your Stripe account.</strong> One-click OAuth. Read-only permissions. Takes 30 seconds.</li>
+<li><strong>Connect your Stripe account.</strong> One-click OAuth. Minimal permissions. Takes 30 seconds.</li>
 <li><strong>Configure your timing.</strong> Choose when invitations go out: immediately after purchase, after a delay (for shipped products), or on your delivery webhook.</li>
 <li><strong>Customize your branding.</strong> Add your logo, brand colors, and email sender name.</li>
 <li><strong>Go live.</strong> Every new Stripe charge automatically generates a verified review invitation.</li>

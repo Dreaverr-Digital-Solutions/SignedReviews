@@ -47,7 +47,7 @@ SaaS companies are increasingly looking for Trustpilot alternatives for SaaS bec
 | Stripe Billing | Native — subscriptions, invoices, upgrades, cancellations |
 | Starting price | Free (self-service + 10 automated) / $29–$199/mo |
 
-The only platform built specifically for Stripe businesses — which describes almost every SaaS company. Connects via read-only OAuth. Understands Stripe Billing natively: invoices, subscriptions, proration, upgrades, downgrades. Every subscription payment is a new verification opportunity. Reviews are cryptographically signed.
+The only platform built specifically for Stripe businesses — which describes almost every SaaS company. Connects via least-privilege OAuth. Understands Stripe Billing natively: invoices, subscriptions, proration, upgrades, downgrades. Every subscription payment is a new verification opportunity. Reviews are cryptographically signed.
 
 **Why it wins for SaaS:** It's the only platform that treats subscription payments as recurring verification events rather than one-and-done purchases. A customer who's paid 24 monthly invoices generates a review with 24 verification data points, not one. <a href="/pricing/">See pricing plans →</a>
 

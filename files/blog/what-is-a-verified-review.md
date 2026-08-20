@@ -37,7 +37,7 @@ Purchase-verified review platforms take a different approach. Instead of detecti
 
 Here's how it works with Signed Reviews:
 
-1. You connect your Stripe account (read-only access — we can't charge or refund).
+1. You connect your Stripe account (minimal permissions — we can't charge, refund, or move funds).
 2. A customer completes a purchase. Stripe records the transaction.
 3. Signed Reviews detects the charge and creates a unique, expiring invitation link tied to that specific transaction.
 4. The invitation is sent to the email address on the Stripe payment — the customer's verified payment email.

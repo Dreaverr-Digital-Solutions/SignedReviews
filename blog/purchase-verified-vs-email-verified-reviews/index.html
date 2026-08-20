@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/purchase-verified-vs-email-verified-reviews/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="c4bec87f9daa71cba28cb322f02b03fa782cb02a">
-  <meta name="build-time" content="2026-08-20T18:21:19.901Z">
+  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
+  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Verified Buyer Meaning: Purchase-Verified vs Email-Verified Reviews Explained — Signed Reviews Blog">
@@ -623,7 +623,7 @@ main { padding: 0; }
 <p>This is what <strong>proof of purchase reviews</strong> actually means at its strongest: the review platform checks the reviewer against <strong>the payment processor&#39;s independent records</strong> — not the merchant&#39;s store data.</p>
 <p><strong>How it works:</strong></p>
 <ul>
-<li>The platform connects to the business&#39;s Stripe account via OAuth (read-only)</li>
+<li>The platform connects to the business&#39;s Stripe account via OAuth (least-privilege)</li>
 <li>When a new Stripe charge appears, a review invitation is sent to the customer&#39;s payment email</li>
 <li>At submission, the platform confirms with Stripe: does this charge exist? Is it still valid (not refunded)?</li>
 <li>If yes → the review is cryptographically signed with the Stripe charge metadata</li>

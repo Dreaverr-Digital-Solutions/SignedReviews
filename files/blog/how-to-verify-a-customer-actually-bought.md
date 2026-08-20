@@ -64,7 +64,7 @@ How to verify a customer actually bought: four methods ranked by how hard each i
 
 ## Method 4: Processor attestation (Level 4)
 
-**How it works:** The review platform connects directly to the business's payment processor (Stripe) via read-only OAuth. Every review is matched to a confirmed, settled, non-refunded charge in the payment processor's system — and signed cryptographically so the attestation is independently verifiable.
+**How it works:** The review platform connects directly to the business's payment processor (Stripe) via least-privilege OAuth. Every review is matched to a confirmed, settled, non-refunded charge in the payment processor's system — and signed cryptographically so the attestation is independently verifiable.
 
 **What it proves:**
 - A real charge occurred (amount, date, payment method confirmed by Stripe)
@@ -111,7 +111,7 @@ Follow this progression to choose the right verification method for your busines
 | Email confirmation | Any review platform with email verification (most have it) |
 | Invitation-only | A customer list or e-commerce integration; configure your platform to send invitations, not accept open reviews |
 | Order matching | An e-commerce platform integration (Shopify, WooCommerce); most Shopify review apps do this automatically |
-| Processor attestation | A Stripe account + a review platform that connects to Stripe via read-only OAuth (e.g., [Signed Reviews](https://platform.signedreviews.com)) |
+| Processor attestation | A Stripe account + a review platform that connects to Stripe via least-privilege OAuth (e.g., [Signed Reviews](https://platform.signedreviews.com)) |
 
 ---
 

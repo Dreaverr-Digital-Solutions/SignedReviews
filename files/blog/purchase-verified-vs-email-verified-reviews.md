@@ -63,7 +63,7 @@ The review platform checks the reviewer against **the merchant's own order or cu
 This is what **proof of purchase reviews** actually means at its strongest: the review platform checks the reviewer against **the payment processor's independent records** — not the merchant's store data.
 
 **How it works:**
-- The platform connects to the business's Stripe account via OAuth (read-only)
+- The platform connects to the business's Stripe account via OAuth (least-privilege)
 - When a new Stripe charge appears, a review invitation is sent to the customer's payment email
 - At submission, the platform confirms with Stripe: does this charge exist? Is it still valid (not refunded)?
 - If yes → the review is cryptographically signed with the Stripe charge metadata

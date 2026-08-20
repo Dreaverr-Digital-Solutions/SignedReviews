@@ -1,6 +1,6 @@
 # How to Collect Verified Customer Reviews: A Practical Guide
 
-**Published:** 2026-07-04 · **Author:** Signed Reviews Team · **Description:** How to collect verified customer reviews with Stripe: connect read-only, trigger a request per charge, and publish a verified review page in minutes.
+**Published:** 2026-07-04 · **Author:** Signed Reviews Team · **Description:** How to collect verified customer reviews with Stripe: connect with minimal permissions, trigger a request per charge, and publish a verified review page in minutes.
 
 ---
 
@@ -10,9 +10,9 @@ Learning how to collect verified customer reviews doesn't require technical expe
 
 ## Step 1: Connect your Stripe account
 
-The foundation of verified reviews is purchase verification. Connect your Stripe account to your review platform using Stripe's official OAuth flow. This grants read-only access — the platform can verify charges but cannot modify anything in your Stripe account.
+The foundation of verified reviews is purchase verification. Connect your Stripe account to your review platform using Stripe's official OAuth flow. This grants minimal permissions — the platform can verify charges but can never charge, refund, or move funds. The only thing it can create is a discount coupon for a reviewer, and only when you enable review incentives.
 
-**What to look for**: Make sure the integration is read-only. Some platforms request `read_write` access, which allows them to create charges and issue refunds. Signed Reviews uses `charge_read`, `customer_read`, and `subscription_read` permissions — no write access. See [how it works](/how-it-works/) for the full setup flow.
+**What to look for**: Check exactly which permissions the integration requests. Some platforms request `read_write` access, which allows them to create charges and issue refunds. Signed Reviews uses four read permissions (`charge_read`, `customer_read`, `subscription_read`, `balance_transaction_source_read`) plus two write permissions (`coupon_write`, `promotion_code_write`) — and the writes are used only to mint single-use discount coupons for reviewers when you enable review incentives. See [how it works](/how-it-works/) for the full setup flow.
 
 ## Step 2: Configure your auto-request settings
 

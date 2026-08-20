@@ -60,7 +60,7 @@ Here's the concrete flow for a processor-attested, transaction-verified review:
 
 1. **A customer makes a purchase via Stripe.** Stripe processes the payment and records a charge object — containing the amount, the customer's email, the payment status, and a unique charge ID.
 
-2. **The business connects their Stripe account** to the review platform via OAuth — **read-only access only.** The platform can query charges, customers, and refunds. It cannot create, modify, or refund anything. See [how it works](/how-it-works/) for the full setup flow.
+2. **The business connects their Stripe account** to the review platform via OAuth — **least-privilege access.** The platform can query charges, customers, and refunds. It cannot create, modify, or refund anything; the only write is opt-in review-incentive coupons. See [how it works](/how-it-works/) for the full setup flow.
 
 3. **When a new charge appears**, the platform sends a review invitation to the customer's verified payment email — the email Stripe has on file for that transaction. No invitation is sent for charges that are disputed, refunded, or flagged.
 

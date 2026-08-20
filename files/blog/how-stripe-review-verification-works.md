@@ -12,14 +12,15 @@ Set up in under a minute — that's how Stripe review verification works. No API
 
 Signed Reviews connects to your Stripe account via Stripe's official OAuth flow. You click "Connect," authorize the integration, and that's it. No API keys to copy and paste. No webhook configuration. No server changes. See [pricing](/pricing/) for plan details.
 
-Critically, the connection is **read-only.** The OAuth scope grants permission to:
+Critically, the connection is **least-privilege.** The OAuth scope grants permission to:
 
 - Read charges (to verify purchases)
 - Read customers (to match reviewers to buyers)
 - Read subscriptions (for subscription-based businesses)
 - Read balance transactions (for refund detection)
+- Create coupons and promotion codes (for review incentives — opt-in, and the only write permission)
 
-We **cannot** create charges, issue refunds, update subscriptions, or modify anything in your Stripe account. This is enforced by Stripe's OAuth permission model — not just by our promise.
+We **cannot** create charges, issue refunds, move funds, update subscriptions, or modify customers or prices in your Stripe account. The only write is the coupon permission above — and it is used only when the merchant enables review incentives. This is enforced by Stripe's OAuth permission model — not just by our promise.
 
 ## How Stripe review verification works: step by step
 
@@ -75,7 +76,7 @@ Break any link in that chain, and the review doesn't exist. This is how Stripe r
 
 ### Does Stripe review verification require API keys?
 
-No. Signed Reviews connects via Stripe's official OAuth flow — one click, read-only permissions. You never copy an API key, and the connection can be revoked at any time from your Stripe dashboard. This is a core part of how Stripe review verification works: Stripe's OAuth permission model enforces the read-only scope, not the app's own policy.
+No. Signed Reviews connects via Stripe's official OAuth flow — one click, least-privilege permissions: four read scopes plus opt-in coupon creation for review incentives. You never copy an API key, and the connection can be revoked at any time from your Stripe dashboard. This is a core part of how Stripe review verification works: Stripe's OAuth permission model enforces the scope, not the app's own policy.
 
 ### Can Stripe review verification be faked?
 

@@ -50,7 +50,7 @@ Yotpo is powerful for enterprise DTC brands, but its pricing, complexity, and en
 
 | Verification level | **Level 4 — Processor-attested** |
 | Starting price | Free (self-service + 10 automated) / $29–$199/mo |
-| Stripe-native | ✅ Yes — one-click OAuth, read-only |
+| Stripe-native | ✅ Yes — one-click OAuth, minimal permissions |
 | Review ownership | ✅ You own your reviews |
 | Best for | SaaS, e-commerce, services on Stripe |
 

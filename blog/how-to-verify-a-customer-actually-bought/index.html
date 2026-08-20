@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/how-to-verify-a-customer-actually-bought/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="c4bec87f9daa71cba28cb322f02b03fa782cb02a">
-  <meta name="build-time" content="2026-08-20T18:21:19.901Z">
+  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
+  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="How to Verify a Customer Actually Bought: 4 Methods, Ranked — Signed Reviews Blog">
@@ -614,7 +614,7 @@ main { padding: 0; }
 <p><strong>The verdict:</strong> Order matching is the industry standard — and it&#39;s a meaningful step up from email-only. But it trusts the merchant&#39;s data, and the merchant controls the merchant&#39;s data.</p>
 <hr>
 <h2 id="method-4-processor-attestation-level-4"><a class="anchor" href="#method-4-processor-attestation-level-4" aria-label="Permalink to Method 4: Processor attestation (Level 4)">#</a> Method 4: Processor attestation (Level 4)</h2>
-<p><strong>How it works:</strong> The review platform connects directly to the business&#39;s payment processor (Stripe) via read-only OAuth. Every review is matched to a confirmed, settled, non-refunded charge in the payment processor&#39;s system — and signed cryptographically so the attestation is independently verifiable.</p>
+<p><strong>How it works:</strong> The review platform connects directly to the business&#39;s payment processor (Stripe) via least-privilege OAuth. Every review is matched to a confirmed, settled, non-refunded charge in the payment processor&#39;s system — and signed cryptographically so the attestation is independently verifiable.</p>
 <p><strong>What it proves:</strong></p>
 <ul>
 <li>A real charge occurred (amount, date, payment method confirmed by Stripe)</li>
@@ -699,7 +699,7 @@ main { padding: 0; }
 </tr>
 <tr>
 <td>Processor attestation</td>
-<td>A Stripe account + a review platform that connects to Stripe via read-only OAuth (e.g., <a href="https://platform.signedreviews.com">Signed Reviews</a>)</td>
+<td>A Stripe account + a review platform that connects to Stripe via least-privilege OAuth (e.g., <a href="https://platform.signedreviews.com">Signed Reviews</a>)</td>
 </tr>
 </tbody></table></div>
 <hr>

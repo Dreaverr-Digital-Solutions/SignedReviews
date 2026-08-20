@@ -97,7 +97,7 @@ For the full verification spectrum — Levels 0 through 4, with what each platfo
 ### How it works
 
 1. A customer completes a purchase through Stripe.
-2. Signed Reviews detects the charge (read-only access) and creates a unique, expiring review invitation tied to that specific transaction.
+2. Signed Reviews detects the charge (read access) and creates a unique, expiring review invitation tied to that specific transaction.
 3. The invitation is sent to the email address on the Stripe payment — the customer's verified payment email.
 4. The customer clicks, writes their review, and submits it. The review is cryptographically signed at submission.
 5. If the charge is refunded, Stripe sends a webhook and the review is automatically hidden.

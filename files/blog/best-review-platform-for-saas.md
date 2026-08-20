@@ -42,7 +42,7 @@ Each platform is scored on five dimensions:
 | Dimension | What we measure |
 |-----------|----------------|
 | **Verification method** | Who attests that a purchase happened — the merchant, the platform, or an independent payment processor |
-| **Stripe integration** | Does it connect to Stripe? Natively? Read-only? |
+| **Stripe integration** | Does it connect to Stripe? Natively? Minimal permissions? |
 | **SaaS suitability** | Does it handle recurring subscriptions, not just one-time e-commerce orders? |
 | **Pricing for SaaS** | Transparent pricing at SaaS-relevant volumes |
 | **API & embeddability** | Can you embed reviews on your own marketing site and in-app? |
@@ -54,7 +54,7 @@ Each platform is scored on five dimensions:
 | Dimension | Score | Notes |
 |-----------|-------|-------|
 | Verification method | ★★★★★ | Processor-attested (Level 4). Stripe independently confirms every charge. |
-| Stripe integration | ★★★★★ | One-click OAuth, read-only, zero code. Built exclusively for Stripe. |
+| Stripe integration | ★★★★★ | One-click OAuth, minimal permissions, zero code. Built exclusively for Stripe. |
 | SaaS suitability | ★★★★★ | Built for recurring payments. Every subscription renewal is a verification opportunity. |
 | Pricing for SaaS | ★★★★☆ | Free plan (25/mo) + $29–$199/mo. Transparent, predictable. |
 | API & embeddability | ★★★★★ | REST API, webhooks, delivery webhook, embeddable reviews. |

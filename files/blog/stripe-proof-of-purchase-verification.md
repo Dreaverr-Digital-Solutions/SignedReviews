@@ -24,7 +24,7 @@ This is what separates Stripe proof integration from email verification. Email v
 
 ### 1. Connect your Stripe account
 
-Click "Connect with Stripe" and authorize the OAuth integration. The connection is read-only — the platform can read charges, customers, and subscriptions but cannot create charges, issue refunds, or modify anything in your account. Stripe's OAuth permission model enforces this, not a policy document.
+Click "Connect with Stripe" and authorize the OAuth integration. The connection is least-privilege — the platform can read charges, customers, subscriptions, and balance transactions but cannot create charges, issue refunds, or move funds. The only write permission is coupon creation for opt-in review incentives. Stripe's OAuth permission model enforces this, not a policy document.
 
 No API keys to copy. No webhooks to configure. No server changes. See [pricing](/pricing/) for plan details.
 
@@ -93,7 +93,7 @@ No. Stripe proof of purchase verification requires a Stripe charge. If you use m
 
 ### Is Stripe proof integration secure?
 
-Yes. The OAuth connection is read-only. The platform never sees your Stripe API keys. The cryptographic signatures use HMAC-SHA256 with a platform-wide key that is never exposed to clients. And Stripe's OAuth permission model means you can revoke access at any time from your Stripe dashboard — the integration stops immediately.
+Yes. The OAuth connection is least-privilege — four read scopes plus two coupon permissions used only for opt-in review incentives. The platform never sees your Stripe API keys. The cryptographic signatures use HMAC-SHA256 with a platform-wide key that is never exposed to clients. And Stripe's OAuth permission model means you can revoke access at any time from your Stripe dashboard — the integration stops immediately.
 
 ### What happens if a charge is disputed?
 
@@ -102,7 +102,7 @@ Disputed charges (chargebacks) are treated like refunds — the associated revie
 ## How to set up Stripe proof of purchase verification
 
 1. **Sign up** for a Signed Reviews account at [platform.signedreviews.com](https://platform.signedreviews.com/register)
-2. **Connect your Stripe account** via OAuth — one click, read-only permissions
+2. **Connect your Stripe account** via OAuth — one click, minimal permissions
 3. **Configure when invitations send** — immediately after purchase, after a delay, or manually
 4. **Customize your review page** — add your logo, colors, and branding
 5. **Start collecting verified reviews** — every new Stripe charge generates an invitation automatically

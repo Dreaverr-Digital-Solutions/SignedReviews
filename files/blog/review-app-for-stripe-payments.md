@@ -14,7 +14,7 @@ If you're evaluating a review app for stripe payments, the market breaks into tw
 
 | App | Stripe Verification | Pricing | Best For |
 |-----|---------------------|---------|----------|
-| **[Signed Reviews](https://signedreviews.com/pricing/)** | ✅ **Yes** — reads charges, customers, and refunds directly from your Stripe account via read-only OAuth. Reviews are cryptographically signed and transaction-bound. Refund-aware: refunded charges automatically hide the review. | Free (self-service + 10 automated) · Starter $29/mo (100/mo) · Growth $79/mo (500/mo) · Scale $199/mo (2,000/mo) | Stripe-first businesses (SaaS, digital products, custom platforms) that want processor-attested verification with zero dev work |
+| **[Signed Reviews](https://signedreviews.com/pricing/)** | ✅ **Yes** — reads charges, customers, and refunds directly from your Stripe account via least-privilege OAuth. Reviews are cryptographically signed and transaction-bound. Refund-aware: refunded charges automatically hide the review. | Free (self-service + 10 automated) · Starter $29/mo (100/mo) · Growth $79/mo (500/mo) · Scale $199/mo (2,000/mo) | Stripe-first businesses (SaaS, digital products, custom platforms) that want processor-attested verification with zero dev work |
 | **Trustpilot** | ❌ **No** — verification relies on merchant-supplied data or invitation-only collection. Trustpilot does not connect to Stripe. | Free (no invitations) · Growth $299/mo · Enterprise $599–$1,500+/mo | Enterprise brands focused on broad review volume and consumer-directory discovery across multiple channels |
 | **Judge.me** | ⚠️ **Partial** — works with Stripe as a payment method through Shopify, but verifies against Shopify order data, not Stripe charge data | Free (unlimited reviews) · Awesome $15/mo | Shopify stores looking for an affordable, all-in-one review + Q&A + UGC solution |
 | **Okendo** | ⚠️ **Partial** — same model as Judge.me: Stripe is a payment method, verification is against platform order records | From $19/mo (billed annually) | Shopify Plus and DTC brands investing in visual UGC and customer segmentation |
@@ -22,7 +22,7 @@ If you're evaluating a review app for stripe payments, the market breaks into tw
 
 ### What the comparison reveals
 
-The pattern is clear: the closer a review app is to Stripe's own data, the stronger its verification. **Signed Reviews** is the only option in this comparison that connects directly to Stripe as a verification source — reading charges, customers, and refunds through a read-only OAuth connection rather than relying on a commerce platform's order database. That's the difference between *processor-attested* verification (Level 4) and *merchant-supplied* verification (Level 3) on the [verification spectrum](/blog/how-to-verify-a-customer-actually-bought/). Every review is cryptographically signed, so the authenticity proof travels with the review — not just inside the platform that issued it.
+The pattern is clear: the closer a review app is to Stripe's own data, the stronger its verification. **Signed Reviews** is the only option in this comparison that connects directly to Stripe as a verification source — reading charges, customers, and refunds through a least-privilege OAuth connection rather than relying on a commerce platform's order database. That's the difference between *processor-attested* verification (Level 4) and *merchant-supplied* verification (Level 3) on the [verification spectrum](/blog/how-to-verify-a-customer-actually-bought/). Every review is cryptographically signed, so the authenticity proof travels with the review — not just inside the platform that issued it.
 
 The Shopify-centric options — **Judge.me** and **Okendo** — are mature, well-reviewed products with large feature sets. But they're Shopify review apps first, not Stripe review apps. Their verification model trusts the platform's order records, which the merchant administers. For businesses where verification strength is a nice-to-have rather than a trust requirement, that may be fine. For businesses in high-trust industries — legal services, financial products, B2B SaaS — the verification gap matters, because a platform-order record can be created, edited, or deleted by the merchant, while a Stripe charge record cannot.
 
@@ -46,7 +46,7 @@ These are listed on the **Stripe App Marketplace** and connect directly to your 
 
 **Strengths:**
 - Verification data is independent of the merchant
-- Read-only OAuth — no risk of the app modifying your Stripe account
+- Least-privilege OAuth — the app can never charge, refund, or move funds
 - Works across any platform that uses Stripe (Shopify, WooCommerce, custom, invoices)
 
 **Limitations:**
@@ -93,7 +93,7 @@ As of mid-2026, the Stripe App Marketplace has a small but growing set of review
 
 | App | What it does | Verification model |
 |-----|-------------|-------------------|
-| **Signed Reviews** | Automated verified reviews on every Stripe charge. Read-only OAuth, cryptographic signing, refund-aware. | Level 4 — processor-attested |
+| **Signed Reviews** | Automated verified reviews on every Stripe charge. Least-privilege OAuth, cryptographic signing, refund-aware. | Level 4 — processor-attested |
 | SnapSentiment | Post-payment review requests via Stripe. Thin product, basic feature set. | Level 3–4 (depends on whether it uses Stripe charges as verification source) |
 | Goodreviews | Basic review collection triggered by Stripe payments. | Level 3 — merchant-supplied |
 | Local Reviews | Review collection for local businesses using Stripe. | Level 3 — merchant-supplied |
@@ -118,7 +118,7 @@ The Stripe review-app category is underpopulated compared to the Shopify review-
 
 Regardless of which type you choose, ask these five questions before connecting anything to your Stripe account:
 
-1. **Is the connection read-only?** If an app requests write permissions to your Stripe account, it had better have a very good reason. A review app that can create charges or issue refunds is a review app you shouldn't install.
+1. **Which permissions does the connection ask for?** If an app requests write permissions to your Stripe account, it had better have a very good reason. A review app that can create charges or issue refunds is a review app you shouldn't install. Signed Reviews requests four read scopes plus two coupon permissions — the only write is minting single-use discount coupons for reviewers, and only when the merchant enables review incentives.
 2. **What exactly is being verified?** "We verify reviews" is not an answer. The answer should name a specific data source: "We check the reviewer's email against the Stripe charge's receipt_email field, and we confirm the charge status is 'succeeded' and not refunded." If the answer is vague, the verification is weak.
 3. **What happens to reviews for refunded charges?** The correct answer: "The review is automatically hidden." Any answer that involves manual moderation or "we recommend you..." means the app doesn't handle Stripe's refund webhook properly.
 4. **Can I export my reviews?** You should be able to leave any review platform and take your reviews with you. If reviews are locked to the platform, you're renting your reputation.
@@ -128,7 +128,7 @@ Regardless of which type you choose, ask these five questions before connecting 
 
 ## Bottom line
 
-Most review apps treat Stripe as a payment method — a way for customers to pay. A true review app for stripe payments treats Stripe as a verification source — an independent record of who paid, how much, and whether the charge still stands. The difference is fundamental. If you're on Stripe, you have access to the strongest verification signal in e-commerce. Whether your review app uses it is a choice. <a href="/integrations/stripe/">See how the Stripe integration works</a> — one-click OAuth, read-only, and every review is backed by proof of purchase.
+Most review apps treat Stripe as a payment method — a way for customers to pay. A true review app for stripe payments treats Stripe as a verification source — an independent record of who paid, how much, and whether the charge still stands. The difference is fundamental. If you're on Stripe, you have access to the strongest verification signal in e-commerce. Whether your review app uses it is a choice. <a href="/integrations/stripe/">See how the Stripe integration works</a> — one-click OAuth, minimal permissions, and every review is backed by proof of purchase.
 
 **Further reading:**
 - [Stripe App for Verified Reviews](/blog/stripe-app-for-reviews/) — what a Stripe-native review app does and how the OAuth connection works

@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/transaction-verified-reviews/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="c4bec87f9daa71cba28cb322f02b03fa782cb02a">
-  <meta name="build-time" content="2026-08-20T18:21:19.901Z">
+  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
+  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Transaction Verified Reviews: What They Are &amp; Why They're Hardest to Fake — Signed Reviews Blog">
@@ -662,7 +662,7 @@ main { padding: 0; }
 <ol>
 <li><p><strong>A customer makes a purchase via Stripe.</strong> Stripe processes the payment and records a charge object — containing the amount, the customer&#39;s email, the payment status, and a unique charge ID.</p>
 </li>
-<li><p><strong>The business connects their Stripe account</strong> to the review platform via OAuth — <strong>read-only access only.</strong> The platform can query charges, customers, and refunds. It cannot create, modify, or refund anything. See <a href="/how-it-works/">how it works</a> for the full setup flow.</p>
+<li><p><strong>The business connects their Stripe account</strong> to the review platform via OAuth — <strong>least-privilege access.</strong> The platform can query charges, customers, and refunds. It cannot create, modify, or refund anything; the only write is opt-in review-incentive coupons. See <a href="/how-it-works/">how it works</a> for the full setup flow.</p>
 </li>
 <li><p><strong>When a new charge appears</strong>, the platform sends a review invitation to the customer&#39;s verified payment email — the email Stripe has on file for that transaction. No invitation is sent for charges that are disputed, refunded, or flagged.</p>
 </li>

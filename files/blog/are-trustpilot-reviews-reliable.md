@@ -135,7 +135,7 @@ It depends on what you need. Google Reviews has wider reach and integrates with 
 
 ### What's the most reliable alternative to Trustpilot?
 
-The most reliable alternative is a review platform that uses **processor-attested verification** — where an independent payment processor (like Stripe) confirms that a transaction actually occurred. Unlike Trustpilot's invited-review model, processor-attested reviews eliminate fake reviews structurally: no purchase, no invitation, no review. <a href="/how-it-works/">Signed Reviews connects to your Stripe account</a> with read-only OAuth and automatically verifies every review against a real charge. Refunded charges automatically hide their reviews. It's the difference between detecting fakes and making them impossible.
+The most reliable alternative is a review platform that uses **processor-attested verification** — where an independent payment processor (like Stripe) confirms that a transaction actually occurred. Unlike Trustpilot's invited-review model, processor-attested reviews eliminate fake reviews structurally: no purchase, no invitation, no review. <a href="/how-it-works/">Signed Reviews connects to your Stripe account</a> with least-privilege OAuth and automatically verifies every review against a real charge. Refunded charges automatically hide their reviews. It's the difference between detecting fakes and making them impossible.
 
 <script type="application/ld+json">
 {
@@ -179,7 +179,7 @@ The most reliable alternative is a review platform that uses **processor-atteste
       "name": "What is the most reliable alternative to Trustpilot?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The most reliable alternative uses processor-attested verification — where a payment processor like Stripe independently confirms each transaction. Unlike Trustpilot's invited-review model, this eliminates fake reviews structurally: no purchase means no invitation and no review. Signed Reviews connects via read-only Stripe OAuth and verifies every review against a real charge, with automatic refund handling."
+        "text": "The most reliable alternative uses processor-attested verification — where a payment processor like Stripe independently confirms each transaction. Unlike Trustpilot's invited-review model, this eliminates fake reviews structurally: no purchase means no invitation and no review. Signed Reviews connects via least-privilege Stripe OAuth and verifies every review against a real charge, with automatic refund handling."
       }
     }
   ]
