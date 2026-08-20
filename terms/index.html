@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/terms/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="125efe83afeb31a7c5b347dace9dfccfa6a92851">
-  <meta name="build-time" content="2026-08-18T06:31:42.973Z">
+  <meta name="build-commit" content="b470e6c1aef19d3e1d9fd0a8b5a100f1eb06bd0c">
+  <meta name="build-time" content="2026-08-20T15:49:30.055Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Terms of Service — Signed Reviews">
@@ -636,11 +636,11 @@ main { padding: 0; }
 </ul>
 <p>By linking your Stripe account, you:</p>
 <ul>
-<li>Grant us <strong>read-only</strong> access to your Stripe data. We read charge data to trigger and verify review requests and, only for the metrics you explicitly enable on your public review page, aggregate read access to related data such as charges, customers, subscriptions, refunds, disputes, and balance transactions.</li>
+<li>Grant us limited access to your Stripe account: read access to charges, customers, subscriptions, and balance transactions (for review verification and the public-page metrics you enable), plus — only if you enable review incentives — the ability to create single-use, customer-restricted discount coupons for customers who submit a review.</li>
 <li>Authorize us to receive <code>charge.succeeded</code> and <code>charge.refunded</code> events. With Stripe Connect these are delivered to our platform webhook automatically; with a restricted API key we register (or you configure) a webhook endpoint on your Stripe account for the same events.</li>
 <li>Remain solely responsible for your relationship with Stripe, including compliance with Stripe&#39;s Services Agreement.</li>
 </ul>
-<p>We <strong>never</strong> initiate charges, issue refunds, move or transfer funds, modify your Stripe account, or take platform fees. Our access is strictly read-only and limited to the data needed to verify reviews and compute the public-page metrics you choose to display.</p>
+<p>We <strong>never</strong> initiate charges, issue refunds, move or transfer funds, take platform fees, or modify customers, subscriptions, or prices. The only write action available to the integration is creating the review-incentive coupons described above — and only when you enable review incentives.</p>
 <p>You can disconnect your Stripe account at any time through the Service. Doing so stops future review requests from being triggered; your Signed Reviews account and existing reviews remain intact.</p>
 <hr>
 <h2 id="6-business-user-obligations-regarding-reviewers"><a class="anchor" href="#6-business-user-obligations-regarding-reviewers" aria-label="Permalink to 6. Business user obligations regarding reviewers">#</a> 6. Business user obligations regarding reviewers</h2>

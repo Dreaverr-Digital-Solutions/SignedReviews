@@ -83,11 +83,11 @@ To use most of the Service, you first create a Signed Reviews account (email and
 
 By linking your Stripe account, you:
 
-- Grant us **read-only** access to your Stripe data. We read charge data to trigger and verify review requests and, only for the metrics you explicitly enable on your public review page, aggregate read access to related data such as charges, customers, subscriptions, refunds, disputes, and balance transactions.
+- Grant us limited access to your Stripe account: read access to charges, customers, subscriptions, and balance transactions (for review verification and the public-page metrics you enable), plus — only if you enable review incentives — the ability to create single-use, customer-restricted discount coupons for customers who submit a review.
 - Authorize us to receive `charge.succeeded` and `charge.refunded` events. With Stripe Connect these are delivered to our platform webhook automatically; with a restricted API key we register (or you configure) a webhook endpoint on your Stripe account for the same events.
 - Remain solely responsible for your relationship with Stripe, including compliance with Stripe's Services Agreement.
 
-We **never** initiate charges, issue refunds, move or transfer funds, modify your Stripe account, or take platform fees. Our access is strictly read-only and limited to the data needed to verify reviews and compute the public-page metrics you choose to display.
+We **never** initiate charges, issue refunds, move or transfer funds, take platform fees, or modify customers, subscriptions, or prices. The only write action available to the integration is creating the review-incentive coupons described above — and only when you enable review incentives.
 
 You can disconnect your Stripe account at any time through the Service. Doing so stops future review requests from being triggered; your Signed Reviews account and existing reviews remain intact.
 

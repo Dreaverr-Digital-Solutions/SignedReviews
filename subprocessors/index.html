@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/subprocessors/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="125efe83afeb31a7c5b347dace9dfccfa6a92851">
-  <meta name="build-time" content="2026-08-18T06:31:42.973Z">
+  <meta name="build-commit" content="b470e6c1aef19d3e1d9fd0a8b5a100f1eb06bd0c">
+  <meta name="build-time" content="2026-08-20T15:49:30.055Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Sub-processors — Signed Reviews">
@@ -606,7 +606,7 @@ main { padding: 0; }
 </tr>
 <tr>
 <td><strong>Stripe</strong></td>
-<td>Business Stripe account linking (Connect OAuth or a restricted API key) and webhooks. Read-only access used to verify reviews and to compute the metrics a merchant chooses to show on their public review page. We never charge, refund, move funds, or modify the connected account.</td>
+<td>Business Stripe account linking (Connect OAuth or a restricted API key) and webhooks. Limited access used to verify reviews and to compute the metrics a merchant chooses to show on their public review page. We never charge, refund, move funds, or modify the connected account. The only write action is creating single-use, customer-restricted discount coupons, and only when the merchant enables review incentives.</td>
 <td>Stripe account ID or restricted API key (encrypted at rest); transaction metadata (charge ID, customer email, card last-4, amount, currency); aggregate read of charges, customers, subscriptions, refunds, disputes, and balance transactions for merchant-enabled metrics</td>
 <td>United States</td>
 </tr>
