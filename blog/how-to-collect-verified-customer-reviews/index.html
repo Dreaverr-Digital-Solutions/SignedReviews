@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/how-to-collect-verified-customer-reviews/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
-  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
+  <meta name="build-commit" content="4a29a47fed0ad2a163ece2655f6cae8c3f4ebc69">
+  <meta name="build-time" content="2026-08-21T08:33:01.209Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="How to Collect Verified Customer Reviews: A Practical Guide — Signed Reviews Blog">
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet">
 
   <style>
 :root {
@@ -38,7 +38,7 @@
   --navy-100:#d5dcee; --navy-50:#eef1f8;
   --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
   --gold-100:#f2edcc; --gold-50:#faf8ee;
-  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#4a6590;
   --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
   --max-prose: 72ch;
 }
@@ -280,7 +280,9 @@ main { padding: 0; }
   text-decoration: none; color: var(--navy-200); margin-right: .35rem;
   font-weight: 400; opacity: 0; transition: opacity .15s ease;
 }
-.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+.prose a.anchor::before { content: '#'; }
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor,
+.prose a.anchor:focus { opacity: 1; }
 
 .prose blockquote {
   margin: 1.5rem 0;
@@ -297,7 +299,7 @@ main { padding: 0; }
 }
 
 .prose table {
-  width: auto;
+  width: 100%;
   border-collapse: collapse;
   margin: 0;
   font-size: .92rem;
@@ -434,6 +436,12 @@ main { padding: 0; }
 }
 :root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
 .footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+.footer-col .privacy-btn {
+  background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+  font: inherit; font-size: .92rem; color: var(--navy-700); text-decoration: none;
+}
+.footer-col .privacy-btn:hover { color: var(--gold-500); text-decoration: underline; }
+:root.theme-dark .footer-col .privacy-btn, :root.theme-auto .footer-col .privacy-btn { color: var(--navy-100); }
 
 .footer-fineprint {
   max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
@@ -541,10 +549,10 @@ main { padding: 0; }
 <header class="site-header">
   <div class="nav-inner" id="navInner">
     <a class="brand" href="/" aria-label="Signed Reviews home">
-      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
       <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
     </a>
-    <ul class="nav-links" role="menu">
+    <ul class="nav-links">
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
@@ -586,24 +594,24 @@ main { padding: 0; }
 <hr>
 <p>Learn how to collect verified customer reviews automatically using Stripe — a practical step-by-step guide covering setup, timing, and best practices.</p>
 <p>Learning how to collect verified customer reviews doesn&#39;t require technical expertise or a large budget. If you process payments through Stripe, you can automate the entire process in minutes.</p>
-<h2 id="step-1-connect-your-stripe-account"><a class="anchor" href="#step-1-connect-your-stripe-account" aria-label="Permalink to Step 1: Connect your Stripe account">#</a> Step 1: Connect your Stripe account</h2>
+<h2 id="step-1-connect-your-stripe-account"><a class="anchor" href="#step-1-connect-your-stripe-account" aria-label="Permalink to Step 1: Connect your Stripe account"></a>Step 1: Connect your Stripe account</h2>
 <p>The foundation of verified reviews is purchase verification. Connect your Stripe account to your review platform using Stripe&#39;s official OAuth flow. This grants minimal permissions — the platform can verify charges but can never charge, refund, or move funds. The only thing it can create is a discount coupon for a reviewer, and only when you enable review incentives.</p>
 <p><strong>What to look for</strong>: Check exactly which permissions the integration requests. Some platforms request <code>read_write</code> access, which allows them to create charges and issue refunds. Signed Reviews uses four read permissions (<code>charge_read</code>, <code>customer_read</code>, <code>subscription_read</code>, <code>balance_transaction_source_read</code>) plus two write permissions (<code>coupon_write</code>, <code>promotion_code_write</code>) — and the writes are used only to mint single-use discount coupons for reviewers when you enable review incentives. See <a href="/how-it-works/">how it works</a> for the full setup flow.</p>
-<h2 id="step-2-configure-your-auto-request-settings"><a class="anchor" href="#step-2-configure-your-auto-request-settings" aria-label="Permalink to Step 2: Configure your auto-request settings">#</a> Step 2: Configure your auto-request settings</h2>
+<h2 id="step-2-configure-your-auto-request-settings"><a class="anchor" href="#step-2-configure-your-auto-request-settings" aria-label="Permalink to Step 2: Configure your auto-request settings"></a>Step 2: Configure your auto-request settings</h2>
 <p>Once connected, every new Stripe charge can automatically trigger a review invitation. Configure:</p>
 <ul>
 <li><strong>Timing</strong>: Send immediately (digital products), after a delay (physical products that need shipping time), or on delivery via webhook (most accurate for shipped goods)</li>
 <li><strong>Reminders</strong>: How many follow-ups and when. Standard cadences are 3 and 7 days after the initial request.</li>
 <li><strong>Branding</strong>: Your logo and business name appear in every email</li>
 </ul>
-<h2 id="step-3-set-up-your-public-review-page"><a class="anchor" href="#step-3-set-up-your-public-review-page" aria-label="Permalink to Step 3: Set up your public review page">#</a> Step 3: Set up your public review page</h2>
+<h2 id="step-3-set-up-your-public-review-page"><a class="anchor" href="#step-3-set-up-your-public-review-page" aria-label="Permalink to Step 3: Set up your public review page"></a>Step 3: Set up your public review page</h2>
 <p>Your verified reviews need a public home. Configure:</p>
 <ul>
 <li><strong>Page URL</strong>: A short link like <code>signedreviews.com/yourbusiness</code></li>
 <li><strong>Layout</strong>: Your reviews on a clean, hosted public page</li>
 <li><strong>Trust signals</strong>: Show the &quot;Verified by SignedReviews&quot; badge, transaction amounts, and review dates</li>
 </ul>
-<h2 id="step-4-make-it-easy-for-customers"><a class="anchor" href="#step-4-make-it-easy-for-customers" aria-label="Permalink to Step 4: Make it easy for customers">#</a> Step 4: Make it easy for customers</h2>
+<h2 id="step-4-make-it-easy-for-customers"><a class="anchor" href="#step-4-make-it-easy-for-customers" aria-label="Permalink to Step 4: Make it easy for customers"></a>Step 4: Make it easy for customers</h2>
 <p>The easier it is to leave a review, the more reviews you&#39;ll collect:</p>
 <ul>
 <li><strong>Mobile-first</strong>: Most customers open review invitations on their phone. Make sure the review form works on mobile.</li>
@@ -611,7 +619,7 @@ main { padding: 0; }
 <li><strong>Photo uploads</strong>: Let customers add photos — visual reviews are more trusted and more engaging.</li>
 <li><strong>Clear CTA</strong>: The email should have one obvious action: &quot;Leave a review.&quot;</li>
 </ul>
-<h2 id="best-practices"><a class="anchor" href="#best-practices" aria-label="Permalink to Best practices">#</a> Best practices</h2>
+<h2 id="best-practices"><a class="anchor" href="#best-practices" aria-label="Permalink to Best practices"></a>Best practices</h2>
 <ul>
 <li><strong>Send at the right time</strong>: For physical products, wait until delivery. For services, send after the service is complete. For subscriptions, send after the first payment or after a milestone.</li>
 <li><strong>Don&#39;t over-send</strong>: One invitation per purchase. Reminders should be limited (2 max) and stop when the link is clicked.</li>
@@ -619,13 +627,13 @@ main { padding: 0; }
 <li><strong>Never incentivize</strong>: Don&#39;t offer discounts or rewards for reviews. This violates most platforms&#39; terms and can get your reviews removed.</li>
 <li><strong>Show your review count</strong>: Display the number of verified reviews prominently. A higher count builds trust.</li>
 </ul>
-<h2 id="what-to-avoid"><a class="anchor" href="#what-to-avoid" aria-label="Permalink to What to avoid">#</a> What to avoid</h2>
+<h2 id="what-to-avoid"><a class="anchor" href="#what-to-avoid" aria-label="Permalink to What to avoid"></a>What to avoid</h2>
 <ul>
 <li><strong>Buying reviews</strong>: Never purchase reviews from review farms. They&#39;re always fake and will be detected eventually.</li>
 <li><strong>Review gating</strong>: Don&#39;t ask happy customers to leave a public review while funneling unhappy customers to private feedback. This is against FTC guidelines.</li>
 <li><strong>Editing reviews</strong>: Don&#39;t modify customer reviews. If a review violates content guidelines, report it — don&#39;t alter it.</li>
 </ul>
-<h2 id="how-to-collect-verified-customer-reviews-start-today"><a class="anchor" href="#how-to-collect-verified-customer-reviews-start-today" aria-label="Permalink to How to collect verified customer reviews: start today">#</a> How to collect verified customer reviews: start today</h2>
+<h2 id="how-to-collect-verified-customer-reviews-start-today"><a class="anchor" href="#how-to-collect-verified-customer-reviews-start-today" aria-label="Permalink to How to collect verified customer reviews: start today"></a>How to collect verified customer reviews: start today</h2>
 <p>The technical setup takes minutes. The hard part — building a reputation of authentic, verified reviews — happens over time, one real purchase at a time. But that&#39;s exactly what makes verified reviews valuable. See <a href="/pricing/">pricing</a> for plan details and start collecting verified customer reviews today.</p>
 <p><strong>Further reading:</strong> <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews</a> — learn why processor-attested verification (Level 4) is fundamentally different from merchant-supplied badges. And <a href="/learn/what-does-verified-buyer-mean/">What Does &quot;Verified Buyer&quot; Actually Mean?</a> for the honest, platform-by-platform breakdown.</p>
 
@@ -640,7 +648,7 @@ main { padding: 0; }
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand footer-brand-link" href="/" aria-label="Signed Reviews home">
-        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
         <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
       </a>
       <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
@@ -677,7 +685,7 @@ main { padding: 0; }
         <li><a href="/refund-policy/">Refund Policy</a></li>
         <li><a href="/subprocessors/">Sub-processors</a></li>
         <li><a href="/chrome-extension/privacy/">Chrome Extension Privacy</a></li>
-        <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;">Privacy choices</a></li>
+        <li><button type="button" class="privacy-btn" onclick="if(window.srPrivacy){window.srPrivacy();}">Privacy choices</button></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -701,10 +709,21 @@ main { padding: 0; }
   (function () {
     try {
       var stored = localStorage.getItem('theme');
-      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
-      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
-      else document.documentElement.classList.add('theme-auto');
-    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+      if (stored === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      } else if (stored === 'light') {
+        // Light is the default stylesheet state — no class needed.
+      } else {
+        // theme-auto only applies the dark variant colors when the OS is dark.
+        // Adding it under a light OS would paint dark link/heading colors on a
+        // light background (a11y contrast failures), so track the OS preference.
+        var mq = matchMedia('(prefers-color-scheme: dark)');
+        var apply = function (dark) { document.documentElement.classList.toggle('theme-auto', dark); };
+        apply(mq.matches);
+        if (mq.addEventListener) mq.addEventListener('change', function (e) { apply(e.matches); });
+        else if (mq.addListener) mq.addListener(function (e) { apply(e.matches); });
+      }
+    } catch (_) { /* keep the light default */ }
   })();
 </script>
   <!-- Cloudflare Web Analytics (proxied) -->

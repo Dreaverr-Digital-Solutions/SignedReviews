@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/post-purchase-review-email-templates/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
-  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
+  <meta name="build-commit" content="4a29a47fed0ad2a163ece2655f6cae8c3f4ebc69">
+  <meta name="build-time" content="2026-08-21T08:33:01.209Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Post Purchase Review Email Templates: 5 Templates That Drive Verified Reviews — Signed Reviews Blog">
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet">
 
   <style>
 :root {
@@ -38,7 +38,7 @@
   --navy-100:#d5dcee; --navy-50:#eef1f8;
   --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
   --gold-100:#f2edcc; --gold-50:#faf8ee;
-  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#4a6590;
   --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
   --max-prose: 72ch;
 }
@@ -280,7 +280,9 @@ main { padding: 0; }
   text-decoration: none; color: var(--navy-200); margin-right: .35rem;
   font-weight: 400; opacity: 0; transition: opacity .15s ease;
 }
-.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+.prose a.anchor::before { content: '#'; }
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor,
+.prose a.anchor:focus { opacity: 1; }
 
 .prose blockquote {
   margin: 1.5rem 0;
@@ -297,7 +299,7 @@ main { padding: 0; }
 }
 
 .prose table {
-  width: auto;
+  width: 100%;
   border-collapse: collapse;
   margin: 0;
   font-size: .92rem;
@@ -434,6 +436,12 @@ main { padding: 0; }
 }
 :root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
 .footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+.footer-col .privacy-btn {
+  background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+  font: inherit; font-size: .92rem; color: var(--navy-700); text-decoration: none;
+}
+.footer-col .privacy-btn:hover { color: var(--gold-500); text-decoration: underline; }
+:root.theme-dark .footer-col .privacy-btn, :root.theme-auto .footer-col .privacy-btn { color: var(--navy-100); }
 
 .footer-fineprint {
   max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
@@ -541,10 +549,10 @@ main { padding: 0; }
 <header class="site-header">
   <div class="nav-inner" id="navInner">
     <a class="brand" href="/" aria-label="Signed Reviews home">
-      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
       <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
     </a>
-    <ul class="nav-links" role="menu">
+    <ul class="nav-links">
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
@@ -587,12 +595,12 @@ main { padding: 0; }
 <p>The best time to ask for a review is right after a customer has experienced your product — but not so soon that they haven&#39;t formed an opinion. The worst time is when they&#39;re annoyed by yet another marketing email. A well-crafted post purchase review email template can double your response rates — but only if you get the timing, structure, and ask right.</p>
 <p>This guide covers when to send, what to say, and how to structure your review request emails for maximum response rates. Every template is based on patterns that consistently outperform generic &quot;please leave us a review&quot; messages.</p>
 <p><strong>New in this update:</strong> All five templates now include Stripe-automation notes — so if you use Stripe, you can trigger these emails automatically on charge events, skip the manual work, and collect transaction-verified reviews that carry a &quot;Verified Stripe Purchase&quot; badge instead of a generic &quot;Verified Reviewer&quot; tag.</p>
-<h2 id="the-golden-rules-of-any-post-purchase-review-email-template"><a class="anchor" href="#the-golden-rules-of-any-post-purchase-review-email-template" aria-label="Permalink to The golden rules of any post purchase review email template">#</a> The golden rules of any post purchase review email template</h2>
+<h2 id="the-golden-rules-of-any-post-purchase-review-email-template"><a class="anchor" href="#the-golden-rules-of-any-post-purchase-review-email-template" aria-label="Permalink to The golden rules of any post purchase review email template"></a>The golden rules of any post purchase review email template</h2>
 <p>Before the templates, three principles that determine whether your emails get opened — or deleted:</p>
-<h3 id="1-one-ask-one-action"><a class="anchor" href="#1-one-ask-one-action" aria-label="Permalink to 1. One ask, one action">#</a> 1. One ask, one action</h3>
+<h3 id="1-one-ask-one-action"><a class="anchor" href="#1-one-ask-one-action" aria-label="Permalink to 1. One ask, one action"></a>1. One ask, one action</h3>
 <p>Your email has exactly one job: get the customer to click the review link. Don&#39;t cross-sell. Don&#39;t ask them to follow you on social media. Don&#39;t include three different CTAs. One email, one link, one action.</p>
 <p>Emails with a single CTA increase click-through rates by 42% compared to emails with multiple CTAs (Campaign Monitor, 2023).</p>
-<h3 id="2-the-subject-line-is-everything"><a class="anchor" href="#2-the-subject-line-is-everything" aria-label="Permalink to 2. The subject line is everything">#</a> 2. The subject line is everything</h3>
+<h3 id="2-the-subject-line-is-everything"><a class="anchor" href="#2-the-subject-line-is-everything" aria-label="Permalink to 2. The subject line is everything"></a>2. The subject line is everything</h3>
 <p>Most review request emails die in the inbox. Your subject line needs to:</p>
 <ul>
 <li>Be from a recognizable sender (your brand name or founder name)</li>
@@ -600,7 +608,7 @@ main { padding: 0; }
 <li>Be short (under 50 characters for mobile)</li>
 </ul>
 <p>&quot;Quick question about your order&quot; consistently outperforms &quot;Please review your purchase&quot; by 2–3× on open rates.</p>
-<h3 id="3-timing-matters-more-than-copy"><a class="anchor" href="#3-timing-matters-more-than-copy" aria-label="Permalink to 3. Timing matters more than copy">#</a> 3. Timing matters more than copy</h3>
+<h3 id="3-timing-matters-more-than-copy"><a class="anchor" href="#3-timing-matters-more-than-copy" aria-label="Permalink to 3. Timing matters more than copy"></a>3. Timing matters more than copy</h3>
 <p>The best-written email sent at the wrong time will get ignored. The rules:</p>
 <div class="table-wrap"><table>
 <thead>
@@ -637,7 +645,7 @@ main { padding: 0; }
 </tr>
 </tbody></table></div>
 <p><strong>Never send a review request before the customer has received the product.</strong> This is the single most common mistake, and it&#39;s the one that got SiteJabber in trouble with the FTC in 2024. Sending a review request at checkout — before the customer has the product — generates reviews about expectations, not experience. Those reviews are misleading, and they&#39;re now a regulatory risk.</p>
-<h2 id="template-1-e-commerce-physical-products"><a class="anchor" href="#template-1-e-commerce-physical-products" aria-label="Permalink to Template 1: E-commerce — physical products">#</a> Template 1: E-commerce — physical products</h2>
+<h2 id="template-1-e-commerce-physical-products"><a class="anchor" href="#template-1-e-commerce-physical-products" aria-label="Permalink to Template 1: E-commerce — physical products"></a>Template 1: E-commerce — physical products</h2>
 <p><strong>Subject:</strong> How was your [Product Name]?</p>
 <hr>
 <p>Hi [First Name],</p>
@@ -650,7 +658,7 @@ main { padding: 0; }
 <hr>
 <p><strong>Why it works:</strong> Short, personal, and explicitly invites honest feedback. &quot;Good, bad, or in-between&quot; signals that you&#39;re not fishing for 5-star reviews, which increases both response rate and review authenticity. The founder&#39;s name as the sender (rather than a generic brand email) increases open rates.</p>
 <p><strong>Stripe automation:</strong> Set this to trigger 3–7 days after a <code>charge.succeeded</code> event for physical products. The platform automatically pulls the product name from the Stripe charge metadata and inserts it into the subject line and body.</p>
-<h2 id="template-2-saas-subscription-products"><a class="anchor" href="#template-2-saas-subscription-products" aria-label="Permalink to Template 2: SaaS — subscription products">#</a> Template 2: SaaS — subscription products</h2>
+<h2 id="template-2-saas-subscription-products"><a class="anchor" href="#template-2-saas-subscription-products" aria-label="Permalink to Template 2: SaaS — subscription products"></a>Template 2: SaaS — subscription products</h2>
 <p><strong>Subject:</strong> [X] days in — how&#39;s it going?</p>
 <hr>
 <p>Hi [First Name],</p>
@@ -664,7 +672,7 @@ main { padding: 0; }
 <hr>
 <p><strong>Why it works:</strong> The P.S. is the highest-read element of any email. Making it a direct line to the founder converts people who wouldn&#39;t leave a review but might report a problem — reducing churn and negative reviews simultaneously. The &quot;we built it to [specific problem]&quot; line reminds them of the value proposition without being salesy.</p>
 <p><strong>Stripe automation:</strong> For SaaS, trigger on <code>invoice.paid</code> rather than a one-time charge. Set a 14-day delay from the first successful subscription payment to give the customer time to experience the product. Subsequent renewal payments can trigger follow-up invitations if the customer hasn&#39;t left a review yet.</p>
-<h2 id="template-3-services-freelancers-agencies"><a class="anchor" href="#template-3-services-freelancers-agencies" aria-label="Permalink to Template 3: Services / freelancers / agencies">#</a> Template 3: Services / freelancers / agencies</h2>
+<h2 id="template-3-services-freelancers-agencies"><a class="anchor" href="#template-3-services-freelancers-agencies" aria-label="Permalink to Template 3: Services / freelancers / agencies"></a>Template 3: Services / freelancers / agencies</h2>
 <p><strong>Subject:</strong> Thanks for trusting us with [project/engagement]</p>
 <hr>
 <p>Hi [First Name],</p>
@@ -677,7 +685,7 @@ main { padding: 0; }
 <hr>
 <p><strong>Why it works:</strong> Services are personal. The review request should be personal too — from the specific person they worked with, referencing the specific project. Generic service review requests (&quot;Please review our company&quot;) get ignored. Specific ones get responses.</p>
 <p><strong>Stripe automation:</strong> Trigger on a <code>charge.succeeded</code> event for the final project payment. If you invoice in milestones, set the trigger to fire after the final invoice is paid — not mid-project when the outcome is still uncertain.</p>
-<h2 id="template-4-short-follow-up-for-non-responders"><a class="anchor" href="#template-4-short-follow-up-for-non-responders" aria-label="Permalink to Template 4: Short follow-up (for non-responders)">#</a> Template 4: Short follow-up (for non-responders)</h2>
+<h2 id="template-4-short-follow-up-for-non-responders"><a class="anchor" href="#template-4-short-follow-up-for-non-responders" aria-label="Permalink to Template 4: Short follow-up (for non-responders)"></a>Template 4: Short follow-up (for non-responders)</h2>
 <p><strong>Subject:</strong> One quick question</p>
 <hr>
 <p>Hi [First Name],</p>
@@ -691,7 +699,7 @@ main { padding: 0; }
 <hr>
 <p><strong>Why it works:</strong> The binary question reduces friction to near zero. &quot;Yes&quot; clickers can be routed to a review form pre-loaded with a positive sentiment; &quot;Not really&quot; clickers can be routed to private feedback. This is sometimes called a &quot;sentiment gate&quot; and can increase review submission rates by 40–60% compared to a direct review link.</p>
 <p><strong>⚠️ Important:</strong> If you route &quot;yes&quot; clickers to a review form, you must also give &quot;not really&quot; clickers a path to leave a review. Otherwise you&#39;re review gating — funneling happy customers to public reviews and unhappy ones to private feedback — which is an FTC compliance risk under the 2024 rule.</p>
-<h2 id="template-5-delivery-triggered-physical-products"><a class="anchor" href="#template-5-delivery-triggered-physical-products" aria-label="Permalink to Template 5: Delivery-triggered (physical products)">#</a> Template 5: Delivery-triggered (physical products)</h2>
+<h2 id="template-5-delivery-triggered-physical-products"><a class="anchor" href="#template-5-delivery-triggered-physical-products" aria-label="Permalink to Template 5: Delivery-triggered (physical products)"></a>Template 5: Delivery-triggered (physical products)</h2>
 <p><strong>Subject:</strong> Your [Product Name] was just delivered</p>
 <hr>
 <p>Hi [First Name],</p>
@@ -702,21 +710,21 @@ main { padding: 0; }
 [Brand Name]</p>
 <hr>
 <p><strong>Why it works:</strong> The delivery trigger is the most accurate timing for physical products. And explicitly saying &quot;we ask after delivery, not before&quot; signals integrity — it tells the customer you&#39;re not one of those companies collecting reviews at checkout. This builds trust even before they write the review.</p>
-<h2 id="what-to-avoid"><a class="anchor" href="#what-to-avoid" aria-label="Permalink to What to avoid">#</a> What to avoid</h2>
-<h3 id="don39t-incentivize-positive-reviews"><a class="anchor" href="#don39t-incentivize-positive-reviews" aria-label="Permalink to Don&amp;#39;t incentivize positive reviews">#</a> Don&#39;t incentivize positive reviews</h3>
+<h2 id="what-to-avoid"><a class="anchor" href="#what-to-avoid" aria-label="Permalink to What to avoid"></a>What to avoid</h2>
+<h3 id="don39t-incentivize-positive-reviews"><a class="anchor" href="#don39t-incentivize-positive-reviews" aria-label="Permalink to Don&amp;#39;t incentivize positive reviews"></a>Don&#39;t incentivize positive reviews</h3>
 <p>The FTC&#39;s 2024 rule explicitly prohibits incentives conditioned on sentiment. &quot;Leave a 5-star review and get 10% off&quot; is illegal. &quot;Leave a review and get 10% off&quot; is still allowed — but your email copy must make the distinction clear.</p>
-<h3 id="don39t-send-more-than-2-reminders"><a class="anchor" href="#don39t-send-more-than-2-reminders" aria-label="Permalink to Don&amp;#39;t send more than 2 reminders">#</a> Don&#39;t send more than 2 reminders</h3>
+<h3 id="don39t-send-more-than-2-reminders"><a class="anchor" href="#don39t-send-more-than-2-reminders" aria-label="Permalink to Don&amp;#39;t send more than 2 reminders"></a>Don&#39;t send more than 2 reminders</h3>
 <p>One initial request + one follow-up, max. A third email is spam. If the customer hasn&#39;t responded after two attempts, they&#39;re not going to — and continuing to email them damages your brand.</p>
-<h3 id="don39t-ask-for-reviews-at-the-wrong-time"><a class="anchor" href="#don39t-ask-for-reviews-at-the-wrong-time" aria-label="Permalink to Don&amp;#39;t ask for reviews at the wrong time">#</a> Don&#39;t ask for reviews at the wrong time</h3>
+<h3 id="don39t-ask-for-reviews-at-the-wrong-time"><a class="anchor" href="#don39t-ask-for-reviews-at-the-wrong-time" aria-label="Permalink to Don&amp;#39;t ask for reviews at the wrong time"></a>Don&#39;t ask for reviews at the wrong time</h3>
 <ul>
 <li>Immediately after a support ticket is resolved? Yes (fresh relief/gratitude).</li>
 <li>Immediately after a billing issue? No.</li>
 <li>After a feature request you haven&#39;t built yet? No.</li>
 <li>On a customer&#39;s billing anniversary? Yes (moment of reflection).</li>
 </ul>
-<h3 id="don39t-use-no-reply-addresses"><a class="anchor" href="#don39t-use-no-reply-addresses" aria-label="Permalink to Don&amp;#39;t use no-reply addresses">#</a> Don&#39;t use no-reply addresses</h3>
+<h3 id="don39t-use-no-reply-addresses"><a class="anchor" href="#don39t-use-no-reply-addresses" aria-label="Permalink to Don&amp;#39;t use no-reply addresses"></a>Don&#39;t use no-reply addresses</h3>
 <p>A no-reply sender address says &quot;we want your opinion but not your conversation.&quot; It depresses response rates and damages brand perception. Use a real address, even if it&#39;s just a team alias.</p>
-<h2 id="how-stripe-native-review-collection-automates-everything-above"><a class="anchor" href="#how-stripe-native-review-collection-automates-everything-above" aria-label="Permalink to How Stripe-native review collection automates everything above">#</a> How Stripe-native review collection automates everything above</h2>
+<h2 id="how-stripe-native-review-collection-automates-everything-above"><a class="anchor" href="#how-stripe-native-review-collection-automates-everything-above" aria-label="Permalink to How Stripe-native review collection automates everything above"></a>How Stripe-native review collection automates everything above</h2>
 <p>If you process payments through Stripe, you can automate every template on this page. Here&#39;s how it works:</p>
 <ol>
 <li><strong>Connect your Stripe account</strong> via OAuth (one click, minimal permissions)</li>
@@ -726,7 +734,7 @@ main { padding: 0; }
 <li><strong>Every review is tied to a Stripe charge</strong> — the review carries a &quot;Verified Stripe Purchase&quot; badge, not a generic &quot;Verified Reviewer&quot; tag</li>
 </ol>
 <p>The templates above still matter — good copy drives response rates. The timing rules still matter — send too early and you annoy, too late and you&#39;re forgotten. But the automation removes the operational overhead of manually sending review requests, and the Stripe verification makes every review more credible when it arrives.</p>
-<h3 id="the-stripe-events-that-can-trigger-review-invitations"><a class="anchor" href="#the-stripe-events-that-can-trigger-review-invitations" aria-label="Permalink to The Stripe events that can trigger review invitations">#</a> The Stripe events that can trigger review invitations</h3>
+<h3 id="the-stripe-events-that-can-trigger-review-invitations"><a class="anchor" href="#the-stripe-events-that-can-trigger-review-invitations" aria-label="Permalink to The Stripe events that can trigger review invitations"></a>The Stripe events that can trigger review invitations</h3>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -756,7 +764,7 @@ main { padding: 0; }
 <td>Custom payment flows</td>
 </tr>
 </tbody></table></div>
-<h3 id="why-stripe-triggered-emails-beat-manual-sends"><a class="anchor" href="#why-stripe-triggered-emails-beat-manual-sends" aria-label="Permalink to Why Stripe-triggered emails beat manual sends">#</a> Why Stripe-triggered emails beat manual sends</h3>
+<h3 id="why-stripe-triggered-emails-beat-manual-sends"><a class="anchor" href="#why-stripe-triggered-emails-beat-manual-sends" aria-label="Permalink to Why Stripe-triggered emails beat manual sends"></a>Why Stripe-triggered emails beat manual sends</h3>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -811,7 +819,7 @@ main { padding: 0; }
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand footer-brand-link" href="/" aria-label="Signed Reviews home">
-        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
         <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
       </a>
       <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
@@ -848,7 +856,7 @@ main { padding: 0; }
         <li><a href="/refund-policy/">Refund Policy</a></li>
         <li><a href="/subprocessors/">Sub-processors</a></li>
         <li><a href="/chrome-extension/privacy/">Chrome Extension Privacy</a></li>
-        <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;">Privacy choices</a></li>
+        <li><button type="button" class="privacy-btn" onclick="if(window.srPrivacy){window.srPrivacy();}">Privacy choices</button></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -872,10 +880,21 @@ main { padding: 0; }
   (function () {
     try {
       var stored = localStorage.getItem('theme');
-      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
-      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
-      else document.documentElement.classList.add('theme-auto');
-    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+      if (stored === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      } else if (stored === 'light') {
+        // Light is the default stylesheet state — no class needed.
+      } else {
+        // theme-auto only applies the dark variant colors when the OS is dark.
+        // Adding it under a light OS would paint dark link/heading colors on a
+        // light background (a11y contrast failures), so track the OS preference.
+        var mq = matchMedia('(prefers-color-scheme: dark)');
+        var apply = function (dark) { document.documentElement.classList.toggle('theme-auto', dark); };
+        apply(mq.matches);
+        if (mq.addEventListener) mq.addEventListener('change', function (e) { apply(e.matches); });
+        else if (mq.addListener) mq.addListener(function (e) { apply(e.matches); });
+      }
+    } catch (_) { /* keep the light default */ }
   })();
 </script>
   <!-- Cloudflare Web Analytics (proxied) -->

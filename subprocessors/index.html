@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/subprocessors/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
-  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
+  <meta name="build-commit" content="4a29a47fed0ad2a163ece2655f6cae8c3f4ebc69">
+  <meta name="build-time" content="2026-08-21T08:33:01.209Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Sub-processors — Signed Reviews">
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet">
 
   <style>
 :root {
@@ -38,7 +38,7 @@
   --navy-100:#d5dcee; --navy-50:#eef1f8;
   --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
   --gold-100:#f2edcc; --gold-50:#faf8ee;
-  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#4a6590;
   --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
   --max-prose: 72ch;
 }
@@ -280,7 +280,9 @@ main { padding: 0; }
   text-decoration: none; color: var(--navy-200); margin-right: .35rem;
   font-weight: 400; opacity: 0; transition: opacity .15s ease;
 }
-.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+.prose a.anchor::before { content: '#'; }
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor,
+.prose a.anchor:focus { opacity: 1; }
 
 .prose blockquote {
   margin: 1.5rem 0;
@@ -297,7 +299,7 @@ main { padding: 0; }
 }
 
 .prose table {
-  width: auto;
+  width: 100%;
   border-collapse: collapse;
   margin: 0;
   font-size: .92rem;
@@ -434,6 +436,12 @@ main { padding: 0; }
 }
 :root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
 .footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+.footer-col .privacy-btn {
+  background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+  font: inherit; font-size: .92rem; color: var(--navy-700); text-decoration: none;
+}
+.footer-col .privacy-btn:hover { color: var(--gold-500); text-decoration: underline; }
+:root.theme-dark .footer-col .privacy-btn, :root.theme-auto .footer-col .privacy-btn { color: var(--navy-100); }
 
 .footer-fineprint {
   max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
@@ -539,10 +547,10 @@ main { padding: 0; }
 <header class="site-header">
   <div class="nav-inner" id="navInner">
     <a class="brand" href="/" aria-label="Signed Reviews home">
-      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
       <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
     </a>
-    <ul class="nav-links" role="menu">
+    <ul class="nav-links">
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
@@ -582,7 +590,7 @@ main { padding: 0; }
 <p>This page lists the third-party service providers (&quot;sub-processors&quot;) that Paid Rightly LLC uses to provide Signed Reviews. Each sub-processor is contractually required to use personal data only to provide services to us and to maintain appropriate security safeguards.</p>
 <p>We may update this list from time to time. Material additions will be reflected by updating the &quot;Last updated&quot; date. We recommend checking this page periodically.</p>
 <hr>
-<h2 id="core-infrastructure"><a class="anchor" href="#core-infrastructure" aria-label="Permalink to Core infrastructure">#</a> Core infrastructure</h2>
+<h2 id="core-infrastructure"><a class="anchor" href="#core-infrastructure" aria-label="Permalink to Core infrastructure"></a>Core infrastructure</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -618,7 +626,7 @@ main { padding: 0; }
 </tr>
 </tbody></table></div>
 <hr>
-<h2 id="ai-services"><a class="anchor" href="#ai-services" aria-label="Permalink to AI services">#</a> AI services</h2>
+<h2 id="ai-services"><a class="anchor" href="#ai-services" aria-label="Permalink to AI services"></a>AI services</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -642,7 +650,7 @@ main { padding: 0; }
 </tr>
 </tbody></table></div>
 <hr>
-<h2 id="analytics"><a class="anchor" href="#analytics" aria-label="Permalink to Analytics">#</a> Analytics</h2>
+<h2 id="analytics"><a class="anchor" href="#analytics" aria-label="Permalink to Analytics"></a>Analytics</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -661,7 +669,7 @@ main { padding: 0; }
 </tbody></table></div>
 <p><strong>Scope and safeguards.</strong> PostHog runs <strong>only</strong> on our marketing site (<code>signedreviews.com</code>) and the authenticated merchant dashboard. It is <strong>not</strong> loaded on public review pages or reviewer-facing review-submission pages — so review readers and reviewers are not tracked by it. <strong>Session replay is enabled</strong> on the marketing site and merchant dashboard, with <strong>all form-field inputs masked</strong> (passwords, email addresses, and payment details are never captured); replay is suppressed for visitors who send a &quot;Do Not Track&quot; or Global Privacy Control signal. For marketing-site visitors in the <strong>EU, EEA, and UK</strong>, replay is off by default and starts only after opt-in consent via an on-page banner. A &quot;Privacy choices&quot; footer link lets any visitor opt in or out at any time. We use a first-party cookie (not cross-site tracking) and honour browser &quot;Do Not Track.&quot;</p>
 <hr>
-<h2 id="oauth-providers-only-when-used"><a class="anchor" href="#oauth-providers-only-when-used" aria-label="Permalink to OAuth providers (only when used)">#</a> OAuth providers (only when used)</h2>
+<h2 id="oauth-providers-only-when-used"><a class="anchor" href="#oauth-providers-only-when-used" aria-label="Permalink to OAuth providers (only when used)"></a>OAuth providers (only when used)</h2>
 <p>These sub-processors receive data only when a user chooses to log in or attach a profile using that provider. If you do not use a given provider, no data is shared with it.</p>
 <div class="table-wrap"><table>
 <thead>
@@ -708,7 +716,7 @@ main { padding: 0; }
 </tr>
 </tbody></table></div>
 <hr>
-<h2 id="specialized-services"><a class="anchor" href="#specialized-services" aria-label="Permalink to Specialized services">#</a> Specialized services</h2>
+<h2 id="specialized-services"><a class="anchor" href="#specialized-services" aria-label="Permalink to Specialized services"></a>Specialized services</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -732,7 +740,7 @@ main { padding: 0; }
 </tr>
 </tbody></table></div>
 <hr>
-<h2 id="sub-processors-we-do-not-use"><a class="anchor" href="#sub-processors-we-do-not-use" aria-label="Permalink to Sub-processors we do not use">#</a> Sub-processors we do not use</h2>
+<h2 id="sub-processors-we-do-not-use"><a class="anchor" href="#sub-processors-we-do-not-use" aria-label="Permalink to Sub-processors we do not use"></a>Sub-processors we do not use</h2>
 <p>For transparency, we want to be clear about services we <strong>do not</strong> use as of the date above:</p>
 <ul>
 <li><strong>No third-party analytics beyond PostHog</strong> — PostHog (listed above) is our only analytics provider, used for first-party product and marketing-site analytics. We do <strong>not</strong> use Google Analytics, Mixpanel, Amplitude, Segment, Plausible, Heap, or similar.</li>
@@ -744,7 +752,7 @@ main { padding: 0; }
 <li><strong>No cross-site tracking cookies or fingerprinting</strong> (PostHog uses a first-party analytics cookie only)</li>
 </ul>
 <hr>
-<h2 id="changes-to-this-list"><a class="anchor" href="#changes-to-this-list" aria-label="Permalink to Changes to this list">#</a> Changes to this list</h2>
+<h2 id="changes-to-this-list"><a class="anchor" href="#changes-to-this-list" aria-label="Permalink to Changes to this list"></a>Changes to this list</h2>
 <p>When we add a new sub-processor or change how an existing one is used in a way that materially affects personal data processing, we will:</p>
 <ol>
 <li>Update this page and the &quot;Last updated&quot; date above</li>
@@ -752,7 +760,7 @@ main { padding: 0; }
 </ol>
 <p>You can request notification of future changes by emailing <strong><a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a></strong> with the subject line &quot;Sub-processor updates.&quot;</p>
 <hr>
-<h2 id="contact"><a class="anchor" href="#contact" aria-label="Permalink to Contact">#</a> Contact</h2>
+<h2 id="contact"><a class="anchor" href="#contact" aria-label="Permalink to Contact"></a>Contact</h2>
 <p>Questions about sub-processors or how your data flows through them:</p>
 <p><strong>Email:</strong> <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a>
 <strong>Mail:</strong> Paid Rightly LLC, 1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States</p>
@@ -770,7 +778,7 @@ main { padding: 0; }
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand footer-brand-link" href="/" aria-label="Signed Reviews home">
-        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
         <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
       </a>
       <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
@@ -807,7 +815,7 @@ main { padding: 0; }
         <li><a href="/refund-policy/">Refund Policy</a></li>
         <li><a href="/subprocessors/">Sub-processors</a></li>
         <li><a href="/chrome-extension/privacy/">Chrome Extension Privacy</a></li>
-        <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;">Privacy choices</a></li>
+        <li><button type="button" class="privacy-btn" onclick="if(window.srPrivacy){window.srPrivacy();}">Privacy choices</button></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -831,10 +839,21 @@ main { padding: 0; }
   (function () {
     try {
       var stored = localStorage.getItem('theme');
-      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
-      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
-      else document.documentElement.classList.add('theme-auto');
-    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+      if (stored === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      } else if (stored === 'light') {
+        // Light is the default stylesheet state — no class needed.
+      } else {
+        // theme-auto only applies the dark variant colors when the OS is dark.
+        // Adding it under a light OS would paint dark link/heading colors on a
+        // light background (a11y contrast failures), so track the OS preference.
+        var mq = matchMedia('(prefers-color-scheme: dark)');
+        var apply = function (dark) { document.documentElement.classList.toggle('theme-auto', dark); };
+        apply(mq.matches);
+        if (mq.addEventListener) mq.addEventListener('change', function (e) { apply(e.matches); });
+        else if (mq.addListener) mq.addListener(function (e) { apply(e.matches); });
+      }
+    } catch (_) { /* keep the light default */ }
   })();
 </script>
   <!-- Cloudflare Web Analytics (proxied) -->

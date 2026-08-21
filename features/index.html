@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/features/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
-  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
+  <meta name="build-commit" content="4a29a47fed0ad2a163ece2655f6cae8c3f4ebc69">
+  <meta name="build-time" content="2026-08-21T08:33:01.209Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Features — Signed Reviews">
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet">
 
   <style>
 :root {
@@ -38,7 +38,7 @@
   --navy-100:#d5dcee; --navy-50:#eef1f8;
   --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
   --gold-100:#f2edcc; --gold-50:#faf8ee;
-  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#4a6590;
   --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
   --max-prose: 72ch;
 }
@@ -280,7 +280,9 @@ main { padding: 0; }
   text-decoration: none; color: var(--navy-200); margin-right: .35rem;
   font-weight: 400; opacity: 0; transition: opacity .15s ease;
 }
-.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+.prose a.anchor::before { content: '#'; }
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor,
+.prose a.anchor:focus { opacity: 1; }
 
 .prose blockquote {
   margin: 1.5rem 0;
@@ -297,7 +299,7 @@ main { padding: 0; }
 }
 
 .prose table {
-  width: auto;
+  width: 100%;
   border-collapse: collapse;
   margin: 0;
   font-size: .92rem;
@@ -434,6 +436,12 @@ main { padding: 0; }
 }
 :root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
 .footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+.footer-col .privacy-btn {
+  background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+  font: inherit; font-size: .92rem; color: var(--navy-700); text-decoration: none;
+}
+.footer-col .privacy-btn:hover { color: var(--gold-500); text-decoration: underline; }
+:root.theme-dark .footer-col .privacy-btn, :root.theme-auto .footer-col .privacy-btn { color: var(--navy-100); }
 
 .footer-fineprint {
   max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
@@ -539,10 +547,10 @@ main { padding: 0; }
 <header class="site-header">
   <div class="nav-inner" id="navInner">
     <a class="brand" href="/" aria-label="Signed Reviews home">
-      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
       <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
     </a>
-    <ul class="nav-links" role="menu">
+    <ul class="nav-links">
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
@@ -580,43 +588,43 @@ main { padding: 0; }
       <article class="prose">
 <p>Signed Reviews is a verification-first review platform built on Stripe. Every review is cryptographically signed and backed by a real, non-refunded payment.</p>
 <hr>
-<h2 id="stripe-native-verification"><a class="anchor" href="#stripe-native-verification" aria-label="Permalink to Stripe-native verification">#</a> Stripe-native verification</h2>
+<h2 id="stripe-native-verification"><a class="anchor" href="#stripe-native-verification" aria-label="Permalink to Stripe-native verification"></a>Stripe-native verification</h2>
 <p>Connect your Stripe account in one click via Stripe&#39;s official OAuth. We get minimal permissions — we can verify charges but can never charge, refund, or move funds. The only thing we can ever create is a discount coupon for a reviewer, and only when you enable review incentives.</p>
 <ul>
 <li><strong>Automatic review invitations</strong> — every successful Stripe charge triggers a verified review invitation</li>
 <li><strong>Refund-aware</strong> — if a charge is refunded, the associated review is automatically hidden</li>
 <li><strong>Processor-attested</strong> — the strongest verification level available; Stripe independently confirms each transaction</li>
 </ul>
-<h2 id="cryptographic-signing"><a class="anchor" href="#cryptographic-signing" aria-label="Permalink to Cryptographic signing">#</a> Cryptographic signing</h2>
+<h2 id="cryptographic-signing"><a class="anchor" href="#cryptographic-signing" aria-label="Permalink to Cryptographic signing"></a>Cryptographic signing</h2>
 <p>Every review is signed with HMAC-SHA256 at submission time. The signed payload includes review content, rating, timestamp, and transaction reference.</p>
 <ul>
 <li><strong>Tamper-proof</strong> — any modification after signing invalidates the signature</li>
 <li><strong>Public verification page</strong> — every review gets a verification URL showing the full cryptographic proof</li>
 </ul>
-<h2 id="public-review-page"><a class="anchor" href="#public-review-page" aria-label="Permalink to Public review page">#</a> Public review page</h2>
+<h2 id="public-review-page"><a class="anchor" href="#public-review-page" aria-label="Permalink to Public review page"></a>Public review page</h2>
 <p>Your business gets a public profile at <code>signedreviews.com/your-slug</code> where customers browse verified reviews.</p>
 <ul>
 <li><strong>Customizable branding</strong> — your logo, brand color, and business name</li>
 <li><strong>Review metrics</strong> — star distribution, review count, and response rate</li>
 <li><strong>Verified badge</strong> — &quot;Purchase Verified&quot; badge on every review</li>
 </ul>
-<h2 id="automated-review-collection"><a class="anchor" href="#automated-review-collection" aria-label="Permalink to Automated review collection">#</a> Automated review collection</h2>
+<h2 id="automated-review-collection"><a class="anchor" href="#automated-review-collection" aria-label="Permalink to Automated review collection"></a>Automated review collection</h2>
 <p>Set your cadence and let the platform handle the rest.</p>
 <ul>
 <li><strong>Configurable delay</strong> — send invitations N days after purchase</li>
 <li><strong>Smart suppression</strong> — customers who already reviewed aren&#39;t asked again</li>
 <li><strong>Email + photo review</strong> — text reviews with up to 3 photo attachments</li>
 </ul>
-<h2 id="api-and-integrations"><a class="anchor" href="#api-and-integrations" aria-label="Permalink to API and integrations">#</a> API and integrations</h2>
+<h2 id="api-and-integrations"><a class="anchor" href="#api-and-integrations" aria-label="Permalink to API and integrations"></a>API and integrations</h2>
 <ul>
 <li><strong>REST API</strong> — fetch reviews, check verification status, display on your site</li>
 <li><strong>Publishable-key auth</strong> — safe for client-side use</li>
 <li><strong>Stripe App</strong> — install from the Stripe Marketplace for dashboard-native access</li>
 <li><strong>Webhooks</strong> — real-time events for new reviews, replies, and status changes</li>
 </ul>
-<h2 id="dashboard"><a class="anchor" href="#dashboard" aria-label="Permalink to Dashboard">#</a> Dashboard</h2>
+<h2 id="dashboard"><a class="anchor" href="#dashboard" aria-label="Permalink to Dashboard"></a>Dashboard</h2>
 <p>Manage everything from <code>platform.signedreviews.com</code>: review moderation, analytics, team access with role-based permissions, and self-serve billing.</p>
-<h2 id="privacy-and-compliance"><a class="anchor" href="#privacy-and-compliance" aria-label="Permalink to Privacy and compliance">#</a> Privacy and compliance</h2>
+<h2 id="privacy-and-compliance"><a class="anchor" href="#privacy-and-compliance" aria-label="Permalink to Privacy and compliance"></a>Privacy and compliance</h2>
 <ul>
 <li><strong>GDPR-ready</strong> — Data Processing Agreement with Standard Contractual Clauses</li>
 <li><strong>Sub-processor transparency</strong> — full list at <a href="/subprocessors/">signedreviews.com/subprocessors</a></li>
@@ -633,7 +641,7 @@ main { padding: 0; }
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand footer-brand-link" href="/" aria-label="Signed Reviews home">
-        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
         <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
       </a>
       <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
@@ -670,7 +678,7 @@ main { padding: 0; }
         <li><a href="/refund-policy/">Refund Policy</a></li>
         <li><a href="/subprocessors/">Sub-processors</a></li>
         <li><a href="/chrome-extension/privacy/">Chrome Extension Privacy</a></li>
-        <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;">Privacy choices</a></li>
+        <li><button type="button" class="privacy-btn" onclick="if(window.srPrivacy){window.srPrivacy();}">Privacy choices</button></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -694,10 +702,21 @@ main { padding: 0; }
   (function () {
     try {
       var stored = localStorage.getItem('theme');
-      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
-      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
-      else document.documentElement.classList.add('theme-auto');
-    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+      if (stored === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      } else if (stored === 'light') {
+        // Light is the default stylesheet state — no class needed.
+      } else {
+        // theme-auto only applies the dark variant colors when the OS is dark.
+        // Adding it under a light OS would paint dark link/heading colors on a
+        // light background (a11y contrast failures), so track the OS preference.
+        var mq = matchMedia('(prefers-color-scheme: dark)');
+        var apply = function (dark) { document.documentElement.classList.toggle('theme-auto', dark); };
+        apply(mq.matches);
+        if (mq.addEventListener) mq.addEventListener('change', function (e) { apply(e.matches); });
+        else if (mq.addListener) mq.addListener(function (e) { apply(e.matches); });
+      }
+    } catch (_) { /* keep the light default */ }
   })();
 </script>
   <!-- Cloudflare Web Analytics (proxied) -->

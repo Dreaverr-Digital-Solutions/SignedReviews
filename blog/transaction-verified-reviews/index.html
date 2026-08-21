@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/transaction-verified-reviews/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
-  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
+  <meta name="build-commit" content="4a29a47fed0ad2a163ece2655f6cae8c3f4ebc69">
+  <meta name="build-time" content="2026-08-21T08:33:01.209Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Transaction Verified Reviews: What They Are &amp; Why They're Hardest to Fake — Signed Reviews Blog">
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet">
 
   <style>
 :root {
@@ -38,7 +38,7 @@
   --navy-100:#d5dcee; --navy-50:#eef1f8;
   --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
   --gold-100:#f2edcc; --gold-50:#faf8ee;
-  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#4a6590;
   --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
   --max-prose: 72ch;
 }
@@ -280,7 +280,9 @@ main { padding: 0; }
   text-decoration: none; color: var(--navy-200); margin-right: .35rem;
   font-weight: 400; opacity: 0; transition: opacity .15s ease;
 }
-.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+.prose a.anchor::before { content: '#'; }
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor,
+.prose a.anchor:focus { opacity: 1; }
 
 .prose blockquote {
   margin: 1.5rem 0;
@@ -297,7 +299,7 @@ main { padding: 0; }
 }
 
 .prose table {
-  width: auto;
+  width: 100%;
   border-collapse: collapse;
   margin: 0;
   font-size: .92rem;
@@ -434,6 +436,12 @@ main { padding: 0; }
 }
 :root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
 .footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+.footer-col .privacy-btn {
+  background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+  font: inherit; font-size: .92rem; color: var(--navy-700); text-decoration: none;
+}
+.footer-col .privacy-btn:hover { color: var(--gold-500); text-decoration: underline; }
+:root.theme-dark .footer-col .privacy-btn, :root.theme-auto .footer-col .privacy-btn { color: var(--navy-100); }
 
 .footer-fineprint {
   max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
@@ -541,10 +549,10 @@ main { padding: 0; }
 <header class="site-header">
   <div class="nav-inner" id="navInner">
     <a class="brand" href="/" aria-label="Signed Reviews home">
-      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
       <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
     </a>
-    <ul class="nav-links" role="menu">
+    <ul class="nav-links">
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
@@ -586,7 +594,7 @@ main { padding: 0; }
 <hr>
 <p>Every review platform says its reviews are &quot;verified.&quot; The word is on every badge, every landing page, every sales deck. But &quot;verified&quot; can mean almost anything — from &quot;this person has an email address&quot; to &quot;an independent payment processor confirmed the charge.&quot;</p>
 <p>Transaction verified reviews sit at the strongest end of that spectrum. Here&#39;s what they are and why the distinction matters.</p>
-<h2 id="what-are-transaction-verified-reviews"><a class="anchor" href="#what-are-transaction-verified-reviews" aria-label="Permalink to What are transaction verified reviews?">#</a> What are transaction verified reviews?</h2>
+<h2 id="what-are-transaction-verified-reviews"><a class="anchor" href="#what-are-transaction-verified-reviews" aria-label="Permalink to What are transaction verified reviews?"></a>What are transaction verified reviews?</h2>
 <p><strong>Transaction verified reviews</strong> are reviews where an independent party — typically a payment processor — has confirmed that a specific transaction occurred between the reviewer and the business. The key words are <strong>independent party</strong> and <strong>transaction occurred.</strong> The verification doesn&#39;t come from the business&#39;s own records; it comes from the payment infrastructure that sits between the business and the customer. This is what makes them transaction verified reviews in the strongest sense: the payment processor is neutral, and its records can&#39;t be altered by either side.</p>
 <p>This is structurally different from:</p>
 <ul>
@@ -596,7 +604,7 @@ main { padding: 0; }
 </ul>
 <p>Transaction verified reviews are the only type where the <strong>attesting party is neutral</strong> — the payment processor has no incentive to favor the business or the reviewer, and its records cannot be altered by either side.</p>
 <hr>
-<h2 id="the-five-levels-of-review-verification"><a class="anchor" href="#the-five-levels-of-review-verification" aria-label="Permalink to The five levels of review verification">#</a> The five levels of review verification</h2>
+<h2 id="the-five-levels-of-review-verification"><a class="anchor" href="#the-five-levels-of-review-verification" aria-label="Permalink to The five levels of review verification"></a>The five levels of review verification</h2>
 <p>Every &quot;verified&quot; review sits somewhere on this spectrum:</p>
 <div class="table-wrap"><table>
 <thead>
@@ -647,7 +655,7 @@ main { padding: 0; }
 <p>Level 4 — processor-attested, transaction-verified — is the only level where the attesting party is independent of both the business and the reviewer. It&#39;s also the rarest. Almost every major review platform operates at Level 3.</p>
 <p>(For the full breakdown of every major platform: <a href="/learn/what-does-verified-buyer-mean/">What Does &quot;Verified Buyer&quot; Actually Mean?</a>.)</p>
 <hr>
-<h2 id="why-most-quotverifiedquot-reviews-aren39t-transaction-verified"><a class="anchor" href="#why-most-quotverifiedquot-reviews-aren39t-transaction-verified" aria-label="Permalink to Why most &amp;quot;verified&amp;quot; reviews aren&amp;#39;t transaction-verified">#</a> Why most &quot;verified&quot; reviews aren&#39;t transaction-verified</h2>
+<h2 id="why-most-quotverifiedquot-reviews-aren39t-transaction-verified"><a class="anchor" href="#why-most-quotverifiedquot-reviews-aren39t-transaction-verified" aria-label="Permalink to Why most &amp;quot;verified&amp;quot; reviews aren&amp;#39;t transaction-verified"></a>Why most &quot;verified&quot; reviews aren&#39;t transaction-verified</h2>
 <p>Here&#39;s the uncomfortable truth about the review industry: <strong>the word &quot;verified&quot; almost never means &quot;independently confirmed by a payment processor.&quot;</strong> It usually means one of these:</p>
 <ul>
 <li><strong>&quot;Verified&quot; = invited by the business</strong> (Trustpilot). The business BCC&#39;d an email and Trustpilot confirmed the invitation was sent. That&#39;s it. No payment confirmation.</li>
@@ -657,7 +665,7 @@ main { padding: 0; }
 <p>In every case, the thing being verified against is <strong>data the merchant supplies.</strong> A merchant determined to manufacture reviews could — depending on the platform — invite fake accounts, create test orders, or curate which transactions go into the verification feed. An outsider can&#39;t do this easily, but the merchant themselves can.</p>
 <p><strong>Transaction verified reviews change the power dynamic:</strong> the merchant doesn&#39;t control the verification data. The payment processor does. If the processor says no charge exists, there&#39;s no review. Period.</p>
 <hr>
-<h2 id="how-processor-attested-verification-works-the-stripe-model"><a class="anchor" href="#how-processor-attested-verification-works-the-stripe-model" aria-label="Permalink to How processor-attested verification works (the Stripe model)">#</a> How processor-attested verification works (the Stripe model)</h2>
+<h2 id="how-processor-attested-verification-works-the-stripe-model"><a class="anchor" href="#how-processor-attested-verification-works-the-stripe-model" aria-label="Permalink to How processor-attested verification works (the Stripe model)"></a>How processor-attested verification works (the Stripe model)</h2>
 <p>Here&#39;s the concrete flow for a processor-attested, transaction-verified review:</p>
 <ol>
 <li><p><strong>A customer makes a purchase via Stripe.</strong> Stripe processes the payment and records a charge object — containing the amount, the customer&#39;s email, the payment status, and a unique charge ID.</p>
@@ -675,7 +683,7 @@ main { padding: 0; }
 </ol>
 <p>At no point does the business touch the verification data. The business can&#39;t decide which charges trigger invitations (every charge does), can&#39;t exclude unhappy customers, and can&#39;t prevent refunded-charge reviews from being hidden. The process is deterministic and independent of the merchant.</p>
 <hr>
-<h2 id="why-this-matters-the-ftc-and-the-fake-review-era"><a class="anchor" href="#why-this-matters-the-ftc-and-the-fake-review-era" aria-label="Permalink to Why this matters: the FTC and the fake-review era">#</a> Why this matters: the FTC and the fake-review era</h2>
+<h2 id="why-this-matters-the-ftc-and-the-fake-review-era"><a class="anchor" href="#why-this-matters-the-ftc-and-the-fake-review-era" aria-label="Permalink to Why this matters: the FTC and the fake-review era"></a>Why this matters: the FTC and the fake-review era</h2>
 <p>The U.S. Federal Trade Commission&#39;s <strong>Trade Regulation Rule on Consumer Reviews and Testimonials</strong> (16 CFR Part 465, effective October 2024) now prohibits fake reviews with civil penalties. The rule bans:</p>
 <ul>
 <li>Reviews that misrepresent genuine experience with a product</li>
@@ -691,7 +699,7 @@ main { padding: 0; }
 </ol>
 <p>At Level 3, a merchant could theoretically manufacture reviews through their own systems at near-zero cost. At Level 4, every fake review costs real money and risks the merchant&#39;s ability to process payments at all. <strong>That&#39;s the difference between a policy and a structural guarantee.</strong></p>
 <hr>
-<h2 id="what-transaction-verified-reviews-don39t-solve"><a class="anchor" href="#what-transaction-verified-reviews-don39t-solve" aria-label="Permalink to What transaction-verified reviews don&amp;#39;t solve">#</a> What transaction-verified reviews don&#39;t solve</h2>
+<h2 id="what-transaction-verified-reviews-don39t-solve"><a class="anchor" href="#what-transaction-verified-reviews-don39t-solve" aria-label="Permalink to What transaction-verified reviews don&amp;#39;t solve"></a>What transaction-verified reviews don&#39;t solve</h2>
 <p>Transaction-verified reviews eliminate the &quot;is this person a real customer?&quot; question. They don&#39;t eliminate:</p>
 <ul>
 <li><strong>Biased reviews:</strong> A real customer can still write an unfair or exaggerated review.</li>
@@ -701,7 +709,7 @@ main { padding: 0; }
 </ul>
 <p>Transaction verification answers one question — &quot;did this person actually buy this product?&quot; — definitively. It doesn&#39;t answer &quot;is this review fair, detailed, and honest?&quot; But answering the first question definitively is the foundation for any credible review system. Without it, you&#39;re always guessing.</p>
 <hr>
-<h2 id="the-bottom-line"><a class="anchor" href="#the-bottom-line" aria-label="Permalink to The bottom line">#</a> The bottom line</h2>
+<h2 id="the-bottom-line"><a class="anchor" href="#the-bottom-line" aria-label="Permalink to The bottom line"></a>The bottom line</h2>
 <p>&quot;Verified&quot; is a spectrum, not a standard. Most platforms operate at Level 3 — they trust the merchant&#39;s data. Transaction-verified reviews (Level 4) trust the payment processor — an independent third party that has no incentive to fabricate reviews and every incentive to maintain the integrity of its payment network.</p>
 <p>If you process payments through Stripe, transaction-verified reviews are available to you today — and they&#39;re the strongest anti-fake signal you can offer your customers. If you&#39;re a consumer, knowing the difference between &quot;verified by the merchant&quot; and &quot;verified by the payment processor&quot; changes how you read every review you encounter.</p>
 <p><strong>Further reading:</strong></p>
@@ -723,7 +731,7 @@ main { padding: 0; }
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand footer-brand-link" href="/" aria-label="Signed Reviews home">
-        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
         <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
       </a>
       <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
@@ -760,7 +768,7 @@ main { padding: 0; }
         <li><a href="/refund-policy/">Refund Policy</a></li>
         <li><a href="/subprocessors/">Sub-processors</a></li>
         <li><a href="/chrome-extension/privacy/">Chrome Extension Privacy</a></li>
-        <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;">Privacy choices</a></li>
+        <li><button type="button" class="privacy-btn" onclick="if(window.srPrivacy){window.srPrivacy();}">Privacy choices</button></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -784,10 +792,21 @@ main { padding: 0; }
   (function () {
     try {
       var stored = localStorage.getItem('theme');
-      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
-      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
-      else document.documentElement.classList.add('theme-auto');
-    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+      if (stored === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      } else if (stored === 'light') {
+        // Light is the default stylesheet state — no class needed.
+      } else {
+        // theme-auto only applies the dark variant colors when the OS is dark.
+        // Adding it under a light OS would paint dark link/heading colors on a
+        // light background (a11y contrast failures), so track the OS preference.
+        var mq = matchMedia('(prefers-color-scheme: dark)');
+        var apply = function (dark) { document.documentElement.classList.toggle('theme-auto', dark); };
+        apply(mq.matches);
+        if (mq.addEventListener) mq.addEventListener('change', function (e) { apply(e.matches); });
+        else if (mq.addListener) mq.addListener(function (e) { apply(e.matches); });
+      }
+    } catch (_) { /* keep the light default */ }
   })();
 </script>
   <!-- Cloudflare Web Analytics (proxied) -->

@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/fake-review-checker/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
-  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
+  <meta name="build-commit" content="4a29a47fed0ad2a163ece2655f6cae8c3f4ebc69">
+  <meta name="build-time" content="2026-08-21T08:33:01.209Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="How to Check if Reviews Are Fake: 7-Point Fake Review Checker — Signed Reviews Blog">
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet">
 
   <style>
 :root {
@@ -38,7 +38,7 @@
   --navy-100:#d5dcee; --navy-50:#eef1f8;
   --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
   --gold-100:#f2edcc; --gold-50:#faf8ee;
-  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#4a6590;
   --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
   --max-prose: 72ch;
 }
@@ -280,7 +280,9 @@ main { padding: 0; }
   text-decoration: none; color: var(--navy-200); margin-right: .35rem;
   font-weight: 400; opacity: 0; transition: opacity .15s ease;
 }
-.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+.prose a.anchor::before { content: '#'; }
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor,
+.prose a.anchor:focus { opacity: 1; }
 
 .prose blockquote {
   margin: 1.5rem 0;
@@ -297,7 +299,7 @@ main { padding: 0; }
 }
 
 .prose table {
-  width: auto;
+  width: 100%;
   border-collapse: collapse;
   margin: 0;
   font-size: .92rem;
@@ -434,6 +436,12 @@ main { padding: 0; }
 }
 :root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
 .footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+.footer-col .privacy-btn {
+  background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+  font: inherit; font-size: .92rem; color: var(--navy-700); text-decoration: none;
+}
+.footer-col .privacy-btn:hover { color: var(--gold-500); text-decoration: underline; }
+:root.theme-dark .footer-col .privacy-btn, :root.theme-auto .footer-col .privacy-btn { color: var(--navy-100); }
 
 .footer-fineprint {
   max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
@@ -541,10 +549,10 @@ main { padding: 0; }
 <header class="site-header">
   <div class="nav-inner" id="navInner">
     <a class="brand" href="/" aria-label="Signed Reviews home">
-      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
       <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
     </a>
-    <ul class="nav-links" role="menu">
+    <ul class="nav-links">
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
@@ -583,8 +591,8 @@ main { padding: 0; }
       <p class="post-meta" style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">2026-08-07</p>
       <p>Fake reviews are everywhere. The FTC estimates that roughly 1 in every 7 online reviews is fabricated — and on some platforms, the number is significantly higher. But fake reviews leave traces. With the right checklist, you can spot them reliably.</p>
 <p>Here&#39;s a 7-point fake review checker — a practical methodology you can use right now to evaluate any set of reviews, whether they&#39;re on your own product pages, a competitor&#39;s listing, or a review platform you&#39;re considering.</p>
-<h2 id="the-7-point-fake-review-checker"><a class="anchor" href="#the-7-point-fake-review-checker" aria-label="Permalink to The 7-point fake review checker">#</a> The 7-point fake review checker</h2>
-<h3 id="1-language-pattern-analysis"><a class="anchor" href="#1-language-pattern-analysis" aria-label="Permalink to 1. Language pattern analysis">#</a> 1. Language pattern analysis</h3>
+<h2 id="the-7-point-fake-review-checker"><a class="anchor" href="#the-7-point-fake-review-checker" aria-label="Permalink to The 7-point fake review checker"></a>The 7-point fake review checker</h2>
+<h3 id="1-language-pattern-analysis"><a class="anchor" href="#1-language-pattern-analysis" aria-label="Permalink to 1. Language pattern analysis"></a>1. Language pattern analysis</h3>
 <p>Fake reviews tend to follow detectable language patterns. Run this checklist against any review:</p>
 <ul>
 <li><input disabled="" type="checkbox"> <strong>Overly generic language</strong>: &quot;Great product,&quot; &quot;Highly recommend,&quot; &quot;Excellent service&quot; — with no specifics about the product, the purchase experience, or what made it good</li>
@@ -595,7 +603,7 @@ main { padding: 0; }
 <li><input disabled="" type="checkbox"> <strong>All 5-star or all 1-star</strong>: Real review distributions cluster around 4 stars. A product with only 5-star and 1-star reviews (no 2, 3, or 4) is a red flag. See <a href="/blog/fake-review-statistics-2026/">fake review statistics 2026</a> for the latest data.</li>
 </ul>
 <p><strong>Red flag if:</strong> 3 or more of these are true.</p>
-<h3 id="2-reviewer-profile-investigation"><a class="anchor" href="#2-reviewer-profile-investigation" aria-label="Permalink to 2. Reviewer profile investigation">#</a> 2. Reviewer profile investigation</h3>
+<h3 id="2-reviewer-profile-investigation"><a class="anchor" href="#2-reviewer-profile-investigation" aria-label="Permalink to 2. Reviewer profile investigation"></a>2. Reviewer profile investigation</h3>
 <p>Click through to the reviewer&#39;s profile (if the platform allows it). Look for:</p>
 <ul>
 <li><input disabled="" type="checkbox"> <strong>No profile photo</strong> or a stock/generic image — reverse image search the photo if suspicious</li>
@@ -606,7 +614,7 @@ main { padding: 0; }
 <li><input disabled="" type="checkbox"> <strong>All reviews follow the same sentiment</strong> — either all 5-star or all 1-star across every product. Real reviewers have mixed experiences.</li>
 </ul>
 <p><strong>Red flag if:</strong> 2 or more of these are true.</p>
-<h3 id="3-timing-analysis"><a class="anchor" href="#3-timing-analysis" aria-label="Permalink to 3. Timing analysis">#</a> 3. Timing analysis</h3>
+<h3 id="3-timing-analysis"><a class="anchor" href="#3-timing-analysis" aria-label="Permalink to 3. Timing analysis"></a>3. Timing analysis</h3>
 <p>The timing of reviews tells a story. Check:</p>
 <ul>
 <li><input disabled="" type="checkbox"> <strong>Review spike in a short window</strong>: 20+ reviews posted in a single day or weekend, especially after a period of zero reviews</li>
@@ -616,7 +624,7 @@ main { padding: 0; }
 <li><input disabled="" type="checkbox"> <strong>Reviews stop abruptly</strong>: A product with weekly reviews that suddenly drops to zero — could indicate the end of a paid review campaign</li>
 </ul>
 <p><strong>Red flag if:</strong> 1 or more of these are true. Timing anomalies are one of the strongest fake review signals.</p>
-<h3 id="4-photo-and-media-verification"><a class="anchor" href="#4-photo-and-media-verification" aria-label="Permalink to 4. Photo and media verification">#</a> 4. Photo and media verification</h3>
+<h3 id="4-photo-and-media-verification"><a class="anchor" href="#4-photo-and-media-verification" aria-label="Permalink to 4. Photo and media verification"></a>4. Photo and media verification</h3>
 <p>Photos can be faked, but most fake reviewers don&#39;t bother. Check:</p>
 <ul>
 <li><input disabled="" type="checkbox"> <strong>Review includes original photos</strong>: Reviews with authentic-looking, non-stock photos are more likely to be real — but reverse image search them to be sure</li>
@@ -626,7 +634,7 @@ main { padding: 0; }
 <li><input disabled="" type="checkbox"> <strong>Video reviews</strong>: Video reviews are much harder to fake than text or photos. A product with multiple video reviews is less likely to have a fake review problem.</li>
 </ul>
 <p><strong>Red flag if:</strong> 2 or more of these are true.</p>
-<h3 id="5-platform-signals"><a class="anchor" href="#5-platform-signals" aria-label="Permalink to 5. Platform signals">#</a> 5. Platform signals</h3>
+<h3 id="5-platform-signals"><a class="anchor" href="#5-platform-signals" aria-label="Permalink to 5. Platform signals"></a>5. Platform signals</h3>
 <p>The review platform itself provides signals. Look at:</p>
 <ul>
 <li><input disabled="" type="checkbox"> <strong>&quot;Verified Purchase&quot; badge</strong>: If present, what does it actually mean? Click it. &quot;Verified Reviewer&quot; usually means email verification only. &quot;Verified Purchase&quot; should mean the platform confirmed a transaction.</li>
@@ -636,7 +644,7 @@ main { padding: 0; }
 <li><input disabled="" type="checkbox"> <strong>Does the platform use cryptographic signing?</strong> A few platforms cryptographically sign reviews so the content is tamper-evident. If a review is signed, you can independently verify it hasn&#39;t been altered after submission.</li>
 </ul>
 <p><strong>Red flag if:</strong> The platform has no verification mechanism and allows unrestricted posting.</p>
-<h3 id="6-cross-reference-with-other-sources"><a class="anchor" href="#6-cross-reference-with-other-sources" aria-label="Permalink to 6. Cross-reference with other sources">#</a> 6. Cross-reference with other sources</h3>
+<h3 id="6-cross-reference-with-other-sources"><a class="anchor" href="#6-cross-reference-with-other-sources" aria-label="Permalink to 6. Cross-reference with other sources"></a>6. Cross-reference with other sources</h3>
 <p>Don&#39;t rely on one platform&#39;s reviews alone:</p>
 <ul>
 <li><input disabled="" type="checkbox"> <strong>Check multiple platforms</strong>: Does the product have similar ratings and review patterns on Google, Amazon, Trustpilot, and the business&#39;s own site? Dramatic differences suggest manipulation on one platform.</li>
@@ -645,7 +653,7 @@ main { padding: 0; }
 <li><input disabled="" type="checkbox"> <strong>Check for review removal patterns</strong>: Use tools like the Wayback Machine or review monitoring services to see if reviews were removed. Legitimate businesses remove very few reviews (only those that violate policies). Removing a large number of negative reviews is a strong manipulation signal.</li>
 </ul>
 <p><strong>Red flag if:</strong> 2 or more of these are true.</p>
-<h3 id="7-the-verification-badge-deep-dive"><a class="anchor" href="#7-the-verification-badge-deep-dive" aria-label="Permalink to 7. The verification badge deep-dive">#</a> 7. The verification badge deep-dive</h3>
+<h3 id="7-the-verification-badge-deep-dive"><a class="anchor" href="#7-the-verification-badge-deep-dive" aria-label="Permalink to 7. The verification badge deep-dive"></a>7. The verification badge deep-dive</h3>
 <p>Verification badges are not all equal. When you see a &quot;Verified&quot; badge:</p>
 <ul>
 <li><input disabled="" type="checkbox"> <strong>What does the badge actually verify?</strong> Click it. Read the tooltip or linked page. If it says &quot;This reviewer confirmed their email address,&quot; that&#39;s email verification — the weakest form.</li>
@@ -655,7 +663,7 @@ main { padding: 0; }
 <li><input disabled="" type="checkbox"> <strong>Can the business remove reviews unilaterally?</strong> If the business can delete any review they don&#39;t like, the &quot;verified&quot; badge loses meaning — verification should protect reviews from removal as well as fabrication.</li>
 </ul>
 <p><strong>Red flag if:</strong> The badge provides no specific information about what was verified or by whom.</p>
-<h2 id="fake-review-checker-scorecard"><a class="anchor" href="#fake-review-checker-scorecard" aria-label="Permalink to Fake review checker scorecard">#</a> Fake review checker scorecard</h2>
+<h2 id="fake-review-checker-scorecard"><a class="anchor" href="#fake-review-checker-scorecard" aria-label="Permalink to Fake review checker scorecard"></a>Fake review checker scorecard</h2>
 <p>Use this scorecard to evaluate any set of reviews. Tally the red flags:</p>
 <div class="table-wrap"><table>
 <thead>
@@ -700,8 +708,8 @@ main { padding: 0; }
 <li><strong>10–16 red flags</strong>: Strong evidence of fake reviews. Multiple dimensions confirm suspicious patterns.</li>
 <li><strong>17+ red flags</strong>: Almost certainly a manipulated review profile. The product or business has systematic fake review activity.</li>
 </ul>
-<h2 id="what-to-do-if-you-find-fake-reviews"><a class="anchor" href="#what-to-do-if-you-find-fake-reviews" aria-label="Permalink to What to do if you find fake reviews">#</a> What to do if you find fake reviews</h2>
-<h3 id="if-they39re-on-your-competitor39s-product"><a class="anchor" href="#if-they39re-on-your-competitor39s-product" aria-label="Permalink to If they&amp;#39;re on your competitor&amp;#39;s product">#</a> If they&#39;re on your competitor&#39;s product</h3>
+<h2 id="what-to-do-if-you-find-fake-reviews"><a class="anchor" href="#what-to-do-if-you-find-fake-reviews" aria-label="Permalink to What to do if you find fake reviews"></a>What to do if you find fake reviews</h2>
+<h3 id="if-they39re-on-your-competitor39s-product"><a class="anchor" href="#if-they39re-on-your-competitor39s-product" aria-label="Permalink to If they&amp;#39;re on your competitor&amp;#39;s product"></a>If they&#39;re on your competitor&#39;s product</h3>
 <p>Document what you found. If the competitor is using fake reviews to gain an unfair advantage, you may be able to:</p>
 <ul>
 <li>Report them to the platform (most platforms have fraud reporting mechanisms)</li>
@@ -709,7 +717,7 @@ main { padding: 0; }
 <li>Use it as competitive intelligence — if their reviews are fake, your genuine verified reviews are a stronger trust signal</li>
 </ul>
 <p>See <a href="/learn/ftc-fake-reviews-rules/">FTC fake reviews rules: what every business owner needs to know</a> for the legal landscape.</p>
-<h3 id="if-they39re-on-your-own-product"><a class="anchor" href="#if-they39re-on-your-own-product" aria-label="Permalink to If they&amp;#39;re on your own product">#</a> If they&#39;re on your own product</h3>
+<h3 id="if-they39re-on-your-own-product"><a class="anchor" href="#if-they39re-on-your-own-product" aria-label="Permalink to If they&amp;#39;re on your own product"></a>If they&#39;re on your own product</h3>
 <p>Fake positive reviews can appear on your product pages without your knowledge — from overzealous marketing agencies, well-meaning employees, or even competitors trying to make you look bad. If you find them:</p>
 <ol>
 <li><strong>Don&#39;t ignore them.</strong> Fake reviews on your pages can trigger FTC penalties even if you didn&#39;t commission them.</li>
@@ -717,7 +725,7 @@ main { padding: 0; }
 <li><strong>Audit your review sources.</strong> If you use a review collection service, verify their practices.</li>
 <li><strong>Switch to transaction-verified reviews.</strong> When every review is tied to a real Stripe charge, fake reviews become structurally impossible to post.</li>
 </ol>
-<h2 id="how-to-prevent-fake-reviews-on-your-own-pages"><a class="anchor" href="#how-to-prevent-fake-reviews-on-your-own-pages" aria-label="Permalink to How to prevent fake reviews on your own pages">#</a> How to prevent fake reviews on your own pages</h2>
+<h2 id="how-to-prevent-fake-reviews-on-your-own-pages"><a class="anchor" href="#how-to-prevent-fake-reviews-on-your-own-pages" aria-label="Permalink to How to prevent fake reviews on your own pages"></a>How to prevent fake reviews on your own pages</h2>
 <p>The best defense against fake reviews is structural, not procedural. Instead of trying to catch fakes after they&#39;re posted, use a system where fakes can&#39;t be posted in the first place:</p>
 <ol>
 <li><strong>Use transaction-verified reviews</strong>: Require a real, settled payment before a review can be submitted. This makes fake reviews economically irrational — each one costs real money.</li>
@@ -727,16 +735,16 @@ main { padding: 0; }
 </ol>
 <p>Signed Reviews implements all four of these by design. See <a href="/blog/how-stripe-review-verification-works/">how Stripe review verification works</a> for the technical architecture, or visit the <a href="/pricing/">pricing page</a> for plan details.</p>
 <hr>
-<h2 id="faq-fake-review-checker"><a class="anchor" href="#faq-fake-review-checker" aria-label="Permalink to FAQ: fake review checker">#</a> FAQ: fake review checker</h2>
-<h3 id="can-ai-detect-fake-reviews"><a class="anchor" href="#can-ai-detect-fake-reviews" aria-label="Permalink to Can AI detect fake reviews?">#</a> Can AI detect fake reviews?</h3>
+<h2 id="faq-fake-review-checker"><a class="anchor" href="#faq-fake-review-checker" aria-label="Permalink to FAQ: fake review checker"></a>FAQ: fake review checker</h2>
+<h3 id="can-ai-detect-fake-reviews"><a class="anchor" href="#can-ai-detect-fake-reviews" aria-label="Permalink to Can AI detect fake reviews?"></a>Can AI detect fake reviews?</h3>
 <p>Yes, to an extent. Machine learning models can identify language patterns, reviewer behavior anomalies, and timing irregularities that humans miss. However, AI-generated fake reviews are getting better — large language models can now produce reviews that are nearly indistinguishable from human-written ones. The arms race between fake review generators and detectors means no automated system is 100% reliable. The best approach combines automated detection (patterns, timing, metadata) with human judgment (context, nuance, specific details). See <a href="/blog/how-to-spot-fake-reviews/">how to spot a fake review</a> for a deeper dive on detection techniques.</p>
-<h3 id="what39s-the-most-reliable-sign-of-a-fake-review"><a class="anchor" href="#what39s-the-most-reliable-sign-of-a-fake-review" aria-label="Permalink to What&amp;#39;s the most reliable sign of a fake review?">#</a> What&#39;s the most reliable sign of a fake review?</h3>
+<h3 id="what39s-the-most-reliable-sign-of-a-fake-review"><a class="anchor" href="#what39s-the-most-reliable-sign-of-a-fake-review" aria-label="Permalink to What&amp;#39;s the most reliable sign of a fake review?"></a>What&#39;s the most reliable sign of a fake review?</h3>
 <p>Timing anomalies are the hardest to disguise. A product with 30 reviews posted on the same day after months of silence is suspicious regardless of how well-written the reviews are. Reviewer profile patterns (account created the same day as the review, no other review history) are also strong signals because they&#39;re hard to fabricate at scale without being obvious.</p>
-<h3 id="are-all-negative-reviews-fake"><a class="anchor" href="#are-all-negative-reviews-fake" aria-label="Permalink to Are all negative reviews fake?">#</a> Are all negative reviews fake?</h3>
+<h3 id="are-all-negative-reviews-fake"><a class="anchor" href="#are-all-negative-reviews-fake" aria-label="Permalink to Are all negative reviews fake?"></a>Are all negative reviews fake?</h3>
 <p>No. Genuine customers leave negative reviews — in fact, a profile with only positive reviews is more suspicious than one with mixed sentiment. The question is whether the negative reviews follow the patterns above. A detailed, context-rich 2-star review from a reviewer with a genuine profile history is likely real. A one-sentence 1-star review from a newly created account is suspicious.</p>
-<h3 id="how-does-transaction-verification-prevent-fake-reviews"><a class="anchor" href="#how-does-transaction-verification-prevent-fake-reviews" aria-label="Permalink to How does transaction verification prevent fake reviews?">#</a> How does transaction verification prevent fake reviews?</h3>
+<h3 id="how-does-transaction-verification-prevent-fake-reviews"><a class="anchor" href="#how-does-transaction-verification-prevent-fake-reviews" aria-label="Permalink to How does transaction verification prevent fake reviews?"></a>How does transaction verification prevent fake reviews?</h3>
 <p>Transaction verification requires a real, settled payment through a regulated payment processor (Stripe) before a review can be submitted. Each fake review would cost real Stripe processing fees (~2.9% + $0.30), and the charge would appear permanently in the merchant&#39;s Stripe dashboard. The combination of real cost and permanent audit trail makes systematic fake reviews structurally irrational. It&#39;s not that they&#39;re impossible — it&#39;s that they don&#39;t make economic sense.</p>
-<h3 id="is-there-a-fake-review-checker-tool-i-can-use"><a class="anchor" href="#is-there-a-fake-review-checker-tool-i-can-use" aria-label="Permalink to Is there a fake review checker tool I can use?">#</a> Is there a fake review checker tool I can use?</h3>
+<h3 id="is-there-a-fake-review-checker-tool-i-can-use"><a class="anchor" href="#is-there-a-fake-review-checker-tool-i-can-use" aria-label="Permalink to Is there a fake review checker tool I can use?"></a>Is there a fake review checker tool I can use?</h3>
 <p>Several browser extensions offer automated fake review detection (Fakespot, ReviewMeta, TheReviewIndex). These tools analyze review text, reviewer profiles, and rating distributions to estimate how many reviews might be fake. They&#39;re useful for quick checks but have limitations: they primarily work on major platforms (Amazon, Yelp, Trustpilot), they can produce false positives, and they can&#39;t access the underlying transaction data that would conclusively verify or disprove a review. For your own business, the better approach is to use a verification system that prevents fake reviews from being posted in the first place.</p>
 
       <p style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
@@ -750,7 +758,7 @@ main { padding: 0; }
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand footer-brand-link" href="/" aria-label="Signed Reviews home">
-        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
         <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
       </a>
       <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
@@ -787,7 +795,7 @@ main { padding: 0; }
         <li><a href="/refund-policy/">Refund Policy</a></li>
         <li><a href="/subprocessors/">Sub-processors</a></li>
         <li><a href="/chrome-extension/privacy/">Chrome Extension Privacy</a></li>
-        <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;">Privacy choices</a></li>
+        <li><button type="button" class="privacy-btn" onclick="if(window.srPrivacy){window.srPrivacy();}">Privacy choices</button></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -811,10 +819,21 @@ main { padding: 0; }
   (function () {
     try {
       var stored = localStorage.getItem('theme');
-      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
-      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
-      else document.documentElement.classList.add('theme-auto');
-    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+      if (stored === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      } else if (stored === 'light') {
+        // Light is the default stylesheet state — no class needed.
+      } else {
+        // theme-auto only applies the dark variant colors when the OS is dark.
+        // Adding it under a light OS would paint dark link/heading colors on a
+        // light background (a11y contrast failures), so track the OS preference.
+        var mq = matchMedia('(prefers-color-scheme: dark)');
+        var apply = function (dark) { document.documentElement.classList.toggle('theme-auto', dark); };
+        apply(mq.matches);
+        if (mq.addEventListener) mq.addEventListener('change', function (e) { apply(e.matches); });
+        else if (mq.addListener) mq.addListener(function (e) { apply(e.matches); });
+      }
+    } catch (_) { /* keep the light default */ }
   })();
 </script>
   <!-- Cloudflare Web Analytics (proxied) -->

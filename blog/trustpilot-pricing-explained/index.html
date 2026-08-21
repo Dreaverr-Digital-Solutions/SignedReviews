@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/trustpilot-pricing-explained/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
-  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
+  <meta name="build-commit" content="4a29a47fed0ad2a163ece2655f6cae8c3f4ebc69">
+  <meta name="build-time" content="2026-08-21T08:33:01.209Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Trustpilot Pricing 2026: Plans, Hidden Costs &amp; Cheaper Alternatives — Signed Reviews Blog">
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet">
 
   <style>
 :root {
@@ -38,7 +38,7 @@
   --navy-100:#d5dcee; --navy-50:#eef1f8;
   --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
   --gold-100:#f2edcc; --gold-50:#faf8ee;
-  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#4a6590;
   --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
   --max-prose: 72ch;
 }
@@ -280,7 +280,9 @@ main { padding: 0; }
   text-decoration: none; color: var(--navy-200); margin-right: .35rem;
   font-weight: 400; opacity: 0; transition: opacity .15s ease;
 }
-.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+.prose a.anchor::before { content: '#'; }
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor,
+.prose a.anchor:focus { opacity: 1; }
 
 .prose blockquote {
   margin: 1.5rem 0;
@@ -297,7 +299,7 @@ main { padding: 0; }
 }
 
 .prose table {
-  width: auto;
+  width: 100%;
   border-collapse: collapse;
   margin: 0;
   font-size: .92rem;
@@ -434,6 +436,12 @@ main { padding: 0; }
 }
 :root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
 .footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+.footer-col .privacy-btn {
+  background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+  font: inherit; font-size: .92rem; color: var(--navy-700); text-decoration: none;
+}
+.footer-col .privacy-btn:hover { color: var(--gold-500); text-decoration: underline; }
+:root.theme-dark .footer-col .privacy-btn, :root.theme-auto .footer-col .privacy-btn { color: var(--navy-100); }
 
 .footer-fineprint {
   max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
@@ -541,10 +549,10 @@ main { padding: 0; }
 <header class="site-header">
   <div class="nav-inner" id="navInner">
     <a class="brand" href="/" aria-label="Signed Reviews home">
-      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
       <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
     </a>
-    <ul class="nav-links" role="menu">
+    <ul class="nav-links">
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
@@ -586,7 +594,7 @@ main { padding: 0; }
 <hr>
 <p>Trustpilot doesn&#39;t publish prices on its pricing page. Understanding Trustpilot pricing requires digging through the help center, talking to sales, or requesting a demo. This article does that work — so you can see what each plan includes, what it actually costs, and where the hidden expenses sit before you book the call.</p>
 <hr>
-<h2 id="trustpilot-pricing-how-the-pricing-model-works"><a class="anchor" href="#trustpilot-pricing-how-the-pricing-model-works" aria-label="Permalink to Trustpilot pricing: how the pricing model works">#</a> Trustpilot pricing: how the pricing model works</h2>
+<h2 id="trustpilot-pricing-how-the-pricing-model-works"><a class="anchor" href="#trustpilot-pricing-how-the-pricing-model-works" aria-label="Permalink to Trustpilot pricing: how the pricing model works"></a>Trustpilot pricing: how the pricing model works</h2>
 <p>Trustpilot charges by <strong>plan tier</strong> (not by review volume directly), but higher tiers unlock higher invitation volumes. There&#39;s no per-review pricing — you pay a fixed monthly or annual amount for a bundle of features, and your review volume is capped by your tier&#39;s invitation limits.</p>
 <p>Key things to understand before the numbers:</p>
 <ul>
@@ -596,8 +604,8 @@ main { padding: 0; }
 <li><strong>Add-ons cost extra.</strong> Things like API access, additional users, and advanced analytics are add-ons or gated behind higher tiers.</li>
 </ul>
 <hr>
-<h2 id="plan-breakdown"><a class="anchor" href="#plan-breakdown" aria-label="Permalink to Plan breakdown">#</a> Plan breakdown</h2>
-<h3 id="free"><a class="anchor" href="#free" aria-label="Permalink to Free">#</a> Free</h3>
+<h2 id="plan-breakdown"><a class="anchor" href="#plan-breakdown" aria-label="Permalink to Plan breakdown"></a>Plan breakdown</h2>
+<h3 id="free"><a class="anchor" href="#free" aria-label="Permalink to Free"></a>Free</h3>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -645,7 +653,7 @@ main { padding: 0; }
 <p><strong>What you actually get:</strong> A listing on Trustpilot.com that anyone can review — without you having any control over who reviews you or when. You can respond publicly, which matters, but you can&#39;t proactively collect reviews, can&#39;t integrate with your checkout or post-purchase flow, and can&#39;t display reviews anywhere except Trustpilot.</p>
 <p><strong>Who it&#39;s for:</strong> Businesses that just want to exist on Trustpilot and respond to reviews as they come in. Not a review-collection strategy — a reputation-monitoring one.</p>
 <p><strong>The catch:</strong> Organic reviews skew negative. People who had a bad experience seek out Trustpilot to complain; happy customers rarely do. Without the ability to send invitations (which would balance the ratio by prompting satisfied customers), your Trustpilot profile will disproportionately reflect negative experiences. Trustpilot knows this — it&#39;s the incentive to upgrade.</p>
-<h3 id="growth-from-299month"><a class="anchor" href="#growth-from-299month" aria-label="Permalink to Growth — from $299/month">#</a> Growth — from $299/month</h3>
+<h3 id="growth-from-299month"><a class="anchor" href="#growth-from-299month" aria-label="Permalink to Growth — from $299/month"></a>Growth — from $299/month</h3>
 <p>This is the tier most small-to-mid businesses consider, and it&#39;s where Trustpilot&#39;s pricing starts to have real teeth.</p>
 <div class="table-wrap"><table>
 <thead>
@@ -695,7 +703,7 @@ main { padding: 0; }
 <li><strong>No API.</strong> If you want to display Trustpilot reviews on your own website, you&#39;ll need the API add-on — or a higher tier.</li>
 </ul>
 <p><strong>Who it&#39;s for:</strong> Small-to-mid businesses that want to start actively collecting reviews and can afford $3,600/year as a starting point.</p>
-<h3 id="scale-enterprise-custom-pricing-typically-5991500month"><a class="anchor" href="#scale-enterprise-custom-pricing-typically-5991500month" aria-label="Permalink to Scale / Enterprise — custom pricing (typically $599–$1,500+/month)">#</a> Scale / Enterprise — custom pricing (typically $599–$1,500+/month)</h3>
+<h3 id="scale-enterprise-custom-pricing-typically-5991500month"><a class="anchor" href="#scale-enterprise-custom-pricing-typically-5991500month" aria-label="Permalink to Scale / Enterprise — custom pricing (typically $599–$1,500+/month)"></a>Scale / Enterprise — custom pricing (typically $599–$1,500+/month)</h3>
 <p>Trustpilot&#39;s upper tiers are custom-quoted and vary by business size, industry, and negotiation. Based on user reports and industry discussion:</p>
 <div class="table-wrap"><table>
 <thead>
@@ -745,7 +753,7 @@ main { padding: 0; }
 <p><strong>The catch:</strong> Pricing is opaque and negotiable. Businesses report paying anywhere from $599 to $2,000+/month depending on size, industry, geography, and how they came through the sales pipeline. Annual contracts are standard; month-to-month is rare and more expensive.</p>
 <p><strong>Who it&#39;s for:</strong> Mid-market and enterprise businesses for whom $7,000–$25,000/year is an acceptable marketing expense. If you&#39;re a small business, this tier is almost certainly out of reach.</p>
 <hr>
-<h2 id="hidden-and-additional-costs"><a class="anchor" href="#hidden-and-additional-costs" aria-label="Permalink to Hidden and additional costs">#</a> Hidden and additional costs</h2>
+<h2 id="hidden-and-additional-costs"><a class="anchor" href="#hidden-and-additional-costs" aria-label="Permalink to Hidden and additional costs"></a>Hidden and additional costs</h2>
 <p>Beyond the plan price, these cost Trustpilot users real money:</p>
 <div class="table-wrap"><table>
 <thead>
@@ -780,7 +788,7 @@ main { padding: 0; }
 </tr>
 </tbody></table></div>
 <hr>
-<h2 id="how-trustpilot39s-pricing-compares"><a class="anchor" href="#how-trustpilot39s-pricing-compares" aria-label="Permalink to How Trustpilot&amp;#39;s pricing compares">#</a> How Trustpilot&#39;s pricing compares</h2>
+<h2 id="how-trustpilot39s-pricing-compares"><a class="anchor" href="#how-trustpilot39s-pricing-compares" aria-label="Permalink to How Trustpilot&amp;#39;s pricing compares"></a>How Trustpilot&#39;s pricing compares</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -836,7 +844,7 @@ main { padding: 0; }
 </tbody></table></div>
 <p><strong>Key difference:</strong> Trustpilot&#39;s free plan doesn&#39;t include review invitations — the core feature you need to proactively collect reviews. By contrast, Judge.me offers unlimited reviews on its free plan (Shopify-only), and Signed Reviews offers unlimited self-service reviews plus 10 free automated invitations on its free plan (Stripe businesses). Trustpilot&#39;s free tier is a listening post, not a collection tool.</p>
 <hr>
-<h2 id="is-trustpilot-worth-the-price"><a class="anchor" href="#is-trustpilot-worth-the-price" aria-label="Permalink to Is Trustpilot worth the price?">#</a> Is Trustpilot worth the price?</h2>
+<h2 id="is-trustpilot-worth-the-price"><a class="anchor" href="#is-trustpilot-worth-the-price" aria-label="Permalink to Is Trustpilot worth the price?"></a>Is Trustpilot worth the price?</h2>
 <p>For some businesses, yes — particularly those where Trustpilot is a primary consumer discovery channel and the $3,600+/year price is manageable. Trustpilot&#39;s brand recognition is real, and for certain industries (financial services, insurance, telecom), being absent from Trustpilot is a red flag.</p>
 <p>For most small and mid-size businesses, the math is harder to justify:</p>
 <ul>
@@ -846,7 +854,7 @@ main { padding: 0; }
 </ul>
 <p>Before committing to a Trustpilot annual contract, ask: <strong>is the Trustpilot brand and consumer directory worth $3,600+/year to your business, or would that budget go further on a platform that gives you processor-attested verification, review ownership, and a lower starting price?</strong></p>
 <hr>
-<h2 id="bottom-line"><a class="anchor" href="#bottom-line" aria-label="Permalink to Bottom line">#</a> Bottom line</h2>
+<h2 id="bottom-line"><a class="anchor" href="#bottom-line" aria-label="Permalink to Bottom line"></a>Bottom line</h2>
 <p>Trustpilot pricing starts at &quot;free&quot; but the plan most businesses need starts at $299/month — and the hidden costs (Google Seller Ratings, API access, seat licenses, setup fees) mean the real cost is often higher. The free plan is a reputation-monitoring tool, not a review-collection one. Before signing an annual contract, understand exactly which features are in your tier, which are add-ons, and whether a Level 3 (merchant-supplied) verification model is the strongest signal you can offer your customers. <a href="/pricing/">See Signed Reviews pricing →</a></p>
 <p><strong>Further reading:</strong></p>
 <ul>
@@ -867,7 +875,7 @@ main { padding: 0; }
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand footer-brand-link" href="/" aria-label="Signed Reviews home">
-        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
         <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
       </a>
       <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
@@ -904,7 +912,7 @@ main { padding: 0; }
         <li><a href="/refund-policy/">Refund Policy</a></li>
         <li><a href="/subprocessors/">Sub-processors</a></li>
         <li><a href="/chrome-extension/privacy/">Chrome Extension Privacy</a></li>
-        <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;">Privacy choices</a></li>
+        <li><button type="button" class="privacy-btn" onclick="if(window.srPrivacy){window.srPrivacy();}">Privacy choices</button></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -928,10 +936,21 @@ main { padding: 0; }
   (function () {
     try {
       var stored = localStorage.getItem('theme');
-      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
-      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
-      else document.documentElement.classList.add('theme-auto');
-    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+      if (stored === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      } else if (stored === 'light') {
+        // Light is the default stylesheet state — no class needed.
+      } else {
+        // theme-auto only applies the dark variant colors when the OS is dark.
+        // Adding it under a light OS would paint dark link/heading colors on a
+        // light background (a11y contrast failures), so track the OS preference.
+        var mq = matchMedia('(prefers-color-scheme: dark)');
+        var apply = function (dark) { document.documentElement.classList.toggle('theme-auto', dark); };
+        apply(mq.matches);
+        if (mq.addEventListener) mq.addEventListener('change', function (e) { apply(e.matches); });
+        else if (mq.addListener) mq.addListener(function (e) { apply(e.matches); });
+      }
+    } catch (_) { /* keep the light default */ }
   })();
 </script>
   <!-- Cloudflare Web Analytics (proxied) -->

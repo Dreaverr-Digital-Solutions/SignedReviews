@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/fake-reviews/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
-  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
+  <meta name="build-commit" content="4a29a47fed0ad2a163ece2655f6cae8c3f4ebc69">
+  <meta name="build-time" content="2026-08-21T08:33:01.209Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="The Fake Review Problem: Why Detection Will Never Be Enough — Signed Reviews Blog">
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet">
 
   <style>
 :root {
@@ -38,7 +38,7 @@
   --navy-100:#d5dcee; --navy-50:#eef1f8;
   --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
   --gold-100:#f2edcc; --gold-50:#faf8ee;
-  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#4a6590;
   --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
   --max-prose: 72ch;
 }
@@ -280,7 +280,9 @@ main { padding: 0; }
   text-decoration: none; color: var(--navy-200); margin-right: .35rem;
   font-weight: 400; opacity: 0; transition: opacity .15s ease;
 }
-.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+.prose a.anchor::before { content: '#'; }
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor,
+.prose a.anchor:focus { opacity: 1; }
 
 .prose blockquote {
   margin: 1.5rem 0;
@@ -297,7 +299,7 @@ main { padding: 0; }
 }
 
 .prose table {
-  width: auto;
+  width: 100%;
   border-collapse: collapse;
   margin: 0;
   font-size: .92rem;
@@ -434,6 +436,12 @@ main { padding: 0; }
 }
 :root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
 .footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+.footer-col .privacy-btn {
+  background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+  font: inherit; font-size: .92rem; color: var(--navy-700); text-decoration: none;
+}
+.footer-col .privacy-btn:hover { color: var(--gold-500); text-decoration: underline; }
+:root.theme-dark .footer-col .privacy-btn, :root.theme-auto .footer-col .privacy-btn { color: var(--navy-100); }
 
 .footer-fineprint {
   max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
@@ -541,10 +549,10 @@ main { padding: 0; }
 <header class="site-header">
   <div class="nav-inner" id="navInner">
     <a class="brand" href="/" aria-label="Signed Reviews home">
-      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
       <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
     </a>
-    <ul class="nav-links" role="menu">
+    <ul class="nav-links">
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
@@ -584,7 +592,7 @@ main { padding: 0; }
       <p>The internet runs on reviews. Ninety-eight percent of consumers read them before buying. They influence everything from which restaurant to try to which SaaS platform to trust with company data. And a significant percentage of them are fake.</p>
 <p>The standard industry response is <strong>detection</strong>: build better algorithms, hire more moderators, catch fakes faster. Every major platform does this. Every major platform still has fake reviews.</p>
 <p>This post argues that detection is structurally insufficient — that the only real fix is preventing fake reviews from being posted in the first place, and that the way to do that is to tie every review to an independently verified payment.</p>
-<h2 id="the-numbers"><a class="anchor" href="#the-numbers" aria-label="Permalink to The numbers">#</a> The numbers</h2>
+<h2 id="the-numbers"><a class="anchor" href="#the-numbers" aria-label="Permalink to The numbers"></a>The numbers</h2>
 <p>The scale of fake reviews is staggering, and it&#39;s growing:</p>
 <ul>
 <li><strong>Trustpilot removed 4.5 million fake reviews in 2024</strong> — 7.4% of all reviews submitted to the platform that year. That&#39;s up from 2.7 million in 2022. (Trustpilot Transparency Report)</li>
@@ -594,14 +602,14 @@ main { padding: 0; }
 <li><strong>Fakespot estimates</strong> that 30–40% of reviews in some categories — electronics, supplements, home services — are unreliable.</li>
 </ul>
 <p>For the full statistical breakdown, see our <a href="/blog/fake-review-statistics-2026/">Fake Review Statistics 2026</a> page.</p>
-<h2 id="why-ai-makes-the-problem-worse-not-better"><a class="anchor" href="#why-ai-makes-the-problem-worse-not-better" aria-label="Permalink to Why AI makes the problem worse, not better">#</a> Why AI makes the problem worse, not better</h2>
+<h2 id="why-ai-makes-the-problem-worse-not-better"><a class="anchor" href="#why-ai-makes-the-problem-worse-not-better" aria-label="Permalink to Why AI makes the problem worse, not better"></a>Why AI makes the problem worse, not better</h2>
 <p>Before 2023, fake reviews were often easy to spot: broken English, vague praise, repetitive phrasing. Detection systems looked for these patterns.</p>
 <p>Generative AI erased those signals. A single prompt to ChatGPT or Claude can generate hundreds of unique, grammatically perfect, emotionally nuanced reviews — each with different vocabulary, sentence structure, and level of detail. A 2024 Fakespot study found that <strong>AI-generated reviews are virtually indistinguishable from human-written ones</strong> in blind testing.</p>
 <p>Platforms can still detect fake-review <em>operations</em> — coordinated campaigns, IP clusters, review velocity anomalies. But the individual review? If it&#39;s well-prompted and one-off, no algorithm can reliably tell it apart from a genuine one.</p>
 <p><strong>The detection arms race is now asymmetric.</strong> Generating a convincing fake review costs fractions of a cent and takes seconds. Detecting one — if it&#39;s well-crafted — costs orders of magnitude more in compute, human review time, and false-positive risk. The economics favor the fakers, and AI is widening the gap.</p>
-<h2 id="the-regulatory-response"><a class="anchor" href="#the-regulatory-response" aria-label="Permalink to The regulatory response">#</a> The regulatory response</h2>
+<h2 id="the-regulatory-response"><a class="anchor" href="#the-regulatory-response" aria-label="Permalink to The regulatory response"></a>The regulatory response</h2>
 <p>Governments are beginning to act, but regulation is inherently slower than technology.</p>
-<h3 id="united-states-ftc39s-2024-trade-regulation-rule"><a class="anchor" href="#united-states-ftc39s-2024-trade-regulation-rule" aria-label="Permalink to United States: FTC&amp;#39;s 2024 Trade Regulation Rule">#</a> United States: FTC&#39;s 2024 Trade Regulation Rule</h3>
+<h3 id="united-states-ftc39s-2024-trade-regulation-rule"><a class="anchor" href="#united-states-ftc39s-2024-trade-regulation-rule" aria-label="Permalink to United States: FTC&amp;#39;s 2024 Trade Regulation Rule"></a>United States: FTC&#39;s 2024 Trade Regulation Rule</h3>
 <p>On 21 October 2024, the Federal Trade Commission&#39;s <strong>Trade Regulation Rule on the Use of Consumer Reviews and Testimonials</strong> (16 CFR Part 465) took effect. The rule:</p>
 <ul>
 <li>Prohibits reviews that <strong>misrepresent</strong> that the reviewer had genuine experience with a product or service</li>
@@ -611,7 +619,7 @@ main { padding: 0; }
 <li>Allows the FTC to seek <strong>civil penalties</strong> of up to $51,744 per violation</li>
 </ul>
 <p>The rule is strong on paper. But enforcement requires detection — the FTC must find the fake reviews to penalize them. And detection, as we&#39;ve established, is a losing battle.</p>
-<h3 id="united-kingdom-digital-markets-competition-and-consumers-act"><a class="anchor" href="#united-kingdom-digital-markets-competition-and-consumers-act" aria-label="Permalink to United Kingdom: Digital Markets, Competition and Consumers Act">#</a> United Kingdom: Digital Markets, Competition and Consumers Act</h3>
+<h3 id="united-kingdom-digital-markets-competition-and-consumers-act"><a class="anchor" href="#united-kingdom-digital-markets-competition-and-consumers-act" aria-label="Permalink to United Kingdom: Digital Markets, Competition and Consumers Act"></a>United Kingdom: Digital Markets, Competition and Consumers Act</h3>
 <p>Effective April 2025, the UK&#39;s DMCC Act makes it explicitly illegal to:</p>
 <ul>
 <li>Submit or commission fake reviews</li>
@@ -619,13 +627,13 @@ main { padding: 0; }
 <li>Offer services that write or procure fake reviews</li>
 </ul>
 <p>The Competition and Markets Authority (CMA) can fine businesses up to 10% of global turnover. The law applies to platforms operating in the UK regardless of where they&#39;re headquartered.</p>
-<h3 id="european-union-digital-services-act"><a class="anchor" href="#european-union-digital-services-act" aria-label="Permalink to European Union: Digital Services Act">#</a> European Union: Digital Services Act</h3>
+<h3 id="european-union-digital-services-act"><a class="anchor" href="#european-union-digital-services-act" aria-label="Permalink to European Union: Digital Services Act"></a>European Union: Digital Services Act</h3>
 <p>The DSA requires &quot;very large online platforms&quot; to assess and mitigate systemic risks — including the spread of illegal content and disinformation. Fake reviews, when they distort consumer decisions at scale, fall under this mandate. Platforms face fines of up to 6% of global annual revenue.</p>
-<h2 id="the-sitejabber-precedent"><a class="anchor" href="#the-sitejabber-precedent" aria-label="Permalink to The SiteJabber precedent">#</a> The SiteJabber precedent</h2>
+<h2 id="the-sitejabber-precedent"><a class="anchor" href="#the-sitejabber-precedent" aria-label="Permalink to The SiteJabber precedent"></a>The SiteJabber precedent</h2>
 <p>In November 2024, the FTC issued a formal order against SiteJabber, a consumer review platform, for publishing reviews from people who had <strong>never received the products they reviewed.</strong> SiteJabber&#39;s system allowed businesses to collect reviews at the point of sale — before the customer ever received the product — and display them as if they reflected genuine product experience.</p>
 <p>The order required SiteJabber to stop misrepresenting that its reviews came from customers who&#39;d actually received the products. It&#39;s the most direct precedent for the FTC&#39;s willingness to enforce the new rule.</p>
 <p><strong>The SiteJabber case illustrates the structural point:</strong> when verification depends on what the merchant says, the system can be gamed — even unintentionally — at scale.</p>
-<h2 id="why-detection-is-structurally-insufficient"><a class="anchor" href="#why-detection-is-structurally-insufficient" aria-label="Permalink to Why detection is structurally insufficient">#</a> Why detection is structurally insufficient</h2>
+<h2 id="why-detection-is-structurally-insufficient"><a class="anchor" href="#why-detection-is-structurally-insufficient" aria-label="Permalink to Why detection is structurally insufficient"></a>Why detection is structurally insufficient</h2>
 <p>Every detection-based approach shares the same flaw: <strong>a fake review must be written before it can be caught.</strong> By the time a platform identifies and removes a fake review:</p>
 <ul>
 <li>It may have been live for days, weeks, or months</li>
@@ -634,7 +642,7 @@ main { padding: 0; }
 <li>The platform&#39;s reputation — and the reputation of every honest business on it — has already taken the hit</li>
 </ul>
 <p>Detection is a treadmill. The faster you run, the faster the ground moves beneath you. AI accelerates the ground speed; regulation adds a slight incline. Neither changes the fundamental dynamic.</p>
-<h2 id="the-structural-alternative-processor-attested-verification"><a class="anchor" href="#the-structural-alternative-processor-attested-verification" aria-label="Permalink to The structural alternative: processor-attested verification">#</a> The structural alternative: processor-attested verification</h2>
+<h2 id="the-structural-alternative-processor-attested-verification"><a class="anchor" href="#the-structural-alternative-processor-attested-verification" aria-label="Permalink to The structural alternative: processor-attested verification"></a>The structural alternative: processor-attested verification</h2>
 <p>There is exactly one way to make fake reviews structurally impossible: <strong>require every review to be tied to an independently verified payment.</strong></p>
 <p>This is <strong>processor-attested verification</strong> — and it&#39;s the only review verification method where the attesting party is independent of both the merchant and the reviewer:</p>
 <div class="table-wrap"><table>
@@ -662,7 +670,7 @@ main { padding: 0; }
 </tr>
 </tbody></table></div>
 <p>For the full verification spectrum — Levels 0 through 4, with what each platform actually does — see <a href="/learn/what-does-verified-buyer-mean/">What Does &quot;Verified Buyer&quot; Actually Mean?</a>.</p>
-<h3 id="how-it-works"><a class="anchor" href="#how-it-works" aria-label="Permalink to How it works">#</a> How it works</h3>
+<h3 id="how-it-works"><a class="anchor" href="#how-it-works" aria-label="Permalink to How it works"></a>How it works</h3>
 <ol>
 <li>A customer completes a purchase through Stripe.</li>
 <li>Signed Reviews detects the charge (read access) and creates a unique, expiring review invitation tied to that specific transaction.</li>
@@ -672,7 +680,7 @@ main { padding: 0; }
 </ol>
 <p><strong>No purchase → no invitation → no review.</strong> This isn&#39;t detection. It&#39;s prevention. The path to posting a fake review doesn&#39;t exist — it&#39;s structurally closed.</p>
 <p>And critically, the attesting party is <strong>Stripe</strong> — a regulated financial institution and an independent third party to every transaction. Even if a merchant wanted to game the system, they&#39;d need to create real Stripe charges (paying Stripe&#39;s fees each time) and risk having their Stripe account closed for suspicious activity.</p>
-<h2 id="what-this-means-for-your-business"><a class="anchor" href="#what-this-means-for-your-business" aria-label="Permalink to What this means for your business">#</a> What this means for your business</h2>
+<h2 id="what-this-means-for-your-business"><a class="anchor" href="#what-this-means-for-your-business" aria-label="Permalink to What this means for your business"></a>What this means for your business</h2>
 <p>If you&#39;re an honest business, the fake-review problem costs you in three ways:</p>
 <ol>
 <li><strong>Unfair competition.</strong> A competitor with 500 AI-generated 5-star reviews outranks your 50 genuine 4.5-star reviews — on Google, on review platforms, and in consumer trust.</li>
@@ -680,7 +688,7 @@ main { padding: 0; }
 <li><strong>Trust erosion.</strong> When consumers can&#39;t tell real reviews from fake ones, they trust <em>all</em> reviews less. Your genuine reviews lose value because the category itself is tainted.</li>
 </ol>
 <p>Processor-attested verification solves all three: competitors can&#39;t fake reviews against your business, extortion threats are neutered because your rating is built on verified purchases, and your review portfolio stands out as provably authentic in a sea of unverifiable noise.</p>
-<h2 id="the-bottom-line"><a class="anchor" href="#the-bottom-line" aria-label="Permalink to The bottom line">#</a> The bottom line</h2>
+<h2 id="the-bottom-line"><a class="anchor" href="#the-bottom-line" aria-label="Permalink to The bottom line"></a>The bottom line</h2>
 <p>Fake reviews are a structural problem, not a moderation problem. You don&#39;t fix a structural problem with better detection — you fix it with a structure that prevents the problem from existing.</p>
 <p>Processor-attested verification is that structure. It makes fake reviews impossible by design, not detectable after the fact. And for businesses on Stripe, it&#39;s available today — one click, no code, free to start.</p>
 <hr>
@@ -697,7 +705,7 @@ main { padding: 0; }
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand footer-brand-link" href="/" aria-label="Signed Reviews home">
-        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
         <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
       </a>
       <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
@@ -734,7 +742,7 @@ main { padding: 0; }
         <li><a href="/refund-policy/">Refund Policy</a></li>
         <li><a href="/subprocessors/">Sub-processors</a></li>
         <li><a href="/chrome-extension/privacy/">Chrome Extension Privacy</a></li>
-        <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;">Privacy choices</a></li>
+        <li><button type="button" class="privacy-btn" onclick="if(window.srPrivacy){window.srPrivacy();}">Privacy choices</button></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -758,10 +766,21 @@ main { padding: 0; }
   (function () {
     try {
       var stored = localStorage.getItem('theme');
-      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
-      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
-      else document.documentElement.classList.add('theme-auto');
-    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+      if (stored === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      } else if (stored === 'light') {
+        // Light is the default stylesheet state — no class needed.
+      } else {
+        // theme-auto only applies the dark variant colors when the OS is dark.
+        // Adding it under a light OS would paint dark link/heading colors on a
+        // light background (a11y contrast failures), so track the OS preference.
+        var mq = matchMedia('(prefers-color-scheme: dark)');
+        var apply = function (dark) { document.documentElement.classList.toggle('theme-auto', dark); };
+        apply(mq.matches);
+        if (mq.addEventListener) mq.addEventListener('change', function (e) { apply(e.matches); });
+        else if (mq.addListener) mq.addListener(function (e) { apply(e.matches); });
+      }
+    } catch (_) { /* keep the light default */ }
   })();
 </script>
   <!-- Cloudflare Web Analytics (proxied) -->

@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/api/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
-  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
+  <meta name="build-commit" content="4a29a47fed0ad2a163ece2655f6cae8c3f4ebc69">
+  <meta name="build-time" content="2026-08-21T08:33:01.209Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Public API — Signed Reviews">
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet">
 
   <style>
 :root {
@@ -38,7 +38,7 @@
   --navy-100:#d5dcee; --navy-50:#eef1f8;
   --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
   --gold-100:#f2edcc; --gold-50:#faf8ee;
-  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#4a6590;
   --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
   --max-prose: 72ch;
 }
@@ -280,7 +280,9 @@ main { padding: 0; }
   text-decoration: none; color: var(--navy-200); margin-right: .35rem;
   font-weight: 400; opacity: 0; transition: opacity .15s ease;
 }
-.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+.prose a.anchor::before { content: '#'; }
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor,
+.prose a.anchor:focus { opacity: 1; }
 
 .prose blockquote {
   margin: 1.5rem 0;
@@ -297,7 +299,7 @@ main { padding: 0; }
 }
 
 .prose table {
-  width: auto;
+  width: 100%;
   border-collapse: collapse;
   margin: 0;
   font-size: .92rem;
@@ -434,6 +436,12 @@ main { padding: 0; }
 }
 :root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
 .footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+.footer-col .privacy-btn {
+  background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+  font: inherit; font-size: .92rem; color: var(--navy-700); text-decoration: none;
+}
+.footer-col .privacy-btn:hover { color: var(--gold-500); text-decoration: underline; }
+:root.theme-dark .footer-col .privacy-btn, :root.theme-auto .footer-col .privacy-btn { color: var(--navy-100); }
 
 .footer-fineprint {
   max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
@@ -539,10 +547,10 @@ main { padding: 0; }
 <header class="site-header">
   <div class="nav-inner" id="navInner">
     <a class="brand" href="/" aria-label="Signed Reviews home">
-      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
       <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
     </a>
-    <ul class="nav-links" role="menu">
+    <ul class="nav-links">
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
@@ -580,12 +588,12 @@ main { padding: 0; }
       <article class="prose">
 <p>The Signed Reviews Public API lets you fetch verified reviews, ratings, and business profile data directly into your own site or app. Every review is processor-attested — backed by a real, non-refunded Stripe payment.</p>
 <hr>
-<h2 id="quickstart"><a class="anchor" href="#quickstart" aria-label="Permalink to Quickstart">#</a> Quickstart</h2>
+<h2 id="quickstart"><a class="anchor" href="#quickstart" aria-label="Permalink to Quickstart"></a>Quickstart</h2>
 <pre><code class="language-bash">curl -H &quot;Authorization: Bearer YOUR_PUBLISHABLE_KEY&quot; \
   https://api.signedreviews.com/v1/public/profile
 </code></pre>
 <p>That&#39;s it. One endpoint for profile data, one for reviews. Both are read-only and safe for client-side use with a publishable key.</p>
-<h2 id="authentication"><a class="anchor" href="#authentication" aria-label="Permalink to Authentication">#</a> Authentication</h2>
+<h2 id="authentication"><a class="anchor" href="#authentication" aria-label="Permalink to Authentication"></a>Authentication</h2>
 <p>Two key types, both read-only:</p>
 <div class="table-wrap"><table>
 <thead>
@@ -608,9 +616,9 @@ main { padding: 0; }
 </tbody></table></div>
 <p>Get your keys from the API Keys section of your dashboard. Publishable keys are available on Starter plans and above.</p>
 <p>Pass your key as a Bearer token in the <code>Authorization</code> header, or as a <code>?key=</code> query parameter.</p>
-<h2 id="endpoints"><a class="anchor" href="#endpoints" aria-label="Permalink to Endpoints">#</a> Endpoints</h2>
+<h2 id="endpoints"><a class="anchor" href="#endpoints" aria-label="Permalink to Endpoints"></a>Endpoints</h2>
 <p>Base URL: <code>https://api.signedreviews.com/v1/public</code></p>
-<h3 id="get-profile"><a class="anchor" href="#get-profile" aria-label="Permalink to GET /profile">#</a> GET /profile</h3>
+<h3 id="get-profile"><a class="anchor" href="#get-profile" aria-label="Permalink to GET /profile"></a>GET /profile</h3>
 <p>Returns your business identity, aggregate rating, star distribution, and verified trust metrics.</p>
 <pre><code class="language-json">{
   &quot;success&quot;: true,
@@ -636,7 +644,7 @@ main { padding: 0; }
 }
 </code></pre>
 <p>Metrics are computed from your Stripe data. Each metric respects a k-anonymity cohort floor — if there aren&#39;t enough transactions to compute a metric without identifying individual customers, it&#39;s suppressed.</p>
-<h3 id="get-reviews"><a class="anchor" href="#get-reviews" aria-label="Permalink to GET /reviews">#</a> GET /reviews</h3>
+<h3 id="get-reviews"><a class="anchor" href="#get-reviews" aria-label="Permalink to GET /reviews"></a>GET /reviews</h3>
 <p>Returns paginated, privacy-masked reviews.</p>
 <p><strong>Parameters:</strong> <code>page</code> (default 1), <code>limit</code> (default 10, max 100), <code>sort</code> (<code>date_desc</code>, <code>date_asc</code>, <code>rating_desc</code>, <code>rating_asc</code>), <code>minRating</code> (1-5), <code>from</code>, <code>to</code> (ISO 8601 dates).</p>
 <pre><code class="language-json">{
@@ -671,7 +679,7 @@ main { padding: 0; }
 }
 </code></pre>
 <p>Privacy masking is applied server-side: purchase amounts and social handles are only included when the reviewer explicitly opted to show them.</p>
-<h2 id="response-format"><a class="anchor" href="#response-format" aria-label="Permalink to Response format">#</a> Response format</h2>
+<h2 id="response-format"><a class="anchor" href="#response-format" aria-label="Permalink to Response format"></a>Response format</h2>
 <p>Every response uses a consistent envelope:</p>
 <pre><code class="language-json">{
   &quot;success&quot;: true,
@@ -687,7 +695,7 @@ main { padding: 0; }
   &quot;error&quot;: &quot;Invalid API key&quot;
 }
 </code></pre>
-<h2 id="rate-limits"><a class="anchor" href="#rate-limits" aria-label="Permalink to Rate limits">#</a> Rate limits</h2>
+<h2 id="rate-limits"><a class="anchor" href="#rate-limits" aria-label="Permalink to Rate limits"></a>Rate limits</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -709,9 +717,9 @@ main { padding: 0; }
 </tr>
 </tbody></table></div>
 <p>Responses include <code>Cache-Control: public, max-age=60, stale-while-revalidate=300</code> headers. Cache responses on your side where possible to stay well within limits.</p>
-<h2 id="cors"><a class="anchor" href="#cors" aria-label="Permalink to CORS">#</a> CORS</h2>
+<h2 id="cors"><a class="anchor" href="#cors" aria-label="Permalink to CORS"></a>CORS</h2>
 <p>The Public API v1 is accessible from any origin. You can call it directly from browser JavaScript without a proxy.</p>
-<h2 id="full-openapi-spec"><a class="anchor" href="#full-openapi-spec" aria-label="Permalink to Full OpenAPI spec">#</a> Full OpenAPI spec</h2>
+<h2 id="full-openapi-spec"><a class="anchor" href="#full-openapi-spec" aria-label="Permalink to Full OpenAPI spec"></a>Full OpenAPI spec</h2>
 <p>Download the complete machine-readable spec at <a href="/openapi.json">signedreviews.com/openapi.json</a>.</p>
 <hr>
 <p>Questions? Email <strong><a href="mailto:api@signedreviews.com">api@signedreviews.com</a></strong>.</p>
@@ -723,7 +731,7 @@ main { padding: 0; }
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand footer-brand-link" href="/" aria-label="Signed Reviews home">
-        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
         <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
       </a>
       <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
@@ -760,7 +768,7 @@ main { padding: 0; }
         <li><a href="/refund-policy/">Refund Policy</a></li>
         <li><a href="/subprocessors/">Sub-processors</a></li>
         <li><a href="/chrome-extension/privacy/">Chrome Extension Privacy</a></li>
-        <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;">Privacy choices</a></li>
+        <li><button type="button" class="privacy-btn" onclick="if(window.srPrivacy){window.srPrivacy();}">Privacy choices</button></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -784,10 +792,21 @@ main { padding: 0; }
   (function () {
     try {
       var stored = localStorage.getItem('theme');
-      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
-      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
-      else document.documentElement.classList.add('theme-auto');
-    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+      if (stored === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      } else if (stored === 'light') {
+        // Light is the default stylesheet state — no class needed.
+      } else {
+        // theme-auto only applies the dark variant colors when the OS is dark.
+        // Adding it under a light OS would paint dark link/heading colors on a
+        // light background (a11y contrast failures), so track the OS preference.
+        var mq = matchMedia('(prefers-color-scheme: dark)');
+        var apply = function (dark) { document.documentElement.classList.toggle('theme-auto', dark); };
+        apply(mq.matches);
+        if (mq.addEventListener) mq.addEventListener('change', function (e) { apply(e.matches); });
+        else if (mq.addListener) mq.addListener(function (e) { apply(e.matches); });
+      }
+    } catch (_) { /* keep the light default */ }
   })();
 </script>
   <!-- Cloudflare Web Analytics (proxied) -->

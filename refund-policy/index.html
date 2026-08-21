@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/refund-policy/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
-  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
+  <meta name="build-commit" content="4a29a47fed0ad2a163ece2655f6cae8c3f4ebc69">
+  <meta name="build-time" content="2026-08-21T08:33:01.209Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Refund and Cancellation Policy — Signed Reviews">
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet">
 
   <style>
 :root {
@@ -38,7 +38,7 @@
   --navy-100:#d5dcee; --navy-50:#eef1f8;
   --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
   --gold-100:#f2edcc; --gold-50:#faf8ee;
-  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#4a6590;
   --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
   --max-prose: 72ch;
 }
@@ -280,7 +280,9 @@ main { padding: 0; }
   text-decoration: none; color: var(--navy-200); margin-right: .35rem;
   font-weight: 400; opacity: 0; transition: opacity .15s ease;
 }
-.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+.prose a.anchor::before { content: '#'; }
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor,
+.prose a.anchor:focus { opacity: 1; }
 
 .prose blockquote {
   margin: 1.5rem 0;
@@ -297,7 +299,7 @@ main { padding: 0; }
 }
 
 .prose table {
-  width: auto;
+  width: 100%;
   border-collapse: collapse;
   margin: 0;
   font-size: .92rem;
@@ -434,6 +436,12 @@ main { padding: 0; }
 }
 :root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
 .footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+.footer-col .privacy-btn {
+  background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+  font: inherit; font-size: .92rem; color: var(--navy-700); text-decoration: none;
+}
+.footer-col .privacy-btn:hover { color: var(--gold-500); text-decoration: underline; }
+:root.theme-dark .footer-col .privacy-btn, :root.theme-auto .footer-col .privacy-btn { color: var(--navy-100); }
 
 .footer-fineprint {
   max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
@@ -539,10 +547,10 @@ main { padding: 0; }
 <header class="site-header">
   <div class="nav-inner" id="navInner">
     <a class="brand" href="/" aria-label="Signed Reviews home">
-      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
       <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
     </a>
-    <ul class="nav-links" role="menu">
+    <ul class="nav-links">
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
@@ -582,10 +590,10 @@ main { padding: 0; }
 <strong>Last updated:</strong> July 7, 2026</p>
 <p>This Refund and Cancellation Policy applies to your use of Signed Reviews, a service operated by <strong>Paid Rightly LLC</strong>, a New Mexico limited liability company.</p>
 <hr>
-<h2 id="current-pricing"><a class="anchor" href="#current-pricing" aria-label="Permalink to Current pricing">#</a> Current pricing</h2>
+<h2 id="current-pricing"><a class="anchor" href="#current-pricing" aria-label="Permalink to Current pricing"></a>Current pricing</h2>
 <p>Signed Reviews offers a <strong>free plan</strong> (self-service review collection) and paid subscription plans — <strong>Starter ($29/mo), Pro ($79/mo), and Scale ($199/mo)</strong> — each available monthly or annually. Paid plans are billed by Signed Reviews directly via Stripe. The free plan incurs no charges.</p>
 <hr>
-<h2 id="cancellation"><a class="anchor" href="#cancellation" aria-label="Permalink to Cancellation">#</a> Cancellation</h2>
+<h2 id="cancellation"><a class="anchor" href="#cancellation" aria-label="Permalink to Cancellation"></a>Cancellation</h2>
 <p>You may cancel a paid plan at any time from your account or by emailing <strong><a href="mailto:support@signedreviews.com">support@signedreviews.com</a></strong>. Cancellation stops future renewal charges; your account reverts to the free plan and your reviews remain visible. To cancel and delete your account entirely:</p>
 <ol>
 <li>Email <strong><a href="mailto:support@signedreviews.com">support@signedreviews.com</a></strong> from the email address associated with your account, or</li>
@@ -598,7 +606,7 @@ main { padding: 0; }
 <li>Your Stripe connection is revoked and future review requests stop being triggered</li>
 </ul>
 <hr>
-<h2 id="refunds"><a class="anchor" href="#refunds" aria-label="Permalink to Refunds">#</a> Refunds</h2>
+<h2 id="refunds"><a class="anchor" href="#refunds" aria-label="Permalink to Refunds"></a>Refunds</h2>
 <ul>
 <li><strong>Monthly plans:</strong> Because you can cancel at any time and charges stop at the next renewal, monthly plan payments are <strong>non-refundable</strong> once a billing period has started. Cancel before the renewal date to avoid the next charge.</li>
 <li><strong>Annual plans:</strong> You may request a <strong>full refund within 14 days</strong> of an annual purchase or renewal. After 14 days, annual plans are non-refundable and remain active until the end of the paid term.</li>
@@ -607,13 +615,13 @@ main { padding: 0; }
 </ul>
 <p>We process approved refunds to the original payment method. Refund timing depends on your bank or card issuer.</p>
 <hr>
-<h2 id="disputes-about-charges"><a class="anchor" href="#disputes-about-charges" aria-label="Permalink to Disputes about charges">#</a> Disputes about charges</h2>
+<h2 id="disputes-about-charges"><a class="anchor" href="#disputes-about-charges" aria-label="Permalink to Disputes about charges"></a>Disputes about charges</h2>
 <p>If you believe a charge is incorrect, please contact <strong><a href="mailto:support@signedreviews.com">support@signedreviews.com</a></strong> within 60 days of the charge so we can investigate. We will work in good faith to resolve billing disputes before any formal dispute resolution process begins under our <a href="https://signedreviews.com/terms/">Terms of Service</a>.</p>
 <hr>
-<h2 id="auto-renewal"><a class="anchor" href="#auto-renewal" aria-label="Permalink to Auto-renewal">#</a> Auto-renewal</h2>
+<h2 id="auto-renewal"><a class="anchor" href="#auto-renewal" aria-label="Permalink to Auto-renewal"></a>Auto-renewal</h2>
 <p>Paid plans renew automatically at the end of each billing period (monthly or annually) until you cancel. The price, billing period, and renewal terms are shown at checkout and in your account. You will not be charged any amount you have not agreed to, and we never automatically charge you for exceeding your monthly invitation cap — at the cap you explicitly upgrade or buy a one-time Invitation Pack.</p>
 <hr>
-<h2 id="contact"><a class="anchor" href="#contact" aria-label="Permalink to Contact">#</a> Contact</h2>
+<h2 id="contact"><a class="anchor" href="#contact" aria-label="Permalink to Contact"></a>Contact</h2>
 <p>Questions about this policy, cancellation, or billing:</p>
 <p><strong>Email:</strong> <a href="mailto:support@signedreviews.com">support@signedreviews.com</a>
 <strong>Mail:</strong> Paid Rightly LLC, 1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States</p>
@@ -631,7 +639,7 @@ main { padding: 0; }
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand footer-brand-link" href="/" aria-label="Signed Reviews home">
-        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
         <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
       </a>
       <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
@@ -668,7 +676,7 @@ main { padding: 0; }
         <li><a href="/refund-policy/">Refund Policy</a></li>
         <li><a href="/subprocessors/">Sub-processors</a></li>
         <li><a href="/chrome-extension/privacy/">Chrome Extension Privacy</a></li>
-        <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;">Privacy choices</a></li>
+        <li><button type="button" class="privacy-btn" onclick="if(window.srPrivacy){window.srPrivacy();}">Privacy choices</button></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -692,10 +700,21 @@ main { padding: 0; }
   (function () {
     try {
       var stored = localStorage.getItem('theme');
-      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
-      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
-      else document.documentElement.classList.add('theme-auto');
-    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+      if (stored === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      } else if (stored === 'light') {
+        // Light is the default stylesheet state — no class needed.
+      } else {
+        // theme-auto only applies the dark variant colors when the OS is dark.
+        // Adding it under a light OS would paint dark link/heading colors on a
+        // light background (a11y contrast failures), so track the OS preference.
+        var mq = matchMedia('(prefers-color-scheme: dark)');
+        var apply = function (dark) { document.documentElement.classList.toggle('theme-auto', dark); };
+        apply(mq.matches);
+        if (mq.addEventListener) mq.addEventListener('change', function (e) { apply(e.matches); });
+        else if (mq.addListener) mq.addListener(function (e) { apply(e.matches); });
+      }
+    } catch (_) { /* keep the light default */ }
   })();
 </script>
   <!-- Cloudflare Web Analytics (proxied) -->

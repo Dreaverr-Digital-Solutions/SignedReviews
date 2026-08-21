@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/how-to-get-reviews-on-shopify/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
-  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
+  <meta name="build-commit" content="4a29a47fed0ad2a163ece2655f6cae8c3f4ebc69">
+  <meta name="build-time" content="2026-08-21T08:33:01.209Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="How to Get Reviews on Shopify (Verified, Not Fake) — Signed Reviews Blog">
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet">
 
   <style>
 :root {
@@ -38,7 +38,7 @@
   --navy-100:#d5dcee; --navy-50:#eef1f8;
   --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
   --gold-100:#f2edcc; --gold-50:#faf8ee;
-  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#4a6590;
   --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
   --max-prose: 72ch;
 }
@@ -280,7 +280,9 @@ main { padding: 0; }
   text-decoration: none; color: var(--navy-200); margin-right: .35rem;
   font-weight: 400; opacity: 0; transition: opacity .15s ease;
 }
-.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+.prose a.anchor::before { content: '#'; }
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor,
+.prose a.anchor:focus { opacity: 1; }
 
 .prose blockquote {
   margin: 1.5rem 0;
@@ -297,7 +299,7 @@ main { padding: 0; }
 }
 
 .prose table {
-  width: auto;
+  width: 100%;
   border-collapse: collapse;
   margin: 0;
   font-size: .92rem;
@@ -434,6 +436,12 @@ main { padding: 0; }
 }
 :root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
 .footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+.footer-col .privacy-btn {
+  background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+  font: inherit; font-size: .92rem; color: var(--navy-700); text-decoration: none;
+}
+.footer-col .privacy-btn:hover { color: var(--gold-500); text-decoration: underline; }
+:root.theme-dark .footer-col .privacy-btn, :root.theme-auto .footer-col .privacy-btn { color: var(--navy-100); }
 
 .footer-fineprint {
   max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
@@ -541,10 +549,10 @@ main { padding: 0; }
 <header class="site-header">
   <div class="nav-inner" id="navInner">
     <a class="brand" href="/" aria-label="Signed Reviews home">
-      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
       <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
     </a>
-    <ul class="nav-links" role="menu">
+    <ul class="nav-links">
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
@@ -587,9 +595,9 @@ main { padding: 0; }
 <p>Shopify stores live and die by social proof. If you&#39;re looking for how to get reviews on shopify, you&#39;re asking the right question — reviews are the highest-impact conversion element you can add to a product page, and Shopify gives you more review-collection options than any other e-commerce platform. The question isn&#39;t whether to collect reviews, but which method produces reviews your customers can actually trust.</p>
 <p>This guide covers app selection, timing, email strategy, and the one verification approach that Shopify apps don&#39;t offer.</p>
 <hr>
-<h2 id="step-1-how-to-get-reviews-on-shopify-choose-your-app-by-verification-not-feature"><a class="anchor" href="#step-1-how-to-get-reviews-on-shopify-choose-your-app-by-verification-not-feature" aria-label="Permalink to Step 1: How to get reviews on Shopify — choose your app by verification, not features">#</a> Step 1: How to get reviews on Shopify — choose your app by verification, not features</h2>
+<h2 id="step-1-how-to-get-reviews-on-shopify-choose-your-app-by-verification-not-feature"><a class="anchor" href="#step-1-how-to-get-reviews-on-shopify-choose-your-app-by-verification-not-feature" aria-label="Permalink to Step 1: How to get reviews on Shopify — choose your app by verification, not features"></a>Step 1: How to get reviews on Shopify — choose your app by verification, not features</h2>
 <p>The Shopify App Store has over 50 review apps. Most comparison guides rank them by star rating, feature count, or pricing. Here&#39;s a better way: <strong>rank them by what their &quot;Verified Buyer&quot; badge actually means.</strong></p>
-<h3 id="how-shopify-review-verification-works"><a class="anchor" href="#how-shopify-review-verification-works" aria-label="Permalink to How Shopify review verification works">#</a> How Shopify review verification works</h3>
+<h3 id="how-shopify-review-verification-works"><a class="anchor" href="#how-shopify-review-verification-works" aria-label="Permalink to How Shopify review verification works"></a>How Shopify review verification works</h3>
 <p>Every Shopify review app verifies reviews the same way at the architectural level:</p>
 <ol>
 <li>A customer places an order in your Shopify store</li>
@@ -598,7 +606,7 @@ main { padding: 0; }
 <li>If yes → the review gets a &quot;Verified Buyer&quot; badge</li>
 </ol>
 <p>The verification data source is <strong>your Shopify order records.</strong> This is Level 3 (merchant-supplied) on the <a href="/learn/what-does-verified-buyer-mean/">verification spectrum</a>. It&#39;s much stronger than email-only verification, but it trusts data you control.</p>
-<h3 id="what-to-look-for-in-a-shopify-review-app"><a class="anchor" href="#what-to-look-for-in-a-shopify-review-app" aria-label="Permalink to What to look for in a Shopify review app">#</a> What to look for in a Shopify review app</h3>
+<h3 id="what-to-look-for-in-a-shopify-review-app"><a class="anchor" href="#what-to-look-for-in-a-shopify-review-app" aria-label="Permalink to What to look for in a Shopify review app"></a>What to look for in a Shopify review app</h3>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -636,7 +644,7 @@ main { padding: 0; }
 </tr>
 </tbody></table></div>
 <hr>
-<h2 id="step-2-time-your-review-requests-correctly"><a class="anchor" href="#step-2-time-your-review-requests-correctly" aria-label="Permalink to Step 2: Time your review requests correctly">#</a> Step 2: Time your review requests correctly</h2>
+<h2 id="step-2-time-your-review-requests-correctly"><a class="anchor" href="#step-2-time-your-review-requests-correctly" aria-label="Permalink to Step 2: Time your review requests correctly"></a>Step 2: Time your review requests correctly</h2>
 <p>The single biggest mistake Shopify merchants make: sending the review request before the product has arrived.</p>
 <p><strong>For physical products:</strong></p>
 <ul>
@@ -656,7 +664,7 @@ main { padding: 0; }
 </ul>
 <p><a href="/blog/best-time-to-ask-for-a-review/">Full timing guide by product type and platform →</a></p>
 <hr>
-<h2 id="step-3-write-review-request-emails-that-get-responses"><a class="anchor" href="#step-3-write-review-request-emails-that-get-responses" aria-label="Permalink to Step 3: Write review-request emails that get responses">#</a> Step 3: Write review-request emails that get responses</h2>
+<h2 id="step-3-write-review-request-emails-that-get-responses"><a class="anchor" href="#step-3-write-review-request-emails-that-get-responses" aria-label="Permalink to Step 3: Write review-request emails that get responses"></a>Step 3: Write review-request emails that get responses</h2>
 <p>Your review-request email has one job: get the customer to click through and write a review. Here&#39;s what works:</p>
 <p><strong>Subject line:</strong> Keep it personal and specific. &quot;How was your [product name]?&quot; outperforms &quot;Please leave a review&quot; by a wide margin. The customer knows what they bought — the subject line should reflect that.</p>
 <p><strong>Body:</strong></p>
@@ -669,7 +677,7 @@ main { padding: 0; }
 </ol>
 <p><a href="/blog/post-purchase-review-email-templates/">Ready-to-use templates for every scenario →</a></p>
 <hr>
-<h2 id="step-4-display-reviews-where-they-convert"><a class="anchor" href="#step-4-display-reviews-where-they-convert" aria-label="Permalink to Step 4: Display reviews where they convert">#</a> Step 4: Display reviews where they convert</h2>
+<h2 id="step-4-display-reviews-where-they-convert"><a class="anchor" href="#step-4-display-reviews-where-they-convert" aria-label="Permalink to Step 4: Display reviews where they convert"></a>Step 4: Display reviews where they convert</h2>
 <p>Once you&#39;re collecting reviews, put them where customers actually look:</p>
 <ol>
 <li><strong>Product pages</strong> (obvious — but still the #1 placement)</li>
@@ -680,7 +688,7 @@ main { padding: 0; }
 <li><strong>Email footer</strong> — &quot;Rated 4.8 by verified buyers&quot; with a link to your review page</li>
 </ol>
 <hr>
-<h2 id="the-limitation-every-shopify-review-app-shares"><a class="anchor" href="#the-limitation-every-shopify-review-app-shares" aria-label="Permalink to The limitation every Shopify review app shares">#</a> The limitation every Shopify review app shares</h2>
+<h2 id="the-limitation-every-shopify-review-app-shares"><a class="anchor" href="#the-limitation-every-shopify-review-app-shares" aria-label="Permalink to The limitation every Shopify review app shares"></a>The limitation every Shopify review app shares</h2>
 <p>Shopify review apps verify against Shopify order data. That&#39;s good — it&#39;s Level 3, better than email-only or self-attested. But it has a built-in limitation: <strong>the verification data is under your administrative control.</strong></p>
 <p>If someone with access to your Shopify admin wanted to manufacture a &quot;Verified Buyer&quot; review, they&#39;d need to:</p>
 <ol>
@@ -693,7 +701,7 @@ main { padding: 0; }
 <p>This is processor-attested verification (Level 4). No Shopify app offers it, because Shopify doesn&#39;t expose Stripe charge data to apps. You&#39;d need a review platform that connects to Stripe directly, outside the Shopify app ecosystem.</p>
 <p>For most Shopify merchants, a good Shopify review app is sufficient — Level 3 verification is the industry standard, and consumers trust it. But if review authenticity is a competitive differentiator for your brand, the gap between &quot;verified by our Shopify order data&quot; and &quot;verified by Stripe&quot; is worth understanding.</p>
 <hr>
-<h2 id="bottom-line"><a class="anchor" href="#bottom-line" aria-label="Permalink to Bottom line">#</a> Bottom line</h2>
+<h2 id="bottom-line"><a class="anchor" href="#bottom-line" aria-label="Permalink to Bottom line"></a>Bottom line</h2>
 <p>Knowing how to get reviews on shopify is technically straightforward — install a review app, configure automatic invitations, and wait. Getting reviews that customers actually trust is harder, because the verification model depends on data you control. <a href="/integrations/shopify/">See how the Shopify integration works</a> and choose your app based on its verification method, time your requests for after delivery, write specific (not generic) invitation emails, and understand what &quot;Verified Buyer&quot; actually means on your chosen app — because your customers trust that badge to mean more than it usually does.</p>
 <p><strong>Further reading:</strong></p>
 <ul>
@@ -714,7 +722,7 @@ main { padding: 0; }
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand footer-brand-link" href="/" aria-label="Signed Reviews home">
-        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
         <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
       </a>
       <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
@@ -751,7 +759,7 @@ main { padding: 0; }
         <li><a href="/refund-policy/">Refund Policy</a></li>
         <li><a href="/subprocessors/">Sub-processors</a></li>
         <li><a href="/chrome-extension/privacy/">Chrome Extension Privacy</a></li>
-        <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;">Privacy choices</a></li>
+        <li><button type="button" class="privacy-btn" onclick="if(window.srPrivacy){window.srPrivacy();}">Privacy choices</button></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -775,10 +783,21 @@ main { padding: 0; }
   (function () {
     try {
       var stored = localStorage.getItem('theme');
-      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
-      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
-      else document.documentElement.classList.add('theme-auto');
-    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+      if (stored === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      } else if (stored === 'light') {
+        // Light is the default stylesheet state — no class needed.
+      } else {
+        // theme-auto only applies the dark variant colors when the OS is dark.
+        // Adding it under a light OS would paint dark link/heading colors on a
+        // light background (a11y contrast failures), so track the OS preference.
+        var mq = matchMedia('(prefers-color-scheme: dark)');
+        var apply = function (dark) { document.documentElement.classList.toggle('theme-auto', dark); };
+        apply(mq.matches);
+        if (mq.addEventListener) mq.addEventListener('change', function (e) { apply(e.matches); });
+        else if (mq.addListener) mq.addListener(function (e) { apply(e.matches); });
+      }
+    } catch (_) { /* keep the light default */ }
   })();
 </script>
   <!-- Cloudflare Web Analytics (proxied) -->
