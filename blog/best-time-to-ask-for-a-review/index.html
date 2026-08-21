@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/best-time-to-ask-for-a-review/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
-  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
+  <meta name="build-commit" content="4a29a47fed0ad2a163ece2655f6cae8c3f4ebc69">
+  <meta name="build-time" content="2026-08-21T08:33:01.209Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Best Time to Ask for a Review: Data-Backed Timing That Maximizes Response Rates — Signed Reviews Blog">
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet">
 
   <style>
 :root {
@@ -38,7 +38,7 @@
   --navy-100:#d5dcee; --navy-50:#eef1f8;
   --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
   --gold-100:#f2edcc; --gold-50:#faf8ee;
-  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#4a6590;
   --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
   --max-prose: 72ch;
 }
@@ -280,7 +280,9 @@ main { padding: 0; }
   text-decoration: none; color: var(--navy-200); margin-right: .35rem;
   font-weight: 400; opacity: 0; transition: opacity .15s ease;
 }
-.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+.prose a.anchor::before { content: '#'; }
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor,
+.prose a.anchor:focus { opacity: 1; }
 
 .prose blockquote {
   margin: 1.5rem 0;
@@ -297,7 +299,7 @@ main { padding: 0; }
 }
 
 .prose table {
-  width: auto;
+  width: 100%;
   border-collapse: collapse;
   margin: 0;
   font-size: .92rem;
@@ -434,6 +436,12 @@ main { padding: 0; }
 }
 :root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
 .footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+.footer-col .privacy-btn {
+  background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+  font: inherit; font-size: .92rem; color: var(--navy-700); text-decoration: none;
+}
+.footer-col .privacy-btn:hover { color: var(--gold-500); text-decoration: underline; }
+:root.theme-dark .footer-col .privacy-btn, :root.theme-auto .footer-col .privacy-btn { color: var(--navy-100); }
 
 .footer-fineprint {
   max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
@@ -541,10 +549,10 @@ main { padding: 0; }
 <header class="site-header">
   <div class="nav-inner" id="navInner">
     <a class="brand" href="/" aria-label="Signed Reviews home">
-      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
       <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
     </a>
-    <ul class="nav-links" role="menu">
+    <ul class="nav-links">
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
@@ -587,12 +595,12 @@ main { padding: 0; }
 <p>Timing is the single largest variable in review-collection response rates. Send the request too early and the customer hasn&#39;t formed an opinion. Send it too late and the purchase is a distant memory. This guide breaks down the best time to ask for a review for every business type, backed by what we&#39;ve observed across thousands of review invitations.</p>
 <p>Here&#39;s the best time to ask for a review — broken down by product type, day of week, and reminder cadence. Data-backed timing that maximizes response rates without annoying customers.</p>
 <hr>
-<h2 id="the-golden-rule-for-the-best-time-to-ask-for-a-review"><a class="anchor" href="#the-golden-rule-for-the-best-time-to-ask-for-a-review" aria-label="Permalink to The golden rule for the best time to ask for a review">#</a> The golden rule for the best time to ask for a review</h2>
+<h2 id="the-golden-rule-for-the-best-time-to-ask-for-a-review"><a class="anchor" href="#the-golden-rule-for-the-best-time-to-ask-for-a-review" aria-label="Permalink to The golden rule for the best time to ask for a review"></a>The golden rule for the best time to ask for a review</h2>
 <p>The universal principle: <strong>don&#39;t ask for a review until the customer has received and experienced what they paid for.</strong> Obvious, but widely violated. E-commerce stores that send review requests 24 hours after ordering — before the product has shipped — get low response rates and worse reviews, because the customer hasn&#39;t used the product yet.</p>
 <p>For every business type, the question is: <strong>when has the customer experienced enough to have a meaningful opinion?</strong></p>
 <hr>
-<h2 id="by-business-type"><a class="anchor" href="#by-business-type" aria-label="Permalink to By business type">#</a> By business type</h2>
-<h3 id="digital-products-amp-saas"><a class="anchor" href="#digital-products-amp-saas" aria-label="Permalink to Digital products &amp;amp; SaaS">#</a> Digital products &amp; SaaS</h3>
+<h2 id="by-business-type"><a class="anchor" href="#by-business-type" aria-label="Permalink to By business type"></a>By business type</h2>
+<h3 id="digital-products-amp-saas"><a class="anchor" href="#digital-products-amp-saas" aria-label="Permalink to Digital products &amp;amp; SaaS"></a>Digital products &amp; SaaS</h3>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -623,7 +631,7 @@ main { padding: 0; }
 </tr>
 </tbody></table></div>
 <p><strong>The SaaS nuance:</strong> Subscription businesses have recurring verification opportunities. Don&#39;t just ask once — every renewal payment is a new transaction and a new chance to ask. A customer who&#39;s been subscribed for 12 months has a fundamentally different perspective than one who&#39;s been subscribed for 2.</p>
-<h3 id="physical-products"><a class="anchor" href="#physical-products" aria-label="Permalink to Physical products">#</a> Physical products</h3>
+<h3 id="physical-products"><a class="anchor" href="#physical-products" aria-label="Permalink to Physical products"></a>Physical products</h3>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -659,7 +667,7 @@ main { padding: 0; }
 </tr>
 </tbody></table></div>
 <p><strong>The delivery trigger:</strong> If you have access to tracking data, the ideal trigger is <strong>N days after the carrier confirms delivery</strong> — not N days after the order is placed. A product that takes 10 days to ship shouldn&#39;t trigger a review request on day 3.</p>
-<h3 id="services"><a class="anchor" href="#services" aria-label="Permalink to Services">#</a> Services</h3>
+<h3 id="services"><a class="anchor" href="#services" aria-label="Permalink to Services"></a>Services</h3>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -685,7 +693,7 @@ main { padding: 0; }
 </tr>
 </tbody></table></div>
 <hr>
-<h2 id="day-of-week-and-time-of-day"><a class="anchor" href="#day-of-week-and-time-of-day" aria-label="Permalink to Day of week and time of day">#</a> Day of week and time of day</h2>
+<h2 id="day-of-week-and-time-of-day"><a class="anchor" href="#day-of-week-and-time-of-day" aria-label="Permalink to Day of week and time of day"></a>Day of week and time of day</h2>
 <p>Across e-commerce and SaaS, the data converges on a few patterns:</p>
 <ul>
 <li><strong>Best days:</strong> Tuesday through Thursday. Monday is catch-up day; Friday afternoon through Sunday is low-engagement.</li>
@@ -693,7 +701,7 @@ main { padding: 0; }
 <li><strong>Avoid:</strong> Friday afternoon (review request goes into the weekend void), Monday before 10am (buried in weekend backlog), and late-night sends (feels automated and impersonal).</li>
 </ul>
 <hr>
-<h2 id="reminder-cadence"><a class="anchor" href="#reminder-cadence" aria-label="Permalink to Reminder cadence">#</a> Reminder cadence</h2>
+<h2 id="reminder-cadence"><a class="anchor" href="#reminder-cadence" aria-label="Permalink to Reminder cadence"></a>Reminder cadence</h2>
 <p>Most people don&#39;t write a review on the first request. A structured reminder sequence dramatically increases total response rate without annoying customers:</p>
 <div class="table-wrap"><table>
 <thead>
@@ -721,7 +729,7 @@ main { padding: 0; }
 </tbody></table></div>
 <p><strong>Stop after 2 reminders.</strong> Three or more reminders annoys customers and generates negative sentiment — exactly the opposite of what you want. If someone hasn&#39;t reviewed after 10 days and two reminders, they&#39;re not going to.</p>
 <hr>
-<h2 id="transaction-verified-why-the-best-time-to-ask-for-a-review-matters-even-more"><a class="anchor" href="#transaction-verified-why-the-best-time-to-ask-for-a-review-matters-even-more" aria-label="Permalink to Transaction-verified: why the best time to ask for a review matters even more">#</a> Transaction-verified: why the best time to ask for a review matters even more</h2>
+<h2 id="transaction-verified-why-the-best-time-to-ask-for-a-review-matters-even-more"><a class="anchor" href="#transaction-verified-why-the-best-time-to-ask-for-a-review-matters-even-more" aria-label="Permalink to Transaction-verified: why the best time to ask for a review matters even more"></a>Transaction-verified: why the best time to ask for a review matters even more</h2>
 <p>With processor-attested (Level 4) verification, review requests are tied to <strong>specific Stripe charges.</strong> That means:</p>
 <ul>
 <li><strong>You can&#39;t send a request without a real charge.</strong> No &quot;batch-invite everyone in my customer list.&quot; Every invitation traces back to a confirmed transaction.</li>
@@ -730,7 +738,7 @@ main { padding: 0; }
 </ul>
 <p>The net effect: processor-attested review collection encourages you to <strong>get the timing right upfront</strong>, because you can&#39;t retroactively invite or exclude customers. The system is neutral — it sends to every paying customer, at the best time to ask for a review, without you curating the list. <a href="/pricing/">See pricing</a> for plans with automated review timing.</p>
 <hr>
-<h2 id="what-not-to-do"><a class="anchor" href="#what-not-to-do" aria-label="Permalink to What NOT to do">#</a> What NOT to do</h2>
+<h2 id="what-not-to-do"><a class="anchor" href="#what-not-to-do" aria-label="Permalink to What NOT to do"></a>What NOT to do</h2>
 <ol>
 <li><strong>Don&#39;t ask before the experience is complete.</strong> Pre-delivery review requests generate low response rates and lower-quality reviews.</li>
 <li><strong>Don&#39;t send more than 2 reminders.</strong> Three+ reminders feels like harassment.</li>
@@ -739,7 +747,7 @@ main { padding: 0; }
 <li><strong>Don&#39;t batch-send to your entire customer list at once.</strong> Staggered, transaction-triggered sends get higher response rates and feel personal.</li>
 </ol>
 <hr>
-<h2 id="the-bottom-line"><a class="anchor" href="#the-bottom-line" aria-label="Permalink to The bottom line">#</a> The bottom line</h2>
+<h2 id="the-bottom-line"><a class="anchor" href="#the-bottom-line" aria-label="Permalink to The bottom line"></a>The bottom line</h2>
 <p>The best time to ask for a review is when the customer has experienced the full value of their purchase — which varies by what you sell — and on a Tuesday or Wednesday between 10am and 2pm. Send once, remind twice, stop. And whenever possible, tie the invitation to the transaction itself, so every paying customer is asked at the right time without you having to manage the timing manually.</p>
 <p><strong>Further reading:</strong></p>
 <ul>
@@ -759,7 +767,7 @@ main { padding: 0; }
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand footer-brand-link" href="/" aria-label="Signed Reviews home">
-        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
         <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
       </a>
       <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
@@ -796,7 +804,7 @@ main { padding: 0; }
         <li><a href="/refund-policy/">Refund Policy</a></li>
         <li><a href="/subprocessors/">Sub-processors</a></li>
         <li><a href="/chrome-extension/privacy/">Chrome Extension Privacy</a></li>
-        <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;">Privacy choices</a></li>
+        <li><button type="button" class="privacy-btn" onclick="if(window.srPrivacy){window.srPrivacy();}">Privacy choices</button></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -820,10 +828,21 @@ main { padding: 0; }
   (function () {
     try {
       var stored = localStorage.getItem('theme');
-      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
-      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
-      else document.documentElement.classList.add('theme-auto');
-    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+      if (stored === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      } else if (stored === 'light') {
+        // Light is the default stylesheet state — no class needed.
+      } else {
+        // theme-auto only applies the dark variant colors when the OS is dark.
+        // Adding it under a light OS would paint dark link/heading colors on a
+        // light background (a11y contrast failures), so track the OS preference.
+        var mq = matchMedia('(prefers-color-scheme: dark)');
+        var apply = function (dark) { document.documentElement.classList.toggle('theme-auto', dark); };
+        apply(mq.matches);
+        if (mq.addEventListener) mq.addEventListener('change', function (e) { apply(e.matches); });
+        else if (mq.addListener) mq.addListener(function (e) { apply(e.matches); });
+      }
+    } catch (_) { /* keep the light default */ }
   })();
 </script>
   <!-- Cloudflare Web Analytics (proxied) -->

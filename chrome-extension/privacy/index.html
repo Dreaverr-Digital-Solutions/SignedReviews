@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/chrome-extension/privacy/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
-  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
+  <meta name="build-commit" content="4a29a47fed0ad2a163ece2655f6cae8c3f4ebc69">
+  <meta name="build-time" content="2026-08-21T08:33:01.209Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Privacy Policy — SignedReviews Trust Detector">
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet">
 
   <style>
 :root {
@@ -38,7 +38,7 @@
   --navy-100:#d5dcee; --navy-50:#eef1f8;
   --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
   --gold-100:#f2edcc; --gold-50:#faf8ee;
-  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#4a6590;
   --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
   --max-prose: 72ch;
 }
@@ -280,7 +280,9 @@ main { padding: 0; }
   text-decoration: none; color: var(--navy-200); margin-right: .35rem;
   font-weight: 400; opacity: 0; transition: opacity .15s ease;
 }
-.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+.prose a.anchor::before { content: '#'; }
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor,
+.prose a.anchor:focus { opacity: 1; }
 
 .prose blockquote {
   margin: 1.5rem 0;
@@ -297,7 +299,7 @@ main { padding: 0; }
 }
 
 .prose table {
-  width: auto;
+  width: 100%;
   border-collapse: collapse;
   margin: 0;
   font-size: .92rem;
@@ -434,6 +436,12 @@ main { padding: 0; }
 }
 :root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
 .footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+.footer-col .privacy-btn {
+  background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+  font: inherit; font-size: .92rem; color: var(--navy-700); text-decoration: none;
+}
+.footer-col .privacy-btn:hover { color: var(--gold-500); text-decoration: underline; }
+:root.theme-dark .footer-col .privacy-btn, :root.theme-auto .footer-col .privacy-btn { color: var(--navy-100); }
 
 .footer-fineprint {
   max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
@@ -539,10 +547,10 @@ main { padding: 0; }
 <header class="site-header">
   <div class="nav-inner" id="navInner">
     <a class="brand" href="/" aria-label="Signed Reviews home">
-      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
       <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
     </a>
-    <ul class="nav-links" role="menu">
+    <ul class="nav-links">
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
@@ -577,25 +585,25 @@ main { padding: 0; }
       </div>
     </section>
     <div class="prose-wrap">
-      <article class="prose"><h2 id="data-collection"><a class="anchor" href="#data-collection" aria-label="Permalink to Data Collection">#</a> Data Collection</h2>
+      <article class="prose"><h2 id="data-collection"><a class="anchor" href="#data-collection" aria-label="Permalink to Data Collection"></a>Data Collection</h2>
 <p>This extension does <strong>not</strong> collect, store, or transmit any personal information or browsing history.</p>
-<h2 id="what-the-extension-does"><a class="anchor" href="#what-the-extension-does" aria-label="Permalink to What the Extension Does">#</a> What the Extension Does</h2>
-<h3 id="1-page-scanning-local-only"><a class="anchor" href="#1-page-scanning-local-only" aria-label="Permalink to 1. Page scanning (local only)">#</a> 1. Page scanning (local only)</h3>
+<h2 id="what-the-extension-does"><a class="anchor" href="#what-the-extension-does" aria-label="Permalink to What the Extension Does"></a>What the Extension Does</h2>
+<h3 id="1-page-scanning-local-only"><a class="anchor" href="#1-page-scanning-local-only" aria-label="Permalink to 1. Page scanning (local only)"></a>1. Page scanning (local only)</h3>
 <p>The extension reads the HTML of the page you&#39;re currently viewing to detect known review platform signatures (e.g., Trustpilot widgets, SignedReviews badges, JSON-LD review schema). This scanning happens entirely inside your browser. No page content is sent anywhere.</p>
-<h3 id="2-api-calls-only-when-a-signedreviews-badge-is-detected"><a class="anchor" href="#2-api-calls-only-when-a-signedreviews-badge-is-detected" aria-label="Permalink to 2. API calls (only when a SignedReviews badge is detected)">#</a> 2. API calls (only when a SignedReviews badge is detected)</h3>
+<h3 id="2-api-calls-only-when-a-signedreviews-badge-is-detected"><a class="anchor" href="#2-api-calls-only-when-a-signedreviews-badge-is-detected" aria-label="Permalink to 2. API calls (only when a SignedReviews badge is detected)"></a>2. API calls (only when a SignedReviews badge is detected)</h3>
 <p>If the page contains a SignedReviews badge, the extension fetches public aggregate review statistics (average rating, review count, rating distribution) from the SignedReviews API. The API key used is the business&#39;s public widget key found in the page&#39;s HTML — it is not a user key. These API calls return only aggregate numbers, never individual reviews or personal data.</p>
-<h2 id="data-storage"><a class="anchor" href="#data-storage" aria-label="Permalink to Data Storage">#</a> Data Storage</h2>
+<h2 id="data-storage"><a class="anchor" href="#data-storage" aria-label="Permalink to Data Storage"></a>Data Storage</h2>
 <p>Detection results (platform name and trust tier) are stored temporarily in the browser&#39;s memory while the tab is open. This data is cleared when the tab is closed or navigated away. Nothing is written to disk or persisted between sessions.</p>
-<h2 id="third-party-services"><a class="anchor" href="#third-party-services" aria-label="Permalink to Third-Party Services">#</a> Third-Party Services</h2>
+<h2 id="third-party-services"><a class="anchor" href="#third-party-services" aria-label="Permalink to Third-Party Services"></a>Third-Party Services</h2>
 <p>The only external request this extension makes is to the <strong>SignedReviews Badge API</strong> (<code>api.signedreviews.com/api/badge/*</code>) — and only when a SignedReviews badge is present on the current page. These requests contain no user-identifiable information.</p>
-<h2 id="permissions"><a class="anchor" href="#permissions" aria-label="Permalink to Permissions">#</a> Permissions</h2>
+<h2 id="permissions"><a class="anchor" href="#permissions" aria-label="Permalink to Permissions"></a>Permissions</h2>
 <ul>
 <li><strong><code>activeTab</code></strong> — to read the current page&#39;s DOM for review platform detection</li>
 <li><strong><code>&lt;all_urls&gt;</code> host permission</strong> — to inject the content script on every page you visit (so detection works everywhere) and to allow the service worker to call the SignedReviews API</li>
 </ul>
-<h2 id="contact"><a class="anchor" href="#contact" aria-label="Permalink to Contact">#</a> Contact</h2>
+<h2 id="contact"><a class="anchor" href="#contact" aria-label="Permalink to Contact"></a>Contact</h2>
 <p>For questions about this privacy policy, contact: <strong><a href="mailto:billing@dreaverr.com">billing@dreaverr.com</a></strong></p>
-<h2 id="changes"><a class="anchor" href="#changes" aria-label="Permalink to Changes">#</a> Changes</h2>
+<h2 id="changes"><a class="anchor" href="#changes" aria-label="Permalink to Changes"></a>Changes</h2>
 <p>We will post any privacy policy changes on this page.</p>
 <hr>
 <p>This extension is published by <strong>SignedReviews</strong> (<a href="https://signedreviews.com">signedreviews.com</a>).</p>
@@ -607,7 +615,7 @@ main { padding: 0; }
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand footer-brand-link" href="/" aria-label="Signed Reviews home">
-        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
         <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
       </a>
       <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
@@ -644,7 +652,7 @@ main { padding: 0; }
         <li><a href="/refund-policy/">Refund Policy</a></li>
         <li><a href="/subprocessors/">Sub-processors</a></li>
         <li><a href="/chrome-extension/privacy/">Chrome Extension Privacy</a></li>
-        <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;">Privacy choices</a></li>
+        <li><button type="button" class="privacy-btn" onclick="if(window.srPrivacy){window.srPrivacy();}">Privacy choices</button></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -668,10 +676,21 @@ main { padding: 0; }
   (function () {
     try {
       var stored = localStorage.getItem('theme');
-      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
-      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
-      else document.documentElement.classList.add('theme-auto');
-    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+      if (stored === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      } else if (stored === 'light') {
+        // Light is the default stylesheet state — no class needed.
+      } else {
+        // theme-auto only applies the dark variant colors when the OS is dark.
+        // Adding it under a light OS would paint dark link/heading colors on a
+        // light background (a11y contrast failures), so track the OS preference.
+        var mq = matchMedia('(prefers-color-scheme: dark)');
+        var apply = function (dark) { document.documentElement.classList.toggle('theme-auto', dark); };
+        apply(mq.matches);
+        if (mq.addEventListener) mq.addEventListener('change', function (e) { apply(e.matches); });
+        else if (mq.addListener) mq.addListener(function (e) { apply(e.matches); });
+      }
+    } catch (_) { /* keep the light default */ }
   })();
 </script>
   <!-- Cloudflare Web Analytics (proxied) -->

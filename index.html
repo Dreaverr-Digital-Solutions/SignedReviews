@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signed Reviews — The Stripe Verified Review Platform for Real Customer Proof</title>
+  <title>Signed Reviews — Stripe-Verified Review Platform</title>
   <meta name="description" content="Signed Reviews is the Stripe verified review platform that cryptographically links every customer review to a real Stripe transaction, creating tamper-evident social proof anyone can verify.">
   <link rel="canonical" href="https://signedreviews.com/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Signed Reviews — The Stripe Verified Review Platform for Real Customer Proof">
+  <meta property="og:title" content="Signed Reviews — Stripe-Verified Review Platform">
   <meta property="og:description" content="Signed Reviews is the Stripe verified review platform that cryptographically links every customer review to a real Stripe transaction.">
   <meta property="og:url" content="https://signedreviews.com/">
   <meta property="og:site_name" content="Signed Reviews">
   <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Signed Reviews — The Stripe Verified Review Platform for Real Customer Proof">
+  <meta name="twitter:title" content="Signed Reviews — Stripe-Verified Review Platform">
   <meta name="twitter:description" content="Signed Reviews is the Stripe verified review platform that cryptographically links every customer review to a real Stripe transaction.">
 
   <link rel="icon" type="image/png" href="/images/SignedReviews_logo_only.png?v=20260729a">
@@ -26,7 +26,7 @@
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
   <!-- Preload key font for LCP (hero headline uses Instrument Serif) -->
   <link rel="preload" as="font" href="https://fonts.gstatic.com/s/instrumentserif/v4/jiz2RF8MsmDkLJrwWkR6fv0N.woff2" crossorigin type="font/woff2">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet" fetchpriority="high">
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
@@ -753,7 +753,7 @@
   <nav class="fixed top-0 left-0 right-0 z-50 nav-liquid-glass bg-white/80 dark:bg-navy-900/75 backdrop-blur-2xl border-b border-white/30 dark:border-white/8 transition-colors" aria-label="Primary">
     <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16 gap-2">
       <a href="/" class="flex items-center gap-2 shrink-0" aria-label="Signed Reviews — home">
-        <img src="images/SignedReviews_logo_only.webp" alt="" width="34" height="34" class="logo-img logo-icon object-contain">
+        <img src="images/SignedReviews_logo_only.webp" alt="Signed Reviews logo" width="34" height="34" class="logo-img logo-icon object-contain">
         <img src="images/SignedReviews_font_only.webp" alt="Signed Reviews" width="140" height="24" class="logo-img logo-wordmark object-contain">
       </a>
       <ul class="hidden md:flex items-center gap-1 list-none m-0 p-0">
@@ -1156,7 +1156,7 @@
           <thead>
             <tr class="border-b border-navy-100 dark:border-navy-700 bg-navy-50 dark:bg-navy-700/60">
               <th class="px-5 py-4 text-left text-xs font-semibold uppercase tracking-wider text-navy-400">Feature</th>
-              <th class="px-4 py-4 text-center text-xs font-semibold uppercase tracking-wider text-navy-400">Trustpilot</th>
+              <th class="px-4 py-4 text-center text-xs font-semibold uppercase tracking-wider text-navy-400"><a href="/blog/are-trustpilot-reviews-reliable/" class="underline underline-offset-2 hover:text-gold-600 dark:hover:text-gold-300">Trustpilot</a></th>
               <th class="px-4 py-4 text-center text-xs font-semibold uppercase tracking-wider text-navy-400">Judge.me</th>
               <th class="px-4 py-4 text-center text-xs font-semibold uppercase tracking-wider text-navy-400">Google</th>
               <th class="px-4 py-4 text-center text-xs font-semibold uppercase tracking-wider text-gold-600 dark:text-gold-400">SignedReviews</th>
@@ -1181,6 +1181,12 @@
           </tbody>
         </table>
       </div>
+      <p class="text-center text-navy-500 dark:text-navy-300 text-sm mt-6">
+        Dive deeper:
+        <a href="/blog/are-trustpilot-reviews-reliable/" class="underline underline-offset-2 hover:text-gold-600 dark:hover:text-gold-300">Are Trustpilot Reviews Reliable?</a> ·
+        <a href="/blog/what-is-a-verified-review/" class="underline underline-offset-2 hover:text-gold-600 dark:hover:text-gold-300">What Is a Verified Review?</a> ·
+        <a href="/blog/how-to-spot-fake-reviews/" class="underline underline-offset-2 hover:text-gold-600 dark:hover:text-gold-300">How to Spot Fake Reviews</a>
+      </p>
     </div>
   </section>
 
@@ -1461,7 +1467,7 @@
             <li><a href="/refund-policy/" class="text-navy-700 dark:text-navy-200 hover:text-gold-500 transition-colors">Refund Policy</a></li>
             <li><a href="/subprocessors/" class="text-navy-700 dark:text-navy-200 hover:text-gold-500 transition-colors">Sub-processors</a></li>
             <li><a href="/chrome-extension/privacy/" class="text-navy-700 dark:text-navy-200 hover:text-gold-500 transition-colors">Chrome Extension Privacy</a></li>
-            <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;" class="text-navy-700 dark:text-navy-200 hover:text-gold-500 transition-colors">Privacy choices</a></li>
+            <li><button type="button" onclick="if(window.srPrivacy){window.srPrivacy();}" class="text-navy-700 dark:text-navy-200 hover:text-gold-500 transition-colors bg-transparent border-0 p-0 cursor-pointer text-base">Privacy choices</button></li>
           </ul>
         </div>
 

@@ -1,5 +1,6 @@
 # How to Spot Fake Reviews: A Practical Guide for Consumers and Businesses
 
+**Title:** How to Spot Fake Reviews | Signed Reviews Blog
 **Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** How to spot fake reviews in 2026: AI has made detection harder, but these practical techniques — from language patterns to verification checks — help you identify unreliable reviews.
 
 ---

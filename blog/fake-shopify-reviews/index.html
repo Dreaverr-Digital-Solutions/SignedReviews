@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/fake-shopify-reviews/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="d07443486bccb344c0bbbed9d7effccf25977fba">
-  <meta name="build-time" content="2026-08-20T18:39:23.773Z">
+  <meta name="build-commit" content="4a29a47fed0ad2a163ece2655f6cae8c3f4ebc69">
+  <meta name="build-time" content="2026-08-21T08:33:01.209Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Fake Reviews on Shopify: How They Work, How to Spot Them, and How to Prevent Them — Signed Reviews Blog">
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet">
 
   <style>
 :root {
@@ -38,7 +38,7 @@
   --navy-100:#d5dcee; --navy-50:#eef1f8;
   --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
   --gold-100:#f2edcc; --gold-50:#faf8ee;
-  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#4a6590;
   --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
   --max-prose: 72ch;
 }
@@ -280,7 +280,9 @@ main { padding: 0; }
   text-decoration: none; color: var(--navy-200); margin-right: .35rem;
   font-weight: 400; opacity: 0; transition: opacity .15s ease;
 }
-.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+.prose a.anchor::before { content: '#'; }
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor,
+.prose a.anchor:focus { opacity: 1; }
 
 .prose blockquote {
   margin: 1.5rem 0;
@@ -297,7 +299,7 @@ main { padding: 0; }
 }
 
 .prose table {
-  width: auto;
+  width: 100%;
   border-collapse: collapse;
   margin: 0;
   font-size: .92rem;
@@ -434,6 +436,12 @@ main { padding: 0; }
 }
 :root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
 .footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+.footer-col .privacy-btn {
+  background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+  font: inherit; font-size: .92rem; color: var(--navy-700); text-decoration: none;
+}
+.footer-col .privacy-btn:hover { color: var(--gold-500); text-decoration: underline; }
+:root.theme-dark .footer-col .privacy-btn, :root.theme-auto .footer-col .privacy-btn { color: var(--navy-100); }
 
 .footer-fineprint {
   max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
@@ -541,10 +549,10 @@ main { padding: 0; }
 <header class="site-header">
   <div class="nav-inner" id="navInner">
     <a class="brand" href="/" aria-label="Signed Reviews home">
-      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+      <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
       <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
     </a>
-    <ul class="nav-links" role="menu">
+    <ul class="nav-links">
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
@@ -587,7 +595,7 @@ main { padding: 0; }
 <p>Shopify powers roughly 10% of U.S. e-commerce. With millions of merchants and over 13,000 apps in the App Store, it&#39;s also a significant target for fake-review operations. The problem isn&#39;t just Amazon&#39;s anymore — fake reviews on Shopify stores are rising, and Shopify&#39;s architecture makes certain kinds of fake-review fraud uniquely difficult to detect.</p>
 <p>Fake reviews on Shopify exploit a structural weakness: verification is delegated to third-party apps with inconsistent standards. Here&#39;s how the schemes work, how to spot them, and how to stop them.</p>
 <hr>
-<h2 id="why-shopify-stores-are-vulnerable"><a class="anchor" href="#why-shopify-stores-are-vulnerable" aria-label="Permalink to Why Shopify stores are vulnerable">#</a> Why Shopify stores are vulnerable</h2>
+<h2 id="why-shopify-stores-are-vulnerable"><a class="anchor" href="#why-shopify-stores-are-vulnerable" aria-label="Permalink to Why Shopify stores are vulnerable"></a>Why Shopify stores are vulnerable</h2>
 <p>Shopify&#39;s review system is <strong>app-based, not platform-native.</strong> Unlike Amazon, where every review goes through Amazon&#39;s own verification and fraud-detection pipeline, Shopify relies on third-party review apps — Judge.me, Yotpo, Loox, Okendo, Stamped.io, and dozens of others. Each app has its own verification model, its own fraud detection, and its own definition of what &quot;verified&quot; means.</p>
 <p>This creates three structural vulnerabilities:</p>
 <ol>
@@ -596,15 +604,15 @@ main { padding: 0; }
 <li><strong>Shopify order data is under the merchant&#39;s control.</strong> A merchant can create a test order, mark it as paid, and leave a &quot;Verified Buyer&quot; review against it — and most review apps will certify it as genuine, because the order exists in Shopify.</li>
 </ol>
 <hr>
-<h2 id="the-most-common-fake-review-methods-on-shopify"><a class="anchor" href="#the-most-common-fake-review-methods-on-shopify" aria-label="Permalink to The most common fake-review methods on Shopify">#</a> The most common fake-review methods on Shopify</h2>
-<h3 id="1-brushing-via-self-purchase"><a class="anchor" href="#1-brushing-via-self-purchase" aria-label="Permalink to 1. Brushing via self-purchase">#</a> 1. Brushing via self-purchase</h3>
+<h2 id="the-most-common-fake-review-methods-on-shopify"><a class="anchor" href="#the-most-common-fake-review-methods-on-shopify" aria-label="Permalink to The most common fake-review methods on Shopify"></a>The most common fake-review methods on Shopify</h2>
+<h3 id="1-brushing-via-self-purchase"><a class="anchor" href="#1-brushing-via-self-purchase" aria-label="Permalink to 1. Brushing via self-purchase"></a>1. Brushing via self-purchase</h3>
 <p>The merchant buys their own product using a discount code (often 100% off), ships an empty box or nothing at all to a real address, and leaves a &quot;Verified Purchase&quot; review against the order. The order exists in Shopify, so the review app marks it as verified. The recipient at the shipping address never ordered anything — they&#39;re a prop in a fake review operation.</p>
 <p><strong>Why it works:</strong> Most Shopify review apps verify against Shopify order data (Level 3 — merchant-supplied). They check &quot;does an order exist?&quot; not &quot;was this order paid for at full price by an independent customer?&quot; A $0 &quot;order&quot; looks the same as a $200 order to the review app.</p>
 <p><strong>Detection difficulty:</strong> Hard. The order is real. The shipping label is real. The payment (even if $0) went through the payment gateway. Shopify&#39;s fraud systems may flag the discount pattern, but review apps typically don&#39;t see payment data — they only see order data.</p>
-<h3 id="2-incentivized-reviews-through-discount-for-review-schemes"><a class="anchor" href="#2-incentivized-reviews-through-discount-for-review-schemes" aria-label="Permalink to 2. Incentivized reviews through discount-for-review schemes">#</a> 2. Incentivized reviews through discount-for-review schemes</h3>
+<h3 id="2-incentivized-reviews-through-discount-for-review-schemes"><a class="anchor" href="#2-incentivized-reviews-through-discount-for-review-schemes" aria-label="Permalink to 2. Incentivized reviews through discount-for-review schemes"></a>2. Incentivized reviews through discount-for-review schemes</h3>
 <p>A merchant offers a discount or free product in exchange for a review. Sometimes disclosed (&quot;I received this product at a discount...&quot;), often not. The purchase is real — the reviewer actually paid something — but the incentive distorts the review content (toward positivity) and the reviewer selection (only deal-seekers, not genuine customers).</p>
 <p><strong>Why it works:</strong> The purchase is real, so order-matching verification can&#39;t detect it. Shopify&#39;s terms prohibit incentivized reviews, but enforcement is complaint-driven and uneven across the 13,000+ app ecosystem.</p>
-<h3 id="3-app-based-manipulation"><a class="anchor" href="#3-app-based-manipulation" aria-label="Permalink to 3. App-based manipulation">#</a> 3. App-based manipulation</h3>
+<h3 id="3-app-based-manipulation"><a class="anchor" href="#3-app-based-manipulation" aria-label="Permalink to 3. App-based manipulation"></a>3. App-based manipulation</h3>
 <p>Some lower-quality review apps allow merchants to:</p>
 <ul>
 <li><strong>Manually approve reviews before publication</strong> (curating only positive ones)</li>
@@ -614,7 +622,7 @@ main { padding: 0; }
 </ul>
 <p>A merchant using one of these apps can manufacture a perfect review profile — selectively publishing five-star reviews, importing positive reviews from Amazon or elsewhere, and suppressing anything negative.</p>
 <p><strong>Why it works:</strong> Shopify doesn&#39;t audit review apps for verification integrity. The App Store review process checks for functional bugs and policy compliance, not whether the app&#39;s verification model can be gamed. As long as the app technically works, it stays listed.</p>
-<h3 id="4-third-party-fake-review-marketplaces"><a class="anchor" href="#4-third-party-fake-review-marketplaces" aria-label="Permalink to 4. Third-party fake-review marketplaces">#</a> 4. Third-party fake-review marketplaces</h3>
+<h3 id="4-third-party-fake-review-marketplaces"><a class="anchor" href="#4-third-party-fake-review-marketplaces" aria-label="Permalink to 4. Third-party fake-review marketplaces"></a>4. Third-party fake-review marketplaces</h3>
 <p>The same click farms and bot networks that target Amazon and Trustpilot also target Shopify stores. On underground forums, you can buy:</p>
 <ul>
 <li><strong>&quot;Verified Purchase&quot; Shopify reviews:</strong> $5–$15 each, with real-looking order history</li>
@@ -623,7 +631,7 @@ main { padding: 0; }
 </ul>
 <p>These operations use residential proxies, unique device fingerprints, and AI-generated review text to evade automated detection. The reviews look real because — to a review app checking order data — they are real. The fake order was created, the fake payment was processed, and the fake review was submitted.</p>
 <hr>
-<h2 id="how-shopify-fights-fake-reviews-and-where-it-falls-short"><a class="anchor" href="#how-shopify-fights-fake-reviews-and-where-it-falls-short" aria-label="Permalink to How Shopify fights fake reviews (and where it falls short)">#</a> How Shopify fights fake reviews (and where it falls short)</h2>
+<h2 id="how-shopify-fights-fake-reviews-and-where-it-falls-short"><a class="anchor" href="#how-shopify-fights-fake-reviews-and-where-it-falls-short" aria-label="Permalink to How Shopify fights fake reviews (and where it falls short)"></a>How Shopify fights fake reviews (and where it falls short)</h2>
 <p>Shopify&#39;s defenses operate at the platform level, not the review-app level:</p>
 <div class="table-wrap"><table>
 <thead>
@@ -656,7 +664,7 @@ main { padding: 0; }
 </tbody></table></div>
 <p>The fundamental gap: <strong>Shopify secures the payment and fulfillment pipeline, not the review pipeline.</strong> Review authenticity is delegated to third-party apps, each with its own (variable) verification standards. There&#39;s no platform-wide &quot;is this review genuine?&quot; check, because Shopify doesn&#39;t control the review layer.</p>
 <hr>
-<h2 id="how-to-spot-fake-reviews-on-shopify"><a class="anchor" href="#how-to-spot-fake-reviews-on-shopify" aria-label="Permalink to How to spot fake reviews on Shopify">#</a> How to spot fake reviews on Shopify</h2>
+<h2 id="how-to-spot-fake-reviews-on-shopify"><a class="anchor" href="#how-to-spot-fake-reviews-on-shopify" aria-label="Permalink to How to spot fake reviews on Shopify"></a>How to spot fake reviews on Shopify</h2>
 <p>When you&#39;re shopping on a Shopify store:</p>
 <ol>
 <li><strong>Check which review app the store uses.</strong> Look for the app&#39;s branding in the review section (often a subtle &quot;Powered by Judge.me&quot; or similar). Then check that app&#39;s verification documentation — what does their &quot;Verified Buyer&quot; badge actually mean?</li>
@@ -666,7 +674,7 @@ main { padding: 0; }
 <li><strong>Look for &quot;received at a discount&quot; disclosures.</strong> Honest stores disclose incentives. The absence of disclosure doesn&#39;t mean reviews are fake, but a pattern of glowing reviews with no disclosed incentives warrants skepticism.</li>
 </ol>
 <hr>
-<h2 id="how-to-prevent-fake-reviews-on-your-own-shopify-store"><a class="anchor" href="#how-to-prevent-fake-reviews-on-your-own-shopify-store" aria-label="Permalink to How to prevent fake reviews on your own Shopify store">#</a> How to prevent fake reviews on your own Shopify store</h2>
+<h2 id="how-to-prevent-fake-reviews-on-your-own-shopify-store"><a class="anchor" href="#how-to-prevent-fake-reviews-on-your-own-shopify-store" aria-label="Permalink to How to prevent fake reviews on your own Shopify store"></a>How to prevent fake reviews on your own Shopify store</h2>
 <p>If you&#39;re a Shopify merchant, fake reviews hurt you too — they damage consumer trust in your store, expose you to FTC liability, and can get your review app account suspended. Here&#39;s how to protect yourself:</p>
 <ol>
 <li><strong>Choose a review app with strong verification.</strong> Ask: does this app verify against payment data, order data, or just an email address? Order matching (Level 3) is the Shopify standard; anything less is weak.</li>
@@ -676,13 +684,13 @@ main { padding: 0; }
 <li><strong>Use a review platform that verifies against something you can&#39;t control.</strong> If your verification data comes from your own Shopify store, a bad actor with access to your store admin can manufacture verified reviews. If your verification data comes from the payment processor (Stripe), manufacturing a verified review requires manufacturing a real payment — which costs money, leaves a paper trail, and risks your payment-processing ability. That&#39;s a much stronger deterrent.</li>
 </ol>
 <hr>
-<h2 id="the-structural-fix-move-verification-upstream"><a class="anchor" href="#the-structural-fix-move-verification-upstream" aria-label="Permalink to The structural fix: move verification upstream">#</a> The structural fix: move verification upstream</h2>
+<h2 id="the-structural-fix-move-verification-upstream"><a class="anchor" href="#the-structural-fix-move-verification-upstream" aria-label="Permalink to The structural fix: move verification upstream"></a>The structural fix: move verification upstream</h2>
 <p>Every method for generating fake reviews on Shopify exploits the same weakness: <strong>the review app trusts data the merchant can control.</strong> Shopify orders, customer lists, discount codes — these are all under the merchant&#39;s administrative control.</p>
 <p>The only way to structurally prevent fake reviews is to verify against something the merchant <strong>cannot</strong> control: the payment processor. A Stripe charge is an independent record. The merchant can&#39;t create one without paying real Stripe fees. They can&#39;t delete one. They can&#39;t modify the amount, the customer email, or the charge status. And if they refund it, the review platform receives a <code>charge.refunded</code> webhook and hides the review automatically.</p>
 <p>This is processor-attested verification (Level 4 on the <a href="/learn/what-does-verified-buyer-mean/">verification spectrum</a>). No Shopify review app offers it. Only platforms that integrate directly with Stripe do — and that&#39;s a small list. <a href="/how-it-works/">See how it works</a> for the full technical breakdown.</p>
 <p>For Shopify merchants who process payments through Stripe (including Shopify Payments, which runs on Stripe&#39;s infrastructure), the question isn&#39;t whether you can prevent fake reviews on your store. It&#39;s whether your review app verifies against the one data source you can&#39;t fabricate. <a href="/pricing/">See pricing</a> for plans that include processor-attested verification.</p>
 <hr>
-<h2 id="bottom-line"><a class="anchor" href="#bottom-line" aria-label="Permalink to Bottom line">#</a> Bottom line</h2>
+<h2 id="bottom-line"><a class="anchor" href="#bottom-line" aria-label="Permalink to Bottom line"></a>Bottom line</h2>
 <p>Fake reviews on Shopify work because the verification model trusts the merchant&#39;s own data. Shopify&#39;s app-based review ecosystem means verification quality is uneven and invisible to consumers. As a shopper, understanding which review app a store uses — and what its &quot;Verified&quot; badge actually means — is the simplest way to calibrate your trust. As a merchant, choosing a review platform that verifies against something you can&#39;t control is the simplest way to make fake reviews structurally impossible.</p>
 <p><strong>Further reading:</strong></p>
 <ul>
@@ -703,7 +711,7 @@ main { padding: 0; }
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand footer-brand-link" href="/" aria-label="Signed Reviews home">
-        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="">
+        <img class="brand-icon" src="/images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
         <img class="brand-wordmark" src="/images/SignedReviews_font_only.webp" alt="Signed Reviews">
       </a>
       <p>Signed Reviews is a service operated by Paid Rightly LLC.</p>
@@ -740,7 +748,7 @@ main { padding: 0; }
         <li><a href="/refund-policy/">Refund Policy</a></li>
         <li><a href="/subprocessors/">Sub-processors</a></li>
         <li><a href="/chrome-extension/privacy/">Chrome Extension Privacy</a></li>
-        <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;">Privacy choices</a></li>
+        <li><button type="button" class="privacy-btn" onclick="if(window.srPrivacy){window.srPrivacy();}">Privacy choices</button></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -764,10 +772,21 @@ main { padding: 0; }
   (function () {
     try {
       var stored = localStorage.getItem('theme');
-      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
-      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
-      else document.documentElement.classList.add('theme-auto');
-    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+      if (stored === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      } else if (stored === 'light') {
+        // Light is the default stylesheet state — no class needed.
+      } else {
+        // theme-auto only applies the dark variant colors when the OS is dark.
+        // Adding it under a light OS would paint dark link/heading colors on a
+        // light background (a11y contrast failures), so track the OS preference.
+        var mq = matchMedia('(prefers-color-scheme: dark)');
+        var apply = function (dark) { document.documentElement.classList.toggle('theme-auto', dark); };
+        apply(mq.matches);
+        if (mq.addEventListener) mq.addEventListener('change', function (e) { apply(e.matches); });
+        else if (mq.addListener) mq.addListener(function (e) { apply(e.matches); });
+      }
+    } catch (_) { /* keep the light default */ }
   })();
 </script>
   <!-- Cloudflare Web Analytics (proxied) -->

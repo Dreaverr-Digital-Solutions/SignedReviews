@@ -236,7 +236,10 @@ function renderMarkdown(md) {
     const count = seen.get(slug) || 0;
     seen.set(slug, count + 1);
     if (count > 0) slug = `${slug}-${count}`;
-    return `<${tag} id="${slug}"><a class="anchor" href="#${slug}" aria-label="Permalink to ${escapeHtml(plain)}">#</a> ${inner}</${tag}>`;
+    // The permalink "#" lives in CSS content (.prose a.anchor::before), not as a text
+    // node — a literal "#" here would leak into heading text extraction for crawlers
+    // and AI agents (e.g. "<h2># How Trustpilot Verifies Reviews</h2>").
+    return `<${tag} id="${slug}"><a class="anchor" href="#${slug}" aria-label="Permalink to ${escapeHtml(plain)}"></a>${inner}</${tag}>`;
   });
   // Wrap tables in a scrollable container so they don't break on narrow screens
   return withAnchors.replace(/<table>/g, '<div class="table-wrap"><table>').replace(/<\/table>/g, '</table></div>');
@@ -250,7 +253,7 @@ const SHARED_STYLES = `
   --navy-100:#d5dcee; --navy-50:#eef1f8;
   --gold-600:#967f36; --gold-500:#b39d45; --gold-400:#c4ae4e; --gold-300:#d4c466;
   --gold-100:#f2edcc; --gold-50:#faf8ee;
-  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#5d7aaa;
+  --bg:#f0f4f9; --surface:#ffffff; --text:#141e30; --muted:#4a6590;
   --border:rgba(43,59,96,.12); --code-bg:#0c1320; --code-text:#eef1f8;
   --max-prose: 72ch;
 }
@@ -492,7 +495,9 @@ main { padding: 0; }
   text-decoration: none; color: var(--navy-200); margin-right: .35rem;
   font-weight: 400; opacity: 0; transition: opacity .15s ease;
 }
-.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor { opacity: 1; }
+.prose a.anchor::before { content: '#'; }
+.prose h2:hover a.anchor, .prose h3:hover a.anchor, .prose h4:hover a.anchor,
+.prose a.anchor:focus { opacity: 1; }
 
 .prose blockquote {
   margin: 1.5rem 0;
@@ -509,7 +514,7 @@ main { padding: 0; }
 }
 
 .prose table {
-  width: auto;
+  width: 100%;
   border-collapse: collapse;
   margin: 0;
   font-size: .92rem;
@@ -646,6 +651,12 @@ main { padding: 0; }
 }
 :root.theme-dark .footer-col a, :root.theme-auto .footer-col a { color: var(--navy-100); }
 .footer-col a:hover { color: var(--gold-500); text-decoration: underline; }
+.footer-col .privacy-btn {
+  background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+  font: inherit; font-size: .92rem; color: var(--navy-700); text-decoration: none;
+}
+.footer-col .privacy-btn:hover { color: var(--gold-500); text-decoration: underline; }
+:root.theme-dark .footer-col .privacy-btn, :root.theme-auto .footer-col .privacy-btn { color: var(--navy-100); }
 
 .footer-fineprint {
   max-width: 1100px; margin: 2.5rem auto 0; padding-top: 1.5rem;
@@ -685,7 +696,7 @@ const SHARED_HEAD = ({ title, description, canonical, slug, pageType = 'website'
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet">
 
   <style>${SHARED_STYLES}</style>${POSTHOG_SNIPPET}${SR_TRACKERS_SNIPPET}
   <script type="application/ld+json">${JSON.stringify(ORG_SCHEMA)}</script>${breadcrumbJsonLd(title, canonical, slug)}
@@ -695,10 +706,10 @@ const HEADER = (active = '') => `
 <header class="site-header">
   <div class="nav-inner" id="navInner">
     <a class="brand" href="${B}" aria-label="${COMPANY.brand} home">
-      <img class="brand-icon" src="${B}images/SignedReviews_logo_only.webp" alt="">
+      <img class="brand-icon" src="${B}images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
       <img class="brand-wordmark" src="${B}images/SignedReviews_font_only.webp" alt="${COMPANY.brand}">
     </a>
-    <ul class="nav-links" role="menu">
+    <ul class="nav-links">
       <li><a href="${B}pricing/"${active === 'pricing' ? ' aria-current="page"' : ''}>Pricing</a></li>
       <li><a href="${B}about/"${active === 'about' ? ' aria-current="page"' : ''}>About</a></li>
       <li><a href="${B}contact/"${active === 'contact' ? ' aria-current="page"' : ''}>Contact</a></li>
@@ -730,7 +741,7 @@ const FOOTER = `
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand footer-brand-link" href="${B}" aria-label="${COMPANY.brand} home">
-        <img class="brand-icon" src="${B}images/SignedReviews_logo_only.webp" alt="">
+        <img class="brand-icon" src="${B}images/SignedReviews_logo_only.webp" alt="Signed Reviews logo">
         <img class="brand-wordmark" src="${B}images/SignedReviews_font_only.webp" alt="${COMPANY.brand}">
       </a>
       <p>${COMPANY.attribution}</p>
@@ -767,7 +778,7 @@ const FOOTER = `
         <li><a href="${B}refund-policy/">Refund Policy</a></li>
         <li><a href="${B}subprocessors/">Sub-processors</a></li>
         <li><a href="${B}chrome-extension/privacy/">Chrome Extension Privacy</a></li>
-        <li><a href="#" onclick="if(window.srPrivacy){window.srPrivacy();}return false;">Privacy choices</a></li>
+        <li><button type="button" class="privacy-btn" onclick="if(window.srPrivacy){window.srPrivacy();}">Privacy choices</button></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -791,10 +802,21 @@ const FOOTER = `
   (function () {
     try {
       var stored = localStorage.getItem('theme');
-      if (stored === 'dark') document.documentElement.classList.add('theme-dark');
-      else if (stored === 'light') document.documentElement.classList.remove('theme-dark');
-      else document.documentElement.classList.add('theme-auto');
-    } catch (_) { document.documentElement.classList.add('theme-auto'); }
+      if (stored === 'dark') {
+        document.documentElement.classList.add('theme-dark');
+      } else if (stored === 'light') {
+        // Light is the default stylesheet state — no class needed.
+      } else {
+        // theme-auto only applies the dark variant colors when the OS is dark.
+        // Adding it under a light OS would paint dark link/heading colors on a
+        // light background (a11y contrast failures), so track the OS preference.
+        var mq = matchMedia('(prefers-color-scheme: dark)');
+        var apply = function (dark) { document.documentElement.classList.toggle('theme-auto', dark); };
+        apply(mq.matches);
+        if (mq.addEventListener) mq.addEventListener('change', function (e) { apply(e.matches); });
+        else if (mq.addListener) mq.addListener(function (e) { apply(e.matches); });
+      }
+    } catch (_) { /* keep the light default */ }
   })();
 </script>`;
 
@@ -838,7 +860,7 @@ function page({ title, description, slug, hero, body, hasToc = false, active = '
 }
 
 function buildToc(html) {
-  const re = /<h2 id="([^"]+)"><a class="anchor"[^>]*>#<\/a> ([\s\S]*?)<\/h2>/g;
+  const re = /<h2 id="([^"]+)"><a class="anchor"[^>]*><\/a>([\s\S]*?)<\/h2>/g;
   const items = [];
   let m;
   while ((m = re.exec(html))) {
@@ -1955,7 +1977,7 @@ const COMPARISON_STYLES = `
   .vs-table td, .vs-table th { padding:.8rem 1.1rem; border-bottom:1px solid var(--border); vertical-align:top; }
   .vs-table td:first-child { font-weight:600; color:var(--navy-900); }
   :root.theme-dark .vs-table td:first-child, :root.theme-auto .vs-table td:first-child { color:#fff; }
-  .vs-table .win  { color:var(--gold-600); font-weight:700; }
+  .vs-table .win  { color:#7a6424; font-weight:700; } /* darker than --gold-600 for 4.5:1 on white */
   .vs-table .lose { color:var(--muted); }
   .vs-table .tie { color:var(--text); }
   .vs-table tbody tr:last-child td { border-bottom:0; }
@@ -2299,9 +2321,18 @@ function buildComparisonEkomi() {
 // ── Comparison: Signed Reviews vs SiteJabber (FTC news hook) ──────────────────
 function buildComparisonSiteJabber() {
   const slug = '/vs/sitejabber/';
-  const body = `<article class="prose">>
+  const body = `<article class="prose">
     <p><strong>In November 2024, the FTC issued a formal order against SiteJabber</strong> for publishing reviews from people who had never received the products they reviewed. SiteJabber's system allowed businesses to collect reviews at the point of sale — before the customer ever received the product. The FTC found this deceptive. Here's how Signed Reviews compares — and why our model structurally can't have the problem that got SiteJabber in trouble.</p>
 
+    <h2>How SiteJabber's verification works</h2>
+    <p>SiteJabber is an open review platform: businesses invite customers to leave reviews, and in some cases the platform also displays reviews it has collected directly. A "verified" label on SiteJabber reflects the business's invitation to the reviewer rather than an independently confirmed purchase. It is the same invitation model used by most review platforms — and it is precisely where the FTC found room for abuse: reviews collected at the point of sale, from people who had not yet received the product, were presented as customer feedback about the product.</p>
+    <p>The invitation model is reactive. The platform publishes first and polices later: automated tools and moderators remove bad reviews after they are reported, but the review is already live and already influencing readers in the meantime. It is a fundamentally different posture from a platform where a review cannot exist until an independent third party confirms the purchase happened.</p>
+
+    <h2>What the FTC found</h2>
+    <p>The FTC's case against SiteJabber centered on what consumers were led to believe. Reviews and ratings collected at the point of sale — before delivery — were counted into the average ratings and review counts that shoppers rely on. A customer who had never received a product could still be counted as a satisfied reviewer of it. The FTC found that deceptive, and the order requires SiteJabber to change those practices and stop misrepresenting what its reviews mean.</p>
+    <p>For any business choosing a review platform, the takeaway is not about one company. It is about structure: if the platform's design permits reviews without independently verified proof of purchase, the platform is one enforcement action — or one bad actor — away from the same problem.</p>
+
+    <h2>Signed Reviews vs SiteJabber: full comparison</h2>
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>SiteJabber</th></tr></thead>
@@ -2318,6 +2349,10 @@ function buildComparisonSiteJabber() {
     </table>
     </div>
 
+    <h2>Why the verification method determines compliance</h2>
+    <p>Verification method is the whole game, because it decides whether fake reviews are prevented or merely detected. On an invitation platform, the business controls who gets invited, the reviewer self-attests, and the platform has no independent record of any purchase. On a processor-attested platform like Signed Reviews, a review cannot exist unless Stripe — a neutral third party — has independently confirmed a real charge. The merchant cannot invite a reviewer whose payment Stripe has not seen, and refunded charges automatically hide their associated reviews.</p>
+    <p>That is the difference between "we catch most fakes after they appear" and "fakes from non-customers cannot appear at all." Both models run content moderation, but only one makes the FTC's SiteJabber scenario structurally impossible: there is no point of sale to collect from, because the review flow starts with a confirmed transaction, not an invitation list.</p>
+
     <div class="verdict">
       <h3>Why this matters beyond SiteJabber</h3>
       <p>The SiteJabber FTC order established a precedent: the FTC will act against platforms whose review collection practices mislead consumers about authenticity. Any platform that allows reviews without independently verified proof of purchase — or that collects reviews before the customer has the product — is exposed to the same regulatory risk. Signed Reviews was designed after this precedent to be structurally compliant: no purchase verification, no review, no exceptions.</p>
@@ -2327,6 +2362,17 @@ function buildComparisonSiteJabber() {
       <h3>When SiteJabber may still be relevant</h3>
       <p>SiteJabber has a large existing review base and established consumer brand recognition. For businesses already listed there with legitimate reviews, maintaining that presence has value. But as a primary review collection platform, the FTC order raises questions about both compliance risk and consumer trust that newer, structurally compliant alternatives don't face.</p>
     </div>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3>Is SiteJabber legitimate?</h3>
+    <p>SiteJabber is a legitimate, established review platform with a large existing review base. But legitimacy is a different question from verification strength: the FTC's November 2024 order found that SiteJabber allowed reviews collected at the point of sale — before the customer received the product — to be presented as customer feedback. The platform is real; the reliability of its individual reviews is the open question.</p>
+
+    <h3>Does SiteJabber verify purchases?</h3>
+    <p>No. SiteJabber's model relies on business invitations and self-attestation rather than independent proof of purchase. There is no third-party payment processor confirming that a reviewer actually bought the product — which is exactly the gap the FTC's order addressed. Signed Reviews takes the opposite approach: Stripe independently confirms the charge before a review can exist.</p>
+
+    <h3>Is Signed Reviews better than SiteJabber?</h3>
+    <p>For verification strength and FTC-compliance risk, yes — Signed Reviews is processor-attested by construction, while SiteJabber operates under an FTC order requiring it to change its collection practices. SiteJabber's advantages are its brand recognition and existing review base. If your priority is provably authentic reviews from confirmed customers, Signed Reviews is the structurally stronger choice.</p>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting FTC-compliant reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/blog/fake-reviews/">The Fake Review Problem</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a></p>
@@ -2846,7 +2892,7 @@ function buildLearn() {
     .vs-table td, .vs-table th { padding:.75rem 1rem; border-bottom:1px solid var(--border); vertical-align:top; }
     .vs-table td:first-child { font-weight:600; color:var(--navy-900); }
     :root.theme-dark .vs-table td:first-child, :root.theme-auto .vs-table td:first-child { color:#fff; }
-    .vs-table .win { color:var(--gold-600); font-weight:700; }
+    .vs-table .win { color:#7a6424; font-weight:700; } /* darker than --gold-600 for 4.5:1 on white */
     .vs-table tbody tr:last-child td { border-bottom:0; }
     .vs-table .highlight-row { background:rgba(179,157,69,.06); }
     :root.theme-dark .vs-table .highlight-row, :root.theme-auto .vs-table .highlight-row { background:rgba(179,157,69,.08); }
