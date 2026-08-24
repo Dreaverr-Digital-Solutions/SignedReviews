@@ -88,7 +88,20 @@ test.describe('CTA buttons', () => {
 });
 
 // ---------------------------------------------------------------------------
-// 4. Mobile viewport
+// 4. Google Preferred Sources button
+// ---------------------------------------------------------------------------
+test.describe('Preferred Sources button', () => {
+  test('footer button renders with the Google icon and label', async ({ page }) => {
+    await goToPage(page);
+
+    const btn = page.locator('.sr-preferred-btn');
+    await expect(btn).toBeVisible();
+    await expect(btn.locator('.sr-preferred-label')).toHaveText(/preferred source/i);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// 5. Mobile viewport
 // ---------------------------------------------------------------------------
 test.describe('Mobile viewport (375x812)', () => {
   test.use({ viewport: { width: 375, height: 812 } });
