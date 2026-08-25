@@ -78,6 +78,9 @@
 /*.woff2
   Cache-Control: public, max-age=31536000, immutable
 
+/video/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # HTML pages: never cache — SEO verification needs the freshest content
 /*.html
   Cache-Control: no-store

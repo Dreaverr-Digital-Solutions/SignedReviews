@@ -240,6 +240,58 @@
     @keyframes heroSweep { 0% { transform: skewX(-18deg) translateX(0); } 55%, 100% { transform: skewX(-18deg) translateX(471%); } }
     @media (prefers-reduced-motion: reduce) { .hero-stripes, .hero-sweep { animation: none; } }
 
+    /* ── Hero video panel: liquid glass ────────────────────────────
+       Desktop: floats right of the copy (52% × 3:2, left-anchored crop keeps
+       the important left-border content). Mobile: stacks below as a 4:3 band. */
+    .hero-copy { width: 100%; max-width: 576px; padding: 7rem 0; }
+    @media (min-width: 1024px) { .hero-copy { width: calc(100% - 52% - 3vw); } }
+
+    .hero-panel {
+      position: absolute; top: 50%; right: 3vw; z-index: 0;
+      width: 52%; aspect-ratio: 3/2;
+      transform: translateY(-50%);
+      padding: 14px; border-radius: 26px; overflow: hidden;
+      background: rgba(255,255,255,.42);
+      backdrop-filter: blur(18px) saturate(1.6);
+      -webkit-backdrop-filter: blur(18px) saturate(1.6);
+      box-shadow: 0 24px 70px rgba(43,59,96,.18);
+    }
+    .dark .hero-panel { background: rgba(12,19,32,.48); box-shadow: 0 24px 70px rgba(0,0,0,.5); }
+    /* Gradient gold stroke drawn over the frosted rim — video stays crisp */
+    .hero-panel::before { content:''; position:absolute; inset:0; border-radius: inherit; padding: 1.5px; z-index: 3; pointer-events: none;
+      background: linear-gradient(135deg, rgba(212,196,102,.95), rgba(212,196,102,.12) 35%, rgba(212,196,102,.20) 60%, rgba(212,196,102,.85));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; }
+    .hero-panel video { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 16px; object-position: 0% 62%; }
+
+    /* Replay button — appears after the single play ends, or when autoplay is blocked */
+    .hero-replay {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(12,19,32,.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      border: 1.5px solid rgba(212,196,102,.75); color: #d4c466;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 5;
+      transition: transform var(--dur-fast) var(--ease-inout), background var(--dur-fast) var(--ease-inout), opacity .3s ease;
+      opacity: 0; pointer-events: none;
+    }
+    .hero-replay.show { opacity: 1; pointer-events: auto; animation: replayPulse 2.4s ease-in-out infinite; }
+    @keyframes replayPulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(212,196,102,.35); }
+      50%     { box-shadow: 0 0 0 12px rgba(212,196,102,0); }
+    }
+    .hero-replay:hover { transform: translate(-50%,-50%) scale(1.08); background: rgba(12,19,32,.74); }
+    .hero-replay svg { width: 22px; height: 22px; }
+
+    @media (max-width: 767px) {
+      .hero-copy { padding: 4.5rem 0 2.25rem; }
+      .hero-panel { position: relative; top: auto; right: auto; transform: none;
+        width: calc(100% - 32px); aspect-ratio: 4/3; margin: 0 auto 3rem; }
+      .hero-panel video { object-position: 0% 55%; }
+      .hero-replay { width: 48px; height: 48px; }
+      .hero-replay svg { width: 18px; height: 18px; }
+    }
+
     /* ── Phase 4: Micro-interactions ───────────────────────── */
     .btn-ripple { position: relative; overflow: hidden; }
     .ripple-circle {
@@ -812,42 +864,59 @@
 
   <main id="main">
   <!-- ─── HERO ─────────────────────────────────────────────── -->
-  <section data-track="hero" class="relative hero-section hero-bg pt-36 pb-36 px-5 overflow-hidden grain">
+  <section data-track="hero" class="relative hero-section hero-bg overflow-hidden grain">
     <!-- Hero treatment: diagonal gold stripes + periodic light sweep -->
     <div class="hero-stripes"></div>
     <div class="hero-sweep"></div>
+    <!-- Aurora orbs glowing behind the liquid-glass video panel -->
+    <div class="hero-orb-b absolute w-[420px] h-[420px] rounded-full blur-3xl pointer-events-none" style="background:rgba(43,59,96,.16); right:22%; bottom:-4%;"></div>
+    <div class="hero-orb-a absolute w-[300px] h-[300px] rounded-full blur-3xl pointer-events-none" style="background:rgba(179,157,69,.14); right:2%; top:4%;"></div>
 
-    <div class="relative z-10 max-w-3xl mx-auto text-center">
-      <!-- Pill badge -->
-      <div class="fade-up inline-flex items-center gap-2 mb-7 font-mono text-gold-500 text-xs font-semibold uppercase" style="letter-spacing:.22em;">
-        <span class="w-1.5 h-1.5 rounded-full bg-gold-500 pulse-dot"></span>
-        Transaction-verified reviews
-      </div>
-
-      <h1 class="fade-up delay-1 hero-headline font-serif font-normal text-navy-900 dark:text-white mb-6">
-        You earned those reviews.<br><em class="gold-shimmer">Now prove it.</em>
-      </h1>
-
-      <p class="fade-up delay-2 text-lg sm:text-xl text-navy-500 dark:text-navy-300 max-w-xl mx-auto mb-10 leading-relaxed">
-        The Stripe verified review platform — every review backed by a real Stripe charge, <a href="/how-it-works/" class="text-gold-600 dark:text-gold-400 underline decoration-gold-500/30 hover:decoration-gold-500">see how it works</a>.
-      </p>
-
-      <div class="fade-up delay-3">
-        <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
-          <a href="https://platform.signedreviews.com" rel="noopener" id="heroBtn" data-cta="hero-signup" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
-          <a href="https://platform.signedreviews.com" rel="noopener" data-cta="hero-login" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-600 dark:text-navy-100 border border-navy-300 dark:border-navy-600 hover:border-navy-400 dark:hover:border-navy-400 hover:bg-white/40 dark:hover:bg-white/5 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="hero-copy text-center lg:text-left mx-auto lg:mx-0">
+        <!-- Pill badge -->
+        <div class="fade-up inline-flex items-center gap-2 mb-7 font-mono text-gold-500 text-xs font-semibold uppercase" style="letter-spacing:.22em;">
+          <span class="w-1.5 h-1.5 rounded-full bg-gold-500 pulse-dot"></span>
+          Transaction-verified reviews
         </div>
-        <!-- Trust pills -->
-        <div class="flex flex-wrap justify-center gap-2 mt-3 mb-1">
-          <span class="trust-pill">✓ Stripe-native</span>
-          <span class="trust-pill">🔒 Cryptographically signed</span>
-          <span class="trust-pill">GDPR compliant</span>
+
+        <h1 class="fade-up delay-1 hero-headline font-serif font-normal text-navy-900 dark:text-white mb-6">
+          You earned those reviews.<br><em class="gold-shimmer">Now prove it.</em>
+        </h1>
+
+        <p class="fade-up delay-2 text-lg sm:text-xl text-navy-500 dark:text-navy-300 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
+          The Stripe verified review platform — every review backed by a real Stripe charge, <a href="/how-it-works/" class="text-gold-600 dark:text-gold-400 underline decoration-gold-500/30 hover:decoration-gold-500">see how it works</a>.
+        </p>
+
+        <div class="fade-up delay-3">
+          <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center mb-4">
+            <a href="https://platform.signedreviews.com" rel="noopener" id="heroBtn" data-cta="hero-signup" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free →</a>
+            <a href="https://platform.signedreviews.com" rel="noopener" data-cta="hero-login" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-600 dark:text-navy-100 border border-navy-300 dark:border-navy-600 hover:border-navy-400 dark:hover:border-navy-400 hover:bg-white/40 dark:hover:bg-white/5 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
+          </div>
+          <!-- Trust pills -->
+          <div class="flex flex-wrap justify-center lg:justify-start gap-2 mt-3 mb-1">
+            <span class="trust-pill">✓ Stripe-native</span>
+            <span class="trust-pill">🔒 Cryptographically signed</span>
+            <span class="trust-pill">GDPR compliant</span>
+          </div>
+          <p class="text-xs text-navy-500 dark:text-navy-300 mt-2">Free plan · Paid plans from $29/mo · Connects even alongside Shopify & Squarespace</p>
         </div>
-        <p class="text-xs text-navy-500 dark:text-navy-300 mt-2">Free plan · Paid plans from $29/mo · Connects even alongside Shopify & Squarespace</p>
       </div>
     </div>
 
-        </section>
+    <!-- Liquid-glass video panel: desktop floats right, mobile stacks as a 4:3 band -->
+    <div class="hero-panel">
+      <video id="heroVideo" muted playsinline preload="auto" poster="video/hero-poster.webp" disablepictureinpicture disableremoteplayback>
+        <source src="video/hero-av1-1080.mp4" type='video/mp4; codecs="av01.0.08M.08"' media="(min-width: 768px)">
+        <source src="video/hero-h264-1080.mp4" type='video/mp4; codecs="avc1.640028"' media="(min-width: 768px)">
+        <source src="video/hero-av1-720.mp4" type='video/mp4; codecs="av01.0.05M.08"' media="(max-width: 767px)">
+        <source src="video/hero-h264-720.mp4" type='video/mp4; codecs="avc1.64001F"'>
+      </video>
+      <button id="heroReplay" class="hero-replay" aria-label="Replay video">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.86l11.15-6.86a1 1 0 0 0 0-1.72L9.52 4.28A1 1 0 0 0 8 5.14Z"/></svg>
+      </button>
+    </div>
+  </section>
 
   <!-- ─── STATS BAR ─────────────────────────────────────────── -->
   <section id="statsBar" data-track="stats" class="border-y border-navy-100 dark:border-navy-800 bg-white dark:bg-navy-800 transition-colors">
@@ -2028,6 +2097,64 @@
         annotations: { readOnlyHint: true }
       });
     }
+  })();
+  </script>
+  <!-- Hero video: play ONCE — only when fully buffered (no lag) and fully visible.
+       No auto-replay; a gold replay button appears after the clip ends, when
+       autoplay is blocked, or (for prefers-reduced-motion) instead of autoplay. -->
+  <script>
+  (function () {
+    var v = document.getElementById('heroVideo');
+    var r = document.getElementById('heroReplay');
+    if (!v || !r) return;
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var touch = navigator.maxTouchPoints > 0;
+    var started = false, buffered = false, visible = false;
+    var partialFallback = false, partialTimer = null;
+
+    function start() {
+      if (started) return;
+      started = true;
+      v.play().catch(function () {
+        started = false;
+        r.classList.add('show');
+      });
+    }
+    function tryStart() {
+      if (started || !visible) return;
+      // buffered: the desktop "no lag" guarantee. partialFallback: very short
+      // viewports that can never show 100% of the panel. touch: iOS doesn't
+      // buffer until play() is called, and muted programmatic play is allowed.
+      if (buffered || partialFallback || touch) start();
+    }
+    v.addEventListener('canplaythrough', function () { buffered = true; tryStart(); });
+    v.addEventListener('ended', function () { r.classList.add('show'); });
+    v.addEventListener('error', function () { r.classList.add('show'); });
+    r.addEventListener('click', function () {
+      r.classList.remove('show');
+      v.currentTime = 0;
+      started = true;
+      v.play().catch(function () { started = false; r.classList.add('show'); });
+    });
+
+    if (reduced) { r.classList.add('show'); return; }
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          if (e.intersectionRatio >= 1) { visible = true; io.disconnect(); tryStart(); }
+          else if (!partialTimer && e.intersectionRatio > 0.05) {
+            partialTimer = setTimeout(function () { partialFallback = true; tryStart(); }, 2000);
+          }
+        });
+      }, { threshold: [1.0, 0.05] });
+      io.observe(v);
+    } else {
+      visible = true;
+      tryStart();
+    }
+    if (v.readyState >= 4) { buffered = true; tryStart(); }
   })();
   </script>
 </body>
