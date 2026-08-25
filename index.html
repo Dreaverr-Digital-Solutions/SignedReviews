@@ -254,6 +254,13 @@
        clicks for its own interactive elements. */
     .hero-inner { pointer-events: none; }
     .hero-copy { pointer-events: auto; }
+    /* EXPERIMENT: centered hero copy on lg (2026-08-26). Revert = remove the
+       hero-copy-centered class from the markup — nothing else references it. */
+    @media (min-width: 1024px) {
+      .hero-copy-centered { text-align: center; }
+      .hero-copy-centered > * { margin-left: auto; margin-right: auto; }
+      .hero-copy-centered .flex { justify-content: center; }
+    }
 
     .hero-panel {
       /* right: flush with the max-w-7xl (1280px) container's right edge —
@@ -896,7 +903,7 @@
     <div class="hero-orb-a absolute w-[300px] h-[300px] rounded-full blur-3xl pointer-events-none" style="background:rgba(179,157,69,.14); right:2%; top:4%;"></div>
 
     <div class="hero-inner relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
-      <div class="hero-copy text-center lg:text-left mx-auto lg:mx-0">
+      <div class="hero-copy hero-copy-centered text-center lg:text-left mx-auto lg:mx-0">
         <!-- Pill badge -->
         <div class="fade-up flex justify-center lg:justify-start items-center gap-2 mb-7 font-mono text-gold-500 text-xs font-semibold uppercase" style="letter-spacing:.22em;">
           <span class="w-1.5 h-1.5 rounded-full bg-gold-500 pulse-dot"></span>
