@@ -247,7 +247,7 @@
        so top padding and the panel's centering compensate: copy gets +4rem on
        top, panel centers +2rem down — both land centered in the visible area. */
     .hero-copy { width: 100%; max-width: 576px; padding: 11rem 0 7rem; }
-    @media (min-width: 1024px) { .hero-copy { width: calc(100% - 52% - 3vw); } }
+    @media (min-width: 1024px) { .hero-copy { width: max(533px, calc(100% - 52% - 3vw)); } }
     /* The copy's full-width container sits above the glass panel in stacking order
        (z-10 vs z-0) and would swallow every click over the panel — including the
        replay button's. Make the container click-transparent; the copy re-enables
@@ -256,13 +256,13 @@
     .hero-copy { pointer-events: auto; }
 
     .hero-panel {
-      /* right: centers the panel in the right half of the max-w-7xl (1280px)
-         container's content box: (vw - panelW)/2 - containerW/4 + 20px, where
-         panelW = min(52vw, 880px). At 1440 this lands ~3vw from the section
-         edge (the original look); on ultrawide it stops drifting to the far
-         corner and stays centered in its half. */
-      position: absolute; top: calc(50% + 2rem); right: calc((100vw - min(52vw, 880px)) / 2 - min(1280px, 100vw) / 4 + 20px); z-index: 0;
-      width: 52%; max-width: 880px; aspect-ratio: 3/2;
+      /* right: flush with the max-w-7xl (1280px) container's right edge —
+         (vw - containerW)/2. Together with the 715px cap and the copy
+         freezing at 533px, the composition is pixel-identical from 1440px
+         to 4K: no viewport drift, no poke-out, symmetric margins — the
+         same fixed-column rhythm the lower sections use. */
+      position: absolute; top: calc(50% + 2rem); right: calc((100vw - min(1280px, 100vw)) / 2); z-index: 0;
+      width: 52%; max-width: 715px; aspect-ratio: 3/2;
       transform: translateY(-50%);
       padding: 14px; border-radius: 26px; overflow: hidden;
       background: rgba(255,255,255,.42);
