@@ -248,6 +248,12 @@
        top, panel centers +2rem down — both land centered in the visible area. */
     .hero-copy { width: 100%; max-width: 576px; padding: 11rem 0 7rem; }
     @media (min-width: 1024px) { .hero-copy { width: calc(100% - 52% - 3vw); } }
+    /* The copy's full-width container sits above the glass panel in stacking order
+       (z-10 vs z-0) and would swallow every click over the panel — including the
+       replay button's. Make the container click-transparent; the copy re-enables
+       clicks for its own interactive elements. */
+    .hero-inner { pointer-events: none; }
+    .hero-copy { pointer-events: auto; }
 
     .hero-panel {
       position: absolute; top: calc(50% + 2rem); right: 3vw; z-index: 0;
@@ -875,7 +881,7 @@
     <div class="hero-orb-b absolute w-[420px] h-[420px] rounded-full blur-3xl pointer-events-none" style="background:rgba(43,59,96,.16); right:22%; bottom:-4%;"></div>
     <div class="hero-orb-a absolute w-[300px] h-[300px] rounded-full blur-3xl pointer-events-none" style="background:rgba(179,157,69,.14); right:2%; top:4%;"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="hero-inner relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
       <div class="hero-copy text-center lg:text-left mx-auto lg:mx-0">
         <!-- Pill badge -->
         <div class="fade-up flex justify-center lg:justify-start items-center gap-2 mb-7 font-mono text-gold-500 text-xs font-semibold uppercase" style="letter-spacing:.22em;">
