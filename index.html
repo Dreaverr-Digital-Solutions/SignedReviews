@@ -242,12 +242,15 @@
 
     /* ── Hero video panel: liquid glass ────────────────────────────
        Desktop: floats right of the copy (52% × 3:2, left-anchored crop keeps
-       the important left-border content). Mobile: stacks below as a 4:3 band. */
-    .hero-copy { width: 100%; max-width: 576px; padding: 7rem 0; }
+       the important left-border content). Mobile: stacks below as a 4:3 band.
+       The fixed glass nav (h-16, 65px with border) overlays the section top,
+       so top padding and the panel's centering compensate: copy gets +4rem on
+       top, panel centers +2rem down — both land centered in the visible area. */
+    .hero-copy { width: 100%; max-width: 576px; padding: 11rem 0 7rem; }
     @media (min-width: 1024px) { .hero-copy { width: calc(100% - 52% - 3vw); } }
 
     .hero-panel {
-      position: absolute; top: 50%; right: 3vw; z-index: 0;
+      position: absolute; top: calc(50% + 2rem); right: 3vw; z-index: 0;
       width: 52%; max-width: 880px; aspect-ratio: 3/2;
       transform: translateY(-50%);
       padding: 14px; border-radius: 26px; overflow: hidden;
@@ -284,9 +287,9 @@
     .hero-replay svg { width: 22px; height: 22px; }
 
     @media (max-width: 767px) {
-      .hero-copy { padding: 4.5rem 0 2.25rem; }
+      .hero-copy { padding: 6.25rem 0 2.25rem; }
       .hero-panel { position: relative; top: auto; right: auto; transform: none;
-        width: calc(100% - 32px); aspect-ratio: 4/3; margin: 0 auto 3rem; }
+        width: calc(100% - 32px); aspect-ratio: 4/3; margin: 0 auto 2.25rem; }
       .hero-panel video { object-position: 0% 55%; }
       .hero-replay { width: 48px; height: 48px; }
       .hero-replay svg { width: 18px; height: 18px; }
@@ -875,7 +878,7 @@
     <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
       <div class="hero-copy text-center lg:text-left mx-auto lg:mx-0">
         <!-- Pill badge -->
-        <div class="fade-up inline-flex items-center gap-2 mb-7 font-mono text-gold-500 text-xs font-semibold uppercase" style="letter-spacing:.22em;">
+        <div class="fade-up flex justify-center lg:justify-start items-center gap-2 mb-7 font-mono text-gold-500 text-xs font-semibold uppercase" style="letter-spacing:.22em;">
           <span class="w-1.5 h-1.5 rounded-full bg-gold-500 pulse-dot"></span>
           Transaction-verified reviews
         </div>
