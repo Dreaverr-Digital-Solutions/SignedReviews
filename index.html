@@ -306,6 +306,15 @@
       .hero-replay svg { width: 18px; height: 18px; }
     }
 
+    /* Tablet (768–1023): stack the panel below the copy like mobile. Below lg
+       the copy is centered across the full container, so a side-by-side panel
+       would sit directly under the text — stacked keeps them from colliding. */
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .hero-copy { padding: 7.5rem 0 3rem; }
+      .hero-panel { position: relative; top: auto; right: auto; transform: none;
+        width: min(560px, calc(100% - 48px)); aspect-ratio: 3/2; margin: 0 auto 3rem; }
+    }
+
     /* ── Phase 4: Micro-interactions ───────────────────────── */
     .btn-ripple { position: relative; overflow: hidden; }
     .ripple-circle {
