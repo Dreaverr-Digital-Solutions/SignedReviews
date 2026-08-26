@@ -172,7 +172,11 @@
 
     /* Hero */
     .hero-bg { background: #faf7ef; }
-    .dark .hero-bg { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(43,59,96,.35) 0%, transparent 70%), #0c1320; }
+    .dark .hero-bg { background: #0b1220; }
+    .hero-orb-a { background: rgba(196,169,60,.10); }
+    .dark .hero-orb-a { background: rgba(212,196,102,.12); }
+    .hero-orb-b { background: rgba(80,60,30,.05); }
+    .dark .hero-orb-b { background: rgba(43,59,96,.45); }
 
     /* Divider line with gold accent */
     .gold-rule { border: none; height: 2px; background: linear-gradient(90deg, transparent, #b39d45 40%, transparent); opacity: .4; }
@@ -227,18 +231,14 @@
     /* ── Hero treatment: diagonal gold stripes + periodic light sweep ── */
     .hero-stripes { position: absolute; inset: 0; z-index: 0; pointer-events: none; background-color: #faf7ef;
       background-image: repeating-linear-gradient(-63deg, transparent 0 74px, rgba(160,140,60,.05) 74px 150px); }
-    .dark .hero-stripes { background-color: #0a0f1a;
-      background-image: repeating-linear-gradient(45deg, rgba(212,196,102,.06) 0 2px, transparent 2px 16px);
-      animation: heroStripes 40s linear infinite; }
+    .dark .hero-stripes { background-color: transparent;
+      background-image: repeating-linear-gradient(-63deg, transparent 0 74px, rgba(255,255,255,.04) 74px 150px); }
     @keyframes heroStripes { to { background-position: 160px 0; } }
     .hero-sweep { position: absolute; inset: 0; z-index: 0; pointer-events: none;
       background: linear-gradient(90deg, transparent, rgba(196,169,60,.15), transparent);
       background-size: 200% 100%; animation: heroSweepWash 9s ease-in-out infinite; }
     @keyframes heroSweepWash { 0% { background-position: 200% 0; } 55%, 100% { background-position: -100% 0; } }
-    .dark .hero-sweep { inset: auto; top: -10%; left: -35%; width: 35%; height: 120%;
-      background: linear-gradient(100deg, transparent, rgba(212,196,102,.16), transparent);
-      background-size: auto; transform: skewX(-18deg); animation: heroSweep 7s ease-in-out infinite; }
-    @keyframes heroSweep { 0% { transform: skewX(-18deg) translateX(0); } 55%, 100% { transform: skewX(-18deg) translateX(471%); } }
+    .dark .hero-sweep { background: linear-gradient(90deg, transparent, rgba(212,196,102,.14), transparent); }
     @media (prefers-reduced-motion: reduce) { .hero-stripes, .hero-sweep { animation: none; } }
 
     /* ── Hero video panel: liquid glass ────────────────────────────
@@ -903,8 +903,8 @@
     <div class="hero-stripes"></div>
     <div class="hero-sweep"></div>
     <!-- Aurora orbs glowing behind the liquid-glass video panel -->
-    <div class="hero-orb-b absolute w-[420px] h-[420px] rounded-full blur-3xl pointer-events-none" style="background:rgba(80,60,30,.05); right:22%; bottom:-4%;"></div>
-    <div class="hero-orb-a absolute w-[300px] h-[300px] rounded-full blur-3xl pointer-events-none" style="background:rgba(196,169,60,.10); right:2%; top:4%;"></div>
+    <div class="hero-orb-b absolute w-[420px] h-[420px] rounded-full blur-3xl pointer-events-none" style="right:22%; top:4%;"></div>
+    <div class="hero-orb-a absolute w-[300px] h-[300px] rounded-full blur-3xl pointer-events-none" style="right:2%; bottom:4%;"></div>
 
     <div class="hero-inner relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
       <div class="hero-copy hero-copy-centered text-center lg:text-left mx-auto lg:mx-0">
