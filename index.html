@@ -171,10 +171,7 @@
     .card-lift:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(43,59,96,.12); }
 
     /* Hero */
-    .hero-bg {
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(196,169,60,.10) 0%, transparent 70%),
-                  linear-gradient(180deg, #faf7ef 0%, #f5efe2 100%);
-    }
+    .hero-bg { background: #faf7ef; }
     .dark .hero-bg { background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(43,59,96,.35) 0%, transparent 70%), #0c1320; }
 
     /* Divider line with gold accent */
@@ -234,9 +231,13 @@
       background-image: repeating-linear-gradient(45deg, rgba(212,196,102,.06) 0 2px, transparent 2px 16px);
       animation: heroStripes 40s linear infinite; }
     @keyframes heroStripes { to { background-position: 160px 0; } }
-    .hero-sweep { position: absolute; top: -10%; left: -35%; width: 35%; height: 120%; z-index: 0; pointer-events: none;
-      background: linear-gradient(100deg, transparent, rgba(196,169,60,.15), transparent);
-      transform: skewX(-18deg); animation: heroSweep 7s ease-in-out infinite; }
+    .hero-sweep { position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background: linear-gradient(90deg, transparent, rgba(196,169,60,.15), transparent);
+      background-size: 200% 100%; animation: heroSweepWash 9s ease-in-out infinite; }
+    @keyframes heroSweepWash { 0% { background-position: 200% 0; } 55%, 100% { background-position: -100% 0; } }
+    .dark .hero-sweep { inset: auto; top: -10%; left: -35%; width: 35%; height: 120%;
+      background: linear-gradient(100deg, transparent, rgba(212,196,102,.16), transparent);
+      background-size: auto; transform: skewX(-18deg); animation: heroSweep 7s ease-in-out infinite; }
     @keyframes heroSweep { 0% { transform: skewX(-18deg) translateX(0); } 55%, 100% { transform: skewX(-18deg) translateX(471%); } }
     @media (prefers-reduced-motion: reduce) { .hero-stripes, .hero-sweep { animation: none; } }
 
