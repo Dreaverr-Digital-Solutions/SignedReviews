@@ -26,7 +26,7 @@
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
   <!-- Preload key font for LCP (hero headline uses Instrument Serif) -->
   <link rel="preload" as="font" href="https://fonts.gstatic.com/s/instrumentserif/v4/jiz2RF8MsmDkLJrwWkR6fv0N.woff2" crossorigin type="font/woff2">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" fetchpriority="high">
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
@@ -247,7 +247,10 @@
        so top padding and the panel's centering compensate: copy gets +4rem on
        top, panel centers +2rem down — both land centered in the visible area. */
     .hero-copy { width: 100%; max-width: 576px; padding: 11rem 0 7rem; }
-    @media (min-width: 1024px) { .hero-copy { width: max(533px, calc(100% - 52% - 3vw)); } }
+    /* Cap at 48vw-44px: below ~1230px the copy box itself would overlap the
+       panel — keeps text clear of the glass even if the webfont falls back
+       to the wider Georgia (Firefox font-load race) */
+    @media (min-width: 1024px) { .hero-copy { width: min(max(533px, calc(100% - 52% - 3vw)), 48vw - 44px); } }
     /* The copy's full-width container sits above the glass panel in stacking order
        (z-10 vs z-0) and would swallow every click over the panel — including the
        replay button's. Make the container click-transparent; the copy re-enables
