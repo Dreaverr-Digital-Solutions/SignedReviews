@@ -229,10 +229,10 @@
 
     /* ── Hero treatment: diagonal gold stripes + periodic light sweep ── */
     .hero-stripes { position: absolute; inset: 0; z-index: 0; pointer-events: none; background-color: #faf7ef;
-      background-image: repeating-linear-gradient(45deg, rgba(160,140,60,.05) 0 2px, transparent 2px 16px);
-      animation: heroStripes 40s linear infinite; }
+      background-image: repeating-linear-gradient(-63deg, transparent 0 74px, rgba(160,140,60,.05) 74px 150px); }
     .dark .hero-stripes { background-color: #0a0f1a;
-      background-image: repeating-linear-gradient(45deg, rgba(212,196,102,.06) 0 2px, transparent 2px 16px); }
+      background-image: repeating-linear-gradient(45deg, rgba(212,196,102,.06) 0 2px, transparent 2px 16px);
+      animation: heroStripes 40s linear infinite; }
     @keyframes heroStripes { to { background-position: 160px 0; } }
     .hero-sweep { position: absolute; top: -10%; left: -35%; width: 35%; height: 120%; z-index: 0; pointer-events: none;
       background: linear-gradient(100deg, transparent, rgba(196,169,60,.15), transparent);
