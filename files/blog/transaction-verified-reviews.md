@@ -6,7 +6,7 @@
 
 Every review platform says its reviews are "verified." The word is on every badge, every landing page, every sales deck. But "verified" can mean almost anything — from "this person has an email address" to "an independent payment processor confirmed the charge."
 
-Transaction verified reviews sit at the strongest end of that spectrum. Here's what they are and why the distinction matters.
+Transaction verified reviews sit at the strongest end of that spectrum. Here's what they are and why the distinction matters. New to the space? Start with [what is a verified review](/blog/what-is-a-verified-review/).
 
 ## What are transaction verified reviews?
 

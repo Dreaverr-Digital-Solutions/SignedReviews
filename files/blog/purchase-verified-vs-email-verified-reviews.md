@@ -109,7 +109,7 @@ Consumers increasingly search for "payment verified reviews" before purchasing, 
 
 ### Clear definition: What does 'verified buyer' mean in reviews?
 
-A "verified buyer" is a reviewer who has completed a purchase; the badge indicates the platform confirmed that ownership. In email-verified systems, it only proves the reviewer controls an inbox, not that they bought the product. Payment verification, especially processor-attested, confirms an independent payment network verified the transaction — the only reliable verified buyer meaning.
+A "verified buyer" is a reviewer who has completed a purchase; the badge indicates the platform confirmed that ownership. In email-verified systems, it only proves the reviewer controls an inbox, not that they bought the product. Payment verification, especially processor-attested, confirms an independent payment network verified the transaction — the only reliable verified buyer meaning. For a plain-English definition, see [what does verified buyer mean](/learn/what-does-verified-buyer-mean/).
 
 When you see a "Verified" badge on a review, ask three questions:
 

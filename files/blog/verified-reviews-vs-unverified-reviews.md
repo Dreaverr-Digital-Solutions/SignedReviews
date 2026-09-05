@@ -10,6 +10,8 @@ Here's the full comparison: verified reviews vs unverified reviews, including th
 
 ## The three levels of review verification
 
+Before the levels, a quick definition: [what is a verified review](/blog/what-is-a-verified-review/) — the badge means an independent check confirmed the reviewer's identity or purchase.
+
 Not all verification is equal. Every review falls into one of three categories:
 
 ### Unverified reviews

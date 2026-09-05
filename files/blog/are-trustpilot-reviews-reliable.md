@@ -140,7 +140,7 @@ The most reliable alternative is a review platform that uses **processor-atteste
 
 ### Is Trustpilot legitimate?
 
-Yes — Trustpilot is a legitimate company whose reviews appear across the web. But legitimacy is a different question from review reliability: Trustpilot's open platform means fake reviews get published despite its detection systems, which is why "is Trustpilot legit" is best answered as "legitimate company, mixed review reliability."
+Yes — Trustpilot is a legitimate company whose reviews appear across the web. But legitimacy is a different question from review reliability: Trustpilot's open platform means fake reviews get published despite its detection systems, which is why "is Trustpilot legit" is best answered as "legitimate company, mixed review reliability." For a deeper look at how Trustpilot handles its review pipeline, see [is Trustpilot legit?](/blog/is-trustpilot-legit/).
 
 ### Are Trustpilot reviews to be trusted?
 
@@ -220,6 +220,7 @@ Trustpilot reviews are reliable enough for aggregate trending — a business wit
 If you're a business, the question isn't whether to be on Trustpilot — it's whether Trustpilot is the **strongest verification signal** you can offer your customers. If you process payments through Stripe, it's not.
 
 **Further reading:**
+- [How Review Verification Works](/how-verification-works/) — the 4 verification levels, from open platforms to processor-attested proof
 - [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/) — every platform, every verification level, explained
 - [Fake Review Statistics 2026](/blog/fake-review-statistics-2026/) — the data behind the fake-review problem
 - [How to Spot Fake Reviews](/blog/how-to-spot-fake-reviews/) — a consumer's guide
