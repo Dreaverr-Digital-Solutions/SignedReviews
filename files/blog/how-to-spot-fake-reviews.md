@@ -7,7 +7,7 @@
 
 AI-generated text has made fake reviews harder to spot than ever. A 2024 Fakespot study found that AI-written reviews are **virtually indistinguishable from human-written ones** in blind testing. The old tells — broken English, repetitive phrasing, generic praise — no longer work when each AI-generated review is grammatically perfect and stylistically unique.
 
-But you can still learn how to spot fake reviews. You just need to look at different signals. Here's how to do it.
+But you can still learn how to spot fake reviews. You just need to look at different signals. Here's how to do it. For one review you want to evaluate right now, paste it into our free [fake review checker](/tools/fake-review-checker/) — it scores the risk signals below automatically.
 
 ## The signals that still work
 

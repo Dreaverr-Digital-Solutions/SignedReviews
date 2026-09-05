@@ -7,7 +7,7 @@
 
 Fake reviews are everywhere. The FTC estimates that roughly 1 in every 7 online reviews is fabricated — and on some platforms, the number is significantly higher. But fake reviews leave traces. With the right checklist, you can spot them reliably.
 
-Here's a 7-point fake review checker — a practical methodology you can use right now to evaluate any set of reviews, whether they're on your own product pages, a competitor's listing, or a review platform you're considering.
+Here's a 7-point fake review checker — a practical methodology you can use right now to evaluate any set of reviews, whether they're on your own product pages, a competitor's listing, or a review platform you're considering. Want to check a single review instantly? Paste it into our free [fake review checker tool](/tools/fake-review-checker/) — it scores the writing-pattern risk signals in seconds.
 
 ## The 7-point fake review checker
 

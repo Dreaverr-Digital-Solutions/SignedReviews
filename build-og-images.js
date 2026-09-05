@@ -132,6 +132,16 @@ async function main() {
     }
   }
 
+  // One-off entry: the free tool page is built by build.js, not a blog .md —
+  // give it its own preview PNG so the WebApplication schema has a real image.
+  try {
+    const toolSvg = svgOgImage('Free Fake Review Checker', 'Signed Reviews · Free Tool');
+    await sharp(Buffer.from(toolSvg)).png().toFile(path.join(OUT_DIR, 'fake-review-checker-tool.png'));
+    console.log('  ✓ og:fake-review-checker-tool');
+  } catch (err) {
+    console.error(`  ✗ og:fake-review-checker-tool — ${err.message}`);
+  }
+
   console.log(`  → ${files.length} OG images in images/og/`);
 }
 

@@ -791,6 +791,7 @@ const FOOTER = `
         <li><a href="${B}how-verification-works/">How verification works</a></li>
         <li><a href="${B}features/">Features</a></li>
         <li><a href="${B}demo/">Demo</a></li>
+        <li><a href="${B}tools/fake-review-checker/">Fake review checker</a></li>
         <li><a href="${B}integrations/">Integrations</a></li>
         <li><a href="${B}integrations/woocommerce/">WooCommerce</a></li>
         <li><a href="${B}pricing/">Pricing</a></li>
@@ -2619,7 +2620,7 @@ function buildComparisonSiteJabber() {
     <p>For verification strength and FTC-compliance risk, yes — Signed Reviews is processor-attested by construction, while SiteJabber operates under an FTC order requiring it to change its collection practices. SiteJabber's advantages are its brand recognition and existing review base. If your priority is provably authentic reviews from confirmed customers, Signed Reviews is the structurally stronger choice.</p>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting FTC-compliant reviews →</a></p>
-    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/blog/fake-reviews/">The Fake Review Problem</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a></p>
+    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/tools/fake-review-checker/">Free fake review checker</a> · <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/blog/fake-reviews/">The Fake Review Problem</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a></p>
   </article>`;
 
   const html = page({
@@ -4134,15 +4135,235 @@ function buildChromeExtensionPrivacy() {
   console.log('  ✓ /chrome-extension/privacy/');
 }
 
+// ── Free tool: Fake Review Checker ────────────────────────────────────────────
+// Client-side, signal-based heuristic checker. No backend, no data leaves the
+// browser. Deliberately honest about limits: writing signals, not proof.
+const TOOL_STYLES = `
+  .frc-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+  .frc-card label { display: block; font-weight: 600; margin-bottom: .5rem; }
+  .frc-card textarea { width: 100%; min-height: 11rem; padding: .9rem; font: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 8px; resize: vertical; }
+  .frc-actions { display: flex; align-items: center; gap: 1rem; margin-top: .9rem; flex-wrap: wrap; }
+  .frc-run { display: inline-flex; align-items: center; gap: .5rem; padding: .8rem 1.5rem; background: var(--gold, #d4c466); color: #0c1320; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; }
+  .frc-run:hover { filter: brightness(1.05); }
+  .frc-sample { margin-left: auto; font-size: .85rem; color: var(--muted); background: none; border: none; cursor: pointer; text-decoration: underline; }
+  .frc-output { display: none; margin-top: 1.5rem; }
+  .frc-band { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .frc-score { font-size: 2rem; font-weight: 700; }
+  .frc-meter { flex: 1; height: 10px; background: var(--border); border-radius: 5px; overflow: hidden; }
+  .frc-meter-fill { height: 100%; background: var(--gold, #d4c466); border-radius: 5px; transition: width .4s ease; }
+  .frc-signal { padding: .6rem .9rem; border-radius: 8px; margin: .5rem 0; font-size: .95rem; }
+  .frc-signal.bad { background: rgba(214, 69, 69, .12); border-left: 3px solid #d64545; }
+  .frc-signal.good { background: rgba(63, 148, 95, .12); border-left: 3px solid #3f945f; }
+  .frc-signal.note { background: rgba(212, 196, 102, .10); border-left: 3px solid #d4c466; }
+  .frc-disclaimer { font-size: .85rem; color: var(--muted); margin-top: 1rem; }
+`;
+
+function buildFakeReviewChecker() {
+  const slug = '/tools/fake-review-checker/';
+  const canonical = `${SITE_URL}${slug}`;
+  const ogImage = `${SITE_URL}/images/og/fake-review-checker-tool.png`;
+
+  const body = `<article class="prose">
+    <p>The <strong>fake review checker</strong> below reads a single review's text and scores the risk signals it finds — repetitive phrasing, superlative density, generic praise with no concrete details, authenticity claims embedded in the text. Paste any review from Amazon, Trustpilot, Google, Shopify, Tripadvisor, or your own store. Nothing is sent anywhere: the analysis runs in your browser, and nothing is stored.</p>
+
+    <div class="frc-card" id="frc">
+      <label for="frc-input">Paste the review text</label>
+      <textarea id="frc-input" placeholder="Paste the full review text here (50+ words works best). The checker looks at language patterns, not the platform it came from." aria-describedby="frc-hint"></textarea>
+      <p id="frc-hint" style="font-size:.85rem;color:var(--muted);">Heuristic signals, not proof. A clean score doesn't guarantee a real review — see below.</p>
+      <div class="frc-actions">
+        <button type="button" class="frc-run" id="frc-run">Check this review</button>
+        <button type="button" class="frc-sample" id="frc-sample">Load a sample review</button>
+      </div>
+      <div class="frc-output" id="frc-output" aria-live="polite"></div>
+      <p class="frc-disclaimer">This checker evaluates writing patterns only. It cannot see who wrote the review, whether a purchase happened, or whether a platform verified anything. For that you need the verification source — see <a href="/blog/how-to-spot-fake-reviews/">how to spot fake reviews</a> and the <a href="/learn/what-does-verified-buyer-mean/">verification spectrum</a>.</p>
+    </div>
+
+    <h2>How the fake review checker works</h2>
+    <p>The checker scores six writing-pattern signals and credits two opposite ones:</p>
+    <ul>
+      <li><strong>Generic praise</strong> — "great product", "highly recommend", "fast shipping" with no supporting specifics. Template reviews lean on these phrases.</li>
+      <li><strong>Superlative density</strong> — "amazing", "perfect", "game changer", "best purchase" as a large share of total words.</li>
+      <li><strong>Repeated phrasing</strong> — the same three-word sequence repeated within one review, a hallmark of spun or templated text.</li>
+      <li><strong>No concrete detail</strong> — no product specifics, dates, numbers, or first-person purchase language ("I ordered…"). Vague praise is the single most common fake-review pattern.</li>
+      <li><strong>Authenticity claims in the text</strong> — "100% real", "not a bot", "verified buyer here". Real reviews rarely argue their own authenticity.</li>
+      <li><strong>Exclamation density and ALL-CAPS emphasis</strong> — classic paid-review over-performance.</li>
+    </ul>
+    <p>It also credits the opposite signals: concrete detail, and balanced tone — a real review usually carries at least a small reservation ("only", "slightly", "but"). A review that only praises and never specifies is the pattern to worry about.</p>
+
+    <h2>What a text checker can't prove</h2>
+    <p>Writing analysis is a filter, not a verdict. AI-generated fake reviews are now <a href="/blog/how-to-spot-fake-reviews/">virtually indistinguishable from human writing</a> in blind tests, and a genuinely concise happy customer can look identical to a seeded one. The checker answers "does this text look like typical fake-review writing?" — it cannot answer "did this person actually buy the product?"</p>
+    <p>That second question is the one that matters, and it has a structural answer: a review can only be certain to come from a real customer when an independent party attests the purchase. Under the FTC's Trade Regulation Rule on Consumer Reviews and Testimonials (16 CFR Part 465), fake reviews carry civil penalties — and the only reviews that make fabrication structurally irrational are transaction-verified ones: every fake attempt costs a real payment-processing fee. See <a href="/blog/transaction-verified-reviews/">transaction verified reviews</a> for the full mechanics.</p>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3>How accurate is this fake review checker?</h3>
+    <p>It surfaces the writing patterns most common in fake and template-generated reviews, and it is deliberately conservative: it reports signals with explanations rather than a definitive yes/no. Treat a high score as a reason to look closer — at reviewer history, timing, and the verification source — not as proof the review is fake.</p>
+
+    <h3>Does this work for Amazon, Trustpilot, Google, or Shopify reviews?</h3>
+    <p>Yes. The checker analyzes pasted text, so it is platform-agnostic: copy the review text from any listing, platform, or email, paste it, and run. It does not read live pages or fetch reviews itself, and it sends nothing to any server.</p>
+
+    <h3>Can it detect AI-written fake reviews?</h3>
+    <p>Partially. AI-generated review text often trips the generic-praise and no-concrete-detail signals, but modern AI can also write specific, balanced prose that passes a text check. No text-based checker — including commercial ones — reliably detects AI writing, which is why verification at the source (who attests the purchase) is the durable defense.</p>
+
+    <h3>What's the difference between checking text and verifying a purchase?</h3>
+    <p>Text checking estimates likelihood from writing style. Purchase verification confirms fact from a payment record: an independent processor such as Stripe attests that a real charge occurred between the reviewer and the business. The former is a screen; the latter is proof. <a href="/blog/verified-reviews-vs-unverified-reviews/">Verified vs unverified reviews</a> explains the levels in detail.</p>
+
+    <h3>Is the fake review checker free?</h3>
+    <p>Yes — completely free, no signup, no data stored. It is a client-side tool: your pasted text never leaves your browser.</p>
+
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Collect reviews that can't be faked →</a></p>
+    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/blog/fake-review-checker/">How to check if reviews are fake (7-point method)</a> · <a href="/blog/how-to-spot-fake-reviews/">How to spot fake reviews</a> · <a href="/blog/fake-review-statistics-2026/">Fake review statistics 2026</a></p>
+  </article>`;
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebApplication',
+        name: 'Signed Reviews Fake Review Checker',
+        url: canonical,
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web',
+        description: 'Free fake review checker: paste any review text and get a signal-based risk estimate. Client-side, no signup, nothing stored.',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        image: ogImage,
+        publisher: { '@type': 'Organization', name: 'Signed Reviews', url: SITE_URL },
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: [
+          { '@type': 'Question', name: 'How accurate is this fake review checker?', acceptedAnswer: { '@type': 'Answer', text: 'It surfaces the writing patterns most common in fake reviews and reports signals with explanations rather than a definitive verdict. Treat a high score as a reason to look closer, not proof.' } },
+          { '@type': 'Question', name: 'Does this work for Amazon, Trustpilot, Google, or Shopify reviews?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — it analyzes pasted text, so it is platform-agnostic. Nothing is sent to any server.' } },
+          { '@type': 'Question', name: 'Can it detect AI-written fake reviews?', acceptedAnswer: { '@type': 'Answer', text: 'Partially. AI text often trips the generic-praise and no-concrete-detail signals, but no text-based checker reliably detects AI writing. Verification at the source is the durable defense.' } },
+          { '@type': 'Question', name: "What's the difference between checking text and verifying a purchase?", acceptedAnswer: { '@type': 'Answer', text: 'Text checking estimates likelihood from writing style. Purchase verification confirms fact from a payment record: an independent processor attests that a real charge occurred. The former is a screen; the latter is proof.' } },
+          { '@type': 'Question', name: 'Is the fake review checker free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — free, no signup, no data stored. The analysis runs entirely in the browser.' } },
+        ],
+      },
+    ],
+  };
+
+  const checkerScript = `
+  (function () {
+    var input = document.getElementById('frc-input');
+    var output = document.getElementById('frc-output');
+    var runBtn = document.getElementById('frc-run');
+    var sampleBtn = document.getElementById('frc-sample');
+
+    var GENERIC = ['great product','highly recommend','would recommend','very good','good quality','fast shipping','great customer service','excellent product','works great','best purchase','five stars','5 stars','love it','amazing product'];
+    var BUZZ = ['amazing','awesome','best','excellent','fantastic','game changer','game-changing','incredible','life changing','life-changing','must buy','perfect','superb','unbelievable','revolutionary','best-in-class','outstanding','exceptional'];
+    var AUTH_CLAIMS = ['verified purchase','verified buyer','100% real','100% legit','not a bot','real review','genuine review','honest review','not paid'];
+    var DETAIL_RE = /\\b(I|we)\\s+(bought|ordered|purchased|received|used|tried|tested)\\b|\\b(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\b|\\b\\d+(\\.\\d+)?\\b|\\b(size|model|color|colour|version|sku|order|box|package|battery|screen|fit|delivery)\\b|\\b(days?|weeks?|months?|hours?)\\b/i;
+    var BALANCED_RE = /\\b(but|although|however|only|slightly|though|minor|unfortunately|wish|except)\\b/i;
+    var CAPS_RE = /\\b[A-Z]{3,}\\b/g;
+
+    function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+
+    function analyze() {
+      var t = input.value.trim();
+      output.style.display = 'block';
+      if (!t) {
+        output.innerHTML = '<p style="color:var(--muted);">Paste review text first, then press Check.</p>';
+        return;
+      }
+      var words = t.toLowerCase().replace(/[^a-z0-9'\\s-]/g, ' ').split(/\\s+/).filter(Boolean);
+      var wordCount = words.length;
+
+      if (wordCount < 25) {
+        output.innerHTML = '<div class="frc-band"><span class="frc-score">—</span></div>' +
+          '<div class="frc-signal note"><strong>Too short to assess.</strong> Fewer than 25 words — this checker needs enough text for its patterns to mean anything. Very short reviews are also a weak signal on their own: real experiences usually include at least one specific.</div>';
+        return;
+      }
+
+      var lower = t.toLowerCase();
+      var signals = [];
+      var score = 0;
+
+      var genericHits = [];
+      for (var i = 0; i < GENERIC.length; i++) { if (lower.indexOf(GENERIC[i]) !== -1) genericHits.push(GENERIC[i]); }
+      if (genericHits.length >= 2) { score += 25; signals.push('Generic praise with no specifics — "' + genericHits.slice(0, 2).join('", "') + '". Template reviews lean on these phrases.'); }
+      else if (genericHits.length === 1) { score += 8; signals.push('One generic-praise phrase found ("' + genericHits[0] + '"). Worth a closer look if the review never gets specific.'); }
+
+      var buzzCount = 0;
+      for (var j = 0; j < BUZZ.length; j++) {
+        if (new RegExp('\\\\b' + BUZZ[j].replace(/[^a-z0-9]/g, '\\\\$&') + '\\\\b').test(lower)) buzzCount++;
+      }
+      if (buzzCount / wordCount > 0.08) { score += 15; signals.push('Superlative-heavy language — ' + buzzCount + ' hype words in ' + wordCount + ' words ("amazing", "perfect", "game changer"…). Paid and seeded reviews over-perform.'); }
+
+      var bangs = (t.match(/!/g) || []).length;
+      if (bangs > wordCount / 15) { score += 10; signals.push('Exclamation-heavy — ' + bangs + ' exclamation marks. Real reviews rarely shout.'); }
+
+      var caps = (t.match(CAPS_RE) || []).length;
+      if (caps > wordCount / 10) { score += 10; signals.push('ALL-CAPS emphasis (' + caps + ' all-caps words). Common in fake and promotional review writing.'); }
+
+      var seen = {};
+      var gram = null;
+      for (var k = 0; k < words.length - 2; k++) {
+        var seq = words[k] + ' ' + words[k + 1] + ' ' + words[k + 2];
+        seen[seq] = (seen[seq] || 0) + 1;
+        if (seen[seq] >= 3) { gram = seq; break; }
+      }
+      if (gram) { score += 15; signals.push('Repeated phrasing — the sequence "' + esc(gram) + '" appears 3+ times. Spun or templated reviews repeat themselves.'); }
+
+      var hasDetail = DETAIL_RE.test(t);
+      if (!hasDetail) { score += 20; signals.push('No concrete detail — no numbers, dates, product specifics, or first-person purchase language ("I ordered…", "the size", "the battery"). Vague praise is the single most common fake-review pattern.'); }
+
+      var claimHits = [];
+      for (var m = 0; m < AUTH_CLAIMS.length; m++) { if (lower.indexOf(AUTH_CLAIMS[m]) !== -1) claimHits.push(AUTH_CLAIMS[m]); }
+      if (claimHits.length > 0) { score += 10; signals.push('The text argues for its own authenticity ("' + claimHits.slice(0, 2).join('", "') + '"). Real reviews rarely do — badges can be copied, and the claim itself is a known tell.'); }
+
+      var good = [];
+      if (hasDetail) { score -= 20; good.push('Concrete details present (specifics, dates, or first-person purchase language).'); }
+      if (BALANCED_RE.test(t)) { score -= 10; good.push('Balanced tone — at least one reservation or qualifier. Fabricated reviews tend to be uniformly glowing.'); }
+
+      score = Math.max(0, Math.min(100, score));
+
+      var bandLabel;
+      if (score <= 25) bandLabel = 'Low risk signals';
+      else if (score <= 50) bandLabel = 'Moderate risk signals';
+      else if (score <= 75) bandLabel = 'Elevated risk signals';
+      else bandLabel = 'High risk signals';
+
+      var html = '<div class="frc-band"><span class="frc-score">' + score + '</span>' +
+        '<div><strong>' + bandLabel + '</strong><div style="font-size:.85rem;color:var(--muted);">' + wordCount + ' words analyzed</div></div>' +
+        '<div class="frc-meter"><div class="frc-meter-fill" style="width:' + score + '%;"></div></div></div>';
+      for (var s = 0; s < signals.length; s++) html += '<div class="frc-signal bad">⚠️ ' + signals[s] + '</div>';
+      for (var g = 0; g < good.length; g++) html += '<div class="frc-signal good">✓ ' + good[g] + '</div>';
+      html += '<div class="frc-signal note">Heuristic estimate, not proof. A low score does not confirm a real customer; a high score does not confirm a fake review. The only structural answer is who attests the purchase — see <a href="/blog/transaction-verified-reviews/">transaction verified reviews</a>.</div>';
+      output.innerHTML = html;
+    }
+
+    function loadSample() {
+      input.value = 'This product is absolutely amazing!! Best purchase I have ever made. Great product, highly recommend to everyone. Five stars! Great product — buy it now, you will not regret it. Highly recommend this to all my friends and family. Best product ever, perfect in every way. Not a bot — this is a real review.';
+    }
+
+    runBtn.addEventListener('click', analyze);
+    sampleBtn.addEventListener('click', loadSample);
+  })();`;
+
+  let html = page({
+    title: 'Free Fake Review Checker — Spot Suspicious Review Text',
+    description: 'Free fake review checker: paste any review (Amazon, Trustpilot, Google, Shopify) and get a signal-based risk estimate in seconds. Client-side — no signup, nothing stored.',
+    slug,
+    hero: { eyebrow: 'Free tool', title: 'Fake Review Checker', subtitle: 'Paste a review — get a signal-based risk estimate in seconds. Works on text from any platform. No signup, nothing leaves your browser.' },
+    body,
+    extraStyle: TOOL_STYLES,
+  });
+
+  html = html.replace('</body>', `  <script>${checkerScript}</script>\n</body>`);
+  html = html.replace('</head>', `\n  <script type="application/ld+json">${JSON.stringify(schema)}</script>\n</head>`);
+  writePage(slug, html);
+  console.log('  ✓ /tools/fake-review-checker/');
+}
+
 // ── robots / sitemap / favicon ───────────────────────────────────────────────
 function buildSeoFiles(blogPosts = []) {
   // Blog posts carry their own publish date as lastmod; static pages share a stable
   // constant that is bumped ONLY when their content materially changes. Stamping
   // today's date on every URL makes lastmod flap on every build, which teaches
   // crawlers to ignore the signal entirely.
-  const STATIC_PAGES_LASTMOD = '2026-07-24';
+  const STATIC_PAGES_LASTMOD = '2026-09-06';
   const blogLastmod = new Map(blogPosts.map(p => [p.slug, p.lastmod]));
-  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/integrations/stripe/', '/integrations/shopify/', '/integrations/woocommerce/', '/faq/', '/how-it-works/', '/how-verification-works/', '/demo/', '/docs/', '/api/', '/trust/', '/chrome-extension/privacy/', '/vs/trustpilot/', '/vs/feefo/', '/vs/judge-me/', '/vs/yotpo/', '/vs/ekomi/', '/vs/sitejabber/', '/vs/reviews-io/', '/vs/stamped/', '/vs/okendo/', '/vs/loox/', '/vs/skeepers/', '/vs/google-reviews/', '/vs/yelp/', '/vs/clutch/', '/vs/birdeye/', '/learn/what-does-verified-buyer-mean/', '/learn/how-fake-reviews-work/', '/learn/ftc-fake-reviews-rules/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/', ...blogPosts.map(p => p.slug)];
+  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/integrations/stripe/', '/integrations/shopify/', '/integrations/woocommerce/', '/faq/', '/how-it-works/', '/how-verification-works/', '/demo/', '/tools/fake-review-checker/', '/docs/', '/api/', '/trust/', '/chrome-extension/privacy/', '/vs/trustpilot/', '/vs/feefo/', '/vs/judge-me/', '/vs/yotpo/', '/vs/ekomi/', '/vs/sitejabber/', '/vs/reviews-io/', '/vs/stamped/', '/vs/okendo/', '/vs/loox/', '/vs/skeepers/', '/vs/google-reviews/', '/vs/yelp/', '/vs/clutch/', '/vs/birdeye/', '/learn/what-does-verified-buyer-mean/', '/learn/how-fake-reviews-work/', '/learn/ftc-fake-reviews-rules/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/', ...blogPosts.map(p => p.slug)];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
@@ -4248,6 +4469,7 @@ buildComparisonGoogleReviews();
 buildComparisonYelp();
 buildComparisonClutch();
 buildComparisonPodium();
+buildFakeReviewChecker();
 buildLearn();
 buildLearnFakeReviewsWork();
 buildLearnFtcRules();
@@ -4278,7 +4500,7 @@ const PUBLISH = [
   'index.html', '404.html', 'favicon.svg', 'sitemap.xml', 'robots.txt', 'CNAME',
   'about', 'contact', 'dpa', 'files', 'images', 'output.css', 'trust', 'vs',
   'privacy', 'refund-policy', 'subprocessors', 'terms', 'pricing', 'dmca',
-  'features', 'blog', 'integrations', 'faq', 'how-it-works', 'demo', 'docs', 'api', 'learn',
+  'features', 'blog', 'integrations', 'faq', 'how-it-works', 'demo', 'tools', 'docs', 'api', 'learn',
   'chrome-extension', 'video',
   '_headers', 'js', 'llms.txt', 'b2f3a1c8d9e0475f8a6c1d3b5e7f9a2c.txt',
   '.well-known', 'auth.md', 'openapi.json', 'functions',
