@@ -46,7 +46,7 @@ Here's the uncomfortable truth about the review industry: **the word "verified" 
 
 - **"Verified" = invited by the business** (Trustpilot). The business BCC'd an email and Trustpilot confirmed the invitation was sent. That's it. No payment confirmation.
 - **"Verified Buyer" = matched to an order record** (Yotpo, Judge.me, Reviews.io, most Shopify apps). The reviewer's email matches a record in the merchant's store system. Better than an invitation-only check, but the data source is still the merchant.
-- **"Verified" = the merchant uploaded a transaction log** (Feefo, eKomi). The merchant decides what goes into the feed being verified against.
+- **"Verified" = the merchant uploaded a transaction log** (Feefo, [eKomi](/vs/ekomi/)). The merchant decides what goes into the feed being verified against.
 
 In every case, the thing being verified against is **data the merchant supplies.** A merchant determined to manufacture reviews could — depending on the platform — invite fake accounts, create test orders, or curate which transactions go into the verification feed. An outsider can't do this easily, but the merchant themselves can.
 
