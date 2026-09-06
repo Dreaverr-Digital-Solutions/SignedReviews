@@ -4174,37 +4174,59 @@ function buildChromeExtensionPrivacy() {
 // Client-side, signal-based heuristic checker. No backend, no data leaves the
 // browser. Deliberately honest about limits: writing signals, not proof.
 const TOOL_STYLES = `
-  /* Fake review checker — native Signed Reviews skin (site tokens only) */
+  /* Fake review checker — native Signed Reviews skin, "Hero card" variant */
   .frc-card {
-    background: var(--bg);
+    background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
     border: 1px solid var(--border);
+    border-bottom: none;
     border-radius: 16px;
-    padding: clamp(1.25rem, 3vw, 2rem);
+    padding: 2.25rem 1.5rem 2.5rem;
     margin: 1.5rem 0;
+    text-align: center;
   }
+  .frc-hero { max-width: 640px; margin: 0 auto 1.5rem; }
+  .frc-eyebrow {
+    display: inline-block;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gold-600);
+  }
+  .frc-hero h3 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    letter-spacing: -0.02em; line-height: 1.1;
+    color: var(--navy-900);
+    margin: .35rem 0 .5rem;
+  }
+  :root.theme-dark .frc-hero h3, :root.theme-auto .frc-hero h3 { color: #fff; }
+  .frc-sub { color: var(--muted); margin: 0; }
   .frc-card label {
     display: block;
+    max-width: 640px; margin-left: auto; margin-right: auto;
     font-family: 'Instrument Serif', Georgia, serif;
     font-size: 1.25rem; letter-spacing: -0.01em; line-height: 1.25;
     color: var(--navy-900);
     margin-bottom: .75rem;
+    text-align: left;
   }
   :root.theme-dark .frc-card label, :root.theme-auto .frc-card label { color: #fff; }
   .frc-card textarea {
     width: 100%; min-height: 11rem;
+    max-width: 640px; margin-left: auto; margin-right: auto;
     padding: .9rem 1rem;
     font: inherit; line-height: 1.6;
     color: var(--text); background: var(--surface);
     border: 1px solid var(--border); border-radius: 10px;
     resize: vertical;
+    text-align: left;
   }
   .frc-card textarea::placeholder { color: var(--muted); opacity: .8; }
   .frc-card textarea:focus,
   .frc-run:focus-visible, .frc-sample:focus-visible {
     outline: 3px solid var(--gold-400); outline-offset: 2px;
   }
-  .frc-hint { font-size: .85rem; color: var(--muted); margin: .5rem 0 0; }
-  .frc-actions { display: flex; align-items: center; gap: .75rem; margin-top: 1rem; flex-wrap: wrap; }
+  .frc-hint { font-size: .85rem; color: var(--muted); margin: .5rem 0 0; max-width: 640px; margin-left: auto; margin-right: auto; text-align: left; }
+  .frc-actions { display: flex; align-items: center; justify-content: center; gap: .75rem; margin-top: 1rem; flex-wrap: wrap; }
   .frc-run {
     display: inline-flex; align-items: center; justify-content: center;
     padding: .55rem 1.15rem; border-radius: .65rem;
@@ -4230,7 +4252,7 @@ const TOOL_STYLES = `
   :root.theme-dark .frc-sample:hover, :root.theme-auto .frc-sample:hover {
     background: rgba(255,255,255,.08); color: #fff;
   }
-  .frc-output { display: none; margin-top: 1.25rem; }
+  .frc-output { display: none; margin-top: 1.25rem; max-width: 640px; margin-left: auto; margin-right: auto; text-align: left; }
   .frc-result {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -4253,6 +4275,17 @@ const TOOL_STYLES = `
     background: linear-gradient(90deg, var(--gold-400), var(--gold-500));
     transition: width .4s ease;
   }
+  /* Verdict + meter semantic colors (site palette: green / steel / gold / red) */
+  .frc-verdict[data-verdict="Low"] { color: #3f945f; }
+  .frc-verdict[data-verdict="Moderate"] { color: var(--muted); }
+  .frc-verdict[data-verdict="Elevated"] { color: var(--gold-600); }
+  .frc-verdict[data-verdict="High"] { color: #d64545; }
+  :root.theme-dark .frc-verdict[data-verdict="Elevated"],
+  :root.theme-auto .frc-verdict[data-verdict="Elevated"] { color: var(--gold-300); }
+  .frc-meter-fill[data-verdict="Low"] { background: linear-gradient(90deg, #57a87a, #3f945f); }
+  .frc-meter-fill[data-verdict="Moderate"] { background: linear-gradient(90deg, #87a2c4, #4a6e98); }
+  .frc-meter-fill[data-verdict="Elevated"] { background: linear-gradient(90deg, var(--gold-400), var(--gold-500)); }
+  .frc-meter-fill[data-verdict="High"] { background: linear-gradient(90deg, #e06666, #d64545); }
   .frc-empty { color: var(--muted); margin: 0; }
   .frc-signal {
     padding: .65rem .9rem; border-radius: 0 .5rem .5rem 0;
@@ -4265,7 +4298,7 @@ const TOOL_STYLES = `
   :root.theme-dark .frc-signal.bad, :root.theme-auto .frc-signal.bad { background: rgba(214,69,69,.16); }
   :root.theme-dark .frc-signal.good, :root.theme-auto .frc-signal.good { background: rgba(63,148,95,.16); }
   :root.theme-dark .frc-signal.note, :root.theme-auto .frc-signal.note { background: rgba(179,157,69,.14); }
-  .frc-disclaimer { font-size: .85rem; color: var(--muted); margin-top: 1rem; }
+  .frc-disclaimer { font-size: .85rem; color: var(--muted); margin-top: 1rem; max-width: 640px; margin-left: auto; margin-right: auto; }
 `;
 
 function buildFakeReviewChecker() {
@@ -4277,6 +4310,11 @@ function buildFakeReviewChecker() {
     <p>The <strong>fake review checker</strong> below reads a single review's text and scores the risk signals it finds — repetitive phrasing, superlative density, generic praise with no concrete details, authenticity claims embedded in the text. Paste any review from Amazon, Trustpilot, Google, Shopify, Tripadvisor, or your own store. Nothing is sent anywhere: the analysis runs in your browser, and nothing is stored.</p>
 
     <div class="frc-card" id="frc">
+      <div class="frc-hero">
+        <span class="frc-eyebrow">Free tool · 100% client-side</span>
+        <h3>Check any review</h3>
+        <p class="frc-sub">Runs entirely in your browser — nothing is sent or stored.</p>
+      </div>
       <label for="frc-input">Paste the review text</label>
       <textarea id="frc-input" placeholder="Paste the full review text here (50+ words works best). The checker looks at language patterns, not the platform it came from." aria-describedby="frc-hint"></textarea>
       <p id="frc-hint" class="frc-hint">Heuristic signals, not proof. A clean score doesn't guarantee a real review — see below.</p>
@@ -4433,10 +4471,11 @@ function buildFakeReviewChecker() {
       else if (score <= 50) bandLabel = 'Moderate risk signals';
       else if (score <= 75) bandLabel = 'Elevated risk signals';
       else bandLabel = 'High risk signals';
+      var verdict = bandLabel.replace(' risk signals', '');
 
       var html = '<div class="frc-result"><div class="frc-summary"><span class="frc-score">' + score + '</span>' +
-        '<div class="frc-meta"><strong>' + bandLabel + '</strong><div>' + wordCount + ' words analyzed</div></div></div>' +
-        '<div class="frc-meter"><div class="frc-meter-fill" style="width:' + score + '%;"></div></div>';
+        '<div class="frc-meta"><strong class="frc-verdict" data-verdict="' + verdict + '">' + bandLabel + '</strong><div>' + wordCount + ' words analyzed</div></div></div>' +
+        '<div class="frc-meter"><div class="frc-meter-fill" data-verdict="' + verdict + '" style="width:' + score + '%;"></div></div>';
       for (var s = 0; s < signals.length; s++) html += '<div class="frc-signal bad"><strong>Signal.</strong> ' + signals[s] + '</div>';
       for (var g = 0; g < good.length; g++) html += '<div class="frc-signal good"><strong>Credit.</strong> ' + good[g] + '</div>';
       html += '<div class="frc-signal note">Heuristic estimate, not proof. A low score does not confirm a real customer; a high score does not confirm a fake review. The only structural answer is who attests the purchase — see <a href="/blog/transaction-verified-reviews/">transaction verified reviews</a>.</div></div>';
