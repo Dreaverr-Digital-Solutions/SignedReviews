@@ -1,10 +1,25 @@
 # Trustpilot Pricing 2026: Plans, Hidden Costs & Cheaper Alternatives
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Trustpilot pricing explained: what each plan actually costs in 2026. See the real prices, hidden costs, and how alternatives compare.**
+**Title:** Trustpilot Pricing Page Explained: 2026 Plans & Costs
+**Published:** 2026-07-24 · **Updated:** 2026-09-06 · **Author:** Signed Reviews Team
+**Description:** What's on the Trustpilot pricing page — and what it hides: every 2026 plan, the real costs, hidden fees, and cheaper alternatives.
 
 ---
 
-Trustpilot doesn't publish prices on its pricing page. Understanding Trustpilot pricing requires digging through the help center, talking to sales, or requesting a demo. This article does that work — so you can see what each plan includes, what it actually costs, and where the hidden expenses sit before you book the call.
+Trustpilot doesn't publish prices on its pricing page. Understanding what Trustpilot actually costs requires digging through the help center, talking to sales, or requesting a demo. This article does that work — so you can see what each plan includes, what it actually costs, and where the hidden expenses sit before you book the call.
+
+---
+
+## What's actually on the Trustpilot pricing page
+
+If you visit [business.trustpilot.com/pricing](https://business.trustpilot.com/pricing), here's what you'll see — and what you won't:
+
+- **The Free plan is front and center** — "Use Trustpilot for free": a business profile, organic reviews, and public replies.
+- **No prices for paid plans.** Growth, Scale, and Enterprise all sit behind a contact form or demo request. The pricing page is a lead-generation page, not a price list.
+- **Feature names, not costs.** The page lists what each tier *can* do (invitations, AFS, analytics) but never what it costs.
+- **What's missing:** the $299/mo starting price for Growth, add-on prices (API access, Google Seller Ratings), seat fees, and overage rules — all of which emerge later, in the sales conversation.
+
+That gap between the pricing page and the real bill is what the rest of this article fills in.
 
 ---
 

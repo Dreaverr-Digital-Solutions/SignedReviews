@@ -1772,8 +1772,11 @@ function buildBlog() {
       // Stop at the `·` separator (or newline) so the date doesn't swallow a trailing `·`.
       const dateMatch = raw.match(/\*\*Published:\*\*\s*([^\n·]+)/);
       const dateStr = dateMatch ? dateMatch[1].trim() : '';
+      // Optional `**Updated:**` metadata → schema dateModified (freshness signal).
+      const updatedMatch = raw.match(/\*\*Updated:\*\*\s*([^\n·]+)/);
+      const updatedStr = updatedMatch ? updatedMatch[1].trim() : '';
 
-      posts.push({ title, metaTitle, desc, slug, file, renderedBody, dateStr });
+      posts.push({ title, metaTitle, desc, slug, file, renderedBody, dateStr, updatedStr });
     }
   }
 
@@ -1789,7 +1792,7 @@ function buildBlog() {
       headline: post.title,
       description: post.desc,
       datePublished: post.dateStr || undefined,
-      dateModified: post.dateStr || undefined,
+      dateModified: post.updatedStr || post.dateStr || undefined,
       mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
       image: [ogImage],
       author: { '@type': 'Organization', name: 'Signed Reviews', url: SITE_URL },
@@ -1891,6 +1894,38 @@ function buildBlog() {
             acceptedAnswer: {
               '@type': 'Answer',
               text: 'Poorly implemented review widgets can add 300-500ms to page load time, but all modern platforms listed in this guide load widgets asynchronously. Judge.me, Loox, and Signed Reviews are particularly lightweight, typically adding under 100ms.',
+            },
+          },
+        ],
+      })}</script>`;
+    }
+    if (post.file === 'trustpilot-pricing-explained.md') {
+      faqPageSchema = `\n  <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Where is the Trustpilot pricing page and what does it show?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: "The Trustpilot pricing page is at business.trustpilot.com/pricing. It shows the free plan in detail but lists no prices for paid plans — Growth, Scale, and Enterprise all sit behind a contact form or demo request, and add-on costs (API access, Google Seller Ratings, extra seats) are only revealed in the sales conversation.",
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'How much does Trustpilot actually cost in 2026?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: "Trustpilot's free plan costs nothing but excludes review invitations. The plan most small-to-mid businesses need, Growth, starts at $299/month (~$3,588/year). Scale and Enterprise are custom-quoted, typically $599–$1,500+/month, with add-ons like API access and Google Seller Ratings costing extra.",
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Is the Trustpilot free plan worth using?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: "The free plan gives you a public profile and the ability to respond to organic reviews, but no way to proactively collect them. Organic reviews skew negative — unhappy customers seek Trustpilot out — so a free profile often becomes a complaint wall rather than a marketing asset.",
             },
           },
         ],
