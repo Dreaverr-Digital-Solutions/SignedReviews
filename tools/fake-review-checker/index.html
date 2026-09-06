@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/tools/fake-review-checker/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="589a845f383c1ba299c7e4d2da1dac8c5bf16d3c">
-  <meta name="build-time" content="2026-09-06T09:41:37.567Z">
+  <meta name="build-commit" content="2dcbc94b2d2601502f6d5efa88f48781c569ec1b">
+  <meta name="build-time" content="2026-09-06T10:17:21.132Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Free Fake Review Checker — Spot Suspicious Review Text">
@@ -567,22 +567,97 @@ main { padding: 0; }
   <script defer src="/js/preferred-source.js"></script>
 
   <style>
-  .frc-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
-  .frc-card label { display: block; font-weight: 600; margin-bottom: .5rem; }
-  .frc-card textarea { width: 100%; min-height: 11rem; padding: .9rem; font: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 8px; resize: vertical; }
-  .frc-actions { display: flex; align-items: center; gap: 1rem; margin-top: .9rem; flex-wrap: wrap; }
-  .frc-run { display: inline-flex; align-items: center; gap: .5rem; padding: .8rem 1.5rem; background: var(--gold, #d4c466); color: #0c1320; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; }
-  .frc-run:hover { filter: brightness(1.05); }
-  .frc-sample { margin-left: auto; font-size: .85rem; color: var(--muted); background: none; border: none; cursor: pointer; text-decoration: underline; }
-  .frc-output { display: none; margin-top: 1.5rem; }
-  .frc-band { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
-  .frc-score { font-size: 2rem; font-weight: 700; }
-  .frc-meter { flex: 1; height: 10px; background: var(--border); border-radius: 5px; overflow: hidden; }
-  .frc-meter-fill { height: 100%; background: var(--gold, #d4c466); border-radius: 5px; transition: width .4s ease; }
-  .frc-signal { padding: .6rem .9rem; border-radius: 8px; margin: .5rem 0; font-size: .95rem; }
-  .frc-signal.bad { background: rgba(214, 69, 69, .12); border-left: 3px solid #d64545; }
-  .frc-signal.good { background: rgba(63, 148, 95, .12); border-left: 3px solid #3f945f; }
-  .frc-signal.note { background: rgba(212, 196, 102, .10); border-left: 3px solid #d4c466; }
+  /* Fake review checker — native Signed Reviews skin (site tokens only) */
+  .frc-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    margin: 1.5rem 0;
+  }
+  .frc-card label {
+    display: block;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.25rem; letter-spacing: -0.01em; line-height: 1.25;
+    color: var(--navy-900);
+    margin-bottom: .75rem;
+  }
+  :root.theme-dark .frc-card label, :root.theme-auto .frc-card label { color: #fff; }
+  .frc-card textarea {
+    width: 100%; min-height: 11rem;
+    padding: .9rem 1rem;
+    font: inherit; line-height: 1.6;
+    color: var(--text); background: var(--surface);
+    border: 1px solid var(--border); border-radius: 10px;
+    resize: vertical;
+  }
+  .frc-card textarea::placeholder { color: var(--muted); opacity: .8; }
+  .frc-card textarea:focus,
+  .frc-run:focus-visible, .frc-sample:focus-visible {
+    outline: 3px solid var(--gold-400); outline-offset: 2px;
+  }
+  .frc-hint { font-size: .85rem; color: var(--muted); margin: .5rem 0 0; }
+  .frc-actions { display: flex; align-items: center; gap: .75rem; margin-top: 1rem; flex-wrap: wrap; }
+  .frc-run {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: .55rem 1.15rem; border-radius: .65rem;
+    font: inherit; font-weight: 600; font-size: .9rem;
+    color: #fff; border: 1px solid transparent; cursor: pointer;
+    background: linear-gradient(135deg, var(--gold-400), var(--gold-500) 60%, var(--gold-600));
+    box-shadow: 0 4px 14px rgba(179,157,69,.32);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .frc-run:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(179,157,69,.44); }
+  .frc-sample {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: .55rem 1rem; border-radius: .65rem;
+    font: inherit; font-weight: 600; font-size: .9rem;
+    color: var(--navy-700); background: transparent;
+    border: 1px solid var(--navy-200); cursor: pointer;
+    transition: background .15s ease, color .15s ease;
+  }
+  .frc-sample:hover { background: var(--navy-50); color: var(--navy-900); }
+  :root.theme-dark .frc-sample, :root.theme-auto .frc-sample {
+    color: var(--navy-100); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.02);
+  }
+  :root.theme-dark .frc-sample:hover, :root.theme-auto .frc-sample:hover {
+    background: rgba(255,255,255,.08); color: #fff;
+  }
+  .frc-output { display: none; margin-top: 1.25rem; }
+  .frc-result {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+  }
+  .frc-summary { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .frc-score {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 2.75rem; line-height: 1; letter-spacing: -0.01em;
+    color: var(--navy-900);
+  }
+  :root.theme-dark .frc-score, :root.theme-auto .frc-score { color: #fff; }
+  .frc-meta { flex: 1; min-width: 12rem; }
+  .frc-meta strong { font-size: .95rem; }
+  .frc-meta div { font-size: .85rem; color: var(--muted); }
+  .frc-meter { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin-top: .9rem; }
+  .frc-meter-fill {
+    height: 100%; border-radius: 4px;
+    background: linear-gradient(90deg, var(--gold-400), var(--gold-500));
+    transition: width .4s ease;
+  }
+  .frc-empty { color: var(--muted); margin: 0; }
+  .frc-signal {
+    padding: .65rem .9rem; border-radius: 0 .5rem .5rem 0;
+    margin: .6rem 0; font-size: .95rem;
+    border-left: 3px solid transparent;
+  }
+  .frc-signal.bad { background: rgba(214,69,69,.10); border-left-color: #d64545; }
+  .frc-signal.good { background: rgba(63,148,95,.10); border-left-color: #3f945f; }
+  .frc-signal.note { background: rgba(212,196,102,.12); border-left-color: var(--gold-500); }
+  :root.theme-dark .frc-signal.bad, :root.theme-auto .frc-signal.bad { background: rgba(214,69,69,.16); }
+  :root.theme-dark .frc-signal.good, :root.theme-auto .frc-signal.good { background: rgba(63,148,95,.16); }
+  :root.theme-dark .frc-signal.note, :root.theme-auto .frc-signal.note { background: rgba(179,157,69,.14); }
   .frc-disclaimer { font-size: .85rem; color: var(--muted); margin-top: 1rem; }
 </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Signed Reviews Fake Review Checker","url":"https://signedreviews.com/tools/fake-review-checker/","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Free fake review checker: paste any review text and get a signal-based risk estimate. Client-side, no signup, nothing stored.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"image":"https://signedreviews.com/images/og/fake-review-checker-tool.png","publisher":{"@type":"Organization","name":"Signed Reviews","url":"https://signedreviews.com"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How accurate is this fake review checker?","acceptedAnswer":{"@type":"Answer","text":"It surfaces the writing patterns most common in fake reviews and reports signals with explanations rather than a definitive verdict. Treat a high score as a reason to look closer, not proof."}},{"@type":"Question","name":"Does this work for Amazon, Trustpilot, Google, or Shopify reviews?","acceptedAnswer":{"@type":"Answer","text":"Yes — it analyzes pasted text, so it is platform-agnostic. Nothing is sent to any server."}},{"@type":"Question","name":"Can it detect AI-written fake reviews?","acceptedAnswer":{"@type":"Answer","text":"Partially. AI text often trips the generic-praise and no-concrete-detail signals, but no text-based checker reliably detects AI writing. Verification at the source is the durable defense."}},{"@type":"Question","name":"What's the difference between checking text and verifying a purchase?","acceptedAnswer":{"@type":"Answer","text":"Text checking estimates likelihood from writing style. Purchase verification confirms fact from a payment record: an independent processor attests that a real charge occurred. The former is a screen; the latter is proof."}},{"@type":"Question","name":"Is the fake review checker free?","acceptedAnswer":{"@type":"Answer","text":"Yes — free, no signup, no data stored. The analysis runs entirely in the browser."}}]}]}</script>
@@ -637,7 +712,7 @@ main { padding: 0; }
     <div class="frc-card" id="frc">
       <label for="frc-input">Paste the review text</label>
       <textarea id="frc-input" placeholder="Paste the full review text here (50+ words works best). The checker looks at language patterns, not the platform it came from." aria-describedby="frc-hint"></textarea>
-      <p id="frc-hint" style="font-size:.85rem;color:var(--muted);">Heuristic signals, not proof. A clean score doesn't guarantee a real review — see below.</p>
+      <p id="frc-hint" class="frc-hint">Heuristic signals, not proof. A clean score doesn't guarantee a real review — see below.</p>
       <div class="frc-actions">
         <button type="button" class="frc-run" id="frc-run">Check this review</button>
         <button type="button" class="frc-sample" id="frc-sample">Load a sample review</button>
@@ -800,15 +875,16 @@ main { padding: 0; }
       var t = input.value.trim();
       output.style.display = 'block';
       if (!t) {
-        output.innerHTML = '<p style="color:var(--muted);">Paste review text first, then press Check.</p>';
+        output.innerHTML = '<p class="frc-empty">Paste review text first, then press Check.</p>';
         return;
       }
       var words = t.toLowerCase().replace(/[^a-z0-9'\s-]/g, ' ').split(/\s+/).filter(Boolean);
       var wordCount = words.length;
 
       if (wordCount < 25) {
-        output.innerHTML = '<div class="frc-band"><span class="frc-score">—</span></div>' +
-          '<div class="frc-signal note"><strong>Too short to assess.</strong> Fewer than 25 words — this checker needs enough text for its patterns to mean anything. Very short reviews are also a weak signal on their own: real experiences usually include at least one specific.</div>';
+        output.innerHTML = '<div class="frc-result"><div class="frc-summary"><span class="frc-score">—</span>' +
+          '<div class="frc-meta"><strong>Too short to assess</strong><div>Fewer than 25 words.</div></div></div>' +
+          '<div class="frc-signal note">This checker needs enough text for its patterns to mean anything. Very short reviews are also a weak signal on their own: real experiences usually include at least one specific.</div></div>';
         return;
       }
 
@@ -861,12 +937,12 @@ main { padding: 0; }
       else if (score <= 75) bandLabel = 'Elevated risk signals';
       else bandLabel = 'High risk signals';
 
-      var html = '<div class="frc-band"><span class="frc-score">' + score + '</span>' +
-        '<div><strong>' + bandLabel + '</strong><div style="font-size:.85rem;color:var(--muted);">' + wordCount + ' words analyzed</div></div>' +
-        '<div class="frc-meter"><div class="frc-meter-fill" style="width:' + score + '%;"></div></div></div>';
-      for (var s = 0; s < signals.length; s++) html += '<div class="frc-signal bad">⚠️ ' + signals[s] + '</div>';
-      for (var g = 0; g < good.length; g++) html += '<div class="frc-signal good">✓ ' + good[g] + '</div>';
-      html += '<div class="frc-signal note">Heuristic estimate, not proof. A low score does not confirm a real customer; a high score does not confirm a fake review. The only structural answer is who attests the purchase — see <a href="/blog/transaction-verified-reviews/">transaction verified reviews</a>.</div>';
+      var html = '<div class="frc-result"><div class="frc-summary"><span class="frc-score">' + score + '</span>' +
+        '<div class="frc-meta"><strong>' + bandLabel + '</strong><div>' + wordCount + ' words analyzed</div></div></div>' +
+        '<div class="frc-meter"><div class="frc-meter-fill" style="width:' + score + '%;"></div></div>';
+      for (var s = 0; s < signals.length; s++) html += '<div class="frc-signal bad"><strong>Signal.</strong> ' + signals[s] + '</div>';
+      for (var g = 0; g < good.length; g++) html += '<div class="frc-signal good"><strong>Credit.</strong> ' + good[g] + '</div>';
+      html += '<div class="frc-signal note">Heuristic estimate, not proof. A low score does not confirm a real customer; a high score does not confirm a fake review. The only structural answer is who attests the purchase — see <a href="/blog/transaction-verified-reviews/">transaction verified reviews</a>.</div></div>';
       output.innerHTML = html;
     }
 
