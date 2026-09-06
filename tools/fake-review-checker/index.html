@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/tools/fake-review-checker/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="b2b4c5090df83b5ddb5dc224ee9b8e8da3d29e6d">
-  <meta name="build-time" content="2026-09-06T10:56:54.744Z">
+  <meta name="build-commit" content="388bbaeba542f485ea578c67fff774354a52b9f1">
+  <meta name="build-time" content="2026-09-06T11:47:26.685Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Free Fake Review Checker — Spot Suspicious Review Text">
@@ -618,7 +618,9 @@ main { padding: 0; }
   .frc-run:focus-visible, .frc-sample:focus-visible {
     outline: 3px solid var(--gold-400); outline-offset: 2px;
   }
-  .frc-hint { font-size: .85rem; color: var(--muted); margin: .5rem 0 0; max-width: 640px; margin-left: auto; margin-right: auto; text-align: left; }
+  /* .frc-card prefix needed: .prose p (0,1,1) out-specifies the bare class
+     and would zero out the auto margins, pinning these to the left edge. */
+  .frc-card .frc-hint { font-size: .85rem; color: var(--muted); margin: .5rem auto 0; max-width: 640px; text-align: center; }
   .frc-actions { display: flex; align-items: center; justify-content: center; gap: .75rem; margin-top: 1rem; flex-wrap: wrap; }
   .frc-run {
     display: inline-flex; align-items: center; justify-content: center;
@@ -691,7 +693,7 @@ main { padding: 0; }
   :root.theme-dark .frc-signal.bad, :root.theme-auto .frc-signal.bad { background: rgba(214,69,69,.16); }
   :root.theme-dark .frc-signal.good, :root.theme-auto .frc-signal.good { background: rgba(63,148,95,.16); }
   :root.theme-dark .frc-signal.note, :root.theme-auto .frc-signal.note { background: rgba(179,157,69,.14); }
-  .frc-disclaimer { font-size: .85rem; color: var(--muted); margin-top: 1rem; max-width: 640px; margin-left: auto; margin-right: auto; }
+  .frc-card .frc-disclaimer { font-size: .85rem; color: var(--muted); margin: 1rem auto 0; max-width: 640px; text-align: center; }
 </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Signed Reviews Fake Review Checker","url":"https://signedreviews.com/tools/fake-review-checker/","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Free fake review checker: paste any review text and get a signal-based risk estimate. Client-side, no signup, nothing stored.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"image":"https://signedreviews.com/images/og/fake-review-checker-tool.png","publisher":{"@type":"Organization","name":"Signed Reviews","url":"https://signedreviews.com"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How accurate is this fake review checker?","acceptedAnswer":{"@type":"Answer","text":"It surfaces the writing patterns most common in fake reviews and reports signals with explanations rather than a definitive verdict. Treat a high score as a reason to look closer, not proof."}},{"@type":"Question","name":"Does this work for Amazon, Trustpilot, Google, or Shopify reviews?","acceptedAnswer":{"@type":"Answer","text":"Yes — it analyzes pasted text, so it is platform-agnostic. Nothing is sent to any server."}},{"@type":"Question","name":"Can it detect AI-written fake reviews?","acceptedAnswer":{"@type":"Answer","text":"Partially. AI text often trips the generic-praise and no-concrete-detail signals, but no text-based checker reliably detects AI writing. Verification at the source is the durable defense."}},{"@type":"Question","name":"What's the difference between checking text and verifying a purchase?","acceptedAnswer":{"@type":"Answer","text":"Text checking estimates likelihood from writing style. Purchase verification confirms fact from a payment record: an independent processor attests that a real charge occurred. The former is a screen; the latter is proof."}},{"@type":"Question","name":"Is the fake review checker free?","acceptedAnswer":{"@type":"Answer","text":"Yes — free, no signup, no data stored. The analysis runs entirely in the browser."}}]}]}</script>
 </head>

@@ -4225,7 +4225,9 @@ const TOOL_STYLES = `
   .frc-run:focus-visible, .frc-sample:focus-visible {
     outline: 3px solid var(--gold-400); outline-offset: 2px;
   }
-  .frc-hint { font-size: .85rem; color: var(--muted); margin: .5rem 0 0; max-width: 640px; margin-left: auto; margin-right: auto; text-align: left; }
+  /* .frc-card prefix needed: .prose p (0,1,1) out-specifies the bare class
+     and would zero out the auto margins, pinning these to the left edge. */
+  .frc-card .frc-hint { font-size: .85rem; color: var(--muted); margin: .5rem auto 0; max-width: 640px; text-align: center; }
   .frc-actions { display: flex; align-items: center; justify-content: center; gap: .75rem; margin-top: 1rem; flex-wrap: wrap; }
   .frc-run {
     display: inline-flex; align-items: center; justify-content: center;
@@ -4298,7 +4300,7 @@ const TOOL_STYLES = `
   :root.theme-dark .frc-signal.bad, :root.theme-auto .frc-signal.bad { background: rgba(214,69,69,.16); }
   :root.theme-dark .frc-signal.good, :root.theme-auto .frc-signal.good { background: rgba(63,148,95,.16); }
   :root.theme-dark .frc-signal.note, :root.theme-auto .frc-signal.note { background: rgba(179,157,69,.14); }
-  .frc-disclaimer { font-size: .85rem; color: var(--muted); margin-top: 1rem; max-width: 640px; margin-left: auto; margin-right: auto; }
+  .frc-card .frc-disclaimer { font-size: .85rem; color: var(--muted); margin: 1rem auto 0; max-width: 640px; text-align: center; }
 `;
 
 function buildFakeReviewChecker() {
