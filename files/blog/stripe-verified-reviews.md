@@ -28,7 +28,7 @@ The flow is automated from end to end. You connect once; Signed Reviews handles 
 4. **The customer writes their review.** They click the unique link, write their review, and submit. At the moment of submission, the review content, transaction ID, customer email, and timestamp are bundled into a cryptographic signature — producing cryptographically signed reviews that anyone can independently verify.
 5. **The review is published.** The signed review appears on your public page and in your dashboard. The cryptographic signature can be independently verified by anyone — proving the review came from a real customer about a real purchase and hasn't been altered.
 
-If the charge is later refunded, Stripe sends a webhook and Signed Reviews automatically hides the review from public display. No manual moderation needed.
+If the charge is later refunded, Stripe sends a webhook and Signed Reviews automatically hides the review from public display. No manual moderation needed. For the full chain from charge to signature — matching, signing, and refund detection — see [Stripe proof integration](/blog/stripe-proof-of-purchase-verification/).
 
 ## Why "verified" usually doesn't mean verified
 

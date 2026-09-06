@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/stripe-verified-reviews/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="ad4358e656e58e25efbfe5c0cb79f9acd90ec7aa">
-  <meta name="build-time" content="2026-09-06T12:57:13.414Z">
+  <meta name="build-commit" content="dd601717844f98bc9f3b70be0b95eb4bd6faa107">
+  <meta name="build-time" content="2026-09-06T15:39:02.876Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Stripe Verified Reviews: Tamper-Evident &amp; Cryptographically Signed | Signed Reviews Blog">
@@ -636,7 +636,7 @@ main { padding: 0; }
 <li><strong>The customer writes their review.</strong> They click the unique link, write their review, and submit. At the moment of submission, the review content, transaction ID, customer email, and timestamp are bundled into a cryptographic signature — producing cryptographically signed reviews that anyone can independently verify.</li>
 <li><strong>The review is published.</strong> The signed review appears on your public page and in your dashboard. The cryptographic signature can be independently verified by anyone — proving the review came from a real customer about a real purchase and hasn&#39;t been altered.</li>
 </ol>
-<p>If the charge is later refunded, Stripe sends a webhook and Signed Reviews automatically hides the review from public display. No manual moderation needed.</p>
+<p>If the charge is later refunded, Stripe sends a webhook and Signed Reviews automatically hides the review from public display. No manual moderation needed. For the full chain from charge to signature — matching, signing, and refund detection — see <a href="/blog/stripe-proof-of-purchase-verification/">Stripe proof integration</a>.</p>
 <h2 id="why-quotverifiedquot-usually-doesn39t-mean-verified"><a class="anchor" href="#why-quotverifiedquot-usually-doesn39t-mean-verified" aria-label="Permalink to Why &amp;quot;verified&amp;quot; usually doesn&amp;#39;t mean verified"></a>Why &quot;verified&quot; usually doesn&#39;t mean verified</h2>
 <p>To understand why Stripe verified reviews are different, you need to understand what &quot;verified&quot; means on most platforms.</p>
 <p>Every &quot;verified&quot; review on the internet sits on a verification spectrum. The level determines <strong>who is attesting</strong> that a purchase happened:</p>

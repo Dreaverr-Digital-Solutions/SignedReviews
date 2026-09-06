@@ -171,3 +171,7 @@ Transaction verification requires a real, settled payment through a regulated pa
 ### Is there a fake review checker tool I can use?
 
 Several browser extensions offer automated fake review detection (Fakespot, ReviewMeta, TheReviewIndex). These tools analyze review text, reviewer profiles, and rating distributions to estimate how many reviews might be fake. They're useful for quick checks but have limitations: they primarily work on major platforms (Amazon, Yelp, Trustpilot), they can produce false positives, and they can't access the underlying transaction data that would conclusively verify or disprove a review. For your own business, the better approach is to use a verification system that prevents fake reviews from being posted in the first place.
+
+### Is there a real review checker that actually works?
+
+Yes, in two different senses. A real review checker for shoppers scores review text for the writing-pattern signals fakes leave behind — generic praise, superlative density, repeated phrasing, missing concrete detail — and then shows what it found, instead of hiding behind a single opaque score. A real review checker for businesses does the same thing against reviews of their own product pages. Either way, a real one has to disclose its limits: pattern scoring is a screen, not proof, and no text checker can see the transaction behind a review. Our free [fake review checker tool](/tools/fake-review-checker/) scores any pasted review and explains every signal it flags.

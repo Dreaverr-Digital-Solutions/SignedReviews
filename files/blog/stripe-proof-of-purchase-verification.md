@@ -1,7 +1,7 @@
 # Stripe Proof of Purchase Verification: The Complete Guide
 
 **Title:** Stripe Proof Integration: Complete Guide to Verified Purchase Reviews
-**Published:** 2026-08-07 · **Author:** Signed Reviews Team · **Description:** Learn how Stripe proof integration works: Stripe proof of purchase verification, charge matching, cryptographic signing, and automated refund handling.
+**Published:** 2026-08-07 · **Updated:** 2026-09-06 · **Author:** Signed Reviews Team · **Description:** Learn how Stripe proof integration works: Stripe proof of purchase verification, charge matching, cryptographic signing, and automated refund handling.
 
 ---
 

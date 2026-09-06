@@ -1931,6 +1931,46 @@ function buildBlog() {
         ],
       })}</script>`;
     }
+    if (post.file === 'verified-reviews-vs-unverified-reviews.md') {
+      faqPageSchema = `\n  <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'What does an unprompted review mean?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'An unprompted review is one the business never asked for — no invitation was sent and no review link was clicked. Nothing was verified: no purchase confirmed, no identity checked, so it sits at the unverified level, and open posting makes it cheap to fabricate.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: "What does 'reviewed and verified' mean on a product page?",
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: "It usually means the reviewer's email matched the merchant's own order records (Level 3, attested by the merchant). Only on processor-attested platforms does it mean an independent payment processor confirmed the transaction (Level 4). The label is not the proof — who did the verifying is.",
+            },
+          },
+        ],
+      })}</script>`;
+    }
+    if (post.file === 'fake-review-checker.md') {
+      faqPageSchema = `\n  <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Is there a real review checker that actually works?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes. A real review checker scores review text for the writing-pattern signals fakes leave behind — generic praise, superlative density, repeated phrasing, missing concrete detail — and shows what it found instead of a single opaque score. It must also disclose its limits: pattern scoring is a screen, not proof. Signed Reviews\' free checker scores any pasted review and explains every signal it flags.',
+            },
+          },
+        ],
+      })}</script>`;
+    }
     if (post.file === 'purchase-verified-vs-email-verified-reviews.md') {
       faqPageSchema = `\n  <script type="application/ld+json">${JSON.stringify({
         '@context': 'https://schema.org',
@@ -3250,7 +3290,7 @@ function buildLearn() {
     headline: 'What Does "Verified Buyer" Actually Mean?',
     description,
     datePublished: '2026-07-23',
-    dateModified: '2026-07-23',
+    dateModified: '2026-09-06',
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
     image: [`${SITE_URL}/images/SignedReviews_full_logo.png`],
     author: { '@type': 'Organization', name: 'Signed Reviews', url: SITE_URL },
@@ -3308,7 +3348,7 @@ function buildLearn() {
   const body = `<article class="prose">
     <p><strong>"Verified Buyer" does not mean the same thing on every review platform</strong> — and on most of them it does <em>not</em> mean the reviewer's payment was independently checked. A "verified" review is usually verified against data <em>the merchant supplies</em> (an invitation email, an order record, or an uploaded customer list), not against an independent payment processor. So the badge tells you the merchant <em>believed</em> this person was a customer — not that an independent party <em>confirmed</em> money changed hands.</p>
 
-    <p>This page explains exactly what "verified" means on each major platform, lays out the five-level verification spectrum that makes the differences legible, and shows why the distinction matters under the U.S. Federal Trade Commission's 2024 fake-review rule.</p>
+    <p>This page explains exactly what "verified" means on each major platform, lays out the five-level verification spectrum that makes the differences legible, and shows why the distinction matters under the U.S. Federal Trade Commission's 2024 fake-review rule. In short, the verified buyer meaning depends entirely on who did the verifying: the merchant's own records, or an independent payment processor.</p>
 
     <div class="learn-tldr">
       <strong>In one sentence:</strong> "Verified" almost always means <em>the merchant vouches that you're a customer</em> (Level 3) — it rarely means <em>an independent payment processor confirms your payment</em> (Level 4). Only processor-attested verification ties a review to an independently confirmed transaction.

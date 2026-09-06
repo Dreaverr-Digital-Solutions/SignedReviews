@@ -160,6 +160,14 @@ In theory, yes — by creating real Stripe charges for fake purchases. But each 
 
 Yes. Multiple consumer surveys find that "Verified Purchase" badges significantly increase trust and purchase intent. The more specific the badge — "Verified Stripe Purchase" vs generic "Verified" — the stronger the effect.
 
+### What does an unprompted review mean?
+
+An unprompted review is one the business never asked for. No invitation was sent, no review link was clicked: the customer went to a public review site on their own and posted. That is the unprompted review meaning, and it matters because nothing was verified. No purchase was confirmed, no identity was checked, and anyone with an account can post one, which is what makes unprompted reviews cheap to fabricate at scale. Most unprompted reviews (Trustpilot organic reviews, Google reviews) sit at the unverified level by design. Reviews with proof attached only happen when the review is prompted through a verified channel — see [what is a verified review](/blog/what-is-a-verified-review/) for how that works.
+
+### What does "reviewed and verified" mean on a product page?
+
+The label hides two very different systems. On most marketplace listings, "reviewed and verified" means the reviewer's email matched the merchant's own order records (Level 3 verification, attested by the merchant). On a processor-attested platform it means an independent payment processor confirmed the transaction (Level 4). The label itself is not the proof — who did the verifying is.
+
 ### What's the difference between verified reviews and signed reviews?
 
 "Verified" means the review platform checked something (email, purchase). "Signed" means the review is cryptographically signed — the content is tamper-evident and independently verifiable. Signed Reviews uses both: Stripe verification (proof of purchase) plus cryptographic signing (tamper evidence). See [What Is a Verified Review?](/blog/what-is-a-verified-review/) for the verification spectrum in detail.
