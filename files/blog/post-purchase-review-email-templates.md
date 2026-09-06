@@ -1,6 +1,6 @@
 # Post Purchase Review Email Templates: 5 Templates That Drive Verified Reviews
 
-**Published:** 2026-07-24 · **Updated:** 2026-08-07 · **Author:** Signed Reviews Team · **Description:** Post purchase review email templates that drive verified reviews — copy-and-paste templates for e-commerce, SaaS, and services, with Stripe-triggered automation, timing rules, subject lines, and FTC compliance guidance.
+**Published:** 2026-07-24 · **Updated:** 2026-09-06 · **Author:** Signed Reviews Team · **Description:** Post purchase review email templates and the post purchase review form that converts — copy-and-paste templates for e-commerce, SaaS, and services, with Stripe-triggered automation, timing rules, subject lines, and FTC compliance guidance.
 
 ---
 
@@ -9,6 +9,16 @@ The best time to ask for a review is right after a customer has experienced your
 This guide covers when to send, what to say, and how to structure your review request emails for maximum response rates. Every template is based on patterns that consistently outperform generic "please leave us a review" messages.
 
 **New in this update:** All five templates now include Stripe-automation notes — so if you use Stripe, you can trigger these emails automatically on charge events, skip the manual work, and collect transaction-verified reviews that carry a "Verified Stripe Purchase" badge instead of a generic "Verified Reviewer" tag.
+
+## Post Purchase Review Form vs Review Email: Which Converts Better?
+
+A **post purchase review form** is the page where the review actually gets written — star rating, headline, review text — and it can appear two ways: embedded on a thank-you page right after checkout, or reached through a review request email.
+
+- **The on-site form alone** reaches only the customers who are still on your site. Most people leave after paying; the form they never saw generates nothing. Worse, a form alone proves nothing — anyone can fill one in, which is why unverified on-site forms are easy to flood with fake reviews.
+- **The email-to-form flow** reaches every customer: the review request email is triggered by the charge event, and its link opens the form on your own review page. This is the pattern behind the templates below.
+- **The verification layer** is what makes the form's output trustworthy. When the purchase is attested by the payment processor, the review the form collects becomes a payment verified review — the strongest badge a customer can see. See [payment verified reviews](/blog/purchase-verified-vs-email-verified-reviews/) for how that works.
+
+If your goal is review volume plus verified status, the email-to-form flow beats an on-site form alone — that combination is exactly what the templates below are built for.
 
 ## The golden rules of any post purchase review email template
 
