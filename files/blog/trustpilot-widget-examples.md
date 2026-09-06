@@ -1,22 +1,22 @@
 # Trustpilot Widget Examples: What They Look Like, Where They Go, and What Each One Does
 
-**Published:** 2026-07-29 · **Author:** Signed Reviews Team · **Description:** See real Trustpilot widget examples — TrustBox, carousel, product reviews, and service review widgets — plus how they compare to purchase-verified alternatives.**
+**Published:** 2026-07-29 · **Author:** Signed Reviews Team · **Description:** See real Trustpilot widget examples (TrustBox, carousel, product reviews, and service review widgets) plus how they compare to purchase-verified alternatives.**
 
 ---
 
-Trustpilot ships with a library of embeddable widgets called TrustBoxes. They're one of the platform's main selling points — the promise is that dropping a widget on your site boosts conversion by displaying social proof. But not all widgets are equal, and which one you use depends on what you're trying to prove. This post shows every major Trustpilot widget with examples of where it actually appears and what it communicates to visitors.
+Trustpilot ships with a library of embeddable widgets called TrustBoxes. They're one of the platform's main selling points. The promise is that dropping a widget on your site boosts conversion by displaying social proof. But not all widgets are equal, and which one you use depends on what you're trying to prove. This post shows every major Trustpilot widget with examples of where it actually appears and what it communicates to visitors.
 
 ---
 
 ## What is a Trustpilot widget?
 
-A Trustpilot widget (TrustBox) is a snippet of JavaScript that pulls your Trustpilot rating and reviews onto your own website. You paste a `<div>` and a `<script>` tag into your page, and Trustpilot renders the widget dynamically. Widgets update automatically when new reviews come in — you don't rebuild or redeploy anything.
+A Trustpilot widget (TrustBox) is a snippet of JavaScript that pulls your Trustpilot rating and reviews onto your own website. You paste a `<div>` and a `<script>` tag into your page, and Trustpilot renders the widget dynamically. Widgets update automatically when new reviews come in. You don't rebuild or redeploy anything.
 
 There are roughly a dozen widget types, but they fall into three categories:
 
-1. **Trust badges** — small icons showing your star rating and Trustpilot score
-2. **Review displays** — carousels or grids showing individual review text
-3. **Combination widgets** — star rating + review count + mini-carousel in one unit
+1. **Trust badges**, small icons showing your star rating and Trustpilot score
+2. **Review displays**, carousels or grids showing individual review text
+3. **Combination widgets**, star rating + review count + mini-carousel in one unit
 
 All of them are configurable through Trustpilot's Business dashboard, and most come in light and dark themes.
 
@@ -34,11 +34,11 @@ All of them are configurable through Trustpilot's Business dashboard, and most c
   </p>
 </div>
 
-This is the smallest TrustBox — a single line showing your star rating, your TrustScore, and the word "Trustpilot." It's designed for headers, footers, and checkout flows where you want social proof without taking up much space.
+This is the smallest TrustBox: a single line showing your star rating, your TrustScore, and the word "Trustpilot." It's designed for headers, footers, and checkout flows where you want social proof without taking up much space.
 
 **Where you see it:** Site-wide headers, e-commerce checkout pages, SaaS billing pages, email signatures (as a static image version).
 
-**What it signals:** "Other people vouch for us." It's a trust heuristic, not a verification claim — the stars could be from invited or organic reviews. The visitor doesn't know which.
+**What it signals:** "Other people vouch for us." It's a trust heuristic, not a verification claim. The stars could be from invited or organic reviews. The visitor doesn't know which.
 
 ### 2. Micro Review Count
 
@@ -50,7 +50,7 @@ This is the smallest TrustBox — a single line showing your star rating, your T
   </p>
 </div>
 
-Same compact format, but adds the review count. The number matters — "1,234 reviews" is more convincing than "4 stars" alone. Research consistently shows that review volume is as important as review score in purchase decisions.
+Same compact format, but adds the review count. The number matters, "1,234 reviews" is more convincing than "4 stars" alone. Research consistently shows that review volume is as important as review score in purchase decisions.
 
 **Where you see it:** Product pages on mid-market e-commerce sites, SaaS landing pages below the hero, small business websites.
 
@@ -87,7 +87,7 @@ A more detailed widget built for product pages, showing star breakdown and indiv
     <span style="color:#696969;font-size:.85rem">· 89 reviews for this product</span>
   </div>
   <div style="font-size:.8rem;color:#696969;margin-bottom:.5rem">
-    5 ★ — 72% &nbsp; 4 ★ — 15% &nbsp; 3 ★ — 7% &nbsp; 2 ★ — 3% &nbsp; 1 ★ — 3%
+    5 ★, 72% &nbsp; 4 ★, 15% &nbsp; 3 ★, 7% &nbsp; 2 ★, 3% &nbsp; 1 ★, which is 3%
   </div>
 </div>
 
@@ -95,16 +95,16 @@ This is the widget Trustpilot positions for e-commerce product detail pages. It 
 
 **Where you see it:** Product detail pages on Shopify stores, BigCommerce product pages, Magento product listings.
 
-**The catch:** Setting up product-level reviews requires mapping your product catalog to Trustpilot's product IDs and passing them in review invitations. It's not automatic — it requires integration work, and on some tiers it requires API access (which is gated behind higher plans or sold as an add-on).
+**The catch:** Setting up product-level reviews requires mapping your product catalog to Trustpilot's product IDs and passing them in review invitations. It's not automatic. It requires integration work, and on some tiers it requires API access (which is gated behind higher plans or sold as an add-on).
 
 ### 5. Service Review Widget (for non-e-commerce)
 
-Same structure as the product widget but designed for service businesses where there's no SKU — just a business profile rating and service-level reviews:
+Same structure as the product widget but designed for service businesses where there's no SKU, just a business profile rating and service-level reviews:
 
 <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:8px;padding:1.25rem;margin:1.5rem 0;font-family:Inter,system-ui,sans-serif">
   <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;flex-wrap:wrap">
     <span style="color:#00b67a;font-size:1.1rem">★★★★★</span>
-    <span style="font-weight:700;color:#191919">4.3 out of 5 — Excellent</span>
+    <span style="font-weight:700;color:#191919">4.3 out of 5. Excellent</span>
   </div>
   <div style="font-size:.85rem;color:#696969;margin-bottom:.75rem">Based on 1,234 service reviews</div>
   <div style="display:flex;flex-wrap:wrap;gap:.5rem">
@@ -118,7 +118,7 @@ Same structure as the product widget but designed for service businesses where t
 
 ### 6. Grid Widget (full-page review display)
 
-A larger embed that shows multiple review cards in a responsive grid — typically 3-4 columns on desktop, stacking to 1 on mobile:
+A larger embed that shows multiple review cards in a responsive grid, typically 3-4 columns on desktop, stacking to 1 on mobile:
 
 <div style="background:#f8f9fa;border:1px solid #e0e0e0;border-radius:8px;padding:1.25rem;margin:1.5rem 0;font-family:Inter,system-ui,sans-serif">
   <p style="font-weight:700;color:#191919;margin:0 0 .75rem">Latest reviews</p>
@@ -143,19 +143,19 @@ A larger embed that shows multiple review cards in a responsive grid — typical
 
 **Where you see it:** Dedicated "Reviews" pages, customer story pages, footer sections on large e-commerce sites.
 
-**The performance consideration:** Every widget loads external JavaScript from Trustpilot's CDN. Multiple widgets on one page mean multiple script loads. On product pages that already have analytics, ad trackers, and other third-party scripts, adding a TrustBox can push page weight over the edge — which is why some sites lazy-load widgets below the fold.
+**The performance consideration:** Every widget loads external JavaScript from Trustpilot's CDN. Multiple widgets on one page mean multiple script loads. On product pages that already have analytics, ad trackers, and other third-party scripts, adding a TrustBox can push page weight over the edge, which is why some sites lazy-load widgets below the fold.
 
 ---
 
 ## How Trustpilot widgets decide what to show
 
-Trustpilot widgets pull from the same review pool — your Trustpilot profile — regardless of widget type. This means:
+Trustpilot widgets pull from the same review pool, your Trustpilot profile, regardless of widget type. This means:
 
 - **All reviews appear in widgets, not just invited ones.** If someone leaves an unverified organic review on your Trustpilot profile, it has the same chance of appearing in your widget as a verified invited review.
 - **Recency determines visibility, not relevance.** The carousel shows the newest reviews, not the ones most relevant to the page the visitor is on.
 - **You can't filter by verification status.** Trustpilot doesn't give you a widget setting that says "only show reviews from verified purchases." The widget shows everything.
 
-This is the fundamental trade-off of the TrustBox: you get a polished, recognizable social-proof widget, but you don't get to control which reviews appear in it — or whether they're verified by anything stronger than an email invitation.
+This is the fundamental trade-off of the TrustBox: you get a polished, recognizable social-proof widget, but you don't get to control which reviews appear in it, or whether they're verified by anything stronger than an email invitation.
 
 ---
 
@@ -163,7 +163,7 @@ This is the fundamental trade-off of the TrustBox: you get a polished, recogniza
 
 Signed Reviews takes a different approach to the widget problem: instead of pulling from a public profile where anyone can contribute, every embedded review carries cryptographic proof that it came from a completed Stripe transaction.
 
-The embed isn't a third-party `<script>` from an external CDN — it's a self-contained element rendered server-side from your own review data. No external requests, no third-party cookies, no widget loading delay.
+The embed isn't a third-party `<script>` from an external CDN. It's a self-contained element rendered server-side from your own review data. No external requests, no third-party cookies, no widget loading delay.
 
 | Widget feature | Trustpilot TrustBox | Signed Reviews embed |
 |---------------|-------------------|---------------------|
@@ -187,7 +187,7 @@ Widget placement matters as much as widget type. A widget in the wrong place is 
 |------|------------|-----|
 | **Checkout** | Micro Star | Builds last-moment trust without distracting from the purchase flow |
 | **Product detail** | Product Reviews | Shows SKU-specific social proof where the buying decision happens |
-| **Homepage hero** | Mini Carousel | First impression for new visitors — rotating snippets work well above the fold |
+| **Homepage hero** | Mini Carousel | First impression for new visitors, rotating snippets work well above the fold |
 | **Pricing page** | Service Review + rating breakdown | Buyers on pricing pages are evaluating; detailed proof matters more than volume here |
 | **Landing pages (ads)** | Micro Review Count | Fast page load matters for Quality Score; a single line is lighter than a carousel |
 | **Footer** | Micro Star | Persistent trust signal without competing for attention |
@@ -201,10 +201,10 @@ The key insight: **the more expensive your product, the more review detail you s
 
 Trustpilot widgets are polished, widely recognized, and cover the basics. If you're on a paid Trustpilot plan and you're not embedding at least a Micro Star on your checkout and pricing pages, you're leaving conversion on the table.
 
-But the widget itself is only as trustworthy as the reviews it pulls from. If your Trustpilot profile carries unverified reviews alongside invited ones — and every Trustpilot profile does — your widget is displaying both, with no way for the visitor to tell them apart. For businesses where review authenticity is the whole point, a widget that surfaces only purchase-verified reviews (and proves it cryptographically) sends a stronger signal than any TrustBox can.
+But the widget itself is only as trustworthy as the reviews it pulls from. If your Trustpilot profile carries unverified reviews alongside invited ones, and every Trustpilot profile does, your widget is displaying both, with no way for the visitor to tell them apart. For businesses where review authenticity is the whole point, a widget that surfaces only purchase-verified reviews (and proves it cryptographically) sends a stronger signal than any TrustBox can.
 
 **Further reading:**
-- [Signed Reviews vs Trustpilot](/vs/trustpilot/) — detailed comparison across verification, pricing, and features
-- [Trustpilot Pricing Explained](/blog/trustpilot-pricing-explained/) — what each plan actually costs
-- [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/) — the verification spectrum explained
-- [Are Trustpilot Reviews Reliable?](/blog/are-trustpilot-reviews-reliable/) — what the Transparency Report tells you
+- [Signed Reviews vs Trustpilot](/vs/trustpilot/): detailed comparison across verification, pricing, and features
+- [Trustpilot Pricing Explained](/blog/trustpilot-pricing-explained/), what each plan actually costs
+- [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/), the verification spectrum explained
+- [Are Trustpilot Reviews Reliable?](/blog/are-trustpilot-reviews-reliable/), what the Transparency Report tells you

@@ -16,7 +16,7 @@ Capitalized terms used and not defined here have the meaning given in the Terms 
 
 - **"Personal Data"** means any information relating to an identified or identifiable natural person that we process on your behalf in connection with the Service.
 - **"Processing"** has the meaning set out in GDPR Article 4(2).
-- **"Data Subject"** means the individual to whom Personal Data relates — typically your customers (Reviewers) and your team members.
+- **"Data Subject"** means the individual to whom Personal Data relates, typically your customers (Reviewers) and your team members.
 - **"Sub-processor"** means any third party we engage to process Personal Data on your behalf.
 - **"Applicable Data Protection Law"** means GDPR, the UK GDPR, the Swiss FADP, the California Consumer Privacy Act and the California Privacy Rights Act, and any other privacy law of equivalent scope applicable to the processing.
 
@@ -29,7 +29,7 @@ For Personal Data processed in connection with the Service:
 - You act as the **controller** (or, where applicable, **business** under CCPA/CPRA).
 - We act as the **processor** (or, where applicable, **service provider** under CCPA/CPRA).
 
-For Personal Data we process about you (the Business User account holder) in our capacity as the Service operator — for example, to invoice you under future paid plans or to provide customer support — we act as a controller in our own right; that processing is governed by our [Privacy Policy](/privacy/), not by this DPA.
+For Personal Data we process about you (the Business User account holder) in our capacity as the Service operator (for example, to invoice you under future paid plans or to provide customer support), we act as a controller in our own right; that processing is governed by our [Privacy Policy](/privacy/), not by this DPA.
 
 ---
 
@@ -106,7 +106,7 @@ We may update these measures over time provided the level of protection is not m
 
 ### 8.1 Authorization
 
-You authorize us to engage Sub-processors. The current list of Sub-processors — including the categories of Personal Data each one processes and the country in which it operates — is published at [signedreviews.com/subprocessors/](/subprocessors/) and forms part of this DPA.
+You authorize us to engage Sub-processors. The current list of Sub-processors, including the categories of Personal Data each one processes and the country in which it operates, is published at [signedreviews.com/subprocessors/](/subprocessors/) and forms part of this DPA.
 
 ### 8.2 Sub-processor obligations
 

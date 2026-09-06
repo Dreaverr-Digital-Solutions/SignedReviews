@@ -1,16 +1,16 @@
 # Transaction Verified Reviews: What They Are & Why They're Hardest to Fake
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Transaction verified reviews are independently confirmed by a payment processor — not by merchant-supplied data. Here's how they work, how they differ from email-verified and merchant-verified reviews, and why processor-attested verification is the strongest anti-fake mechanism available.**
+**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Transaction verified reviews are independently confirmed by a payment processor, not by merchant-supplied data. Here's how they work, how they differ from email-verified and merchant-verified reviews, and why processor-attested verification is the strongest anti-fake mechanism available.**
 
 ---
 
-Every review platform says its reviews are "verified." The word is on every badge, every landing page, every sales deck. But "verified" can mean almost anything — from "this person has an email address" to "an independent payment processor confirmed the charge."
+Every review platform says its reviews are "verified." The word is on every badge, every landing page, every sales deck. But "verified" can mean almost anything, from "this person has an email address" to "an independent payment processor confirmed the charge."
 
 Transaction verified reviews sit at the strongest end of that spectrum. Here's what they are and why the distinction matters. New to the space? Start with [what is a verified review](/blog/what-is-a-verified-review/).
 
 ## What are transaction verified reviews?
 
-**Transaction verified reviews** are reviews where an independent party — typically a payment processor — has confirmed that a specific transaction occurred between the reviewer and the business. The key words are **independent party** and **transaction occurred.** The verification doesn't come from the business's own records; it comes from the payment infrastructure that sits between the business and the customer. This is what makes them transaction verified reviews in the strongest sense: the payment processor is neutral, and its records can't be altered by either side.
+**Transaction verified reviews** are reviews where an independent party, typically a payment processor, has confirmed that a specific transaction occurred between the reviewer and the business. The key words are **independent party** and **transaction occurred.** The verification doesn't come from the business's own records; it comes from the payment infrastructure that sits between the business and the customer. This is what makes them transaction verified reviews in the strongest sense: the payment processor is neutral, and its records can't be altered by either side.
 
 This is structurally different from:
 
@@ -18,7 +18,7 @@ This is structurally different from:
 - **Self-attested:** reviewer says they bought something (no check at all).
 - **Merchant-verified:** the business's own records show a purchase (the business controls the data).
 
-Transaction verified reviews are the only type where the **attesting party is neutral** — the payment processor has no incentive to favor the business or the reviewer, and its records cannot be altered by either side.
+Transaction verified reviews are the only type where the **attesting party is neutral**. The payment processor has no incentive to favor the business or the reviewer, and its records cannot be altered by either side.
 
 ---
 
@@ -34,7 +34,7 @@ Every "verified" review sits somewhere on this spectrum:
 | 3 | Merchant-supplied | Order/customer records | The merchant | ⚠️ Merchant controls data |
 | 4 | Processor-attested | Independent payment record | Payment processor | ✅ Structurally hard |
 
-Level 4 — processor-attested, transaction-verified — is the only level where the attesting party is independent of both the business and the reviewer. It's also the rarest. Almost every major review platform operates at Level 3.
+Level 4 (processor-attested, transaction-verified) is the only level where the attesting party is independent of both the business and the reviewer. It's also the rarest. Almost every major review platform operates at Level 3.
 
 (For the full breakdown of every major platform: [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/).)
 
@@ -48,7 +48,7 @@ Here's the uncomfortable truth about the review industry: **the word "verified" 
 - **"Verified Buyer" = matched to an order record** (Yotpo, Judge.me, Reviews.io, most Shopify apps). The reviewer's email matches a record in the merchant's store system. Better than an invitation-only check, but the data source is still the merchant.
 - **"Verified" = the merchant uploaded a transaction log** (Feefo, [eKomi](/vs/ekomi/)). The merchant decides what goes into the feed being verified against.
 
-In every case, the thing being verified against is **data the merchant supplies.** A merchant determined to manufacture reviews could — depending on the platform — invite fake accounts, create test orders, or curate which transactions go into the verification feed. An outsider can't do this easily, but the merchant themselves can.
+In every case, the thing being verified against is **data the merchant supplies.** A merchant determined to manufacture reviews could, depending on the platform, invite fake accounts, create test orders, or curate which transactions go into the verification feed. An outsider can't do this easily, but the merchant themselves can.
 
 **Transaction verified reviews change the power dynamic:** the merchant doesn't control the verification data. The payment processor does. If the processor says no charge exists, there's no review. Period.
 
@@ -58,15 +58,15 @@ In every case, the thing being verified against is **data the merchant supplies.
 
 Here's the concrete flow for a processor-attested, transaction-verified review:
 
-1. **A customer makes a purchase via Stripe.** Stripe processes the payment and records a charge object — containing the amount, the customer's email, the payment status, and a unique charge ID.
+1. **A customer makes a purchase via Stripe.** Stripe processes the payment and records a charge object: containing the amount, the customer's email, the payment status, and a unique charge ID.
 
-2. **The business connects their Stripe account** to the review platform via OAuth — **least-privilege access.** The platform can query charges, customers, and refunds. It cannot create, modify, or refund anything; the only write is opt-in review-incentive coupons. See [how it works](/how-it-works/) for the full setup flow.
+2. **The business connects their Stripe account** to the review platform via OAuth, **least-privilege access.** The platform can query charges, customers, and refunds. It cannot create, modify, or refund anything; the only write is opt-in review-incentive coupons. See [how it works](/how-it-works/) for the full setup flow.
 
-3. **When a new charge appears**, the platform sends a review invitation to the customer's verified payment email — the email Stripe has on file for that transaction. No invitation is sent for charges that are disputed, refunded, or flagged.
+3. **When a new charge appears**, the platform sends a review invitation to the customer's verified payment email, the email Stripe has on file for that transaction. No invitation is sent for charges that are disputed, refunded, or flagged.
 
 4. **The customer writes a review** via a unique, expiring invitation link tied to that specific charge.
 
-5. **At submission**, the platform checks that the charge still stands (not refunded, not disputed), grabs a timestamp and charge fingerprint from Stripe, and cryptographically signs the review — binding the review content, the Stripe charge metadata, and the timestamp into a tamper-evident record.
+5. **At submission**, the platform checks that the charge still stands (not refunded, not disputed), grabs a timestamp and charge fingerprint from Stripe, and cryptographically signs the review: binding the review content, the Stripe charge metadata, and the timestamp into a tamper-evident record.
 
 6. **If the charge is later refunded**, the platform receives a `charge.refunded` webhook from Stripe and automatically hides the review. The review record is preserved for audit but removed from public display.
 
@@ -83,7 +83,7 @@ The U.S. Federal Trade Commission's **Trade Regulation Rule on Consumer Reviews 
 - Undisclosed insider reviews
 - Suppression of negative reviews
 
-Transaction-verified reviews don't just comply with these rules — they make violating them **structurally more expensive than complying.** To fake a processor-attested review, you'd need to:
+Transaction-verified reviews don't just comply with these rules. They make violating them **structurally more expensive than complying.** To fake a processor-attested review, you'd need to:
 
 1. Create a real Stripe charge (pays Stripe fees, ~2.9% + $0.30)
 2. Risk Stripe account closure for fraudulent activity
@@ -102,18 +102,18 @@ Transaction-verified reviews eliminate the "is this person a real customer?" que
 - **Incentivized reviews:** A business could still offer discounts for reviews (though platforms should prohibit this).
 - **Low-quality reviews:** "Great product" with a 5-star rating is still not very useful to future buyers.
 
-Transaction verification answers one question — "did this person actually buy this product?" — definitively. It doesn't answer "is this review fair, detailed, and honest?" But answering the first question definitively is the foundation for any credible review system. Without it, you're always guessing.
+Transaction verification answers one question, "did this person actually buy this product?", definitively. It doesn't answer "is this review fair, detailed, and honest?" But answering the first question definitively is the foundation for any credible review system. Without it, you're always guessing.
 
 ---
 
 ## The bottom line
 
-"Verified" is a spectrum, not a standard. Most platforms operate at Level 3 — they trust the merchant's data. Transaction-verified reviews (Level 4) trust the payment processor — an independent third party that has no incentive to fabricate reviews and every incentive to maintain the integrity of its payment network.
+"Verified" is a spectrum, not a standard. Most platforms operate at Level 3, they trust the merchant's data. Transaction-verified reviews (Level 4) trust the payment processor, an independent third party that has no incentive to fabricate reviews and every incentive to maintain the integrity of its payment network.
 
-If you process payments through Stripe, transaction-verified reviews are available to you today — and they're the strongest anti-fake signal you can offer your customers. If you're a consumer, knowing the difference between "verified by the merchant" and "verified by the payment processor" changes how you read every review you encounter.
+If you process payments through Stripe, transaction-verified reviews are available to you today, and they're the strongest anti-fake signal you can offer your customers. If you're a consumer, knowing the difference between "verified by the merchant" and "verified by the payment processor" changes how you read every review you encounter.
 
 **Further reading:**
-- [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/) — every major platform's verification explained
-- [Stripe Verified Reviews](/blog/stripe-verified-reviews/) — the definitive guide
-- [How Stripe Review Verification Works](/blog/how-stripe-review-verification-works/) — the technical deep-dive
-- [FTC Fake Review Rule](/blog/fake-review-laws-ftc/) — what the 2024 rule means for businesses
+- [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/), every major platform's verification explained
+- [Stripe Verified Reviews](/blog/stripe-verified-reviews/), the definitive guide
+- [How Stripe Review Verification Works](/blog/how-stripe-review-verification-works/), the technical deep-dive
+- [FTC Fake Review Rule](/blog/fake-review-laws-ftc/), what the 2024 rule means for businesses

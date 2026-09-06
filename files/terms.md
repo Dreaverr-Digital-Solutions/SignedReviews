@@ -19,8 +19,8 @@ Signed Reviews is a service operated by Paid Rightly LLC.
 
 The Service has two categories of users:
 
-- **Business users** — businesses and their authorized team members who register for a Signed Reviews account at `platform.signedreviews.com` to collect, verify, and display reviews from their customers.
-- **Reviewers** — customers of those businesses who receive a review invitation via email and submit a review through a one-time link.
+: businesses and their authorized team members who register for a Signed Reviews account at `platform.signedreviews.com` to collect, verify, and display reviews from their customers.
+: customers of those businesses who receive a review invitation via email and submit a review through a one-time link.
 
 A single reviewer does not create an account with Signed Reviews; they interact with the Service only by submitting reviews and receiving verification emails.
 
@@ -54,7 +54,7 @@ Verified reviews are labeled "Purchase Verified." This label indicates that (a) 
 
 ## 3. Current pricing
 
-Signed Reviews offers a **free plan** (self-service review collection) and paid subscription plans — **Starter ($29/mo), Pro ($79/mo), and Scale ($199/mo)**, each available monthly or annually. There is no per-review charge, no commission on business transactions, and no platform fee taken from any connected Stripe account; paid plans are billed by Signed Reviews directly via Stripe and do not affect the fees you pay Stripe.
+Signed Reviews offers a **free plan** (self-service review collection) and paid subscription plans: **Starter ($29/mo), Pro ($79/mo), and Scale ($199/mo)**, each available monthly or annually. There is no per-review charge, no commission on business transactions, and no platform fee taken from any connected Stripe account; paid plans are billed by Signed Reviews directly via Stripe and do not affect the fees you pay Stripe.
 
 We may change our pricing or introduce new plans, fees, or usage-based charges in the future. We will provide at least 30 days' advance notice by email and an in-product notice before any pricing increase takes effect. If you do not agree to the new pricing, you may discontinue use of the Service before the change takes effect.
 
@@ -78,16 +78,16 @@ You may not:
 
 To use most of the Service, you first create a Signed Reviews account (email and password, magic link, or social sign-in), then **link your Stripe account**. You can link Stripe in one of two ways:
 
-- **Stripe Connect (OAuth)** — you authorize Signed Reviews from Stripe's hosted consent screen; or
-- **Restricted API key** — you create a read-restricted Stripe API key and paste it into the Service.
+: you authorize Signed Reviews from Stripe's hosted consent screen; or
+: you create a read-restricted Stripe API key and paste it into the Service.
 
 By linking your Stripe account, you:
 
-- Grant us limited access to your Stripe account: read access to charges, customers, subscriptions, and balance transactions (for review verification and the public-page metrics you enable), plus — only if you enable review incentives — the ability to create single-use, customer-restricted discount coupons for customers who submit a review.
+- Grant us limited access to your Stripe account: read access to charges, customers, subscriptions, and balance transactions (for review verification and the public-page metrics you enable), plus, only if you enable review incentives, the ability to create single-use, customer-restricted discount coupons for customers who submit a review.
 - Authorize us to receive `charge.succeeded` and `charge.refunded` events. With Stripe Connect these are delivered to our platform webhook automatically; with a restricted API key we register (or you configure) a webhook endpoint on your Stripe account for the same events.
 - Remain solely responsible for your relationship with Stripe, including compliance with Stripe's Services Agreement.
 
-We **never** initiate charges, issue refunds, move or transfer funds, take platform fees, or modify customers, subscriptions, or prices. The only write action available to the integration is creating the review-incentive coupons described above — and only when you enable review incentives.
+We **never** initiate charges, issue refunds, move or transfer funds, take platform fees, or modify customers, subscriptions, or prices. The only write action available to the integration is creating the review-incentive coupons described above, and only when you enable review incentives.
 
 You can disconnect your Stripe account at any time through the Service. Doing so stops future review requests from being triggered; your Signed Reviews account and existing reviews remain intact.
 
@@ -168,7 +168,7 @@ This license continues for as long as Your Content remains on the Service. If Yo
 
 We do not pre-screen, moderate, or verify the accuracy of reviews or other user-generated content before it is published. Reviews go live immediately on submission.
 
-We commit to reviewing every abuse report we receive — whether submitted via the in-product "Report" link on a public review page or by email to legal@signedreviews.com — **within 7 business days** of receipt. We will take appropriate action where warranted, including, in our sole discretion, hiding the content from public surfaces (the public review page and public API), terminating the offending account, or referring the matter to law enforcement. For DMCA copyright complaints, see Section 17.
+We commit to reviewing every abuse report we receive, whether submitted via the in-product "Report" link on a public review page or by email to legal@signedreviews.com, **within 7 business days** of receipt. We will take appropriate action where warranted, including, in our sole discretion, hiding the content from public surfaces (the public review page and public API), terminating the offending account, or referring the matter to law enforcement. For DMCA copyright complaints, see Section 17.
 
 ### 8.4 Refunded transactions
 
@@ -309,7 +309,7 @@ If you believe content on the Service infringes a copyright you own or control, 
 - A physical or electronic signature of the copyright owner or a person authorized to act on their behalf
 - Identification of the copyrighted work claimed to have been infringed
 - Identification of the allegedly infringing material with enough detail (URL or specific review identifier) for us to locate it
-- Your contact information — name, mailing address, telephone number, and email address
+- Your contact information: name, mailing address, telephone number, and email address
 - A statement that you have a good-faith belief that the contested use is not authorized by the copyright owner, its agent, or the law
 - A statement, made under penalty of perjury, that the information in the notice is accurate and that you are the copyright owner or are authorized to act on the copyright owner's behalf
 
@@ -343,7 +343,7 @@ Before initiating any arbitration or legal action, you and Paid Rightly LLC agre
 
 ### 18.2 Agreement to arbitrate
 
-If informal resolution does not resolve the dispute, you and Paid Rightly LLC agree that **any dispute, claim, or controversy arising out of or relating to these Terms or the Service — except for the carve-outs in Section 18.4 — will be resolved by binding individual arbitration** rather than in court.
+If informal resolution does not resolve the dispute, you and Paid Rightly LLC agree that **any dispute, claim, or controversy arising out of or relating to these Terms or the Service, except for the carve-outs in Section 18.4, will be resolved by binding individual arbitration** rather than in court.
 
 The arbitration will be administered by the **American Arbitration Association (AAA)** under its Consumer Arbitration Rules (or its Commercial Rules, if applicable based on the claim), available at [www.adr.org](https://www.adr.org). If AAA is unavailable, the parties will agree on an alternative arbitrator; if they cannot agree, a court may appoint one. The arbitration will be conducted in English. The seat of arbitration will be **Albuquerque, New Mexico**, though the arbitrator may conduct proceedings remotely or by written submission where feasible, and hearings may be held elsewhere with the parties' agreement.
 
@@ -361,9 +361,9 @@ If the class action waiver is found to be unenforceable in a particular case, th
 
 The following disputes are **not** subject to mandatory arbitration and may be brought in court:
 
-- **Small claims court actions** — either party may bring an individual claim in a small claims court of competent jurisdiction, as long as the matter stays in that court and is not removed or appealed to a court of general jurisdiction.
-- **Injunctive relief** — either party may seek temporary or preliminary injunctive relief in a court of competent jurisdiction to address urgent harms (such as misuse of login credentials, unauthorized scraping, or breaches of Section 9).
-- **Intellectual property disputes** — either party may bring a court action to protect its intellectual property rights (including claims of infringement, misappropriation of trade secrets, or enforcement of license terms).
+: either party may bring an individual claim in a small claims court of competent jurisdiction, as long as the matter stays in that court and is not removed or appealed to a court of general jurisdiction.
+: either party may seek temporary or preliminary injunctive relief in a court of competent jurisdiction to address urgent harms (such as misuse of login credentials, unauthorized scraping, or breaches of Section 9).
+: either party may bring a court action to protect its intellectual property rights (including claims of infringement, misappropriation of trade secrets, or enforcement of license terms).
 
 ### 18.5 Opt-out of arbitration
 

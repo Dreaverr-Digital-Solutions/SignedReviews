@@ -4,7 +4,7 @@
  *
  * Owns the shared header/footer used by every secondary page (legal + marketing
  * routes). The home page (`index.html`) keeps its own bespoke layout and is left
- * untouched here — only the secondary routes are generated.
+ * untouched here, only the secondary routes are generated.
  *
  * Output (relative to repo root):
  *   /privacy/index.html
@@ -208,7 +208,7 @@ function breadcrumbJsonLd(title, canonical, slug) {
   if (slug.startsWith('/blog/') && slug !== '/blog/') {
     crumbs.push({ name: 'Blog', url: `${SITE_URL}/blog/` });
   }
-  crumbs.push({ name: title.split(' — ')[0].trim() || title, url: canonical });
+  crumbs.push({ name: title.split(', ')[0].trim() || title, url: canonical });
   return `\n  <script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -927,7 +927,7 @@ const LEGAL_PAGES = [
     title: 'Privacy Policy',
     eyebrow: 'Legal',
     subtitle: 'How Paid Rightly LLC collects, uses, and protects information when you use Signed Reviews.',
-    metaDesc: 'Privacy Policy for Signed Reviews — operated by Paid Rightly LLC. Learn what we collect, how we use it, and your rights.',
+    metaDesc: 'Privacy Policy for Signed Reviews, operated by Paid Rightly LLC. Learn what we collect, how we use it, and your rights.',
   },
   {
     slug: '/terms/',
@@ -935,7 +935,7 @@ const LEGAL_PAGES = [
     title: 'Terms of Service',
     eyebrow: 'Legal',
     subtitle: 'The agreement between you and Paid Rightly LLC for use of Signed Reviews.',
-    metaDesc: 'Terms of Service for Signed Reviews — operated by Paid Rightly LLC. Read before using the platform.',
+    metaDesc: 'Terms of Service for Signed Reviews, operated by Paid Rightly LLC. Read before using the platform.',
   },
   {
     slug: '/refund-policy/',
@@ -943,7 +943,7 @@ const LEGAL_PAGES = [
     title: 'Refund and Cancellation Policy',
     eyebrow: 'Legal',
     subtitle: 'How refunds and cancellations work for Signed Reviews.',
-    metaDesc: 'Refund and Cancellation Policy for Signed Reviews. Free plan plus paid tiers from $29/mo — full policy.',
+    metaDesc: 'Refund and Cancellation Policy for Signed Reviews. Free plan plus paid tiers from $29/mo, full policy.',
   },
   {
     slug: '/subprocessors/',
@@ -951,7 +951,7 @@ const LEGAL_PAGES = [
     title: 'Sub-processors',
     eyebrow: 'Legal',
     subtitle: 'Third-party service providers Paid Rightly LLC uses to operate Signed Reviews.',
-    metaDesc: 'Full list of sub-processors used by Signed Reviews — what they do, what data they touch, and where they operate.',
+    metaDesc: 'Full list of sub-processors used by Signed Reviews: what they do, what data they touch, and where they operate.',
   },
   {
     slug: '/dpa/',
@@ -959,7 +959,7 @@ const LEGAL_PAGES = [
     title: 'Data Processing Agreement',
     eyebrow: 'Legal',
     subtitle: 'Our processor obligations to you under GDPR Article 28 and equivalent privacy laws when we handle your customers\u2019 data on your behalf.',
-    metaDesc: 'Data Processing Agreement (DPA) for Signed Reviews — the contract between Paid Rightly LLC (processor) and the Business User (controller) governing review-data handling under GDPR, UK GDPR, Swiss FADP, and CCPA/CPRA.',
+    metaDesc: 'Data Processing Agreement (DPA) for Signed Reviews: the contract between Paid Rightly LLC (processor) and the Business User (controller) governing review-data handling under GDPR, UK GDPR, Swiss FADP, and CCPA/CPRA.',
   },
   {
     slug: '/dmca/',
@@ -967,7 +967,7 @@ const LEGAL_PAGES = [
     title: 'DMCA and Copyright Policy',
     eyebrow: 'Legal',
     subtitle: 'How to submit a DMCA takedown notice or counter-notification, and our designated copyright agent.',
-    metaDesc: 'DMCA and Copyright Policy for Signed Reviews — submit takedown notices and counter-notifications to our designated copyright agent under 17 U.S.C. § 512.',
+    metaDesc: 'DMCA and Copyright Policy for Signed Reviews, submit takedown notices and counter-notifications to our designated copyright agent under 17 U.S.C. § 512.',
   },
 ];
 
@@ -979,7 +979,7 @@ function buildLegal() {
     const bodyNoH1 = renderedBody.replace(/<h1[^>]*>[\s\S]*?<\/h1>/, '');
     const toc = buildToc(bodyNoH1);
     const html = page({
-      title: `${p.title} — ${COMPANY.brand}`,
+      title: `${p.title}, ${COMPANY.brand}`,
       description: p.metaDesc,
       slug: p.slug,
       hero: { eyebrow: p.eyebrow, title: p.title, subtitle: p.subtitle },
@@ -1238,7 +1238,7 @@ function buildPricing() {
     <span class="dot" aria-hidden="true"></span>
     <p>
       <strong>Free plan, always.</strong>
-      There's a free plan for self-service collection. Paid plans from $29/mo add an automated, verified review request on every Stripe sale — see our <a href="${B}refund-policy/">Refund and Cancellation Policy</a>.
+      There's a free plan for self-service collection. Paid plans from $29/mo add an automated, verified review request on every Stripe sale. See our <a href="${B}refund-policy/">Refund and Cancellation Policy</a>.
     </p>
   </div>
 
@@ -1254,7 +1254,7 @@ function buildPricing() {
       <article class="tier">
         <header class="tier-header">
           <h2 class="tier-name">Free</h2>
-          <p class="tier-persona">Self-service review collection — your customers come to you.</p>
+          <p class="tier-persona">Self-service review collection, your customers come to you.</p>
         </header>
         <div class="tier-price-block">
           <div class="tier-price">
@@ -1268,7 +1268,7 @@ function buildPricing() {
         </p>
         <ul class="tier-features">
           <li class="feature-primary">10 free automated review invitations</li>
-          <li>Self-service: your page + badge carry a "Leave a verified review" CTA — share your link or QR</li>
+          <li>Self-service: your page + badge carry a "Leave a verified review" CTA, share your link or QR</li>
           <li>All collected reviews visible forever</li>
           <li>Hosted public review page + read-only public API + badge</li>
           <li>Build your own page with the read-only public API</li>
@@ -1280,7 +1280,7 @@ function buildPricing() {
       <article class="tier">
         <header class="tier-header">
           <h2 class="tier-name">Starter</h2>
-          <p class="tier-persona">Automation starts here — a verified request on every Stripe sale.</p>
+          <p class="tier-persona">Automation starts here, a verified request on every Stripe sale.</p>
         </header>
         <div class="tier-price-block" data-m-amt="$29" data-m-per="/ month" data-a-amt="$290" data-a-per="/ year">
           <div class="tier-price">
@@ -1363,7 +1363,7 @@ function buildPricing() {
 
   <div class="compare-intro">
     <h2>Compare plans in detail</h2>
-    <p>Every feature, by tier — so you can see exactly where you belong.</p>
+    <p>Every feature, by tier, so you can see exactly where you belong.</p>
   </div>
   <div class="compare-table-wrap">
     <table class="compare-table">
@@ -1475,19 +1475,19 @@ function buildPricing() {
   <section class="assurances" aria-label="Common questions">
     <article class="assurance">
       <h3>The trust badge stays on every plan.</h3>
-      <p>"Verified by Signed Reviews" is how your visitors know each review was signed by a real Stripe purchase. It's a trust mark, not a paywall — it's included at every tier, including Free.</p>
+      <p>"Verified by Signed Reviews" is how your visitors know each review was signed by a real Stripe purchase. It's a trust mark, not a paywall. It's included at every tier, including Free.</p>
     </article>
     <article class="assurance">
       <h3>Minimal Stripe permissions.</h3>
-      <p>We never charge, refund, or move funds — and we never change your customers, subscriptions, or prices. The only thing we can ever create in your Stripe account is a discount coupon for a reviewer, and only when you enable review incentives. We read your Stripe data only to verify reviews and to compute the public-page metrics you choose to show.</p>
+      <p>We never charge, refund, or move funds, and we never change your customers, subscriptions, or prices. The only thing we can ever create in your Stripe account is a discount coupon for a reviewer, and only when you enable review incentives. We read your Stripe data only to verify reviews and to compute the public-page metrics you choose to show.</p>
     </article>
     <article class="assurance">
       <h3>The API can't create reviews.</h3>
-      <p>No matter which plan you're on, reviews only come from real customers clicking real signed invitation links. Our API is read-only — it retrieves and displays reviews but can never create them. The badge stays meaningful because the rule doesn't bend.</p>
+      <p>No matter which plan you're on, reviews only come from real customers clicking real signed invitation links. Our API is read-only. It retrieves and displays reviews but can never create them. The badge stays meaningful because the rule doesn't bend.</p>
     </article>
     <article class="assurance">
       <h3>No surprise billing.</h3>
-      <p>Choose a tier and cancel anytime. Annual billing saves two months — never an auto-charge.</p>
+      <p>Choose a tier and cancel anytime. Annual billing saves two months, never an auto-charge.</p>
     </article>
   </section>
 
@@ -1525,13 +1525,13 @@ function buildPricing() {
 `;
 
   const html = page({
-    title: `Pricing — ${COMPANY.brand}`,
-    description: 'Signed Reviews pricing — Free, Starter, Pro, and Scale plans. Free plan for self-service; paid plans from $29/mo.',
+    title: `Pricing, ${COMPANY.brand}`,
+    description: 'Signed Reviews pricing: Free, Starter, Pro, and Scale plans. Free plan for self-service; paid plans from $29/mo.',
     slug: '/pricing/',
     hero: {
       eyebrow: 'Pricing',
       title: 'Plans that scale with real customer reviews.',
-      subtitle: 'Every plan includes the "Verified by Signed Reviews" trust badge — the mark that tells your visitors each review was signed by a real Stripe purchase.',
+      subtitle: 'Every plan includes the "Verified by Signed Reviews" trust badge, the mark that tells your visitors each review was signed by a real Stripe purchase.',
     },
     body,
     active: 'pricing',
@@ -1574,7 +1574,7 @@ function buildContact() {
     </article>`;
 
   const html = page({
-    title: `Contact — ${COMPANY.brand}`,
+    title: `Contact, ${COMPANY.brand}`,
     description: `Contact Paid Rightly LLC, the operator of Signed Reviews. Support: ${COMPANY.supportEmail}. Legal: ${COMPANY.legalEmail}.`,
     slug: '/contact/',
     hero: {
@@ -1594,7 +1594,7 @@ function buildAbout() {
     <article class="prose">
       <h2>What we do</h2>
       <p>${COMPANY.description}</p>
-      <p>Every review collected through our platform is tied to a real, completed Stripe transaction. A review link is issued either automatically after a charge succeeds (emailed to the buyer's verified address) or on request from the business's public page — and in both cases the email must match an actual purchase. Each review is cryptographically signed so anyone can later verify it hasn't been altered. The result is a review record that ties back to a specific, completed payment — instead of a star rating posted by an anonymous account that may never have purchased anything.</p>
+      <p>Every review collected through our platform is tied to a real, completed Stripe transaction. A review link is issued either automatically after a charge succeeds (emailed to the buyer's verified address) or on request from the business's public page, and in both cases the email must match an actual purchase. Each review is cryptographically signed so anyone can later verify it hasn't been altered. The result is a review record that ties back to a specific, completed payment, instead of a star rating posted by an anonymous account that may never have purchased anything.</p>
 
       <h2>Who operates Signed Reviews</h2>
       <p>${COMPANY.brand} is operated by <strong>${COMPANY.legalName}</strong>, a New Mexico limited liability company headquartered in Albuquerque. ${COMPANY.legalName} is the controller of business-user data and the processor of reviewer data on behalf of our business customers. The full breakdown is described in our <a href="${B}privacy/">Privacy Policy</a> and the third parties we rely on are listed in our <a href="${B}subprocessors/">Sub-processors page</a>.</p>
@@ -1604,10 +1604,10 @@ function buildAbout() {
 
       <h2>Things we deliberately don't do</h2>
       <ul class="feature-list">
-        <li>No advertising networks, cross-site tracking, or data brokers — our only analytics is first-party PostHog (form inputs masked, no third-party trackers)</li>
-        <li>No selling or sharing of personal data — we are not in the data-broker business</li>
-        <li>Limited Stripe permissions — we read charges, customers, and subscriptions, and only ever write review-incentive coupons when you enable them</li>
-        <li>No fake or seeded reviews — a review only exists if a real, completed Stripe transaction backs it</li>
+        <li>No advertising networks, cross-site tracking, or data brokers. Our only analytics is first-party PostHog (form inputs masked, no third-party trackers)</li>
+        <li>No selling or sharing of personal data. We are not in the data-broker business</li>
+        <li>Limited Stripe permissions: we read charges, customers, and subscriptions, and only ever write review-incentive coupons when you enable them</li>
+        <li>No fake or seeded reviews, a review only exists if a real, completed Stripe transaction backs it</li>
       </ul>
 
       <h2>Contact</h2>
@@ -1620,7 +1620,7 @@ function buildAbout() {
     </article>`;
 
   const html = page({
-    title: `About — ${COMPANY.brand}`,
+    title: `About, ${COMPANY.brand}`,
     description: `About ${COMPANY.brand}, the verified-reviews platform operated by ${COMPANY.legalName}.`,
     slug: '/about/',
     hero: {
@@ -1648,19 +1648,19 @@ function buildFaq() {
     },
     {
       q: 'How is Signed Reviews different from Trustpilot?',
-      a: 'Unlike Trustpilot, which allows anyone to write a review without verifying a purchase, Signed Reviews requires a completed Stripe transaction before a review can be submitted. This means every review on Signed Reviews is backed by proof of purchase, eliminating fake reviews by design. Trustpilot removed 2.7 million fake reviews in 2022 alone — Signed Reviews prevents them from being written in the first place.',
+      a: 'Unlike Trustpilot, which allows anyone to write a review without verifying a purchase, Signed Reviews requires a completed Stripe transaction before a review can be submitted. This means every review on Signed Reviews is backed by proof of purchase, eliminating fake reviews by design. Trustpilot removed 2.7 million fake reviews in 2022 alone. Signed Reviews prevents them from being written in the first place.',
     },
     {
       q: 'Do I need to share my Stripe API keys?',
-      a: 'No. Signed Reviews uses Stripe\'s official OAuth integration, which means you grant minimal permissions with one click — no API keys to copy, paste, or store. We can never charge, refund, or move funds, and we never change your customers, subscriptions, or prices. The only thing we can ever create is a discount coupon for a reviewer, and only when you enable review incentives.',
+      a: 'No. Signed Reviews uses Stripe\'s official OAuth integration, which means you grant minimal permissions with one click: no API keys to copy, paste, or store. We can never charge, refund, or move funds, and we never change your customers, subscriptions, or prices. The only thing we can ever create is a discount coupon for a reviewer, and only when you enable review incentives.',
     },
     {
       q: 'Can customers leave reviews without a purchase?',
-      a: 'No. Every review requires a verified purchase. A review link is issued in one of two ways: automatically after a Stripe charge succeeds (emailed to the customer\'s verified email from the transaction), or on request — a customer can visit the business\'s public page and enter their checkout email to receive their own link. In both cases, the email must match a real completed purchase on the business\'s Stripe account. Without a matching purchase, no link is issued and no review can be submitted.',
+      a: 'No. Every review requires a verified purchase. A review link is issued in one of two ways: automatically after a Stripe charge succeeds (emailed to the customer\'s verified email from the transaction), or on request. A customer can visit the business\'s public page and enter their checkout email to receive their own link. In both cases, the email must match a real completed purchase on the business\'s Stripe account. Without a matching purchase, no link is issued and no review can be submitted.',
     },
     {
       q: 'What happens if a charge is refunded?',
-      a: 'If a charge is refunded, the associated review is automatically hidden from your public page and API responses. The cryptographic signature remains valid — proving the review was authentic — but the content is no longer displayed. This keeps your review feed accurate while preserving the integrity of the verification system.',
+      a: 'If a charge is refunded, the associated review is automatically hidden from your public page and API responses. The cryptographic signature remains valid, proving the review was authentic, but the content is no longer displayed. This keeps your review feed accurate while preserving the integrity of the verification system.',
     },
     {
       q: 'How long are review invitation links valid?',
@@ -1672,7 +1672,7 @@ function buildFaq() {
     },
     {
       q: 'Does Signed Reviews work with Shopify, WooCommerce, or Squarespace?',
-      a: 'Yes. Signed Reviews is a Stripe App, so it installs in one click and connects to your Stripe account — including accounts that Shopify, WooCommerce, or Squarespace manage on your behalf. If your checkout runs on Stripe, your reviews can be verified, with no separate plugin required.',
+      a: 'Yes. Signed Reviews is a Stripe App, so it installs in one click and connects to your Stripe account, including accounts that Shopify, WooCommerce, or Squarespace manage on your behalf. If your checkout runs on Stripe, your reviews can be verified, with no separate plugin required.',
     },
     {
       q: 'Is Signed Reviews free?',
@@ -1716,7 +1716,7 @@ function buildFaq() {
   </article>`;
 
   const html = page({
-    title: 'FAQ — Signed Reviews',
+    title: 'FAQ. Signed Reviews',
     description: 'Frequently asked questions about Signed Reviews: how purchase verification works, Stripe integration, pricing, security, and more.',
     slug: '/faq/',
     hero: { eyebrow: 'FAQ', title: 'Frequently Asked Questions', subtitle: 'Answers to common questions about review verification, Stripe, and pricing.' },
@@ -1808,7 +1808,7 @@ function buildBlog() {
     </article>`;
 
     const html = page({
-      title: post.metaTitle.includes('Signed Reviews') ? post.metaTitle : `${post.metaTitle} — Signed Reviews Blog`,
+      title: post.metaTitle.includes('Signed Reviews') ? post.metaTitle : `${post.metaTitle}. Signed Reviews Blog`,
       description: post.desc,
       slug: post.slug,
       pageType: 'article',
@@ -1837,7 +1837,7 @@ function buildBlog() {
             name: 'How often should I ask for reviews?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Ask SaaS customers once per subscription milestone—end of free trial, first month payment, annual renewal—rather than after every interaction.',
+              text: 'Ask SaaS customers once per subscription milestone, end of free trial, first month payment, annual renewal, rather than after every interaction.',
             },
           },
           {
@@ -1909,7 +1909,7 @@ function buildBlog() {
             name: 'Where is the Trustpilot pricing page and what does it show?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: "The Trustpilot pricing page is at business.trustpilot.com/pricing. It shows the free plan in detail but lists no prices for paid plans — Growth, Scale, and Enterprise all sit behind a contact form or demo request, and add-on costs (API access, Google Seller Ratings, extra seats) are only revealed in the sales conversation.",
+              text: "The Trustpilot pricing page is at business.trustpilot.com/pricing. It shows the free plan in detail but lists no prices for paid plans: Growth, Scale, and Enterprise all sit behind a contact form or demo request, and add-on costs (API access, Google Seller Ratings, extra seats) are only revealed in the sales conversation.",
             },
           },
           {
@@ -1925,7 +1925,7 @@ function buildBlog() {
             name: 'Is the Trustpilot free plan worth using?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: "The free plan gives you a public profile and the ability to respond to organic reviews, but no way to proactively collect them. Organic reviews skew negative — unhappy customers seek Trustpilot out — so a free profile often becomes a complaint wall rather than a marketing asset.",
+              text: "The free plan gives you a public profile and the ability to respond to organic reviews, but no way to proactively collect them. Organic reviews skew negative, unhappy customers seek Trustpilot out, so a free profile often becomes a complaint wall rather than a marketing asset.",
             },
           },
         ],
@@ -1941,7 +1941,7 @@ function buildBlog() {
             name: 'What does an unprompted review mean?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'An unprompted review is one the business never asked for — no invitation was sent and no review link was clicked. Nothing was verified: no purchase confirmed, no identity checked, so it sits at the unverified level, and open posting makes it cheap to fabricate.',
+              text: 'An unprompted review is one the business never asked for, no invitation was sent and no review link was clicked. Nothing was verified: no purchase confirmed, no identity checked, so it sits at the unverified level, and open posting makes it cheap to fabricate.',
             },
           },
           {
@@ -1949,7 +1949,7 @@ function buildBlog() {
             name: "What does 'reviewed and verified' mean on a product page?",
             acceptedAnswer: {
               '@type': 'Answer',
-              text: "It usually means the reviewer's email matched the merchant's own order records (Level 3, attested by the merchant). Only on processor-attested platforms does it mean an independent payment processor confirmed the transaction (Level 4). The label is not the proof — who did the verifying is.",
+              text: "It usually means the reviewer's email matched the merchant's own order records (Level 3, attested by the merchant). Only on processor-attested platforms does it mean an independent payment processor confirmed the transaction (Level 4). The label is not the proof, who did the verifying is.",
             },
           },
         ],
@@ -1965,7 +1965,7 @@ function buildBlog() {
             name: 'Is there a real review checker that actually works?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Yes. A real review checker scores review text for the writing-pattern signals fakes leave behind — generic praise, superlative density, repeated phrasing, missing concrete detail — and shows what it found instead of a single opaque score. It must also disclose its limits: pattern scoring is a screen, not proof. Signed Reviews\' free checker scores any pasted review and explains every signal it flags.',
+              text: 'Yes. A real review checker scores review text for the writing-pattern signals fakes leave behind (generic praise, superlative density, repeated phrasing, missing concrete detail) and shows what it found instead of a single opaque score. It must also disclose its limits: pattern scoring is a screen, not proof. Signed Reviews\' free checker scores any pasted review and explains every signal it flags.',
             },
           },
         ],
@@ -1981,7 +1981,7 @@ function buildBlog() {
             name: "What does 'verified buyer' mean on product reviews?",
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'It means the platform claims the reviewer bought the product. The credibility depends entirely on who attests to the purchase — an independent payment processor (strong) or only the merchant (weak). Always check which system is used.',
+              text: 'It means the platform claims the reviewer bought the product. The credibility depends entirely on who attests to the purchase, an independent payment processor (strong) or only the merchant (weak). Always check which system is used.',
             },
           },
           {
@@ -2020,7 +2020,7 @@ function buildBlog() {
   </article>`;
 
   const indexHtml = page({
-    title: 'Blog — Signed Reviews',
+    title: 'Blog. Signed Reviews',
     description: 'Insights on review authenticity, e-commerce trust, Stripe integrations, and verified customer reviews.',
     slug: '/blog/',
     hero: { eyebrow: 'Blog', title: 'Signed Reviews Blog', subtitle: 'Insights on review authenticity, trust, and the Stripe ecosystem.' },
@@ -2034,11 +2034,11 @@ function buildBlog() {
 // ── How It Works page ─────────────────────────────────────────────────────────
 function buildHowItWorks() {
   const steps = [
-    { num: '1', title: 'Connect your Stripe account', body: 'One click. You authorize Signed Reviews via Stripe\'s official OAuth flow. We get <strong>minimal permissions</strong> — we can verify charges but can never charge, refund, or move funds. The only write we use is creating discount coupons for reviewers, and only when you enable review incentives.' },
+    { num: '1', title: 'Connect your Stripe account', body: 'One click. You authorize Signed Reviews via Stripe\'s official OAuth flow. We get <strong>minimal permissions</strong>: we can verify charges but can never charge, refund, or move funds. The only write we use is creating discount coupons for reviewers, and only when you enable review incentives.' },
     { num: '2', title: 'Customer completes a purchase', body: 'A customer buys from you. Stripe processes the payment as usual. Signed Reviews detects the <code>charge.succeeded</code> event and automatically creates a unique, expiring review invitation linked to that specific transaction.' },
-    { num: '3', title: 'Review invitation is sent', body: 'The invitation email is sent to the customer\'s verified payment email from the Stripe transaction. You control the timing — immediately, after a delay (for shipped products), or on delivery via our delivery webhook. The email carries your branding and logo.' },
-    { num: '4', title: 'Customer submits their review', body: 'The customer clicks the unique link, writes their review, and submits it. At the moment of submission, the review content, transaction ID, customer email, and timestamp are <strong>cryptographically signed</strong> — creating a tamper-evident record.' },
-    { num: '5', title: 'Review is verified and published', body: 'The signed review appears on your public page and in your dashboard. The cryptographic signature can be independently verified by anyone — proving the review came from a real customer, about a real purchase, and hasn\'t been altered.' },
+    { num: '3', title: 'Review invitation is sent', body: 'The invitation email is sent to the customer\'s verified payment email from the Stripe transaction. You control the timing: immediately, after a delay (for shipped products), or on delivery via our delivery webhook. The email carries your branding and logo.' },
+    { num: '4', title: 'Customer submits their review', body: 'The customer clicks the unique link, writes their review, and submits it. At the moment of submission, the review content, transaction ID, customer email, and timestamp are <strong>cryptographically signed</strong>, creating a tamper-evident record.' },
+    { num: '5', title: 'Review is verified and published', body: 'The signed review appears on your public page and in your dashboard. The cryptographic signature can be independently verified by anyone: proving the review came from a real customer, about a real purchase, and hasn\'t been altered.' },
     { num: '6', title: 'Optional: reminders and follow-ups', body: 'If the customer hasn\'t left a review after a few days, automatic reminders are sent (configurable cadence). Reminders stop when the customer clicks the link, submits a review, or unsubscribes. You can also trigger review requests at delivery time via our webhook.' },
   ];
 
@@ -2055,7 +2055,7 @@ function buildHowItWorks() {
   `;
 
   const body = `<article class="prose">
-    <p>From Stripe purchase to verified review in six steps. The entire flow is automated — you connect once, and Signed Reviews handles the rest.</p>
+    <p>From Stripe purchase to verified review in six steps. The entire flow is automated. You connect once, and Signed Reviews handles the rest.</p>
     ${steps.map(s => `
     <div class="step">
       <div class="step-num">${s.num}</div>
@@ -2068,8 +2068,8 @@ function buildHowItWorks() {
   </article>`;
 
   const html = page({
-    title: 'How It Works — Signed Reviews',
-    description: 'See how Signed Reviews verifies reviews: connect Stripe, customer purchases, auto-send invitation, customer reviews, cryptographic signing, and publishing — all automated.',
+    title: 'How It Works. Signed Reviews',
+    description: 'See how Signed Reviews verifies reviews: connect Stripe, customer purchases, auto-send invitation, customer reviews, cryptographic signing, and publishing, all automated.',
     slug: '/how-it-works/',
     hero: { eyebrow: 'How It Works', title: 'From purchase to verified review', subtitle: 'Six automated steps. Zero manual work. Every review cryptographically backed by a real Stripe transaction.' },
     body,
@@ -2088,68 +2088,68 @@ function buildHowItWorks() {
 function buildHowVerificationWorks() {
   const slug = '/how-verification-works/';
   const body = `<article class="prose">
-    <p><strong>A "verified" review is only as strong as its verification source.</strong> Every review platform puts a badge on some of its reviews — but the badge can mean anything from "the business emailed this person" to "a payment processor independently confirmed a real charge from this customer." Here are the four levels, what each one actually proves, and why the source of the verification matters more than the badge itself.</p>
+    <p><strong>A "verified" review is only as strong as its verification source.</strong> Every review platform puts a badge on some of its reviews, but the badge can mean anything from "the business emailed this person" to "a payment processor independently confirmed a real charge from this customer." Here are the four levels, what each one actually proves, and why the source of the verification matters more than the badge itself.</p>
 
     <h2>The four verification levels</h2>
 
-    <h3>Level 0 — Open platforms (no verification)</h3>
+    <h3>Level 0. Open platforms (no verification)</h3>
     <p>Anyone can post a review about any business, with or without an account, with no proof of any interaction. Examples: parts of Google Maps reviews, forum-style feedback, and platforms that accept reviews from non-customers. These reviews can still be useful in aggregate, but no individual review proves anything about a real purchase.</p>
 
-    <h3>Level 1 — Email invitation (self-attested)</h3>
-    <p>The business invites a customer by email, and the review platform trusts the business's claim that this email belongs to a real customer. The reviewer's identity is never independently confirmed. This is the model used by most review platforms — including Trustpilot's "Verified" label, which means "the business invited this reviewer," not "this person bought the product."</p>
+    <h3>Level 1. Email invitation (self-attested)</h3>
+    <p>The business invites a customer by email, and the review platform trusts the business's claim that this email belongs to a real customer. The reviewer's identity is never independently confirmed. This is the model used by most review platforms, including Trustpilot's "Verified" label, which means "the business invited this reviewer," not "this person bought the product."</p>
 
-    <h3>Level 2 — Receipt or order-number upload</h3>
-    <p>The reviewer attaches a receipt, order number, or screenshot as proof of purchase. Stronger than an invitation, but the evidence is supplied by the reviewer themselves and is trivially falsifiable — receipts are easy to generate, and order numbers are guessable. Platforms that offer this usually apply it only when someone disputes a review.</p>
+    <h3>Level 2. Receipt or order-number upload</h3>
+    <p>The reviewer attaches a receipt, order number, or screenshot as proof of purchase. Stronger than an invitation, but the evidence is supplied by the reviewer themselves and is trivially falsifiable, receipts are easy to generate, and order numbers are guessable. Platforms that offer this usually apply it only when someone disputes a review.</p>
 
-    <h3>Level 3 — Merchant-supplied order data</h3>
-    <p>The business sends the platform a feed of its own orders (or connects its e-commerce system), and the platform matches reviews to records in that feed. This is the model behind Yotpo's "Verified Buyer" (Mail-After-Purchase matching) and Feefo's invitation-only reviews. It is a real improvement over Levels 0–2 — but the party being reviewed (the merchant) is also the party supplying the verification data, and the merchant controls that data in its own systems.</p>
+    <h3>Level 3. Merchant-supplied order data</h3>
+    <p>The business sends the platform a feed of its own orders (or connects its e-commerce system), and the platform matches reviews to records in that feed. This is the model behind Yotpo's "Verified Buyer" (Mail-After-Purchase matching) and Feefo's invitation-only reviews. It is a real improvement over Levels 0–2, but the party being reviewed (the merchant) is also the party supplying the verification data, and the merchant controls that data in its own systems.</p>
 
-    <h3>Level 4 — Processor-attested (independently verified)</h3>
-    <p>A neutral third party — the payment processor — independently confirms that a real charge occurred between this specific customer and this specific business before a review can exist. The merchant cannot invite a reviewer whose payment the processor has not seen, cannot edit the record, and cannot remove the verification after the fact. This is the level Signed Reviews provides: every review is bound to a specific Stripe charge ID and cryptographically signed at submission.</p>
+    <h3>Level 4. Processor-attested (independently verified)</h3>
+    <p>A neutral third party, the payment processor, independently confirms that a real charge occurred between this specific customer and this specific business before a review can exist. The merchant cannot invite a reviewer whose payment the processor has not seen, cannot edit the record, and cannot remove the verification after the fact. This is the level Signed Reviews provides: every review is bound to a specific Stripe charge ID and cryptographically signed at submission.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Verification level</th><th>Who supplies the evidence</th><th>What "verified" proves</th><th>Example</th></tr></thead>
       <tbody>
-        <tr><td>Level 0 — Open</td><td>Nobody</td><td>That a review was posted</td><td>Open platforms</td></tr>
-        <tr><td>Level 1 — Email invitation</td><td>The business</td><td>That the business sent an invite</td><td>Trustpilot "Verified"</td></tr>
-        <tr><td>Level 2 — Receipt upload</td><td>The reviewer</td><td>That the reviewer attached something</td><td>Dispute flows on some platforms</td></tr>
-        <tr><td>Level 3 — Merchant-supplied feed</td><td>The business (its own records)</td><td>That the review matches a merchant order</td><td>Yotpo "Verified Buyer", Feefo</td></tr>
-        <tr class="highlight-row"><td>Level 4 — Processor-attested</td><td>The payment processor</td><td>That a real payment occurred</td><td>Signed Reviews (Stripe)</td></tr>
+        <tr><td>Level 0. Open</td><td>Nobody</td><td>That a review was posted</td><td>Open platforms</td></tr>
+        <tr><td>Level 1. Email invitation</td><td>The business</td><td>That the business sent an invite</td><td>Trustpilot "Verified"</td></tr>
+        <tr><td>Level 2. Receipt upload</td><td>The reviewer</td><td>That the reviewer attached something</td><td>Dispute flows on some platforms</td></tr>
+        <tr><td>Level 3. Merchant-supplied feed</td><td>The business (its own records)</td><td>That the review matches a merchant order</td><td>Yotpo "Verified Buyer", Feefo</td></tr>
+        <tr class="highlight-row"><td>Level 4. Processor-attested</td><td>The payment processor</td><td>That a real payment occurred</td><td>Signed Reviews (Stripe)</td></tr>
       </tbody>
     </table>
     </div>
 
     <h2>Why the verification source matters</h2>
-    <p>The source decides whether fake reviews are <em>prevented</em> or merely <em>detected</em>. On Levels 0–3, a fake review is an invitation list or a doctored order away — the platform can only police reviews after they appear. On Level 4, a fake review from a non-customer is structurally impossible, because the review flow starts with a confirmed transaction rather than a claim about one.</p>
-    <p>The scale of the problem is measurable. Trustpilot removed <strong>4.5 million fake reviews in 2024 — 7.4% of all reviews submitted</strong> to the platform that year. That is a detection system working at scale, not a prevention system: the fakes were already live, already influencing shoppers, before they were removed.</p>
+    <p>The source decides whether fake reviews are <em>prevented</em> or merely <em>detected</em>. On Levels 0–3, a fake review is an invitation list or a doctored order away. The platform can only police reviews after they appear. On Level 4, a fake review from a non-customer is structurally impossible, because the review flow starts with a confirmed transaction rather than a claim about one.</p>
+    <p>The scale of the problem is measurable. Trustpilot removed <strong>4.5 million fake reviews in 2024, which is 7.4% of all reviews submitted</strong> to the platform that year. That is a detection system working at scale, not a prevention system: the fakes were already live, already influencing shoppers, before they were removed.</p>
     <p>Regulators have noticed the same gap. The FTC's rule banning fake reviews and testimonials (effective October 2024) targets exactly the practices that Level 4 makes impossible: reviews from non-customers, purchased reviews, and "verified" claims without substance. The FTC's own guidance answers the question directly: a platform's "verified" label must mean the platform actually verified what it claims.</p>
 
     <h2>How processor attestation works at Signed Reviews</h2>
-    <p>Signed Reviews connects to a business's Stripe account via Stripe's official OAuth — with <strong>least-privilege scopes</strong> that allow reading charges, customers, and subscriptions, but can never create charges, issue refunds, or move funds. Then:</p>
+    <p>Signed Reviews connects to a business's Stripe account via Stripe's official OAuth: with <strong>least-privilege scopes</strong> that allow reading charges, customers, and subscriptions, but can never create charges, issue refunds, or move funds. Then:</p>
     <ul>
       <li><strong>A charge succeeds.</strong> Stripe's <code>charge.succeeded</code> event triggers a unique, expiring review invitation bound to that specific charge ID.</li>
-      <li><strong>The invitation goes to the payment email.</strong> The address Stripe has on file for the actual payment — not an address the merchant typed into a list.</li>
+      <li><strong>The invitation goes to the payment email.</strong> The address Stripe has on file for the actual payment, not an address the merchant typed into a list.</li>
       <li><strong>The review is signed at submission.</strong> Review content, charge ID, customer email, and timestamp are cryptographically signed together, creating a tamper-evident record anyone can verify.</li>
-      <li><strong>Refunds hide reviews automatically.</strong> If the charge is refunded, Stripe's webhook removes the associated review from public display — no merchant action, no appeal window.</li>
+      <li><strong>Refunds hide reviews automatically.</strong> If the charge is refunded, Stripe's webhook removes the associated review from public display, no merchant action, no appeal window.</li>
     </ul>
-    <p>The result is a review that proves three things at once: a real customer, a real purchase, and unchanged content. The cryptographic signature makes the tamper-evident part independently checkable — not a claim by the platform, but a verifiable property of the data.</p>
+    <p>The result is a review that proves three things at once: a real customer, a real purchase, and unchanged content. The cryptographic signature makes the tamper-evident part independently checkable, not a claim by the platform, but a verifiable property of the data.</p>
 
     <div class="verdict">
       <h3>The verification hierarchy in one sentence</h3>
-      <p>A review platform cannot verify a purchase more strongly than its verification source. If the source is the merchant, the platform verifies the merchant's records. If the source is the payment processor, the platform verifies the payment. Everything else — badges, policies, moderation — is downstream of that choice.</p>
+      <p>A review platform cannot verify a purchase more strongly than its verification source. If the source is the merchant, the platform verifies the merchant's records. If the source is the payment processor, the platform verifies the payment. Everything else (badges, policies, moderation) is downstream of that choice.</p>
     </div>
 
     <h2>Frequently asked questions</h2>
 
     <h3>What does a verified review actually prove?</h3>
-    <p>Depends entirely on who did the verifying. An email-invitation "verified" badge proves the business sent an invitation. A merchant-feed badge proves the review matches a record the merchant supplied. A processor-attested badge proves a payment processor independently confirmed a real charge. Before trusting a badge, ask what the platform verified — and against whom.</p>
+    <p>Depends entirely on who did the verifying. An email-invitation "verified" badge proves the business sent an invitation. A merchant-feed badge proves the review matches a record the merchant supplied. A processor-attested badge proves a payment processor independently confirmed a real charge. Before trusting a badge, ask what the platform verified, and against whom.</p>
 
     <h3>Can processor-verified reviews be faked?</h3>
-    <p>Not without committing real payment fraud. To produce a fake processor-verified review you would need to run a genuine payment through the merchant's Stripe account and then have the cardholder submit a review — an attack that costs money, leaves a financial record, and gains nothing that paying customers don't already provide. That is the structural difference between prevention and detection.</p>
+    <p>Not without committing real payment fraud. To produce a fake processor-verified review you would need to run a genuine payment through the merchant's Stripe account and then have the cardholder submit a review: an attack that costs money, leaves a financial record, and gains nothing that paying customers don't already provide. That is the structural difference between prevention and detection.</p>
 
     <h3>Which review platforms verify against the payment processor?</h3>
-    <p>Signed Reviews is the only review platform that attests reviews against Stripe's own charge record. Other platforms verify against data the merchant supplies — an email address, an uploaded order list, or an e-commerce feed. None of them confirm the payment independently.</p>
+    <p>Signed Reviews is the only review platform that attests reviews against Stripe's own charge record. Other platforms verify against data the merchant supplies: an email address, an uploaded order list, or an e-commerce feed. None of them confirm the payment independently.</p>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting processor-verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/blog/what-is-a-verified-review/">What Is a Verified Review?</a> · <a href="/blog/are-trustpilot-reviews-reliable/">Are Trustpilot Reviews Reliable?</a></p>
@@ -2173,7 +2173,7 @@ function buildHowVerificationWorks() {
         "name": "Can processor-verified reviews be faked?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Not without committing real payment fraud. Producing a fake processor-verified review would require running a genuine payment through the merchant's Stripe account and having the cardholder submit a review — an attack that costs money, leaves a financial record, and gains nothing that paying customers don't already provide."
+          "text": "Not without committing real payment fraud. Producing a fake processor-verified review would require running a genuine payment through the merchant's Stripe account and having the cardholder submit a review: an attack that costs money, leaves a financial record, and gains nothing that paying customers don't already provide."
         }
       },
       {
@@ -2181,7 +2181,7 @@ function buildHowVerificationWorks() {
         "name": "Which review platforms verify against the payment processor?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Signed Reviews is the only review platform that attests reviews against Stripe's own charge record. Other platforms verify against data the merchant supplies — an email address, an uploaded order list, or an e-commerce feed — and none of them confirm the payment independently."
+          "text": "Signed Reviews is the only review platform that attests reviews against Stripe's own charge record. Other platforms verify against data the merchant supplies (an email address, an uploaded order list, or an e-commerce feed) and none of them confirm the payment independently."
         }
       }
     ]
@@ -2190,9 +2190,9 @@ function buildHowVerificationWorks() {
 
   const html = page({
     title: 'How Review Verification Works: The 4 Verification Levels',
-    description: 'What a "verified" review actually proves depends on who did the verifying. The 4 verification levels — from open platforms to processor-attested proof — explained.',
+    description: 'What a "verified" review actually proves depends on who did the verifying. The 4 verification levels, from open platforms to processor-attested proof, explained.',
     slug,
-    hero: { eyebrow: 'Verification', title: 'How Review Verification Works', subtitle: 'Four levels of "verified" — from self-attested to processor-attested. What each one actually proves, and why the verification source matters more than the badge.' },
+    hero: { eyebrow: 'Verification', title: 'How Review Verification Works', subtitle: 'Four levels of "verified", from self-attested to processor-attested. What each one actually proves, and why the verification source matters more than the badge.' },
     body,
     extraStyle: COMPARISON_STYLES,
   });
@@ -2224,7 +2224,7 @@ const COMPARISON_STYLES = `
 // ── Comparison page: Signed Reviews vs Trustpilot ──────────────────────────────
 function buildComparison() {
   const body = `<article class="prose">
-    <p>Choosing a review platform is a trust decision. This Trustpilot vs Signed Reviews comparison breaks down how the largest general-purpose review platform stacks up against the first processor-attested alternative — across the dimensions that matter most for businesses that care about review authenticity.</p>
+    <p>Choosing a review platform is a trust decision. This Trustpilot vs Signed Reviews comparison breaks down how the largest general-purpose review platform stacks up against the first processor-attested alternative, across the dimensions that matter most for businesses that care about review authenticity.</p>
 
     <h2>Signed Reviews vs Trustpilot: Why This Comparison Matters</h2>
 
@@ -2235,10 +2235,10 @@ function buildComparison() {
     <h2>Signed Reviews vs Trustpilot: 5 Critical Differences</h2>
     <ul>
       <li><strong>Review verification:</strong> cryptographic signatures vs. any email can leave a review</li>
-      <li><strong>Fake‑review prevention:</strong> Stripe‑attested transactions vs. open‑invitation model</li>
-      <li><strong>Trust signals:</strong> "Verified Purchase" badge vs. no purchase‑required verification</li>
-      <li><strong>ROI focus:</strong> built for Stripe payment data vs. broad e‑commerce</li>
-      <li><strong>Integration:</strong> one‑line Stripe connect vs. manual API setup</li>
+      <li><strong>Fake-review prevention:</strong> Stripe-attested transactions vs. open-invitation model</li>
+      <li><strong>Trust signals:</strong> "Verified Purchase" badge vs. no purchase-required verification</li>
+      <li><strong>ROI focus:</strong> built for Stripe payment data vs. broad e-commerce</li>
+      <li><strong>Integration:</strong> one-line Stripe connect vs. manual API setup</li>
     </ul>
 
     <p>In this signed reviews vs trustpilot feature showdown, the key difference is structural: Signed Reviews requires cryptographic proof of a completed Stripe transaction before any review can exist, while Trustpilot uses post-hoc detection to filter out fakes after they arrive.</p>
@@ -2249,43 +2249,43 @@ function buildComparison() {
         <tr><th>Capability</th><th>Signed Reviews</th><th>Trustpilot</th></tr>
       </thead>
       <tbody>
-        <tr class="highlight-row"><td>Purchase verification</td><td class="win">Required — every review is cryptographically linked to a completed Stripe transaction</td><td class="lose">Optional — businesses can invite customers, but anyone can leave a review without proof of purchase</td></tr>
-        <tr><td>Fake review prevention</td><td class="win">Structural — no purchase = no invitation = no review. Impossible to post a review without a verified transaction.</td><td class="lose">Reactive — relies on automated detection and manual moderation. Trustpilot removed 2.7M fake reviews in 2022.</td></tr>
-        <tr class="highlight-row"><td>Review authenticity proof</td><td class="win">Cryptographically signed — every review carries a tamper-evident digital signature that can be independently verified</td><td class="lose">No cryptographic proof — reviews are database records with no external verifiability</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions, automatic review requests on every charge</td><td class="lose">No native Stripe integration — requires third-party connectors or manual CSV imports</td></tr>
-        <tr class="highlight-row"><td>Review gating</td><td class="win">Automatic — invitations go to the email on each Stripe transaction, and customers can also request their own verified link from the business's public page. Either way, a completed purchase is required.</td><td class="lose">Manual — businesses must upload customer lists or send invitations themselves</td></tr>
-        <tr><td>Refund handling</td><td class="win">Automatic — refunded reviews are hidden from public display immediately via Stripe webhook</td><td class="lose">Manual — businesses must flag or report reviews from refunded customers</td></tr>
+        <tr class="highlight-row"><td>Purchase verification</td><td class="win">Required, every review is cryptographically linked to a completed Stripe transaction</td><td class="lose">Optional, businesses can invite customers, but anyone can leave a review without proof of purchase</td></tr>
+        <tr><td>Fake review prevention</td><td class="win">Structural, no purchase = no invitation = no review. Impossible to post a review without a verified transaction.</td><td class="lose">Reactive, relies on automated detection and manual moderation. Trustpilot removed 2.7M fake reviews in 2022.</td></tr>
+        <tr class="highlight-row"><td>Review authenticity proof</td><td class="win">Cryptographically signed, every review carries a tamper-evident digital signature that can be independently verified</td><td class="lose">No cryptographic proof, reviews are database records with no external verifiability</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native (one-click OAuth, minimal permissions, automatic review requests on every charge</td><td class="lose">No native Stripe integration) requires third-party connectors or manual CSV imports</td></tr>
+        <tr class="highlight-row"><td>Review gating</td><td class="win">Automatic, invitations go to the email on each Stripe transaction, and customers can also request their own verified link from the business's public page. Either way, a completed purchase is required.</td><td class="lose">Manual: businesses must upload customer lists or send invitations themselves</td></tr>
+        <tr><td>Refund handling</td><td class="win">Automatic, refunded reviews are hidden from public display immediately via Stripe webhook</td><td class="lose">Manual, businesses must flag or report reviews from refunded customers</td></tr>
         <tr class="highlight-row"><td>API & integrations</td><td class="win">REST API, webhooks, delivery webhook, public page API</td><td class="win">Extensive API, 100+ integrations, white-label options on Enterprise</td></tr>
         <tr><td>Pricing model</td><td class="win">Free plan + paid plans from $29/mo (Starter) to $199/mo (Scale). Transparent tiered pricing with monthly invitation caps.</td><td class="lose">Free tier available; paid plans start at $99/mo (Starter, billed annually) and run to $799/mo+ (Premium). Enterprise pricing is opaque.</td></tr>
-        <tr class="highlight-row"><td>Organic discoverability</td><td class="lose">Early stage — limited domain authority and no consumer-facing review directory</td><td class="win">Established — Trustpilot.com has massive organic traffic and a consumer-facing review search</td></tr>
+        <tr class="highlight-row"><td>Organic discoverability</td><td class="lose">Early stage, limited domain authority and no consumer-facing review directory</td><td class="win">Established, Trustpilot.com has massive organic traffic and a consumer-facing review search</td></tr>
         <tr><td>Trust mark / badge</td><td class="win">"Verified by Signed Reviews" badge links to cryptographic proof. Included on every plan, including Free.</td><td class="win">Trustpilot TrustBox widgets and star ratings. Widely recognized by consumers.</td></tr>
-        <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews — Signed Reviews is the processor. Reviews belong to you.</td><td class="lose">Reviews live on Trustpilot's platform — businesses cannot export and move reviews to another provider.</td></tr>
+        <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews, Signed Reviews is the processor. Reviews belong to you.</td><td class="lose">Reviews live on Trustpilot's platform, businesses cannot export and move reviews to another provider.</td></tr>
       </tbody>
     </table>
     </div>
 
     <div class="verdict">
-      <h3>When to choose Signed Reviews — the best Trustpilot alternative for Stripe businesses</h3>
-      <p>If review authenticity is your #1 concern — if you want every review to be provably backed by a real purchase, with cryptographic proof — Signed Reviews is the right choice in this Trustpilot vs Signed Reviews comparison. It's the best Trustpilot alternative for businesses processing payments through Stripe: a zero-fake-review guarantee by design, not by detection. Learn about our <a href="/how-it-works/">Stripe-verified cryptographic process</a>.</p>
+      <h3>When to choose Signed Reviews, the best Trustpilot alternative for Stripe businesses</h3>
+      <p>If review authenticity is your #1 concern (if you want every review to be provably backed by a real purchase, with cryptographic proof) Signed Reviews is the right choice in this Trustpilot vs Signed Reviews comparison. It's the best Trustpilot alternative for businesses processing payments through Stripe: a zero-fake-review guarantee by design, not by detection. Learn about our <a href="/how-it-works/">Stripe-verified cryptographic process</a>.</p>
     </div>
 
     <div class="verdict" style="background:linear-gradient(135deg,#1c2840,#243252)">
       <h3>When Trustpilot may be a better fit</h3>
-      <p>If you need maximum consumer reach, have a large existing review base, or don't process payments through Stripe, Trustpilot's established brand recognition and consumer-facing directory give it an edge in organic discoverability. Many businesses use both — Trustpilot for breadth, Signed Reviews for verifiable depth.</p>
+      <p>If you need maximum consumer reach, have a large existing review base, or don't process payments through Stripe, Trustpilot's established brand recognition and consumer-facing directory give it an edge in organic discoverability. Many businesses use both. Trustpilot for breadth, Signed Reviews for verifiable depth.</p>
     </div>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/pricing/">Pricing plans</a> · <a href="/how-it-works/">How verification works</a> · <a href="/blog/are-trustpilot-reviews-reliable/">Are Trustpilot reviews reliable?</a></p>
 
-    <h2>How Signed Reviews' Cryptographic Verification Eliminates Fake Reviews — Where Trustpilot Often Fails</h2>
+    <h2>How Signed Reviews' Cryptographic Verification Eliminates Fake Reviews. Where Trustpilot Often Fails</h2>
     <p>
-      Trustpilot relies on an open invitation model: anyone can leave a review, even without a verified purchase. That makes the platform vulnerable to review bombing, bots, and fake positive reviews. Signed Reviews takes the opposite approach: every review is cryptographically linked to a completed Stripe transaction. The reviewer signs the review payload with their payment processor key, and the platform independently verifies the signature against Stripe's event record. This means a fake review — or a competitor's attack — cannot exist in the system unless a genuine transaction occurred. For businesses that sell through Stripe, this difference alone makes <strong>signed reviews vs trustpilot</strong> a one-sided choice for trust.
+      Trustpilot relies on an open invitation model: anyone can leave a review, even without a verified purchase. That makes the platform vulnerable to review bombing, bots, and fake positive reviews. Signed Reviews takes the opposite approach: every review is cryptographically linked to a completed Stripe transaction. The reviewer signs the review payload with their payment processor key, and the platform independently verifies the signature against Stripe's event record. This means a fake review, or a competitor's attack, cannot exist in the system unless a genuine transaction occurred. For businesses that sell through Stripe, this difference alone makes <strong>signed reviews vs trustpilot</strong> a one-sided choice for trust.
     </p>
     <p>For deeper insight, read <a href="/blog/are-trustpilot-reviews-reliable/">our analysis of Trustpilot's reliability</a> and how it compares.</p>
 
     <h2>Trustpilot vs Signed Reviews: Which One Delivers Real ROI for Stripe Businesses?</h2>
     <p>
-      When you compare Trustpilot vs Signed Reviews, the ROI picture shifts dramatically for businesses processing payments through Stripe. See our full breakdown of <a href="/blog/are-trustpilot-reviews-reliable/">Trustpilot review authenticity</a>. Signed Reviews directly attaches verified purchase proof via Stripe, eliminating the cost of fighting fake reviews that plague open‑invitation platforms. For Stripe‑connected merchants, this often means a faster path to trustworthy social proof.
+      When you compare Trustpilot vs Signed Reviews, the ROI picture shifts dramatically for businesses processing payments through Stripe. See our full breakdown of <a href="/blog/are-trustpilot-reviews-reliable/">Trustpilot review authenticity</a>. Signed Reviews directly attaches verified purchase proof via Stripe, eliminating the cost of fighting fake reviews that plague open-invitation platforms. For Stripe-connected merchants, this often means a faster path to trustworthy social proof.
     </p>
 
     <script type="application/ld+json">
@@ -2330,7 +2330,7 @@ function buildComparison() {
           "name": "Is Signed Reviews or Trustpilot more effective at blocking fake reviews?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Signed Reviews requires every review to be cryptographically tied to a completed Stripe transaction, making fake reviews impossible. Trustpilot's open‑invitation model allows anyone to leave feedback, which can be gamed. For Stripe businesses, Signed Reviews is the stronger anti‑fake solution."
+            "text": "Signed Reviews requires every review to be cryptographically tied to a completed Stripe transaction, making fake reviews impossible. Trustpilot's open-invitation model allows anyone to leave feedback, which can be gamed. For Stripe businesses, Signed Reviews is the stronger anti-fake solution."
           }
         }
       ]
@@ -2354,29 +2354,29 @@ function buildComparison() {
 function buildComparisonFeefo() {
   const slug = '/vs/feefo/';
   const body = `<article class="prose">
-    <p>Feefo is the closest positioning competitor to Signed Reviews — both platforms emphasize verified, invitation-only reviews. But the verification source is fundamentally different: Feefo trusts the merchant's transaction feed; Signed Reviews trusts Stripe. Here's how they compare across every dimension that matters.</p>
+    <p>Feefo is the closest positioning competitor to Signed Reviews, both platforms emphasize verified, invitation-only reviews. But the verification source is fundamentally different: Feefo trusts the merchant's transaction feed; Signed Reviews trusts Stripe. Here's how they compare across every dimension that matters.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Feefo</th></tr></thead>
       <tbody>
-        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe — an independent payment processor. Every review is attested by Stripe confirming the charge occurred.</td><td class="lose">Merchant transaction feed — the merchant provides Feefo with a log of transactions, which Feefo uses to verify. The merchant is both the subject of the review and the source of the verification data.</td></tr>
-        <tr><td>Fake review prevention</td><td class="win">Structural — no Stripe charge = no invitation = no review. Impossible to post without a verified payment.</td><td class="lose">Closed/invitation-only — only invited customers can review, but verification depends on the merchant's own transaction data.</td></tr>
-        <tr class="highlight-row"><td>Integration setup</td><td class="win">One-click Stripe OAuth. No code, no feed configuration, no manual data upload. Works immediately.</td><td class="lose">Requires the merchant to integrate a transaction feed — more setup overhead for the same verification concept.</td></tr>
-        <tr><td>Cryptographic proof</td><td class="win">Every review is cryptographically signed at submission — tamper-evident, independently verifiable.</td><td class="lose">No cryptographic signing — reviews are database records with no external verifiability.</td></tr>
-        <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic — Stripe webhook hides refunded reviews immediately. No merchant action required.</td><td class="lose">Depends on the merchant updating their transaction feed with refund status.</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native — built exclusively for Stripe. One-click, minimal permissions, zero maintenance.</td><td class="lose">No native Stripe integration — works through a generic transaction feed API.</td></tr>
-        <tr class="highlight-row"><td>Pricing model</td><td class="win">Free plan + paid plans from $29/mo (Starter) to $199/mo (Scale). Transparent, per-invitation caps.</td><td class="lose">Custom pricing — typically £99–£399/month for SMB tiers. Enterprise pricing is opaque.</td></tr>
-        <tr><td>Google Seller Ratings</td><td class="tie">Planned — on the roadmap for Q4 2026.</td><td class="win">Yes — Feefo is a Google Review Partner and feeds into Google Seller Ratings.</td></tr>
-        <tr class="highlight-row"><td>Platform maturity</td><td class="lose">Early stage — launched 2026, building domain authority and customer base.</td><td class="win">Established — founded 2010, strong UK presence, mature enterprise offering.</td></tr>
-        <tr><td>Review ownership</td><td class="win">Business owns the reviews — Signed Reviews is the processor. Exportable, portable.</td><td class="win">Business owns the reviews — Feefo's model is also merchant-owned reviews.</td></tr>
+        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe, an independent payment processor. Every review is attested by Stripe confirming the charge occurred.</td><td class="lose">Merchant transaction feed, the merchant provides Feefo with a log of transactions, which Feefo uses to verify. The merchant is both the subject of the review and the source of the verification data.</td></tr>
+        <tr><td>Fake review prevention</td><td class="win">Structural, no Stripe charge = no invitation = no review. Impossible to post without a verified payment.</td><td class="lose">Closed/invitation-only, only invited customers can review, but verification depends on the merchant's own transaction data.</td></tr>
+        <tr class="highlight-row"><td>Integration setup</td><td class="win">One-click Stripe OAuth. No code, no feed configuration, no manual data upload. Works immediately.</td><td class="lose">Requires the merchant to integrate a transaction feed, more setup overhead for the same verification concept.</td></tr>
+        <tr><td>Cryptographic proof</td><td class="win">Every review is cryptographically signed at submission (tamper-evident, independently verifiable.</td><td class="lose">No cryptographic signing) reviews are database records with no external verifiability.</td></tr>
+        <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic. Stripe webhook hides refunded reviews immediately. No merchant action required.</td><td class="lose">Depends on the merchant updating their transaction feed with refund status.</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native (built exclusively for Stripe. One-click, minimal permissions, zero maintenance.</td><td class="lose">No native Stripe integration) works through a generic transaction feed API.</td></tr>
+        <tr class="highlight-row"><td>Pricing model</td><td class="win">Free plan + paid plans from $29/mo (Starter) to $199/mo (Scale). Transparent, per-invitation caps.</td><td class="lose">Custom pricing, typically £99–£399/month for SMB tiers. Enterprise pricing is opaque.</td></tr>
+        <tr><td>Google Seller Ratings</td><td class="tie">Planned, on the roadmap for Q4 2026.</td><td class="win">Yes, Feefo is a Google Review Partner and feeds into Google Seller Ratings.</td></tr>
+        <tr class="highlight-row"><td>Platform maturity</td><td class="lose">Early stage (launched 2026, building domain authority and customer base.</td><td class="win">Established) founded 2010, strong UK presence, mature enterprise offering.</td></tr>
+        <tr><td>Review ownership</td><td class="win">Business owns the reviews (Signed Reviews is the processor. Exportable, portable.</td><td class="win">Business owns the reviews) Feefo's model is also merchant-owned reviews.</td></tr>
       </tbody>
     </table>
     </div>
 
     <div class="verdict">
       <h3>When to choose Signed Reviews</h3>
-      <p>If you process payments through Stripe and want the strongest possible verification — independent attestation by a payment processor rather than a merchant-supplied feed — Signed Reviews is the answer. The one-click setup and automatic refund handling make it lower-friction than Feefo, and the cryptographic signing adds a layer of proof Feefo doesn't offer.</p>
+      <p>If you process payments through Stripe and want the strongest possible verification, independent attestation by a payment processor rather than a merchant-supplied feed, Signed Reviews is the answer. The one-click setup and automatic refund handling make it lower-friction than Feefo, and the cryptographic signing adds a layer of proof Feefo doesn't offer.</p>
     </div>
 
     <div class="verdict verdict-alt">
@@ -2390,13 +2390,13 @@ function buildComparisonFeefo() {
     <h2>Frequently asked questions</h2>
 
     <h3>Is Feefo legitimate?</h3>
-    <p>Yes — Feefo is a legitimate, established review platform with a large customer base. But legitimacy is a different question from verification strength: Feefo's invitation-only reviews are matched to a transaction feed the merchant supplies — the merchant is both the subject of the reviews and the source of the verification data, so nothing is independently confirmed.</p>
+    <p>Yes. Feefo is a legitimate, established review platform with a large customer base. But legitimacy is a different question from verification strength: Feefo's invitation-only reviews are matched to a transaction feed the merchant supplies. The merchant is both the subject of the reviews and the source of the verification data, so nothing is independently confirmed.</p>
 
     <h3>Does Feefo verify purchases?</h3>
-    <p>Not independently. Feefo's "verified" label means the review was matched to data the merchant supplied — not that a neutral third party confirmed a payment. Signed Reviews takes the opposite approach: Stripe independently confirms the charge before a review can exist.</p>
+    <p>Not independently. Feefo's "verified" label means the review was matched to data the merchant supplied, not that a neutral third party confirmed a payment. Signed Reviews takes the opposite approach: Stripe independently confirms the charge before a review can exist.</p>
 
     <h3>Is Signed Reviews better than Feefo?</h3>
-    <p>For verification strength, yes — Signed Reviews is processor-attested by construction, while Feefo verifies against merchant-supplied data. Feefo's advantages are scale, maturity, and feature breadth. If your priority is provably authentic reviews from confirmed customers, Signed Reviews is the structurally stronger choice.</p>
+    <p>For verification strength, yes. Signed Reviews is processor-attested by construction, while Feefo verifies against merchant-supplied data. Feefo's advantages are scale, maturity, and feature breadth. If your priority is provably authentic reviews from confirmed customers, Signed Reviews is the structurally stronger choice.</p>
   </article>
 
   <script type="application/ld+json">
@@ -2409,7 +2409,7 @@ function buildComparisonFeefo() {
         "name": "Is Feefo legitimate?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes — Feefo is a legitimate, established review platform with a large customer base. But legitimacy is a different question from verification strength: Feefo's invitation-only reviews are matched to a transaction feed the merchant supplies — the merchant is both the subject of the reviews and the source of the verification data, so nothing is independently confirmed."
+          "text": "Yes. Feefo is a legitimate, established review platform with a large customer base. But legitimacy is a different question from verification strength: Feefo's invitation-only reviews are matched to a transaction feed the merchant supplies. The merchant is both the subject of the reviews and the source of the verification data, so nothing is independently confirmed."
         }
       },
       {
@@ -2417,7 +2417,7 @@ function buildComparisonFeefo() {
         "name": "Does Feefo verify purchases?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Not independently. Feefo's 'verified' label means the review was matched to data the merchant supplied — not that a neutral third party confirmed a payment. Signed Reviews takes the opposite approach: Stripe independently confirms the charge before a review can exist."
+          "text": "Not independently. Feefo's 'verified' label means the review was matched to data the merchant supplied, not that a neutral third party confirmed a payment. Signed Reviews takes the opposite approach: Stripe independently confirms the charge before a review can exist."
         }
       },
       {
@@ -2425,7 +2425,7 @@ function buildComparisonFeefo() {
         "name": "Is Signed Reviews better than Feefo?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For verification strength, yes — Signed Reviews is processor-attested by construction, while Feefo verifies against merchant-supplied data. Feefo's advantages are scale, maturity, and feature breadth. If your priority is provably authentic reviews from confirmed customers, Signed Reviews is the structurally stronger choice."
+          "text": "For verification strength, yes. Signed Reviews is processor-attested by construction, while Feefo verifies against merchant-supplied data. Feefo's advantages are scale, maturity, and feature breadth. If your priority is provably authentic reviews from confirmed customers, Signed Reviews is the structurally stronger choice."
         }
       }
     ]
@@ -2433,10 +2433,10 @@ function buildComparisonFeefo() {
   </script>`;
 
   const html = page({
-    title: 'Signed Reviews vs Feefo — Comparison',
+    title: 'Signed Reviews vs Feefo. Comparison',
     description: 'Signed Reviews vs Feefo: both are invitation-only, but Signed Reviews verifies against Stripe itself while Feefo trusts the merchant\'s transaction feed. Detailed comparison across 10 dimensions.',
     slug,
-    hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Feefo', subtitle: 'Both verify purchases. The difference is who does the verifying — the payment processor, or the merchant\'s own feed.' },
+    hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Feefo', subtitle: 'Both verify purchases. The difference is who does the verifying, the payment processor, or the merchant\'s own feed.' },
     body,
     extraStyle: COMPARISON_STYLES,
   });
@@ -2448,29 +2448,29 @@ function buildComparisonFeefo() {
 function buildComparisonJudgeMe() {
   const slug = '/vs/judge-me/';
   const body = `<article class="prose">
-    <p>Judge.me is the #1 Shopify review app with 127 million reviews collected. It's excellent at what it does — but its "verified" badge trusts your Shopify order data, not an independent payment processor. Here's how they compare.</p>
+    <p>Judge.me is the #1 Shopify review app with 127 million reviews collected. It's excellent at what it does, but its "verified" badge trusts your Shopify order data, not an independent payment processor. Here's how they compare.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Judge.me</th></tr></thead>
       <tbody>
-        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe — independent payment processor confirms the charge. Processor-attested (Level 4).</td><td class="lose">Shopify order data — the app matches a reviewer to a Shopify order. Merchant-supplied (Level 3).</td></tr>
-        <tr><td>Fake review prevention</td><td class="win">Structural — no Stripe charge = no review. Would require faking a real payment with Stripe fees and account-closure risk.</td><td class="lose">Order-matched — reviews must match a Shopify order, but a merchant could create fake orders in their own store.</td></tr>
-        <tr class="highlight-row"><td>Platform</td><td class="win">Stripe — works with any platform that uses Stripe: Shopify, WooCommerce, Squarespace, custom, SaaS.</td><td class="lose">Shopify-only — Judge.me is exclusively a Shopify app. No support for other platforms.</td></tr>
-        <tr><td>Cryptographic proof</td><td class="win">Yes — every review is cryptographically signed at submission. Tamper-evident, independently verifiable.</td><td class="lose">No — reviews are database records with no cryptographic signature.</td></tr>
-        <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic — Stripe refund webhook hides refunded reviews immediately.</td><td class="tie">Manual — merchants can hide reviews, but there's no automatic refund→hide pipeline.</td></tr>
+        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe, independent payment processor confirms the charge. Processor-attested (Level 4).</td><td class="lose">Shopify order data, the app matches a reviewer to a Shopify order. Merchant-supplied (Level 3).</td></tr>
+        <tr><td>Fake review prevention</td><td class="win">Structural, no Stripe charge = no review. Would require faking a real payment with Stripe fees and account-closure risk.</td><td class="lose">Order-matched, reviews must match a Shopify order, but a merchant could create fake orders in their own store.</td></tr>
+        <tr class="highlight-row"><td>Platform</td><td class="win">Stripe (works with any platform that uses Stripe: Shopify, WooCommerce, Squarespace, custom, SaaS.</td><td class="lose">Shopify-only) Judge.me is exclusively a Shopify app. No support for other platforms.</td></tr>
+        <tr><td>Cryptographic proof</td><td class="win">Yes (every review is cryptographically signed at submission. Tamper-evident, independently verifiable.</td><td class="lose">No) reviews are database records with no cryptographic signature.</td></tr>
+        <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic, Stripe refund webhook hides refunded reviews immediately.</td><td class="tie">Manual, merchants can hide reviews, but there's no automatic refund→hide pipeline.</td></tr>
         <tr><td>Pricing</td><td class="win">Free plan (unlimited self-service + 10 automated reviews) + paid from $29/mo to $199/mo.</td><td class="win">Free plan (unlimited reviews) + Awesome plan at $15/mo. Very competitive pricing.</td></tr>
-        <tr class="highlight-row"><td>Review volume</td><td class="lose">Early stage — growing review base.</td><td class="win">127M+ reviews collected. Massive volume, high consumer trust through sheer scale.</td></tr>
-        <tr><td>Shopify integration</td><td class="tie">Works with Shopify if you use Stripe as your payment processor (including Shopify Payments, which runs on Stripe).</td><td class="win">Native Shopify app — one-click install from the Shopify App Store. Deep Shopify admin integration.</td></tr>
-        <tr class="highlight-row"><td>Review request automation</td><td class="win">Automatic — every Stripe charge triggers a review invitation. Configurable timing and reminders.</td><td class="win">Automatic — sends review requests based on order fulfillment status. Highly configurable.</td></tr>
-        <tr><td>Review ownership</td><td class="win">Business owns the reviews — exportable, portable, accessible via API.</td><td class="win">Business owns the reviews — can be exported and migrated.</td></tr>
+        <tr class="highlight-row"><td>Review volume</td><td class="lose">Early stage, growing review base.</td><td class="win">127M+ reviews collected. Massive volume, high consumer trust through sheer scale.</td></tr>
+        <tr><td>Shopify integration</td><td class="tie">Works with Shopify if you use Stripe as your payment processor (including Shopify Payments, which runs on Stripe).</td><td class="win">Native Shopify app, one-click install from the Shopify App Store. Deep Shopify admin integration.</td></tr>
+        <tr class="highlight-row"><td>Review request automation</td><td class="win">Automatic, every Stripe charge triggers a review invitation. Configurable timing and reminders.</td><td class="win">Automatic, sends review requests based on order fulfillment status. Highly configurable.</td></tr>
+        <tr><td>Review ownership</td><td class="win">Business owns the reviews (exportable, portable, accessible via API.</td><td class="win">Business owns the reviews) can be exported and migrated.</td></tr>
       </tbody>
     </table>
     </div>
 
     <div class="verdict">
       <h3>When to choose Signed Reviews</h3>
-      <p>If verification strength is your #1 priority, the difference between "matched to a Shopify order" and "attested by Stripe" is the whole ballgame. Signed Reviews gives you processor-attested verification with cryptographic proof — something no Shopify review app can claim. If you sell across multiple platforms (Shopify + custom site + invoices), Signed Reviews works everywhere Stripe does.</p>
+      <p>If verification strength is your #1 priority, the difference between "matched to a Shopify order" and "attested by Stripe" is the whole ballgame. Signed Reviews gives you processor-attested verification with cryptographic proof, something no Shopify review app can claim. If you sell across multiple platforms (Shopify + custom site + invoices), Signed Reviews works everywhere Stripe does.</p>
     </div>
 
     <div class="verdict verdict-alt">
@@ -2483,7 +2483,7 @@ function buildComparisonJudgeMe() {
   </article>`;
 
   const html = page({
-    title: 'Signed Reviews vs Judge.me — Comparison',
+    title: 'Signed Reviews vs Judge.me. Comparison',
     description: 'Signed Reviews vs Judge.me: both verify purchases, but Signed Reviews verifies against Stripe itself while Judge.me matches Shopify orders. 10-dimension comparison for Shopify merchants on Stripe.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Judge.me', subtitle: 'Judge.me is excellent. But its "verified" trusts your Shopify data. Ours trusts Stripe.' },
@@ -2498,21 +2498,21 @@ function buildComparisonJudgeMe() {
 function buildComparisonYotpo() {
   const slug = '/vs/yotpo/';
   const body = `<article class="prose">
-    <p>Yotpo is the enterprise DTC default — used by brands like Patagonia, Steve Madden, and Brooklinen. Its "Verified Buyer" badge means the merchant's Mail-After-Purchase email matched a customer record. Signed Reviews' badge means Stripe independently confirms the charge. Here's the detailed comparison.</p>
+    <p>Yotpo is the enterprise DTC default: used by brands like Patagonia, Steve Madden, and Brooklinen. Its "Verified Buyer" badge means the merchant's Mail-After-Purchase email matched a customer record. Signed Reviews' badge means Stripe independently confirms the charge. Here's the detailed comparison.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Yotpo</th></tr></thead>
       <tbody>
-        <tr class="highlight-row"><td>Verification method</td><td class="win">Processor-attested — Stripe confirms the charge independently. Level 4 on the verification spectrum.</td><td class="lose">Mail-After-Purchase (MAP) — the review invitation email is matched to a merchant order record. Level 3 — merchant-supplied.</td></tr>
-        <tr><td>Fake review prevention</td><td class="win">Structural — no Stripe charge = no review. Impossible to manufacture without faking a real payment.</td><td class="lose">Order-matched — reviews are matched to orders in the merchant's system. Stronger than open platforms, but the merchant controls the order data.</td></tr>
-        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions, zero code. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration — works through e-commerce platform connectors (Shopify, Magento, BigCommerce).</td></tr>
-        <tr><td>Cryptographic proof</td><td class="win">Yes — every review carries a tamper-evident digital signature. Verifiable by anyone, anytime.</td><td class="lose">No — reviews are database records. Yotpo's moderation is algorithmic, not cryptographic.</td></tr>
-        <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic — Stripe webhook hides refunded reviews immediately. No configuration needed.</td><td class="lose">Manual — merchants must manage review display for refunded orders themselves.</td></tr>
-        <tr><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent tiered pricing with invitation caps.</td><td class="lose">Free plan (limited) + paid plans from $15/mo (Silver) to $119/mo+ (Enterprise). Many features — including Google Seller Ratings — are locked behind higher tiers.</td></tr>
-        <tr class="highlight-row"><td>Enterprise features</td><td class="lose">Early stage — focused on core verification, API, and publishing. Loyalty and SMS are not yet available.</td><td class="win">Full suite — loyalty & referrals, SMS marketing, subscriptions, visual UGC, AI-powered insights. Yotpo is a marketing platform built around reviews.</td></tr>
-        <tr><td>Platform support</td><td class="win">Any platform that uses Stripe — Shopify, WooCommerce, custom, SaaS, invoices.</td><td class="win">Shopify, Shopify Plus, Magento, BigCommerce, Salesforce Commerce Cloud. Broad platform support.</td></tr>
-        <tr class="highlight-row"><td>UGC / visual reviews</td><td class="tie">Photo reviews supported — customers can attach images to their reviews.</td><td class="win">Best-in-class visual UGC — photo and video reviews, shoppable galleries, Instagram integration. Yotpo leads here.</td></tr>
+        <tr class="highlight-row"><td>Verification method</td><td class="win">Processor-attested, Stripe confirms the charge independently. Level 4 on the verification spectrum.</td><td class="lose">Mail-After-Purchase (MAP), the review invitation email is matched to a merchant order record. Level 3, merchant-supplied.</td></tr>
+        <tr><td>Fake review prevention</td><td class="win">Structural, no Stripe charge = no review. Impossible to manufacture without faking a real payment.</td><td class="lose">Order-matched, reviews are matched to orders in the merchant's system. Stronger than open platforms, but the merchant controls the order data.</td></tr>
+        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native (one-click OAuth, minimal permissions, zero code. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration) works through e-commerce platform connectors (Shopify, Magento, BigCommerce).</td></tr>
+        <tr><td>Cryptographic proof</td><td class="win">Yes (every review carries a tamper-evident digital signature. Verifiable by anyone, anytime.</td><td class="lose">No) reviews are database records. Yotpo's moderation is algorithmic, not cryptographic.</td></tr>
+        <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic, Stripe webhook hides refunded reviews immediately. No configuration needed.</td><td class="lose">Manual, merchants must manage review display for refunded orders themselves.</td></tr>
+        <tr><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent tiered pricing with invitation caps.</td><td class="lose">Free plan (limited) + paid plans from $15/mo (Silver) to $119/mo+ (Enterprise). Many features, including Google Seller Ratings, are locked behind higher tiers.</td></tr>
+        <tr class="highlight-row"><td>Enterprise features</td><td class="lose">Early stage (focused on core verification, API, and publishing. Loyalty and SMS are not yet available.</td><td class="win">Full suite) loyalty & referrals, SMS marketing, subscriptions, visual UGC, AI-powered insights. Yotpo is a marketing platform built around reviews.</td></tr>
+        <tr><td>Platform support</td><td class="win">Any platform that uses Stripe: Shopify, WooCommerce, custom, SaaS, invoices.</td><td class="win">Shopify, Shopify Plus, Magento, BigCommerce, Salesforce Commerce Cloud. Broad platform support.</td></tr>
+        <tr class="highlight-row"><td>UGC / visual reviews</td><td class="tie">Photo reviews supported, customers can attach images to their reviews.</td><td class="win">Best-in-class visual UGC, photo and video reviews, shoppable galleries, Instagram integration. Yotpo leads here.</td></tr>
         <tr><td>Review ownership</td><td class="win">Business owns the reviews. Exportable, portable via API.</td><td class="win">Business owns the reviews. Can be exported and migrated.</td></tr>
       </tbody>
     </table>
@@ -2525,7 +2525,7 @@ function buildComparisonYotpo() {
 
     <div class="verdict verdict-alt">
       <h3>When Yotpo may be a better fit</h3>
-      <p>If you need a full marketing suite — loyalty programs, SMS marketing, visual UGC galleries, AI-driven insights — Yotpo's breadth is unmatched. For enterprise DTC brands spending six figures on retention, Yotpo is the category leader. If verification method is "nice to have" rather than a core differentiator, and you value the integrated marketing toolkit, Yotpo is the stronger choice.</p>
+      <p>If you need a full marketing suite (loyalty programs, SMS marketing, visual UGC galleries, AI-driven insights) Yotpo's breadth is unmatched. For enterprise DTC brands spending six figures on retention, Yotpo is the category leader. If verification method is "nice to have" rather than a core differentiator, and you value the integrated marketing toolkit, Yotpo is the stronger choice.</p>
     </div>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
@@ -2534,13 +2534,13 @@ function buildComparisonYotpo() {
     <h2>Frequently asked questions</h2>
 
     <h3>Is Yotpo legitimate?</h3>
-    <p>Yes — Yotpo is a legitimate, established review platform with a large customer base. But legitimacy is a different question from verification strength: Yotpo's 'Verified Buyer' badge means the review invitation email matched a customer record in the merchant's own order system (Mail-After-Purchase) — data the merchant controls, not an independent confirmation of payment.</p>
+    <p>Yes. Yotpo is a legitimate, established review platform with a large customer base. But legitimacy is a different question from verification strength: Yotpo's 'Verified Buyer' badge means the review invitation email matched a customer record in the merchant's own order system (Mail-After-Purchase), data the merchant controls, not an independent confirmation of payment.</p>
 
     <h3>Does Yotpo verify purchases?</h3>
-    <p>Not independently. Yotpo's "verified" label means the review was matched to data the merchant supplied — not that a neutral third party confirmed a payment. Signed Reviews takes the opposite approach: Stripe independently confirms the charge before a review can exist.</p>
+    <p>Not independently. Yotpo's "verified" label means the review was matched to data the merchant supplied, not that a neutral third party confirmed a payment. Signed Reviews takes the opposite approach: Stripe independently confirms the charge before a review can exist.</p>
 
     <h3>Is Signed Reviews better than Yotpo?</h3>
-    <p>For verification strength, yes — Signed Reviews is processor-attested by construction, while Yotpo verifies against merchant-supplied data. Yotpo's advantages are scale, maturity, and feature breadth. If your priority is provably authentic reviews from confirmed customers, Signed Reviews is the structurally stronger choice.</p>
+    <p>For verification strength, yes. Signed Reviews is processor-attested by construction, while Yotpo verifies against merchant-supplied data. Yotpo's advantages are scale, maturity, and feature breadth. If your priority is provably authentic reviews from confirmed customers, Signed Reviews is the structurally stronger choice.</p>
   </article>
 
   <script type="application/ld+json">
@@ -2553,7 +2553,7 @@ function buildComparisonYotpo() {
         "name": "Is Yotpo legitimate?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes — Yotpo is a legitimate, established review platform with a large customer base. But legitimacy is a different question from verification strength: Yotpo's 'Verified Buyer' badge means the review invitation email matched a customer record in the merchant's own order system (Mail-After-Purchase) — data the merchant controls, not an independent confirmation of payment."
+          "text": "Yes. Yotpo is a legitimate, established review platform with a large customer base. But legitimacy is a different question from verification strength: Yotpo's 'Verified Buyer' badge means the review invitation email matched a customer record in the merchant's own order system (Mail-After-Purchase), data the merchant controls, not an independent confirmation of payment."
         }
       },
       {
@@ -2561,7 +2561,7 @@ function buildComparisonYotpo() {
         "name": "Does Yotpo verify purchases?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Not independently. Yotpo's 'verified' label means the review was matched to data the merchant supplied — not that a neutral third party confirmed a payment. Signed Reviews takes the opposite approach: Stripe independently confirms the charge before a review can exist."
+          "text": "Not independently. Yotpo's 'verified' label means the review was matched to data the merchant supplied, not that a neutral third party confirmed a payment. Signed Reviews takes the opposite approach: Stripe independently confirms the charge before a review can exist."
         }
       },
       {
@@ -2569,7 +2569,7 @@ function buildComparisonYotpo() {
         "name": "Is Signed Reviews better than Yotpo?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For verification strength, yes — Signed Reviews is processor-attested by construction, while Yotpo verifies against merchant-supplied data. Yotpo's advantages are scale, maturity, and feature breadth. If your priority is provably authentic reviews from confirmed customers, Signed Reviews is the structurally stronger choice."
+          "text": "For verification strength, yes. Signed Reviews is processor-attested by construction, while Yotpo verifies against merchant-supplied data. Yotpo's advantages are scale, maturity, and feature breadth. If your priority is provably authentic reviews from confirmed customers, Signed Reviews is the structurally stronger choice."
         }
       }
     ]
@@ -2577,7 +2577,7 @@ function buildComparisonYotpo() {
   </script>`;
 
   const html = page({
-    title: 'Signed Reviews vs Yotpo — Comparison',
+    title: 'Signed Reviews vs Yotpo. Comparison',
     description: 'Signed Reviews vs Yotpo: Yotpo\'s Verified Buyer = the MAP email matched. Ours = Stripe confirms the charge. 10-dimension comparison for DTC brands on Stripe.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Yotpo', subtitle: 'Yotpo\'s Verified Buyer means the merchant\'s email matched. Ours means Stripe confirms the charge.' },
@@ -2592,22 +2592,22 @@ function buildComparisonYotpo() {
 function buildComparisonEkomi() {
   const slug = '/vs/ekomi/';
   const body = `<article class="prose">
-    <p>eKomi is the closest "transaction-verified" competitor — a Google Review Partner that verifies reviews against a merchant-supplied transaction feed. The positioning is similar; the verification source is not. eKomi trusts the feed you supply; Signed Reviews trusts Stripe. Here's how they compare.</p>
+    <p>eKomi is the closest "transaction-verified" competitor, a Google Review Partner that verifies reviews against a merchant-supplied transaction feed. The positioning is similar; the verification source is not. eKomi trusts the feed you supply; Signed Reviews trusts Stripe. Here's how they compare.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>eKomi</th></tr></thead>
       <tbody>
-        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe — independent payment processor. Processor-attested (Level 4).</td><td class="lose">Merchant transaction feed — the merchant provides a feed of transactions. Merchant-supplied (Level 3), despite the "transaction-verified" label.</td></tr>
-        <tr><td>Fake review prevention</td><td class="win">Structural — no Stripe charge = no review. Faking requires real Stripe payments with real fees.</td><td class="lose">Feed-dependent — verification is only as strong as the integrity of the merchant's transaction feed. A feed can be fabricated.</td></tr>
-        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native — one-click Stripe OAuth. No feed setup, no API configuration.</td><td class="lose">No native Stripe integration — requires the merchant to set up and maintain a transaction feed.</td></tr>
-        <tr><td>Google Seller Ratings</td><td class="tie">Planned — on the roadmap for Q4 2026.</td><td class="win">Yes — eKomi is a certified Google Review Partner and feeds into Google Seller Ratings and Google Shopping.</td></tr>
-        <tr class="highlight-row"><td>Cryptographic proof</td><td class="win">Yes — every review carries a tamper-evident digital signature. Independently verifiable.</td><td class="lose">No — reviews are database records. eKomi's "certificate" system provides audit-trail data but not cryptographic proof.</td></tr>
-        <tr><td>Refund handling</td><td class="win">Automatic — Stripe webhook hides refunded reviews immediately. Zero merchant action.</td><td class="lose">Feed-dependent — the merchant must update the transaction feed with refund status for reviews to be flagged.</td></tr>
-        <tr class="highlight-row"><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve pricing.</td><td class="lose">Custom pricing — typically €49–€299/month for SMB tiers. Enterprise pricing is opaque. Requires a sales conversation.</td></tr>
-        <tr><td>Platform maturity</td><td class="lose">Early stage — launched 2026.</td><td class="win">Established — founded 2008 in Berlin. 15+ years in the review space, strong EU presence, Google partnership.</td></tr>
-        <tr class="highlight-row"><td>Setup complexity</td><td class="win">One click — OAuth, done. Reviews start flowing automatically.</td><td class="lose">Feed integration required — the merchant must set up and maintain a data feed. More overhead, same verification concept.</td></tr>
-        <tr><td>Review ownership</td><td class="win">Business owns the reviews — exportable, portable, accessible via API.</td><td class="win">Business owns the reviews — eKomi's model is merchant-owned reviews.</td></tr>
+        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe, independent payment processor. Processor-attested (Level 4).</td><td class="lose">Merchant transaction feed, the merchant provides a feed of transactions. Merchant-supplied (Level 3), despite the "transaction-verified" label.</td></tr>
+        <tr><td>Fake review prevention</td><td class="win">Structural, no Stripe charge = no review. Faking requires real Stripe payments with real fees.</td><td class="lose">Feed-dependent, verification is only as strong as the integrity of the merchant's transaction feed. A feed can be fabricated.</td></tr>
+        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native (one-click Stripe OAuth. No feed setup, no API configuration.</td><td class="lose">No native Stripe integration) requires the merchant to set up and maintain a transaction feed.</td></tr>
+        <tr><td>Google Seller Ratings</td><td class="tie">Planned, on the roadmap for Q4 2026.</td><td class="win">Yes, eKomi is a certified Google Review Partner and feeds into Google Seller Ratings and Google Shopping.</td></tr>
+        <tr class="highlight-row"><td>Cryptographic proof</td><td class="win">Yes, every review carries a tamper-evident digital signature. Independently verifiable.</td><td class="lose">No, reviews are database records. eKomi's "certificate" system provides audit-trail data but not cryptographic proof.</td></tr>
+        <tr><td>Refund handling</td><td class="win">Automatic, Stripe webhook hides refunded reviews immediately. Zero merchant action.</td><td class="lose">Feed-dependent, the merchant must update the transaction feed with refund status for reviews to be flagged.</td></tr>
+        <tr class="highlight-row"><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve pricing.</td><td class="lose">Custom pricing, typically €49–€299/month for SMB tiers. Enterprise pricing is opaque. Requires a sales conversation.</td></tr>
+        <tr><td>Platform maturity</td><td class="lose">Early stage, launched 2026.</td><td class="win">Established, founded 2008 in Berlin. 15+ years in the review space, strong EU presence, Google partnership.</td></tr>
+        <tr class="highlight-row"><td>Setup complexity</td><td class="win">One click (OAuth, done. Reviews start flowing automatically.</td><td class="lose">Feed integration required) the merchant must set up and maintain a data feed. More overhead, same verification concept.</td></tr>
+        <tr><td>Review ownership</td><td class="win">Business owns the reviews (exportable, portable, accessible via API.</td><td class="win">Business owns the reviews) eKomi's model is merchant-owned reviews.</td></tr>
       </tbody>
     </table>
     </div>
@@ -2619,7 +2619,7 @@ function buildComparisonEkomi() {
 
     <div class="verdict verdict-alt">
       <h3>When eKomi may be a better fit</h3>
-      <p>If Google Seller Ratings is a must-have today, eKomi's certified Google Review Partner status delivers concrete SEO value that Signed Reviews is still building toward. If you don't use Stripe as your primary processor, or if you operate primarily in the EU and value eKomi's 15-year track record and established Google partnership, eKomi is a strong choice — especially for businesses that already have the technical resources to maintain a transaction feed.</p>
+      <p>If Google Seller Ratings is a must-have today, eKomi's certified Google Review Partner status delivers concrete SEO value that Signed Reviews is still building toward. If you don't use Stripe as your primary processor, or if you operate primarily in the EU and value eKomi's 15-year track record and established Google partnership, eKomi is a strong choice, especially for businesses that already have the technical resources to maintain a transaction feed.</p>
     </div>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
@@ -2627,7 +2627,7 @@ function buildComparisonEkomi() {
   </article>`;
 
   const html = page({
-    title: 'Signed Reviews vs eKomi — Comparison',
+    title: 'Signed Reviews vs eKomi. Comparison',
     description: 'Signed Reviews vs eKomi: eKomi verifies a transaction feed you supply; Signed Reviews verifies against Stripe itself. 10-dimension comparison including Google Seller Ratings, pricing, and setup.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs eKomi', subtitle: 'eKomi verifies a feed you supply. We verify against Stripe itself. That\'s the difference.' },
@@ -2642,40 +2642,40 @@ function buildComparisonEkomi() {
 function buildComparisonSiteJabber() {
   const slug = '/vs/sitejabber/';
   const body = `<article class="prose">
-    <p><strong>In November 2024, the FTC issued a formal order against SiteJabber</strong> for publishing reviews from people who had never received the products they reviewed. SiteJabber's system allowed businesses to collect reviews at the point of sale — before the customer ever received the product. The FTC found this deceptive. Here's how Signed Reviews compares — and why our model structurally can't have the problem that got SiteJabber in trouble.</p>
+    <p><strong>In November 2024, the FTC issued a formal order against SiteJabber</strong> for publishing reviews from people who had never received the products they reviewed. SiteJabber's system allowed businesses to collect reviews at the point of sale, before the customer ever received the product. The FTC found this deceptive. Here's how Signed Reviews compares, and why our model structurally can't have the problem that got SiteJabber in trouble.</p>
 
     <h2>How SiteJabber's verification works</h2>
-    <p>SiteJabber is an open review platform: businesses invite customers to leave reviews, and in some cases the platform also displays reviews it has collected directly. A "verified" label on SiteJabber reflects the business's invitation to the reviewer rather than an independently confirmed purchase. It is the same invitation model used by most review platforms — and it is precisely where the FTC found room for abuse: reviews collected at the point of sale, from people who had not yet received the product, were presented as customer feedback about the product.</p>
+    <p>SiteJabber is an open review platform: businesses invite customers to leave reviews, and in some cases the platform also displays reviews it has collected directly. A "verified" label on SiteJabber reflects the business's invitation to the reviewer rather than an independently confirmed purchase. It is the same invitation model used by most review platforms, and it is precisely where the FTC found room for abuse: reviews collected at the point of sale, from people who had not yet received the product, were presented as customer feedback about the product.</p>
     <p>The invitation model is reactive. The platform publishes first and polices later: automated tools and moderators remove bad reviews after they are reported, but the review is already live and already influencing readers in the meantime. It is a fundamentally different posture from a platform where a review cannot exist until an independent third party confirms the purchase happened.</p>
 
     <h2>What the FTC found</h2>
-    <p>The FTC's case against SiteJabber centered on what consumers were led to believe. Reviews and ratings collected at the point of sale — before delivery — were counted into the average ratings and review counts that shoppers rely on. A customer who had never received a product could still be counted as a satisfied reviewer of it. The FTC found that deceptive, and the order requires SiteJabber to change those practices and stop misrepresenting what its reviews mean.</p>
-    <p>For any business choosing a review platform, the takeaway is not about one company. It is about structure: if the platform's design permits reviews without independently verified proof of purchase, the platform is one enforcement action — or one bad actor — away from the same problem.</p>
+    <p>The FTC's case against SiteJabber centered on what consumers were led to believe. Reviews and ratings collected at the point of sale, before delivery, were counted into the average ratings and review counts that shoppers rely on. A customer who had never received a product could still be counted as a satisfied reviewer of it. The FTC found that deceptive, and the order requires SiteJabber to change those practices and stop misrepresenting what its reviews mean.</p>
+    <p>For any business choosing a review platform, the takeaway is not about one company. It is about structure: if the platform's design permits reviews without independently verified proof of purchase, the platform is one enforcement action, or one bad actor, away from the same problem.</p>
 
     <h2>Signed Reviews vs SiteJabber: full comparison</h2>
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>SiteJabber</th></tr></thead>
       <tbody>
-        <tr class="highlight-row"><td>FTC compliance</td><td class="win">FTC-compliant by construction — every review requires an independently verified Stripe charge. The purchase is confirmed by a third-party payment processor before a review can exist.</td><td class="lose">FTC Order (Nov 2024) — found to have misrepresented that reviews came from customers who'd received products. SiteJabber allowed point-of-sale collection before product receipt.</td></tr>
-        <tr><td>Verification method</td><td class="win">Processor-attested (Level 4) — Stripe independently confirms the charge, and refunds auto-hide reviews.</td><td class="lose">Email + optional receipt (Level 1–2) — reviewers self-attest. SiteJabber's system did not verify product receipt at all.</td></tr>
-        <tr class="highlight-row"><td>Review timing</td><td class="win">After purchase — reviews are only possible after a Stripe charge succeeds. Configurable delay for shipped products.</td><td class="lose">Point-of-sale — SiteJabber's model encouraged reviews at checkout, before the customer had the product. The FTC found this deceptive.</td></tr>
-        <tr><td>Fake review prevention</td><td class="win">Structural — impossible to post a review without a verified Stripe transaction backing it.</td><td class="lose">Reactive — reviews are open to anyone with an email address. Optional receipt verification is self-attested.</td></tr>
-        <tr class="highlight-row"><td>Regulatory standing</td><td class="win">Clean — launched after the FTC's 2024 rule took effect. Designed for compliance from day one.</td><td class="lose">Under FTC order — required to change practices and stop misrepresenting review authenticity.</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions. Automatic on every charge.</td><td class="lose">No Stripe integration. Reviews are collected independently of payment processing.</td></tr>
-        <tr class="highlight-row"><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="lose">Custom pricing — not publicly listed. Typically requires a sales conversation.</td></tr>
+        <tr class="highlight-row"><td>FTC compliance</td><td class="win">FTC-compliant by construction, every review requires an independently verified Stripe charge. The purchase is confirmed by a third-party payment processor before a review can exist.</td><td class="lose">FTC Order (Nov 2024), found to have misrepresented that reviews came from customers who'd received products. SiteJabber allowed point-of-sale collection before product receipt.</td></tr>
+        <tr><td>Verification method</td><td class="win">Processor-attested (Level 4) (Stripe independently confirms the charge, and refunds auto-hide reviews.</td><td class="lose">Email + optional receipt (Level 1–2)) reviewers self-attest. SiteJabber's system did not verify product receipt at all.</td></tr>
+        <tr class="highlight-row"><td>Review timing</td><td class="win">After purchase, reviews are only possible after a Stripe charge succeeds. Configurable delay for shipped products.</td><td class="lose">Point-of-sale, SiteJabber's model encouraged reviews at checkout, before the customer had the product. The FTC found this deceptive.</td></tr>
+        <tr><td>Fake review prevention</td><td class="win">Structural, impossible to post a review without a verified Stripe transaction backing it.</td><td class="lose">Reactive, reviews are open to anyone with an email address. Optional receipt verification is self-attested.</td></tr>
+        <tr class="highlight-row"><td>Regulatory standing</td><td class="win">Clean, launched after the FTC's 2024 rule took effect. Designed for compliance from day one.</td><td class="lose">Under FTC order, required to change practices and stop misrepresenting review authenticity.</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native, one-click OAuth, minimal permissions. Automatic on every charge.</td><td class="lose">No Stripe integration. Reviews are collected independently of payment processing.</td></tr>
+        <tr class="highlight-row"><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="lose">Custom pricing, not publicly listed. Typically requires a sales conversation.</td></tr>
         <tr><td>Review ownership</td><td class="win">Business owns the reviews. Exportable, portable via API.</td><td class="win">Business owns the reviews.</td></tr>
       </tbody>
     </table>
     </div>
 
     <h2>Why the verification method determines compliance</h2>
-    <p>Verification method is the whole game, because it decides whether fake reviews are prevented or merely detected. On an invitation platform, the business controls who gets invited, the reviewer self-attests, and the platform has no independent record of any purchase. On a processor-attested platform like Signed Reviews, a review cannot exist unless Stripe — a neutral third party — has independently confirmed a real charge. The merchant cannot invite a reviewer whose payment Stripe has not seen, and refunded charges automatically hide their associated reviews.</p>
+    <p>Verification method is the whole game, because it decides whether fake reviews are prevented or merely detected. On an invitation platform, the business controls who gets invited, the reviewer self-attests, and the platform has no independent record of any purchase. On a processor-attested platform like Signed Reviews, a review cannot exist unless Stripe, a neutral third party, has independently confirmed a real charge. The merchant cannot invite a reviewer whose payment Stripe has not seen, and refunded charges automatically hide their associated reviews.</p>
     <p>That is the difference between "we catch most fakes after they appear" and "fakes from non-customers cannot appear at all." Both models run content moderation, but only one makes the FTC's SiteJabber scenario structurally impossible: there is no point of sale to collect from, because the review flow starts with a confirmed transaction, not an invitation list.</p>
 
     <div class="verdict">
       <h3>Why this matters beyond SiteJabber</h3>
-      <p>The SiteJabber FTC order established a precedent: the FTC will act against platforms whose review collection practices mislead consumers about authenticity. Any platform that allows reviews without independently verified proof of purchase — or that collects reviews before the customer has the product — is exposed to the same regulatory risk. Signed Reviews was designed after this precedent to be structurally compliant: no purchase verification, no review, no exceptions.</p>
+      <p>The SiteJabber FTC order established a precedent: the FTC will act against platforms whose review collection practices mislead consumers about authenticity. Any platform that allows reviews without independently verified proof of purchase, or that collects reviews before the customer has the product, is exposed to the same regulatory risk. Signed Reviews was designed after this precedent to be structurally compliant: no purchase verification, no review, no exceptions.</p>
     </div>
 
     <div class="verdict verdict-alt">
@@ -2686,21 +2686,21 @@ function buildComparisonSiteJabber() {
     <h2>Frequently asked questions</h2>
 
     <h3>Is SiteJabber legitimate?</h3>
-    <p>SiteJabber is a legitimate, established review platform with a large existing review base. But legitimacy is a different question from verification strength: the FTC's November 2024 order found that SiteJabber allowed reviews collected at the point of sale — before the customer received the product — to be presented as customer feedback. The platform is real; the reliability of its individual reviews is the open question.</p>
+    <p>SiteJabber is a legitimate, established review platform with a large existing review base. But legitimacy is a different question from verification strength: the FTC's November 2024 order found that SiteJabber allowed reviews collected at the point of sale, before the customer received the product, to be presented as customer feedback. The platform is real; the reliability of its individual reviews is the open question.</p>
 
     <h3>Does SiteJabber verify purchases?</h3>
-    <p>No. SiteJabber's model relies on business invitations and self-attestation rather than independent proof of purchase. There is no third-party payment processor confirming that a reviewer actually bought the product — which is exactly the gap the FTC's order addressed. Signed Reviews takes the opposite approach: Stripe independently confirms the charge before a review can exist.</p>
+    <p>No. SiteJabber's model relies on business invitations and self-attestation rather than independent proof of purchase. There is no third-party payment processor confirming that a reviewer actually bought the product, which is exactly the gap the FTC's order addressed. Signed Reviews takes the opposite approach: Stripe independently confirms the charge before a review can exist.</p>
 
     <h3>Is Signed Reviews better than SiteJabber?</h3>
-    <p>For verification strength and FTC-compliance risk, yes — Signed Reviews is processor-attested by construction, while SiteJabber operates under an FTC order requiring it to change its collection practices. SiteJabber's advantages are its brand recognition and existing review base. If your priority is provably authentic reviews from confirmed customers, Signed Reviews is the structurally stronger choice.</p>
+    <p>For verification strength and FTC-compliance risk, yes. Signed Reviews is processor-attested by construction, while SiteJabber operates under an FTC order requiring it to change its collection practices. SiteJabber's advantages are its brand recognition and existing review base. If your priority is provably authentic reviews from confirmed customers, Signed Reviews is the structurally stronger choice.</p>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting FTC-compliant reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/tools/fake-review-checker/">Free fake review checker</a> · <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/blog/fake-reviews/">The Fake Review Problem</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a></p>
   </article>`;
 
   const html = page({
-    title: 'Signed Reviews vs SiteJabber — Comparison',
-    description: 'SiteJabber received an FTC order in 2024 for reviews from people who never received products. Signed Reviews is structurally FTC-compliant — every review requires a verified Stripe charge.',
+    title: 'Signed Reviews vs SiteJabber. Comparison',
+    description: 'SiteJabber received an FTC order in 2024 for reviews from people who never received products. Signed Reviews is structurally FTC-compliant, every review requires a verified Stripe charge.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs SiteJabber', subtitle: 'SiteJabber got an FTC order for reviews from people who never received products. We structurally can\'t have that problem.' },
     body,
@@ -2714,28 +2714,28 @@ function buildComparisonSiteJabber() {
 function buildComparisonBirdeye() {
   const slug = '/vs/birdeye/';
   const body = `<article class="prose">
-    <p><strong>Is Birdeye legitimate? Yes — Birdeye is a real, established reputation-management platform used by tens of thousands of local businesses.</strong> But legitimacy is a different question from verification strength: Birdeye's reviews rest on the business's own invitation list, and the platform never confirms a purchase against a payment processor. Here's how the two models compare.</p>
+    <p><strong>Is Birdeye legitimate? Yes. Birdeye is a real, established reputation-management platform used by tens of thousands of local businesses.</strong> But legitimacy is a different question from verification strength: Birdeye's reviews rest on the business's own invitation list, and the platform never confirms a purchase against a payment processor. Here's how the two models compare.</p>
 
     <h2>How Birdeye's verification works</h2>
-    <p>Birdeye is an invitation-based platform: a business invites its customers to leave a review, and Birdeye matches the reviewer to the business's customer records — the same customer data the business controls in its own systems. Birdeye also aggregates reviews from third-party sources such as Google, which carries those sources' own (weaker) verification levels.</p>
-    <p>The invitation model is reactive by design. The platform publishes first and polices later: moderation systems catch bad reviews after they are live, and the platform has no independent record that a purchase ever happened. There is no point where a neutral third party — a payment processor, a bank, a marketplace — confirms the reviewer paid for what they are reviewing.</p>
+    <p>Birdeye is an invitation-based platform: a business invites its customers to leave a review, and Birdeye matches the reviewer to the business's customer records, the same customer data the business controls in its own systems. Birdeye also aggregates reviews from third-party sources such as Google, which carries those sources' own (weaker) verification levels.</p>
+    <p>The invitation model is reactive by design. The platform publishes first and polices later: moderation systems catch bad reviews after they are live, and the platform has no independent record that a purchase ever happened. There is no point where a neutral third party (a payment processor, a bank, a marketplace) confirms the reviewer paid for what they are reviewing.</p>
 
     <h2>Why the verification source matters for local businesses</h2>
-    <p>Birdeye's strongest use case is local presence: listings management, Google review generation, messaging, and multi-location reporting. That is a different job from proving a review is real. For a business whose reviews are its most valuable marketing asset, the difference between "the business says this person is a customer" and "Stripe confirms this person paid" is the difference between a claim and a fact — and it is exactly the difference regulators and shoppers have started testing.</p>
+    <p>Birdeye's strongest use case is local presence: listings management, Google review generation, messaging, and multi-location reporting. That is a different job from proving a review is real. For a business whose reviews are its most valuable marketing asset, the difference between "the business says this person is a customer" and "Stripe confirms this person paid" is the difference between a claim and a fact, and it is exactly the difference regulators and shoppers have started testing.</p>
 
     <h2>Signed Reviews vs Birdeye: full comparison</h2>
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Birdeye</th></tr></thead>
       <tbody>
-        <tr class="highlight-row"><td>Verification method</td><td class="win">Processor-attested (Level 4) — Stripe independently confirms the charge before a review can exist.</td><td class="lose">Invitation-based (Level 1) — the business invites customers, and verification rests on the business's own records.</td></tr>
-        <tr><td>Fake review prevention</td><td class="win">Structural — no Stripe charge = no review. Impossible to post without a verified payment.</td><td class="lose">Reactive — moderation catches fakes after publication; aggregated third-party reviews carry those platforms' weaker verification.</td></tr>
-        <tr class="highlight-row"><td>Cryptographic proof</td><td class="win">Every review is cryptographically signed at submission — tamper-evident, independently verifiable.</td><td class="lose">No cryptographic signing — reviews are database records.</td></tr>
-        <tr><td>Refund handling</td><td class="win">Automatic — Stripe webhook hides refunded reviews immediately.</td><td class="lose">No processor connection — refunds are invisible to the platform.</td></tr>
-        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native — one-click OAuth with least-privilege scopes. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration.</td></tr>
-        <tr><td>Local presence & listings</td><td class="lose">Not the focus — Signed Reviews is purchase verification and publishing.</td><td class="win">Strength — listings management, Google Business Profile tools, messaging, multi-location reporting.</td></tr>
-        <tr class="highlight-row"><td>Market fit</td><td class="lose">Stripe businesses of any size — e-commerce, SaaS, services.</td><td class="win">Local & multi-location businesses — healthcare, home services, automotive, retail.</td></tr>
-        <tr><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="lose">Custom pricing — typically requires a sales conversation.</td></tr>
+        <tr class="highlight-row"><td>Verification method</td><td class="win">Processor-attested (Level 4), Stripe independently confirms the charge before a review can exist.</td><td class="lose">Invitation-based (Level 1), the business invites customers, and verification rests on the business's own records.</td></tr>
+        <tr><td>Fake review prevention</td><td class="win">Structural, no Stripe charge = no review. Impossible to post without a verified payment.</td><td class="lose">Reactive, moderation catches fakes after publication; aggregated third-party reviews carry those platforms' weaker verification.</td></tr>
+        <tr class="highlight-row"><td>Cryptographic proof</td><td class="win">Every review is cryptographically signed at submission (tamper-evident, independently verifiable.</td><td class="lose">No cryptographic signing) reviews are database records.</td></tr>
+        <tr><td>Refund handling</td><td class="win">Automatic, Stripe webhook hides refunded reviews immediately.</td><td class="lose">No processor connection, refunds are invisible to the platform.</td></tr>
+        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native, one-click OAuth with least-privilege scopes. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration.</td></tr>
+        <tr><td>Local presence & listings</td><td class="lose">Not the focus, Signed Reviews is purchase verification and publishing.</td><td class="win">Strength, listings management, Google Business Profile tools, messaging, multi-location reporting.</td></tr>
+        <tr class="highlight-row"><td>Market fit</td><td class="lose">Stripe businesses of any size (e-commerce, SaaS, services.</td><td class="win">Local & multi-location businesses) healthcare, home services, automotive, retail.</td></tr>
+        <tr><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="lose">Custom pricing, typically requires a sales conversation.</td></tr>
         <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews. Exportable, portable via API.</td><td class="win">Business owns the reviews.</td></tr>
       </tbody>
     </table>
@@ -2743,12 +2743,12 @@ function buildComparisonBirdeye() {
 
     <div class="verdict">
       <h3>When to choose Signed Reviews</h3>
-      <p>If you process payments through Stripe and your reviews are your most valuable trust asset, Signed Reviews gives you the one thing Birdeye's model can't: a neutral third party attesting that the reviewer actually paid. The verification is structural rather than editorial — the review cannot exist without the charge, and the tamper-evident signature makes that independently checkable.</p>
+      <p>If you process payments through Stripe and your reviews are your most valuable trust asset, Signed Reviews gives you the one thing Birdeye's model can't: a neutral third party attesting that the reviewer actually paid. The verification is structural rather than editorial. The review cannot exist without the charge, and the tamper-evident signature makes that independently checkable.</p>
     </div>
 
     <div class="verdict verdict-alt">
       <h3>When Birdeye may be a better fit</h3>
-      <p>If your priority is managing a local presence at scale — Google Business Profile listings, review generation across locations, messaging, and consolidated reporting — Birdeye's operational toolkit is the stronger choice. The two platforms solve different problems: Birdeye manages reputation operations; Signed Reviews proves review authenticity.</p>
+      <p>If your priority is managing a local presence at scale (Google Business Profile listings, review generation across locations, messaging, and consolidated reporting) Birdeye's operational toolkit is the stronger choice. The two platforms solve different problems: Birdeye manages reputation operations; Signed Reviews proves review authenticity.</p>
     </div>
 
     <h2>Frequently asked questions</h2>
@@ -2757,10 +2757,10 @@ function buildComparisonBirdeye() {
     <p>Yes. Birdeye is a legitimate, established reputation-management platform with a large customer base and real enterprise operations. But legitimacy is a different question from verification strength: Birdeye's "verified" reviews are invitation-based, resting on the business's own customer records rather than an independent confirmation of purchase.</p>
 
     <h3>Does Birdeye verify purchases?</h3>
-    <p>No. Birdeye does not confirm purchases against a payment processor. Its verification rests on the business's invitation list and customer records — data the business itself controls. Aggregated reviews from Google and other platforms carry those platforms' own, weaker verification models. Signed Reviews takes the opposite approach: Stripe independently confirms the charge before a review can exist.</p>
+    <p>No. Birdeye does not confirm purchases against a payment processor. Its verification rests on the business's invitation list and customer records, data the business itself controls. Aggregated reviews from Google and other platforms carry those platforms' own, weaker verification models. Signed Reviews takes the opposite approach: Stripe independently confirms the charge before a review can exist.</p>
 
     <h3>Is Signed Reviews better than Birdeye?</h3>
-    <p>For verification strength, yes — Signed Reviews is processor-attested by construction, while Birdeye verifies against the merchant's own records. For local-presence operations (listings, multi-location management, messaging), Birdeye is the stronger platform. If your reviews must prove a real purchase, choose Signed Reviews; if you need to operate a local reputation program at scale, Birdeye's toolkit wins.</p>
+    <p>For verification strength, yes. Signed Reviews is processor-attested by construction, while Birdeye verifies against the merchant's own records. For local-presence operations (listings, multi-location management, messaging), Birdeye is the stronger platform. If your reviews must prove a real purchase, choose Signed Reviews; if you need to operate a local reputation program at scale, Birdeye's toolkit wins.</p>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting processor-verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/how-verification-works/">How Review Verification Works</a> · <a href="/vs/sitejabber/">Signed Reviews vs SiteJabber</a> · <a href="/vs/yotpo/">Signed Reviews vs Yotpo</a></p>
@@ -2784,7 +2784,7 @@ function buildComparisonBirdeye() {
         "name": "Does Birdeye verify purchases?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Birdeye does not confirm purchases against a payment processor. Its verification rests on the business's invitation list and customer records — data the business itself controls. Aggregated reviews from Google and other platforms carry those platforms' own, weaker verification models. Signed Reviews takes the opposite approach: Stripe independently confirms the charge before a review can exist."
+          "text": "No. Birdeye does not confirm purchases against a payment processor. Its verification rests on the business's invitation list and customer records, data the business itself controls. Aggregated reviews from Google and other platforms carry those platforms' own, weaker verification models. Signed Reviews takes the opposite approach: Stripe independently confirms the charge before a review can exist."
         }
       },
       {
@@ -2792,7 +2792,7 @@ function buildComparisonBirdeye() {
         "name": "Is Signed Reviews better than Birdeye?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For verification strength, yes — Signed Reviews is processor-attested by construction, while Birdeye verifies against the merchant's own records. For local-presence operations (listings, multi-location management, messaging), Birdeye is the stronger platform. If your reviews must prove a real purchase, choose Signed Reviews; if you need to operate a local reputation program at scale, Birdeye's toolkit wins."
+          "text": "For verification strength, yes. Signed Reviews is processor-attested by construction, while Birdeye verifies against the merchant's own records. For local-presence operations (listings, multi-location management, messaging), Birdeye is the stronger platform. If your reviews must prove a real purchase, choose Signed Reviews; if you need to operate a local reputation program at scale, Birdeye's toolkit wins."
         }
       }
     ]
@@ -2800,8 +2800,8 @@ function buildComparisonBirdeye() {
   </script>`;
 
   const html = page({
-    title: 'Signed Reviews vs Birdeye — Comparison',
-    description: 'Is Birdeye legitimate? Yes — but Birdeye verifies against the business\'s own records, while Signed Reviews requires Stripe to confirm the charge. Full comparison.',
+    title: 'Signed Reviews vs Birdeye. Comparison',
+    description: 'Is Birdeye legitimate? Yes, but Birdeye verifies against the business\'s own records, while Signed Reviews requires Stripe to confirm the charge. Full comparison.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Birdeye', subtitle: 'Birdeye verifies against your own customer list. Signed Reviews verifies against Stripe\'s charge record. The difference is who does the verifying.' },
     body,
@@ -2815,29 +2815,29 @@ function buildComparisonBirdeye() {
 function buildComparisonReviewsIo() {
   const slug = '/vs/reviews-io/';
   const body = `<article class="prose">
-    <p>Reviews.io is the most frequently recommended Trustpilot alternative — particularly in the UK and Europe. Its "Verified Reviewer" badge marks reviews that came through the merchant's invitation system. Here's how that compares to processor-attested verification.</p>
+    <p>Reviews.io is the most frequently recommended Trustpilot alternative, particularly in the UK and Europe. Its "Verified Reviewer" badge marks reviews that came through the merchant's invitation system. Here's how that compares to processor-attested verification.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Reviews.io</th></tr></thead>
       <tbody>
-        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe — independent payment processor. Processor-attested (Level 4).</td><td class="lose">Merchant customer data — the business provides customer lists or integrates its CRM. Merchant-supplied (Level 3).</td></tr>
-        <tr><td>Fake review prevention</td><td class="win">Structural — no Stripe charge = no review. Cannot be gamed without faking a real payment.</td><td class="lose">Invitation-gated — reviews require an invitation, but invitations are sent to lists the merchant controls.</td></tr>
-        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration — works through CRM integrations and manual customer list uploads.</td></tr>
-        <tr><td>Cryptographic proof</td><td class="win">Yes — tamper-evident digital signature on every review. Independently verifiable.</td><td class="lose">No — reviews are database records with no cryptographic proof of integrity.</td></tr>
-        <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic — Stripe webhook hides refunded reviews immediately.</td><td class="lose">Manual — merchants must manage review display for refunded orders.</td></tr>
+        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe, independent payment processor. Processor-attested (Level 4).</td><td class="lose">Merchant customer data, the business provides customer lists or integrates its CRM. Merchant-supplied (Level 3).</td></tr>
+        <tr><td>Fake review prevention</td><td class="win">Structural, no Stripe charge = no review. Cannot be gamed without faking a real payment.</td><td class="lose">Invitation-gated, reviews require an invitation, but invitations are sent to lists the merchant controls.</td></tr>
+        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native (one-click OAuth, minimal permissions. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration) works through CRM integrations and manual customer list uploads.</td></tr>
+        <tr><td>Cryptographic proof</td><td class="win">Yes, tamper-evident digital signature on every review. Independently verifiable.</td><td class="lose">No, reviews are database records with no cryptographic proof of integrity.</td></tr>
+        <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic, Stripe webhook hides refunded reviews immediately.</td><td class="lose">Manual, merchants must manage review display for refunded orders.</td></tr>
         <tr><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve pricing.</td><td class="lose">From £89/mo (~$113). Mid-range pricing. No free plan.</td></tr>
-        <tr class="highlight-row"><td>Geographic strength</td><td class="tie">Global — Stripe is the payment processor in 40+ countries.</td><td class="win">UK/Europe — Reviews.io has strong regional presence and brand recognition in the UK and EU.</td></tr>
-        <tr><td>Google integrations</td><td class="tie">Planned — Google Seller Ratings on the roadmap.</td><td class="win">Google Seller Ratings + Google Shopping integration available.</td></tr>
-        <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews — exportable, portable, accessible via API.</td><td class="win">Business owns the reviews — Reviews.io is merchant-ownership by model.</td></tr>
-        <tr><td>Platform maturity</td><td class="lose">Early stage — launched 2026.</td><td class="win">Established — strong reputation, particularly in UK e-commerce.</td></tr>
+        <tr class="highlight-row"><td>Geographic strength</td><td class="tie">Global, Stripe is the payment processor in 40+ countries.</td><td class="win">UK/Europe, Reviews.io has strong regional presence and brand recognition in the UK and EU.</td></tr>
+        <tr><td>Google integrations</td><td class="tie">Planned. Google Seller Ratings on the roadmap.</td><td class="win">Google Seller Ratings + Google Shopping integration available.</td></tr>
+        <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews (exportable, portable, accessible via API.</td><td class="win">Business owns the reviews) Reviews.io is merchant-ownership by model.</td></tr>
+        <tr><td>Platform maturity</td><td class="lose">Early stage, launched 2026.</td><td class="win">Established, strong reputation, particularly in UK e-commerce.</td></tr>
       </tbody>
     </table>
     </div>
 
     <div class="verdict">
       <h3>When to choose Signed Reviews</h3>
-      <p>If you process payments through Stripe and want the strongest possible verification — independent attestation by a payment processor — Signed Reviews gives you something Reviews.io can't: verification that doesn't depend on data you supply. The lower starting price and automatic refund handling are meaningful operational advantages.</p>
+      <p>If you process payments through Stripe and want the strongest possible verification, independent attestation by a payment processor, Signed Reviews gives you something Reviews.io can't: verification that doesn't depend on data you supply. The lower starting price and automatic refund handling are meaningful operational advantages.</p>
     </div>
 
     <div class="verdict verdict-alt">
@@ -2850,7 +2850,7 @@ function buildComparisonReviewsIo() {
   </article>`;
 
   const html = page({
-    title: 'Signed Reviews vs Reviews.io — Comparison',
+    title: 'Signed Reviews vs Reviews.io. Comparison',
     description: 'Signed Reviews vs Reviews.io: Reviews.io verifies against customer data you supply; Signed Reviews verifies against Stripe itself. 10-dimension comparison for businesses comparing Trustpilot alternatives.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Reviews.io', subtitle: 'The most-recommended Trustpilot alternative. But verification still depends on data you supply.' },
@@ -2865,18 +2865,18 @@ function buildComparisonReviewsIo() {
 function buildComparisonStamped() {
   const slug = '/vs/stamped/';
   const body = `<article class="prose">
-    <p>Stamped.io (also known as Stamped) is a well-established review and loyalty platform popular with mid-market e-commerce brands. Its purchase verification matches reviews to merchant order data — solid, but still merchant-supplied. Here's how it compares to processor-attested verification.</p>
+    <p>Stamped.io (also known as Stamped) is a well-established review and loyalty platform popular with mid-market e-commerce brands. Its purchase verification matches reviews to merchant order data, solid, but still merchant-supplied. Here's how it compares to processor-attested verification.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Stamped</th></tr></thead>
       <tbody>
-        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe — independent payment processor. Processor-attested (Level 4).</td><td class="lose">Merchant order data — matches reviews to orders in the merchant's e-commerce platform. Merchant-supplied (Level 3).</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration — works through e-commerce platform connectors (Shopify, BigCommerce, etc.).</td></tr>
-        <tr class="highlight-row"><td>Feature breadth</td><td class="lose">Focused — core review collection, verification, API, and publishing.</td><td class="win">Broad — reviews, ratings, Q&A, loyalty & rewards, community, checkout upsells. Full retention suite.</td></tr>
-        <tr><td>Cryptographic proof</td><td class="win">Yes — tamper-evident digital signature on every review.</td><td class="lose">No cryptographic signing.</td></tr>
+        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe, independent payment processor. Processor-attested (Level 4).</td><td class="lose">Merchant order data, matches reviews to orders in the merchant's e-commerce platform. Merchant-supplied (Level 3).</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native (one-click OAuth, minimal permissions. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration) works through e-commerce platform connectors (Shopify, BigCommerce, etc.).</td></tr>
+        <tr class="highlight-row"><td>Feature breadth</td><td class="lose">Focused (core review collection, verification, API, and publishing.</td><td class="win">Broad) reviews, ratings, Q&A, loyalty & rewards, community, checkout upsells. Full retention suite.</td></tr>
+        <tr><td>Cryptographic proof</td><td class="win">Yes, tamper-evident digital signature on every review.</td><td class="lose">No cryptographic signing.</td></tr>
         <tr class="highlight-row"><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="lose">From $23/mo (Lite) to $149/mo+ (Enterprise). Mid-range but features gated behind tiers.</td></tr>
-        <tr><td>Platform support</td><td class="win">Any platform using Stripe — Shopify, WooCommerce, custom, SaaS, invoices.</td><td class="win">Shopify, BigCommerce, Magento, WooCommerce. Wide platform support.</td></tr>
+        <tr><td>Platform support</td><td class="win">Any platform using Stripe: Shopify, WooCommerce, custom, SaaS, invoices.</td><td class="win">Shopify, BigCommerce, Magento, WooCommerce. Wide platform support.</td></tr>
         <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews.</td><td class="win">Business owns the reviews.</td></tr>
       </tbody>
     </table>
@@ -2889,7 +2889,7 @@ function buildComparisonStamped() {
 
     <div class="verdict verdict-alt">
       <h3>When Stamped may be a better fit</h3>
-      <p>If you need a full retention suite — reviews + loyalty + rewards + Q&A + community — Stamped's breadth is compelling, particularly for mid-market e-commerce brands that want one platform for everything. The loyalty integration is a differentiator if you're running a points-based retention program alongside reviews.</p>
+      <p>If you need a full retention suite, reviews + loyalty + rewards + Q&A + community, Stamped's breadth is compelling, particularly for mid-market e-commerce brands that want one platform for everything. The loyalty integration is a differentiator if you're running a points-based retention program alongside reviews.</p>
     </div>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
@@ -2897,7 +2897,7 @@ function buildComparisonStamped() {
   </article>`;
 
   const html = page({
-    title: 'Signed Reviews vs Stamped — Comparison',
+    title: 'Signed Reviews vs Stamped. Comparison',
     description: 'Signed Reviews vs Stamped.io: Stamped verifies against merchant order data; Signed Reviews verifies against Stripe. 7-dimension comparison for e-commerce brands.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Stamped', subtitle: 'Stamped matches reviews to merchant orders. We match them to Stripe charges. The difference is who attests.' },
@@ -2912,17 +2912,17 @@ function buildComparisonStamped() {
 function buildComparisonOkendo() {
   const slug = '/vs/okendo/';
   const body = `<article class="prose">
-    <p>Okendo is the premium Shopify review app — favored by DTC brands like Skims, Haus Labs, and Olipop for its visual, brand-forward review display. Its "Verified Buyer" badge matches reviews to Shopify orders. Here's how processor-attested verification stacks up.</p>
+    <p>Okendo is the premium Shopify review app: favored by DTC brands like Skims, Haus Labs, and Olipop for its visual, brand-forward review display. Its "Verified Buyer" badge matches reviews to Shopify orders. Here's how processor-attested verification stacks up.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Okendo</th></tr></thead>
       <tbody>
-        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe — independent payment processor. Processor-attested (Level 4).</td><td class="lose">Shopify order data — matches reviews to orders. Merchant-supplied (Level 3).</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions. Works with any Stripe-connected platform.</td><td class="lose">Shopify-only — no direct Stripe integration. Depends on the Shopify-Stripe connection.</td></tr>
-        <tr class="highlight-row"><td>Review display & branding</td><td class="tie">Clean, brandable public page. Embeddable reviews via API.</td><td class="win">Best-in-class visual design — highly customizable review displays, photo/video reviews, shoppable galleries. Okendo leads on aesthetics.</td></tr>
-        <tr><td>Cryptographic proof</td><td class="win">Yes — tamper-evident digital signature on every review.</td><td class="lose">No cryptographic signing.</td></tr>
-        <tr class="highlight-row"><td>Customer insights</td><td class="lose">Focused on verification data — purchase confirmation, review authenticity metrics.</td><td class="win">Rich zero-party data — customer attributes, preferences, and profiles derived from reviews. Strong for segmentation.</td></tr>
+        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe, independent payment processor. Processor-attested (Level 4).</td><td class="lose">Shopify order data, matches reviews to orders. Merchant-supplied (Level 3).</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native (one-click OAuth, minimal permissions. Works with any Stripe-connected platform.</td><td class="lose">Shopify-only) no direct Stripe integration. Depends on the Shopify-Stripe connection.</td></tr>
+        <tr class="highlight-row"><td>Review display & branding</td><td class="tie">Clean, brandable public page. Embeddable reviews via API.</td><td class="win">Best-in-class visual design: highly customizable review displays, photo/video reviews, shoppable galleries. Okendo leads on aesthetics.</td></tr>
+        <tr><td>Cryptographic proof</td><td class="win">Yes, tamper-evident digital signature on every review.</td><td class="lose">No cryptographic signing.</td></tr>
+        <tr class="highlight-row"><td>Customer insights</td><td class="lose">Focused on verification data (purchase confirmation, review authenticity metrics.</td><td class="win">Rich zero-party data) customer attributes, preferences, and profiles derived from reviews. Strong for segmentation.</td></tr>
         <tr><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="lose">From $19/mo (Essential) to $119/mo+ (Advanced). Shopify-only. Features gated behind higher tiers.</td></tr>
         <tr class="highlight-row"><td>Platform support</td><td class="win">Any platform using Stripe.</td><td class="lose">Shopify-only.</td></tr>
         <tr><td>Review ownership</td><td class="win">Business owns the reviews.</td><td class="win">Business owns the reviews. Exportable.</td></tr>
@@ -2932,12 +2932,12 @@ function buildComparisonOkendo() {
 
     <div class="verdict">
       <h3>When to choose Signed Reviews</h3>
-      <p>If you want the strongest verification possible — independent processor attestation with cryptographic proof — and you're on Stripe, Signed Reviews gives you a trust signal Okendo can't replicate. If you sell across multiple platforms (Shopify + custom + invoices), Signed Reviews works everywhere Stripe does, while Okendo is Shopify-only.</p>
+      <p>If you want the strongest verification possible, independent processor attestation with cryptographic proof, and you're on Stripe, Signed Reviews gives you a trust signal Okendo can't replicate. If you sell across multiple platforms (Shopify + custom + invoices), Signed Reviews works everywhere Stripe does, while Okendo is Shopify-only.</p>
     </div>
 
     <div class="verdict verdict-alt">
       <h3>When Okendo may be a better fit</h3>
-      <p>If you're a Shopify DTC brand and visual brand experience is paramount, Okendo's review displays are the best in the category. Its zero-party data features — capturing customer attributes and preferences through reviews — are genuinely valuable for segmentation and personalization. For Shopify-only brands where aesthetics and customer insights outweigh verification strength, Okendo excels.</p>
+      <p>If you're a Shopify DTC brand and visual brand experience is paramount, Okendo's review displays are the best in the category. Its zero-party data features, capturing customer attributes and preferences through reviews, are genuinely valuable for segmentation and personalization. For Shopify-only brands where aesthetics and customer insights outweigh verification strength, Okendo excels.</p>
     </div>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
@@ -2945,7 +2945,7 @@ function buildComparisonOkendo() {
   </article>`;
 
   const html = page({
-    title: 'Signed Reviews vs Okendo — Comparison',
+    title: 'Signed Reviews vs Okendo. Comparison',
     description: 'Signed Reviews vs Okendo: Okendo leads on visual design, but verifies against Shopify order data. Signed Reviews verifies against Stripe itself. 8-dimension comparison.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Okendo', subtitle: 'Okendo\'s reviews look beautiful. But their "verified" trusts your Shopify data. Ours trusts Stripe.' },
@@ -2966,13 +2966,13 @@ function buildComparisonLoox() {
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Loox</th></tr></thead>
       <tbody>
-        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe — independent payment processor. Processor-attested (Level 4).</td><td class="lose">Shopify order data — matches reviews to orders. Merchant-supplied (Level 3).</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions. Works with any Stripe-connected platform.</td><td class="lose">Shopify-only — no direct Stripe integration.</td></tr>
-        <tr class="highlight-row"><td>Photo reviews</td><td class="tie">Photo reviews supported — customers can attach images.</td><td class="win">Best-in-class photo reviews — auto-discount incentives for photo submissions, beautiful photo-first gallery displays. Loox leads here.</td></tr>
-        <tr><td>Cryptographic proof</td><td class="win">Yes — tamper-evident digital signature on every review.</td><td class="lose">No cryptographic signing.</td></tr>
+        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe, independent payment processor. Processor-attested (Level 4).</td><td class="lose">Shopify order data, matches reviews to orders. Merchant-supplied (Level 3).</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native (one-click OAuth, minimal permissions. Works with any Stripe-connected platform.</td><td class="lose">Shopify-only) no direct Stripe integration.</td></tr>
+        <tr class="highlight-row"><td>Photo reviews</td><td class="tie">Photo reviews supported, customers can attach images.</td><td class="win">Best-in-class photo reviews, auto-discount incentives for photo submissions, beautiful photo-first gallery displays. Loox leads here.</td></tr>
+        <tr><td>Cryptographic proof</td><td class="win">Yes, tamper-evident digital signature on every review.</td><td class="lose">No cryptographic signing.</td></tr>
         <tr class="highlight-row"><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="win">From $9.99/mo (Beginner) to $34.99/mo+ (Scale). Very affordable, especially for photo-heavy review collection.</td></tr>
         <tr><td>Platform support</td><td class="win">Any platform using Stripe.</td><td class="lose">Shopify-only.</td></tr>
-        <tr class="highlight-row"><td>Referral features</td><td class="lose">Not offered — focused on review authenticity.</td><td class="win">Built-in referral program — post-review upsells and referral discounts. Loox uses reviews as a referral engine.</td></tr>
+        <tr class="highlight-row"><td>Referral features</td><td class="lose">Not offered, focused on review authenticity.</td><td class="win">Built-in referral program, post-review upsells and referral discounts. Loox uses reviews as a referral engine.</td></tr>
         <tr><td>Review ownership</td><td class="win">Business owns the reviews.</td><td class="win">Business owns the reviews. Exportable.</td></tr>
       </tbody>
     </table>
@@ -2980,7 +2980,7 @@ function buildComparisonLoox() {
 
     <div class="verdict">
       <h3>When to choose Signed Reviews</h3>
-      <p>If you want the strongest verification possible and you're on Stripe, Signed Reviews gives you processor-attested, cryptographically signed reviews — a trust signal no Shopify review app can match. For businesses that sell across multiple platforms, Signed Reviews works everywhere Stripe does.</p>
+      <p>If you want the strongest verification possible and you're on Stripe, Signed Reviews gives you processor-attested, cryptographically signed reviews, a trust signal no Shopify review app can match. For businesses that sell across multiple platforms, Signed Reviews works everywhere Stripe does.</p>
     </div>
 
     <div class="verdict verdict-alt">
@@ -2993,7 +2993,7 @@ function buildComparisonLoox() {
   </article>`;
 
   const html = page({
-    title: 'Signed Reviews vs Loox — Comparison',
+    title: 'Signed Reviews vs Loox. Comparison',
     description: 'Signed Reviews vs Loox: Loox leads on photo reviews and referrals, but verifies against Shopify orders. Signed Reviews verifies against Stripe itself. 8-dimension comparison.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Loox', subtitle: 'Loox makes reviews beautiful. But "verified" still means matched to a Shopify order, not confirmed by Stripe.' },
@@ -3008,18 +3008,18 @@ function buildComparisonLoox() {
 function buildComparisonSkeepers() {
   const slug = '/vs/skeepers/';
   const body = `<article class="prose">
-    <p>Skeepers (formerly Verified Reviews) is a European review and UGC platform. Its verification model relies on merchant-provided transaction data — a Level 3 approach common among enterprise-focused platforms. Here's how that compares to processor-attested verification.</p>
+    <p>Skeepers (formerly Verified Reviews) is a European review and UGC platform. Its verification model relies on merchant-provided transaction data, a Level 3 approach common among enterprise-focused platforms. Here's how that compares to processor-attested verification.</p>
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Skeepers</th></tr></thead>
       <tbody>
-        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe — independent payment processor. Processor-attested (Level 4).</td><td class="lose">Merchant transaction feed — the business supplies the data being verified against. Merchant-supplied (Level 3).</td></tr>
-        <tr><td>Fake review prevention</td><td class="win">Structural — no Stripe charge = no review. Refunds auto-hide reviews.</td><td class="lose">Feed-gated — verification quality depends on what the merchant chooses to include in the feed.</td></tr>
-        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration — relies on merchant-provided data feeds.</td></tr>
-        <tr><td>UGC breadth</td><td class="lose">Focused — review collection, verification, and publishing.</td><td class="win">Broad — reviews, ratings, video UGC, social proof widgets, influencer content.</td></tr>
-        <tr class="highlight-row"><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="lose">Custom pricing — enterprise-focused. Not publicly listed.</td></tr>
-        <tr><td>Geographic strength</td><td class="tie">Global — Stripe is the payment processor in 40+ countries.</td><td class="win">European — strong presence in France, Germany, and Southern Europe.</td></tr>
-        <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews — exportable, accessible via API.</td><td class="win">Business owns the reviews.</td></tr>
+        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe, independent payment processor. Processor-attested (Level 4).</td><td class="lose">Merchant transaction feed, the business supplies the data being verified against. Merchant-supplied (Level 3).</td></tr>
+        <tr><td>Fake review prevention</td><td class="win">Structural, no Stripe charge = no review. Refunds auto-hide reviews.</td><td class="lose">Feed-gated, verification quality depends on what the merchant chooses to include in the feed.</td></tr>
+        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native (one-click OAuth, minimal permissions. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration) relies on merchant-provided data feeds.</td></tr>
+        <tr><td>UGC breadth</td><td class="lose">Focused (review collection, verification, and publishing.</td><td class="win">Broad) reviews, ratings, video UGC, social proof widgets, influencer content.</td></tr>
+        <tr class="highlight-row"><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="lose">Custom pricing, enterprise-focused. Not publicly listed.</td></tr>
+        <tr><td>Geographic strength</td><td class="tie">Global, Stripe is the payment processor in 40+ countries.</td><td class="win">European, strong presence in France, Germany, and Southern Europe.</td></tr>
+        <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews, exportable, accessible via API.</td><td class="win">Business owns the reviews.</td></tr>
       </tbody>
     </table>
     </div>
@@ -3029,13 +3029,13 @@ function buildComparisonSkeepers() {
     </div>
     <div class="verdict verdict-alt">
       <h3>When Skeepers may be a better fit</h3>
-      <p>If you're a European enterprise needing a broad UGC suite — reviews, video testimonials, social proof, influencer content — Skeepers covers more surface area. But for pure review authenticity, the same Level 3 limitation applies: the merchant supplies the verification data.</p>
+      <p>If you're a European enterprise needing a broad UGC suite (reviews, video testimonials, social proof, influencer content) Skeepers covers more surface area. But for pure review authenticity, the same Level 3 limitation applies: the merchant supplies the verification data.</p>
     </div>
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a> · <a href="/vs/feefo/">Signed Reviews vs Feefo</a></p>
   </article>`;
   const html = page({
-    title: 'Signed Reviews vs Skeepers — Comparison',
+    title: 'Signed Reviews vs Skeepers. Comparison',
     description: 'Signed Reviews vs Skeepers: Skeepers verifies against merchant-supplied transaction feeds; Signed Reviews verifies against Stripe itself. Comparison for enterprise brands considering verified review platforms.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Skeepers', subtitle: 'Skeepers verifies against data you supply. We verify against Stripe. The difference is who attests.' },
@@ -3050,31 +3050,31 @@ function buildComparisonSkeepers() {
 function buildComparisonGoogleReviews() {
   const slug = '/vs/google-reviews/';
   const body = `<article class="prose">
-    <p>Google Reviews is the most visible review platform on the internet — powering star ratings in search results, Google Maps, and the local pack. It's free, universal, and essential for local SEO. But it has no purchase verification at all. Here's how it compares to processor-attested reviews — and why most businesses need both.</p>
+    <p>Google Reviews is the most visible review platform on the internet: powering star ratings in search results, Google Maps, and the local pack. It's free, universal, and essential for local SEO. But it has no purchase verification at all. Here's how it compares to processor-attested reviews, and why most businesses need both.</p>
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Google Reviews</th></tr></thead>
       <tbody>
-        <tr class="highlight-row"><td>Verification</td><td class="win">Processor-attested (Level 4) — Stripe independently confirms every charge. Tamper-evident cryptographic signatures.</td><td class="lose">None (Level 0) — anyone with a Google account can review any business. No purchase proof required or checked.</td></tr>
-        <tr><td>Fake review prevention</td><td class="win">Structural — impossible to post a review without a verified Stripe transaction.</td><td class="lose">Reactive — Google uses algorithmic detection and occasional manual review. Fake reviews are common and removal is slow.</td></tr>
-        <tr class="highlight-row"><td>SEO value</td><td class="tie">On-site — reviews on your own pages, eligible for review rich results via schema.</td><td class="win">Search-dominant — star ratings in SERPs, Google Maps visibility, local pack ranking factor. The most visible review surface.</td></tr>
-        <tr><td>Cost</td><td class="win">Free plan + $29–$199/mo for automation and volume.</td><td class="win">Free — no cost to the business or reviewer.</td></tr>
-        <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews — exportable, portable, accessible via API. Display on any site.</td><td class="lose">Google owns the reviews — they live on Google's platform. No export, no API for display elsewhere.</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions. Automatic on every charge.</td><td class="lose">No Stripe integration. Reviews are completely decoupled from payment processing.</td></tr>
-        <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic — Stripe webhook hides refunded-charge reviews immediately.</td><td class="lose">Manual — businesses must report and request removal of reviews from non-customers. Slow, inconsistent process.</td></tr>
+        <tr class="highlight-row"><td>Verification</td><td class="win">Processor-attested (Level 4), Stripe independently confirms every charge. Tamper-evident cryptographic signatures.</td><td class="lose">None (Level 0), anyone with a Google account can review any business. No purchase proof required or checked.</td></tr>
+        <tr><td>Fake review prevention</td><td class="win">Structural, impossible to post a review without a verified Stripe transaction.</td><td class="lose">Reactive, Google uses algorithmic detection and occasional manual review. Fake reviews are common and removal is slow.</td></tr>
+        <tr class="highlight-row"><td>SEO value</td><td class="tie">On-site (reviews on your own pages, eligible for review rich results via schema.</td><td class="win">Search-dominant) star ratings in SERPs, Google Maps visibility, local pack ranking factor. The most visible review surface.</td></tr>
+        <tr><td>Cost</td><td class="win">Free plan + $29–$199/mo for automation and volume.</td><td class="win">Free, no cost to the business or reviewer.</td></tr>
+        <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews (exportable, portable, accessible via API. Display on any site.</td><td class="lose">Google owns the reviews), they live on Google's platform. No export, no API for display elsewhere.</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native, one-click OAuth, minimal permissions. Automatic on every charge.</td><td class="lose">No Stripe integration. Reviews are completely decoupled from payment processing.</td></tr>
+        <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic, Stripe webhook hides refunded-charge reviews immediately.</td><td class="lose">Manual, businesses must report and request removal of reviews from non-customers. Slow, inconsistent process.</td></tr>
       </tbody>
     </table>
     </div>
     <div class="verdict">
       <h3>You need both. Here's why.</h3>
-      <p>Google Reviews and processor-attested reviews serve different purposes and reinforce each other. Google Reviews give you search visibility, local SEO, and broad consumer reach — but they carry zero purchase verification. Signed Reviews give you verified, tamper-evident reviews you own and display on your own site — but they don't directly influence Google's local pack. The strongest approach: collect verified reviews on Signed Reviews for your website + trust badges, and encourage happy verified customers to also leave a Google Review for search visibility. The verified review becomes the quality signal; Google becomes the distribution channel.</p>
+      <p>Google Reviews and processor-attested reviews serve different purposes and reinforce each other. Google Reviews give you search visibility, local SEO, and broad consumer reach (but they carry zero purchase verification. Signed Reviews give you verified, tamper-evident reviews you own and display on your own site) but they don't directly influence Google's local pack. The strongest approach: collect verified reviews on Signed Reviews for your website + trust badges, and encourage happy verified customers to also leave a Google Review for search visibility. The verified review becomes the quality signal; Google becomes the distribution channel.</p>
     </div>
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/blog/fake-reviews/">The Fake Review Problem</a> · <a href="/vs/yelp/">Signed Reviews vs Yelp</a></p>
   </article>`;
   const html = page({
-    title: 'Signed Reviews vs Google Reviews — Comparison',
-    description: 'Google Reviews has zero purchase verification but dominates search visibility. Signed Reviews has the strongest verification available. Most businesses need both — here\'s how they complement each other.',
+    title: 'Signed Reviews vs Google Reviews. Comparison',
+    description: 'Google Reviews has zero purchase verification but dominates search visibility. Signed Reviews has the strongest verification available. Most businesses need both. Here\'s how they complement each other.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Google Reviews', subtitle: 'Google Reviews dominates visibility. We dominate verification. Here\'s why most businesses need both.' },
     body,
@@ -3088,31 +3088,31 @@ function buildComparisonGoogleReviews() {
 function buildComparisonYelp() {
   const slug = '/vs/yelp/';
   const body = `<article class="prose">
-    <p>Yelp is the dominant review platform for local businesses — restaurants, home services, salons, and brick-and-mortar retail. It has zero purchase verification and a controversial review-filtering algorithm. Here's how it compares to processor-attested reviews.</p>
+    <p>Yelp is the dominant review platform for local businesses: restaurants, home services, salons, and brick-and-mortar retail. It has zero purchase verification and a controversial review-filtering algorithm. Here's how it compares to processor-attested reviews.</p>
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Yelp</th></tr></thead>
       <tbody>
-        <tr class="highlight-row"><td>Verification</td><td class="win">Processor-attested (Level 4) — Stripe independently confirms every charge. Tamper-evident cryptographic signatures.</td><td class="lose">None (Level 0) — anyone can review any business. Yelp's "Not Recommended" filter is algorithmic, not purchase-based.</td></tr>
-        <tr><td>Review filtering</td><td class="win">Deterministic — refund = review hidden. No algorithmic guesswork. Every visible review has a confirmed transaction behind it.</td><td class="lose">Algorithmic "Not Recommended" filter — opaque, controversial. Genuinely useful reviews are often hidden; some fake reviews slip through.</td></tr>
-        <tr class="highlight-row"><td>Business model</td><td class="win">SaaS — business pays for the review platform. Revenue aligned with the business's success.</td><td class="lose">Advertising — business pays Yelp for visibility. Revenue model creates tension with objective review presentation.</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native — one-click OAuth, minimal permissions. Automatic on every charge.</td><td class="lose">No Stripe integration. Reviews are completely decoupled from payment processing.</td></tr>
-        <tr class="highlight-row"><td>Local discovery</td><td class="lose">Not a local discovery platform — focused on verification and publishing.</td><td class="win">Dominant — Yelp is a primary local-business discovery channel in the US, particularly restaurants and services.</td></tr>
+        <tr class="highlight-row"><td>Verification</td><td class="win">Processor-attested (Level 4), Stripe independently confirms every charge. Tamper-evident cryptographic signatures.</td><td class="lose">None (Level 0), anyone can review any business. Yelp's "Not Recommended" filter is algorithmic, not purchase-based.</td></tr>
+        <tr><td>Review filtering</td><td class="win">Deterministic, refund = review hidden. No algorithmic guesswork. Every visible review has a confirmed transaction behind it.</td><td class="lose">Algorithmic "Not Recommended" filter, opaque, controversial. Genuinely useful reviews are often hidden; some fake reviews slip through.</td></tr>
+        <tr class="highlight-row"><td>Business model</td><td class="win">SaaS, business pays for the review platform. Revenue aligned with the business's success.</td><td class="lose">Advertising, business pays Yelp for visibility. Revenue model creates tension with objective review presentation.</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native, one-click OAuth, minimal permissions. Automatic on every charge.</td><td class="lose">No Stripe integration. Reviews are completely decoupled from payment processing.</td></tr>
+        <tr class="highlight-row"><td>Local discovery</td><td class="lose">Not a local discovery platform, focused on verification and publishing.</td><td class="win">Dominant, Yelp is a primary local-business discovery channel in the US, particularly restaurants and services.</td></tr>
         <tr><td>Cost</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve pricing.</td><td class="lose">Free to list, but advertising costs can be significant. Aggressive ad-sales reputation.</td></tr>
-        <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews — exportable, portable via API.</td><td class="lose">Yelp owns the reviews — they live on Yelp's platform. Explicitly prohibits review export or display elsewhere.</td></tr>
-        <tr><td>Sales practices</td><td class="win">Self-serve — no sales calls. Upgrade when you're ready.</td><td class="lose">Aggressive sales — widely documented pattern of persistent ad-sales calls and disputed practices around review visibility tied to ad spend.</td></tr>
+        <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews (exportable, portable via API.</td><td class="lose">Yelp owns the reviews), they live on Yelp's platform. Explicitly prohibits review export or display elsewhere.</td></tr>
+        <tr><td>Sales practices</td><td class="win">Self-serve, no sales calls. Upgrade when you're ready.</td><td class="lose">Aggressive sales, widely documented pattern of persistent ad-sales calls and disputed practices around review visibility tied to ad spend.</td></tr>
       </tbody>
     </table>
     </div>
     <div class="verdict">
       <h3>The Yelp reality</h3>
-      <p>Yelp is essential for local businesses — particularly restaurants, home services, and retail — because it's where consumers search. But relying on Yelp as your only review presence means trusting an opaque algorithm to fairly represent your business, with zero purchase verification on any review. The smarter play: use Signed Reviews for verified, tamper-evident reviews on your own site, maintain a clean Yelp presence for local discovery, and encourage verified customers to cross-post to Yelp if they're active there. Yelp becomes a distribution channel, not your review strategy's foundation.</p>
+      <p>Yelp is essential for local businesses (particularly restaurants, home services, and retail) because it's where consumers search. But relying on Yelp as your only review presence means trusting an opaque algorithm to fairly represent your business, with zero purchase verification on any review. The smarter play: use Signed Reviews for verified, tamper-evident reviews on your own site, maintain a clean Yelp presence for local discovery, and encourage verified customers to cross-post to Yelp if they're active there. Yelp becomes a distribution channel, not your review strategy's foundation.</p>
     </div>
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/google-reviews/">Signed Reviews vs Google Reviews</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a></p>
   </article>`;
   const html = page({
-    title: 'Signed Reviews vs Yelp — Comparison',
+    title: 'Signed Reviews vs Yelp. Comparison',
     description: 'Signed Reviews vs Yelp: Yelp has zero purchase verification and an opaque review filter. Signed Reviews verifies every review against Stripe. For local businesses that want review authenticity.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Yelp', subtitle: 'Yelp\'s filter is algorithmic guesswork. Ours is deterministic: no Stripe charge = no review.' },
@@ -3127,35 +3127,35 @@ function buildComparisonYelp() {
 function buildComparisonClutch() {
   const slug = '/vs/clutch/';
   const body = `<article class="prose">
-    <p>Clutch is the dominant review platform for B2B services — agencies, consultancies, IT firms, and professional service providers. Its review model relies on analyst-led interviews and client verification, which is fundamentally different from transaction-based verification. Here's how they compare — and why B2B service providers may need both.</p>
+    <p>Clutch is the dominant review platform for B2B services: agencies, consultancies, IT firms, and professional service providers. Its review model relies on analyst-led interviews and client verification, which is fundamentally different from transaction-based verification. Here's how they compare, and why B2B service providers may need both.</p>
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Clutch</th></tr></thead>
       <tbody>
-        <tr class="highlight-row"><td>Verification method</td><td class="win">Processor-attested (Level 4) — Stripe independently confirms every charge. Every review requires a verified, non-refunded payment.</td><td class="lose">Analyst-verified (Level 2–3) — Clutch analysts interview clients and verify their identity, but there is no independent payment verification. The verification is the analyst's judgment, not a processor's data.</td></tr>
-        <tr><td>Review depth</td><td class="lose">Standard review format — rating, text, optional details. Focused on authenticity over length.</td><td class="win">Deep — Clutch reviews are structured interviews covering project scope, budget, outcomes, and feedback. Often 500–2,000 words with detailed ratings across multiple dimensions.</td></tr>
-        <tr class="highlight-row"><td>Collection process</td><td class="win">Automated — every Stripe charge triggers an invitation. No manual work. Scales with transaction volume.</td><td class="lose">Manual — Clutch analysts conduct phone or video interviews with clients. High-touch, high-effort, doesn't scale with volume. Quality over quantity by design.</td></tr>
-        <tr><td>Best for</td><td class="win">Stripe businesses of all types — SaaS, e-commerce, services, digital products. Transactional verification across any industry.</td><td class="win">B2B service providers — agencies, consultancies, IT firms, developers, marketing firms. The B2B services directory is Clutch's core use case.</td></tr>
-        <tr class="highlight-row"><td>Discovery value</td><td class="lose">Your own site and search — reviews live on your domain. Not a discovery platform.</td><td class="win">Directory-dominant — Clutch is a primary discovery channel for B2B service buyers. High-intent traffic from companies searching for agency/consultancy partners.</td></tr>
-        <tr><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="lose">Free to list. Clutch's revenue comes from sponsored placements, advertising, and premium profiles — not from review collection. But visibility often requires paid sponsorship.</td></tr>
-        <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews — exportable, portable, accessible via API. Display on any site.</td><td class="lose">Clutch hosts the reviews — they live on Clutch's directory. Not exportable for use on your own site.</td></tr>
-        <tr><td>Industry focus</td><td class="tie">Cross-industry — any business processing payments through Stripe.</td><td class="win">B2B services — Clutch's taxonomy and directory structure are purpose-built for agencies, IT services, and consultancies.</td></tr>
+        <tr class="highlight-row"><td>Verification method</td><td class="win">Processor-attested (Level 4) (Stripe independently confirms every charge. Every review requires a verified, non-refunded payment.</td><td class="lose">Analyst-verified (Level 2–3)) Clutch analysts interview clients and verify their identity, but there is no independent payment verification. The verification is the analyst's judgment, not a processor's data.</td></tr>
+        <tr><td>Review depth</td><td class="lose">Standard review format (rating, text, optional details. Focused on authenticity over length.</td><td class="win">Deep) Clutch reviews are structured interviews covering project scope, budget, outcomes, and feedback. Often 500–2,000 words with detailed ratings across multiple dimensions.</td></tr>
+        <tr class="highlight-row"><td>Collection process</td><td class="win">Automated, every Stripe charge triggers an invitation. No manual work. Scales with transaction volume.</td><td class="lose">Manual, Clutch analysts conduct phone or video interviews with clients. High-touch, high-effort, doesn't scale with volume. Quality over quantity by design.</td></tr>
+        <tr><td>Best for</td><td class="win">Stripe businesses of all types (SaaS, e-commerce, services, digital products. Transactional verification across any industry.</td><td class="win">B2B service providers) agencies, consultancies, IT firms, developers, marketing firms. The B2B services directory is Clutch's core use case.</td></tr>
+        <tr class="highlight-row"><td>Discovery value</td><td class="lose">Your own site and search, reviews live on your domain. Not a discovery platform.</td><td class="win">Directory-dominant, Clutch is a primary discovery channel for B2B service buyers. High-intent traffic from companies searching for agency/consultancy partners.</td></tr>
+        <tr><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="lose">Free to list. Clutch's revenue comes from sponsored placements, advertising, and premium profiles, not from review collection. But visibility often requires paid sponsorship.</td></tr>
+        <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews (exportable, portable, accessible via API. Display on any site.</td><td class="lose">Clutch hosts the reviews), they live on Clutch's directory. Not exportable for use on your own site.</td></tr>
+        <tr><td>Industry focus</td><td class="tie">Cross-industry, any business processing payments through Stripe.</td><td class="win">B2B services, Clutch's taxonomy and directory structure are purpose-built for agencies, IT services, and consultancies.</td></tr>
       </tbody>
     </table>
     </div>
     <div class="verdict">
       <h3>They serve fundamentally different purposes</h3>
-      <p>Clutch and Signed Reviews don't compete — they occupy different layers of the B2B trust stack. Clutch is a <strong>discovery channel</strong>: B2B buyers search Clutch to find service providers, compare them by rating and category, and shortlist candidates. Signed Reviews is a <strong>verification layer</strong>: every review is independently attested by Stripe, so the authenticity signal is structural rather than procedural. For a B2B service provider, the optimal setup is both: a Clutch profile for discovery and category presence, and processor-attested reviews on your own site for verification strength that Clutch's analyst-led model can't provide.</p>
+      <p>Clutch and Signed Reviews don't compete. They occupy different layers of the B2B trust stack. Clutch is a <strong>discovery channel</strong>: B2B buyers search Clutch to find service providers, compare them by rating and category, and shortlist candidates. Signed Reviews is a <strong>verification layer</strong>: every review is independently attested by Stripe, so the authenticity signal is structural rather than procedural. For a B2B service provider, the optimal setup is both: a Clutch profile for discovery and category presence, and processor-attested reviews on your own site for verification strength that Clutch's analyst-led model can't provide.</p>
     </div>
     <div class="verdict verdict-alt">
       <h3>When Clutch is the priority</h3>
-      <p>If you're a B2B agency or consultancy and your clients find you through Clutch searches, invest in your Clutch presence first — it's where your buyers are. But supplement Clutch reviews with verified reviews on your own site. Clutch reviews live on Clutch's domain. Verified reviews on your own domain strengthen your site's authority, can rank for branded and long-tail queries, and provide a verification signal (processor-attested) that Clutch's analyst-verification model can't match.</p>
+      <p>If you're a B2B agency or consultancy and your clients find you through Clutch searches, invest in your Clutch presence first. It's where your buyers are. But supplement Clutch reviews with verified reviews on your own site. Clutch reviews live on Clutch's domain. Verified reviews on your own domain strengthen your site's authority, can rank for branded and long-tail queries, and provide a verification signal (processor-attested), that Clutch's analyst-verification model can't match.</p>
     </div>
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/google-reviews/">Signed Reviews vs Google Reviews</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a></p>
   </article>`;
   const html = page({
-    title: 'Signed Reviews vs Clutch — Comparison',
+    title: 'Signed Reviews vs Clutch. Comparison',
     description: 'Signed Reviews vs Clutch: Clutch is the B2B services directory with analyst-verified reviews. Signed Reviews provides processor-attested verification. For B2B providers, they serve complementary roles.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Clutch', subtitle: 'Clutch is discovery. We\'re verification. For B2B service providers, you probably need both.' },
@@ -3169,31 +3169,31 @@ function buildComparisonClutch() {
 function buildComparisonPodium() {
   const slug = '/vs/podium/';
   const body = `<article class="prose">
-    <p>Podium is the leader in SMS-based review collection for local businesses — text invitations, multi-platform publishing, and deep Google Reviews integration. But its verification is email/SMS-based, not transaction-based. Here's how they compare.</p>
+    <p>Podium is the leader in SMS-based review collection for local businesses: text invitations, multi-platform publishing, and deep Google Reviews integration. But its verification is email/SMS-based, not transaction-based. Here's how they compare.</p>
     <h2>Why businesses search for a Podium alternative</h2>
     <p>Podium dominates SMS reviews, but some businesses want transaction-attested proof that reviews are from real customers. <a href="${B}pricing/">A Podium alternative</a> like Signed Reviews <a href="${B}features/">uses Stripe verification</a> to prevent fake feedback that SMS invites can't guarantee.</p>
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Podium</th></tr></thead>
       <tbody>
-        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe — independent payment processor. Processor-attested (Level 4).</td><td class="lose">Email/SMS — reviewer confirms they received a text or email. No transaction verification.</td></tr>
-        <tr><td>Fake review prevention</td><td class="win">Structural — no Stripe charge = no review. Faking requires real Stripe payments with real fees.</td><td class="lose">Invitation-only — reduces fake reviews by limiting who can be invited, but provides no transaction proof.</td></tr>
-        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native — one-click Stripe OAuth. No feed setup, no API configuration.</td><td class="win">Multi-platform — integrates with Google, Facebook, and 100+ review sites. Broadest distribution in the category.</td></tr>
-        <tr><td>Google Reviews / Local SEO</td><td class="lose">Not a core focus — signed reviews display on your own page and via API/embeds.</td><td class="win">Deep Google integration — Podium is built around driving Google Reviews, which directly impacts local SEO and map pack rankings.</td></tr>
-        <tr class="highlight-row"><td>Cryptographic proof</td><td class="win">Yes — every review carries a tamper-evident digital signature. Independently verifiable.</td><td class="lose">No — reviews are database records with no cryptographic signature.</td></tr>
-        <tr><td>Review invitation method</td><td class="tie">Email — Stripe-triggered, automated. Sends to the payment email on file.</td><td class="win">SMS + Email — text messaging is Podium's core differentiator. SMS open rates (~98%) far exceed email (~20%).</td></tr>
-        <tr class="highlight-row"><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve pricing.</td><td class="lose">Sales-quote — Podium does not publish pricing. User reports suggest $249-$499+/mo with annual contracts.</td></tr>
-        <tr><td>Target customer</td><td class="tie">E-commerce, SaaS, and services on Stripe — any business that processes payments online.</td><td class="win">Local service businesses — dentists, plumbers, auto shops, medical practices. Brick-and-mortar focus.</td></tr>
-        <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic — Stripe refund webhook hides refunded reviews immediately.</td><td class="lose">Manual — no automatic refund detection. Reviews from refunded customers stay up unless manually removed.</td></tr>
-        <tr><td>Review ownership</td><td class="win">Business owns the reviews — exportable, portable, accessible via API.</td><td class="win">Business owns the reviews — Podium's model is merchant-owned reviews.</td></tr>
+        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe, independent payment processor. Processor-attested (Level 4).</td><td class="lose">Email/SMS, reviewer confirms they received a text or email. No transaction verification.</td></tr>
+        <tr><td>Fake review prevention</td><td class="win">Structural, no Stripe charge = no review. Faking requires real Stripe payments with real fees.</td><td class="lose">Invitation-only, reduces fake reviews by limiting who can be invited, but provides no transaction proof.</td></tr>
+        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native (one-click Stripe OAuth. No feed setup, no API configuration.</td><td class="win">Multi-platform) integrates with Google, Facebook, and 100+ review sites. Broadest distribution in the category.</td></tr>
+        <tr><td>Google Reviews / Local SEO</td><td class="lose">Not a core focus, signed reviews display on your own page and via API/embeds.</td><td class="win">Deep Google integration, Podium is built around driving Google Reviews, which directly impacts local SEO and map pack rankings.</td></tr>
+        <tr class="highlight-row"><td>Cryptographic proof</td><td class="win">Yes, every review carries a tamper-evident digital signature. Independently verifiable.</td><td class="lose">No, reviews are database records with no cryptographic signature.</td></tr>
+        <tr><td>Review invitation method</td><td class="tie">Email (Stripe-triggered, automated. Sends to the payment email on file.</td><td class="win">SMS + Email) text messaging is Podium's core differentiator. SMS open rates (~98%) far exceed email (~20%).</td></tr>
+        <tr class="highlight-row"><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve pricing.</td><td class="lose">Sales-quote. Podium does not publish pricing. User reports suggest $249-$499+/mo with annual contracts.</td></tr>
+        <tr><td>Target customer</td><td class="tie">E-commerce, SaaS, and services on Stripe, any business that processes payments online.</td><td class="win">Local service businesses, dentists, plumbers, auto shops, medical practices. Brick-and-mortar focus.</td></tr>
+        <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic, Stripe refund webhook hides refunded reviews immediately.</td><td class="lose">Manual, no automatic refund detection. Reviews from refunded customers stay up unless manually removed.</td></tr>
+        <tr><td>Review ownership</td><td class="win">Business owns the reviews (exportable, portable, accessible via API.</td><td class="win">Business owns the reviews) Podium's model is merchant-owned reviews.</td></tr>
       </tbody>
     </table>
     </div>
     <div class="verdict">
-      <h3>When to choose Signed Reviews</h3><p>If you sell online and process payments through Stripe, Signed Reviews gives you something Podium can't: transaction-attested verification with cryptographic proof. Every review is backed by a real Stripe charge — not just a text message click. If you want reviews that say "Verified Stripe Purchase" rather than "Verified Reviewer," and transparent pricing over sales calls, Signed Reviews is the stronger choice. If you need more than an SMS-based Podium alternative, choose Signed Reviews for Stripe-attested trust.</p>
+      <h3>When to choose Signed Reviews</h3><p>If you sell online and process payments through Stripe, Signed Reviews gives you something Podium can't: transaction-attested verification with cryptographic proof. Every review is backed by a real Stripe charge, not just a text message click. If you want reviews that say "Verified Stripe Purchase" rather than "Verified Reviewer," and transparent pricing over sales calls, Signed Reviews is the stronger choice. If you need more than an SMS-based Podium alternative, choose Signed Reviews for Stripe-attested trust.</p>
     </div>
     <div class="verdict verdict-alt">
-      <h3>When Podium may be a better fit</h3><p>If you run a brick-and-mortar local business (dental practice, auto shop, medical office) where Google Reviews and local SEO are your top priority, Podium's SMS-based invitations and deep Google integration are hard to beat. Text messages get read. Google Reviews drive map-pack rankings. Multi-location management is purpose-built for businesses with 5-500 locations. If you don't sell online and don't use Stripe, Podium is the relevant choice — but you won't get transaction verification.</p>
+      <h3>When Podium may be a better fit</h3><p>If you run a brick-and-mortar local business (dental practice, auto shop, medical office) where Google Reviews and local SEO are your top priority, Podium's SMS-based invitations and deep Google integration are hard to beat. Text messages get read. Google Reviews drive map-pack rankings. Multi-location management is purpose-built for businesses with 5-500 locations. If you don't sell online and don't use Stripe, Podium is the relevant choice, but you won't get transaction verification.</p>
     </div>
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/judge-me/">Signed Reviews vs Judge.me</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews</a></p>
@@ -3237,26 +3237,26 @@ function buildComparisonPodium() {
 function buildLearn() {
   const slug = '/learn/what-does-verified-buyer-mean/';
   const canonical = `${SITE_URL}${slug}`;
-  const title = 'What Does "Verified Buyer" Actually Mean? — Signed Reviews';
-  const description = 'What a "Verified Buyer" badge really means on Trustpilot, Yotpo, Judge.me and Reviews.io — and the 5-level verification spectrum that separates a badge from proof.';
+  const title = 'What Does "Verified Buyer" Actually Mean?. Signed Reviews';
+  const description = 'What a "Verified Buyer" badge really means on Trustpilot, Yotpo, Judge.me and Reviews.io, and the 5-level verification spectrum that separates a badge from proof.';
 
   // ── Quotable Q/A pairs → FAQPage schema (rich results) + on-page accordion ──
   const faqItems = [
     {
       q: 'What does "Verified Buyer" mean on Trustpilot?',
-      a: 'On Trustpilot, "Verified" most commonly means the business sent the reviewer a unique invitation email and Trustpilot confirmed a genuine experience — not that a payment processor independently verified the purchase. Anyone can post on Trustpilot without proof of purchase, so an unverified Trustpilot review carries no transactional evidence.',
+      a: 'On Trustpilot, "Verified" most commonly means the business sent the reviewer a unique invitation email and Trustpilot confirmed a genuine experience, not that a payment processor independently verified the purchase. Anyone can post on Trustpilot without proof of purchase, so an unverified Trustpilot review carries no transactional evidence.',
     },
     {
       q: 'Does a "verified" badge mean a payment was actually processed?',
-      a: 'Usually no. On most platforms "verified" means the reviewer appears in the merchant\'s own records — an order, an invitation, or a customer list. Only processor-attested verification, where an independent payment processor such as Stripe confirms the charge, ties a review to an independently confirmed transaction.',
+      a: 'Usually no. On most platforms "verified" means the reviewer appears in the merchant\'s own records: an order, an invitation, or a customer list. Only processor-attested verification, where an independent payment processor such as Stripe confirms the charge, ties a review to an independently confirmed transaction.',
     },
     {
       q: 'Which review platforms verify against the payment processor?',
-      a: 'Very few. Most major platforms — Trustpilot, Yotpo, Judge.me, Reviews.io, and most Shopify review apps — verify against merchant-supplied data (Level 3). Signed Reviews is built specifically for processor-attested verification (Level 4) via Stripe.',
+      a: 'Very few. Most major platforms (Trustpilot, Yotpo, Judge.me, Reviews.io, and most Shopify review apps) verify against merchant-supplied data (Level 3). Signed Reviews is built specifically for processor-attested verification (Level 4) via Stripe.',
     },
     {
       q: 'What is the difference between merchant-supplied and processor-attested verification?',
-      a: 'Merchant-supplied verification (Level 3) is attested by the merchant\'s own data — an order record, a customer list, or an invitation. Processor-attested verification (Level 4) is attested by an independent payment processor that confirms a charge occurred and whether it was later refunded. The latter cannot be derived from data the merchant curates.',
+      a: 'Merchant-supplied verification (Level 3) is attested by the merchant\'s own data: an order record, a customer list, or an invitation. Processor-attested verification (Level 4) is attested by an independent payment processor that confirms a charge occurred and whether it was later refunded. The latter cannot be derived from data the merchant curates.',
     },
     {
       q: 'Is a "verified" review guaranteed to be authentic?',
@@ -3346,16 +3346,16 @@ function buildLearn() {
   `;
 
   const body = `<article class="prose">
-    <p><strong>"Verified Buyer" does not mean the same thing on every review platform</strong> — and on most of them it does <em>not</em> mean the reviewer's payment was independently checked. A "verified" review is usually verified against data <em>the merchant supplies</em> (an invitation email, an order record, or an uploaded customer list), not against an independent payment processor. So the badge tells you the merchant <em>believed</em> this person was a customer — not that an independent party <em>confirmed</em> money changed hands.</p>
+    <p><strong>"Verified Buyer" does not mean the same thing on every review platform</strong>, and on most of them it does <em>not</em> mean the reviewer's payment was independently checked. A "verified" review is usually verified against data <em>the merchant supplies</em> (an invitation email, an order record, or an uploaded customer list), not against an independent payment processor. So the badge tells you the merchant <em>believed</em> this person was a customer, not that an independent party <em>confirmed</em> money changed hands.</p>
 
     <p>This page explains exactly what "verified" means on each major platform, lays out the five-level verification spectrum that makes the differences legible, and shows why the distinction matters under the U.S. Federal Trade Commission's 2024 fake-review rule. In short, the verified buyer meaning depends entirely on who did the verifying: the merchant's own records, or an independent payment processor.</p>
 
     <div class="learn-tldr">
-      <strong>In one sentence:</strong> "Verified" almost always means <em>the merchant vouches that you're a customer</em> (Level 3) — it rarely means <em>an independent payment processor confirms your payment</em> (Level 4). Only processor-attested verification ties a review to an independently confirmed transaction.
+      <strong>In one sentence:</strong> "Verified" almost always means <em>the merchant vouches that you're a customer</em> (Level 3). It rarely means <em>an independent payment processor confirms your payment</em> (Level 4). Only processor-attested verification ties a review to an independently confirmed transaction.
     </div>
 
     <h2 id="spectrum">The verification spectrum</h2>
-    <p>Every "verified" review on the internet falls into one of five levels. The level determines <em>who is attesting</em> that a purchase happened — and that determines how hard it is to fake.</p>
+    <p>Every "verified" review on the internet falls into one of five levels. The level determines <em>who is attesting</em> that a purchase happened, and that determines how hard it is to fake.</p>
 
     <div class="spectrum-wrap">
       <div class="spectrum">
@@ -3376,50 +3376,50 @@ function buildLearn() {
     </table>
     </div>
 
-    <p>The rightmost level — <strong>processor-attested</strong> — is where an independent payment processor (such as Stripe) confirms a charge occurred and whether it was later refunded. Almost no review platform operates here; most sit at Level 3.</p>
+    <p>The rightmost level, <strong>processor-attested</strong>, is where an independent payment processor (such as Stripe) confirms a charge occurred and whether it was later refunded. Almost no review platform operates here; most sit at Level 3.</p>
 
     <h2 id="by-platform">What "verified" means on each platform</h2>
 
     <div class="platform-card">
       <span class="level">Level 3 · Merchant-supplied</span>
-      <h3>Trustpilot — "Verified"</h3>
-      <p>Trustpilot is an <strong>open platform</strong>: anyone who says they've had a genuine experience with a business can write a review, and <strong>no proof of purchase is required to post</strong>. A review is marked "Verified" when Trustpilot has corroborated a genuine experience — most commonly because the <strong>business sent that person a unique review invitation by email</strong> (often automatically, by BCC-ing order-confirmation emails into Trustpilot's Automatic Feedback Service). The business decides who to invite, using its own customer data, so the verification is performed against information <em>the merchant supplies</em>, not a payment processor. (<a href="https://help.trustpilot.com/s/article/Why-are-some-reviews-marked-Verified" rel="noopener">Trustpilot's own explanation</a>.)</p>
+      <h3>Trustpilot, "Verified"</h3>
+      <p>Trustpilot is an <strong>open platform</strong>: anyone who says they've had a genuine experience with a business can write a review, and <strong>no proof of purchase is required to post</strong>. A review is marked "Verified" when Trustpilot has corroborated a genuine experience, most commonly because the <strong>business sent that person a unique review invitation by email</strong> (often automatically, by BCC-ing order-confirmation emails into Trustpilot's Automatic Feedback Service). The business decides who to invite, using its own customer data, so the verification is performed against information <em>the merchant supplies</em>, not a payment processor. (<a href="https://help.trustpilot.com/s/article/Why-are-some-reviews-marked-Verified" rel="noopener">Trustpilot's own explanation</a>.)</p>
     </div>
 
     <div class="platform-card">
       <span class="level">Level 3 · Merchant-supplied</span>
-      <h3>Yotpo — "Verified Buyer"</h3>
-      <p>Yotpo marks a review "Verified Buyer" when the reviewer's email address matches a customer record present in the merchant's store data — typically the order data from the store's e-commerce platform (for example Shopify). The match is made against the merchant's platform, so the attesting party is effectively the merchant's store, not an independent processor.</p>
+      <h3>Yotpo, "Verified Buyer"</h3>
+      <p>Yotpo marks a review "Verified Buyer" when the reviewer's email address matches a customer record present in the merchant's store data, typically the order data from the store's e-commerce platform (for example Shopify). The match is made against the merchant's platform, so the attesting party is effectively the merchant's store, not an independent processor.</p>
     </div>
 
     <div class="platform-card">
       <span class="level">Level 3 · Merchant-supplied</span>
-      <h3>Judge.me — "Verified"</h3>
+      <h3>Judge.me, "Verified"</h3>
       <p>Judge.me marks a review "Verified" when it can be matched to a real order in the store. The app operates inside the merchant's Shopify store and uses the store's order data to confirm the reviewer purchased. As with the others, the source of truth is the merchant's platform data.</p>
     </div>
 
     <div class="platform-card">
       <span class="level">Level 3 · Merchant-supplied</span>
-      <h3>Reviews.io — "Verified Reviewer"</h3>
-      <p>Reviews.io marks a reviewer "Verified Reviewer" when the review comes through its invitation system, using customer data the business provides — for example a customer-list upload or an integration that feeds the merchant's customer records into Reviews.io. The business is the source of the customer data.</p>
+      <h3>Reviews.io, "Verified Reviewer"</h3>
+      <p>Reviews.io marks a reviewer "Verified Reviewer" when the review comes through its invitation system, using customer data the business provides, for example a customer-list upload or an integration that feeds the merchant's customer records into Reviews.io. The business is the source of the customer data.</p>
     </div>
 
     <div class="platform-card win">
       <span class="level">Level 4 · Processor-attested</span>
-      <h3>Signed Reviews — "Verified by Signed Reviews"</h3>
-      <p>Signed Reviews operates one level to the right: every review is <strong>processor-attested</strong>. The platform connects to a business's Stripe account (minimal permissions) and only permits a review when the reviewer's email matches a completed Stripe charge — and it automatically hides the review if that charge is later refunded. Because the attestation comes from the <strong>payment processor</strong> — an independent third party to both the merchant and the reviewer — it isn't derived from data the merchant could curate or fabricate. Each review also carries a tamper-evident cryptographic signature so its authenticity can be checked independently later. (See <a href="/trust/">how Signed Reviews verifies reviews</a>.)</p>
+      <h3>Signed Reviews, "Verified by Signed Reviews"</h3>
+      <p>Signed Reviews operates one level to the right: every review is <strong>processor-attested</strong>. The platform connects to a business's Stripe account (minimal permissions) and only permits a review when the reviewer's email matches a completed Stripe charge, and it automatically hides the review if that charge is later refunded. Because the attestation comes from the <strong>payment processor</strong>, an independent third party to both the merchant and the reviewer. It isn't derived from data the merchant could curate or fabricate. Each review also carries a tamper-evident cryptographic signature so its authenticity can be checked independently later. (See <a href="/trust/">how Signed Reviews verifies reviews</a>.)</p>
     </div>
 
-    <h2 id="why-matters">Why the level matters — the FTC's 2024 fake-review rule</h2>
-    <p>On 21 October 2024 the U.S. Federal Trade Commission's <strong>Trade Regulation Rule on the Use of Consumer Reviews and Testimonials</strong> (16 CFR Part 465) took effect. Among other things, it prohibits reviews that misrepresent that the reviewer had genuine experience with a product or service, the buying or selling of reviews, undisclosed insider reviews, and the suppression of negative reviews — and it lets the FTC seek civil penalties. (<a href="https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials" rel="noopener">FTC press release</a>, <a href="https://www.federalregister.gov/documents/2024/08/22/2024-18519/trade-regulation-rule-on-the-use-of-consumer-reviews-and-testimonials" rel="noopener">Federal Register text</a>.)</p>
-    <p>Verification level matters because it determines how difficult it is to manufacture a review that <em>looks</em> legitimate. A Level 1 or Level 2 "verified" review can be created by almost anyone with an email address. A Level 3 review is far harder to fake as an outsider, because it requires a record in the merchant's system — but it does not independently prove that money changed hands, and it offers limited protection against a merchant who controls that system. A Level 4 (processor-attested) review is the only level where an independent party — the payment processor — confirms that a charge actually occurred, and whether it still stands.</p>
+    <h2 id="why-matters">Why the level matters, the FTC's 2024 fake-review rule</h2>
+    <p>On 21 October 2024 the U.S. Federal Trade Commission's <strong>Trade Regulation Rule on the Use of Consumer Reviews and Testimonials</strong> (16 CFR Part 465) took effect. Among other things, it prohibits reviews that misrepresent that the reviewer had genuine experience with a product or service, the buying or selling of reviews, undisclosed insider reviews, and the suppression of negative reviews, and it lets the FTC seek civil penalties. (<a href="https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials" rel="noopener">FTC press release</a>, <a href="https://www.federalregister.gov/documents/2024/08/22/2024-18519/trade-regulation-rule-on-the-use-of-consumer-reviews-and-testimonials" rel="noopener">Federal Register text</a>.)</p>
+    <p>Verification level matters because it determines how difficult it is to manufacture a review that <em>looks</em> legitimate. A Level 1 or Level 2 "verified" review can be created by almost anyone with an email address. A Level 3 review is far harder to fake as an outsider, because it requires a record in the merchant's system, but it does not independently prove that money changed hands, and it offers limited protection against a merchant who controls that system. A Level 4 (processor-attested) review is the only level where an independent party, the payment processor, confirms that a charge actually occurred, and whether it still stands.</p>
 
     <h2 id="how-to-tell">How to tell how strongly a review was verified</h2>
     <ul>
       <li><strong>Read the platform's own definition.</strong> Every major platform publishes what its badge means in its help center; most consumers never look.</li>
       <li><strong>Check whether the platform is open or invitation-only.</strong> Open platforms have many genuinely useful reviews, but their unverified reviews carry little transactional weight.</li>
       <li><strong>Ask who attests.</strong> If the answer is "the merchant," you're at Level 3. If it's "the payment processor," you're at Level 4.</li>
-      <li><strong>Look for independent proof.</strong> Processor-attested reviews can point to evidence — Signed Reviews exposes a per-review proof page tied to the Stripe charge.</li>
+      <li><strong>Look for independent proof.</strong> Processor-attested reviews can point to evidence. Signed Reviews exposes a per-review proof page tied to the Stripe charge.</li>
     </ul>
 
     <h2 id="faq">Frequently asked questions</h2>
@@ -3439,7 +3439,7 @@ function buildLearn() {
     description,
     slug,
     pageType: 'article',
-    hero: { eyebrow: 'Learn', title: 'What Does "Verified Buyer" Actually Mean?', subtitle: 'The honest, platform-by-platform answer — and the verification spectrum that separates a badge from proof.' },
+    hero: { eyebrow: 'Learn', title: 'What Does "Verified Buyer" Actually Mean?', subtitle: 'The honest, platform-by-platform answer, and the verification spectrum that separates a badge from proof.' },
     body,
     extraStyle,
   });
@@ -3454,8 +3454,8 @@ function buildLearn() {
 function buildLearnFakeReviewsWork() {
   const slug = '/learn/how-fake-reviews-work/';
   const canonical = `${SITE_URL}${slug}`;
-  const title = 'How Fake Reviews Work — The Economics, Methods, and Systems Behind Fake Online Reviews';
-  const description = 'How fake reviews are bought, sold, manufactured, and detected — the full ecosystem explained, from click farms to AI generation, plus the structural defenses that make them harder to produce.';
+  const title = 'How Fake Reviews Work: The Economics, Methods, and Systems Behind Fake Online Reviews';
+  const description = 'How fake reviews are bought, sold, manufactured, and detected: the full ecosystem explained, from click farms to AI generation, plus the structural defenses that make them harder to produce.';
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -3483,22 +3483,22 @@ function buildLearnFakeReviewsWork() {
   `;
 
   const body = `<article class="prose">
-    <p>Fake reviews are a multi-billion-dollar underground industry. The World Economic Forum estimates fake reviews influence <strong>\$152 billion in global consumer spending annually</strong>. They're produced at industrial scale — click farms in the Philippines, bot networks in Russia, AI-generated text farms, and "brushing" schemes where sellers ship empty boxes to fabricate verified-purchase badges. This article explains how each method works, what it costs, and — critically — why some verification models make fakes structurally impossible while others only make them slightly harder.</p>
+    <p>Fake reviews are a multi-billion-dollar underground industry. The World Economic Forum estimates fake reviews influence <strong>\$152 billion in global consumer spending annually</strong>. They're produced at industrial scale: click farms in the Philippines, bot networks in Russia, AI-generated text farms, and "brushing" schemes where sellers ship empty boxes to fabricate verified-purchase badges. This article explains how each method works, what it costs, and, critically, why some verification models make fakes structurally impossible while others only make them slightly harder.</p>
 
     <h2 id="scale">The scale of the problem</h2>
     <ul>
-      <li><strong>Trustpilot removed 4.5 million fake reviews in 2024</strong> — 7.4% of all submissions that year.</li>
+      <li><strong>Trustpilot removed 4.5 million fake reviews in 2024</strong>, which is 7.4% of all submissions that year.</li>
       <li><strong>Amazon blocked over 200 million suspected fake reviews</strong> in 2022 alone.</li>
       <li><strong>Google's automated systems</strong> removed over 170 million reviews that violated policies in 2023.</li>
       <li><strong>The FTC received over 55,000 consumer complaints</strong> about fake reviews between 2022–2024.</li>
     </ul>
-    <p>The scale tells you this isn't a few bad actors — it's a systematic, economically rational response to the fact that reviews drive purchasing decisions, and platforms make faking them too easy.</p>
+    <p>The scale tells you this isn't a few bad actors: it's a systematic, economically rational response to the fact that reviews drive purchasing decisions, and platforms make faking them too easy.</p>
 
     <h2 id="methods">How fake reviews are made</h2>
 
     <div class="method-card">
       <h3>1. Click farms and manual posting <span class="cost-badge cost-low">Low cost</span></h3>
-      <p>Workers in low-wage countries are paid pennies per review to create accounts and post positive reviews on target platforms. A 5-star Trustpilot review from a click farm costs roughly \$1–\$5. These reviews come from real devices and real IP addresses (via residential proxies), making them hard for automated systems to detect. The limiting factor is platform account requirements — platforms that require email verification or phone verification slow this down but don't stop it.</p>
+      <p>Workers in low-wage countries are paid pennies per review to create accounts and post positive reviews on target platforms. A 5-star Trustpilot review from a click farm costs roughly \$1–\$5. These reviews come from real devices and real IP addresses (via residential proxies), making them hard for automated systems to detect. The limiting factor is platform account requirements, platforms that require email verification or phone verification slow this down but don't stop it.</p>
     </div>
 
     <div class="method-card">
@@ -3508,34 +3508,34 @@ function buildLearnFakeReviewsWork() {
 
     <div class="method-card">
       <h3>3. Incentivized reviews (the gray area) <span class="cost-badge cost-low">Low cost</span></h3>
-      <p>Businesses offer discounts, gift cards, or free products in exchange for reviews. Amazon's Vine program and similar invite-only reviewer programs are the legitimate version of this; the illegitimate version is "refund-after-review" schemes where the seller refunds the purchase price after a 5-star review is posted. These are hard to detect because the purchase is real — the reviewer really did buy the product. The deception is in the incentive, not the transaction.</p>
+      <p>Businesses offer discounts, gift cards, or free products in exchange for reviews. Amazon's Vine program and similar invite-only reviewer programs are the legitimate version of this; the illegitimate version is "refund-after-review" schemes where the seller refunds the purchase price after a 5-star review is posted. These are hard to detect because the purchase is real. The reviewer really did buy the product. The deception is in the incentive, not the transaction.</p>
     </div>
 
     <div class="method-card">
       <h3>4. Brushing <span class="cost-badge cost-med">Medium cost</span></h3>
-      <p>A seller ships an empty box or worthless item to a real address, creating a real order record in the platform's system. The seller then writes a "Verified Purchase" review against their own transaction. Because the order actually exists in the merchant's store data, Level 3 platforms (merchant-supplied verification) mark it as "Verified Buyer." The victim at the address never ordered anything — they're collateral damage in a fake-review operation. Brushing exploits the fact that Level 3 verification trusts the merchant's data.</p>
+      <p>A seller ships an empty box or worthless item to a real address, creating a real order record in the platform's system. The seller then writes a "Verified Purchase" review against their own transaction. Because the order actually exists in the merchant's store data, Level 3 platforms (merchant-supplied verification) mark it as "Verified Buyer." The victim at the address never ordered anything. They're collateral damage in a fake-review operation. Brushing exploits the fact that Level 3 verification trusts the merchant's data.</p>
     </div>
 
     <div class="method-card">
       <h3>5. AI-generated review farms <span class="cost-badge cost-high">Rising, cost falling</span></h3>
-      <p>The newest and fastest-growing method: large language models generate thousands of unique, contextually relevant, grammatically flawless reviews. Each review is slightly different — different phrasing, different details, different star ratings (some 4-star to look authentic). Combined with bot account creation and proxy rotation, AI farms can produce review profiles that are nearly indistinguishable from real customers. Detection relies on statistical patterns (all reviews posted within a narrow time window, similar semantic structures) rather than obvious telltale signs.</p>
+      <p>The newest and fastest-growing method: large language models generate thousands of unique, contextually relevant, grammatically flawless reviews. Each review is slightly different: different phrasing, different details, different star ratings (some 4-star to look authentic). Combined with bot account creation and proxy rotation, AI farms can produce review profiles that are nearly indistinguishable from real customers. Detection relies on statistical patterns (all reviews posted within a narrow time window, similar semantic structures) rather than obvious telltale signs.</p>
     </div>
 
     <h2 id="defenses">How platforms defend (and why most can't win)</h2>
     <p>Every major review platform operates a combination of these defenses:</p>
     <ul>
-      <li><strong>Automated detection</strong> — machine learning models flag suspicious patterns (velocity, IP clustering, text similarity, account age). Trustpilot catches ~80% of fakes this way.</li>
-      <li><strong>Manual review</strong> — human moderators investigate flagged content. Slow, expensive, doesn't scale.</li>
-      <li><strong>Community reporting</strong> — users and businesses report suspicious reviews. Trustpilot received ~1.3 million reports in 2024.</li>
-      <li><strong>Account verification</strong> — requiring email confirmation, phone verification, or identity proof before posting. Slows down bots but doesn't stop determined fakers.</li>
-      <li><strong>Transaction verification</strong> — matching reviewers to purchase records. This is the strongest defense — <strong>if the verification data is independent of the merchant.</strong></li>
+      <li><strong>Automated detection</strong>: machine learning models flag suspicious patterns (velocity, IP clustering, text similarity, account age). Trustpilot catches ~80% of fakes this way.</li>
+      <li><strong>Manual review</strong>, human moderators investigate flagged content. Slow, expensive, doesn't scale.</li>
+      <li><strong>Community reporting</strong>, users and businesses report suspicious reviews. Trustpilot received ~1.3 million reports in 2024.</li>
+      <li><strong>Account verification</strong>: requiring email confirmation, phone verification, or identity proof before posting. Slows down bots but doesn't stop determined fakers.</li>
+      <li><strong>Transaction verification</strong>, matching reviewers to purchase records. This is the strongest defense, <strong>if the verification data is independent of the merchant.</strong></li>
     </ul>
 
-    <p>The fundamental problem: <strong>every defense except transaction verification is reactive.</strong> Automated systems, human moderators, and community reporting all operate on the principle of "detect and remove" — which means fake reviews exist on the platform until they're caught. And with AI-generated reviews getting better and cheaper, the detection game is getting harder, not easier.</p>
+    <p>The fundamental problem: <strong>every defense except transaction verification is reactive.</strong> Automated systems, human moderators, and community reporting all operate on the principle of "detect and remove", which means fake reviews exist on the platform until they're caught. And with AI-generated reviews getting better and cheaper, the detection game is getting harder, not easier.</p>
 
     <div class="verdict">
       <h3>The only structural defense</h3>
-      <p>Transaction verification is the only defense that's <strong>preventative rather than reactive.</strong> When every review requires an independently confirmed payment, fakes are structurally blocked at submission time — not detected and removed after the fact. But this only works if the verification data comes from an independent source (Level 4 — the payment processor), not from the merchant (Level 3 — the merchant's own records). A merchant can manufacture a fake order in their own Shopify store for free. They cannot manufacture a fake Stripe charge without paying real Stripe fees and risking account termination. That economic barrier — not detection algorithms — is what makes processor-attested verification the strongest anti-fake mechanism available.</p>
+      <p>Transaction verification is the only defense that's <strong>preventative rather than reactive.</strong> When every review requires an independently confirmed payment, fakes are structurally blocked at submission time, not detected and removed after the fact. But this only works if the verification data comes from an independent source (Level 4, the payment processor), not from the merchant (Level 3, the merchant's own records). A merchant can manufacture a fake order in their own Shopify store for free. They cannot manufacture a fake Stripe charge without paying real Stripe fees and risking account termination. That economic barrier, not detection algorithms, is what makes processor-attested verification the strongest anti-fake mechanism available.</p>
     </div>
 
     <h2 id="economics">The economics of fake reviews</h2>
@@ -3543,13 +3543,13 @@ function buildLearnFakeReviewsWork() {
     <ul>
       <li><strong>Cost to produce one fake 5-star review:</strong> \$1–\$15 depending on method and platform</li>
       <li><strong>Revenue impact of a one-star rating improvement:</strong> 5–9% increase in conversion rate (Harvard Business School study)</li>
-      <li><strong>Detection risk:</strong> low — platforms catch 7–10% at best; most fake reviews survive indefinitely</li>
+      <li><strong>Detection risk:</strong> low, platforms catch 7–10% at best; most fake reviews survive indefinitely</li>
       <li><strong>Penalty if caught:</strong> review removal at worst; no meaningful legal consequences for most perpetrators</li>
     </ul>
     <p>The math is simple: spend \$50 on fake reviews, potentially earn thousands in additional revenue. Until the cost of faking exceeds the benefit, or until verification makes faking structurally impossible, the industry persists.</p>
 
     <h2 id="structural-fix">The structural fix: why verification level matters</h2>
-    <p>Every fake-review method exploits the same vulnerability: <strong>the platform doesn't independently verify that the reviewer paid for the product.</strong> At Level 0 (no verification), anyone can post. At Level 1 (email), anyone with an email address can post. At Level 2 (self-attested), anyone willing to check a box can post. At Level 3 (merchant-supplied), anyone the merchant puts on a list can post — and the merchant can put anyone on the list.</p>
+    <p>Every fake-review method exploits the same vulnerability: <strong>the platform doesn't independently verify that the reviewer paid for the product.</strong> At Level 0 (no verification), anyone can post. At Level 1 (email), anyone with an email address can post. At Level 2 (self-attested), anyone willing to check a box can post. At Level 3 (merchant-supplied), anyone the merchant puts on a list can post, and the merchant can put anyone on the list.</p>
     <p>At Level 4 (processor-attested), the payment processor independently confirms the charge. Click farms can't fake a Stripe charge. AI bots can't generate a Stripe transaction ID. Brushing schemes still cost real Stripe fees. The verification moves from "the platform tries to catch fakes" to "fakes can't enter the system in the first place."</p>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Collect reviews that can't be faked →</a></p>
@@ -3558,7 +3558,7 @@ function buildLearnFakeReviewsWork() {
 
   const html = page({
     title, description, slug, pageType: 'article',
-    hero: { eyebrow: 'Learn', title: 'How Fake Reviews Work', subtitle: 'The methods, economics, and systems behind the \$152B fake-review industry — and the one structural defense that actually prevents them.' },
+    hero: { eyebrow: 'Learn', title: 'How Fake Reviews Work', subtitle: 'The methods, economics, and systems behind the \$152B fake-review industry, and the one structural defense that actually prevents them.' },
     body,
     extraStyle,
   });
@@ -3571,13 +3571,13 @@ function buildLearnFakeReviewsWork() {
 function buildLearnFtcRules() {
   const slug = '/learn/ftc-fake-reviews-rules/';
   const canonical = `${SITE_URL}${slug}`;
-  const title = 'FTC Fake Review Rules (2024) — What Businesses Need to Know';
-  const description = 'The FTC\'s 2024 Trade Regulation Rule on Consumer Reviews (16 CFR Part 465) explained — what\'s banned, who it applies to, penalties, and how to be structurally compliant.';
+  const title = 'FTC Fake Review Rules (2024). What Businesses Need to Know';
+  const description = 'The FTC\'s 2024 Trade Regulation Rule on Consumer Reviews (16 CFR Part 465) explained: what\'s banned, who it applies to, penalties, and how to be structurally compliant.';
 
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'FTC Fake Review Rules — What Businesses Need to Know',
+    headline: 'FTC Fake Review Rules. What Businesses Need to Know',
     description,
     datePublished: '2026-07-24',
     dateModified: '2026-07-24',
@@ -3604,7 +3604,7 @@ function buildLearnFtcRules() {
   `;
 
   const body = `<article class="prose">
-    <p>On <strong>October 21, 2024</strong>, the U.S. Federal Trade Commission's <strong>Trade Regulation Rule on the Use of Consumer Reviews and Testimonials</strong> (16 CFR Part 465) took effect. It's the most significant U.S. regulation of online reviews ever enacted — and it changes the compliance landscape for every business that collects, displays, or purchases reviews. Here's what the rule covers, what it bans, who's exposed, and how to be structurally compliant rather than policy-compliant.</p>
+    <p>On <strong>October 21, 2024</strong>, the U.S. Federal Trade Commission's <strong>Trade Regulation Rule on the Use of Consumer Reviews and Testimonials</strong> (16 CFR Part 465) took effect. It's the most significant U.S. regulation of online reviews ever enacted, and it changes the compliance landscape for every business that collects, displays, or purchases reviews. Here's what the rule covers, what it bans, who's exposed, and how to be structurally compliant rather than policy-compliant.</p>
 
     <h2 id="timeline">How we got here</h2>
     <div class="timeline">
@@ -3626,7 +3626,7 @@ function buildLearnFtcRules() {
       <div class="timeline-item">
         <div class="date">November 2024</div>
         <h4>First enforcement: SiteJabber</h4>
-        <p>The FTC issues a formal order against SiteJabber for publishing reviews from consumers who had never received the products they reviewed — collected at point of sale, before product receipt.</p>
+        <p>The FTC issues a formal order against SiteJabber for publishing reviews from consumers who had never received the products they reviewed, collected at point of sale, before product receipt.</p>
       </div>
     </div>
 
@@ -3639,12 +3639,12 @@ function buildLearnFtcRules() {
 
     <div class="rule-card">
       <h3>2. Buying or selling reviews <span class="status status-banned">Banned</span></h3>
-      <p>Purchasing or selling reviews — including reviews that express a particular sentiment (positive or negative). This closes the loophole where businesses claimed they were paying for "honest" reviews, not positive ones.</p>
+      <p>Purchasing or selling reviews, including reviews that express a particular sentiment (positive or negative). This closes the loophole where businesses claimed they were paying for "honest" reviews, not positive ones.</p>
     </div>
 
     <div class="rule-card">
       <h3>3. Insider reviews without disclosure <span class="status status-banned">Banned</span></h3>
-      <p>Reviews written by company insiders — officers, managers, employees, or their relatives — that don't clearly disclose the reviewer's connection to the business. An employee CAN review their employer's product if they disclose the relationship. They can't pretend to be an unconnected customer.</p>
+      <p>Reviews written by company insiders (officers, managers, employees, or their relatives), that don't clearly disclose the reviewer's connection to the business. An employee CAN review their employer's product if they disclose the relationship. They can't pretend to be an unconnected customer.</p>
     </div>
 
     <div class="rule-card">
@@ -3654,7 +3654,7 @@ function buildLearnFtcRules() {
 
     <div class="rule-card">
       <h3>5. Fake indicators of social media influence <span class="status status-banned">Banned</span></h3>
-      <p>Buying or selling fake followers, views, likes, or other social media influence indicators generated by bots or hijacked accounts — when used for commercial purposes.</p>
+      <p>Buying or selling fake followers, views, likes, or other social media influence indicators generated by bots or hijacked accounts, when used for commercial purposes.</p>
     </div>
 
     <h2 id="scope">Who it applies to</h2>
@@ -3668,23 +3668,23 @@ function buildLearnFtcRules() {
     </ul>
 
     <h2 id="penalties">Penalties</h2>
-    <p>The FTC can seek civil penalties of up to <strong>\$51,744 per violation</strong> under the FTC Act. A business that manufactured 50 fake reviews could theoretically face penalties exceeding \$2.5 million. In practice, the FTC has indicated it will prioritize cases involving systematic deception, large-scale operations, and knowing violations — but the per-violation structure means the exposure is real for businesses of any size.</p>
+    <p>The FTC can seek civil penalties of up to <strong>\$51,744 per violation</strong> under the FTC Act. A business that manufactured 50 fake reviews could theoretically face penalties exceeding \$2.5 million. In practice, the FTC has indicated it will prioritize cases involving systematic deception, large-scale operations, and knowing violations, but the per-violation structure means the exposure is real for businesses of any size.</p>
 
     <h2 id="compliance">How to be compliant (structurally, not just by policy)</h2>
     <p>Most businesses approach FTC compliance as a policy question: "What do our terms of service say? What's our moderation process?" This is necessary but insufficient. A policy is a promise; a structural guarantee is a property of the system.</p>
 
     <div class="verdict">
       <h3>The compliance spectrum</h3>
-      <p><strong>Policy compliance (weak):</strong> "We have a policy against fake reviews. We moderate reviews before publishing. We require reviewers to confirm they purchased." This is what gets businesses in trouble — policies are only as good as their enforcement, and enforcement is expensive, inconsistent, and reactive.</p>
-      <p style="margin-top:1rem;"><strong>Structural compliance (strong):</strong> "Our review system physically cannot accept a review without an independently verified payment. A neutral third party — the payment processor — confirms the charge. If the charge is refunded, the review is hidden automatically. No human moderation required to enforce this — it's built into the code." This is compliance by construction: the system makes violations impossible, not just prohibited.</p>
+      <p><strong>Policy compliance (weak):</strong> "We have a policy against fake reviews. We moderate reviews before publishing. We require reviewers to confirm they purchased." This is what gets businesses in trouble: policies are only as good as their enforcement, and enforcement is expensive, inconsistent, and reactive.</p>
+      <p style="margin-top:1rem;"><strong>Structural compliance (strong):</strong> "Our review system physically cannot accept a review without an independently verified payment. A neutral third party, the payment processor, confirms the charge. If the charge is refunded, the review is hidden automatically. No human moderation required to enforce this. It's built into the code." This is compliance by construction: the system makes violations impossible, not just prohibited.</p>
     </div>
 
     <h2 id="impact">What this means for your review strategy</h2>
     <p>The FTC rule changes the risk calculus for review collection:</p>
     <ul>
-      <li><strong>Open platforms (Level 0–1)</strong> — highest risk. Anyone can post; verification is minimal. Your business could be penalized for fake reviews on your profile, even if you didn't create them. The FTC's theory: by choosing an unverified platform, you assumed the risk of fake reviews appearing on your profile.</li>
-      <li><strong>Merchant-supplied platforms (Level 3)</strong> — medium risk. Verification is stronger, but you control the verification data. If a fake review appears, you're the most likely source — whether intentional or not. The FTC's SiteJabber action shows they will hold platforms and businesses accountable for systematic verification failures.</li>
-      <li><strong>Processor-attested platforms (Level 4)</strong> — lowest risk. Verification is independent. You cannot fake a review without committing payment fraud against Stripe, which carries its own severe penalties. The system is structurally compliant; you don't need to trust your policies because the code enforces the compliance.</li>
+      <li><strong>Open platforms (Level 0–1)</strong>, highest risk. Anyone can post; verification is minimal. Your business could be penalized for fake reviews on your profile, even if you didn't create them. The FTC's theory: by choosing an unverified platform, you assumed the risk of fake reviews appearing on your profile.</li>
+      <li><strong>Merchant-supplied platforms (Level 3)</strong> (medium risk. Verification is stronger, but you control the verification data. If a fake review appears, you're the most likely source) whether intentional or not. The FTC's SiteJabber action shows they will hold platforms and businesses accountable for systematic verification failures.</li>
+      <li><strong>Processor-attested platforms (Level 4)</strong>, lowest risk. Verification is independent. You cannot fake a review without committing payment fraud against Stripe, which carries its own severe penalties. The system is structurally compliant; you don't need to trust your policies because the code enforces the compliance.</li>
     </ul>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Collect structurally compliant reviews →</a></p>
@@ -3693,7 +3693,7 @@ function buildLearnFtcRules() {
 
   const html = page({
     title, description, slug, pageType: 'article',
-    hero: { eyebrow: 'Learn', title: 'FTC Fake Review Rules (2024)', subtitle: 'What 16 CFR Part 465 bans, who it applies to, and how to make your review collection structurally compliant — not just policy-compliant.' },
+    hero: { eyebrow: 'Learn', title: 'FTC Fake Review Rules (2024)', subtitle: 'What 16 CFR Part 465 bans, who it applies to, and how to make your review collection structurally compliant, not just policy-compliant.' },
     body,
     extraStyle,
   });
@@ -3706,7 +3706,7 @@ function buildLearnFtcRules() {
 function buildIntegrations() {
   const slug = '/integrations/';
   const canonical = `${SITE_URL}${slug}`;
-  const title = 'Integrations — Signed Reviews';
+  const title = 'Integrations. Signed Reviews';
   const description = 'Connect Signed Reviews to your existing stack. Native Stripe App with one-click install, plus REST API, webhooks, and ecosystem integrations.';
 
   const extraStyle = `
@@ -3733,7 +3733,7 @@ function buildIntegrations() {
       <div class="ic-icon ic-stripe">S</div>
       <div class="ic-body">
         <h3>Stripe <span class="ic-badge ic-badge-live">Live</span></h3>
-        <p>The native integration. One-click OAuth, minimal permissions, zero code. Every Stripe charge automatically generates a verified review invitation. Refund-aware — reviews for refunded charges are hidden automatically. Works with Stripe Billing, Stripe Connect, and Stripe Checkout.</p>
+        <p>The native integration. One-click OAuth, minimal permissions, zero code. Every Stripe charge automatically generates a verified review invitation. Refund-aware, reviews for refunded charges are hidden automatically. Works with Stripe Billing, Stripe Connect, and Stripe Checkout.</p>
         <a class="ic-cta" href="${B}integrations/stripe/">Stripe integration details →</a>
       </div>
     </div>
@@ -3783,13 +3783,13 @@ function buildIntegrations() {
     <h2 id="how-they-work">How our integrations work</h2>
     <p>Every Signed Reviews integration follows the same pattern:</p>
     <ol>
-      <li><strong>Connect</strong> — link your Stripe account (or install the platform-specific app) in one click.</li>
-      <li><strong>Detect</strong> — Signed Reviews watches for new Stripe charges automatically.</li>
-      <li><strong>Invite</strong> — a unique, expiring review invitation is sent to the customer's verified payment email.</li>
-      <li><strong>Sign</strong> — the review is cryptographically signed at submission, creating a tamper-evident record.</li>
-      <li><strong>Publish</strong> — the verified review appears on your public page and via the API.</li>
+      <li><strong>Connect</strong>, link your Stripe account (or install the platform-specific app) in one click.</li>
+      <li><strong>Detect</strong>. Signed Reviews watches for new Stripe charges automatically.</li>
+      <li><strong>Invite</strong>, a unique, expiring review invitation is sent to the customer's verified payment email.</li>
+      <li><strong>Sign</strong>. The review is cryptographically signed at submission, creating a tamper-evident record.</li>
+      <li><strong>Publish</strong>, the verified review appears on your public page and via the API.</li>
     </ol>
-    <p>Because every integration verifies against Stripe — not merchant-supplied data — the verification chain is independent of which platform or plugin you use. <a href="/learn/what-does-verified-buyer-mean/">Learn why that matters →</a></p>
+    <p>Because every integration verifies against Stripe, not merchant-supplied data, the verification chain is independent of which platform or plugin you use. <a href="/learn/what-does-verified-buyer-mean/">Learn why that matters →</a></p>
 
     <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Connect your Stripe account →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/integrations/stripe/">Stripe integration details</a> · <a href="/api/">API reference</a> · <a href="/docs/">Documentation</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews guide</a></p>
@@ -3799,7 +3799,7 @@ function buildIntegrations() {
     title,
     description,
     slug,
-    hero: { eyebrow: 'Integrations', title: 'Connect Your Stack', subtitle: 'One-click Stripe integration plus REST API, webhooks, and planned ecosystem connectors — every one tied to processor-attested verification.' },
+    hero: { eyebrow: 'Integrations', title: 'Connect Your Stack', subtitle: 'One-click Stripe integration plus REST API, webhooks, and planned ecosystem connectors, every one tied to processor-attested verification.' },
     body,
     extraStyle,
   });
@@ -3813,13 +3813,13 @@ function buildIntegrations() {
 function buildIntegrationsStripe() {
   const slug = '/integrations/stripe/';
   const canonical = `${SITE_URL}${slug}`;
-  const title = 'Stripe Integration for Verified Reviews — Signed Reviews';
+  const title = 'Stripe Integration for Verified Reviews. Signed Reviews';
   const description = 'Connect your Stripe account in one click and automatically collect verified, tamper-evident reviews on every charge. Minimal-permission, no-code setup.';
 
   const softwareSchema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'Signed Reviews — Stripe Integration',
+    name: 'Signed Reviews. Stripe Integration',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web',
     description,
@@ -3835,7 +3835,7 @@ function buildIntegrationsStripe() {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
     name: 'Connect Stripe to Signed Reviews',
-    description: 'One-click OAuth setup — no code, no API keys, minimal permissions.',
+    description: 'One-click OAuth setup: no code, no API keys, minimal permissions.',
     step: [
       { '@type': 'HowToStep', position: 1, name: 'Sign up or log in', text: 'Create a free Signed Reviews account at platform.signedreviews.com. No credit card required.' },
       { '@type': 'HowToStep', position: 2, name: 'Click "Connect Stripe"', text: 'In your dashboard, click the Stripe connection button. You\'ll be redirected to Stripe\'s official OAuth page.' },
@@ -3871,11 +3871,11 @@ function buildIntegrationsStripe() {
   `;
 
   const faqItems = [
-    { q: 'What can Signed Reviews do in my Stripe account?', a: 'You grant read access to charges, customers, subscriptions, and balance transactions — plus two coupon permissions that are used only when you enable review incentives. Signed Reviews cannot create charges, issue refunds, move funds, update subscriptions, modify customers, or initiate any other write operation in your Stripe account. This is enforced by Stripe\'s permission model — not by policy.' },
-    { q: 'Does this work with Stripe Connect platforms?', a: 'Yes — if your platform processes payments through Stripe Connect and you have access to the Stripe account, you can connect it. Each connected account is treated independently.' },
+    { q: 'What can Signed Reviews do in my Stripe account?', a: 'You grant read access to charges, customers, subscriptions, and balance transactions, plus two coupon permissions that are used only when you enable review incentives. Signed Reviews cannot create charges, issue refunds, move funds, update subscriptions, modify customers, or initiate any other write operation in your Stripe account. This is enforced by Stripe\'s permission model, not by policy.' },
+    { q: 'Does this work with Stripe Connect platforms?', a: 'Yes, if your platform processes payments through Stripe Connect and you have access to the Stripe account, you can connect it. Each connected account is treated independently.' },
     { q: 'What happens if a charge is refunded?', a: 'Stripe sends a charge.refunded webhook. Signed Reviews automatically hides the associated review from your public page. No manual moderation. The review record is preserved for audit but not displayed.' },
     { q: 'Do I need to change anything in my Stripe account?', a: 'No. You don\'t need to add webhooks, modify API keys, or change any settings in your Stripe dashboard. The OAuth connection handles everything.' },
-    { q: 'Can I disconnect at any time?', a: 'Yes. Disconnect from your Signed Reviews dashboard or revoke access from your Stripe dashboard. Your existing verified reviews remain — the cryptographic signatures are independent of the active connection.' },
+    { q: 'Can I disconnect at any time?', a: 'Yes. Disconnect from your Signed Reviews dashboard or revoke access from your Stripe dashboard. Your existing verified reviews remain. The cryptographic signatures are independent of the active connection.' },
     { q: 'Does this work with Stripe test mode?', a: 'Yes. You can connect a Stripe test-mode account during onboarding. Switch to live mode when you\'re ready to go to production.' },
   ];
 
@@ -3896,7 +3896,7 @@ function buildIntegrationsStripe() {
   };
 
   const body = `<article class="prose">
-    <p>The Signed Reviews Stripe integration connects in one click — no code, no API keys, no webhook configuration. Once connected, every new Stripe charge automatically generates a verified review invitation. The connection is <strong>limited to four read scopes plus two opt-in coupon permissions</strong> (enforced by Stripe's OAuth model), so there is zero risk to your Stripe account.</p>
+    <p>The Signed Reviews Stripe integration connects in one click: no code, no API keys, no webhook configuration. Once connected, every new Stripe charge automatically generates a verified review invitation. The connection is <strong>limited to four read scopes plus two opt-in coupon permissions</strong> (enforced by Stripe's OAuth model), so there is zero risk to your Stripe account.</p>
 
     <h2 id="permissions">What we can (and can't) do</h2>
     <div class="perm-grid">
@@ -3911,21 +3911,21 @@ function buildIntegrationsStripe() {
     <h2 id="setup">How to connect</h2>
     <ol class="howto-steps">
       <li><div class="step-num"></div><div><h3>Sign up or log in</h3><p>Create a free Signed Reviews account at <a href="${PLATFORM_URL}" rel="noopener">platform.signedreviews.com</a>. No credit card required. The Free plan includes Stripe integration with unlimited self-service reviews and 10 free automated review invitations.</p></div></li>
-      <li><div class="step-num"></div><div><h3>Click "Connect Stripe"</h3><p>In your dashboard, click the Stripe connection button. You'll be redirected to Stripe's official OAuth authorization page — the same flow used by thousands of Stripe App installations.</p></div></li>
-      <li><div class="step-num"></div><div><h3>Authorize the permissions</h3><p>Stripe shows you exactly which permissions are requested — four read scopes plus two coupon permissions used only for review incentives. Review and click "Connect." The redirect brings you back to your Signed Reviews dashboard.</p></div></li>
-      <li><div class="step-num"></div><div><h3>Configure auto-requests</h3><p>Choose your invitation timing: immediately after purchase (digital products), after a configurable delay (physical products), or triggered by your delivery webhook. Set reminder cadence — standard is 3 and 7 days.</p></div></li>
-      <li><div class="step-num"></div><div><h3>Customize your branding</h3><p>Upload your logo, set brand colors, and customize the email sender name. Every review invitation carries your branding — your customers see your business, not ours.</p></div></li>
+      <li><div class="step-num"></div><div><h3>Click "Connect Stripe"</h3><p>In your dashboard, click the Stripe connection button. You'll be redirected to Stripe's official OAuth authorization page, the same flow used by thousands of Stripe App installations.</p></div></li>
+      <li><div class="step-num"></div><div><h3>Authorize the permissions</h3><p>Stripe shows you exactly which permissions are requested, four read scopes plus two coupon permissions used only for review incentives. Review and click "Connect." The redirect brings you back to your Signed Reviews dashboard.</p></div></li>
+      <li><div class="step-num"></div><div><h3>Configure auto-requests</h3><p>Choose your invitation timing: immediately after purchase (digital products), after a configurable delay (physical products), or triggered by your delivery webhook. Set reminder cadence, standard is 3 and 7 days.</p></div></li>
+      <li><div class="step-num"></div><div><h3>Customize your branding</h3><p>Upload your logo, set brand colors, and customize the email sender name. Every review invitation carries your branding, your customers see your business, not ours.</p></div></li>
       <li><div class="step-num"></div><div><h3>Go live</h3><p>Switch from test mode to live. Every new Stripe charge automatically generates a verified review invitation. Your public review page is live immediately at <code>signedreviews.com/yourbusiness</code>.</p></div></li>
     </ol>
 
     <h2 id="beyond">Beyond the integration</h2>
     <p>Once connected, you get more than automated review collection:</p>
     <ul>
-      <li><strong>Public review page</strong> — a hosted, branded page showing every verified review with cryptographic proof badges.</li>
-      <li><strong>Public API</strong> — embed reviews on your own website (<a href="/api/">API docs</a>).</li>
-      <li><strong>Trust badge</strong> — "Verified by Signed Reviews" badge to display on your site and in email footers.</li>
-      <li><strong>Delivery webhook</strong> — trigger review invitations at exactly the right moment (e.g., when the tracking number shows "delivered").</li>
-      <li><strong>Analytics</strong> — invitation sent/opened/submitted rates, review volume over time, average rating trends.</li>
+      <li><strong>Public review page</strong>, a hosted, branded page showing every verified review with cryptographic proof badges.</li>
+      <li><strong>Public API</strong>, embed reviews on your own website (<a href="/api/">API docs</a>).</li>
+      <li><strong>Trust badge</strong>, "Verified by Signed Reviews" badge to display on your site and in email footers.</li>
+      <li><strong>Delivery webhook</strong>, trigger review invitations at exactly the right moment (e.g., when the tracking number shows "delivered").</li>
+      <li><strong>Analytics</strong>: invitation sent/opened/submitted rates, review volume over time, average rating trends.</li>
     </ul>
 
     <h2 id="faq">Frequently asked questions</h2>
@@ -3954,13 +3954,13 @@ function buildIntegrationsStripe() {
 function buildIntegrationsShopify() {
   const slug = '/integrations/shopify/';
   const canonical = `${SITE_URL}${slug}`;
-  const title = 'Shopify Integration (Planned) — Signed Reviews';
-  const description = 'Shopify integration for Signed Reviews — collect verified reviews on every Shopify order processed through Stripe. Currently planned.';
+  const title = 'Shopify Integration (Planned). Signed Reviews';
+  const description = 'Shopify integration for Signed Reviews. Collect verified reviews on every Shopify order processed through Stripe. Currently planned.';
 
   const softwareSchema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'Signed Reviews — Shopify Integration',
+    name: 'Signed Reviews. Shopify Integration',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web',
     description,
@@ -3979,22 +3979,22 @@ function buildIntegrationsShopify() {
   const body = `<article class="prose">
     <div class="planned-banner">
       <div class="badge">Planned</div>
-      <h2>Shopify integration — coming soon</h2>
+      <h2>Shopify integration, coming soon</h2>
       <p style="color:var(--text);margin:.5rem 0 0;">We're building a native Shopify integration for stores using Stripe as their payment processor. Sign up now and we'll notify you when it's ready.</p>
     </div>
 
     <h2 id="what">What it will do</h2>
-    <p>For Shopify merchants using Stripe (including Shopify Payments, which runs on Stripe infrastructure), every order will automatically trigger a verified review invitation — with the same processor-attested (Level 4) verification that the direct Stripe integration provides.</p>
+    <p>For Shopify merchants using Stripe (including Shopify Payments, which runs on Stripe infrastructure), every order will automatically trigger a verified review invitation, with the same processor-attested (Level 4) verification that the direct Stripe integration provides.</p>
 
     <div class="feature-grid">
       <div class="feature-card"><h3>Auto-detection</h3><p>Every Shopify order paid via Stripe triggers a review invitation automatically.</p></div>
-      <div class="feature-card"><h3>Processor-attested</h3><p>Level 4 verification — Stripe independently confirms every charge.</p></div>
+      <div class="feature-card"><h3>Processor-attested</h3><p>Level 4 verification. Stripe independently confirms every charge.</p></div>
       <div class="feature-card"><h3>Refund-aware</h3><p>Refunded orders automatically hide associated reviews.</p></div>
-      <div class="feature-card"><h3>App Store install</h3><p>One-click install from the Shopify App Store — no code required.</p></div>
+      <div class="feature-card"><h3>App Store install</h3><p>One-click install from the Shopify App Store, no code required.</p></div>
     </div>
 
     <h2 id="today">What you can do today</h2>
-    <p>If your Shopify store uses Stripe as a payment processor (not just Shopify Payments), you can connect your Stripe account directly to Signed Reviews right now — the same Level 4 verification, the same automatic invitations on every charge. The Shopify App Store integration will make this even easier. <a href="/integrations/stripe/">Set up the Stripe integration →</a></p>
+    <p>If your Shopify store uses Stripe as a payment processor (not just Shopify Payments), you can connect your Stripe account directly to Signed Reviews right now, the same Level 4 verification, the same automatic invitations on every charge. The Shopify App Store integration will make this even easier. <a href="/integrations/stripe/">Set up the Stripe integration →</a></p>
 
     <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Join the waitlist →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/integrations/stripe/">Stripe integration</a> · <a href="/integrations/">All integrations</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews</a></p>
@@ -4015,13 +4015,13 @@ function buildIntegrationsShopify() {
 function buildIntegrationsWooCommerce() {
   const slug = '/integrations/woocommerce/';
   const canonical = `${SITE_URL}${slug}`;
-  const title = 'WooCommerce Integration (Planned) — Signed Reviews';
-  const description = 'WooCommerce plugin for Signed Reviews — collect verified reviews on every WooCommerce order paid via Stripe. Currently planned.';
+  const title = 'WooCommerce Integration (Planned). Signed Reviews';
+  const description = 'WooCommerce plugin for Signed Reviews. Collect verified reviews on every WooCommerce order paid via Stripe. Currently planned.';
 
   const softwareSchema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'Signed Reviews — WooCommerce Integration',
+    name: 'Signed Reviews. WooCommerce Integration',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web',
     description,
@@ -4040,22 +4040,22 @@ function buildIntegrationsWooCommerce() {
   const body = `<article class="prose">
     <div class="planned-banner">
       <div class="badge">Planned</div>
-      <h2>WooCommerce integration — coming soon</h2>
+      <h2>WooCommerce integration, coming soon</h2>
       <p style="color:var(--text);margin:.5rem 0 0;">We're building a WordPress/WooCommerce plugin for stores using the Stripe payment gateway. Sign up now and we'll notify you when it's ready.</p>
     </div>
 
     <h2 id="what">What it will do</h2>
-    <p>A lightweight WordPress plugin that connects your WooCommerce store to Signed Reviews. Every WooCommerce order paid via the Stripe gateway triggers a processor-attested (Level 4) verified review invitation — automatically, with no manual configuration beyond installing and authenticating the plugin.</p>
+    <p>A lightweight WordPress plugin that connects your WooCommerce store to Signed Reviews. Every WooCommerce order paid via the Stripe gateway triggers a processor-attested (Level 4) verified review invitation, automatically, with no manual configuration beyond installing and authenticating the plugin.</p>
 
     <div class="feature-grid">
       <div class="feature-card"><h3>WordPress-native</h3><p>Install from the WordPress plugin directory. Configure in the WordPress admin.</p></div>
       <div class="feature-card"><h3>Stripe gateway</h3><p>Works with the official WooCommerce Stripe Payment Gateway plugin.</p></div>
-      <div class="feature-card"><h3>Processor-attested</h3><p>Level 4 verification — Stripe independently confirms every charge.</p></div>
+      <div class="feature-card"><h3>Processor-attested</h3><p>Level 4 verification. Stripe independently confirms every charge.</p></div>
       <div class="feature-card"><h3>Zero-code setup</h3><p>Install the plugin, authenticate with Stripe OAuth, go live. No developer required.</p></div>
     </div>
 
     <h2 id="today">What you can do today</h2>
-    <p>If your WooCommerce store uses the Stripe payment gateway, you can connect your Stripe account directly to Signed Reviews right now. Every Stripe charge — including those processed through WooCommerce — triggers a verified review invitation. The plugin will make setup a one-click WordPress-admin experience. <a href="/integrations/stripe/">Set up the Stripe integration →</a></p>
+    <p>If your WooCommerce store uses the Stripe payment gateway, you can connect your Stripe account directly to Signed Reviews right now. Every Stripe charge, including those processed through WooCommerce, triggers a verified review invitation. The plugin will make setup a one-click WordPress-admin experience. <a href="/integrations/stripe/">Set up the Stripe integration →</a></p>
 
     <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Join the waitlist →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/integrations/stripe/">Stripe integration</a> · <a href="/integrations/">All integrations</a> · <a href="/integrations/shopify/">Shopify integration</a></p>
@@ -4079,10 +4079,10 @@ function buildTrust() {
     <p>Signed Reviews is built on a simple premise: <strong>a review should only exist if a real purchase backs it</strong>. Every design decision flows from this principle.</p>
 
     <h3>Cryptographic signing</h3>
-    <p>Every review collected through Signed Reviews is cryptographically signed at the moment of submission. The signature binds together the review content, the Stripe transaction ID, the reviewer's email, and a timestamp — creating a tamper-evident record. Anyone can verify this signature later to confirm the review has not been altered.</p>
+    <p>Every review collected through Signed Reviews is cryptographically signed at the moment of submission. The signature binds together the review content, the Stripe transaction ID, the reviewer's email, and a timestamp, creating a tamper-evident record. Anyone can verify this signature later to confirm the review has not been altered.</p>
 
     <h3>Minimal Stripe permissions</h3>
-    <p>Our Stripe integration requests the least privilege needed to verify reviews. We <strong>cannot</strong> charge, refund, transfer funds, or change your customers, subscriptions, or prices. The only object we can ever create is a discount coupon for a reviewer — and only when you enable review incentives. We read your Stripe data only to:</p>
+    <p>Our Stripe integration requests the least privilege needed to verify reviews. We <strong>cannot</strong> charge, refund, transfer funds, or change your customers, subscriptions, or prices. The only object we can ever create is a discount coupon for a reviewer, and only when you enable review incentives. We read your Stripe data only to:</p>
     <ul>
       <li>Verify that a reviewer completed a purchase from your business</li>
       <li>Match the reviewer to the correct transaction</li>
@@ -4091,10 +4091,10 @@ function buildTrust() {
     </ul>
 
     <h3>No fake reviews by design</h3>
-    <p>Most review platforms fight fake reviews with detection algorithms — a reactive approach. Signed Reviews prevents fake reviews structurally: every review requires a verified purchase. A review link is issued either automatically after a Stripe charge succeeds or on request from the business's public page — and in both cases the email must match a real completed purchase. Links are single-use and expire after a set period. No matching purchase = no link = no review.</p>
+    <p>Most review platforms fight fake reviews with detection algorithms, a reactive approach. Signed Reviews prevents fake reviews structurally: every review requires a verified purchase. A review link is issued either automatically after a Stripe charge succeeds or on request from the business's public page, and in both cases the email must match a real completed purchase. Links are single-use and expire after a set period. No matching purchase = no link = no review.</p>
 
     <h3>Data ownership</h3>
-    <p>You own your review data. Signed Reviews is the processor; your business is the controller. Reviews collected through our platform belong to you — we do not sell, share, or use your review data for any purpose other than providing the service. See our <a href="/privacy/">Privacy Policy</a> and <a href="/dpa/">Data Processing Agreement</a> for the full legal framework.</p>
+    <p>You own your review data. Signed Reviews is the processor; your business is the controller. Reviews collected through our platform belong to you: we do not sell, share, or use your review data for any purpose other than providing the service. See our <a href="/privacy/">Privacy Policy</a> and <a href="/dpa/">Data Processing Agreement</a> for the full legal framework.</p>
 
     <h3>Infrastructure security</h3>
     <p>Signed Reviews is hosted on Railway (AWS us-east-1) with PostgreSQL on Supabase. All data is encrypted in transit (TLS 1.3) and at rest (AES-256). API keys and Stripe access tokens are encrypted at the application layer using AES-256-GCM before storage. Our full list of sub-processors is published on our <a href="/subprocessors/">Sub-processors page</a>.</p>
@@ -4103,11 +4103,11 @@ function buildTrust() {
     <p>Signed Reviews is operated by Paid Rightly LLC, a New Mexico limited liability company. Our Data Processing Agreement incorporates Standard Contractual Clauses (SCCs) for GDPR compliance. We maintain a <a href="/dmca/">DMCA policy</a> for copyright matters and publish our <a href="/terms/">Terms of Service</a> transparently.</p>
 
     <h3>Report a concern</h3>
-    <p>If you believe a review violates our Terms of Service — for example, contains illegal content, harassment, defamation, impersonation, or spam — you can report it through the abuse-report link on any review page. Every report is reviewed by our trust & safety team within 7 business days, per our Terms of Service.</p>
+    <p>If you believe a review violates our Terms of Service (for example, contains illegal content, harassment, defamation, impersonation, or spam), you can report it through the abuse-report link on any review page. Every report is reviewed by our trust & safety team within 7 business days, per our Terms of Service.</p>
   </article>`;
 
   const html = page({
-    title: 'Trust & Security — Signed Reviews',
+    title: 'Trust & Security. Signed Reviews',
     description: 'How Signed Reviews keeps reviews authentic: cryptographic signing, minimal Stripe permissions, fake-review prevention by design, data ownership, and infrastructure security.',
     slug: '/trust/',
     hero: { eyebrow: 'Trust', title: 'Trust & Security', subtitle: 'How we ensure every review is authentic, every transaction is verified, and your data stays yours.' },
@@ -4140,7 +4140,7 @@ const MARKETING_PAGES = [
     file: 'api.md',
     title: 'Public API',
     eyebrow: 'API Reference',
-    subtitle: 'Fetch verified reviews, ratings, and business profile data into your own site. Read-only REST API with publishable-key auth — safe for browser use.',
+    subtitle: 'Fetch verified reviews, ratings, and business profile data into your own site. Read-only REST API with publishable-key auth, safe for browser use.',
     metaDesc: 'Signed Reviews Public API reference: REST endpoints for verified reviews and business profiles. Publishable-key authentication, rate limits, and code examples.',
   },
   {
@@ -4159,7 +4159,7 @@ function buildMarketingPages() {
     const renderedBody = renderMarkdown(md);
     const bodyNoH1 = renderedBody.replace(/<h1[^>]*>[\s\S]*?<\/h1>/, '');
     const html = page({
-      title: `${p.title} — ${COMPANY.brand}`,
+      title: `${p.title}, ${COMPANY.brand}`,
       description: p.metaDesc,
       slug: p.slug,
       hero: { eyebrow: p.eyebrow, title: p.title, subtitle: p.subtitle },
@@ -4199,10 +4199,10 @@ function buildChromeExtensionPrivacy() {
   const md = fs.readFileSync(path.join(FILES_DIR, 'chrome-extension-privacy.md'), 'utf8');
   const bodyNoH1 = renderMarkdown(md).replace(/<h1[^>]*>[\s\S]*?<\/h1>/, '');
   const html = page({
-    title: 'Privacy Policy — SignedReviews Trust Detector',
+    title: 'Privacy Policy. SignedReviews Trust Detector',
     description: 'Privacy Policy for the SignedReviews Trust Detector Chrome Extension. This extension does not collect, store, or transmit any personal information or browsing history.',
     slug: '/chrome-extension/privacy/',
-    hero: { eyebrow: 'Chrome Extension', title: 'Privacy Policy — Trust Detector', subtitle: 'Last updated: 2026-07-30' },
+    hero: { eyebrow: 'Chrome Extension', title: 'Privacy Policy: Trust Detector', subtitle: 'Last updated: 2026-07-30' },
     body: `<article class="prose">${bodyNoH1}</article>`,
     pageType: 'article',
   });
@@ -4214,7 +4214,7 @@ function buildChromeExtensionPrivacy() {
 // Client-side, signal-based heuristic checker. No backend, no data leaves the
 // browser. Deliberately honest about limits: writing signals, not proof.
 const TOOL_STYLES = `
-  /* Fake review checker — native Signed Reviews skin, "Hero card" variant */
+  /* Fake review checker, native Signed Reviews skin, "Hero card" variant */
   .frc-card {
     background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
     border: 1px solid var(--border);
@@ -4349,57 +4349,57 @@ function buildFakeReviewChecker() {
   const ogImage = `${SITE_URL}/images/og/fake-review-checker-tool.png`;
 
   const body = `<article class="prose">
-    <p>The <strong>fake review checker</strong> below reads a single review's text and scores the risk signals it finds — repetitive phrasing, superlative density, generic praise with no concrete details, authenticity claims embedded in the text. Paste any review from Amazon, Trustpilot, Google, Shopify, Tripadvisor, or your own store. Nothing is sent anywhere: the analysis runs in your browser, and nothing is stored.</p>
+    <p>The <strong>fake review checker</strong> below reads a single review's text and scores the risk signals it finds: repetitive phrasing, superlative density, generic praise with no concrete details, authenticity claims embedded in the text. Paste any review from Amazon, Trustpilot, Google, Shopify, Tripadvisor, or your own store. Nothing is sent anywhere: the analysis runs in your browser, and nothing is stored.</p>
 
     <div class="frc-card" id="frc">
       <div class="frc-hero">
         <span class="frc-eyebrow">Free tool · 100% client-side</span>
         <h3>Check any review</h3>
-        <p class="frc-sub">Runs entirely in your browser — nothing is sent or stored.</p>
+        <p class="frc-sub">Runs entirely in your browser, nothing is sent or stored.</p>
       </div>
       <label for="frc-input">Paste the review text</label>
       <textarea id="frc-input" placeholder="Paste the full review text here (50+ words works best). The checker looks at language patterns, not the platform it came from." aria-describedby="frc-hint"></textarea>
-      <p id="frc-hint" class="frc-hint">Heuristic signals, not proof. A clean score doesn't guarantee a real review — see below.</p>
+      <p id="frc-hint" class="frc-hint">Heuristic signals, not proof. A clean score doesn't guarantee a real review. See below.</p>
       <div class="frc-actions">
         <button type="button" class="frc-run" id="frc-run">Check this review</button>
         <button type="button" class="frc-sample" id="frc-sample">Load a sample review</button>
       </div>
       <div class="frc-output" id="frc-output" aria-live="polite"></div>
-      <p class="frc-disclaimer">This checker evaluates writing patterns only. It cannot see who wrote the review, whether a purchase happened, or whether a platform verified anything. For that you need the verification source — see <a href="/blog/how-to-spot-fake-reviews/">how to spot fake reviews</a> and the <a href="/learn/what-does-verified-buyer-mean/">verification spectrum</a>.</p>
+      <p class="frc-disclaimer">This checker evaluates writing patterns only. It cannot see who wrote the review, whether a purchase happened, or whether a platform verified anything. For that you need the verification source. See <a href="/blog/how-to-spot-fake-reviews/">how to spot fake reviews</a> and the <a href="/learn/what-does-verified-buyer-mean/">verification spectrum</a>.</p>
     </div>
 
     <h2>How the fake review checker works</h2>
     <p>The checker scores six writing-pattern signals and credits two opposite ones:</p>
     <ul>
-      <li><strong>Generic praise</strong> — "great product", "highly recommend", "fast shipping" with no supporting specifics. Template reviews lean on these phrases.</li>
-      <li><strong>Superlative density</strong> — "amazing", "perfect", "game changer", "best purchase" as a large share of total words.</li>
-      <li><strong>Repeated phrasing</strong> — the same three-word sequence repeated within one review, a hallmark of spun or templated text.</li>
-      <li><strong>No concrete detail</strong> — no product specifics, dates, numbers, or first-person purchase language ("I ordered…"). Vague praise is the single most common fake-review pattern.</li>
-      <li><strong>Authenticity claims in the text</strong> — "100% real", "not a bot", "verified buyer here". Real reviews rarely argue their own authenticity.</li>
-      <li><strong>Exclamation density and ALL-CAPS emphasis</strong> — classic paid-review over-performance.</li>
+      <li><strong>Generic praise</strong>: "great product", "highly recommend", "fast shipping" with no supporting specifics. Template reviews lean on these phrases.</li>
+      <li><strong>Superlative density</strong>: "amazing", "perfect", "game changer", "best purchase" as a large share of total words.</li>
+      <li><strong>Repeated phrasing</strong>, the same three-word sequence repeated within one review, a hallmark of spun or templated text.</li>
+      <li><strong>No concrete detail</strong>: no product specifics, dates, numbers, or first-person purchase language ("I ordered…"). Vague praise is the single most common fake-review pattern.</li>
+      <li><strong>Authenticity claims in the text</strong>: "100% real", "not a bot", "verified buyer here". Real reviews rarely argue their own authenticity.</li>
+      <li><strong>Exclamation density and ALL-CAPS emphasis</strong>, classic paid-review over-performance.</li>
     </ul>
-    <p>It also credits the opposite signals: concrete detail, and balanced tone — a real review usually carries at least a small reservation ("only", "slightly", "but"). A review that only praises and never specifies is the pattern to worry about.</p>
+    <p>It also credits the opposite signals: concrete detail, and balanced tone: a real review usually carries at least a small reservation ("only", "slightly", "but"). A review that only praises and never specifies is the pattern to worry about.</p>
 
     <h2>What a text checker can't prove</h2>
-    <p>Writing analysis is a filter, not a verdict. AI-generated fake reviews are now <a href="/blog/how-to-spot-fake-reviews/">virtually indistinguishable from human writing</a> in blind tests, and a genuinely concise happy customer can look identical to a seeded one. The checker answers "does this text look like typical fake-review writing?" — it cannot answer "did this person actually buy the product?"</p>
-    <p>That second question is the one that matters, and it has a structural answer: a review can only be certain to come from a real customer when an independent party attests the purchase. Under the FTC's Trade Regulation Rule on Consumer Reviews and Testimonials (16 CFR Part 465), fake reviews carry civil penalties — and the only reviews that make fabrication structurally irrational are transaction-verified ones: every fake attempt costs a real payment-processing fee. See <a href="/blog/transaction-verified-reviews/">transaction verified reviews</a> for the full mechanics.</p>
+    <p>Writing analysis is a filter, not a verdict. AI-generated fake reviews are now <a href="/blog/how-to-spot-fake-reviews/">virtually indistinguishable from human writing</a> in blind tests, and a genuinely concise happy customer can look identical to a seeded one. The checker answers "does this text look like typical fake-review writing?". It cannot answer "did this person actually buy the product?"</p>
+    <p>That second question is the one that matters, and it has a structural answer: a review can only be certain to come from a real customer when an independent party attests the purchase. Under the FTC's Trade Regulation Rule on Consumer Reviews and Testimonials (16 CFR Part 465), fake reviews carry civil penalties, and the only reviews that make fabrication structurally irrational are transaction-verified ones: every fake attempt costs a real payment-processing fee. See <a href="/blog/transaction-verified-reviews/">transaction verified reviews</a> for the full mechanics.</p>
 
     <h2>Frequently asked questions</h2>
 
     <h3>How accurate is this fake review checker?</h3>
-    <p>It surfaces the writing patterns most common in fake and template-generated reviews, and it is deliberately conservative: it reports signals with explanations rather than a definitive yes/no. Treat a high score as a reason to look closer — at reviewer history, timing, and the verification source — not as proof the review is fake.</p>
+    <p>It surfaces the writing patterns most common in fake and template-generated reviews, and it is deliberately conservative: it reports signals with explanations rather than a definitive yes/no. Treat a high score as a reason to look closer (at reviewer history, timing, and the verification source) not as proof the review is fake.</p>
 
     <h3>Does this work for Amazon, Trustpilot, Google, or Shopify reviews?</h3>
     <p>Yes. The checker analyzes pasted text, so it is platform-agnostic: copy the review text from any listing, platform, or email, paste it, and run. It does not read live pages or fetch reviews itself, and it sends nothing to any server.</p>
 
     <h3>Can it detect AI-written fake reviews?</h3>
-    <p>Partially. AI-generated review text often trips the generic-praise and no-concrete-detail signals, but modern AI can also write specific, balanced prose that passes a text check. No text-based checker — including commercial ones — reliably detects AI writing, which is why verification at the source (who attests the purchase) is the durable defense.</p>
+    <p>Partially. AI-generated review text often trips the generic-praise and no-concrete-detail signals, but modern AI can also write specific, balanced prose that passes a text check. No text-based checker, including commercial ones, reliably detects AI writing, which is why verification at the source (who attests the purchase) is the durable defense.</p>
 
     <h3>What's the difference between checking text and verifying a purchase?</h3>
     <p>Text checking estimates likelihood from writing style. Purchase verification confirms fact from a payment record: an independent processor such as Stripe attests that a real charge occurred between the reviewer and the business. The former is a screen; the latter is proof. <a href="/blog/verified-reviews-vs-unverified-reviews/">Verified vs unverified reviews</a> explains the levels in detail.</p>
 
     <h3>Is the fake review checker free?</h3>
-    <p>Yes — completely free, no signup, no data stored. It is a client-side tool: your pasted text never leaves your browser.</p>
+    <p>Yes: completely free, no signup, no data stored. It is a client-side tool: your pasted text never leaves your browser.</p>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Collect reviews that can't be faked →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/blog/fake-review-checker/">How to check if reviews are fake (7-point method)</a> · <a href="/blog/how-to-spot-fake-reviews/">How to spot fake reviews</a> · <a href="/blog/fake-review-statistics-2026/">Fake review statistics 2026</a></p>
@@ -4423,10 +4423,10 @@ function buildFakeReviewChecker() {
         '@type': 'FAQPage',
         mainEntity: [
           { '@type': 'Question', name: 'How accurate is this fake review checker?', acceptedAnswer: { '@type': 'Answer', text: 'It surfaces the writing patterns most common in fake reviews and reports signals with explanations rather than a definitive verdict. Treat a high score as a reason to look closer, not proof.' } },
-          { '@type': 'Question', name: 'Does this work for Amazon, Trustpilot, Google, or Shopify reviews?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — it analyzes pasted text, so it is platform-agnostic. Nothing is sent to any server.' } },
+          { '@type': 'Question', name: 'Does this work for Amazon, Trustpilot, Google, or Shopify reviews?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. It analyzes pasted text, so it is platform-agnostic. Nothing is sent to any server.' } },
           { '@type': 'Question', name: 'Can it detect AI-written fake reviews?', acceptedAnswer: { '@type': 'Answer', text: 'Partially. AI text often trips the generic-praise and no-concrete-detail signals, but no text-based checker reliably detects AI writing. Verification at the source is the durable defense.' } },
           { '@type': 'Question', name: "What's the difference between checking text and verifying a purchase?", acceptedAnswer: { '@type': 'Answer', text: 'Text checking estimates likelihood from writing style. Purchase verification confirms fact from a payment record: an independent processor attests that a real charge occurred. The former is a screen; the latter is proof.' } },
-          { '@type': 'Question', name: 'Is the fake review checker free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — free, no signup, no data stored. The analysis runs entirely in the browser.' } },
+          { '@type': 'Question', name: 'Is the fake review checker free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes: free, no signup, no data stored. The analysis runs entirely in the browser.' } },
         ],
       },
     ],
@@ -4471,17 +4471,17 @@ function buildFakeReviewChecker() {
 
       var genericHits = [];
       for (var i = 0; i < GENERIC.length; i++) { if (lower.indexOf(GENERIC[i]) !== -1) genericHits.push(GENERIC[i]); }
-      if (genericHits.length >= 2) { score += 25; signals.push('Generic praise with no specifics — "' + genericHits.slice(0, 2).join('", "') + '". Template reviews lean on these phrases.'); }
+      if (genericHits.length >= 2) { score += 25; signals.push('Generic praise with no specifics, "' + genericHits.slice(0, 2).join('", "') + '". Template reviews lean on these phrases.'); }
       else if (genericHits.length === 1) { score += 8; signals.push('One generic-praise phrase found ("' + genericHits[0] + '"). Worth a closer look if the review never gets specific.'); }
 
       var buzzCount = 0;
       for (var j = 0; j < BUZZ.length; j++) {
         if (new RegExp('\\\\b' + BUZZ[j].replace(/[^a-z0-9]/g, '\\\\$&') + '\\\\b').test(lower)) buzzCount++;
       }
-      if (buzzCount / wordCount > 0.08) { score += 15; signals.push('Superlative-heavy language — ' + buzzCount + ' hype words in ' + wordCount + ' words ("amazing", "perfect", "game changer"…). Paid and seeded reviews over-perform.'); }
+      if (buzzCount / wordCount > 0.08) { score += 15; signals.push('Superlative-heavy language, ' + buzzCount + ' hype words in ' + wordCount + ' words ("amazing", "perfect", "game changer"…). Paid and seeded reviews over-perform.'); }
 
       var bangs = (t.match(/!/g) || []).length;
-      if (bangs > wordCount / 15) { score += 10; signals.push('Exclamation-heavy — ' + bangs + ' exclamation marks. Real reviews rarely shout.'); }
+      if (bangs > wordCount / 15) { score += 10; signals.push('Exclamation-heavy, ' + bangs + ' exclamation marks. Real reviews rarely shout.'); }
 
       var caps = (t.match(CAPS_RE) || []).length;
       if (caps > wordCount / 10) { score += 10; signals.push('ALL-CAPS emphasis (' + caps + ' all-caps words). Common in fake and promotional review writing.'); }
@@ -4493,18 +4493,18 @@ function buildFakeReviewChecker() {
         seen[seq] = (seen[seq] || 0) + 1;
         if (seen[seq] >= 3) { gram = seq; break; }
       }
-      if (gram) { score += 15; signals.push('Repeated phrasing — the sequence "' + esc(gram) + '" appears 3+ times. Spun or templated reviews repeat themselves.'); }
+      if (gram) { score += 15; signals.push('Repeated phrasing, the sequence "' + esc(gram) + '" appears 3+ times. Spun or templated reviews repeat themselves.'); }
 
       var hasDetail = DETAIL_RE.test(t);
-      if (!hasDetail) { score += 20; signals.push('No concrete detail — no numbers, dates, product specifics, or first-person purchase language ("I ordered…", "the size", "the battery"). Vague praise is the single most common fake-review pattern.'); }
+      if (!hasDetail) { score += 20; signals.push('No concrete detail, no numbers, dates, product specifics, or first-person purchase language ("I ordered…", "the size", "the battery"). Vague praise is the single most common fake-review pattern.'); }
 
       var claimHits = [];
       for (var m = 0; m < AUTH_CLAIMS.length; m++) { if (lower.indexOf(AUTH_CLAIMS[m]) !== -1) claimHits.push(AUTH_CLAIMS[m]); }
-      if (claimHits.length > 0) { score += 10; signals.push('The text argues for its own authenticity ("' + claimHits.slice(0, 2).join('", "') + '"). Real reviews rarely do — badges can be copied, and the claim itself is a known tell.'); }
+      if (claimHits.length > 0) { score += 10; signals.push('The text argues for its own authenticity ("' + claimHits.slice(0, 2).join('", "') + '"). Real reviews rarely do, badges can be copied, and the claim itself is a known tell.'); }
 
       var good = [];
       if (hasDetail) { score -= 20; good.push('Concrete details present (specifics, dates, or first-person purchase language).'); }
-      if (BALANCED_RE.test(t)) { score -= 10; good.push('Balanced tone — at least one reservation or qualifier. Fabricated reviews tend to be uniformly glowing.'); }
+      if (BALANCED_RE.test(t)) { score -= 10; good.push('Balanced tone, at least one reservation or qualifier. Fabricated reviews tend to be uniformly glowing.'); }
 
       score = Math.max(0, Math.min(100, score));
 
@@ -4520,12 +4520,12 @@ function buildFakeReviewChecker() {
         '<div class="frc-meter"><div class="frc-meter-fill" data-verdict="' + verdict + '" style="width:' + score + '%;"></div></div>';
       for (var s = 0; s < signals.length; s++) html += '<div class="frc-signal bad"><strong>Signal.</strong> ' + signals[s] + '</div>';
       for (var g = 0; g < good.length; g++) html += '<div class="frc-signal good"><strong>Credit.</strong> ' + good[g] + '</div>';
-      html += '<div class="frc-signal note">Heuristic estimate, not proof. A low score does not confirm a real customer; a high score does not confirm a fake review. The only structural answer is who attests the purchase — see <a href="/blog/transaction-verified-reviews/">transaction verified reviews</a>.</div></div>';
+      html += '<div class="frc-signal note">Heuristic estimate, not proof. A low score does not confirm a real customer; a high score does not confirm a fake review. The only structural answer is who attests the purchase. See <a href="/blog/transaction-verified-reviews/">transaction verified reviews</a>.</div></div>';
       output.innerHTML = html;
     }
 
     function loadSample() {
-      input.value = 'This product is absolutely amazing!! Best purchase I have ever made. Great product, highly recommend to everyone. Five stars! Great product — buy it now, you will not regret it. Highly recommend this to all my friends and family. Best product ever, perfect in every way. Not a bot — this is a real review.';
+      input.value = 'This product is absolutely amazing!! Best purchase I have ever made. Great product, highly recommend to everyone. Five stars! Great product (buy it now, you will not regret it. Highly recommend this to all my friends and family. Best product ever, perfect in every way. Not a bot), this is a real review.';
     }
 
     runBtn.addEventListener('click', analyze);
@@ -4533,10 +4533,10 @@ function buildFakeReviewChecker() {
   })();`;
 
   let html = page({
-    title: 'Free Fake Review Checker — Spot Suspicious Review Text',
-    description: 'Free fake review checker: paste any review (Amazon, Trustpilot, Google, Shopify) and get a signal-based risk estimate in seconds. Client-side — no signup, nothing stored.',
+    title: 'Free Fake Review Checker. Spot Suspicious Review Text',
+    description: 'Free fake review checker: paste any review (Amazon, Trustpilot, Google, Shopify) and get a signal-based risk estimate in seconds. Client-side, no signup, nothing stored.',
     slug,
-    hero: { eyebrow: 'Free tool', title: 'Fake Review Checker', subtitle: 'Paste a review — get a signal-based risk estimate in seconds. Works on text from any platform. No signup, nothing leaves your browser.' },
+    hero: { eyebrow: 'Free tool', title: 'Fake Review Checker', subtitle: 'Paste a review. Get a signal-based risk estimate in seconds. Works on text from any platform. No signup, nothing leaves your browser.' },
     body,
     extraStyle: TOOL_STYLES,
   });

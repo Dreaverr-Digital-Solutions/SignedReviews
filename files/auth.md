@@ -4,7 +4,7 @@ You are an agent. Signed Reviews supports **agentic registration** for its publi
 
 Base URLs: `https://signedreviews.com` (content), `https://api.signedreviews.com` (API).
 
-## Step 1 — Discover
+## Step 1. Discover
 
 ### 1a. Fetch the Protected Resource Metadata
 
@@ -25,11 +25,11 @@ Response shape:
 }
 ```
 
-- `resource` — canonical API URL. Use as `aud` when minting an identity assertion.
-- `resource_name` / `resource_logo_uri` — display name and logo. Surface to users for consent.
-- `authorization_servers` — base URL of the authorization server.
-- `scopes_supported` — scopes the resource server understands.
-- `bearer_methods_supported` — send the access_token as `Authorization: Bearer …`.
+- `resource`, canonical API URL. Use as `aud` when minting an identity assertion.
+- `resource_name` / `resource_logo_uri`, display name and logo. Surface to users for consent.
+- `authorization_servers`, base URL of the authorization server.
+- `scopes_supported`, scopes the resource server understands.
+- `bearer_methods_supported`. Send the access_token as `Authorization: Bearer …`.
 
 ### 1b. Fetch the Authorization Server metadata
 
@@ -68,17 +68,17 @@ Response shape:
 }
 ```
 
-- `issuer` — canonical issuer URL. Validate the `iss` claim against this.
-- `token_endpoint` — where you exchange an identity assertion for an access_token (Step 5).
-- `grant_types_supported` — `jwt-bearer` for identity assertion exchange, `claim` for claim ceremony polling.
-- `agent_auth.skill` — the URL of this document.
-- `agent_auth.identity_endpoint` — where you POST to register (Step 3).
-- `agent_auth.claim_endpoint` — where you POST the claim invite and poll for completion.
-- `agent_auth.identity_types_supported` — registration methods this service accepts.
-- `agent_auth.identity_assertion.assertion_types_supported` — assertion types accepted (currently ID-JAG).
-- `agent_auth.events_supported` — event schemas ingested. Informational.
+- `issuer`, canonical issuer URL. Validate the `iss` claim against this.
+- `token_endpoint`, where you exchange an identity assertion for an access_token (Step 5).
+- `grant_types_supported`, `jwt-bearer` for identity assertion exchange, `claim` for claim ceremony polling.
+- `agent_auth.skill`, the URL of this document.
+- `agent_auth.identity_endpoint`, where you POST to register (Step 3).
+- `agent_auth.claim_endpoint`, where you POST the claim invite and poll for completion.
+- `agent_auth.identity_types_supported`, registration methods this service accepts.
+- `agent_auth.identity_assertion.assertion_types_supported`, assertion types accepted (currently ID-JAG).
+- `agent_auth.events_supported`, event schemas ingested. Informational.
 
-## Step 2 — Pick a method
+## Step 2. Pick a method
 
 Use this decision tree:
 
@@ -86,7 +86,7 @@ Use this decision tree:
 2. **You have only the user's email** → `service_auth`. Claims ceremony required.
 3. **You have neither** → `anonymous`. Access to public content only; claim ceremony optional for upgrades.
 
-## Step 3 — Register
+## Step 3. Register
 
 ### identity_assertion + id-jag
 
@@ -130,7 +130,7 @@ Content-Type: application/json
 
 Returns a public-scope `identity_assertion` immediately. No user identity is asserted. Use for unauthenticated read access (public reviews, profiles, content).
 
-## Step 4 — Claim (service_auth and anonymous only)
+## Step 4. Claim (service_auth and anonymous only)
 
 When the user wants to claim an anonymous registration or complete a service_auth ceremony:
 
@@ -154,7 +154,7 @@ GET https://api.signedreviews.com/v1/agent/identity/claim/view?claim_token=<clai
 
 While pending, the response is `{ "status": "pending" }`. On completion, status is `"claimed"` with an updated `identity_assertion`.
 
-## Step 5 — Exchange for access_token
+## Step 5. Exchange for access_token
 
 Once you have an `identity_assertion` from Step 3:
 
@@ -177,7 +177,7 @@ Response:
 }
 ```
 
-## Step 6 — Use the API
+## Step 6. Use the API
 
 ```http
 GET https://api.signedreviews.com/v1/public/{slug}/reviews
@@ -191,7 +191,7 @@ GET https://api.signedreviews.com/v1/public/{slug}/reviews
 Authorization: Bearer pk_live_...
 ```
 
-## Step 7 — Handle revocation
+## Step 7. Handle revocation
 
 The authorization server may revoke tokens. If you receive a 401 with `error="invalid_token"`:
 
@@ -214,7 +214,7 @@ Re-register from Step 3 to get a fresh token.
 
 ## Stripe OAuth (merchant account connection)
 
-Businesses connecting their Stripe account use Stripe's standard OAuth 2.0 flow at `https://connect.stripe.com/oauth/authorize`. This is a separate flow from agent authentication and is not relevant to agent access — agents connect to the Signed Reviews API, not to individual merchant Stripe accounts.
+Businesses connecting their Stripe account use Stripe's standard OAuth 2.0 flow at `https://connect.stripe.com/oauth/authorize`. This is a separate flow from agent authentication and is not relevant to agent access, agents connect to the Signed Reviews API, not to individual merchant Stripe accounts.
 
 ## Security
 

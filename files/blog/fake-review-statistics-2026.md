@@ -4,23 +4,23 @@
 
 ---
 
-Fake reviews are the internet's original sin — and they're getting worse, not better. AI-generated text has made it cheaper than ever to manufacture convincing-sounding reviews at scale. Here are the fake review statistics 2026 that show why [purchase verification](/learn/what-does-verified-buyer-mean/) is the only structural solution.
+Fake reviews are the internet's original sin, and they're getting worse, not better. AI-generated text has made it cheaper than ever to manufacture convincing-sounding reviews at scale. Here are the fake review statistics 2026 that show why [purchase verification](/learn/what-does-verified-buyer-mean/) is the only structural solution.
 
-These fake review statistics 2026 reveal the true scale of the problem — and why AI has made detection-based solutions obsolete.
+These fake review statistics 2026 reveal the true scale of the problem, and why AI has made detection-based solutions obsolete.
 
 ## Fake review statistics 2026: the headline numbers
 
 - **2.7 million fake reviews** were removed by Trustpilot in 2022 alone (Trustpilot Transparency Report)
 - **98% of consumers** read online reviews before making a purchase (BrightLocal, 2023)
-- **49% of consumers** trust online reviews as much as personal recommendations — but only when they believe the reviews are authentic
+- **49% of consumers** trust online reviews as much as personal recommendations, but only when they believe the reviews are authentic
 - **79% of consumers** say they've read a fake review in the last year (BrightLocal)
 - **91% of 18–34 year-olds** trust online reviews as much as personal recommendations
 
 ## The AI problem
 
-Generative AI has democratized fake review creation. Before 2023, fake reviews were typically short, poorly written, and easy to spot. Today, a single prompt to ChatGPT or Claude can generate hundreds of unique, grammatically perfect, emotionally nuanced reviews — each with different phrasing, different sentence structures, and different details.
+Generative AI has democratized fake review creation. Before 2023, fake reviews were typically short, poorly written, and easy to spot. Today, a single prompt to ChatGPT or Claude can generate hundreds of unique, grammatically perfect, emotionally nuanced reviews: each with different phrasing, different sentence structures, and different details.
 
-A 2024 study by Fakespot found that **AI-generated reviews are virtually indistinguishable from human-written ones** in blind testing. The traditional signals that platforms use to detect fakes — repetitive language, generic praise, lack of detail — no longer work when each generated review is unique.
+A 2024 study by Fakespot found that **AI-generated reviews are virtually indistinguishable from human-written ones** in blind testing. The traditional signals that platforms use to detect fakes (repetitive language, generic praise, lack of detail) no longer work when each generated review is unique.
 
 ## Review fraud by industry
 
@@ -44,22 +44,22 @@ Each major platform publishes transparency data on fake review volumes. Here are
 - **Yelp**: Yelp's 2025 Consumer Protection report shows **14% of submissions** were removed for suspicious activity, and its automated recommendation software suppressed another 20% of less-reliable reviews.
 - **Tripadvisor**: Tripadvisor saw a **60% jump** in fraudulent review attempts linked to AI-generated text in 2025 compared to the prior year (Tripadvisor Transparency Report 2025).
 
-> **Note:** The figures above are drawn from platform-published transparency reports and third-party analyses available as of mid-2025. Verify against the latest reports for up-to-date numbers; the structural trend is clear — AI is accelerating fake review volume across every platform.
+> **Note:** The figures above are drawn from platform-published transparency reports and third-party analyses available as of mid-2025. Verify against the latest reports for up-to-date numbers; the structural trend is clear, AI is accelerating fake review volume across every platform.
 
 ## Fake review statistics 2026: regional differences
 
-Fake review prevalence varies sharply by market. US e‑commerce faces the highest absolute volume due to its scale, while EU regulators (under the Digital Services Act) are forcing faster platform transparency, creating a growing delta in detection rates. Asia‑Pacific sees rising social‑commerce‑driven fraud that often goes unreported.
+Fake review prevalence varies sharply by market. US e-commerce faces the highest absolute volume due to its scale, while EU regulators (under the Digital Services Act) are forcing faster platform transparency, creating a growing delta in detection rates. Asia-Pacific sees rising social-commerce-driven fraud that often goes unreported.
 
 ## The cost to businesses
 
-Fake reviews don't just hurt consumers — they hurt honest businesses:
+Fake reviews don't just hurt consumers. They hurt honest businesses:
 
 - **Unfair competition**: A competitor with 500 fake 5-star reviews outranks your business with 50 genuine 4.5-star reviews.
-- **Review extortion**: Customers increasingly use the threat of negative reviews to demand refunds or discounts — knowing platforms rarely remove reviews.
+- **Review extortion**: Customers increasingly use the threat of negative reviews to demand refunds or discounts, knowing platforms rarely remove reviews.
 - **Trust erosion**: When consumers can't distinguish real reviews from fake ones, they trust all reviews less. Your genuine reviews lose value.
 - **SEO impact**: Google's guidelines penalize sites that host fake or incentivized reviews. Even if you're not the source, a fake review on your profile damages your search presence.
 
-Prevention is cheaper than cleanup — compare our plans on the [pricing page](/pricing/).
+Prevention is cheaper than cleanup. Compare our plans on the [pricing page](/pricing/).
 
 ## The detection arms race
 
@@ -79,9 +79,9 @@ Industry data and platform transparency reports suggest that the volume of detec
 
 [Purchase verification](/blog/stripe-verified-reviews/) eliminates the detection problem entirely. Instead of asking "is this review fake?" after it's posted, purchase verification asks "did this person actually buy the product?" *before* allowing a review to be written.
 
-This is not a better detection algorithm. It's a different category of solution — one that makes fake reviews impossible rather than making them detectable.
+This is not a better detection algorithm. It's a different category of solution, one that makes fake reviews impossible rather than making them detectable.
 
-A platform that requires purchase verification simply has no fake reviews to detect. The 2.7 million figure from Trustpilot isn't a sign that their detection works — it's a sign that their model allows fake reviews to exist in the first place.
+A platform that requires purchase verification simply has no fake reviews to detect. The 2.7 million figure from Trustpilot isn't a sign that their detection works. It's a sign that their model allows fake reviews to exist in the first place.
 
 See how SignedReviews uses Stripe-verified purchase proofs → [Stripe Verified Reviews](/blog/stripe-verified-reviews/)
 
@@ -114,14 +114,14 @@ See how SignedReviews uses Stripe-verified purchase proofs → [Stripe Verified 
 
 **What percentage of online reviews are fake in 2026?**
 
-Up to 15% of reviews globally are estimated to be fraudulent, rising to 30% in some verticals like electronics and supplements. The true number is likely higher — AI-generated reviews are increasingly indistinguishable from genuine ones, so many go undetected.
+Up to 15% of reviews globally are estimated to be fraudulent, rising to 30% in some verticals like electronics and supplements. The true number is likely higher, AI-generated reviews are increasingly indistinguishable from genuine ones, so many go undetected.
 
 **How do AI tools affect fake review statistics?**
 
-AI-generated text can produce hundreds of fake reviews per minute, each with unique phrasing and sentence structure. Detection algorithms trained on pre-AI patterns — repetitive language, generic praise, lack of detail — are ineffective against reviews that are grammatically perfect and stylistically varied. AI doesn't just increase the volume of fake reviews; it makes detection-only strategies obsolete.
+AI-generated text can produce hundreds of fake reviews per minute, each with unique phrasing and sentence structure. Detection algorithms trained on pre-AI patterns (repetitive language, generic praise, lack of detail) are ineffective against reviews that are grammatically perfect and stylistically varied. AI doesn't just increase the volume of fake reviews; it makes detection-only strategies obsolete.
 
 **Is there a way to stop fake reviews permanently?**
 
-The only structural fix is purchase verification, as used by SignedReviews through Stripe's API. By requiring cryptographic proof of a transaction before a review can be written, purchase verification makes fake reviews impossible rather than detectable. It's a different category of solution — one that eliminates the problem at its source.
+The only structural fix is purchase verification, as used by SignedReviews through Stripe's API. By requiring cryptographic proof of a transaction before a review can be written, purchase verification makes fake reviews impossible rather than detectable. It's a different category of solution, one that eliminates the problem at its source.
 
-**Further reading:** [Stripe Verified Reviews: The Only Reviews Backed by Your Payment Processor](/blog/stripe-verified-reviews/) explains the structural fix — how processor-attested verification makes fake reviews impossible by design, not detectable after the fact. And [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/) for the five-level verification spectrum that separates a badge from proof.
+**Further reading:** [Stripe Verified Reviews: The Only Reviews Backed by Your Payment Processor](/blog/stripe-verified-reviews/) explains the structural fix, how processor-attested verification makes fake reviews impossible by design, not detectable after the fact. And [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/) for the five-level verification spectrum that separates a badge from proof.

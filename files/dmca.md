@@ -13,7 +13,7 @@ This policy is incorporated into our [Terms of Service](/terms/) by reference an
 
 We have designated the following agent to receive notifications of claimed copyright infringement under the DMCA. Notices sent to any other address may not be processed and may not start the §512 takedown clock:
 
-**Designated Copyright Agent — Paid Rightly LLC**
+**Designated Copyright Agent. Paid Rightly LLC**
 **Email:** legal@signedreviews.com
 **Mail:** 1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States
 
@@ -25,8 +25,8 @@ If you believe content on the Service infringes a copyright you own or control, 
 
 1. **A physical or electronic signature** of the copyright owner or a person authorized to act on their behalf.
 2. **Identification of the copyrighted work** claimed to have been infringed. If the notice covers multiple works on the Service, a representative list is sufficient.
-3. **Identification of the allegedly infringing material** with enough detail for us to locate it — typically the URL of the public review page or the review identifier.
-4. **Your contact information** — name, mailing address, telephone number, and email address.
+3. **Identification of the allegedly infringing material** with enough detail for us to locate it, typically the URL of the public review page or the review identifier.
+4. **Your contact information**: name, mailing address, telephone number, and email address.
 5. **A good-faith statement** that you have a good-faith belief the contested use is not authorized by the copyright owner, its agent, or the law.
 6. **A statement under penalty of perjury** that the information in the notice is accurate and that you are the copyright owner or are authorized to act on the copyright owner's behalf.
 
@@ -71,7 +71,7 @@ Submitting a false DMCA notice or counter-notification may make you liable to th
 
 ## 7. Non-DMCA complaints
 
-This policy is for U.S. copyright infringement claims under the DMCA. If your concern is something else — defamation, harassment, privacy, trademark infringement, impersonation, or any other category — please email **legal@signedreviews.com** with a description of the issue. We handle those concerns separately under the relevant section of our Terms of Service or applicable law, not through this DMCA process.
+This policy is for U.S. copyright infringement claims under the DMCA. If your concern is something else (defamation, harassment, privacy, trademark infringement, impersonation, or any other category) please email **legal@signedreviews.com** with a description of the issue. We handle those concerns separately under the relevant section of our Terms of Service or applicable law, not through this DMCA process.
 
 For general abuse reports about review content, see the abuse-report contact in our [Terms of Service](/terms/).
 

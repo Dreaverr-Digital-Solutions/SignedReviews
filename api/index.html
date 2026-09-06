@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Public API — Signed Reviews</title>
+  <title>Public API, Signed Reviews</title>
   <meta name="description" content="Signed Reviews Public API reference: REST endpoints for verified reviews and business profiles. Publishable-key authentication, rate limits, and code examples.">
   <link rel="canonical" href="https://signedreviews.com/api/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="dd601717844f98bc9f3b70be0b95eb4bd6faa107">
-  <meta name="build-time" content="2026-09-06T15:39:02.876Z">
+  <meta name="build-commit" content="94040d51bbdb679b3bfed867378465f946ec5c3a">
+  <meta name="build-time" content="2026-09-06T16:46:03.784Z">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Public API — Signed Reviews">
+  <meta property="og:title" content="Public API, Signed Reviews">
   <meta property="og:description" content="Signed Reviews Public API reference: REST endpoints for verified reviews and business profiles. Publishable-key authentication, rate limits, and code examples.">
   <meta property="og:url" content="https://signedreviews.com/api/">
   <meta property="og:site_name" content="Signed Reviews">
   <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Public API — Signed Reviews">
+  <meta name="twitter:title" content="Public API, Signed Reviews">
   <meta name="twitter:description" content="Signed Reviews Public API reference: REST endpoints for verified reviews and business profiles. Publishable-key authentication, rate limits, and code examples.">
   <meta name="twitter:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
 
@@ -606,12 +606,12 @@ main { padding: 0; }
       <div class="page-hero-inner">
         <span class="eyebrow">API Reference</span>
         <h1>Public API</h1>
-        <p>Fetch verified reviews, ratings, and business profile data into your own site. Read-only REST API with publishable-key auth — safe for browser use.</p>
+        <p>Fetch verified reviews, ratings, and business profile data into your own site. Read-only REST API with publishable-key auth, safe for browser use.</p>
       </div>
     </section>
     <div class="prose-wrap">
       <article class="prose">
-<p>The Signed Reviews Public API lets you fetch verified reviews, ratings, and business profile data directly into your own site or app. Every review is processor-attested — backed by a real, non-refunded Stripe payment.</p>
+<p>The Signed Reviews Public API lets you fetch verified reviews, ratings, and business profile data directly into your own site or app. Every review is processor-attested, backed by a real, non-refunded Stripe payment.</p>
 <hr>
 <h2 id="quickstart"><a class="anchor" href="#quickstart" aria-label="Permalink to Quickstart"></a>Quickstart</h2>
 <pre><code class="language-bash">curl -H &quot;Authorization: Bearer YOUR_PUBLISHABLE_KEY&quot; \
@@ -668,7 +668,7 @@ main { padding: 0; }
   &quot;meta&quot;: { &quot;generatedAt&quot;: &quot;2026-08-10T12:00:00.000Z&quot; }
 }
 </code></pre>
-<p>Metrics are computed from your Stripe data. Each metric respects a k-anonymity cohort floor — if there aren&#39;t enough transactions to compute a metric without identifying individual customers, it&#39;s suppressed.</p>
+<p>Metrics are computed from your Stripe data. Each metric respects a k-anonymity cohort floor, if there aren&#39;t enough transactions to compute a metric without identifying individual customers, it&#39;s suppressed.</p>
 <h3 id="get-reviews"><a class="anchor" href="#get-reviews" aria-label="Permalink to GET /reviews"></a>GET /reviews</h3>
 <p>Returns paginated, privacy-masked reviews.</p>
 <p><strong>Parameters:</strong> <code>page</code> (default 1), <code>limit</code> (default 10, max 100), <code>sort</code> (<code>date_desc</code>, <code>date_asc</code>, <code>rating_desc</code>, <code>rating_asc</code>), <code>minRating</code> (1-5), <code>from</code>, <code>to</code> (ISO 8601 dates).</p>

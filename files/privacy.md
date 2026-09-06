@@ -16,9 +16,9 @@ Signed Reviews is a service operated by Paid Rightly LLC, a New Mexico limited l
 
 Signed Reviews has three types of people whose personal data we handle:
 
-- **Business users** — the businesses that sign up for Signed Reviews and their team members who log in to the platform at `platform.signedreviews.com`.
-- **Reviewers** — the customers of those businesses who receive an email invitation to leave a review and submit one through a one-time link.
-- **Visitors** — anyone who views a public review page or browses our marketing website.
+: the businesses that sign up for Signed Reviews and their team members who log in to the platform at `platform.signedreviews.com`.
+: the customers of those businesses who receive an email invitation to leave a review and submit one through a one-time link.
+: anyone who views a public review page or browses our marketing website.
 
 Different parts of this policy apply to each group. Where relevant, we call this out explicitly.
 
@@ -31,11 +31,11 @@ For **business users**, we act as a "controller" (or "business" under US state p
 For **reviewer data**, our role depends on context:
 
 - When a business collects a review from their customer using Signed Reviews, the business is the controller of that reviewer's personal data for their own customer-relationship purposes. We act as a "processor" (or "service provider") on their behalf.
-- For our own operational purposes — such as fraud prevention, platform security, and ensuring the integrity of the verified-review system — we act as a controller of a limited set of reviewer data (email address used for verification, cryptographic signatures, technical metadata).
+- For our own operational purposes (such as fraud prevention, platform security, and ensuring the integrity of the verified-review system), we act as a controller of a limited set of reviewer data (email address used for verification, cryptographic signatures, technical metadata).
 
 This distinction matters because it determines who a reviewer should contact with questions about their data. In most cases, the business that requested your review is your primary contact. You can always reach us at legal@signedreviews.com as well.
 
-When we act as a processor for a business, the terms of that processing relationship — including security measures, sub-processor authorization, breach notification, audit rights, and international-transfer mechanisms — are set out in our [Data Processing Agreement](/dpa/), which is incorporated by reference into the [Terms of Service](/terms/) at the moment a business signs up.
+When we act as a processor for a business, the terms of that processing relationship (including security measures, sub-processor authorization, breach notification, audit rights, and international-transfer mechanisms) are set out in our [Data Processing Agreement](/dpa/), which is incorporated by reference into the [Terms of Service](/terms/) at the moment a business signs up.
 
 ---
 
@@ -48,7 +48,7 @@ When you register for a Signed Reviews account, either directly or through Googl
 - **Email address**
 - **Display name**
 - **Profile picture** (only if you provide one through SSO or upload)
-- **Hashed password** (only for email/password signups — we never store your password in readable form; we use bcrypt with cost factor 12)
+- **Hashed password** (only for email/password signups, we never store your password in readable form; we use bcrypt with cost factor 12)
 - **Business information you provide:** business name, website URL, brand logo, brand colors, email subject preferences, review page customization settings
 
 We do not collect phone numbers, dates of birth, physical addresses, government identification, or tax identification numbers from business users.
@@ -78,22 +78,22 @@ Signed Reviews does not process payments from reviewers, does not take fees from
 
 The payment-adjacent data we store is a narrow slice of charge metadata received from Stripe: the charge ID, customer email, card last four digits, amount, and currency. These are used to link a review to a verified purchase.
 
-If a business enables metrics on its public review page, we additionally read aggregate data from that business's Stripe account on a strictly read-only basis — such as charges, customers, subscriptions, refunds, disputes, and balance transactions — and store only the resulting privacy-thresholded aggregate values (for example, a banded refund rate or active-subscriber count), never the underlying raw records. We never store full card numbers, CVV codes, expiry dates, cardholder names, or full billing addresses.
+If a business enables metrics on its public review page, we additionally read aggregate data from that business's Stripe account on a strictly read-only basis (such as charges, customers, subscriptions, refunds, disputes, and balance transactions) and store only the resulting privacy-thresholded aggregate values (for example, a banded refund rate or active-subscriber count), never the underlying raw records. We never store full card numbers, CVV codes, expiry dates, cardholder names, or full billing addresses.
 
 ### 3.4 Technical information
 
 We collect limited technical information to keep the Service working:
 
-- **IP address** — used transiently for rate limiting to prevent abuse. We do not persist IP addresses in our database.
-- **Browser session tokens** — stored in your browser's local storage after you log in. These are not cookies.
+: used transiently for rate limiting to prevent abuse. We do not persist IP addresses in our database.
+: stored in your browser's local storage after you log in. These are not cookies.
 
 ### 3.4a Analytics
 
 We use **PostHog** for first-party product and marketing analytics, to understand how our marketing site and merchant dashboard are used (pages viewed, features used, sign-up funnels). PostHog sets a first-party analytics cookie and may process usage and device data (pages viewed, UI interactions, approximate location derived from IP, browser/OS); for signed-in merchants it is also associated with your user ID, email, and business. PostHog is listed on our [Sub-processors](/subprocessors) page.
 
-**Where analytics runs — and where it does not.** PostHog runs only on our marketing site (`signedreviews.com`) and the authenticated merchant dashboard. It is **not** loaded on public review pages or the reviewer-facing review-submission flow — so review readers and reviewers are not tracked by our analytics. We honour your browser's "Do Not Track" setting.
+**Where analytics runs, and where it does not.** PostHog runs only on our marketing site (`signedreviews.com`) and the authenticated merchant dashboard. It is **not** loaded on public review pages or the reviewer-facing review-submission flow, so review readers and reviewers are not tracked by our analytics. We honour your browser's "Do Not Track" setting.
 
-**Session replay.** On the marketing site and the merchant dashboard, PostHog records anonymised session replays (a reconstruction of page interactions such as clicks, scrolls, and navigation) to help us diagnose usability issues. **All form-field inputs are masked** — values you type into fields, including passwords, email addresses, and payment details, are never captured. Replay is **not** active on public review pages or the reviewer-facing review-submission flow, and it is suppressed for visitors whose browser sends a "Do Not Track" or Global Privacy Control (GPC) signal. You can also turn replay off at any time using the **"Privacy choices"** link in our site footer.
+**Session replay.** On the marketing site and the merchant dashboard, PostHog records anonymised session replays (a reconstruction of page interactions such as clicks, scrolls, and navigation) to help us diagnose usability issues. **All form-field inputs are masked**: values you type into fields, including passwords, email addresses, and payment details, are never captured. Replay is **not** active on public review pages or the reviewer-facing review-submission flow, and it is suppressed for visitors whose browser sends a "Do Not Track" or Global Privacy Control (GPC) signal. You can also turn replay off at any time using the **"Privacy choices"** link in our site footer.
 
 **Consent in the EU, EEA, and UK.** If you visit our marketing site from the EU, EEA, or UK, session replay is **off by default** and begins **only if you give consent** through the banner shown on your visit. Declining leaves replay off; the rest of our first-party analytics (such as page views and conversion funnels) continues to operate. You can change your choice at any time through the **"Privacy choices"** link in our site footer, and we honour Do Not Track and Global Privacy Control signals automatically.
 
@@ -101,7 +101,7 @@ Beyond this first-party analytics cookie and masked session replay, we do not us
 
 ### 3.5 From third parties
 
-When you sign in using an OAuth provider (Google, GitHub, LinkedIn, Microsoft, Facebook, Twitter/X, or Instagram), that provider shares a limited profile with us — typically your subject identifier, email address, name, and profile picture URL. We only request the minimum scopes needed for authentication or for the specific feature you are using.
+When you sign in using an OAuth provider (Google, GitHub, LinkedIn, Microsoft, Facebook, Twitter/X, or Instagram), that provider shares a limited profile with us: typically your subject identifier, email address, name, and profile picture URL. We only request the minimum scopes needed for authentication or for the specific feature you are using.
 
 When a business enters their website URL during branding setup, we fetch that website's publicly accessible HTML to identify logo images. We may also query public favicon services (Clearbit, Google Favicons, DuckDuckGo) for logo candidates. We store only the logo images the business chooses to use.
 
@@ -129,7 +129,7 @@ We label these reviews as "Purchase Verified." This does **not** mean we have ve
 
 ### 4.3 To communicate with you
 
-We send the following emails — all transactional, none marketing:
+We send the following emails, all transactional, none marketing:
 
 - Account email verification and password-change flows, for business users
 - Magic-link login messages, for business users who request them
@@ -158,7 +158,7 @@ We share personal data in the following limited circumstances:
 
 ### 5.1 With businesses that requested your review
 
-If you are a reviewer, your review — including any content, photos, display name, and social handle you chose to include — is visible to the business that requested it. If that business has enabled public review display, your review is also visible to anyone who views the business's public review page.
+If you are a reviewer, your review (including any content, photos, display name, and social handle you chose to include) is visible to the business that requested it. If that business has enabled public review display, your review is also visible to anyone who views the business's public review page.
 
 ### 5.2 With sub-processors
 
@@ -167,11 +167,11 @@ We use a small number of service providers to operate the Service. A complete, c
 - **Stripe** (payments and transaction data)
 - **Resend** (transactional email delivery)
 - **Cloudinary** (image hosting for review photos and brand assets)
-- **Anthropic** and **Google** (business-facing branding AI — logo extraction; see Section 6 for specifics)
+- **Anthropic** and **Google** (business-facing branding AI, logo extraction; see Section 6 for specifics)
 - **Railway** (cloud hosting and managed database)
-- **PostHog** (first-party product and marketing-site analytics — see Section 3.4a)
+- **PostHog** (first-party product and marketing-site analytics, see Section 3.4a)
 - **Decodo** (proxy service used only for Instagram public profile lookups)
-- **OAuth providers** (Google, GitHub, LinkedIn, Microsoft, Facebook, Twitter/X, Instagram) — only when you choose to use them
+- **OAuth providers** (Google, GitHub, LinkedIn, Microsoft, Facebook, Twitter/X, Instagram), only when you choose to use them
 - **Gravatar** (only when we check whether your email has an associated avatar)
 
 Each sub-processor is contractually bound to use personal data only for the purpose of providing services to us.
@@ -188,7 +188,7 @@ We may disclose information in response to lawful subpoenas, court orders, or go
 
 ## 6. How we use AI
 
-We use AI only for **business-facing branding features**, and only on content a business provides about its own brand. When a business sets up or restyles its public review page, badge, or brand profile, we send the HTML of the website URL the business enters — along with any candidate logo or brand images from that site — to a vision-capable large language model, which selects the most likely logo for the business to accept or discard.
+We use AI only for **business-facing branding features**, and only on content a business provides about its own brand. When a business sets up or restyles its public review page, badge, or brand profile, we send the HTML of the website URL the business enters, along with any candidate logo or brand images from that site, to a vision-capable large language model, which selects the most likely logo for the business to accept or discard.
 
 These features run on **Anthropic's Claude** models by default, with **Google's Gemini** models available as an alternate provider we may select on a per-feature basis. Both are used only for the branding tasks described above.
 
@@ -233,17 +233,17 @@ Depending on where you live, you may have rights under laws such as the EU Gener
 
 ### 9.1 Rights available to you
 
-- **Access** — request a copy of the personal data we hold about you
-- **Correction** — correct inaccurate personal data
-- **Erasure** — request deletion of your personal data (subject to the anonymization approach described below)
-- **Portability** — receive your personal data in a portable format
-- **Objection / restriction** — object to or restrict certain processing
-- **Withdrawal of consent** — withdraw consent where processing relies on consent
-- **Non-discrimination** — exercise these rights without being penalized in how the Service is provided
+: request a copy of the personal data we hold about you
+: correct inaccurate personal data
+: request deletion of your personal data (subject to the anonymization approach described below)
+: receive your personal data in a portable format
+: object to or restrict certain processing
+: withdraw consent where processing relies on consent
+: exercise these rights without being penalized in how the Service is provided
 
 ### 9.2 How erasure works
 
-**For business users:** You can request account deletion by emailing legal@signedreviews.com. We will delete your account and associated personal data (email, display name, profile picture, team membership). Reviews and transaction records associated with your business will be anonymized — the review content, rating, and cryptographic signature remain public (because third parties rely on them), but reviewer identifiers tied to your account will be removed.
+**For business users:** You can request account deletion by emailing legal@signedreviews.com. We will delete your account and associated personal data (email, display name, profile picture, team membership). Reviews and transaction records associated with your business will be anonymized: the review content, rating, and cryptographic signature remain public (because third parties rely on them), but reviewer identifiers tied to your account will be removed.
 
 **For reviewers:** You can request erasure of your review by emailing legal@signedreviews.com with the email address you used to receive the review invitation. On verification, we will anonymize the review: your display name, photo, social handle, and email-derived identifiers will be removed, while the rating, review body, and verification signature will remain. We follow this anonymize-rather-than-delete approach because deleting reviews outright would undermine the integrity of the verified-review record that other users rely on. If anonymization does not satisfy your erasure request under applicable law, contact us and we will work with you in good faith to resolve it.
 

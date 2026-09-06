@@ -1,6 +1,6 @@
 # Public API
 
-The Signed Reviews Public API lets you fetch verified reviews, ratings, and business profile data directly into your own site or app. Every review is processor-attested — backed by a real, non-refunded Stripe payment.
+The Signed Reviews Public API lets you fetch verified reviews, ratings, and business profile data directly into your own site or app. Every review is processor-attested, backed by a real, non-refunded Stripe payment.
 
 ---
 
@@ -59,7 +59,7 @@ Returns your business identity, aggregate rating, star distribution, and verifie
 }
 ```
 
-Metrics are computed from your Stripe data. Each metric respects a k-anonymity cohort floor — if there aren't enough transactions to compute a metric without identifying individual customers, it's suppressed.
+Metrics are computed from your Stripe data. Each metric respects a k-anonymity cohort floor, if there aren't enough transactions to compute a metric without identifying individual customers, it's suppressed.
 
 ### GET /reviews
 

@@ -4,15 +4,15 @@
 
 ---
 
-Learn how to collect verified customer reviews automatically using Stripe — a practical step-by-step guide covering setup, timing, and best practices.
+Learn how to collect verified customer reviews automatically using Stripe: a practical step-by-step guide covering setup, timing, and best practices.
 
 Learning how to collect verified customer reviews doesn't require technical expertise or a large budget. If you process payments through Stripe, you can automate the entire process in minutes.
 
 ## Step 1: Connect your Stripe account
 
-The foundation of verified reviews is purchase verification. Connect your Stripe account to your review platform using Stripe's official OAuth flow. This grants minimal permissions — the platform can verify charges but can never charge, refund, or move funds. The only thing it can create is a discount coupon for a reviewer, and only when you enable review incentives.
+The foundation of verified reviews is purchase verification. Connect your Stripe account to your review platform using Stripe's official OAuth flow. This grants minimal permissions: the platform can verify charges but can never charge, refund, or move funds. The only thing it can create is a discount coupon for a reviewer, and only when you enable review incentives.
 
-**What to look for**: Check exactly which permissions the integration requests. Some platforms request `read_write` access, which allows them to create charges and issue refunds. Signed Reviews uses four read permissions (`charge_read`, `customer_read`, `subscription_read`, `balance_transaction_source_read`) plus two write permissions (`coupon_write`, `promotion_code_write`) — and the writes are used only to mint single-use discount coupons for reviewers when you enable review incentives. See [how it works](/how-it-works/) for the full setup flow.
+**What to look for**: Check exactly which permissions the integration requests. Some platforms request `read_write` access, which allows them to create charges and issue refunds. Signed Reviews uses four read permissions (`charge_read`, `customer_read`, `subscription_read`, `balance_transaction_source_read`) plus two write permissions (`coupon_write`, `promotion_code_write`), and the writes are used only to mint single-use discount coupons for reviewers when you enable review incentives. See [how it works](/how-it-works/) for the full setup flow.
 
 ## Step 2: Configure your auto-request settings
 
@@ -36,7 +36,7 @@ The easier it is to leave a review, the more reviews you'll collect:
 
 - **Mobile-first**: Most customers open review invitations on their phone. Make sure the review form works on mobile.
 - **Short form**: Ask for a rating and a few sentences. Don't require long essays.
-- **Photo uploads**: Let customers add photos — visual reviews are more trusted and more engaging.
+- **Photo uploads**: Let customers add photos, visual reviews are more trusted and more engaging.
 - **Clear CTA**: The email should have one obvious action: "Leave a review."
 
 ## Best practices
@@ -51,10 +51,10 @@ The easier it is to leave a review, the more reviews you'll collect:
 
 - **Buying reviews**: Never purchase reviews from review farms. They're always fake and will be detected eventually.
 - **Review gating**: Don't ask happy customers to leave a public review while funneling unhappy customers to private feedback. This is against FTC guidelines.
-- **Editing reviews**: Don't modify customer reviews. If a review violates content guidelines, report it — don't alter it.
+- **Editing reviews**: Don't modify customer reviews. If a review violates content guidelines, report it, don't alter it.
 
 ## How to collect verified customer reviews: start today
 
-The technical setup takes minutes. The hard part — building a reputation of authentic, verified reviews — happens over time, one real purchase at a time. But that's exactly what makes verified reviews valuable. See [pricing](/pricing/) for plan details and start collecting verified customer reviews today.
+The technical setup takes minutes. The hard part (building a reputation of authentic, verified reviews) happens over time, one real purchase at a time. But that's exactly what makes verified reviews valuable. See [pricing](/pricing/) for plan details and start collecting verified customer reviews today.
 
-**Further reading:** [Stripe Verified Reviews](/blog/stripe-verified-reviews/) — learn why processor-attested verification (Level 4) is fundamentally different from merchant-supplied badges. And [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/) for the honest, platform-by-platform breakdown.
+**Further reading:** [Stripe Verified Reviews](/blog/stripe-verified-reviews/). Learn why processor-attested verification (Level 4) is fundamentally different from merchant-supplied badges. And [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/) for the honest, platform-by-platform breakdown.

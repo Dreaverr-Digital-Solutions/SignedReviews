@@ -9,7 +9,7 @@ This Refund and Cancellation Policy applies to your use of Signed Reviews, a ser
 
 ## Current pricing
 
-Signed Reviews offers a **free plan** (self-service review collection) and paid subscription plans — **Starter ($29/mo), Pro ($79/mo), and Scale ($199/mo)** — each available monthly or annually. Paid plans are billed by Signed Reviews directly via Stripe. The free plan incurs no charges.
+Signed Reviews offers a **free plan** (self-service review collection) and paid subscription plans (**Starter ($29/mo), Pro ($79/mo), and Scale ($199/mo)**) each available monthly or annually. Paid plans are billed by Signed Reviews directly via Stripe. The free plan incurs no charges.
 
 ---
 
@@ -47,7 +47,7 @@ If you believe a charge is incorrect, please contact **support@signedreviews.com
 
 ## Auto-renewal
 
-Paid plans renew automatically at the end of each billing period (monthly or annually) until you cancel. The price, billing period, and renewal terms are shown at checkout and in your account. You will not be charged any amount you have not agreed to, and we never automatically charge you for exceeding your monthly invitation cap — at the cap you explicitly upgrade or buy a one-time Invitation Pack.
+Paid plans renew automatically at the end of each billing period (monthly or annually) until you cancel. The price, billing period, and renewal terms are shown at checkout and in your account. You will not be charged any amount you have not agreed to, and we never automatically charge you for exceeding your monthly invitation cap, at the cap you explicitly upgrade or buy a one-time Invitation Pack.
 
 ---
 

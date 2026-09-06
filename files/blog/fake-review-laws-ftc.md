@@ -4,7 +4,7 @@
 
 ---
 
-On 21 October 2024, the Federal Trade Commission's **Trade Regulation Rule on the Use of Consumer Reviews and Testimonials** (16 CFR Part 465) took effect. It's the most significant U.S. regulation of online reviews ever enacted — and it changes the compliance landscape for every business that collects, displays, or relies on customer reviews.
+On 21 October 2024, the Federal Trade Commission's **Trade Regulation Rule on the Use of Consumer Reviews and Testimonials** (16 CFR Part 465) took effect. It's the most significant U.S. regulation of online reviews ever enacted, and it changes the compliance landscape for every business that collects, displays, or relies on customer reviews.
 
 This post explains what the rule covers, what it means for your business, and why the verification method you choose now determines your regulatory exposure.
 
@@ -19,17 +19,17 @@ The core prohibition: reviews that **misrepresent** that the reviewer had genuin
 - AI-generated reviews presented as human-written (when they misrepresent experience)
 - Reviews of a different product than the one being reviewed
 
-**What it means:** If a review on your site claims a customer used your product and they didn't, you're exposed — even if you didn't write the review yourself.
+**What it means:** If a review on your site claims a customer used your product and they didn't, you're exposed, even if you didn't write the review yourself.
 
 ### 2. Buying or selling reviews
 
-The rule bans buying, selling, or brokering reviews — including "incentivized" reviews where the incentive (discount, gift card, free product) is **conditioned on sentiment**. You can still offer incentives for leaving *any* review, but you cannot offer incentives specifically for *positive* reviews.
+The rule bans buying, selling, or brokering reviews, including "incentivized" reviews where the incentive (discount, gift card, free product) is **conditioned on sentiment**. You can still offer incentives for leaving *any* review, but you cannot offer incentives specifically for *positive* reviews.
 
-**What it means:** "Leave us a 5-star review and get 20% off your next order" is explicitly illegal under the rule. "Leave us a review and get 20% off" is still allowed — but the incentive must not be tied to the content or star rating.
+**What it means:** "Leave us a 5-star review and get 20% off your next order" is explicitly illegal under the rule. "Leave us a review and get 20% off" is still allowed, but the incentive must not be tied to the content or star rating.
 
 ### 3. Undisclosed insider reviews
 
-Company employees, officers, managers, and their immediate relatives must **disclose their relationship** to the business when posting reviews. Reviews from insiders that appear to be from ordinary customers are prohibited — even if the review content is truthful.
+Company employees, officers, managers, and their immediate relatives must **disclose their relationship** to the business when posting reviews. Reviews from insiders that appear to be from ordinary customers are prohibited, even if the review content is truthful.
 
 **What it means:** Your employees can review your product, but they must clearly disclose that they work for you. A review from "John D." that's actually from your CTO is a violation, regardless of whether John genuinely loves the product.
 
@@ -51,7 +51,7 @@ The rule prohibits buying or selling fake followers, likes, views, or other soci
 
 ## Penalties
 
-The FTC can seek **civil penalties of up to $51,744 per violation**. A "violation" could be each individual fake review — meaning the exposure for a business with hundreds of questionable reviews is substantial. And the FTC has shown willingness to act: the SiteJabber order in November 2024 demonstrated that the agency will pursue platforms, not just the businesses that post fake reviews.
+The FTC can seek **civil penalties of up to $51,744 per violation**. A "violation" could be each individual fake review, meaning the exposure for a business with hundreds of questionable reviews is substantial. And the FTC has shown willingness to act: the SiteJabber order in November 2024 demonstrated that the agency will pursue platforms, not just the businesses that post fake reviews.
 
 ## How this interacts with other regulations
 
@@ -78,17 +78,17 @@ The FTC rule changes the risk calculus for every review collection method:
 
 ### Open platforms (Level 0–2 on the verification spectrum)
 
-If your reviews are collected on an open platform — where anyone can post without proof of purchase — you have **no structural protection** against fake reviews appearing on your profile. A competitor, a disgruntled ex-employee, or a troll can post a fake negative review. A review farm can post fake positive reviews. You can flag them, but by the time they're removed, the damage is done.
+If your reviews are collected on an open platform, where anyone can post without proof of purchase, you have **no structural protection** against fake reviews appearing on your profile. A competitor, a disgruntled ex-employee, or a troll can post a fake negative review. A review farm can post fake positive reviews. You can flag them, but by the time they're removed, the damage is done.
 
 The FTC won't penalize you for someone else's fake review of your business. But the platforms themselves face increasing pressure, and the reviews that damage your reputation are the same ones that create compliance risk for the platform.
 
 ### Merchant-supplied verification (Level 3)
 
-If your reviews are verified against your own order data — as with most Shopify apps, Trustpilot invitations, and Yotpo's MAP system — you have **stronger protection**, but the verification chain still runs through data you control. The FTC's concern isn't that you'll game your own system; it's that the *appearance* of independent verification, when the data is merchant-supplied, can mislead consumers about how strong the verification actually is.
+If your reviews are verified against your own order data (as with most Shopify apps, Trustpilot invitations, and Yotpo's MAP system), you have **stronger protection**, but the verification chain still runs through data you control. The FTC's concern isn't that you'll game your own system; it's that the *appearance* of independent verification, when the data is merchant-supplied, can mislead consumers about how strong the verification actually is.
 
 ### Processor-attested verification (Level 4)
 
-If your reviews are verified against an independent payment processor — Stripe confirming the charge occurred — you have **structural FTC compliance**. The verification doesn't depend on data you supply. The attesting party is a regulated financial institution, independent of your business. And the review can't exist without a verified, non-refunded payment.
+If your reviews are verified against an independent payment processor, Stripe confirming the charge occurred, you have **structural FTC compliance**. The verification doesn't depend on data you supply. The attesting party is a regulated financial institution, independent of your business. And the review can't exist without a verified, non-refunded payment.
 
 This is the only verification method where "verified" means "an independent third party confirms the transaction." It's the strongest compliance position available under the rule.
 
@@ -96,17 +96,17 @@ This is the only verification method where "verified" means "an independent thir
 
 1. **Audit your current reviews.** Do you know which reviews on your site came from verified purchasers and which didn't? If you can't answer that, you have a compliance gap.
 
-2. **Document your verification method.** Write down — publicly, ideally — exactly what "verified" means on your review collection. Ambiguity is a risk. Transparency is a defense.
+2. **Document your verification method.** Write down (publicly, ideally) exactly what "verified" means on your review collection. Ambiguity is a risk. Transparency is a defense.
 
 3. **Separate verified from unverified.** If you display reviews from multiple sources, clearly distinguish which are purchase-verified and which aren't. Don't let an unverified review benefit from the trust signal of a verified badge.
 
 4. **Review your incentive practices.** If you offer incentives for reviews, make sure they're not conditioned on sentiment. Document that they aren't.
 
-5. **Move toward independent verification.** The safest long-term position is reviews verified against an independent source — a payment processor, not your own records. The FTC rule rewards structural compliance over reactive moderation.
+5. **Move toward independent verification.** The safest long-term position is reviews verified against an independent source, a payment processor, not your own records. The FTC rule rewards structural compliance over reactive moderation.
 
 ## The bottom line
 
-The FTC's fake-review rule is a regulatory inflection point. It doesn't just penalize bad actors — it changes the definition of what makes a review trustworthy. "Verified" is no longer a marketing term you can define however you want. It's a claim that now carries regulatory weight.
+The FTC's fake-review rule is a regulatory inflection point. It doesn't just penalize bad actors. It changes the definition of what makes a review trustworthy. "Verified" is no longer a marketing term you can define however you want. It's a claim that now carries regulatory weight.
 
 The businesses that win under this rule aren't the ones with the best fake-review detection. They're the ones whose verification method makes fake reviews structurally impossible.
 

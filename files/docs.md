@@ -7,10 +7,10 @@ Everything you need to integrate Signed Reviews into your business. Collect revi
 ## Getting started
 
 1. **[Create an account](https://platform.signedreviews.com/register)** (free, no credit card)
-2. **Connect Stripe** — one-click OAuth, minimal permissions
-3. **First sync** — we import your Stripe transactions and match them to customers
-4. **Send invitations** — automated or manual, configurable delay after purchase
-5. **Reviews start flowing** — every review is cryptographically signed at submission
+2. **Connect Stripe**, one-click OAuth, minimal permissions
+3. **First sync**. We import your Stripe transactions and match them to customers
+4. **Send invitations**, automated or manual, configurable delay after purchase
+5. **Reviews start flowing**, every review is cryptographically signed at submission
 
 ## Core concepts
 
@@ -26,7 +26,7 @@ Your business gets a public profile at `signedreviews.com/your-slug`. Customize 
 
 ### Trust Profile
 
-Optional Stripe-powered trust metrics displayed on your public page: refund rate, chargeback rate, repeat customer rate, active subscriptions, and more. Each metric respects a k-anonymity floor — individual transactions are never exposed.
+Optional Stripe-powered trust metrics displayed on your public page: refund rate, chargeback rate, repeat customer rate, active subscriptions, and more. Each metric respects a k-anonymity floor, individual transactions are never exposed.
 
 ---
 
@@ -42,14 +42,14 @@ REST API for fetching reviews, ratings, and business profile data into your own 
 
 Two key types, managed from your dashboard:
 
-- **Publishable key** (`rvwpk_live_…`) — safe for client-side code. Starter+ plans.
-- **Secret key** (`rvw_live_…`) — server-to-server only. Starter+ plans.
+- **Publishable key** (`rvwpk_live_…`), safe for client-side code. Starter+ plans.
+- **Secret key** (`rvw_live_…`), server-to-server only. Starter+ plans.
 
 Rotate keys anytime from Dashboard → API Keys. Old keys stop working immediately on rotation.
 
 ### Rate limits
 
-Rate limits scale with your plan tier. Responses include cache headers — we recommend caching on your side.
+Rate limits scale with your plan tier. Responses include cache headers. We recommend caching on your side.
 
 ---
 
@@ -91,9 +91,9 @@ Enable self-service reviews on your public page. Customers can request their own
 
 Invite team members with role-based permissions:
 
-- **Owner** — full access, billing, account deletion
-- **Admin** — manage reviews, reply, configure settings
-- **Member** — view reviews and analytics, reply to reviews
+: full access, billing, account deletion
+: manage reviews, reply, configure settings
+: view reviews and analytics, reply to reviews
 
 [Manage team →](https://platform.signedreviews.com/dashboard/team)
 
@@ -101,10 +101,10 @@ Invite team members with role-based permissions:
 
 ## Data & compliance
 
-- **GDPR-ready** — Data Processing Agreement with Standard Contractual Clauses. [Accept DPA →](/dpa/)
-- **Sub-processor transparency** — [Full list →](/subprocessors/)
-- **Data export** — Owners can export all account data as a ZIP from Dashboard → Settings
-- **Data deletion** — Account deletion anonymizes reviews and removes all credentials. One-click, irreversible.
+: Data Processing Agreement with Standard Contractual Clauses. [Accept DPA →](/dpa/)
+: [Full list →](/subprocessors/)
+: Owners can export all account data as a ZIP from Dashboard → Settings
+: Account deletion anonymizes reviews and removes all credentials. One-click, irreversible.
 
 ---
 

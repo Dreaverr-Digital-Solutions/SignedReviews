@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Documentation — Signed Reviews</title>
+  <title>Documentation, Signed Reviews</title>
   <meta name="description" content="Signed Reviews documentation: getting started guide, API reference, webhook setup, review submission flow, team access, and compliance information.">
   <link rel="canonical" href="https://signedreviews.com/docs/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="dd601717844f98bc9f3b70be0b95eb4bd6faa107">
-  <meta name="build-time" content="2026-09-06T15:39:02.876Z">
+  <meta name="build-commit" content="94040d51bbdb679b3bfed867378465f946ec5c3a">
+  <meta name="build-time" content="2026-09-06T16:46:03.784Z">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Documentation — Signed Reviews">
+  <meta property="og:title" content="Documentation, Signed Reviews">
   <meta property="og:description" content="Signed Reviews documentation: getting started guide, API reference, webhook setup, review submission flow, team access, and compliance information.">
   <meta property="og:url" content="https://signedreviews.com/docs/">
   <meta property="og:site_name" content="Signed Reviews">
   <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Documentation — Signed Reviews">
+  <meta name="twitter:title" content="Documentation, Signed Reviews">
   <meta name="twitter:description" content="Signed Reviews documentation: getting started guide, API reference, webhook setup, review submission flow, team access, and compliance information.">
   <meta name="twitter:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
 
@@ -616,10 +616,10 @@ main { padding: 0; }
 <h2 id="getting-started"><a class="anchor" href="#getting-started" aria-label="Permalink to Getting started"></a>Getting started</h2>
 <ol>
 <li><strong><a href="https://platform.signedreviews.com/register">Create an account</a></strong> (free, no credit card)</li>
-<li><strong>Connect Stripe</strong> — one-click OAuth, minimal permissions</li>
-<li><strong>First sync</strong> — we import your Stripe transactions and match them to customers</li>
-<li><strong>Send invitations</strong> — automated or manual, configurable delay after purchase</li>
-<li><strong>Reviews start flowing</strong> — every review is cryptographically signed at submission</li>
+<li><strong>Connect Stripe</strong>, one-click OAuth, minimal permissions</li>
+<li><strong>First sync</strong>. We import your Stripe transactions and match them to customers</li>
+<li><strong>Send invitations</strong>, automated or manual, configurable delay after purchase</li>
+<li><strong>Reviews start flowing</strong>, every review is cryptographically signed at submission</li>
 </ol>
 <h2 id="core-concepts"><a class="anchor" href="#core-concepts" aria-label="Permalink to Core concepts"></a>Core concepts</h2>
 <h3 id="verification"><a class="anchor" href="#verification" aria-label="Permalink to Verification"></a>Verification</h3>
@@ -628,7 +628,7 @@ main { padding: 0; }
 <h3 id="public-review-pages"><a class="anchor" href="#public-review-pages" aria-label="Permalink to Public review pages"></a>Public review pages</h3>
 <p>Your business gets a public profile at <code>signedreviews.com/your-slug</code>. Customize branding, layout, colors, and which metrics to display. Customers browse verified reviews with full cryptographic proof behind each one.</p>
 <h3 id="trust-profile"><a class="anchor" href="#trust-profile" aria-label="Permalink to Trust Profile"></a>Trust Profile</h3>
-<p>Optional Stripe-powered trust metrics displayed on your public page: refund rate, chargeback rate, repeat customer rate, active subscriptions, and more. Each metric respects a k-anonymity floor — individual transactions are never exposed.</p>
+<p>Optional Stripe-powered trust metrics displayed on your public page: refund rate, chargeback rate, repeat customer rate, active subscriptions, and more. Each metric respects a k-anonymity floor, individual transactions are never exposed.</p>
 <hr>
 <h2 id="api-reference"><a class="anchor" href="#api-reference" aria-label="Permalink to API reference"></a>API reference</h2>
 <h3 id="public-api-v1"><a class="anchor" href="#public-api-v1" aria-label="Permalink to Public API v1"></a>Public API v1</h3>
@@ -637,12 +637,12 @@ main { padding: 0; }
 <h3 id="api-keys"><a class="anchor" href="#api-keys" aria-label="Permalink to API keys"></a>API keys</h3>
 <p>Two key types, managed from your dashboard:</p>
 <ul>
-<li><strong>Publishable key</strong> (<code>rvwpk_live_…</code>) — safe for client-side code. Starter+ plans.</li>
-<li><strong>Secret key</strong> (<code>rvw_live_…</code>) — server-to-server only. Starter+ plans.</li>
+<li><strong>Publishable key</strong> (<code>rvwpk_live_…</code>), safe for client-side code. Starter+ plans.</li>
+<li><strong>Secret key</strong> (<code>rvw_live_…</code>), server-to-server only. Starter+ plans.</li>
 </ul>
 <p>Rotate keys anytime from Dashboard → API Keys. Old keys stop working immediately on rotation.</p>
 <h3 id="rate-limits"><a class="anchor" href="#rate-limits" aria-label="Permalink to Rate limits"></a>Rate limits</h3>
-<p>Rate limits scale with your plan tier. Responses include cache headers — we recommend caching on your side.</p>
+<p>Rate limits scale with your plan tier. Responses include cache headers. We recommend caching on your side.</p>
 <hr>
 <h2 id="webhooks"><a class="anchor" href="#webhooks" aria-label="Permalink to Webhooks"></a>Webhooks</h2>
 <p>Get real-time notifications when events happen in your account. Available on Pro and Scale plans.</p>
@@ -687,20 +687,16 @@ main { padding: 0; }
 <hr>
 <h2 id="team-access"><a class="anchor" href="#team-access" aria-label="Permalink to Team access"></a>Team access</h2>
 <p>Invite team members with role-based permissions:</p>
-<ul>
-<li><strong>Owner</strong> — full access, billing, account deletion</li>
-<li><strong>Admin</strong> — manage reviews, reply, configure settings</li>
-<li><strong>Member</strong> — view reviews and analytics, reply to reviews</li>
-</ul>
+<p>: full access, billing, account deletion
+: manage reviews, reply, configure settings
+: view reviews and analytics, reply to reviews</p>
 <p><a href="https://platform.signedreviews.com/dashboard/team">Manage team →</a></p>
 <hr>
 <h2 id="data-amp-compliance"><a class="anchor" href="#data-amp-compliance" aria-label="Permalink to Data &amp;amp; compliance"></a>Data &amp; compliance</h2>
-<ul>
-<li><strong>GDPR-ready</strong> — Data Processing Agreement with Standard Contractual Clauses. <a href="/dpa/">Accept DPA →</a></li>
-<li><strong>Sub-processor transparency</strong> — <a href="/subprocessors/">Full list →</a></li>
-<li><strong>Data export</strong> — Owners can export all account data as a ZIP from Dashboard → Settings</li>
-<li><strong>Data deletion</strong> — Account deletion anonymizes reviews and removes all credentials. One-click, irreversible.</li>
-</ul>
+<p>: Data Processing Agreement with Standard Contractual Clauses. <a href="/dpa/">Accept DPA →</a>
+: <a href="/subprocessors/">Full list →</a>
+: Owners can export all account data as a ZIP from Dashboard → Settings
+: Account deletion anonymizes reviews and removes all credentials. One-click, irreversible.</p>
 <hr>
 <h2 id="stripe-app"><a class="anchor" href="#stripe-app" aria-label="Permalink to Stripe App"></a>Stripe App</h2>
 <p>Install Signed Reviews from the <a href="https://marketplace.stripe.com/apps/signedreviews">Stripe Marketplace</a> for dashboard-native access. Manage reviews, reply to customers, and view verification status directly inside your Stripe dashboard.</p>

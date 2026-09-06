@@ -1,22 +1,22 @@
 # How to Spot Fake Reviews: A Practical Guide for Consumers and Businesses
 
 **Title:** How to Spot Fake Reviews | Signed Reviews Blog
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** How to spot fake reviews in 2026: AI has made detection harder, but these practical techniques — from language patterns to verification checks — help you identify unreliable reviews.
+**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** How to spot fake reviews in 2026: AI has made detection harder, but these practical techniques, from language patterns to verification checks, help you identify unreliable reviews.
 
 ---
 
-AI-generated text has made fake reviews harder to spot than ever. A 2024 Fakespot study found that AI-written reviews are **virtually indistinguishable from human-written ones** in blind testing. The old tells — broken English, repetitive phrasing, generic praise — no longer work when each AI-generated review is grammatically perfect and stylistically unique.
+AI-generated text has made fake reviews harder to spot than ever. A 2024 Fakespot study found that AI-written reviews are **virtually indistinguishable from human-written ones** in blind testing. The old tells (broken English, repetitive phrasing, generic praise) no longer work when each AI-generated review is grammatically perfect and stylistically unique.
 
-But you can still learn how to spot fake reviews. You just need to look at different signals. Here's how to do it. For one review you want to evaluate right now, paste it into our free [fake review checker](/tools/fake-review-checker/) — it scores the risk signals below automatically.
+But you can still learn how to spot fake reviews. You just need to look at different signals. Here's how to do it. For one review you want to evaluate right now, paste it into our free [fake review checker](/tools/fake-review-checker/). It scores the risk signals below automatically.
 
 ## The signals that still work
 
 ### 1. Check the verification source, not the badge
 
-A "Verified Buyer" badge tells you the review was verified — but not **by whom.** The real question is: who attested that this person bought the product?
+A "Verified Buyer" badge tells you the review was verified, but not **by whom.** The real question is: who attested that this person bought the product?
 
-- **"Verified" by the merchant** (Level 3) means the business said this person was a customer. Most platforms operate here — Trustpilot (invited), Yotpo, Judge.me, most Shopify apps.
-- **"Verified" by an independent payment processor** (Level 4) means a third party — Stripe — independently confirms the charge. Only a handful of platforms operate here.
+- **"Verified" by the merchant** (Level 3) means the business said this person was a customer. Most platforms operate here: Trustpilot (invited), Yotpo, Judge.me, most Shopify apps.
+- **"Verified" by an independent payment processor** (Level 4) means a third party, Stripe, independently confirms the charge. Only a handful of platforms operate here.
 
 A badge is not proof. The source of the verification is the proof. If the platform doesn't make this distinction clear, ask why. [Full verification spectrum breakdown →](/learn/what-does-verified-buyer-mean/)
 
@@ -34,16 +34,16 @@ Warning signs:
 
 ### 3. Read the 2-, 3-, and 4-star reviews
 
-Fake review operations overwhelmingly target 1-star (attack competitors) and 5-star (boost products). The middle ratings — 2, 3, and 4 stars — are disproportionately likely to be genuine. They reflect real customers with mixed experiences: "Product works but setup was confusing," "Good value but shipping was slow."
+Fake review operations overwhelmingly target 1-star (attack competitors) and 5-star (boost products). The middle ratings (2, 3, and 4 stars) are disproportionately likely to be genuine. They reflect real customers with mixed experiences: "Product works but setup was confusing," "Good value but shipping was slow."
 
-If a product has hundreds of 5-star reviews and zero 3-star reviews, the 5-star reviews are suspicious — not because they're individually fake, but because the distribution doesn't reflect how real customers behave.
+If a product has hundreds of 5-star reviews and zero 3-star reviews, the 5-star reviews are suspicious, not because they're individually fake, but because the distribution doesn't reflect how real customers behave.
 
 ### 4. Check reviewer history
 
 On platforms that show reviewer profiles, look at:
 - **Review velocity**: A reviewer who posted 15 reviews in one day across unrelated product categories
 - **Review similarity**: The same review text posted for different products
-- **Rating pattern**: All 5-star or all 1-star reviews — real customers have varied experiences
+- **Rating pattern**: All 5-star or all 1-star reviews, real customers have varied experiences
 - **Account age**: An account created last week with 30 reviews is more suspicious than a 5-year-old account with 30 reviews
 
 One or two suspicious signals isn't proof. A cluster of 3+ is a strong indicator.
@@ -54,7 +54,7 @@ AI-generated reviews have gotten very good, but they still have subtle tells:
 - **Uniform sentence length.** Humans vary sentence length naturally. AI tends toward consistent 15–25 word sentences.
 - **No specific details.** "This product is great, highly recommend" vs. "The zipper broke after three weeks but customer service sent a replacement in two days." AI is bad at invented specificity.
 - **Perfect grammar, no typos.** Real reviews contain occasional typos. A product with 200 grammatically flawless reviews and zero typos is statistically unlikely.
-- **Generic enthusiasm.** "Changed my life!" "Best purchase ever!" "You won't regret it!" — real reviews are more measured, even when positive.
+- **Generic enthusiasm.** "Changed my life!" "Best purchase ever!" "You won't regret it!", real reviews are more measured, even when positive.
 
 ### 6. Cross-reference with return/refund rates
 
@@ -70,7 +70,7 @@ Don't just say "verified." Show the chain: purchase → payment processor confir
 
 ### Publish your review policy
 
-Make it easy to find: how do you verify reviews? Who can leave one? What do you do about refunds? What's your incentive policy? A transparent review policy is a trust signal — and, under the FTC's 2024 rule, it's increasingly a compliance requirement.
+Make it easy to find: how do you verify reviews? Who can leave one? What do you do about refunds? What's your incentive policy? A transparent review policy is a trust signal, and, under the FTC's 2024 rule, it's increasingly a compliance requirement.
 
 ### Display verified and unverified reviews separately
 
@@ -82,7 +82,7 @@ A 4.5-star average with some thoughtful 2-star reviews is more credible than a 5
 
 ## The bottom line
 
-AI is winning the detection arms race. The only durable solution is structural: verify reviews against an independent source at the point of collection, not after. As a consumer, ask who verified the review — not just whether it's verified. As a business, choose a verification method that makes fake reviews impossible, not just detectable.
+AI is winning the detection arms race. The only durable solution is structural: verify reviews against an independent source at the point of collection, not after. As a consumer, ask who verified the review, not just whether it's verified. As a business, choose a verification method that makes fake reviews impossible, not just detectable.
 
 ---
 

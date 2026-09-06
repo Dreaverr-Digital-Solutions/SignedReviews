@@ -2,22 +2,22 @@
 
 **Title:** Trustpilot Pricing Page Explained: 2026 Plans & Costs
 **Published:** 2026-07-24 · **Updated:** 2026-09-06 · **Author:** Signed Reviews Team
-**Description:** What's on the Trustpilot pricing page — and what it hides: every 2026 plan, the real costs, hidden fees, and cheaper alternatives.
+**Description:** What's on the Trustpilot pricing page, and what it hides: every 2026 plan, the real costs, hidden fees, and cheaper alternatives.
 
 ---
 
-Trustpilot doesn't publish prices on its pricing page. Understanding what Trustpilot actually costs requires digging through the help center, talking to sales, or requesting a demo. This article does that work — so you can see what each plan includes, what it actually costs, and where the hidden expenses sit before you book the call.
+Trustpilot doesn't publish prices on its pricing page. Understanding what Trustpilot actually costs requires digging through the help center, talking to sales, or requesting a demo. This article does that work, so you can see what each plan includes, what it actually costs, and where the hidden expenses sit before you book the call.
 
 ---
 
 ## What's actually on the Trustpilot pricing page
 
-If you visit [business.trustpilot.com/pricing](https://business.trustpilot.com/pricing), here's what you'll see — and what you won't:
+If you visit [business.trustpilot.com/pricing](https://business.trustpilot.com/pricing), here's what you'll see, and what you won't:
 
-- **The Free plan is front and center** — "Use Trustpilot for free": a business profile, organic reviews, and public replies.
+: "Use Trustpilot for free": a business profile, organic reviews, and public replies.
 - **No prices for paid plans.** Growth, Scale, and Enterprise all sit behind a contact form or demo request. The pricing page is a lead-generation page, not a price list.
 - **Feature names, not costs.** The page lists what each tier *can* do (invitations, AFS, analytics) but never what it costs.
-- **What's missing:** the $299/mo starting price for Growth, add-on prices (API access, Google Seller Ratings), seat fees, and overage rules — all of which emerge later, in the sales conversation.
+- **What's missing:** the $299/mo starting price for Growth, add-on prices (API access, Google Seller Ratings), seat fees, and overage rules, all of which emerge later, in the sales conversation.
 
 That gap between the pricing page and the real bill is what the rest of this article fills in.
 
@@ -25,7 +25,7 @@ That gap between the pricing page and the real bill is what the rest of this art
 
 ## Trustpilot pricing: how the pricing model works
 
-Trustpilot charges by **plan tier** (not by review volume directly), but higher tiers unlock higher invitation volumes. There's no per-review pricing — you pay a fixed monthly or annual amount for a bundle of features, and your review volume is capped by your tier's invitation limits.
+Trustpilot charges by **plan tier** (not by review volume directly), but higher tiers unlock higher invitation volumes. There's no per-review pricing. You pay a fixed monthly or annual amount for a bundle of features, and your review volume is capped by your tier's invitation limits.
 
 Key things to understand before the numbers:
 
@@ -52,13 +52,13 @@ Key things to understand before the numbers:
 | API access | ❌ |
 | Remove Trustpilot branding | ❌ |
 
-**What you actually get:** A listing on Trustpilot.com that anyone can review — without you having any control over who reviews you or when. You can respond publicly, which matters, but you can't proactively collect reviews, can't integrate with your checkout or post-purchase flow, and can't display reviews anywhere except Trustpilot.
+**What you actually get:** A listing on Trustpilot.com that anyone can review, without you having any control over who reviews you or when. You can respond publicly, which matters, but you can't proactively collect reviews, can't integrate with your checkout or post-purchase flow, and can't display reviews anywhere except Trustpilot.
 
-**Who it's for:** Businesses that just want to exist on Trustpilot and respond to reviews as they come in. Not a review-collection strategy — a reputation-monitoring one.
+**Who it's for:** Businesses that just want to exist on Trustpilot and respond to reviews as they come in. Not a review-collection strategy, a reputation-monitoring one.
 
-**The catch:** Organic reviews skew negative. People who had a bad experience seek out Trustpilot to complain; happy customers rarely do. Without the ability to send invitations (which would balance the ratio by prompting satisfied customers), your Trustpilot profile will disproportionately reflect negative experiences. Trustpilot knows this — it's the incentive to upgrade.
+**The catch:** Organic reviews skew negative. People who had a bad experience seek out Trustpilot to complain; happy customers rarely do. Without the ability to send invitations (which would balance the ratio by prompting satisfied customers), your Trustpilot profile will disproportionately reflect negative experiences. Trustpilot knows this. It's the incentive to upgrade.
 
-### Growth — from $299/month
+### Growth, from $299/month
 
 This is the tier most small-to-mid businesses consider, and it's where Trustpilot's pricing starts to have real teeth.
 
@@ -73,16 +73,16 @@ This is the tier most small-to-mid businesses consider, and it's where Trustpilo
 | API access | ❌ (add-on) |
 | Custom branding | ❌ |
 
-**What you actually get:** The ability to invite customers to leave reviews — Trustpilot's core value proposition. You BCC order-confirmation emails to Trustpilot's AFS, which triggers review invitations automatically. This is what generates "Verified" reviews on your profile.
+**What you actually get:** The ability to invite customers to leave reviews. Trustpilot's core value proposition. You BCC order-confirmation emails to Trustpilot's AFS, which triggers review invitations automatically. This is what generates "Verified" reviews on your profile.
 
 **The catch at this tier:**
 - **Invitation volume is capped.** Trustpilot doesn't publish the cap, but businesses report hitting limits and being upsold.
 - **No Google Seller Ratings.** For e-commerce, seller ratings in Google Shopping are one of the highest-ROI features. They're either a paid add-on or gated behind a higher tier.
-- **No API.** If you want to display Trustpilot reviews on your own website, you'll need the API add-on — or a higher tier.
+- **No API.** If you want to display Trustpilot reviews on your own website, you'll need the API add-on, or a higher tier.
 
 **Who it's for:** Small-to-mid businesses that want to start actively collecting reviews and can afford $3,600/year as a starting point.
 
-### Scale / Enterprise — custom pricing (typically $599–$1,500+/month)
+### Scale / Enterprise, custom pricing (typically $599–$1,500+/month)
 
 Trustpilot's upper tiers are custom-quoted and vary by business size, industry, and negotiation. Based on user reports and industry discussion:
 
@@ -112,12 +112,12 @@ Beyond the plan price, these cost Trustpilot users real money:
 
 | Cost | Details |
 |------|---------|
-| **Google Seller Ratings** | Either a paid add-on or gated behind Enterprise. Trustpilot doesn't publish the add-on price — it emerges in the sales conversation. |
+| **Google Seller Ratings** | Either a paid add-on or gated behind Enterprise. Trustpilot doesn't publish the add-on price. It emerges in the sales conversation. |
 | **API access** | Required if you want to display Trustpilot reviews on your own website. Gated behind higher tiers or sold as an add-on. |
-| **Additional users / seats** | The base plan includes a limited number of user seats. Additional seats cost extra — pricing varies. |
+| **Additional users / seats** | The base plan includes a limited number of user seats. Additional seats cost extra, pricing varies. |
 | **Onboarding / setup fee** | Some users report a one-time setup fee, particularly on annual contracts. |
 | **Annual contract lock-in** | Month-to-month pricing is higher and harder to get. Most businesses sign annual contracts, making it expensive to switch if Trustpilot isn't working out. |
-| **Time cost of moderation** | Trustpilot is an open platform. You or your team will spend time flagging fake reviews, responding to unverified complaints, and managing your profile — costs that don't appear on the invoice. |
+| **Time cost of moderation** | Trustpilot is an open platform. You or your team will spend time flagging fake reviews, responding to unverified complaints, and managing your profile, costs that don't appear on the invoice. |
 
 ---
 
@@ -132,19 +132,19 @@ Beyond the plan price, these cost Trustpilot users real money:
 | Feefo | Custom | No | Custom-quoted | Included |
 | Yotpo | $15/mo+ | No (free trial) | Usage-based | Add-on |
 
-**Key difference:** Trustpilot's free plan doesn't include review invitations — the core feature you need to proactively collect reviews. By contrast, Judge.me offers unlimited reviews on its free plan (Shopify-only), and Signed Reviews offers unlimited self-service reviews plus 10 free automated invitations on its free plan (Stripe businesses). Trustpilot's free tier is a listening post, not a collection tool.
+**Key difference:** Trustpilot's free plan doesn't include review invitations, the core feature you need to proactively collect reviews. By contrast, Judge.me offers unlimited reviews on its free plan (Shopify-only), and Signed Reviews offers unlimited self-service reviews plus 10 free automated invitations on its free plan (Stripe businesses). Trustpilot's free tier is a listening post, not a collection tool.
 
 ---
 
 ## Is Trustpilot worth the price?
 
-For some businesses, yes — particularly those where Trustpilot is a primary consumer discovery channel and the $3,600+/year price is manageable. Trustpilot's brand recognition is real, and for certain industries (financial services, insurance, telecom), being absent from Trustpilot is a red flag.
+For some businesses, yes, particularly those where Trustpilot is a primary consumer discovery channel and the $3,600+/year price is manageable. Trustpilot's brand recognition is real, and for certain industries (financial services, insurance, telecom), being absent from Trustpilot is a red flag.
 
 For most small and mid-size businesses, the math is harder to justify:
 
-- **$299/month = $3,588/year** — for the ability to invite customers to leave reviews, on a platform where unverified reviews sit next to invited ones.
-- **Verification is Level 3 (merchant-supplied).** Trustpilot's "Verified" badge means the business invited the reviewer — not that a payment was independently confirmed. You're paying $3,600/year for invitations, not independent verification.
-- **You don't own the reviews.** Trustpilot owns the platform, the profile, and the review data. If you stop paying, you lose the ability to send invitations, but your profile (and its reviews) stay up — you just can't manage it actively.
+: for the ability to invite customers to leave reviews, on a platform where unverified reviews sit next to invited ones.
+- **Verification is Level 3 (merchant-supplied).** Trustpilot's "Verified" badge means the business invited the reviewer, not that a payment was independently confirmed. You're paying $3,600/year for invitations, not independent verification.
+- **You don't own the reviews.** Trustpilot owns the platform, the profile, and the review data. If you stop paying, you lose the ability to send invitations, but your profile (and its reviews) stay up. You just can't manage it actively.
 
 Before committing to a Trustpilot annual contract, ask: **is the Trustpilot brand and consumer directory worth $3,600+/year to your business, or would that budget go further on a platform that gives you processor-attested verification, review ownership, and a lower starting price?**
 
@@ -152,10 +152,10 @@ Before committing to a Trustpilot annual contract, ask: **is the Trustpilot bran
 
 ## Bottom line
 
-Trustpilot pricing starts at "free" but the plan most businesses need starts at $299/month — and the hidden costs (Google Seller Ratings, API access, seat licenses, setup fees) mean the real cost is often higher. The free plan is a reputation-monitoring tool, not a review-collection one. Before signing an annual contract, understand exactly which features are in your tier, which are add-ons, and whether a Level 3 (merchant-supplied) verification model is the strongest signal you can offer your customers. <a href="/pricing/">See Signed Reviews pricing →</a>
+Trustpilot pricing starts at "free" but the plan most businesses need starts at $299/month, and the hidden costs (Google Seller Ratings, API access, seat licenses, setup fees) mean the real cost is often higher. The free plan is a reputation-monitoring tool, not a review-collection one. Before signing an annual contract, understand exactly which features are in your tier, which are add-ons, and whether a Level 3 (merchant-supplied) verification model is the strongest signal you can offer your customers. <a href="/pricing/">See Signed Reviews pricing →</a>
 
 **Further reading:**
-- [Trustpilot Alternatives for Small Business](/blog/trustpilot-alternatives-for-small-business/) — 10 platforms ranked by verification method
-- [Are Trustpilot Reviews Reliable?](/blog/are-trustpilot-reviews-reliable/) — what the Transparency Report actually tells you
-- [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/) — the verification spectrum explained
-- [Signed Reviews vs Trustpilot](/vs/trustpilot/) — detailed head-to-head comparison
+- [Trustpilot Alternatives for Small Business](/blog/trustpilot-alternatives-for-small-business/), which is 10 platforms ranked by verification method
+- [Are Trustpilot Reviews Reliable?](/blog/are-trustpilot-reviews-reliable/), what the Transparency Report actually tells you
+- [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/), the verification spectrum explained
+- [Signed Reviews vs Trustpilot](/vs/trustpilot/), detailed head-to-head comparison
