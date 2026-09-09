@@ -842,6 +842,25 @@
     .sr-preferred-btn svg { flex: none; display: block; }
     .sr-preferred-btn--added, .sr-preferred-btn--added:hover { background: #34A853; }
 
+    /* ── How-it-works workflow screenshots (real product UI captures) ── */
+    .workflow-shot {
+      border: 1px solid #e2e8f0;
+      border-radius: .75rem;
+      overflow: hidden;
+      background: #eef1f8;
+      height: 200px;
+      display: flex; align-items: flex-start; justify-content: center;
+    }
+    .dark .workflow-shot { border-color: #2b3c5e; background: #0c1320; }
+    .workflow-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .workflow-shot--contain { align-items: center; }
+    .workflow-shot--contain img { object-fit: contain; height: auto; max-height: 200px; }
+    .workflow-caption {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .62rem; letter-spacing: .08em; text-transform: uppercase;
+      color: #94a3b8; margin-bottom: .8rem;
+    }
+
   </style>
 
   <script>
@@ -1099,82 +1118,76 @@
   <!-- ─── HOW IT WORKS ──────────────────────────────────────── -->
   <section id="how-it-works" data-track="how-it-works" class="py-28 px-5 bg-[#f0f4f9] dark:bg-navy-900 border-y border-navy-100 dark:border-navy-800 transition-colors">
     <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-20">
+      <div class="text-center mb-12">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-navy-800 border border-navy-200 dark:border-navy-700 text-navy-500 dark:text-navy-300 text-sm font-semibold mb-5 shadow-sm">
           The process
         </div>
-        <h2 class="font-serif text-4xl sm:text-5xl font-normal leading-tight text-navy-900 dark:text-white mb-3">How it works</h2>
+        <h2 class="font-serif text-4xl sm:text-5xl font-normal leading-tight text-navy-900 dark:text-white mb-3">From Stripe payment to public proof</h2>
         <p class="text-navy-400 text-base">Four steps from sale to verified social proof, fully automated.</p>
       </div>
 
-      <!-- Timeline grid with connector -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative">
+      <!-- One-time connect strip -->
+      <div class="max-w-3xl mx-auto mb-14 flex flex-wrap items-center justify-center gap-3 bg-white dark:bg-navy-800 border border-navy-100 dark:border-navy-700 rounded-2xl px-6 py-4 text-sm text-navy-500 dark:text-navy-300 shadow-sm">
+        <span class="inline-flex items-center font-mono text-[0.62rem] font-semibold uppercase tracking-wider text-gold-600 dark:text-gold-400 bg-gold-500/10 border border-gold-500/25 rounded-full px-2.5 py-1">One-time setup</span>
+        <span><b class="font-semibold text-navy-800 dark:text-white">Connect your Stripe account in one click</b> from the Stripe App Marketplace. After that, everything below runs itself.</span>
+      </div>
 
-        <!-- Connector line: desktop only -->
-        <div class="hiw-connector" style="left:calc(12.5% + 28px); right:calc(12.5% + 28px); top:27px;"></div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
 
         <!-- Step 1 -->
-        <div class="card-lift bg-white dark:bg-navy-800 rounded-2xl p-7 text-center shadow-sm border border-navy-100 dark:border-navy-700 relative">
-          <div class="hiw-step-icon bg-navy-500 shadow-lg shadow-navy-500/25 mx-auto mb-5">
-            <!-- Stripe / link icon -->
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
-            </svg>
-          </div>
-          <div class="inline-flex items-center gap-1.5 text-xs font-semibold font-mono text-navy-400 dark:text-navy-500 mb-3">
+        <div class="card-lift bg-white dark:bg-navy-800 rounded-2xl p-6 text-center shadow-sm border border-navy-100 dark:border-navy-700">
+          <div class="inline-flex items-center gap-1.5 text-xs font-semibold font-mono text-navy-400 dark:text-navy-500 mb-4">
             <span class="w-5 h-5 rounded-full bg-navy-100 dark:bg-navy-700 text-navy-600 dark:text-navy-300 flex items-center justify-center text-xs font-bold">1</span>
-            Connect
+            Customer pays on Stripe
           </div>
-          <h3 class="font-semibold text-base mb-2.5 text-navy-900 dark:text-white">Connect Stripe</h3>
-          <p class="text-sm text-navy-400 leading-relaxed">Install from the Stripe App Marketplace in one click. Minimal permissions (we verify transactions, never full card numbers or billing data. Connects to your own Stripe account) works alongside WooCommerce, Squarespace, or a custom checkout.</p>
+          <div class="workflow-caption">Your Transactions dashboard</div>
+          <div class="workflow-shot">
+            <img src="images/workflow/transactions.webp" alt="SignedReviews dashboard listing real Stripe charges with review status for each" loading="lazy" width="1280" height="900">
+          </div>
+          <h3 class="font-semibold text-base mb-2.5 mt-4 text-navy-900 dark:text-white">The charge is real and recorded</h3>
+          <p class="text-sm text-navy-400 leading-relaxed">Every charge is pulled from your own Stripe account. Amount, date and buyer are matched automatically.</p>
         </div>
 
         <!-- Step 2 -->
-        <div class="card-lift bg-white dark:bg-navy-800 rounded-2xl p-7 text-center shadow-sm border border-navy-100 dark:border-navy-700 relative">
-          <div class="hiw-step-icon bg-navy-500 shadow-lg shadow-navy-500/25 mx-auto mb-5">
-            <!-- Mail / invite icon -->
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
-          </div>
-          <div class="inline-flex items-center gap-1.5 text-xs font-semibold font-mono text-navy-400 dark:text-navy-500 mb-3">
+        <div class="card-lift bg-white dark:bg-navy-800 rounded-2xl p-6 text-center shadow-sm border border-navy-100 dark:border-navy-700">
+          <div class="inline-flex items-center gap-1.5 text-xs font-semibold font-mono text-navy-400 dark:text-navy-500 mb-4">
             <span class="w-5 h-5 rounded-full bg-navy-100 dark:bg-navy-700 text-navy-600 dark:text-navy-300 flex items-center justify-center text-xs font-bold">2</span>
-            Invite
+            One secure review request
           </div>
-          <h3 class="font-semibold text-base mb-2.5 text-navy-900 dark:text-white">Invite Real Buyers</h3>
-          <p class="text-sm text-navy-400 leading-relaxed">After each sale your customer receives a secure, single-use review link tied to their specific transaction. No link, no review.</p>
+          <div class="workflow-caption">The review-request email</div>
+          <div class="workflow-shot workflow-shot--contain">
+            <img src="images/workflow/email.webp" alt="Branded review-request email with a single-use link tied to the purchase" loading="lazy" width="640" height="960">
+          </div>
+          <h3 class="font-semibold text-base mb-2.5 mt-4 text-navy-900 dark:text-white">One link, one purchase</h3>
+          <p class="text-sm text-navy-400 leading-relaxed">A single-use link tied to that specific charge lands in the buyer's inbox. No link, no review.</p>
         </div>
 
         <!-- Step 3 — gold highlight -->
-        <div class="card-lift bg-white dark:bg-navy-800 rounded-2xl p-7 text-center shadow-sm border border-gold-200 dark:border-gold-800/50 relative">
-          <div class="hiw-step-icon bg-gold-500 shadow-lg shadow-gold-500/30 mx-auto mb-5">
-            <!-- Shield / signature icon -->
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-            </svg>
-          </div>
-          <div class="inline-flex items-center gap-1.5 text-xs font-semibold font-mono text-gold-500 dark:text-gold-400 mb-3">
+        <div class="card-lift bg-white dark:bg-navy-800 rounded-2xl p-6 text-center shadow-sm border border-gold-200 dark:border-gold-800/50">
+          <div class="inline-flex items-center gap-1.5 text-xs font-semibold font-mono text-gold-500 dark:text-gold-400 mb-4">
             <span class="w-5 h-5 rounded-full bg-gold-100 dark:bg-gold-900/40 text-gold-600 dark:text-gold-400 flex items-center justify-center text-xs font-bold">3</span>
-            Signed
+            The review gets signed
           </div>
-          <h3 class="font-semibold text-base mb-2.5 text-navy-900 dark:text-white">Reviews Get Signed</h3>
-          <p class="text-sm text-navy-400 leading-relaxed">Each review is cryptographically signed and permanently linked to the real transaction. Identity can optionally be confirmed via a social account (Instagram, LinkedIn, Google, Facebook, X, or GitHub).</p>
+          <div class="workflow-caption">The signed review card</div>
+          <div class="workflow-shot">
+            <img src="images/workflow/review-card.webp" alt="SignedReviews review card with Purchase Verified badge and verify link" loading="lazy" width="960" height="624">
+          </div>
+          <h3 class="font-semibold text-base mb-2.5 mt-4 text-navy-900 dark:text-white">Tamper-evident, by design</h3>
+          <p class="text-sm text-navy-400 leading-relaxed">Amount, date and text are sealed with a tamper-evident signature. Change one word and the signature breaks.</p>
         </div>
 
         <!-- Step 4 — gold highlight -->
-        <div class="card-lift bg-white dark:bg-navy-800 rounded-2xl p-7 text-center shadow-sm border border-gold-200 dark:border-gold-800/50 relative">
-          <div class="hiw-step-icon bg-gold-500 shadow-lg shadow-gold-500/30 mx-auto mb-5">
-            <!-- Code / embed icon -->
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-            </svg>
-          </div>
-          <div class="inline-flex items-center gap-1.5 text-xs font-semibold font-mono text-gold-500 dark:text-gold-400 mb-3">
+        <div class="card-lift bg-white dark:bg-navy-800 rounded-2xl p-6 text-center shadow-sm border border-gold-200 dark:border-gold-800/50">
+          <div class="inline-flex items-center gap-1.5 text-xs font-semibold font-mono text-gold-500 dark:text-gold-400 mb-4">
             <span class="w-5 h-5 rounded-full bg-gold-100 dark:bg-gold-900/40 text-gold-600 dark:text-gold-400 flex items-center justify-center text-xs font-bold">4</span>
-            Embed
+            Public proof, anyone can check
           </div>
-          <h3 class="font-semibold text-base mb-2.5 text-navy-900 dark:text-white">Embed &amp; Convert</h3>
-          <p class="text-sm text-navy-400 leading-relaxed">Pull your verified reviews from the read-only public API and embed them your way: a wall, a carousel, a badge. Every visitor sees they're backed by real receipts.</p>
+          <div class="workflow-caption">The public verify page</div>
+          <div class="workflow-shot">
+            <img src="images/workflow/verify-page.webp" alt="Public verification page showing the signature check for a review" loading="lazy" width="1280" height="900">
+          </div>
+          <h3 class="font-semibold text-base mb-2.5 mt-4 text-navy-900 dark:text-white">Independent of you, independent of us</h3>
+          <p class="text-sm text-navy-400 leading-relaxed">Buyers open the proof link on any review and check the transaction themselves.</p>
         </div>
 
       </div>
