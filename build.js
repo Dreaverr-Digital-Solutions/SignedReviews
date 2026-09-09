@@ -4692,7 +4692,7 @@ const PUBLISH = [
   'index.html', '404.html', 'favicon.svg', 'sitemap.xml', 'robots.txt', 'CNAME',
   'about', 'contact', 'dpa', 'files', 'images', 'output.css', 'trust', 'vs',
   'privacy', 'refund-policy', 'subprocessors', 'terms', 'pricing', 'dmca',
-  'features', 'blog', 'integrations', 'faq', 'how-it-works', 'demo', 'tools', 'docs', 'api', 'learn',
+  'features', 'blog', 'integrations', 'faq', 'how-it-works', 'how-verification-works', 'demo', 'tools', 'docs', 'api', 'learn',
   'chrome-extension', 'video',
   '_headers', 'js', 'llms.txt', 'b2f3a1c8d9e0475f8a6c1d3b5e7f9a2c.txt',
   '.well-known', 'auth.md', 'openapi.json', 'functions',
@@ -4702,6 +4702,22 @@ for (const entry of PUBLISH) {
   const src = path.join(ROOT, entry);
   if (fs.existsSync(src)) {
     fs.cpSync(src, path.join(DIST_DIR, entry), { recursive: true });
+  }
+}
+
+// Self-heal: a generated page dir missing from PUBLISH would 404 on live and
+// fall through to the platform SPA (blank shell). Every generated page's
+// index.html carries the build-commit meta, so copy any such dir that PUBLISH
+// didn't cover and warn — new pages must not depend on remembering this list.
+const GENERATED_DIR_SKIP = new Set(['node_modules', '.git', 'dist', 'src', 'workers', 'tests', 'test-results', 'playwright-report', '.wrangler']);
+for (const entry of fs.readdirSync(ROOT)) {
+  if (GENERATED_DIR_SKIP.has(entry)) continue;
+  const idx = path.join(ROOT, entry, 'index.html');
+  if (!fs.existsSync(idx)) continue;
+  if (fs.existsSync(path.join(DIST_DIR, entry))) continue;
+  if (fs.readFileSync(idx, 'utf8').includes('name="build-commit"')) {
+    fs.cpSync(path.join(ROOT, entry), path.join(DIST_DIR, entry), { recursive: true });
+    console.log(`  ⚠ ${entry}/ not in PUBLISH — copied anyway (add it to PUBLISH)`);
   }
 }
 
