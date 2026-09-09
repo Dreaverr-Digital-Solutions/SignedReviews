@@ -38,6 +38,7 @@ const LANDING_PAGES = new Set([
   '/refund-policy/',
   '/faq/',
   '/docs/',
+  '/how-verification-works/',
   '/integrations/',
   '/chrome-extension/',
 ]);
