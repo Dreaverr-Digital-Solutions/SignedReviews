@@ -124,7 +124,7 @@ If you landed here because you need a reviews.io alternative, the key difference
 
 Reviews.io is the most-recommended Trustpilot alternative in UK e-commerce circles, making it a common starting point when searching for a reviews.io alternative. "Verified Reviewer" status comes through its invitation system using customer data the business provides (a list upload or an integration). It also allows manual receipt verification: customers can submit proof of purchase. Google Review Partner. Good feature set, strong brand. If you're on Stripe, the best reviews.io alternative is one with processor-level verification instead of merchant-supplied data, and a transparent pricing page.
 
-**Why it's #5:** Solid all-rounder for UK businesses. The manual receipt verification path is interesting but doesn't scale. Still Level 3, the business supplies the customer data.
+**Why it's #5:** Solid all-rounder for UK businesses. The manual receipt verification path is interesting but doesn't scale. Still Level 3: the business supplies the customer data.
 
 → [Signed Reviews vs Reviews.io](/vs/reviews-io/)
 

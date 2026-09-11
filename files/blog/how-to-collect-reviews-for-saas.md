@@ -86,12 +86,12 @@ SaaS reviews that actually help prospects make buying decisions look different f
 
 SaaS reviews need to appear where prospects make buying decisions, which is different from where e-commerce reviews appear:
 
-1. **Pricing page**, the highest-intent page on your site. A testimonial or review snippet next to each plan tier adds social proof at the moment of decision.
-2. **Comparison / vs. pages**, if you have pages comparing your product to competitors, verified reviews are the strongest content you can put on them.
-3. **Homepage**, a featured review or rating summary, not a wall of testimonials
-4. **Case study / customer story pages**, pair detailed case studies with verified reviews from the same customer
+1. **Pricing page**: the highest-intent page on your site. A testimonial or review snippet next to each plan tier adds social proof at the moment of decision.
+2. **Comparison / vs. pages**: if you have pages comparing your product to competitors, verified reviews are the strongest content you can put on them.
+3. **Homepage**: a featured review or rating summary, not a wall of testimonials
+4. **Case study / customer story pages**: pair detailed case studies with verified reviews from the same customer
 5. **Review aggregator profiles**: G2, Capterra, TrustRadius, and Product Hunt. These are where SaaS buyers search. Claim your profiles and ensure your verified reviews appear there (or at minimum, your aggregate rating)
-6. **Email sequences**, trial-nurture and sales sequences benefit from review snippets that match the prospect's stage (trial user sees "after 3 months..." review; enterprise prospect sees "across a team of 50..." review)
+6. **Email sequences**: trial-nurture and sales sequences benefit from review snippets that match the prospect's stage (trial user sees "after 3 months..." review; enterprise prospect sees "across a team of 50..." review)
 
 ---
 

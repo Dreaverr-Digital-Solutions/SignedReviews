@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/stripe-app-for-reviews/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="3df0449ff350691bda5468033abe65f239a6fa34">
-  <meta name="build-time" content="2026-09-11T16:59:54.990Z">
+  <meta name="build-commit" content="7609ea8e1f54e774682ce602c81102d213904553">
+  <meta name="build-time" content="2026-09-11T17:07:17.872Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Stripe App for Reviews: Collect Verified Customer Reviews Automatically. Signed Reviews Blog">
@@ -656,7 +656,7 @@ main { padding: 0; }
 </ul>
 </li>
 <li><strong>You review and click &quot;Connect.&quot;</strong> Stripe redirects you back to Signed Reviews with an authorization code.</li>
-<li><strong>Signed Reviews exchanges the code for a token</strong>, a short-lived access token limited to the scopes you approved. The token never touches your Stripe API keys; it&#39;s an OAuth token with strictly limited permissions.</li>
+<li><strong>Signed Reviews exchanges the code for a token</strong>: a short-lived access token limited to the scopes you approved. The token never touches your Stripe API keys; it&#39;s an OAuth token with strictly limited permissions.</li>
 <li><strong>The connection is live.</strong> Every new Stripe charge automatically triggers a review invitation. Every refund automatically hides the associated review.</li>
 </ol>
 <p><strong>What Signed Reviews can see:</strong></p>
@@ -790,7 +790,7 @@ main { padding: 0; }
 <h2 id="what-to-look-for-in-a-stripe-review-app"><a class="anchor" href="#what-to-look-for-in-a-stripe-review-app" aria-label="Permalink to What to look for in a Stripe review app"></a>What to look for in a Stripe review app</h2>
 <p>If you&#39;re evaluating a Stripe app for reviews on the Stripe Marketplace:</p>
 <ol>
-<li><strong>Which permissions does the connection ask for?</strong> If the app requests write permissions, ask why. A review app doesn&#39;t need to create charges or issue refunds to verify purchases, the only write Signed Reviews uses is minting single-use discount coupons for reviewers, and only when the business enables review incentives.</li>
+<li><strong>Which permissions does the connection ask for?</strong> If the app requests write permissions, ask why. A review app doesn&#39;t need to create charges or issue refunds to verify purchases: the only write Signed Reviews uses is minting single-use discount coupons for reviewers, and only when the business enables review incentives.</li>
 <li><strong>Does it react to charge.refunded?</strong> The mark of a well-built Stripe integration: refunded charges automatically hide their associated reviews.</li>
 <li><strong>Does it work with Stripe Billing / subscriptions?</strong> Subscription businesses have recurring charges, each renewal is a new verification opportunity.</li>
 <li><strong>Does it support Stripe Connect?</strong> If you run a platform or marketplace, your connected accounts should be able to use the app independently.</li>

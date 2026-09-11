@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/learn/what-does-verified-buyer-mean/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="3df0449ff350691bda5468033abe65f239a6fa34">
-  <meta name="build-time" content="2026-09-11T16:59:54.990Z">
+  <meta name="build-commit" content="7609ea8e1f54e774682ce602c81102d213904553">
+  <meta name="build-time" content="2026-09-11T17:07:17.872Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="What Does &quot;Verified Buyer&quot; Actually Mean?. Signed Reviews">
@@ -716,7 +716,7 @@ main { padding: 0; }
       <p>Signed Reviews operates one level to the right: every review is <strong>processor-attested</strong>. The platform connects to a business's Stripe account (minimal permissions) and only permits a review when the reviewer's email matches a completed Stripe charge, and it automatically hides the review if that charge is later refunded. Because the attestation comes from the <strong>payment processor</strong>, an independent third party to both the merchant and the reviewer. It isn't derived from data the merchant could curate or fabricate. Each review also carries a tamper-evident cryptographic signature so its authenticity can be checked independently later. (See <a href="/trust/">how Signed Reviews verifies reviews</a>.)</p>
     </div>
 
-    <h2 id="why-matters">Why the level matters, the FTC's 2024 fake-review rule</h2>
+    <h2 id="why-matters">Why the level matters: the FTC's 2024 fake-review rule</h2>
     <p>On 21 October 2024 the U.S. Federal Trade Commission's <strong>Trade Regulation Rule on the Use of Consumer Reviews and Testimonials</strong> (16 CFR Part 465) took effect. Among other things, it prohibits reviews that misrepresent that the reviewer had genuine experience with a product or service, the buying or selling of reviews, undisclosed insider reviews, and the suppression of negative reviews, and it lets the FTC seek civil penalties. (<a href="https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials" rel="noopener">FTC press release</a>, <a href="https://www.federalregister.gov/documents/2024/08/22/2024-18519/trade-regulation-rule-on-the-use-of-consumer-reviews-and-testimonials" rel="noopener">Federal Register text</a>.)</p>
     <p>Verification level matters because it determines how difficult it is to manufacture a review that <em>looks</em> legitimate. A Level 1 or Level 2 "verified" review can be created by almost anyone with an email address. A Level 3 review is far harder to fake as an outsider, because it requires a record in the merchant's system, but it does not independently prove that money changed hands, and it offers limited protection against a merchant who controls that system. A Level 4 (processor-attested) review is the only level where an independent party, the payment processor, confirms that a charge actually occurred, and whether it still stands.</p>
 

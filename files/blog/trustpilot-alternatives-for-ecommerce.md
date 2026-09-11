@@ -52,8 +52,8 @@ Not all review platforms are built for online stores. Here's what matters when e
 
 Every platform in this list is scored on two dimensions:
 
-1. **Verification level**, what does "Verified Buyer" actually mean on this platform? (See the [full verification spectrum](/learn/what-does-verified-buyer-mean/).)
-2. **Platform fit**, how well does it integrate with your e-commerce stack?
+1. **Verification level**: what does "Verified Buyer" actually mean on this platform? (See the [full verification spectrum](/learn/what-does-verified-buyer-mean/).)
+2. **Platform fit**: how well does it integrate with your e-commerce stack?
 
 ---
 
@@ -185,7 +185,7 @@ Yes. You can export all your Trustpilot reviews via their API or by requesting a
 
 ### Do review widgets slow down my store?
 
-Poorly implemented review widgets can add 300–500ms to page load time, but all modern platforms listed in this guide load widgets asynchronously to avoid blocking page rendering. Judge.me, Loox, and Signed Reviews are particularly lightweight, their widgets typically add under 100ms to Time to Interactive when deployed correctly. The key factor is whether the platform loads reviews via async JavaScript (fast, non-blocking) or server-side rendering that blocks the initial paint, all seven platforms listed here use the async approach. To be safe, test widget performance in Google PageSpeed Insights after installation.
+Poorly implemented review widgets can add 300–500ms to page load time, but all modern platforms listed in this guide load widgets asynchronously to avoid blocking page rendering. Judge.me, Loox, and Signed Reviews are particularly lightweight: their widgets typically add under 100ms to Time to Interactive when deployed correctly. The key factor is whether the platform loads reviews via async JavaScript (fast, non-blocking) or server-side rendering that blocks the initial paint, all seven platforms listed here use the async approach. To be safe, test widget performance in Google PageSpeed Insights after installation.
 
 <script type="application/ld+json">
 {
@@ -221,7 +221,7 @@ Poorly implemented review widgets can add 300–500ms to page load time, but all
       "name": "Do review widgets slow down my store?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Poorly implemented review widgets can add 300–500ms to page load time, but all modern platforms listed in this guide load widgets asynchronously. Judge.me, Loox, and Signed Reviews are particularly lightweight, their widgets typically add under 100ms to Time to Interactive when deployed correctly. Test widget performance in Google PageSpeed Insights after installation."
+        "text": "Poorly implemented review widgets can add 300–500ms to page load time, but all modern platforms listed in this guide load widgets asynchronously. Judge.me, Loox, and Signed Reviews are particularly lightweight: their widgets typically add under 100ms to Time to Interactive when deployed correctly. Test widget performance in Google PageSpeed Insights after installation."
       }
     }
   ]

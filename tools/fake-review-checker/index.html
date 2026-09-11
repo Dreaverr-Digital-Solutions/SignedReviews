@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/tools/fake-review-checker/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="3df0449ff350691bda5468033abe65f239a6fa34">
-  <meta name="build-time" content="2026-09-11T16:59:54.990Z">
+  <meta name="build-commit" content="7609ea8e1f54e774682ce602c81102d213904553">
+  <meta name="build-time" content="2026-09-11T17:07:17.872Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Free Fake Review Checker. Spot Suspicious Review Text">
@@ -766,10 +766,10 @@ main { padding: 0; }
     <ul>
       <li><strong>Generic praise</strong>: "great product", "highly recommend", "fast shipping" with no supporting specifics. Template reviews lean on these phrases.</li>
       <li><strong>Superlative density</strong>: "amazing", "perfect", "game changer", "best purchase" as a large share of total words.</li>
-      <li><strong>Repeated phrasing</strong>, the same three-word sequence repeated within one review, a hallmark of spun or templated text.</li>
+      <li><strong>Repeated phrasing</strong>: the same three-word sequence repeated within one review, a hallmark of spun or templated text.</li>
       <li><strong>No concrete detail</strong>: no product specifics, dates, numbers, or first-person purchase language ("I ordered…"). Vague praise is the single most common fake-review pattern.</li>
       <li><strong>Authenticity claims in the text</strong>: "100% real", "not a bot", "verified buyer here". Real reviews rarely argue their own authenticity.</li>
-      <li><strong>Exclamation density and ALL-CAPS emphasis</strong>, classic paid-review over-performance.</li>
+      <li><strong>Exclamation density and ALL-CAPS emphasis</strong>: classic paid-review over-performance.</li>
     </ul>
     <p>It also credits the opposite signals: concrete detail, and balanced tone: a real review usually carries at least a small reservation ("only", "slightly", "but"). A review that only praises and never specifies is the pattern to worry about.</p>
 
@@ -956,7 +956,7 @@ main { padding: 0; }
         seen[seq] = (seen[seq] || 0) + 1;
         if (seen[seq] >= 3) { gram = seq; break; }
       }
-      if (gram) { score += 15; signals.push('Repeated phrasing, the sequence "' + esc(gram) + '" appears 3+ times. Spun or templated reviews repeat themselves.'); }
+      if (gram) { score += 15; signals.push('Repeated phrasing: the sequence "' + esc(gram) + '" appears 3+ times. Spun or templated reviews repeat themselves.'); }
 
       var hasDetail = DETAIL_RE.test(t);
       if (!hasDetail) { score += 20; signals.push('No concrete detail, no numbers, dates, product specifics, or first-person purchase language ("I ordered…", "the size", "the battery"). Vague praise is the single most common fake-review pattern.'); }

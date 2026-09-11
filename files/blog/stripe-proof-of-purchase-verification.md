@@ -56,7 +56,7 @@ This signature proves the review was created through the platform and has not be
 
 ### 5. Refunds are handled automatically
 
-If a charge is refunded, Stripe emits a `charge.refunded` event. The platform automatically hides the associated review. The signature remains valid (the review *was* authentic, the person did buy the product), but the review content is no longer displayed publicly.
+If a charge is refunded, Stripe emits a `charge.refunded` event. The platform automatically hides the associated review. The signature remains valid (the review *was* authentic: the person did buy the product), but the review content is no longer displayed publicly.
 
 This means your review page never shows a review from a customer who got their money back. No manual flagging, no reporting, no cleanup. See [how Signed Reviews works](/how-it-works/) for the full verification lifecycle.
 
@@ -105,7 +105,7 @@ Disputed charges (chargebacks) are treated like refunds. The associated review i
 2. **Connect your Stripe account** via OAuth, one click, minimal permissions
 3. **Configure when invitations send**: immediately after purchase, after a delay, or manually
 4. **Customize your review page**: add your logo, colors, and branding
-5. **Start collecting verified reviews**, every new Stripe charge generates an invitation automatically
+5. **Start collecting verified reviews**: every new Stripe charge generates an invitation automatically
 
 Set up takes under a minute. The Stripe proof integration runs in the background: you collect reviews and the platform handles verification, signing, and refund detection automatically. See [pricing](/pricing/) for plan options.
 

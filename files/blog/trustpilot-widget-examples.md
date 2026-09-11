@@ -14,9 +14,9 @@ A Trustpilot widget (TrustBox) is a snippet of JavaScript that pulls your Trustp
 
 There are roughly a dozen widget types, but they fall into three categories:
 
-1. **Trust badges**, small icons showing your star rating and Trustpilot score
-2. **Review displays**, carousels or grids showing individual review text
-3. **Combination widgets**, star rating + review count + mini-carousel in one unit
+1. **Trust badges**: small icons showing your star rating and Trustpilot score
+2. **Review displays**: carousels or grids showing individual review text
+3. **Combination widgets**: star rating + review count + mini-carousel in one unit
 
 All of them are configurable through Trustpilot's Business dashboard, and most come in light and dark themes.
 

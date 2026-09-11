@@ -62,11 +62,11 @@ Here's the concrete flow for a processor-attested, transaction-verified review:
 
 2. **The business connects their Stripe account** to the review platform via OAuth, **least-privilege access.** The platform can query charges, customers, and refunds. It cannot create, modify, or refund anything; the only write is opt-in review-incentive coupons. See [how it works](/how-it-works/) for the full setup flow.
 
-3. **When a new charge appears**, the platform sends a review invitation to the customer's verified payment email, the email Stripe has on file for that transaction. No invitation is sent for charges that are disputed, refunded, or flagged.
+3. **When a new charge appears**: the platform sends a review invitation to the customer's verified payment email, the email Stripe has on file for that transaction. No invitation is sent for charges that are disputed, refunded, or flagged.
 
 4. **The customer writes a review** via a unique, expiring invitation link tied to that specific charge.
 
-5. **At submission**, the platform checks that the charge still stands (not refunded, not disputed), grabs a timestamp and charge fingerprint from Stripe, and cryptographically signs the review: binding the review content, the Stripe charge metadata, and the timestamp into a tamper-evident record.
+5. **At submission**: the platform checks that the charge still stands (not refunded, not disputed), grabs a timestamp and charge fingerprint from Stripe, and cryptographically signs the review: binding the review content, the Stripe charge metadata, and the timestamp into a tamper-evident record.
 
 6. **If the charge is later refunded**, the platform receives a `charge.refunded` webhook from Stripe and automatically hides the review. The review record is preserved for audit but removed from public display.
 

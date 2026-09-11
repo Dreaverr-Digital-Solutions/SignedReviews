@@ -52,7 +52,7 @@ The Signed Reviews Stripe App uses Stripe's standard OAuth flow, the same OAuth 
    - Two write permissions, `coupon_write` and `promotion_code_write`, used only for opt-in review-incentive coupons
    - That's it. No ability to create charges, issue refunds, or move funds.
 3. **You review and click "Connect."** Stripe redirects you back to Signed Reviews with an authorization code.
-4. **Signed Reviews exchanges the code for a token**, a short-lived access token limited to the scopes you approved. The token never touches your Stripe API keys; it's an OAuth token with strictly limited permissions.
+4. **Signed Reviews exchanges the code for a token**: a short-lived access token limited to the scopes you approved. The token never touches your Stripe API keys; it's an OAuth token with strictly limited permissions.
 5. **The connection is live.** Every new Stripe charge automatically triggers a review invitation. Every refund automatically hides the associated review.
 
 **What Signed Reviews can see:**
@@ -122,7 +122,7 @@ A Shopify review app is excellent for Shopify-only businesses. A Stripe app for 
 
 If you're evaluating a Stripe app for reviews on the Stripe Marketplace:
 
-1. **Which permissions does the connection ask for?** If the app requests write permissions, ask why. A review app doesn't need to create charges or issue refunds to verify purchases, the only write Signed Reviews uses is minting single-use discount coupons for reviewers, and only when the business enables review incentives.
+1. **Which permissions does the connection ask for?** If the app requests write permissions, ask why. A review app doesn't need to create charges or issue refunds to verify purchases: the only write Signed Reviews uses is minting single-use discount coupons for reviewers, and only when the business enables review incentives.
 2. **Does it react to charge.refunded?** The mark of a well-built Stripe integration: refunded charges automatically hide their associated reviews.
 3. **Does it work with Stripe Billing / subscriptions?** Subscription businesses have recurring charges, each renewal is a new verification opportunity.
 4. **Does it support Stripe Connect?** If you run a platform or marketplace, your connected accounts should be able to use the app independently.

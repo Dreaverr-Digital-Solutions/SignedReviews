@@ -116,7 +116,7 @@ When you see a "Verified" badge on a review, ask three questions:
 
 1. **Does the platform explain what "Verified" means?** If the definition is buried or vague, assume it's email-verified or self-attested.
 2. **Who did the verifying?** If the answer is "the platform" and the platform's data comes from the merchant, you're at Level 3. If the answer names an independent party (a payment processor), you're at Level 4.
-3. **Can anyone review, or only verified purchasers?** Open platforms let anyone review, the "Verified" badge is an opt-in enhancement, not a gate. Closed platforms only allow reviews from confirmed purchasers.
+3. **Can anyone review, or only verified purchasers?** Open platforms let anyone review: the "Verified" badge is an opt-in enhancement, not a gate. Closed platforms only allow reviews from confirmed purchasers.
 
 ---
 

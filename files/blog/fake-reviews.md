@@ -46,7 +46,7 @@ On 21 October 2024, the Federal Trade Commission's [Trade Regulation Rule on the
 - Bans **review suppression**, threatening or intimidating reviewers to remove negative reviews
 - Allows the FTC to seek **civil penalties** of up to $51,744 per violation
 
-The rule is strong on paper. But enforcement requires detection, the FTC must find the fake reviews to penalize them. And detection, as we've established, is a losing battle.
+The rule is strong on paper. But enforcement requires detection: the FTC must find the fake reviews to penalize them. And detection, as we've established, is a losing battle.
 
 ### United Kingdom: Digital Markets, Competition and Consumers Act
 

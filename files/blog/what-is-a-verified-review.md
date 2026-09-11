@@ -66,7 +66,7 @@ A sponsored review is feedback the business paid for or incentivized: through pa
 
 ### Can a verified review still be fake?
 
-It depends on who does the verifying. If "verified" only means the merchant invited the reviewer by email, a determined faker can still get through, the merchant controls the invitation list. If "verified" means an independent payment processor confirmed a real transaction, fake reviews from non-customers are structurally impossible, because there is no path to write a review without a confirmed charge.
+It depends on who does the verifying. If "verified" only means the merchant invited the reviewer by email, a determined faker can still get through: the merchant controls the invitation list. If "verified" means an independent payment processor confirmed a real transaction, fake reviews from non-customers are structurally impossible, because there is no path to write a review without a confirmed charge.
 
 <script type="application/ld+json">
 {
@@ -105,7 +105,7 @@ It depends on who does the verifying. If "verified" only means the merchant invi
     "name": "Can a verified review still be fake?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "It depends on who does the verifying. If verified only means the merchant invited the reviewer by email, a determined faker can still get through, the merchant controls the invitation list. If verified means an independent payment processor confirmed a real transaction, fake reviews from non-customers are structurally impossible, because there is no path to write a review without a confirmed charge."
+      "text": "It depends on who does the verifying. If verified only means the merchant invited the reviewer by email, a determined faker can still get through: the merchant controls the invitation list. If verified means an independent payment processor confirmed a real transaction, fake reviews from non-customers are structurally impossible, because there is no path to write a review without a confirmed charge."
     }
   }]
 }

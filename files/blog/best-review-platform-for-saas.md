@@ -87,8 +87,8 @@ See how our pricing scales with your SaaS revenue on the [pricing page](/pricing
 
 | Dimension | Score | Notes |
 |-----------|-------|-------|
-| Verification method | ★★☆☆☆ | Minimal, G2 requires a LinkedIn login; anyone can review. No purchase verification. |
-| Stripe integration | ☆☆☆☆☆ | Not applicable, these are directories, not review collection tools. |
+| Verification method | ★★☆☆☆ | Minimal: G2 requires a LinkedIn login; anyone can review. No purchase verification. |
+| Stripe integration | ☆☆☆☆☆ | Not applicable: these are directories, not review collection tools. |
 | SaaS suitability | ★★★★★ | Purpose-built for SaaS discovery. The place B2B buyers look first. |
 | Pricing for SaaS | ★★★☆☆ | Free to be listed. Paid profiles unlock premium placement and intent data. |
 | API & embeddability | ★★★☆☆ | G2 offers review widgets and badges. Limited compared to a dedicated review platform. |

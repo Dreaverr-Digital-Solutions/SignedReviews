@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/stripe-proof-of-purchase-verification/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="3df0449ff350691bda5468033abe65f239a6fa34">
-  <meta name="build-time" content="2026-09-11T16:59:54.990Z">
+  <meta name="build-commit" content="7609ea8e1f54e774682ce602c81102d213904553">
+  <meta name="build-time" content="2026-09-11T17:07:17.872Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Stripe Proof Integration: Complete Guide to Verified Purchase Reviews. Signed Reviews Blog">
@@ -614,7 +614,11 @@ main { padding: 0; }
     <div class="prose-wrap">
       <article class="prose">
       <p class="post-meta" style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">2026-08-07</p>
-      <p>If you run a business on Stripe, you already generate a proof of purchase for every transaction. Stripe proof of purchase verification turns those payment records into verified, tamper-evident reviews: no extra tools, no manual moderation, no honor system.</p>
+      
+<p><strong>Title:</strong> Stripe Proof Integration: Complete Guide to Verified Purchase Reviews
+<strong>Published:</strong> 2026-08-07 · <strong>Updated:</strong> 2026-09-06 · <strong>Author:</strong> Signed Reviews Team · <strong>Description:</strong> Learn how Stripe proof integration works: Stripe proof of purchase verification, charge matching, cryptographic signing, and automated refund handling.</p>
+<hr>
+<p>If you run a business on Stripe, you already generate a proof of purchase for every transaction. Stripe proof of purchase verification turns those payment records into verified, tamper-evident reviews: no extra tools, no manual moderation, no honor system.</p>
 <p>Here&#39;s how Stripe proof integration works, why it produces fundamentally stronger social proof than email-only verification, and how to set it up.</p>
 <h2 id="what-is-stripe-proof-of-purchase-verification"><a class="anchor" href="#what-is-stripe-proof-of-purchase-verification" aria-label="Permalink to What is Stripe proof of purchase verification?"></a>What is Stripe proof of purchase verification?</h2>
 <p>Stripe proof of purchase verification is a review authentication method that ties every customer review to a real, settled Stripe charge. Instead of trusting that a reviewer is who they say they are, the system proves it by referencing a financial record that:</p>
@@ -650,7 +654,7 @@ main { padding: 0; }
 </ul>
 <p>This signature proves the review was created through the platform and has not been altered. Anyone can verify it independently, no access to the platform required.</p>
 <h3 id="5-refunds-are-handled-automatically"><a class="anchor" href="#5-refunds-are-handled-automatically" aria-label="Permalink to 5. Refunds are handled automatically"></a>5. Refunds are handled automatically</h3>
-<p>If a charge is refunded, Stripe emits a <code>charge.refunded</code> event. The platform automatically hides the associated review. The signature remains valid (the review <em>was</em> authentic, the person did buy the product), but the review content is no longer displayed publicly.</p>
+<p>If a charge is refunded, Stripe emits a <code>charge.refunded</code> event. The platform automatically hides the associated review. The signature remains valid (the review <em>was</em> authentic: the person did buy the product), but the review content is no longer displayed publicly.</p>
 <p>This means your review page never shows a review from a customer who got their money back. No manual flagging, no reporting, no cleanup. See <a href="/how-it-works/">how Signed Reviews works</a> for the full verification lifecycle.</p>
 <h2 id="why-stripe-proof-of-purchase-beats-email-verification"><a class="anchor" href="#why-stripe-proof-of-purchase-beats-email-verification" aria-label="Permalink to Why Stripe proof of purchase beats email verification"></a>Why Stripe proof of purchase beats email verification</h2>
 <div class="table-wrap"><table>
@@ -712,7 +716,7 @@ main { padding: 0; }
 <li><strong>Connect your Stripe account</strong> via OAuth, one click, minimal permissions</li>
 <li><strong>Configure when invitations send</strong>: immediately after purchase, after a delay, or manually</li>
 <li><strong>Customize your review page</strong>: add your logo, colors, and branding</li>
-<li><strong>Start collecting verified reviews</strong>, every new Stripe charge generates an invitation automatically</li>
+<li><strong>Start collecting verified reviews</strong>: every new Stripe charge generates an invitation automatically</li>
 </ol>
 <p>Set up takes under a minute. The Stripe proof integration runs in the background: you collect reviews and the platform handles verification, signing, and refund detection automatically. See <a href="/pricing/">pricing</a> for plan options.</p>
 <hr>

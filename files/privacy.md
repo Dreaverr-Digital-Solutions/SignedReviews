@@ -48,7 +48,7 @@ When you register for a Signed Reviews account, either directly or through Googl
 - **Email address**
 - **Display name**
 - **Profile picture** (only if you provide one through SSO or upload)
-- **Hashed password** (only for email/password signups, we never store your password in readable form; we use bcrypt with cost factor 12)
+- **Hashed password** (only for email/password signups: we never store your password in readable form; we use bcrypt with cost factor 12)
 - **Business information you provide:** business name, website URL, brand logo, brand colors, email subject preferences, review page customization settings
 
 We do not collect phone numbers, dates of birth, physical addresses, government identification, or tax identification numbers from business users.

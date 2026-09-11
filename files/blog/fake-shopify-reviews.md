@@ -102,7 +102,7 @@ If you're a Shopify merchant, fake reviews hurt you too: they damage consumer tr
 
 ## The structural fix: move verification upstream
 
-Every method for generating fake reviews on Shopify exploits the same weakness: **the review app trusts data the merchant can control.** Shopify orders, customer lists, discount codes, these are all under the merchant's administrative control.
+Every method for generating fake reviews on Shopify exploits the same weakness: **the review app trusts data the merchant can control.** Shopify orders, customer lists, discount codes: these are all under the merchant's administrative control.
 
 The only way to structurally prevent fake reviews is to verify against something the merchant **cannot** control: the payment processor. A Stripe charge is an independent record. The merchant can't create one without paying real Stripe fees. They can't delete one. They can't modify the amount, the customer email, or the charge status. And if they refund it, the review platform receives a `charge.refunded` webhook and hides the review automatically.
 

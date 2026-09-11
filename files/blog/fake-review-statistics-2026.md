@@ -44,7 +44,7 @@ Each major platform publishes transparency data on fake review volumes. Here are
 - **Yelp**: Yelp's 2025 Consumer Protection report shows **14% of submissions** were removed for suspicious activity, and its automated recommendation software suppressed another 20% of less-reliable reviews.
 - **Tripadvisor**: Tripadvisor saw a **60% jump** in fraudulent review attempts linked to AI-generated text in 2025 compared to the prior year (Tripadvisor Transparency Report 2025).
 
-> **Note:** The figures above are drawn from platform-published transparency reports and third-party analyses available as of mid-2025. Verify against the latest reports for up-to-date numbers; the structural trend is clear, AI is accelerating fake review volume across every platform.
+> **Note:** The figures above are drawn from platform-published transparency reports and third-party analyses available as of mid-2025. Verify against the latest reports for up-to-date numbers; the structural trend is clear: AI is accelerating fake review volume across every platform.
 
 ## Fake review statistics 2026: regional differences
 
@@ -114,7 +114,7 @@ See how SignedReviews uses Stripe-verified purchase proofs → [Stripe Verified 
 
 **What percentage of online reviews are fake in 2026?**
 
-Up to 15% of reviews globally are estimated to be fraudulent, rising to 30% in some verticals like electronics and supplements. The true number is likely higher, AI-generated reviews are increasingly indistinguishable from genuine ones, so many go undetected.
+Up to 15% of reviews globally are estimated to be fraudulent, rising to 30% in some verticals like electronics and supplements. The true number is likely higher: AI-generated reviews are increasingly indistinguishable from genuine ones, so many go undetected.
 
 **How do AI tools affect fake review statistics?**
 

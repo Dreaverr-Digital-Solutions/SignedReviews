@@ -55,7 +55,7 @@ The only platform built specifically for Stripe businesses, which describes almo
 
 G2 is where SaaS buyers search. It's not a review-collection platform. It's a review-aggregation platform. The reviews on your G2 profile come from G2's own collection mechanisms (which have minimal verification). But G2 is non-negotiable for SaaS visibility.
 
-**The optimal setup:** Use a verified-review platform (Level 4) for your website and sales process. Maintain a G2 profile for discovery. Link between them, your G2 profile points to your verified reviews; your verified-review page mentions your G2 presence. They serve different purposes and don't compete.
+**The optimal setup:** Use a verified-review platform (Level 4) for your website and sales process. Maintain a G2 profile for discovery. Link between them: your G2 profile points to your verified reviews; your verified-review page mentions your G2 presence. They serve different purposes and don't compete.
 
 ### 3. Capterra / GetApp, ★ For software-category visibility
 

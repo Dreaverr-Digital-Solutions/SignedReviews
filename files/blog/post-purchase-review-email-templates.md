@@ -205,7 +205,7 @@ If you process payments through Stripe, you can automate every template on this 
 2. **Configure your timing rules**: same-day, delayed, delivery-triggered, or custom
 3. **The platform detects every new charge** through Stripe's event system
 4. **Review invitations send automatically** at the timing you configured, with your template, your branding, and your sender name
-5. **Every review is tied to a Stripe charge**, the review carries a "Verified Stripe Purchase" badge, not a generic "Verified Reviewer" tag
+5. **Every review is tied to a Stripe charge**: the review carries a "Verified Stripe Purchase" badge, not a generic "Verified Reviewer" tag
 
 The templates above still matter, good copy drives response rates. The timing rules still matter, send too early and you annoy, too late and you're forgotten. But the automation removes the operational overhead of manually sending review requests, and the Stripe verification makes every review more credible when it arrives.
 

@@ -71,7 +71,7 @@ For transparency, we want to be clear about services we **do not** use as of the
 - **No advertising networks**
 - **No standalone session replay tools** (no FullStory, Hotjar, LogRocket, or similar). Session replay is provided by PostHog, our existing analytics sub-processor listed above, with all form-field inputs masked; we do not add a separate replay vendor.
 - **No error tracking services with PII access** (no Sentry, Datadog, Rollbar, or similar at this time)
-- **No marketing email platforms** (no Mailchimp, HubSpot, ActiveCampaign, or similar, we use Resend only for transactional email)
+- **No marketing email platforms** (no Mailchimp, HubSpot, ActiveCampaign, or similar: we use Resend only for transactional email)
 - **No customer data platforms or enrichment services**
 - **No cross-site tracking cookies or fingerprinting** (PostHog uses a first-party analytics cookie only)
 

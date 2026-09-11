@@ -90,7 +90,7 @@ The Reddit consensus mirrors the data: Trustpilot is a directional signal, not a
 
 To be fair: Trustpilot invests heavily in fake-review detection. Their automated systems scan for patterns (review velocity spikes, IP clustering, text similarity), their Content Integrity team investigates flagged content, and their Transparency Report is more detailed than any competitor's equivalent. The platform also allows businesses to respond publicly to reviews and flag ones that violate guidelines.
 
-For large businesses with thousands of reviews, Trustpilot's aggregate scores are probably directionally accurate, the statistical weight of volume drowns out individual fakes. The problem is at the individual-review level and for small businesses, where a handful of fake reviews can swing a star rating dramatically.
+For large businesses with thousands of reviews, Trustpilot's aggregate scores are probably directionally accurate: the statistical weight of volume drowns out individual fakes. The problem is at the individual-review level and for small businesses, where a handful of fake reviews can swing a star rating dramatically.
 
 ---
 
@@ -215,7 +215,7 @@ In aggregate, for high-volume businesses, directionally, yes. Individually: not 
 
 ## Bottom line
 
-Trustpilot reviews are reliable enough for aggregate trending, a business with 5,000 reviews and a 4.5 average is probably decent. But at the individual level, "Verified" on Trustpilot doesn't mean what most people think it means, and the platform's 7.4% fake-submission rate means roughly 1 in 13 submissions isn't from a real customer.
+Trustpilot reviews are reliable enough for aggregate trending: a business with 5,000 reviews and a 4.5 average is probably decent. But at the individual level, "Verified" on Trustpilot doesn't mean what most people think it means, and the platform's 7.4% fake-submission rate means roughly 1 in 13 submissions isn't from a real customer.
 
 If you're a business, the question isn't whether to be on Trustpilot. It's whether Trustpilot is the **strongest verification signal** you can offer your customers. If you process payments through Stripe, it's not.
 

@@ -35,7 +35,7 @@ The verification data source is **your Shopify order records.** This is Level 3 
 | **Photo / video reviews** | Visual reviews convert better. Apps like Loox and Okendo specialize in this. |
 | **Import / export** | Can you import existing reviews from another platform? Can you export your reviews if you switch apps? Review portability matters. |
 | **Google rich results** | Does the app add review schema markup so your star ratings appear in Google search results? Most do, confirm before installing. |
-| **FTC compliance features** | Does the app let you suppress negative reviews? (It shouldn't, the FTC prohibits this.) Can you selectively publish only positive reviews? (Also shouldn't.) A well-designed app makes compliance easy by not offering these options in the first place. |
+| **FTC compliance features** | Does the app let you suppress negative reviews? (It shouldn't; the FTC prohibits this.) Can you selectively publish only positive reviews? (Also shouldn't.) A well-designed app makes compliance easy by not offering these options in the first place. |
 
 ---
 
@@ -67,11 +67,11 @@ Your review-request email has one job: get the customer to click through and wri
 **Subject line:** Keep it personal and specific. "How was your [product name]?" outperforms "Please leave a review" by a wide margin. The customer knows what they bought. The subject line should reflect that.
 
 **Body:**
-1. **Thank them for the purchase**, genuine, not boilerplate
-2. **Ask one specific question**, "Did the [product] meet your expectations?" is better than "Leave a review" (vague)
-3. **Make the CTA obvious**, a single, prominent button. Not buried in a paragraph
-4. **Set expectations**, "Takes about 2 minutes" reduces friction
-5. **Don't offer incentives for positive reviews**, incentives for writing *a review* are fine if disclosed. Incentives for writing *a positive review* are not.
+1. **Thank them for the purchase**: genuine, not boilerplate
+2. **Ask one specific question**: "Did the [product] meet your expectations?" is better than "Leave a review" (vague)
+3. **Make the CTA obvious**: a single, prominent button. Not buried in a paragraph
+4. **Set expectations**: "Takes about 2 minutes" reduces friction
+5. **Don't offer incentives for positive reviews**: incentives for writing *a review* are fine if disclosed. Incentives for writing *a positive review* are not.
 
 [Ready-to-use templates for every scenario →](/blog/post-purchase-review-email-templates/)
 
@@ -82,11 +82,11 @@ Your review-request email has one job: get the customer to click through and wri
 Once you're collecting reviews, put them where customers actually look:
 
 1. **Product pages** (obvious, but still the #1 placement)
-2. **Homepage**, a rotating carousel or featured-reviews section builds trust immediately
-3. **Collection pages**, star ratings under product thumbnails increase click-through
-4. **Cart / checkout**, a single testimonial near the checkout button can reduce abandonment
-5. **Post-purchase page**, the thank-you page is prime real estate; show reviews for related products
-6. **Email footer**, "Rated 4.8 by verified buyers" with a link to your review page
+2. **Homepage**: a rotating carousel or featured-reviews section builds trust immediately
+3. **Collection pages**: star ratings under product thumbnails increase click-through
+4. **Cart / checkout**: a single testimonial near the checkout button can reduce abandonment
+5. **Post-purchase page**: the thank-you page is prime real estate; show reviews for related products
+6. **Email footer**: "Rated 4.8 by verified buyers" with a link to your review page
 
 ---
 
