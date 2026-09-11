@@ -1,0 +1,4505 @@
+{
+  "generated": "2026-09-11T16:46:57.412Z",
+  "pages": [
+    {
+      "slug": "/about/",
+      "title": "About, Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 4,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/privacy/",
+          "text": "Privacy Policy",
+          "order": 1
+        },
+        {
+          "href": "/subprocessors/",
+          "text": "Sub-processors page",
+          "order": 2
+        },
+        {
+          "href": "/pricing/",
+          "text": "Pricing page",
+          "order": 3
+        },
+        {
+          "href": "/refund-policy/",
+          "text": "Refund and Cancellation Policy",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "slug": "/api/",
+      "title": "Public API, Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 1,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/openapi.json/",
+          "text": "signedreviews.com/openapi.json",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "slug": "/blog/are-trustpilot-reviews-reliable/",
+      "title": "Are Trustpilot Reviews Reliable? | Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 10,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 1
+        },
+        {
+          "href": "/blog/how-to-spot-fake-reviews/",
+          "text": "Read our full guide to spotting fake reviews →",
+          "order": 2
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "verification spectrum",
+          "order": 3
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "Signed Reviews connects to your Stripe account",
+          "order": 4
+        },
+        {
+          "href": "/blog/is-trustpilot-legit/",
+          "text": "is Trustpilot legit?",
+          "order": 5
+        },
+        {
+          "href": "/how-verification-works/",
+          "text": "How Review Verification Works",
+          "order": 6
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 7
+        },
+        {
+          "href": "/blog/fake-review-statistics-2026/",
+          "text": "Fake Review Statistics 2026",
+          "order": 8
+        },
+        {
+          "href": "/blog/how-to-spot-fake-reviews/",
+          "text": "How to Spot Fake Reviews",
+          "order": 9
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "slug": "/blog/best-review-platform-for-saas/",
+      "title": "Best Review Platform for SaaS (2026): Top Tools Ranked by Verification. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 11,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/pricing/",
+          "text": "pricing page",
+          "order": 1
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Full Stripe Verified Reviews guide →",
+          "order": 2
+        },
+        {
+          "href": "/vs/yotpo/",
+          "text": "Full Signed Reviews vs Yotpo comparison →",
+          "order": 3
+        },
+        {
+          "href": "/vs/judge-me/",
+          "text": "Full Signed Reviews vs Judge.me comparison →",
+          "order": 4
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "full breakdown of Stripe-verified reviews",
+          "order": 5
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "what &quot;verified buyer&quot; actually means",
+          "order": 6
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews, the definitive guide",
+          "order": 7
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What &quot;Verified Buyer&quot; Actually Means",
+          "order": 8
+        },
+        {
+          "href": "/vs/trustpilot/",
+          "text": "Signed Reviews vs Trustpilot",
+          "order": 9
+        },
+        {
+          "href": "/vs/yotpo/",
+          "text": "Signed Reviews vs Yotpo",
+          "order": 10
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 11
+        }
+      ]
+    },
+    {
+      "slug": "/blog/best-time-to-ask-for-a-review/",
+      "title": "Best Time to Ask for a Review: Data-Backed Timing That Maximizes Response Rates. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 6,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/how-it-works/",
+          "text": "how it works",
+          "order": 1
+        },
+        {
+          "href": "/pricing/",
+          "text": "See pricing",
+          "order": 2
+        },
+        {
+          "href": "/blog/post-purchase-review-email-templates/",
+          "text": "Post-Purchase Review Email Templates",
+          "order": 3
+        },
+        {
+          "href": "/blog/how-to-collect-verified-customer-reviews/",
+          "text": "How to Collect Verified Customer Reviews",
+          "order": 4
+        },
+        {
+          "href": "/blog/how-stripe-review-verification-works/",
+          "text": "How Stripe Review Verification Works",
+          "order": 5
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 6
+        }
+      ]
+    },
+    {
+      "slug": "/blog/fake-review-checker/",
+      "title": "How to Check if Reviews Are Fake: 7-Point Fake Review Checker. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 8,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/tools/fake-review-checker/",
+          "text": "fake review checker tool",
+          "order": 1
+        },
+        {
+          "href": "/blog/fake-review-statistics-2026/",
+          "text": "fake review statistics 2026",
+          "order": 2
+        },
+        {
+          "href": "/learn/ftc-fake-reviews-rules/",
+          "text": "FTC fake reviews rules: what every business owner needs to know",
+          "order": 3
+        },
+        {
+          "href": "/blog/how-stripe-review-verification-works/",
+          "text": "how Stripe review verification works",
+          "order": 4
+        },
+        {
+          "href": "/pricing/",
+          "text": "pricing page",
+          "order": 5
+        },
+        {
+          "href": "/blog/how-to-spot-fake-reviews/",
+          "text": "how to spot a fake review",
+          "order": 6
+        },
+        {
+          "href": "/tools/fake-review-checker/",
+          "text": "fake review checker tool",
+          "order": 7
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 8
+        }
+      ]
+    },
+    {
+      "slug": "/blog/fake-review-laws-ftc/",
+      "title": "FTC Fake Review Rule 2024: What It Means for Your Business. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 4,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/blog/fake-reviews/",
+          "text": "The Fake Review Problem: Why Detection Will Never Be Enough",
+          "order": 1
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 2
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews",
+          "order": 3
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "slug": "/blog/fake-review-statistics-2026/",
+      "title": "Fake Review Statistics 2026: The Scale of the Problem. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 7,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "purchase verification",
+          "order": 1
+        },
+        {
+          "href": "/pricing/",
+          "text": "pricing page",
+          "order": 2
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Purchase verification",
+          "order": 3
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews",
+          "order": 4
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews: The Only Reviews Backed by Your Payment Processor",
+          "order": 5
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 6
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 7
+        }
+      ]
+    },
+    {
+      "slug": "/blog/fake-reviews/",
+      "title": "The Fake Review Problem: Why Detection Will Never Be Enough. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 11,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/blog/fake-review-statistics-2026/",
+          "text": "Fake Review Statistics 2026",
+          "order": 1
+        },
+        {
+          "href": "/blog/fake-review-laws-ftc/",
+          "text": "where fake review law currently stands",
+          "order": 2
+        },
+        {
+          "href": "/learn/ftc-fake-reviews-rules/",
+          "text": "Trade Regulation Rule on the Use of Consumer Reviews and Testimonials",
+          "order": 3
+        },
+        {
+          "href": "/vs/sitejabber/",
+          "text": "SiteJabber",
+          "order": 4
+        },
+        {
+          "href": "/learn/how-fake-reviews-work/",
+          "text": "how fake reviews work",
+          "order": 5
+        },
+        {
+          "href": "/tools/fake-review-checker/",
+          "text": "free fake review checker",
+          "order": 6
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 7
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews",
+          "order": 8
+        },
+        {
+          "href": "/blog/fake-review-statistics-2026/",
+          "text": "Fake Review Statistics 2026",
+          "order": 9
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 10
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 11
+        }
+      ]
+    },
+    {
+      "slug": "/blog/fake-shopify-reviews/",
+      "title": "Fake Reviews on Shopify: How They Work, How to Spot Them, and How to Prevent Them. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 8,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "verification spectrum",
+          "order": 1
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "See how it works",
+          "order": 2
+        },
+        {
+          "href": "/pricing/",
+          "text": "See pricing",
+          "order": 3
+        },
+        {
+          "href": "/learn/how-fake-reviews-work/",
+          "text": "How Fake Reviews Work",
+          "order": 4
+        },
+        {
+          "href": "/learn/ftc-fake-reviews-rules/",
+          "text": "FTC Fake Review Rules",
+          "order": 5
+        },
+        {
+          "href": "/blog/how-to-verify-a-customer-actually-bought/",
+          "text": "How to Verify a Customer Actually Bought",
+          "order": 6
+        },
+        {
+          "href": "/blog/how-to-spot-fake-reviews/",
+          "text": "How to Spot Fake Reviews",
+          "order": 7
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 8
+        }
+      ]
+    },
+    {
+      "slug": "/blog/how-stripe-review-verification-works/",
+      "title": "How Stripe Review Verification Works: A Technical Guide. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 6,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/pricing/",
+          "text": "pricing",
+          "order": 1
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "how Signed Reviews works",
+          "order": 2
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews: The Only Reviews Backed by Your Payment Processor",
+          "order": 3
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 4
+        },
+        {
+          "href": "/pricing/",
+          "text": "See pricing",
+          "order": 5
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 6
+        }
+      ]
+    },
+    {
+      "slug": "/blog/how-to-collect-reviews-for-saas/",
+      "title": "How to Collect Reviews for SaaS: A Guide for Subscription Businesses. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 9,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/blog/trustpilot-alternatives-for-saas/",
+          "text": "Trustpilot alternatives for SaaS",
+          "order": 1
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "See how verification and automation work together",
+          "order": 2
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "See how it works",
+          "order": 3
+        },
+        {
+          "href": "/pricing/",
+          "text": "check pricing",
+          "order": 4
+        },
+        {
+          "href": "/blog/best-time-to-ask-for-a-review/",
+          "text": "Best Time to Ask for a Review",
+          "order": 5
+        },
+        {
+          "href": "/blog/transaction-verified-reviews/",
+          "text": "Transaction-Verified Reviews",
+          "order": 6
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews",
+          "order": 7
+        },
+        {
+          "href": "/blog/best-review-platform-for-saas/",
+          "text": "Best Review Platform for SaaS",
+          "order": 8
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 9
+        }
+      ]
+    },
+    {
+      "slug": "/blog/how-to-collect-verified-customer-reviews/",
+      "title": "How to Collect Verified Customer Reviews: A Practical Guide. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 9,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/integrations/stripe/",
+          "text": "Stripe&#39;s official OAuth flow",
+          "order": 1
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "how it works",
+          "order": 2
+        },
+        {
+          "href": "/integrations/",
+          "text": "Shopify, WooCommerce, or a custom stack",
+          "order": 3
+        },
+        {
+          "href": "/vs/birdeye/",
+          "text": "BirdEye",
+          "order": 4
+        },
+        {
+          "href": "/vs/podium/",
+          "text": "Podium",
+          "order": 5
+        },
+        {
+          "href": "/pricing/",
+          "text": "pricing",
+          "order": 6
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews",
+          "order": 7
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 8
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 9
+        }
+      ]
+    },
+    {
+      "slug": "/blog/how-to-get-reviews-on-shopify/",
+      "title": "How to Get Reviews on Shopify (Verified, Not Fake). Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 10,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "verification spectrum",
+          "order": 1
+        },
+        {
+          "href": "/integrations/shopify/",
+          "text": "Shopify integration",
+          "order": 2
+        },
+        {
+          "href": "/blog/best-time-to-ask-for-a-review/",
+          "text": "Full timing guide by product type and platform →",
+          "order": 3
+        },
+        {
+          "href": "/blog/post-purchase-review-email-templates/",
+          "text": "Ready-to-use templates for every scenario →",
+          "order": 4
+        },
+        {
+          "href": "/integrations/shopify/",
+          "text": "See how the Shopify integration works",
+          "order": 5
+        },
+        {
+          "href": "/blog/fake-shopify-reviews/",
+          "text": "Fake Shopify Reviews",
+          "order": 6
+        },
+        {
+          "href": "/blog/post-purchase-review-email-templates/",
+          "text": "Post-Purchase Review Email Templates",
+          "order": 7
+        },
+        {
+          "href": "/blog/best-time-to-ask-for-a-review/",
+          "text": "Best Time to Ask for a Review",
+          "order": 8
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 9
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "slug": "/blog/how-to-spot-fake-reviews/",
+      "title": "How to Spot Fake Reviews | Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 8,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/tools/fake-review-checker/",
+          "text": "fake review checker",
+          "order": 1
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "Full verification spectrum breakdown →",
+          "order": 2
+        },
+        {
+          "href": "/blog/fake-review-checker/",
+          "text": "fake review checker",
+          "order": 3
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "how Signed Reviews works",
+          "order": 4
+        },
+        {
+          "href": "/blog/fake-review-statistics-2026/",
+          "text": "Fake Review Statistics 2026",
+          "order": 5
+        },
+        {
+          "href": "/blog/fake-reviews/",
+          "text": "The Fake Review Problem",
+          "order": 6
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 7
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 8
+        }
+      ]
+    },
+    {
+      "slug": "/blog/how-to-verify-a-customer-actually-bought/",
+      "title": "How to Verify a Customer Actually Bought: 4 Methods, Ranked. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 5,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/integrations/woocommerce/",
+          "text": "WooCommerce",
+          "order": 1
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 2
+        },
+        {
+          "href": "/blog/transaction-verified-reviews/",
+          "text": "Transaction-Verified Reviews",
+          "order": 3
+        },
+        {
+          "href": "/blog/purchase-verified-vs-email-verified-reviews/",
+          "text": "Purchase-Verified vs Email-Verified Reviews",
+          "order": 4
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "slug": "/blog/",
+      "title": "Blog. Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 29,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/blog/what-is-a-verified-review/",
+          "text": "What Is a Verified Review? Verified Purchaser vs Sponsored Reviews",
+          "order": 1
+        },
+        {
+          "href": "/blog/verified-reviews-vs-unverified-reviews/",
+          "text": "Verified Reviews vs Unverified Reviews: The Complete Comparison Guide",
+          "order": 2
+        },
+        {
+          "href": "/blog/trustpilot-widget-examples/",
+          "text": "Trustpilot Widget Examples: What They Look Like, Where They Go, and What Each One Does",
+          "order": 3
+        },
+        {
+          "href": "/blog/trustpilot-pricing-explained/",
+          "text": "Trustpilot Pricing 2026: Plans, Hidden Costs &amp; Cheaper Alternatives",
+          "order": 4
+        },
+        {
+          "href": "/blog/trustpilot-alternatives-for-small-business/",
+          "text": "Trustpilot Alternatives for Small Business: 10 Best Options &amp; Yotpo Alternative (2026) | Signed Reviews",
+          "order": 5
+        },
+        {
+          "href": "/blog/trustpilot-alternatives-for-saas/",
+          "text": "7 Best Trustpilot Alternatives for SaaS (2026): Compared &amp; Ranked",
+          "order": 6
+        },
+        {
+          "href": "/blog/trustpilot-alternatives-for-ecommerce/",
+          "text": "7 Best Trustpilot Alternatives for Ecommerce Stores (2026)",
+          "order": 7
+        },
+        {
+          "href": "/blog/transaction-verified-reviews/",
+          "text": "Transaction Verified Reviews: What They Are &amp; Why They're Hardest to Fake",
+          "order": 8
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews: Tamper-Evident &amp; Cryptographically Signed | Signed Reviews Blog",
+          "order": 9
+        },
+        {
+          "href": "/blog/stripe-proof-of-purchase-verification/",
+          "text": "Stripe Proof of Purchase Verification: The Complete Guide",
+          "order": 10
+        },
+        {
+          "href": "/blog/stripe-app-for-reviews/",
+          "text": "Stripe App for Reviews: Collect Verified Customer Reviews Automatically",
+          "order": 11
+        },
+        {
+          "href": "/blog/review-app-for-stripe-payments/",
+          "text": "Choosing the Best Review App for Stripe Payments in 2026",
+          "order": 12
+        },
+        {
+          "href": "/blog/purchase-verified-vs-email-verified-reviews/",
+          "text": "Verified Buyer Meaning: Purchase-Verified vs Email-Verified Reviews Explained",
+          "order": 13
+        },
+        {
+          "href": "/blog/post-purchase-review-email-templates/",
+          "text": "Post Purchase Review Email Templates: 5 Templates That Drive Verified Reviews",
+          "order": 14
+        },
+        {
+          "href": "/blog/is-trustpilot-legit/",
+          "text": "Is Trustpilot Legit? An Honest Assessment for Business Owners",
+          "order": 15
+        },
+        {
+          "href": "/blog/how-to-verify-a-customer-actually-bought/",
+          "text": "How to Verify a Customer Actually Bought: 4 Methods, Ranked",
+          "order": 16
+        },
+        {
+          "href": "/blog/how-to-spot-fake-reviews/",
+          "text": "How to Spot Fake Reviews: A Practical Guide for Consumers and Businesses",
+          "order": 17
+        },
+        {
+          "href": "/blog/how-to-get-reviews-on-shopify/",
+          "text": "How to Get Reviews on Shopify (Verified, Not Fake)",
+          "order": 18
+        },
+        {
+          "href": "/blog/how-to-collect-verified-customer-reviews/",
+          "text": "How to Collect Verified Customer Reviews: A Practical Guide",
+          "order": 19
+        },
+        {
+          "href": "/blog/how-to-collect-reviews-for-saas/",
+          "text": "How to Collect Reviews for SaaS: A Guide for Subscription Businesses",
+          "order": 20
+        },
+        {
+          "href": "/blog/how-stripe-review-verification-works/",
+          "text": "How Stripe Review Verification Works: A Technical Guide",
+          "order": 21
+        },
+        {
+          "href": "/blog/fake-shopify-reviews/",
+          "text": "Fake Reviews on Shopify: How They Work, How to Spot Them, and How to Prevent Them",
+          "order": 22
+        },
+        {
+          "href": "/blog/fake-reviews/",
+          "text": "The Fake Review Problem: Why Detection Will Never Be Enough",
+          "order": 23
+        },
+        {
+          "href": "/blog/fake-review-statistics-2026/",
+          "text": "Fake Review Statistics 2026: The Scale of the Problem",
+          "order": 24
+        },
+        {
+          "href": "/blog/fake-review-laws-ftc/",
+          "text": "FTC Fake Review Rule 2024: What It Means for Your Business",
+          "order": 25
+        },
+        {
+          "href": "/blog/fake-review-checker/",
+          "text": "Fake Review Checker: 7 Ways to Tell if Reviews Are Real",
+          "order": 26
+        },
+        {
+          "href": "/blog/best-time-to-ask-for-a-review/",
+          "text": "Best Time to Ask for a Review: Data-Backed Timing That Maximizes Response Rates",
+          "order": 27
+        },
+        {
+          "href": "/blog/best-review-platform-for-saas/",
+          "text": "Best Review Platform for SaaS (2026): Top Tools Ranked by Verification",
+          "order": 28
+        },
+        {
+          "href": "/blog/are-trustpilot-reviews-reliable/",
+          "text": "Are Trustpilot Reviews Reliable? The Honest Truth (2026)",
+          "order": 29
+        }
+      ]
+    },
+    {
+      "slug": "/blog/is-trustpilot-legit/",
+      "title": "Is Trustpilot Legit? An Honest Assessment for Business Owners. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 7,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/blog/trustpilot-pricing-explained/",
+          "text": "Trustpilot pricing explained: plans, hidden costs, and alternatives",
+          "order": 1
+        },
+        {
+          "href": "/blog/trustpilot-widget-examples/",
+          "text": "these Trustpilot widget examples",
+          "order": 2
+        },
+        {
+          "href": "/pricing/",
+          "text": "pricing",
+          "order": 3
+        },
+        {
+          "href": "/blog/trustpilot-pricing-explained/",
+          "text": "Trustpilot pricing explained",
+          "order": 4
+        },
+        {
+          "href": "/blog/trustpilot-alternatives-for-small-business/",
+          "text": "Trustpilot alternatives for small business",
+          "order": 5
+        },
+        {
+          "href": "/blog/trustpilot-alternatives-for-ecommerce/",
+          "text": "Trustpilot alternatives for ecommerce",
+          "order": 6
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 7
+        }
+      ]
+    },
+    {
+      "slug": "/blog/post-purchase-review-email-templates/",
+      "title": "Post Purchase Review Email Templates: 5 Templates That Drive Verified Reviews. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 7,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/blog/purchase-verified-vs-email-verified-reviews/",
+          "text": "payment verified reviews",
+          "order": 1
+        },
+        {
+          "href": "/blog/stripe-proof-of-purchase-verification/",
+          "text": "Stripe proof of purchase verification",
+          "order": 2
+        },
+        {
+          "href": "/blog/how-to-collect-verified-customer-reviews/",
+          "text": "How to Collect Verified Customer Reviews",
+          "order": 3
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews",
+          "order": 4
+        },
+        {
+          "href": "/blog/stripe-proof-of-purchase-verification/",
+          "text": "Stripe Proof of Purchase Verification",
+          "order": 5
+        },
+        {
+          "href": "/blog/how-stripe-review-verification-works/",
+          "text": "How Stripe Review Verification Works",
+          "order": 6
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 7
+        }
+      ]
+    },
+    {
+      "slug": "/blog/purchase-verified-vs-email-verified-reviews/",
+      "title": "Payment Verified Reviews: What 'Verified Buyer' Really Means. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 11,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "how Stripe-verified reviews work",
+          "order": 1
+        },
+        {
+          "href": "/blog/transaction-verified-reviews/",
+          "text": "transaction-verified reviews",
+          "order": 2
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe verified reviews",
+          "order": 3
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "See how SignedReviews implements payment verified reviews.",
+          "order": 4
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "how Signed Reviews works",
+          "order": 5
+        },
+        {
+          "href": "/pricing/",
+          "text": "publish payment verified reviews",
+          "order": 6
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "what does verified buyer mean",
+          "order": 7
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 8
+        },
+        {
+          "href": "/blog/transaction-verified-reviews/",
+          "text": "Transaction-Verified Reviews",
+          "order": 9
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews",
+          "order": 10
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 11
+        }
+      ]
+    },
+    {
+      "slug": "/blog/review-app-for-stripe-payments/",
+      "title": "Choosing the Best Review App for Stripe Payments in 2026. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 9,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/blog/how-to-verify-a-customer-actually-bought/",
+          "text": "verification spectrum",
+          "order": 1
+        },
+        {
+          "href": "/integrations/stripe/",
+          "text": "See how Stripe OAuth verification works",
+          "order": 2
+        },
+        {
+          "href": "/pricing/",
+          "text": "compare plans and pricing",
+          "order": 3
+        },
+        {
+          "href": "/integrations/stripe/",
+          "text": "See how the Stripe integration works",
+          "order": 4
+        },
+        {
+          "href": "/blog/stripe-app-for-reviews/",
+          "text": "Stripe App for Verified Reviews",
+          "order": 5
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews",
+          "order": 6
+        },
+        {
+          "href": "/blog/transaction-verified-reviews/",
+          "text": "Transaction-Verified Reviews",
+          "order": 7
+        },
+        {
+          "href": "/blog/how-to-verify-a-customer-actually-bought/",
+          "text": "How to Verify a Customer Actually Bought",
+          "order": 8
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 9
+        }
+      ]
+    },
+    {
+      "slug": "/blog/stripe-app-for-reviews/",
+      "title": "Stripe App for Reviews: Collect Verified Customer Reviews Automatically. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 8,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/pricing/",
+          "text": "See pricing",
+          "order": 1
+        },
+        {
+          "href": "/trust/",
+          "text": "Stripe-verified reviews",
+          "order": 2
+        },
+        {
+          "href": "/pricing/",
+          "text": "See pricing",
+          "order": 3
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews",
+          "order": 4
+        },
+        {
+          "href": "/blog/how-stripe-review-verification-works/",
+          "text": "How Stripe Review Verification Works",
+          "order": 5
+        },
+        {
+          "href": "/blog/transaction-verified-reviews/",
+          "text": "Transaction-Verified Reviews",
+          "order": 6
+        },
+        {
+          "href": "/blog/review-app-for-stripe-payments/",
+          "text": "Review App for Stripe Payments",
+          "order": 7
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 8
+        }
+      ]
+    },
+    {
+      "slug": "/blog/stripe-proof-of-purchase-verification/",
+      "title": "Stripe Proof Integration: Complete Guide to Verified Purchase Reviews. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 8,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/pricing/",
+          "text": "pricing",
+          "order": 1
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "how Signed Reviews works",
+          "order": 2
+        },
+        {
+          "href": "/blog/how-stripe-review-verification-works/",
+          "text": "how Stripe review verification works",
+          "order": 3
+        },
+        {
+          "href": "/pricing/",
+          "text": "pricing",
+          "order": 4
+        },
+        {
+          "href": "/blog/how-stripe-review-verification-works/",
+          "text": "How Stripe Review Verification Works: A Technical Guide",
+          "order": 5
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews: The Only Reviews Backed by Your Payment Processor",
+          "order": 6
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 7
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 8
+        }
+      ]
+    },
+    {
+      "slug": "/blog/stripe-verified-reviews/",
+      "title": "Stripe Verified Reviews: Tamper-Evident &amp; Cryptographically Signed | Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 15,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/blog/how-stripe-review-verification-works/",
+          "text": "cryptographically signed reviews",
+          "order": 1
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "how it works",
+          "order": 2
+        },
+        {
+          "href": "/blog/stripe-proof-of-purchase-verification/",
+          "text": "Stripe proof integration",
+          "order": 3
+        },
+        {
+          "href": "/how-verification-works/",
+          "text": "how verification works",
+          "order": 4
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "learn page",
+          "order": 5
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "How It Works",
+          "order": 6
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "how this prevents fake reviews",
+          "order": 7
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "how independent attestation works",
+          "order": 8
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "See how it works →",
+          "order": 9
+        },
+        {
+          "href": "/integrations/woocommerce/",
+          "text": "WooCommerce",
+          "order": 10
+        },
+        {
+          "href": "/pricing/",
+          "text": "pricing",
+          "order": 11
+        },
+        {
+          "href": "/blog/how-stripe-review-verification-works/",
+          "text": "how Stripe review verification works",
+          "order": 12
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "what a verified review actually means",
+          "order": 13
+        },
+        {
+          "href": "/vs/trustpilot/",
+          "text": "how we compare to Trustpilot",
+          "order": 14
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 15
+        }
+      ]
+    },
+    {
+      "slug": "/blog/transaction-verified-reviews/",
+      "title": "Transaction Verified Reviews: What They Are &amp; Why They're Hardest to Fake. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 9,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/blog/what-is-a-verified-review/",
+          "text": "what is a verified review",
+          "order": 1
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 2
+        },
+        {
+          "href": "/vs/ekomi/",
+          "text": "eKomi",
+          "order": 3
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "how it works",
+          "order": 4
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 5
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews",
+          "order": 6
+        },
+        {
+          "href": "/blog/how-stripe-review-verification-works/",
+          "text": "How Stripe Review Verification Works",
+          "order": 7
+        },
+        {
+          "href": "/blog/fake-review-laws-ftc/",
+          "text": "FTC Fake Review Rule",
+          "order": 8
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 9
+        }
+      ]
+    },
+    {
+      "slug": "/blog/trustpilot-alternatives-for-ecommerce/",
+      "title": "7 Best Trustpilot Alternatives for Ecommerce Stores (2026). Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 21,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "full verification spectrum",
+          "order": 1
+        },
+        {
+          "href": "/pricing/",
+          "text": "See pricing",
+          "order": 2
+        },
+        {
+          "href": "/trust/",
+          "text": "How Stripe verification works",
+          "order": 3
+        },
+        {
+          "href": "/vs/trustpilot/",
+          "text": "Signed Reviews vs Trustpilot",
+          "order": 4
+        },
+        {
+          "href": "/vs/judge-me/",
+          "text": "Signed Reviews vs Judge.me",
+          "order": 5
+        },
+        {
+          "href": "/vs/loox/",
+          "text": "Signed Reviews vs Loox",
+          "order": 6
+        },
+        {
+          "href": "/vs/yotpo/",
+          "text": "Signed Reviews vs Yotpo",
+          "order": 7
+        },
+        {
+          "href": "/vs/stamped/",
+          "text": "Signed Reviews vs Stamped",
+          "order": 8
+        },
+        {
+          "href": "/vs/okendo/",
+          "text": "Signed Reviews vs Okendo",
+          "order": 9
+        },
+        {
+          "href": "/vs/google-reviews/",
+          "text": "Full comparison: Signed Reviews vs Google Reviews →",
+          "order": 10
+        },
+        {
+          "href": "/blog/verified-reviews-vs-unverified-reviews/",
+          "text": "verified vs unverified reviews",
+          "order": 11
+        },
+        {
+          "href": "/integrations/shopify/",
+          "text": "Shopify",
+          "order": 12
+        },
+        {
+          "href": "/integrations/woocommerce/",
+          "text": "WooCommerce",
+          "order": 13
+        },
+        {
+          "href": "/integrations/stripe/",
+          "text": "Stripe",
+          "order": 14
+        },
+        {
+          "href": "/pricing/",
+          "text": "See our pricing",
+          "order": 15
+        },
+        {
+          "href": "/trust/",
+          "text": "how Stripe verification works",
+          "order": 16
+        },
+        {
+          "href": "/blog/are-trustpilot-reviews-reliable/",
+          "text": "Are Trustpilot Reviews Reliable?",
+          "order": 17
+        },
+        {
+          "href": "/blog/trustpilot-pricing-explained/",
+          "text": "Trustpilot Pricing Explained",
+          "order": 18
+        },
+        {
+          "href": "/blog/fake-shopify-reviews/",
+          "text": "Fake Shopify Reviews: How Stores Fake Social Proof",
+          "order": 19
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 20
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 21
+        }
+      ]
+    },
+    {
+      "slug": "/blog/trustpilot-alternatives-for-saas/",
+      "title": "7 Best Trustpilot Alternatives for SaaS (2026): Compared &amp; Ranked. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 11,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/pricing/",
+          "text": "See pricing plans →",
+          "order": 1
+        },
+        {
+          "href": "/pricing/",
+          "text": "Published tiered pricing",
+          "order": 2
+        },
+        {
+          "href": "/trust/",
+          "text": "See how the verification works →",
+          "order": 3
+        },
+        {
+          "href": "/pricing/",
+          "text": "see plans",
+          "order": 4
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "Learn how review triggers work →",
+          "order": 5
+        },
+        {
+          "href": "/blog/how-to-collect-reviews-for-saas/",
+          "text": "How to Collect Reviews for SaaS",
+          "order": 6
+        },
+        {
+          "href": "/blog/best-review-platform-for-saas/",
+          "text": "Best Review Platform for SaaS",
+          "order": 7
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews",
+          "order": 8
+        },
+        {
+          "href": "/blog/transaction-verified-reviews/",
+          "text": "Transaction-Verified Reviews",
+          "order": 9
+        },
+        {
+          "href": "/pricing/",
+          "text": "Signed Reviews Pricing",
+          "order": 10
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 11
+        }
+      ]
+    },
+    {
+      "slug": "/blog/trustpilot-alternatives-for-small-business/",
+      "title": "Trustpilot Alternatives for Small Business: 10 Best Options &amp; Yotpo Alternative (2026) | Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 25,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/how-it-works/",
+          "text": "how Signed Reviews works",
+          "order": 1
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 2
+        },
+        {
+          "href": "/vs/judge-me/",
+          "text": "Judge.me alternative",
+          "order": 3
+        },
+        {
+          "href": "/vs/judge-me/",
+          "text": "Judge.me vs Signed Reviews comparison",
+          "order": 4
+        },
+        {
+          "href": "/vs/yotpo/",
+          "text": "Compare Signed Reviews vs Yotpo",
+          "order": 5
+        },
+        {
+          "href": "/pricing/",
+          "text": "pricing",
+          "order": 6
+        },
+        {
+          "href": "/vs/trustpilot/",
+          "text": "Signed Reviews vs Trustpilot",
+          "order": 7
+        },
+        {
+          "href": "/vs/judge-me/",
+          "text": "Signed Reviews vs Judge.me",
+          "order": 8
+        },
+        {
+          "href": "/vs/yotpo/",
+          "text": "Signed Reviews vs Yotpo",
+          "order": 9
+        },
+        {
+          "href": "/vs/feefo/",
+          "text": "See how we compare head-to-head.",
+          "order": 10
+        },
+        {
+          "href": "/vs/feefo/",
+          "text": "See the full Signed Reviews vs Feefo comparison →",
+          "order": 11
+        },
+        {
+          "href": "/vs/feefo/",
+          "text": "Signed Reviews vs Feefo",
+          "order": 12
+        },
+        {
+          "href": "/vs/reviews-io/",
+          "text": "reviews.io alternative",
+          "order": 13
+        },
+        {
+          "href": "/vs/reviews-io/",
+          "text": "Signed Reviews vs Reviews.io",
+          "order": 14
+        },
+        {
+          "href": "/vs/ekomi/",
+          "text": "Signed Reviews vs eKomi",
+          "order": 15
+        },
+        {
+          "href": "/vs/stamped/",
+          "text": "Signed Reviews vs Stamped",
+          "order": 16
+        },
+        {
+          "href": "/vs/okendo/",
+          "text": "Signed Reviews vs Okendo",
+          "order": 17
+        },
+        {
+          "href": "/vs/loox/",
+          "text": "Signed Reviews vs Loox",
+          "order": 18
+        },
+        {
+          "href": "/vs/birdeye/",
+          "text": "BirdEye",
+          "order": 19
+        },
+        {
+          "href": "/vs/podium/",
+          "text": "Podium",
+          "order": 20
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 21
+        },
+        {
+          "href": "/vs/trustpilot/",
+          "text": "Signed Reviews vs Trustpilot",
+          "order": 22
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews",
+          "order": 23
+        },
+        {
+          "href": "/blog/how-stripe-review-verification-works/",
+          "text": "How Stripe Review Verification Works",
+          "order": 24
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 25
+        }
+      ]
+    },
+    {
+      "slug": "/blog/trustpilot-pricing-explained/",
+      "title": "Trustpilot Pricing Page Explained: 2026 Plans &amp; Costs. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 7,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/pricing/",
+          "text": "Signed Reviews",
+          "order": 1
+        },
+        {
+          "href": "/pricing/",
+          "text": "See Signed Reviews pricing →",
+          "order": 2
+        },
+        {
+          "href": "/blog/trustpilot-alternatives-for-small-business/",
+          "text": "Trustpilot Alternatives for Small Business",
+          "order": 3
+        },
+        {
+          "href": "/blog/are-trustpilot-reviews-reliable/",
+          "text": "Are Trustpilot Reviews Reliable?",
+          "order": 4
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 5
+        },
+        {
+          "href": "/vs/trustpilot/",
+          "text": "Signed Reviews vs Trustpilot",
+          "order": 6
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 7
+        }
+      ]
+    },
+    {
+      "slug": "/blog/trustpilot-widget-examples/",
+      "title": "Trustpilot Widget Examples: What They Look Like, Where They Go, and What Each One Does. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 5,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/vs/trustpilot/",
+          "text": "Signed Reviews vs Trustpilot",
+          "order": 1
+        },
+        {
+          "href": "/blog/trustpilot-pricing-explained/",
+          "text": "Trustpilot Pricing Explained",
+          "order": 2
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What Does &quot;Verified Buyer&quot; Actually Mean?",
+          "order": 3
+        },
+        {
+          "href": "/blog/are-trustpilot-reviews-reliable/",
+          "text": "Are Trustpilot Reviews Reliable?",
+          "order": 4
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "slug": "/blog/verified-reviews-vs-unverified-reviews/",
+      "title": "Verified Reviews vs Unverified Reviews: The Complete Comparison Guide. Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 6,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/blog/what-is-a-verified-review/",
+          "text": "what is a verified review",
+          "order": 1
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews: The Only Reviews Backed by Your Payment Processor",
+          "order": 2
+        },
+        {
+          "href": "/blog/what-is-a-verified-review/",
+          "text": "what is a verified review",
+          "order": 3
+        },
+        {
+          "href": "/blog/what-is-a-verified-review/",
+          "text": "What Is a Verified Review?",
+          "order": 4
+        },
+        {
+          "href": "/pricing/",
+          "text": "pricing page",
+          "order": 5
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 6
+        }
+      ]
+    },
+    {
+      "slug": "/blog/what-is-a-verified-review/",
+      "title": "What Is a Verified Review? | Signed Reviews Blog",
+      "outbound": {
+        "nav": 7,
+        "body": 13,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "verified buyer",
+          "order": 1
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews",
+          "order": 2
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe-verified purchases",
+          "order": 3
+        },
+        {
+          "href": "/how-verification-works/",
+          "text": "how verification works with Signed Reviews",
+          "order": 4
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "What does verified buyer mean?",
+          "order": 5
+        },
+        {
+          "href": "/blog/purchase-verified-vs-email-verified-reviews/",
+          "text": "Purchase-Verified vs Email-Verified Reviews",
+          "order": 6
+        },
+        {
+          "href": "/blog/purchase-verified-vs-email-verified-reviews/",
+          "text": "how purchase-verified reviews outperform email-verified ones",
+          "order": 7
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "see how SignedReviews prevents AI-generated reviews",
+          "order": 8
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "See how the verification engine works",
+          "order": 9
+        },
+        {
+          "href": "/blog/stripe-verified-reviews/",
+          "text": "Stripe Verified Reviews",
+          "order": 10
+        },
+        {
+          "href": "/blog/purchase-verified-vs-email-verified-reviews/",
+          "text": "Purchase-Verified vs Email-Verified Reviews",
+          "order": 11
+        },
+        {
+          "href": "/pricing/",
+          "text": "see plans starting at $29/mo",
+          "order": 12
+        },
+        {
+          "href": "/blog/",
+          "text": "← Back to blog",
+          "order": 13
+        }
+      ]
+    },
+    {
+      "slug": "/contact/",
+      "title": "Contact, Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 1,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/privacy/",
+          "text": "Privacy Policy",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "slug": "/demo/",
+      "title": "Request a Demo, Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 2,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/contact/",
+          "text": "Contact us",
+          "order": 1
+        },
+        {
+          "href": "/pricing/",
+          "text": "see pricing",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "slug": "/dmca/",
+      "title": "DMCA and Copyright Policy, Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 2,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/terms/",
+          "text": "Terms of Service",
+          "order": 1
+        },
+        {
+          "href": "/terms/",
+          "text": "Terms of Service",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "slug": "/docs/",
+      "title": "Documentation, Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 4,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "Learn more about verification →",
+          "order": 1
+        },
+        {
+          "href": "/api/",
+          "text": "Full API reference →",
+          "order": 2
+        },
+        {
+          "href": "/dpa/",
+          "text": "Accept DPA →",
+          "order": 3
+        },
+        {
+          "href": "/subprocessors/",
+          "text": "Full list →",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "slug": "/dpa/",
+      "title": "Data Processing Agreement, Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 4,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/terms/",
+          "text": "Terms of Service",
+          "order": 1
+        },
+        {
+          "href": "/privacy/",
+          "text": "Privacy Policy",
+          "order": 2
+        },
+        {
+          "href": "/subprocessors/",
+          "text": "signedreviews.com/subprocessors/",
+          "order": 3
+        },
+        {
+          "href": "/subprocessors/",
+          "text": "signedreviews.com/subprocessors/",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "slug": "/faq/",
+      "title": "FAQ. Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 1,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/pricing/",
+          "text": "pricing page",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "slug": "/features/",
+      "title": "Features, Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 2,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/subprocessors/",
+          "text": "signedreviews.com/subprocessors",
+          "order": 1
+        },
+        {
+          "href": "/pricing/",
+          "text": "See pricing",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "slug": "/how-it-works/",
+      "title": "How It Works. Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "footer": 24
+      },
+      "bodyLinks": []
+    },
+    {
+      "slug": "/how-verification-works/",
+      "title": "How Review Verification Works: The 4 Verification Levels",
+      "outbound": {
+        "nav": 7,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": []
+    },
+    {
+      "slug": "/integrations/",
+      "title": "Integrations. Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 4,
+        "related": 4,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/integrations/stripe/",
+          "text": "Stripe integration details →",
+          "order": 1
+        },
+        {
+          "href": "/api/",
+          "text": "API reference →",
+          "order": 2
+        },
+        {
+          "href": "/docs/",
+          "text": "Documentation →",
+          "order": 3
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "Learn why that matters →",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "slug": "/integrations/shopify/",
+      "title": "Shopify Integration (Planned). Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 1,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/integrations/stripe/",
+          "text": "Set up the Stripe integration →",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "slug": "/integrations/stripe/",
+      "title": "Stripe Integration for Verified Reviews. Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 1,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/api/",
+          "text": "API docs",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "slug": "/integrations/woocommerce/",
+      "title": "WooCommerce Integration (Planned). Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 1,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/integrations/stripe/",
+          "text": "Set up the Stripe integration →",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "slug": "/learn/ftc-fake-reviews-rules/",
+      "title": "FTC Fake Review Rules (2024). What Businesses Need to Know",
+      "outbound": {
+        "nav": 7,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": []
+    },
+    {
+      "slug": "/learn/how-fake-reviews-work/",
+      "title": "How Fake Reviews Work: The Economics, Methods, and Systems Behind Fake Online Reviews",
+      "outbound": {
+        "nav": 7,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": []
+    },
+    {
+      "slug": "/learn/what-does-verified-buyer-mean/",
+      "title": "What Does &quot;Verified Buyer&quot; Actually Mean?. Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 1,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/trust/",
+          "text": "how Signed Reviews verifies reviews",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "slug": "/pricing/",
+      "title": "Pricing, Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 1,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/refund-policy/",
+          "text": "Refund and Cancellation Policy",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "slug": "/privacy/",
+      "title": "Privacy Policy, Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/dpa/",
+          "text": "Data Processing Agreement",
+          "order": 1
+        },
+        {
+          "href": "/terms/",
+          "text": "Terms of Service",
+          "order": 2
+        },
+        {
+          "href": "/subprocessors/",
+          "text": "Sub-processors",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "slug": "/refund-policy/",
+      "title": "Refund and Cancellation Policy, Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "footer": 24
+      },
+      "bodyLinks": []
+    },
+    {
+      "slug": "/subprocessors/",
+      "title": "Sub-processors, Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "footer": 24
+      },
+      "bodyLinks": []
+    },
+    {
+      "slug": "/terms/",
+      "title": "Terms of Service, Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 1,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/dpa/",
+          "text": "Data Processing Agreement",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "slug": "/tools/fake-review-checker/",
+      "title": "Free Fake Review Checker. Spot Suspicious Review Text",
+      "outbound": {
+        "nav": 7,
+        "body": 5,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/blog/how-to-spot-fake-reviews/",
+          "text": "how to spot fake reviews",
+          "order": 1
+        },
+        {
+          "href": "/learn/what-does-verified-buyer-mean/",
+          "text": "verification spectrum",
+          "order": 2
+        },
+        {
+          "href": "/blog/how-to-spot-fake-reviews/",
+          "text": "virtually indistinguishable from human writing",
+          "order": 3
+        },
+        {
+          "href": "/blog/transaction-verified-reviews/",
+          "text": "transaction verified reviews",
+          "order": 4
+        },
+        {
+          "href": "/blog/verified-reviews-vs-unverified-reviews/",
+          "text": "Verified vs unverified reviews",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "slug": "/trust/",
+      "title": "Trust &amp; Security. Signed Reviews",
+      "outbound": {
+        "nav": 7,
+        "body": 5,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/privacy/",
+          "text": "Privacy Policy",
+          "order": 1
+        },
+        {
+          "href": "/dpa/",
+          "text": "Data Processing Agreement",
+          "order": 2
+        },
+        {
+          "href": "/subprocessors/",
+          "text": "Sub-processors page",
+          "order": 3
+        },
+        {
+          "href": "/dmca/",
+          "text": "DMCA policy",
+          "order": 4
+        },
+        {
+          "href": "/terms/",
+          "text": "Terms of Service",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "slug": "/vs/birdeye/",
+      "title": "Signed Reviews vs Birdeye. Comparison",
+      "outbound": {
+        "nav": 7,
+        "body": 2,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/vs/podium/",
+          "text": "Podium",
+          "order": 1
+        },
+        {
+          "href": "/vs/google-reviews/",
+          "text": "Google Reviews",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "slug": "/vs/clutch/",
+      "title": "Signed Reviews vs Clutch. Comparison",
+      "outbound": {
+        "nav": 7,
+        "body": 3,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/vs/google-reviews/",
+          "text": "Google Reviews",
+          "order": 1
+        },
+        {
+          "href": "/vs/trustpilot/",
+          "text": "Trustpilot",
+          "order": 2
+        },
+        {
+          "href": "/vs/sitejabber/",
+          "text": "SiteJabber",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "slug": "/vs/ekomi/",
+      "title": "Signed Reviews vs eKomi. Comparison",
+      "outbound": {
+        "nav": 7,
+        "body": 1,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/vs/feefo/",
+          "text": "Feefo",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "slug": "/vs/feefo/",
+      "title": "Signed Reviews vs Feefo. Comparison",
+      "outbound": {
+        "nav": 7,
+        "body": 1,
+        "related": 4,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/vs/ekomi/",
+          "text": "eKomi",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "slug": "/vs/google-reviews/",
+      "title": "Signed Reviews vs Google Reviews. Comparison",
+      "outbound": {
+        "nav": 7,
+        "body": 3,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/vs/trustpilot/",
+          "text": "Trustpilot",
+          "order": 1
+        },
+        {
+          "href": "/vs/sitejabber/",
+          "text": "SiteJabber",
+          "order": 2
+        },
+        {
+          "href": "/vs/yelp/",
+          "text": "Yelp",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "slug": "/vs/judge-me/",
+      "title": "Signed Reviews vs Judge.me. Comparison",
+      "outbound": {
+        "nav": 7,
+        "body": 3,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/vs/yotpo/",
+          "text": "Yotpo",
+          "order": 1
+        },
+        {
+          "href": "/vs/loox/",
+          "text": "Loox",
+          "order": 2
+        },
+        {
+          "href": "/vs/okendo/",
+          "text": "Okendo",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "slug": "/vs/loox/",
+      "title": "Signed Reviews vs Loox. Comparison",
+      "outbound": {
+        "nav": 7,
+        "body": 3,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/vs/okendo/",
+          "text": "Okendo",
+          "order": 1
+        },
+        {
+          "href": "/vs/stamped/",
+          "text": "Stamped.io",
+          "order": 2
+        },
+        {
+          "href": "/vs/skeepers/",
+          "text": "Skeepers",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "slug": "/vs/okendo/",
+      "title": "Signed Reviews vs Okendo. Comparison",
+      "outbound": {
+        "nav": 7,
+        "body": 3,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/vs/stamped/",
+          "text": "Stamped.io",
+          "order": 1
+        },
+        {
+          "href": "/vs/skeepers/",
+          "text": "Skeepers",
+          "order": 2
+        },
+        {
+          "href": "/vs/reviews-io/",
+          "text": "Reviews.io",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "slug": "/vs/podium/",
+      "title": "Podium Alternative: Signed Reviews vs Podium Comparison 2025",
+      "outbound": {
+        "nav": 7,
+        "body": 4,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/vs/birdeye/",
+          "text": "BirdEye",
+          "order": 1
+        },
+        {
+          "href": "/vs/google-reviews/",
+          "text": "Google Reviews",
+          "order": 2
+        },
+        {
+          "href": "/pricing/",
+          "text": "A Podium alternative",
+          "order": 3
+        },
+        {
+          "href": "/features/",
+          "text": "uses Stripe verification",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "slug": "/vs/reviews-io/",
+      "title": "Signed Reviews vs Reviews.io. Comparison",
+      "outbound": {
+        "nav": 7,
+        "body": 3,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/vs/judge-me/",
+          "text": "Judge.me",
+          "order": 1
+        },
+        {
+          "href": "/vs/yotpo/",
+          "text": "Yotpo",
+          "order": 2
+        },
+        {
+          "href": "/vs/loox/",
+          "text": "Loox",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "slug": "/vs/sitejabber/",
+      "title": "Signed Reviews vs SiteJabber. Comparison",
+      "outbound": {
+        "nav": 7,
+        "body": 3,
+        "related": 4,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/vs/yelp/",
+          "text": "Yelp",
+          "order": 1
+        },
+        {
+          "href": "/vs/clutch/",
+          "text": "Clutch",
+          "order": 2
+        },
+        {
+          "href": "/vs/google-reviews/",
+          "text": "Google Reviews",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "slug": "/vs/skeepers/",
+      "title": "Signed Reviews vs Skeepers. Comparison",
+      "outbound": {
+        "nav": 7,
+        "body": 3,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/vs/reviews-io/",
+          "text": "Reviews.io",
+          "order": 1
+        },
+        {
+          "href": "/vs/judge-me/",
+          "text": "Judge.me",
+          "order": 2
+        },
+        {
+          "href": "/vs/yotpo/",
+          "text": "Yotpo",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "slug": "/vs/stamped/",
+      "title": "Signed Reviews vs Stamped. Comparison",
+      "outbound": {
+        "nav": 7,
+        "body": 3,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/vs/skeepers/",
+          "text": "Skeepers",
+          "order": 1
+        },
+        {
+          "href": "/vs/reviews-io/",
+          "text": "Reviews.io",
+          "order": 2
+        },
+        {
+          "href": "/vs/judge-me/",
+          "text": "Judge.me",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "slug": "/vs/trustpilot/",
+      "title": "Trustpilot vs Signed Reviews: Stripe-Verified Reviews vs Open Invitations",
+      "outbound": {
+        "nav": 7,
+        "body": 6,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/vs/sitejabber/",
+          "text": "SiteJabber",
+          "order": 1
+        },
+        {
+          "href": "/vs/yelp/",
+          "text": "Yelp",
+          "order": 2
+        },
+        {
+          "href": "/vs/clutch/",
+          "text": "Clutch",
+          "order": 3
+        },
+        {
+          "href": "/how-it-works/",
+          "text": "Stripe-verified cryptographic process",
+          "order": 4
+        },
+        {
+          "href": "/blog/are-trustpilot-reviews-reliable/",
+          "text": "our analysis of Trustpilot's reliability",
+          "order": 5
+        },
+        {
+          "href": "/blog/are-trustpilot-reviews-reliable/",
+          "text": "Trustpilot review authenticity",
+          "order": 6
+        }
+      ]
+    },
+    {
+      "slug": "/vs/yelp/",
+      "title": "Signed Reviews vs Yelp. Comparison",
+      "outbound": {
+        "nav": 7,
+        "body": 3,
+        "related": 3,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/vs/clutch/",
+          "text": "Clutch",
+          "order": 1
+        },
+        {
+          "href": "/vs/google-reviews/",
+          "text": "Google Reviews",
+          "order": 2
+        },
+        {
+          "href": "/vs/trustpilot/",
+          "text": "Trustpilot",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "slug": "/vs/yotpo/",
+      "title": "Signed Reviews vs Yotpo. Comparison",
+      "outbound": {
+        "nav": 7,
+        "body": 3,
+        "related": 4,
+        "footer": 24
+      },
+      "bodyLinks": [
+        {
+          "href": "/vs/loox/",
+          "text": "Loox",
+          "order": 1
+        },
+        {
+          "href": "/vs/okendo/",
+          "text": "Okendo",
+          "order": 2
+        },
+        {
+          "href": "/vs/stamped/",
+          "text": "Stamped.io",
+          "order": 3
+        }
+      ]
+    }
+  ],
+  "inbound": {
+    "/about/": {
+      "body": 0,
+      "related": 0,
+      "nav": 142,
+      "footer": 71,
+      "other": 0,
+      "sources": []
+    },
+    "/api/": {
+      "body": 3,
+      "related": 2,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/docs/",
+        "/integrations/",
+        "/integrations/stripe/"
+      ]
+    },
+    "/blog/are-trustpilot-reviews-reliable/": {
+      "body": 6,
+      "related": 2,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/",
+        "/blog/trustpilot-alternatives-for-ecommerce/",
+        "/blog/trustpilot-pricing-explained/",
+        "/blog/trustpilot-widget-examples/",
+        "/vs/trustpilot/",
+        "/vs/trustpilot/"
+      ]
+    },
+    "/blog/best-review-platform-for-saas/": {
+      "body": 3,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/how-to-collect-reviews-for-saas/",
+        "/blog/",
+        "/blog/trustpilot-alternatives-for-saas/"
+      ]
+    },
+    "/blog/best-time-to-ask-for-a-review/": {
+      "body": 4,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/how-to-collect-reviews-for-saas/",
+        "/blog/how-to-get-reviews-on-shopify/",
+        "/blog/how-to-get-reviews-on-shopify/",
+        "/blog/"
+      ]
+    },
+    "/blog/fake-review-checker/": {
+      "body": 2,
+      "related": 1,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/how-to-spot-fake-reviews/",
+        "/blog/"
+      ]
+    },
+    "/blog/fake-review-laws-ftc/": {
+      "body": 3,
+      "related": 1,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/fake-reviews/",
+        "/blog/",
+        "/blog/transaction-verified-reviews/"
+      ]
+    },
+    "/blog/fake-review-statistics-2026/": {
+      "body": 6,
+      "related": 2,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/are-trustpilot-reviews-reliable/",
+        "/blog/fake-review-checker/",
+        "/blog/fake-reviews/",
+        "/blog/fake-reviews/",
+        "/blog/how-to-spot-fake-reviews/",
+        "/blog/"
+      ]
+    },
+    "/blog/fake-reviews/": {
+      "body": 3,
+      "related": 2,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/fake-review-laws-ftc/",
+        "/blog/how-to-spot-fake-reviews/",
+        "/blog/"
+      ]
+    },
+    "/blog/fake-shopify-reviews/": {
+      "body": 3,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/how-to-get-reviews-on-shopify/",
+        "/blog/",
+        "/blog/trustpilot-alternatives-for-ecommerce/"
+      ]
+    },
+    "/blog/how-stripe-review-verification-works/": {
+      "body": 11,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/best-time-to-ask-for-a-review/",
+        "/blog/fake-review-checker/",
+        "/blog/",
+        "/blog/post-purchase-review-email-templates/",
+        "/blog/stripe-app-for-reviews/",
+        "/blog/stripe-proof-of-purchase-verification/",
+        "/blog/stripe-proof-of-purchase-verification/",
+        "/blog/stripe-verified-reviews/",
+        "/blog/stripe-verified-reviews/",
+        "/blog/transaction-verified-reviews/",
+        "/blog/trustpilot-alternatives-for-small-business/"
+      ]
+    },
+    "/blog/how-to-collect-reviews-for-saas/": {
+      "body": 2,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/",
+        "/blog/trustpilot-alternatives-for-saas/"
+      ]
+    },
+    "/blog/how-to-collect-verified-customer-reviews/": {
+      "body": 3,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/best-time-to-ask-for-a-review/",
+        "/blog/",
+        "/blog/post-purchase-review-email-templates/"
+      ]
+    },
+    "/blog/how-to-get-reviews-on-shopify/": {
+      "body": 1,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/"
+      ]
+    },
+    "/blog/how-to-spot-fake-reviews/": {
+      "body": 7,
+      "related": 1,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/are-trustpilot-reviews-reliable/",
+        "/blog/are-trustpilot-reviews-reliable/",
+        "/blog/fake-review-checker/",
+        "/blog/fake-shopify-reviews/",
+        "/blog/",
+        "/tools/fake-review-checker/",
+        "/tools/fake-review-checker/"
+      ]
+    },
+    "/blog/how-to-verify-a-customer-actually-bought/": {
+      "body": 4,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/fake-shopify-reviews/",
+        "/blog/",
+        "/blog/review-app-for-stripe-payments/",
+        "/blog/review-app-for-stripe-payments/"
+      ]
+    },
+    "/blog/": {
+      "body": 29,
+      "related": 0,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/blog/are-trustpilot-reviews-reliable/",
+        "/blog/best-review-platform-for-saas/",
+        "/blog/best-time-to-ask-for-a-review/",
+        "/blog/fake-review-checker/",
+        "/blog/fake-review-laws-ftc/",
+        "/blog/fake-review-statistics-2026/",
+        "/blog/fake-reviews/",
+        "/blog/fake-shopify-reviews/",
+        "/blog/how-stripe-review-verification-works/",
+        "/blog/how-to-collect-reviews-for-saas/",
+        "/blog/how-to-collect-verified-customer-reviews/",
+        "/blog/how-to-get-reviews-on-shopify/",
+        "/blog/how-to-spot-fake-reviews/",
+        "/blog/how-to-verify-a-customer-actually-bought/",
+        "/blog/is-trustpilot-legit/",
+        "/blog/post-purchase-review-email-templates/",
+        "/blog/purchase-verified-vs-email-verified-reviews/",
+        "/blog/review-app-for-stripe-payments/",
+        "/blog/stripe-app-for-reviews/",
+        "/blog/stripe-proof-of-purchase-verification/",
+        "/blog/stripe-verified-reviews/",
+        "/blog/transaction-verified-reviews/",
+        "/blog/trustpilot-alternatives-for-ecommerce/",
+        "/blog/trustpilot-alternatives-for-saas/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/blog/trustpilot-pricing-explained/",
+        "/blog/trustpilot-widget-examples/",
+        "/blog/verified-reviews-vs-unverified-reviews/",
+        "/blog/what-is-a-verified-review/"
+      ]
+    },
+    "/blog/is-trustpilot-legit/": {
+      "body": 2,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/are-trustpilot-reviews-reliable/",
+        "/blog/"
+      ]
+    },
+    "/blog/post-purchase-review-email-templates/": {
+      "body": 4,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/best-time-to-ask-for-a-review/",
+        "/blog/how-to-get-reviews-on-shopify/",
+        "/blog/how-to-get-reviews-on-shopify/",
+        "/blog/"
+      ]
+    },
+    "/blog/purchase-verified-vs-email-verified-reviews/": {
+      "body": 6,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/how-to-verify-a-customer-actually-bought/",
+        "/blog/",
+        "/blog/post-purchase-review-email-templates/",
+        "/blog/what-is-a-verified-review/",
+        "/blog/what-is-a-verified-review/",
+        "/blog/what-is-a-verified-review/"
+      ]
+    },
+    "/blog/review-app-for-stripe-payments/": {
+      "body": 2,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/",
+        "/blog/stripe-app-for-reviews/"
+      ]
+    },
+    "/blog/stripe-app-for-reviews/": {
+      "body": 2,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/",
+        "/blog/review-app-for-stripe-payments/"
+      ]
+    },
+    "/blog/stripe-proof-of-purchase-verification/": {
+      "body": 4,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/",
+        "/blog/post-purchase-review-email-templates/",
+        "/blog/post-purchase-review-email-templates/",
+        "/blog/stripe-verified-reviews/"
+      ]
+    },
+    "/blog/stripe-verified-reviews/": {
+      "body": 26,
+      "related": 8,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/best-review-platform-for-saas/",
+        "/blog/best-review-platform-for-saas/",
+        "/blog/best-review-platform-for-saas/",
+        "/blog/fake-review-laws-ftc/",
+        "/blog/fake-review-statistics-2026/",
+        "/blog/fake-review-statistics-2026/",
+        "/blog/fake-review-statistics-2026/",
+        "/blog/fake-reviews/",
+        "/blog/how-stripe-review-verification-works/",
+        "/blog/how-to-collect-reviews-for-saas/",
+        "/blog/how-to-collect-verified-customer-reviews/",
+        "/blog/",
+        "/blog/post-purchase-review-email-templates/",
+        "/blog/purchase-verified-vs-email-verified-reviews/",
+        "/blog/purchase-verified-vs-email-verified-reviews/",
+        "/blog/purchase-verified-vs-email-verified-reviews/",
+        "/blog/review-app-for-stripe-payments/",
+        "/blog/stripe-app-for-reviews/",
+        "/blog/stripe-proof-of-purchase-verification/",
+        "/blog/transaction-verified-reviews/",
+        "/blog/trustpilot-alternatives-for-saas/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/blog/verified-reviews-vs-unverified-reviews/",
+        "/blog/what-is-a-verified-review/",
+        "/blog/what-is-a-verified-review/",
+        "/blog/what-is-a-verified-review/"
+      ]
+    },
+    "/blog/transaction-verified-reviews/": {
+      "body": 9,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/how-to-collect-reviews-for-saas/",
+        "/blog/how-to-verify-a-customer-actually-bought/",
+        "/blog/",
+        "/blog/purchase-verified-vs-email-verified-reviews/",
+        "/blog/purchase-verified-vs-email-verified-reviews/",
+        "/blog/review-app-for-stripe-payments/",
+        "/blog/stripe-app-for-reviews/",
+        "/blog/trustpilot-alternatives-for-saas/",
+        "/tools/fake-review-checker/"
+      ]
+    },
+    "/blog/trustpilot-alternatives-for-ecommerce/": {
+      "body": 2,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/",
+        "/blog/is-trustpilot-legit/"
+      ]
+    },
+    "/blog/trustpilot-alternatives-for-saas/": {
+      "body": 2,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/how-to-collect-reviews-for-saas/",
+        "/blog/"
+      ]
+    },
+    "/blog/trustpilot-alternatives-for-small-business/": {
+      "body": 3,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/",
+        "/blog/is-trustpilot-legit/",
+        "/blog/trustpilot-pricing-explained/"
+      ]
+    },
+    "/blog/trustpilot-pricing-explained/": {
+      "body": 5,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/",
+        "/blog/is-trustpilot-legit/",
+        "/blog/is-trustpilot-legit/",
+        "/blog/trustpilot-alternatives-for-ecommerce/",
+        "/blog/trustpilot-widget-examples/"
+      ]
+    },
+    "/blog/trustpilot-widget-examples/": {
+      "body": 2,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/",
+        "/blog/is-trustpilot-legit/"
+      ]
+    },
+    "/blog/verified-reviews-vs-unverified-reviews/": {
+      "body": 3,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/",
+        "/blog/trustpilot-alternatives-for-ecommerce/",
+        "/tools/fake-review-checker/"
+      ]
+    },
+    "/blog/what-is-a-verified-review/": {
+      "body": 5,
+      "related": 1,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/",
+        "/blog/transaction-verified-reviews/",
+        "/blog/verified-reviews-vs-unverified-reviews/",
+        "/blog/verified-reviews-vs-unverified-reviews/",
+        "/blog/verified-reviews-vs-unverified-reviews/"
+      ]
+    },
+    "/contact/": {
+      "body": 1,
+      "related": 0,
+      "nav": 142,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/demo/"
+      ]
+    },
+    "/demo/": {
+      "body": 0,
+      "related": 0,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": []
+    },
+    "/dmca/": {
+      "body": 1,
+      "related": 0,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/trust/"
+      ]
+    },
+    "/docs/": {
+      "body": 1,
+      "related": 1,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/integrations/"
+      ]
+    },
+    "/dpa/": {
+      "body": 4,
+      "related": 0,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/docs/",
+        "/privacy/",
+        "/terms/",
+        "/trust/"
+      ]
+    },
+    "/faq/": {
+      "body": 0,
+      "related": 1,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": []
+    },
+    "/features/": {
+      "body": 1,
+      "related": 0,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/vs/podium/"
+      ]
+    },
+    "/how-it-works/": {
+      "body": 22,
+      "related": 2,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/are-trustpilot-reviews-reliable/",
+        "/blog/best-time-to-ask-for-a-review/",
+        "/blog/fake-shopify-reviews/",
+        "/blog/how-stripe-review-verification-works/",
+        "/blog/how-to-collect-reviews-for-saas/",
+        "/blog/how-to-collect-reviews-for-saas/",
+        "/blog/how-to-collect-verified-customer-reviews/",
+        "/blog/how-to-spot-fake-reviews/",
+        "/blog/purchase-verified-vs-email-verified-reviews/",
+        "/blog/purchase-verified-vs-email-verified-reviews/",
+        "/blog/stripe-proof-of-purchase-verification/",
+        "/blog/stripe-verified-reviews/",
+        "/blog/stripe-verified-reviews/",
+        "/blog/stripe-verified-reviews/",
+        "/blog/stripe-verified-reviews/",
+        "/blog/stripe-verified-reviews/",
+        "/blog/transaction-verified-reviews/",
+        "/blog/trustpilot-alternatives-for-saas/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/blog/what-is-a-verified-review/",
+        "/blog/what-is-a-verified-review/",
+        "/vs/trustpilot/"
+      ]
+    },
+    "/how-verification-works/": {
+      "body": 3,
+      "related": 3,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/blog/are-trustpilot-reviews-reliable/",
+        "/blog/stripe-verified-reviews/",
+        "/blog/what-is-a-verified-review/"
+      ]
+    },
+    "/integrations/": {
+      "body": 1,
+      "related": 2,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/blog/how-to-collect-verified-customer-reviews/"
+      ]
+    },
+    "/integrations/shopify/": {
+      "body": 3,
+      "related": 1,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/how-to-get-reviews-on-shopify/",
+        "/blog/how-to-get-reviews-on-shopify/",
+        "/blog/trustpilot-alternatives-for-ecommerce/"
+      ]
+    },
+    "/integrations/stripe/": {
+      "body": 7,
+      "related": 3,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/how-to-collect-verified-customer-reviews/",
+        "/blog/review-app-for-stripe-payments/",
+        "/blog/review-app-for-stripe-payments/",
+        "/blog/trustpilot-alternatives-for-ecommerce/",
+        "/integrations/",
+        "/integrations/shopify/",
+        "/integrations/woocommerce/"
+      ]
+    },
+    "/integrations/woocommerce/": {
+      "body": 3,
+      "related": 0,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/blog/how-to-verify-a-customer-actually-bought/",
+        "/blog/stripe-verified-reviews/",
+        "/blog/trustpilot-alternatives-for-ecommerce/"
+      ]
+    },
+    "/learn/ftc-fake-reviews-rules/": {
+      "body": 3,
+      "related": 1,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/fake-review-checker/",
+        "/blog/fake-reviews/",
+        "/blog/fake-shopify-reviews/"
+      ]
+    },
+    "/learn/how-fake-reviews-work/": {
+      "body": 2,
+      "related": 1,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/fake-reviews/",
+        "/blog/fake-shopify-reviews/"
+      ]
+    },
+    "/learn/what-does-verified-buyer-mean/": {
+      "body": 36,
+      "related": 17,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/are-trustpilot-reviews-reliable/",
+        "/blog/are-trustpilot-reviews-reliable/",
+        "/blog/are-trustpilot-reviews-reliable/",
+        "/blog/best-review-platform-for-saas/",
+        "/blog/best-review-platform-for-saas/",
+        "/blog/fake-review-laws-ftc/",
+        "/blog/fake-review-statistics-2026/",
+        "/blog/fake-review-statistics-2026/",
+        "/blog/fake-reviews/",
+        "/blog/fake-reviews/",
+        "/blog/fake-shopify-reviews/",
+        "/blog/how-stripe-review-verification-works/",
+        "/blog/how-to-collect-verified-customer-reviews/",
+        "/blog/how-to-get-reviews-on-shopify/",
+        "/blog/how-to-get-reviews-on-shopify/",
+        "/blog/how-to-spot-fake-reviews/",
+        "/blog/how-to-spot-fake-reviews/",
+        "/blog/how-to-verify-a-customer-actually-bought/",
+        "/blog/purchase-verified-vs-email-verified-reviews/",
+        "/blog/purchase-verified-vs-email-verified-reviews/",
+        "/blog/stripe-proof-of-purchase-verification/",
+        "/blog/stripe-verified-reviews/",
+        "/blog/stripe-verified-reviews/",
+        "/blog/transaction-verified-reviews/",
+        "/blog/transaction-verified-reviews/",
+        "/blog/trustpilot-alternatives-for-ecommerce/",
+        "/blog/trustpilot-alternatives-for-ecommerce/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/blog/trustpilot-pricing-explained/",
+        "/blog/trustpilot-widget-examples/",
+        "/blog/what-is-a-verified-review/",
+        "/blog/what-is-a-verified-review/",
+        "/docs/",
+        "/integrations/",
+        "/tools/fake-review-checker/"
+      ]
+    },
+    "/pricing/": {
+      "body": 33,
+      "related": 1,
+      "nav": 142,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/about/",
+        "/blog/best-review-platform-for-saas/",
+        "/blog/best-time-to-ask-for-a-review/",
+        "/blog/fake-review-checker/",
+        "/blog/fake-review-statistics-2026/",
+        "/blog/fake-shopify-reviews/",
+        "/blog/how-stripe-review-verification-works/",
+        "/blog/how-stripe-review-verification-works/",
+        "/blog/how-to-collect-reviews-for-saas/",
+        "/blog/how-to-collect-verified-customer-reviews/",
+        "/blog/is-trustpilot-legit/",
+        "/blog/purchase-verified-vs-email-verified-reviews/",
+        "/blog/review-app-for-stripe-payments/",
+        "/blog/stripe-app-for-reviews/",
+        "/blog/stripe-app-for-reviews/",
+        "/blog/stripe-proof-of-purchase-verification/",
+        "/blog/stripe-proof-of-purchase-verification/",
+        "/blog/stripe-verified-reviews/",
+        "/blog/trustpilot-alternatives-for-ecommerce/",
+        "/blog/trustpilot-alternatives-for-ecommerce/",
+        "/blog/trustpilot-alternatives-for-saas/",
+        "/blog/trustpilot-alternatives-for-saas/",
+        "/blog/trustpilot-alternatives-for-saas/",
+        "/blog/trustpilot-alternatives-for-saas/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/blog/trustpilot-pricing-explained/",
+        "/blog/trustpilot-pricing-explained/",
+        "/blog/verified-reviews-vs-unverified-reviews/",
+        "/blog/what-is-a-verified-review/",
+        "/demo/",
+        "/faq/",
+        "/features/",
+        "/vs/podium/"
+      ]
+    },
+    "/privacy/": {
+      "body": 4,
+      "related": 0,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/about/",
+        "/contact/",
+        "/dpa/",
+        "/trust/"
+      ]
+    },
+    "/refund-policy/": {
+      "body": 2,
+      "related": 0,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/about/",
+        "/pricing/"
+      ]
+    },
+    "/subprocessors/": {
+      "body": 7,
+      "related": 0,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/about/",
+        "/docs/",
+        "/dpa/",
+        "/dpa/",
+        "/features/",
+        "/privacy/",
+        "/trust/"
+      ]
+    },
+    "/terms/": {
+      "body": 5,
+      "related": 0,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/dmca/",
+        "/dmca/",
+        "/dpa/",
+        "/privacy/",
+        "/trust/"
+      ]
+    },
+    "/tools/fake-review-checker/": {
+      "body": 4,
+      "related": 1,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/blog/fake-review-checker/",
+        "/blog/fake-review-checker/",
+        "/blog/fake-reviews/",
+        "/blog/how-to-spot-fake-reviews/"
+      ]
+    },
+    "/trust/": {
+      "body": 5,
+      "related": 1,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/stripe-app-for-reviews/",
+        "/blog/trustpilot-alternatives-for-ecommerce/",
+        "/blog/trustpilot-alternatives-for-ecommerce/",
+        "/blog/trustpilot-alternatives-for-saas/",
+        "/learn/what-does-verified-buyer-mean/"
+      ]
+    },
+    "/vs/birdeye/": {
+      "body": 3,
+      "related": 0,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/blog/how-to-collect-verified-customer-reviews/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/vs/podium/"
+      ]
+    },
+    "/vs/clutch/": {
+      "body": 3,
+      "related": 0,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/vs/sitejabber/",
+        "/vs/trustpilot/",
+        "/vs/yelp/"
+      ]
+    },
+    "/vs/ekomi/": {
+      "body": 3,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/transaction-verified-reviews/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/vs/feefo/"
+      ]
+    },
+    "/vs/feefo/": {
+      "body": 4,
+      "related": 4,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/vs/ekomi/"
+      ]
+    },
+    "/vs/google-reviews/": {
+      "body": 6,
+      "related": 2,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/trustpilot-alternatives-for-ecommerce/",
+        "/vs/birdeye/",
+        "/vs/clutch/",
+        "/vs/podium/",
+        "/vs/sitejabber/",
+        "/vs/yelp/"
+      ]
+    },
+    "/vs/judge-me/": {
+      "body": 8,
+      "related": 4,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/best-review-platform-for-saas/",
+        "/blog/trustpilot-alternatives-for-ecommerce/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/vs/reviews-io/",
+        "/vs/skeepers/",
+        "/vs/stamped/"
+      ]
+    },
+    "/vs/loox/": {
+      "body": 5,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/trustpilot-alternatives-for-ecommerce/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/vs/judge-me/",
+        "/vs/reviews-io/",
+        "/vs/yotpo/"
+      ]
+    },
+    "/vs/okendo/": {
+      "body": 5,
+      "related": 1,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/trustpilot-alternatives-for-ecommerce/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/vs/judge-me/",
+        "/vs/loox/",
+        "/vs/yotpo/"
+      ]
+    },
+    "/vs/podium/": {
+      "body": 3,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/how-to-collect-verified-customer-reviews/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/vs/birdeye/"
+      ]
+    },
+    "/vs/reviews-io/": {
+      "body": 5,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/vs/okendo/",
+        "/vs/skeepers/",
+        "/vs/stamped/"
+      ]
+    },
+    "/vs/sitejabber/": {
+      "body": 4,
+      "related": 1,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/blog/fake-reviews/",
+        "/vs/clutch/",
+        "/vs/google-reviews/",
+        "/vs/trustpilot/"
+      ]
+    },
+    "/vs/skeepers/": {
+      "body": 3,
+      "related": 0,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/vs/loox/",
+        "/vs/okendo/",
+        "/vs/stamped/"
+      ]
+    },
+    "/vs/stamped/": {
+      "body": 5,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/trustpilot-alternatives-for-ecommerce/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/vs/loox/",
+        "/vs/okendo/",
+        "/vs/yotpo/"
+      ]
+    },
+    "/vs/trustpilot/": {
+      "body": 10,
+      "related": 8,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/blog/best-review-platform-for-saas/",
+        "/blog/stripe-verified-reviews/",
+        "/blog/trustpilot-alternatives-for-ecommerce/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/blog/trustpilot-pricing-explained/",
+        "/blog/trustpilot-widget-examples/",
+        "/vs/clutch/",
+        "/vs/google-reviews/",
+        "/vs/yelp/"
+      ]
+    },
+    "/vs/yelp/": {
+      "body": 3,
+      "related": 1,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/vs/google-reviews/",
+        "/vs/sitejabber/",
+        "/vs/trustpilot/"
+      ]
+    },
+    "/vs/yotpo/": {
+      "body": 8,
+      "related": 3,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/best-review-platform-for-saas/",
+        "/blog/best-review-platform-for-saas/",
+        "/blog/trustpilot-alternatives-for-ecommerce/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/blog/trustpilot-alternatives-for-small-business/",
+        "/vs/judge-me/",
+        "/vs/reviews-io/",
+        "/vs/skeepers/"
+      ]
+    }
+  },
+  "orphans": [
+    {
+      "slug": "/about/",
+      "body": 0,
+      "related": 0,
+      "nav": 142,
+      "footer": 71,
+      "other": 0,
+      "sources": []
+    },
+    {
+      "slug": "/demo/",
+      "body": 0,
+      "related": 0,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": []
+    },
+    {
+      "slug": "/faq/",
+      "body": 0,
+      "related": 1,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": []
+    },
+    {
+      "slug": "/blog/how-to-get-reviews-on-shopify/",
+      "body": 1,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/"
+      ]
+    },
+    {
+      "slug": "/contact/",
+      "body": 1,
+      "related": 0,
+      "nav": 142,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/demo/"
+      ]
+    },
+    {
+      "slug": "/dmca/",
+      "body": 1,
+      "related": 0,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/trust/"
+      ]
+    },
+    {
+      "slug": "/docs/",
+      "body": 1,
+      "related": 1,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/integrations/"
+      ]
+    },
+    {
+      "slug": "/features/",
+      "body": 1,
+      "related": 0,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/vs/podium/"
+      ]
+    },
+    {
+      "slug": "/integrations/",
+      "body": 1,
+      "related": 2,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/blog/how-to-collect-verified-customer-reviews/"
+      ]
+    },
+    {
+      "slug": "/blog/fake-review-checker/",
+      "body": 2,
+      "related": 1,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/how-to-spot-fake-reviews/",
+        "/blog/"
+      ]
+    },
+    {
+      "slug": "/blog/how-to-collect-reviews-for-saas/",
+      "body": 2,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/",
+        "/blog/trustpilot-alternatives-for-saas/"
+      ]
+    },
+    {
+      "slug": "/blog/is-trustpilot-legit/",
+      "body": 2,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/are-trustpilot-reviews-reliable/",
+        "/blog/"
+      ]
+    },
+    {
+      "slug": "/blog/review-app-for-stripe-payments/",
+      "body": 2,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/",
+        "/blog/stripe-app-for-reviews/"
+      ]
+    },
+    {
+      "slug": "/blog/stripe-app-for-reviews/",
+      "body": 2,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/",
+        "/blog/review-app-for-stripe-payments/"
+      ]
+    },
+    {
+      "slug": "/blog/trustpilot-alternatives-for-ecommerce/",
+      "body": 2,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/",
+        "/blog/is-trustpilot-legit/"
+      ]
+    },
+    {
+      "slug": "/blog/trustpilot-alternatives-for-saas/",
+      "body": 2,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/how-to-collect-reviews-for-saas/",
+        "/blog/"
+      ]
+    },
+    {
+      "slug": "/blog/trustpilot-widget-examples/",
+      "body": 2,
+      "related": 0,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/",
+        "/blog/is-trustpilot-legit/"
+      ]
+    },
+    {
+      "slug": "/learn/how-fake-reviews-work/",
+      "body": 2,
+      "related": 1,
+      "nav": 0,
+      "footer": 0,
+      "other": 0,
+      "sources": [
+        "/blog/fake-reviews/",
+        "/blog/fake-shopify-reviews/"
+      ]
+    },
+    {
+      "slug": "/refund-policy/",
+      "body": 2,
+      "related": 0,
+      "nav": 0,
+      "footer": 71,
+      "other": 0,
+      "sources": [
+        "/about/",
+        "/pricing/"
+      ]
+    }
+  ],
+  "anchorIssues": [
+    {
+      "from": "/blog/are-trustpilot-reviews-reliable/",
+      "to": "/blog/how-to-spot-fake-reviews/",
+      "text": "Read our full guide to spotting fake reviews →",
+      "zone": "body",
+      "sim": 0.33,
+      "generic": false
+    },
+    {
+      "from": "/blog/are-trustpilot-reviews-reliable/",
+      "to": "/learn/what-does-verified-buyer-mean/",
+      "text": "verification spectrum",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/are-trustpilot-reviews-reliable/",
+      "to": "/how-it-works/",
+      "text": "Signed Reviews connects to your Stripe account",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/fake-review-statistics-2026/",
+      "to": "/learn/what-does-verified-buyer-mean/",
+      "text": "purchase verification",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/fake-review-statistics-2026/",
+      "to": "/blog/stripe-verified-reviews/",
+      "text": "Purchase verification",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/fake-review-statistics-2026/",
+      "to": "/blog/stripe-verified-reviews/",
+      "text": "Stripe Verified Reviews: The Only Reviews Backed by Your Payment Processor",
+      "zone": "body",
+      "sim": 0.33,
+      "generic": false
+    },
+    {
+      "from": "/blog/fake-reviews/",
+      "to": "/blog/fake-review-laws-ftc/",
+      "text": "where fake review law currently stands",
+      "zone": "body",
+      "sim": 0.2,
+      "generic": false
+    },
+    {
+      "from": "/blog/fake-reviews/",
+      "to": "/learn/ftc-fake-reviews-rules/",
+      "text": "Trade Regulation Rule on the Use of Consumer Reviews and Testimonials",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/fake-shopify-reviews/",
+      "to": "/learn/what-does-verified-buyer-mean/",
+      "text": "verification spectrum",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/how-stripe-review-verification-works/",
+      "to": "/blog/stripe-verified-reviews/",
+      "text": "Stripe Verified Reviews: The Only Reviews Backed by Your Payment Processor",
+      "zone": "body",
+      "sim": 0.33,
+      "generic": false
+    },
+    {
+      "from": "/blog/how-to-collect-reviews-for-saas/",
+      "to": "/how-it-works/",
+      "text": "See how verification and automation work together",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/how-to-collect-verified-customer-reviews/",
+      "to": "/integrations/stripe/",
+      "text": "Stripe&#39;s official OAuth flow",
+      "zone": "body",
+      "sim": 0.33,
+      "generic": false
+    },
+    {
+      "from": "/blog/how-to-collect-verified-customer-reviews/",
+      "to": "/integrations/",
+      "text": "Shopify, WooCommerce, or a custom stack",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/how-to-get-reviews-on-shopify/",
+      "to": "/learn/what-does-verified-buyer-mean/",
+      "text": "verification spectrum",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/how-to-get-reviews-on-shopify/",
+      "to": "/blog/best-time-to-ask-for-a-review/",
+      "text": "Full timing guide by product type and platform →",
+      "zone": "body",
+      "sim": 0.17,
+      "generic": false
+    },
+    {
+      "from": "/blog/how-to-get-reviews-on-shopify/",
+      "to": "/blog/post-purchase-review-email-templates/",
+      "text": "Ready-to-use templates for every scenario →",
+      "zone": "body",
+      "sim": 0.2,
+      "generic": false
+    },
+    {
+      "from": "/blog/how-to-spot-fake-reviews/",
+      "to": "/learn/what-does-verified-buyer-mean/",
+      "text": "Full verification spectrum breakdown →",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/how-to-verify-a-customer-actually-bought/",
+      "to": "/blog/purchase-verified-vs-email-verified-reviews/",
+      "text": "Purchase-Verified vs Email-Verified Reviews",
+      "zone": "body",
+      "sim": 0.33,
+      "generic": false
+    },
+    {
+      "from": "/blog/purchase-verified-vs-email-verified-reviews/",
+      "to": "/how-it-works/",
+      "text": "See how SignedReviews implements payment verified reviews.",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/purchase-verified-vs-email-verified-reviews/",
+      "to": "/pricing/",
+      "text": "publish payment verified reviews",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/review-app-for-stripe-payments/",
+      "to": "/blog/how-to-verify-a-customer-actually-bought/",
+      "text": "verification spectrum",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/review-app-for-stripe-payments/",
+      "to": "/integrations/stripe/",
+      "text": "See how Stripe OAuth verification works",
+      "zone": "body",
+      "sim": 0.33,
+      "generic": false
+    },
+    {
+      "from": "/blog/stripe-app-for-reviews/",
+      "to": "/trust/",
+      "text": "Stripe-verified reviews",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/stripe-proof-of-purchase-verification/",
+      "to": "/blog/stripe-verified-reviews/",
+      "text": "Stripe Verified Reviews: The Only Reviews Backed by Your Payment Processor",
+      "zone": "body",
+      "sim": 0.33,
+      "generic": false
+    },
+    {
+      "from": "/blog/stripe-verified-reviews/",
+      "to": "/blog/how-stripe-review-verification-works/",
+      "text": "cryptographically signed reviews",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/stripe-verified-reviews/",
+      "to": "/learn/what-does-verified-buyer-mean/",
+      "text": "learn page",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/stripe-verified-reviews/",
+      "to": "/how-it-works/",
+      "text": "how this prevents fake reviews",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/trustpilot-alternatives-for-ecommerce/",
+      "to": "/learn/what-does-verified-buyer-mean/",
+      "text": "full verification spectrum",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/trustpilot-alternatives-for-ecommerce/",
+      "to": "/trust/",
+      "text": "How Stripe verification works",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/trustpilot-alternatives-for-ecommerce/",
+      "to": "/trust/",
+      "text": "how Stripe verification works",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/trustpilot-alternatives-for-saas/",
+      "to": "/trust/",
+      "text": "See how the verification works →",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/trustpilot-alternatives-for-saas/",
+      "to": "/pricing/",
+      "text": "see plans",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/trustpilot-alternatives-for-saas/",
+      "to": "/how-it-works/",
+      "text": "Learn how review triggers work →",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/trustpilot-alternatives-for-small-business/",
+      "to": "/vs/feefo/",
+      "text": "See how we compare head-to-head.",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/trustpilot-alternatives-for-small-business/",
+      "to": "/vs/reviews-io/",
+      "text": "reviews.io alternative",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/trustpilot-alternatives-for-small-business/",
+      "to": "/vs/reviews-io/",
+      "text": "Signed Reviews vs Reviews.io",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/trustpilot-pricing-explained/",
+      "to": "/pricing/",
+      "text": "Signed Reviews",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/verified-reviews-vs-unverified-reviews/",
+      "to": "/blog/stripe-verified-reviews/",
+      "text": "Stripe Verified Reviews: The Only Reviews Backed by Your Payment Processor",
+      "zone": "body",
+      "sim": 0.33,
+      "generic": false
+    },
+    {
+      "from": "/blog/what-is-a-verified-review/",
+      "to": "/blog/purchase-verified-vs-email-verified-reviews/",
+      "text": "Purchase-Verified vs Email-Verified Reviews",
+      "zone": "body",
+      "sim": 0.33,
+      "generic": false
+    },
+    {
+      "from": "/blog/what-is-a-verified-review/",
+      "to": "/blog/purchase-verified-vs-email-verified-reviews/",
+      "text": "how purchase-verified reviews outperform email-verified ones",
+      "zone": "body",
+      "sim": 0.2,
+      "generic": false
+    },
+    {
+      "from": "/blog/what-is-a-verified-review/",
+      "to": "/how-it-works/",
+      "text": "see how SignedReviews prevents AI-generated reviews",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/blog/what-is-a-verified-review/",
+      "to": "/blog/purchase-verified-vs-email-verified-reviews/",
+      "text": "Purchase-Verified vs Email-Verified Reviews",
+      "zone": "body",
+      "sim": 0.33,
+      "generic": false
+    },
+    {
+      "from": "/blog/what-is-a-verified-review/",
+      "to": "/pricing/",
+      "text": "see plans starting at $29/mo",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/docs/",
+      "to": "/learn/what-does-verified-buyer-mean/",
+      "text": "Learn more about verification →",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/docs/",
+      "to": "/dpa/",
+      "text": "Accept DPA →",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/docs/",
+      "to": "/subprocessors/",
+      "text": "Full list →",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/dpa/",
+      "to": "/subprocessors/",
+      "text": "signedreviews.com/subprocessors/",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/dpa/",
+      "to": "/subprocessors/",
+      "text": "signedreviews.com/subprocessors/",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/features/",
+      "to": "/subprocessors/",
+      "text": "signedreviews.com/subprocessors",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/integrations/",
+      "to": "/learn/what-does-verified-buyer-mean/",
+      "text": "Learn why that matters →",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/learn/what-does-verified-buyer-mean/",
+      "to": "/trust/",
+      "text": "how Signed Reviews verifies reviews",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/learn/what-does-verified-buyer-mean/",
+      "to": "/trust/",
+      "text": "How Signed Reviews verifies reviews",
+      "zone": "related",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/tools/fake-review-checker/",
+      "to": "/learn/what-does-verified-buyer-mean/",
+      "text": "verification spectrum",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/tools/fake-review-checker/",
+      "to": "/blog/how-to-spot-fake-reviews/",
+      "text": "virtually indistinguishable from human writing",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/vs/okendo/",
+      "to": "/vs/reviews-io/",
+      "text": "Reviews.io",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/vs/podium/",
+      "to": "/pricing/",
+      "text": "A Podium alternative",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/vs/podium/",
+      "to": "/features/",
+      "text": "uses Stripe verification",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/vs/skeepers/",
+      "to": "/vs/reviews-io/",
+      "text": "Reviews.io",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/vs/stamped/",
+      "to": "/vs/reviews-io/",
+      "text": "Reviews.io",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/vs/trustpilot/",
+      "to": "/how-it-works/",
+      "text": "Stripe-verified cryptographic process",
+      "zone": "body",
+      "sim": 0,
+      "generic": false
+    },
+    {
+      "from": "/vs/trustpilot/",
+      "to": "/blog/are-trustpilot-reviews-reliable/",
+      "text": "our analysis of Trustpilot's reliability",
+      "zone": "body",
+      "sim": 0.33,
+      "generic": false
+    }
+  ]
+}

@@ -866,12 +866,94 @@ function escapeHtml(s) {
     .replace(/"/g, '&quot;');
 }
 
+// ── Comparison-page sibling links ────────────────────────────────────────────
+// Each /vs/ page names its true semantic siblings in-body, immediately after the
+// intro paragraph. Why here and not in the footer "Related:" block
+// (INTERNAL_LINKING_PLAN.md §3.2):
+//
+//   1. Those sibling pages were otherwise reachable only from the sitewide footer
+//      link and the "Related:" boilerplate — the two lowest-probability
+//      containers on the page. Seven of them had zero contextual inbound links.
+//   2. Placing it after the intro makes the sibling link the FIRST internal link
+//      a reader meets, which is the slot that carries the most weight.
+//
+// Siblings are picked cyclically (each page links to the next three in its
+// cluster), so every member of a cluster receives exactly three inbound links
+// from the cluster regardless of how the cluster grows.
+const COMPARISON_NAMES = {
+  '/vs/trustpilot/': 'Trustpilot',
+  '/vs/sitejabber/': 'SiteJabber',
+  '/vs/yelp/': 'Yelp',
+  '/vs/clutch/': 'Clutch',
+  '/vs/google-reviews/': 'Google Reviews',
+  '/vs/judge-me/': 'Judge.me',
+  '/vs/yotpo/': 'Yotpo',
+  '/vs/loox/': 'Loox',
+  '/vs/okendo/': 'Okendo',
+  '/vs/stamped/': 'Stamped.io',
+  '/vs/skeepers/': 'Skeepers',
+  '/vs/reviews-io/': 'Reviews.io',
+  '/vs/ekomi/': 'eKomi',
+  '/vs/feefo/': 'Feefo',
+  '/vs/birdeye/': 'BirdEye',
+  '/vs/podium/': 'Podium',
+};
+
+const COMPARISON_CLUSTERS = [
+  {
+    members: ['/vs/trustpilot/', '/vs/sitejabber/', '/vs/yelp/', '/vs/clutch/', '/vs/google-reviews/'],
+    say: (list) => `sits in the open-review tier alongside ${list}. Anyone can post there, so "verified" is a platform policy rather than proof of purchase, the distinction the table below measures.`,
+  },
+  {
+    members: ['/vs/judge-me/', '/vs/yotpo/', '/vs/loox/', '/vs/okendo/', '/vs/stamped/', '/vs/skeepers/', '/vs/reviews-io/'],
+    say: (list) => `belongs to the Shopify-era review apps, alongside ${list}. Each verifies against the store's own order records rather than the payment processor itself.`,
+  },
+  {
+    members: ['/vs/ekomi/', '/vs/feefo/'],
+    say: (list) => `is in the same tier as ${list}: verification runs against a transaction feed the merchant supplies, so the review is only as trustworthy as the feed.`,
+  },
+  {
+    members: ['/vs/birdeye/', '/vs/podium/'],
+    // Google Reviews is the dominant local-review surface, so it belongs in this
+    // sentence even though it sits in the open-review cluster above.
+    also: ['/vs/google-reviews/'],
+    say: (list) => `competes with ${list} for local and multi-location businesses, where review volume is driven by messaging and listings rather than by payment verification.`,
+  },
+];
+
+function injectComparisonSiblings(slug, body) {
+  if (!COMPARISON_NAMES[slug]) return body;
+  const cluster = COMPARISON_CLUSTERS.find((c) => c.members.includes(slug));
+  if (!cluster) return body;
+
+  const n = cluster.members.length;
+  const take = Math.min(3, n - 1);
+  const idx = cluster.members.indexOf(slug);
+  const sibs = [];
+  for (let k = 1; k <= take; k++) sibs.push(cluster.members[(idx + k) % n]);
+  for (const extra of cluster.also || []) if (!sibs.includes(extra)) sibs.push(extra);
+
+  const links = sibs.map((s) => `<a href="${s}">${COMPARISON_NAMES[s]}</a>`);
+  const list = links.length === 1
+    ? links[0]
+    : `${links.slice(0, -1).join(', ')} and ${links[links.length - 1]}`;
+  const para = `<p>${COMPARISON_NAMES[slug]} ${cluster.say(list)}</p>`;
+
+  // Insert after the intro paragraph, inside <article class="prose">.
+  const open = body.indexOf('<article class="prose">');
+  if (open === -1) return body;
+  const close = body.indexOf('</p>', open);
+  if (close === -1) return body;
+  return `${body.slice(0, close + 4)}\n\n    ${para}${body.slice(close + 4)}`;
+}
+
 function page({ title, description, slug, hero, body, hasToc = false, active = '', extraStyle = '', bareBody = false, pageType = 'website' }) {
   const canonical = `${SITE_URL}${slug}`;
+  const withSiblings = injectComparisonSiblings(slug, body);
   const wrappedBody = bareBody
-    ? body
+    ? withSiblings
     : `<div class="prose-wrap${hasToc ? ' has-toc' : ''}">
-      ${body}
+      ${withSiblings}
     </div>`;
   return `<!DOCTYPE html>
 <html lang="en">

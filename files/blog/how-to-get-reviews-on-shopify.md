@@ -23,7 +23,7 @@ Every Shopify review app verifies reviews the same way at the architectural leve
 3. The review app checks: "Does this reviewer's email match an order in the store?"
 4. If yes → the review gets a "Verified Buyer" badge
 
-The verification data source is **your Shopify order records.** This is Level 3 (merchant-supplied) on the [verification spectrum](/learn/what-does-verified-buyer-mean/). It's much stronger than email-only verification, but it trusts data you control.
+The verification data source is **your Shopify order records.** This is Level 3 (merchant-supplied) on the [verification spectrum](/learn/what-does-verified-buyer-mean/). It's much stronger than email-only verification, but it trusts data you control. Our own [Shopify integration](/integrations/shopify/) takes the other route, reading the Stripe charge behind the order rather than the order record itself.
 
 ### What to look for in a Shopify review app
 

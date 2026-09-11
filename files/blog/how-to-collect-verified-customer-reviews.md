@@ -10,13 +10,13 @@ Learning how to collect verified customer reviews doesn't require technical expe
 
 ## Step 1: Connect your Stripe account
 
-The foundation of verified reviews is purchase verification. Connect your Stripe account to your review platform using Stripe's official OAuth flow. This grants minimal permissions: the platform can verify charges but can never charge, refund, or move funds. The only thing it can create is a discount coupon for a reviewer, and only when you enable review incentives.
+The foundation of verified reviews is purchase verification. Connect your Stripe account to your review platform using [Stripe's official OAuth flow](/integrations/stripe/). This grants minimal permissions: the platform can verify charges but can never charge, refund, or move funds. The only thing it can create is a discount coupon for a reviewer, and only when you enable review incentives.
 
 **What to look for**: Check exactly which permissions the integration requests. Some platforms request `read_write` access, which allows them to create charges and issue refunds. Signed Reviews uses four read permissions (`charge_read`, `customer_read`, `subscription_read`, `balance_transaction_source_read`) plus two write permissions (`coupon_write`, `promotion_code_write`), and the writes are used only to mint single-use discount coupons for reviewers when you enable review incentives. See [how it works](/how-it-works/) for the full setup flow.
 
 ## Step 2: Configure your auto-request settings
 
-Once connected, every new Stripe charge can automatically trigger a review invitation. Configure:
+Once connected, every new Stripe charge can automatically trigger a review invitation. This works the same whether you sell through [Shopify, WooCommerce, or a custom stack](/integrations/). Configure:
 
 - **Timing**: Send immediately (digital products), after a delay (physical products that need shipping time), or on delivery via webhook (most accurate for shipped goods)
 - **Reminders**: How many follow-ups and when. Standard cadences are 3 and 7 days after the initial request.
@@ -46,6 +46,7 @@ The easier it is to leave a review, the more reviews you'll collect:
 - **Respond to reviews**: Publicly thank positive reviewers and address negative feedback professionally. Responding to reviews shows you're engaged.
 - **Never incentivize**: Don't offer discounts or rewards for reviews. This violates most platforms' terms and can get your reviews removed.
 - **Show your review count**: Display the number of verified reviews prominently. A higher count builds trust.
+- **Running physical locations?** Review volume for local businesses comes from messaging and listings more than from email, which is what [BirdEye](/vs/birdeye/) and [Podium](/vs/podium/) are built for. Neither verifies against the payment processor, so treat them as a distribution layer alongside a verified review engine, not a replacement for one.
 
 ## What to avoid
 

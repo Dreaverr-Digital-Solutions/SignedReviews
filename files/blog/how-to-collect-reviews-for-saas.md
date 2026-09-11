@@ -104,6 +104,8 @@ SaaS reviews need to appear where prospects make buying decisions, which is diff
 | **Social proof** | Testimonials, case studies, customer logos | High-touch sales support. Pair testimonials with verified reviews from the same customer. |
 | **Feedback / NPS** | In-app surveys, NPS tools | Internal measurement, not public reviews. These tell you how you're doing, not prospects. |
 
+If you're weighing Trustpilot specifically, [Trustpilot alternatives for SaaS](/blog/trustpilot-alternatives-for-saas/) ranks the options on verification level rather than monthly price.
+
 ---
 
 ## Common questions about collecting reviews for SaaS

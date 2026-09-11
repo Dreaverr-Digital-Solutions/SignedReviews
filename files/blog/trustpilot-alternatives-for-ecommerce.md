@@ -131,7 +131,7 @@ The optimal setup for most e-commerce brands: a verified review platform (Level 
 
 ### Verification vs. Open Reviews
 
-The single biggest decision is whether you need purchase-verified reviews or can accept an open review model. Open platforms like Trustpilot and G2 let anyone with an account leave a review, great for volume, terrible for trust. Verified platforms confirm a transaction occurred before allowing a review, and the verification source matters: store-order verification (Judge.me, Yotpo) is solid, while processor-level verification (Signed Reviews, via Stripe) is independently auditable. If your brand competes on trust, and every ecommerce brand does, choose verified.
+The single biggest decision is whether you need purchase-verified reviews or can accept an open review model. Open platforms like Trustpilot and G2 let anyone with an account leave a review, great for volume, terrible for trust. Verified platforms confirm a transaction occurred before allowing a review, and the verification source matters: store-order verification (Judge.me, Yotpo) is solid, while processor-level verification (Signed Reviews, via Stripe) is independently auditable. If your brand competes on trust, and every ecommerce brand does, choose verified. For what each level actually proves, see [verified vs unverified reviews](/blog/verified-reviews-vs-unverified-reviews/).
 
 ### Pricing That Scales With Order Volume
 
@@ -139,7 +139,7 @@ Trustpilot alternatives span from free (Judge.me) to enterprise-quote territory 
 
 ### Integration With Shopify, WooCommerce, and Stripe
 
-Your review platform should plug into your existing stack without custom development. Shopify-native apps (Judge.me, Loox, Okendo) offer one-click installs but lock you into the Shopify ecosystem. Multi-platform tools (Stamped.io, Yotpo) give you portability at the cost of less deep integration. Stripe-native platforms (Signed Reviews) work across any ecommerce stack that uses Stripe (Shopify Payments, WooCommerce + Stripe, custom headless builds) giving you both flexibility and the strongest verification signal. Match the integration depth to your growth trajectory: if you might replatform in the next two years, avoid Shopify-exclusive tools.
+Your review platform should plug into your existing stack without custom development. Shopify-native apps (Judge.me, Loox, Okendo) offer one-click installs but lock you into the Shopify ecosystem. Multi-platform tools (Stamped.io, Yotpo) give you portability at the cost of less deep integration. Stripe-native platforms (Signed Reviews) work across any ecommerce stack that uses Stripe (Shopify Payments, WooCommerce + Stripe, custom headless builds) giving you both flexibility and the strongest verification signal. Match the integration depth to your growth trajectory: if you might replatform in the next two years, avoid Shopify-exclusive tools. Setup specifics for the three stacks we're asked about most: [Shopify](/integrations/shopify/), [WooCommerce](/integrations/woocommerce/), and [Stripe](/integrations/stripe/).
 
 ---
 

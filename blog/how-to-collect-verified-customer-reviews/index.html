@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/how-to-collect-verified-customer-reviews/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="f88d09d125e94d312b35558bf986e862ef654fdb">
-  <meta name="build-time" content="2026-09-09T07:00:15.394Z">
+  <meta name="build-commit" content="c4bca2a5d5b3cf4e1089d7b14c84184583f4b10a">
+  <meta name="build-time" content="2026-09-11T16:46:49.046Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="How to Collect Verified Customer Reviews: A Practical Guide. Signed Reviews Blog">
@@ -617,10 +617,10 @@ main { padding: 0; }
       <p>Learn how to collect verified customer reviews automatically using Stripe: a practical step-by-step guide covering setup, timing, and best practices.</p>
 <p>Learning how to collect verified customer reviews doesn&#39;t require technical expertise or a large budget. If you process payments through Stripe, you can automate the entire process in minutes.</p>
 <h2 id="step-1-connect-your-stripe-account"><a class="anchor" href="#step-1-connect-your-stripe-account" aria-label="Permalink to Step 1: Connect your Stripe account"></a>Step 1: Connect your Stripe account</h2>
-<p>The foundation of verified reviews is purchase verification. Connect your Stripe account to your review platform using Stripe&#39;s official OAuth flow. This grants minimal permissions: the platform can verify charges but can never charge, refund, or move funds. The only thing it can create is a discount coupon for a reviewer, and only when you enable review incentives.</p>
+<p>The foundation of verified reviews is purchase verification. Connect your Stripe account to your review platform using <a href="/integrations/stripe/">Stripe&#39;s official OAuth flow</a>. This grants minimal permissions: the platform can verify charges but can never charge, refund, or move funds. The only thing it can create is a discount coupon for a reviewer, and only when you enable review incentives.</p>
 <p><strong>What to look for</strong>: Check exactly which permissions the integration requests. Some platforms request <code>read_write</code> access, which allows them to create charges and issue refunds. Signed Reviews uses four read permissions (<code>charge_read</code>, <code>customer_read</code>, <code>subscription_read</code>, <code>balance_transaction_source_read</code>) plus two write permissions (<code>coupon_write</code>, <code>promotion_code_write</code>), and the writes are used only to mint single-use discount coupons for reviewers when you enable review incentives. See <a href="/how-it-works/">how it works</a> for the full setup flow.</p>
 <h2 id="step-2-configure-your-auto-request-settings"><a class="anchor" href="#step-2-configure-your-auto-request-settings" aria-label="Permalink to Step 2: Configure your auto-request settings"></a>Step 2: Configure your auto-request settings</h2>
-<p>Once connected, every new Stripe charge can automatically trigger a review invitation. Configure:</p>
+<p>Once connected, every new Stripe charge can automatically trigger a review invitation. This works the same whether you sell through <a href="/integrations/">Shopify, WooCommerce, or a custom stack</a>. Configure:</p>
 <ul>
 <li><strong>Timing</strong>: Send immediately (digital products), after a delay (physical products that need shipping time), or on delivery via webhook (most accurate for shipped goods)</li>
 <li><strong>Reminders</strong>: How many follow-ups and when. Standard cadences are 3 and 7 days after the initial request.</li>
@@ -648,6 +648,7 @@ main { padding: 0; }
 <li><strong>Respond to reviews</strong>: Publicly thank positive reviewers and address negative feedback professionally. Responding to reviews shows you&#39;re engaged.</li>
 <li><strong>Never incentivize</strong>: Don&#39;t offer discounts or rewards for reviews. This violates most platforms&#39; terms and can get your reviews removed.</li>
 <li><strong>Show your review count</strong>: Display the number of verified reviews prominently. A higher count builds trust.</li>
+<li><strong>Running physical locations?</strong> Review volume for local businesses comes from messaging and listings more than from email, which is what <a href="/vs/birdeye/">BirdEye</a> and <a href="/vs/podium/">Podium</a> are built for. Neither verifies against the payment processor, so treat them as a distribution layer alongside a verified review engine, not a replacement for one.</li>
 </ul>
 <h2 id="what-to-avoid"><a class="anchor" href="#what-to-avoid" aria-label="Permalink to What to avoid"></a>What to avoid</h2>
 <ul>

@@ -46,7 +46,7 @@ How to verify a customer actually bought: four methods ranked by how hard each i
 
 ## Method 3: Order matching (Level 3)
 
-**How it works:** The review platform integrates with the business's e-commerce platform (Shopify, WooCommerce, etc.) and checks whether the reviewer's email matches an order record in the store.
+**How it works:** The review platform integrates with the business's e-commerce platform (Shopify, [WooCommerce](/integrations/woocommerce/), etc.) and checks whether the reviewer's email matches an order record in the store.
 
 **What it proves:** An order record exists in the merchant's store system that matches the reviewer's email.
 

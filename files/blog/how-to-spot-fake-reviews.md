@@ -56,6 +56,8 @@ AI-generated reviews have gotten very good, but they still have subtle tells:
 - **Perfect grammar, no typos.** Real reviews contain occasional typos. A product with 200 grammatically flawless reviews and zero typos is statistically unlikely.
 - **Generic enthusiasm.** "Changed my life!" "Best purchase ever!" "You won't regret it!", real reviews are more measured, even when positive.
 
+No single tell is conclusive on its own. Our [fake review checker](/blog/fake-review-checker/) scores a review against all of them at once and shows you which signals fired.
+
 ### 6. Cross-reference with return/refund rates
 
 If you're a business evaluating a competitor's reviews: products with unusually high review counts relative to their market position, coupled with unusually high average ratings, often have manufactured review profiles. The economics of fake reviews make this pattern easy to produce and hard to hide.

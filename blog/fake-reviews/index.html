@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/fake-reviews/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="f88d09d125e94d312b35558bf986e862ef654fdb">
-  <meta name="build-time" content="2026-09-09T07:00:15.394Z">
+  <meta name="build-commit" content="c4bca2a5d5b3cf4e1089d7b14c84184583f4b10a">
+  <meta name="build-time" content="2026-09-11T16:46:49.046Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="The Fake Review Problem: Why Detection Will Never Be Enough. Signed Reviews Blog">
@@ -633,9 +633,9 @@ main { padding: 0; }
 <p>Platforms can still detect fake-review <em>operations</em>: coordinated campaigns, IP clusters, review velocity anomalies. But the individual review? If it&#39;s well-prompted and one-off, no algorithm can reliably tell it apart from a genuine one.</p>
 <p><strong>The detection arms race is now asymmetric.</strong> Generating a convincing fake review costs fractions of a cent and takes seconds. Detecting one, if it&#39;s well-crafted, costs orders of magnitude more in compute, human review time, and false-positive risk. The economics favor the fakers, and AI is widening the gap.</p>
 <h2 id="the-regulatory-response"><a class="anchor" href="#the-regulatory-response" aria-label="Permalink to The regulatory response"></a>The regulatory response</h2>
-<p>Governments are beginning to act, but regulation is inherently slower than technology.</p>
+<p>Governments are beginning to act, but regulation is inherently slower than technology. Here&#39;s <a href="/blog/fake-review-laws-ftc/">where fake review law currently stands</a> across the major markets.</p>
 <h3 id="united-states-ftc39s-2024-trade-regulation-rule"><a class="anchor" href="#united-states-ftc39s-2024-trade-regulation-rule" aria-label="Permalink to United States: FTC&amp;#39;s 2024 Trade Regulation Rule"></a>United States: FTC&#39;s 2024 Trade Regulation Rule</h3>
-<p>On 21 October 2024, the Federal Trade Commission&#39;s <strong>Trade Regulation Rule on the Use of Consumer Reviews and Testimonials</strong> (16 CFR Part 465) took effect. The rule:</p>
+<p>On 21 October 2024, the Federal Trade Commission&#39;s <a href="/learn/ftc-fake-reviews-rules/">Trade Regulation Rule on the Use of Consumer Reviews and Testimonials</a> (16 CFR Part 465) took effect. The rule:</p>
 <ul>
 <li>Prohibits reviews that <strong>misrepresent</strong> that the reviewer had genuine experience with a product or service</li>
 <li>Bans <strong>buying or selling</strong> reviews, including &quot;incentivized&quot; reviews where the incentive is conditioned on sentiment</li>
@@ -655,7 +655,7 @@ main { padding: 0; }
 <h3 id="european-union-digital-services-act"><a class="anchor" href="#european-union-digital-services-act" aria-label="Permalink to European Union: Digital Services Act"></a>European Union: Digital Services Act</h3>
 <p>The DSA requires &quot;very large online platforms&quot; to assess and mitigate systemic risks, including the spread of illegal content and disinformation. Fake reviews, when they distort consumer decisions at scale, fall under this mandate. Platforms face fines of up to 6% of global annual revenue.</p>
 <h2 id="the-sitejabber-precedent"><a class="anchor" href="#the-sitejabber-precedent" aria-label="Permalink to The SiteJabber precedent"></a>The SiteJabber precedent</h2>
-<p>In November 2024, the FTC issued a formal order against SiteJabber, a consumer review platform, for publishing reviews from people who had <strong>never received the products they reviewed.</strong> SiteJabber&#39;s system allowed businesses to collect reviews at the point of sale, before the customer ever received the product, and display them as if they reflected genuine product experience.</p>
+<p>In November 2024, the FTC issued a formal order against <a href="/vs/sitejabber/">SiteJabber</a>, a consumer review platform, for publishing reviews from people who had <strong>never received the products they reviewed.</strong> SiteJabber&#39;s system allowed businesses to collect reviews at the point of sale, before the customer ever received the product, and display them as if they reflected genuine product experience.</p>
 <p>The order required SiteJabber to stop misrepresenting that its reviews came from customers who&#39;d actually received the products. It&#39;s the most direct precedent for the FTC&#39;s willingness to enforce the new rule.</p>
 <p><strong>The SiteJabber case illustrates the structural point:</strong> when verification depends on what the merchant says, the system can be gamed, even unintentionally, at scale.</p>
 <h2 id="why-detection-is-structurally-insufficient"><a class="anchor" href="#why-detection-is-structurally-insufficient" aria-label="Permalink to Why detection is structurally insufficient"></a>Why detection is structurally insufficient</h2>
@@ -667,6 +667,7 @@ main { padding: 0; }
 <li>The platform&#39;s reputation, and the reputation of every honest business on it, has already taken the hit</li>
 </ul>
 <p>Detection is a treadmill. The faster you run, the faster the ground moves beneath you. AI accelerates the ground speed; regulation adds a slight incline. Neither changes the fundamental dynamic.</p>
+<p>Understanding the mechanics does help you catch the amateur attempts — see <a href="/learn/how-fake-reviews-work/">how fake reviews work</a> for the playbook — and you can run any suspicious review through our <a href="/tools/fake-review-checker/">free fake review checker</a> to score it against the common signals.</p>
 <h2 id="the-structural-alternative-processor-attested-verification"><a class="anchor" href="#the-structural-alternative-processor-attested-verification" aria-label="Permalink to The structural alternative: processor-attested verification"></a>The structural alternative: processor-attested verification</h2>
 <p>There is exactly one way to make fake reviews structurally impossible: <strong>require every review to be tied to an independently verified payment.</strong></p>
 <p>This is <strong>processor-attested verification</strong>, and it&#39;s the only review verification method where the attesting party is independent of both the merchant and the reviewer:</p>

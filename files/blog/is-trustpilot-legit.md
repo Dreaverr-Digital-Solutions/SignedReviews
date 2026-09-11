@@ -91,7 +91,7 @@ For a small business, Trustpilot's paid plans start at roughly $3,600/year. That
 To be fair, Trustpilot has real strengths:
 
 1. **Brand recognition**: Trustpilot is the most recognized review platform globally after Google and Amazon. Displaying a Trustpilot star rating carries brand weight.
-2. **Google integration**: Trustpilot star ratings appear in Google Ads, Google Shopping, and organic search results. This drives click-through rates.
+2. **Google integration**: Trustpilot star ratings appear in Google Ads, Google Shopping, and organic search results. This drives click-through rates. If you're weighing that up, [these Trustpilot widget examples](/blog/trustpilot-widget-examples/) show how the display options actually look on a page.
 3. **Transparency reports**: Trustpilot publishes more transparency data than most review platforms, including fake review removal statistics.
 4. **Consumer awareness**: Trustpilot's brand means consumers know they can leave reviews, which can drive volume if your customers are Trustpilot users.
 5. **Content integrity team**: Unlike many platforms, Trustpilot employs real people to investigate review disputes.

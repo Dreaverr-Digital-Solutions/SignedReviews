@@ -34,11 +34,11 @@ Platforms can still detect fake-review *operations*: coordinated campaigns, IP c
 
 ## The regulatory response
 
-Governments are beginning to act, but regulation is inherently slower than technology.
+Governments are beginning to act, but regulation is inherently slower than technology. Here's [where fake review law currently stands](/blog/fake-review-laws-ftc/) across the major markets.
 
 ### United States: FTC's 2024 Trade Regulation Rule
 
-On 21 October 2024, the Federal Trade Commission's **Trade Regulation Rule on the Use of Consumer Reviews and Testimonials** (16 CFR Part 465) took effect. The rule:
+On 21 October 2024, the Federal Trade Commission's [Trade Regulation Rule on the Use of Consumer Reviews and Testimonials](/learn/ftc-fake-reviews-rules/) (16 CFR Part 465) took effect. The rule:
 
 - Prohibits reviews that **misrepresent** that the reviewer had genuine experience with a product or service
 - Bans **buying or selling** reviews, including "incentivized" reviews where the incentive is conditioned on sentiment
@@ -63,7 +63,7 @@ The DSA requires "very large online platforms" to assess and mitigate systemic r
 
 ## The SiteJabber precedent
 
-In November 2024, the FTC issued a formal order against SiteJabber, a consumer review platform, for publishing reviews from people who had **never received the products they reviewed.** SiteJabber's system allowed businesses to collect reviews at the point of sale, before the customer ever received the product, and display them as if they reflected genuine product experience.
+In November 2024, the FTC issued a formal order against [SiteJabber](/vs/sitejabber/), a consumer review platform, for publishing reviews from people who had **never received the products they reviewed.** SiteJabber's system allowed businesses to collect reviews at the point of sale, before the customer ever received the product, and display them as if they reflected genuine product experience.
 
 The order required SiteJabber to stop misrepresenting that its reviews came from customers who'd actually received the products. It's the most direct precedent for the FTC's willingness to enforce the new rule.
 
@@ -79,6 +79,8 @@ Every detection-based approach shares the same flaw: **a fake review must be wri
 - The platform's reputation, and the reputation of every honest business on it, has already taken the hit
 
 Detection is a treadmill. The faster you run, the faster the ground moves beneath you. AI accelerates the ground speed; regulation adds a slight incline. Neither changes the fundamental dynamic.
+
+Understanding the mechanics does help you catch the amateur attempts — see [how fake reviews work](/learn/how-fake-reviews-work/) for the playbook — and you can run any suspicious review through our [free fake review checker](/tools/fake-review-checker/) to score it against the common signals.
 
 ## The structural alternative: processor-attested verification
 

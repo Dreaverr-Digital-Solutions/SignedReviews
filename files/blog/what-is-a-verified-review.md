@@ -38,7 +38,7 @@ This is a reactive model. The platform waits for abuse, then responds. By the ti
 
 Purchase-verified review platforms take a different approach. Instead of detecting fake reviews after they're posted, they **prevent fake reviews from being posted in the first place.**
 
-Here's how it works with Signed Reviews:
+Here's [how verification works with Signed Reviews](/how-verification-works/):
 
 1. You connect your Stripe account (minimal permissions, we can't charge, refund, or move funds).
 2. A customer completes a purchase. Stripe records the transaction.

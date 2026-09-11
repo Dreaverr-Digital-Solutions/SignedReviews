@@ -230,6 +230,8 @@ Google Reviews aren't a Trustpilot alternative in the traditional sense: they se
 | **Maximum consumer reach** | Trustpilot | Signed Reviews (authenticity anchor) |
 | **Budget-conscious startup** | Signed Reviews Free | Google Reviews |
 
+For local and multi-location businesses specifically, two dedicated reputation platforms are worth knowing about: [BirdEye](/vs/birdeye/), which pairs review generation with local listings management, and [Podium](/vs/podium/), which runs review requests over SMS. Neither verifies against the payment processor — both rest on the business's own invitation list — so treat them as a distribution and operations layer rather than a verification layer.
+
 ---
 
 ## What about Trustpilot?
