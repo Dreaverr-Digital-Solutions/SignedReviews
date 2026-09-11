@@ -132,7 +132,7 @@ Trustpilot uses a combination of automated systems and human review. The automat
 
 ### Is Trustpilot better than Google Reviews?
 
-It depends on what you need. Google Reviews has wider reach and integrates with Google Maps and Search, making it more visible, but its verification is even weaker. Google requires no proof of purchase and has minimal fake-review detection. Trustpilot has stronger detection and more detailed review content, but its consumer reach is smaller. For businesses, the best strategy is to collect verified reviews (with actual purchase proof), that can be displayed across both platforms.
+It depends on what you need. Google Reviews has wider reach and integrates with Google Maps and Search, making it more visible, but its verification is even weaker. Google requires no proof of purchase and has minimal fake-review detection. Trustpilot has stronger detection and more detailed review content, but its consumer reach is smaller. For businesses, the best strategy is to collect verified reviews (with actual purchase proof) that can be displayed across both platforms.
 
 ### What's the most reliable alternative to Trustpilot?
 

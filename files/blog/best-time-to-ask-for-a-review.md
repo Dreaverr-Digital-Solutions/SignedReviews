@@ -106,4 +106,5 @@ The best time to ask for a review is when the customer has experienced the full 
 **Further reading:**
 - [Post-Purchase Review Email Templates](/blog/post-purchase-review-email-templates/), ready-to-use email copy for every timing scenario
 - [How to Collect Verified Customer Reviews](/blog/how-to-collect-verified-customer-reviews/), the complete guide
+- [How to Collect Reviews for SaaS](/blog/how-to-collect-reviews-for-saas/), subscription-aware timing and strategy
 - [How Stripe Review Verification Works](/blog/how-stripe-review-verification-works/), how transaction-triggered invitations work technically

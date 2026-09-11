@@ -98,6 +98,8 @@ If you're a Shopify merchant, fake reviews hurt you too: they damage consumer tr
 4. **Don't offer incentives for positive reviews.** Incentives for writing *a review* are generally fine if disclosed. Incentives for writing *a positive review* are not, and never have been.
 5. **Use a review platform that verifies against something you can't control.** If your verification data comes from your own Shopify store, a bad actor with access to your store admin can manufacture verified reviews. If your verification data comes from the payment processor (Stripe), manufacturing a verified review requires manufacturing a real payment, which costs money, leaves a paper trail, and risks your payment-processing ability. That's a much stronger deterrent.
 
+For the complete process of collecting reviews on a Shopify store, including app selection by verification level and timing strategy, see [how to get reviews on Shopify](/blog/how-to-get-reviews-on-shopify/).
+
 ---
 
 ## The structural fix: move verification upstream

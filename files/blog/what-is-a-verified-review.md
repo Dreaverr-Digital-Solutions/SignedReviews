@@ -23,8 +23,8 @@ A verified review is customer feedback tied to a confirmed purchase. Proof requi
 A verified review connects three things that most review platforms keep separate:
 
 1. **The purchase**: A completed payment transaction, timestamped and recorded by the payment processor (Stripe, in our case).
-2. **The reviewer**. The customer who made that purchase, identified by the email address on the payment.
-3. **The review**. The content the customer writes, cryptographically signed so it can't be altered after submission.
+2. **The reviewer**: The customer who made that purchase, identified by the email address on the payment.
+3. **The review**: The content the customer writes, cryptographically signed so it can't be altered after submission.
 
 When a review platform verifies a review, it checks that all three align: the reviewer is the person who paid, the purchase actually happened, and the review hasn't been modified.
 

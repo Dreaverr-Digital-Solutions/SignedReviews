@@ -3726,7 +3726,7 @@ function buildLearnFtcRules() {
 
     <div class="rule-card">
       <h3>3. Insider reviews without disclosure <span class="status status-banned">Banned</span></h3>
-      <p>Reviews written by company insiders (officers, managers, employees, or their relatives), that don't clearly disclose the reviewer's connection to the business. An employee CAN review their employer's product if they disclose the relationship. They can't pretend to be an unconnected customer.</p>
+      <p>Reviews written by company insiders (officers, managers, employees, or their relatives) that don't clearly disclose the reviewer's connection to the business. An employee CAN review their employer's product if they disclose the relationship. They can't pretend to be an unconnected customer.</p>
     </div>
 
     <div class="rule-card">

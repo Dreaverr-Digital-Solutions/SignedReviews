@@ -88,4 +88,4 @@ AI is winning the detection arms race. The only durable solution is structural: 
 
 ---
 
-**Further reading:** [Fake Review Statistics 2026](/blog/fake-review-statistics-2026/) · [The Fake Review Problem](/blog/fake-reviews/) · [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/)
+**Further reading:** [Fake Review Statistics 2026](/blog/fake-review-statistics-2026/) · [The Fake Review Problem](/blog/fake-reviews/) · [How Fake Reviews Work](/learn/how-fake-reviews-work/) · [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/)

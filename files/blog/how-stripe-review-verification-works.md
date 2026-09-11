@@ -66,9 +66,9 @@ At the end of this process, every review on your Signed Reviews page has a verif
 Stripe charge → invitation token → review signature → published review
 ```
 
-Break any link in that chain, and the review doesn't exist. This is how Stripe review verification works at the architectural level. It's not a policy claim, it's a chain of cryptographic evidence. See [how Signed Reviews works](/how-it-works/) for the full verification flow, from OAuth connection to published review.
+Break any link in that chain, and the review doesn't exist. This is how Stripe review verification works at the architectural level. It's not a policy claim, it's a chain of cryptographic evidence. See [how Signed Reviews works](/how-it-works/) for the full verification flow, from OAuth connection to published review. The [documentation](/docs/) covers the API endpoints and webhook events in detail.
 
-**Further reading:** [Stripe Verified Reviews: The Only Reviews Backed by Your Payment Processor](/blog/stripe-verified-reviews/), our definitive guide to why processor-attested verification is structurally different from every other "verified" badge. Also see: [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/) for the full verification spectrum breakdown.
+**Further reading:** [Stripe Verified Reviews: The Only Reviews Backed by Your Payment Processor](/blog/stripe-verified-reviews/), our definitive guide to why processor-attested verification is structurally different from every other "verified" badge. Also see: [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/) for the full verification spectrum breakdown. For the Stripe App Marketplace landscape, see our [Stripe app for reviews](/blog/stripe-app-for-reviews/) overview.
 
 ---
 
@@ -84,4 +84,4 @@ No, not without creating a real, settled Stripe charge that costs real processin
 
 ### How is Stripe review verification different from email verification?
 
-Email verification confirms the reviewer controls an email address, nothing more. Stripe review verification confirms the reviewer paid you through Stripe, the charge settled, and the charge hasn't been refunded. One is identity-lite; the other is a financial attestation backed by a regulated payment processor. [See pricing](/pricing/) for plan options.
+Email verification confirms the reviewer controls an email address, nothing more. Stripe review verification confirms the reviewer paid you through Stripe, the charge settled, and the charge hasn't been refunded. One is identity-lite; the other is a financial attestation backed by a regulated payment processor. [See pricing](/pricing/) for plan options. To see the verification flow on your own Stripe account, [book a demo](/demo/).

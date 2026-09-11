@@ -142,7 +142,7 @@ A Shopify review app (like Judge.me or Loox) verifies against Shopify order reco
 
 ### How long does it take to set up the Stripe app for reviews?
 
-Under 5 minutes. Connect your Stripe account via one-click OAuth (minimal permissions), customize your branding, and you're live. Every new Stripe charge automatically triggers a verified review invitation: no code, no webhooks, no ongoing maintenance. [See pricing](/pricing/) for plan options.
+Under 5 minutes. Connect your Stripe account via one-click OAuth (minimal permissions), customize your branding, and you're live. Every new Stripe charge automatically triggers a verified review invitation: no code, no webhooks, no ongoing maintenance. [See pricing](/pricing/) for plan options. For broader questions about the platform, see the [general FAQ](/faq/).
 
 ---
 

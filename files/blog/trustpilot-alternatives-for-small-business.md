@@ -213,7 +213,7 @@ Google Reviews aren't a Trustpilot alternative in the traditional sense: they se
 | 9 | Loox | 3. Merchant-supplied | $9.99/mo | ❌ Shopify | ✅ | Budget Shopify photos |
 | 10 | Google Reviews | 0. None | Free | ❌ | ❌ | Local SEO supplement |
 
-**Key insight:** 9 out of 10 platforms sit at Level 3. They verify against data the merchant supplies. Only one operates at Level 4, where an independent payment processor confirms the charge. If you're on Stripe, you're one of the rare businesses that can offer processor-attested verification.
+**Key insight:** 9 out of 10 platforms sit at Level 3. They verify against data the merchant supplies. Only one operates at Level 4, where an independent payment processor confirms the charge. If you're on Stripe, you're one of the rare businesses that can offer processor-attested verification. The full [features overview](/features/) covers what a Stripe-native review platform includes, from API access to embeddable widgets.
 
 ---
 
@@ -246,10 +246,11 @@ The smartest approach for most Stripe businesses: **use Signed Reviews as your v
 
 Most "trustpilot alternatives for small business" lists are really just "review platforms ranked by monthly price." The more important question is: **when a review says "Verified," verified by whom?** Whether you're looking for a trustpilot alternative, a yotpo alternative, a feefo alternative, a judge.me alternative, a reviews.io alternative, or all five, the verification level is what separates platforms that genuinely prove authenticity from platforms that just claim it.
 
-If the answer is "the merchant," you're at Level 3 (and so is every major platform except one. If you process payments through Stripe, you can operate at Level 4) processor-attested verification, and offer your customers something structurally more credible than anything a merchant-supplied platform can provide.
+If the answer is "the merchant," you're at Level 3 (and so is every major platform except one. If you process payments through Stripe, you can operate at Level 4) processor-attested verification, and offer your customers something structurally more credible than anything a merchant-supplied platform can provide. To see the platform on your own Stripe account, [book a demo](/demo/).
 
 **Further reading:**
 - [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/), the canonical explainer on verification levels across every major platform
+- [Trustpilot Alternatives for Ecommerce](/blog/trustpilot-alternatives-for-ecommerce/), online store-specific comparison
 - [Signed Reviews vs Trustpilot](/vs/trustpilot/), detailed head-to-head comparison
 - [Stripe Verified Reviews](/blog/stripe-verified-reviews/), why processor-attested verification is structurally different
 - [How Stripe Review Verification Works](/blog/how-stripe-review-verification-works/), the technical deep-dive

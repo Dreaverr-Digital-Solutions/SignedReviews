@@ -8,7 +8,10 @@
  *
  *   body     inside <article>, in running text. The ONLY class that counts
  *            toward the orphan test, and the only one with real click probability.
- *   related  the "Related:" boilerplate paragraph at the foot of a page.
+ *   related  a paragraph whose TEXT starts with "Related:". Matched on text,
+ *            not on container: these paragraphs sit INSIDE <article> and are
+ *            deliberately excluded from `body` so this link family can be
+ *            tracked separately. "related" does NOT mean "outside the article".
  *   nav      <header class="site-header">
  *   footer   <footer class="site-footer">
  *

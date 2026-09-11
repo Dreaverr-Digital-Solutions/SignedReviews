@@ -2,7 +2,7 @@
 
 **Last updated:** June 27, 2026
 
-This page lists the third-party service providers ("sub-processors"), that Paid Rightly LLC uses to provide Signed Reviews. Each sub-processor is contractually required to use personal data only to provide services to us and to maintain appropriate security safeguards.
+This page lists the third-party service providers ("sub-processors") that Paid Rightly LLC uses to provide Signed Reviews. Each sub-processor is contractually required to use personal data only to provide services to us and to maintain appropriate security safeguards.
 
 We may update this list from time to time. Material additions will be reflected by updating the "Last updated" date. We recommend checking this page periodically.
 

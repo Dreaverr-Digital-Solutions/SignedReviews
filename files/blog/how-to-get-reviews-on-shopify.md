@@ -111,7 +111,7 @@ For most Shopify merchants, a good Shopify review app is sufficient. Level 3 ver
 
 ## Bottom line
 
-Knowing how to get reviews on shopify is technically straightforward: install a review app, configure automatic invitations, and wait. Getting reviews that customers actually trust is harder, because the verification model depends on data you control. <a href="/integrations/shopify/">See how the Shopify integration works</a> and choose your app based on its verification method, time your requests for after delivery, write specific (not generic) invitation emails, and understand what "Verified Buyer" actually means on your chosen app, because your customers trust that badge to mean more than it usually does.
+Knowing how to get reviews on shopify is technically straightforward: install a review app, configure automatic invitations, and wait. Getting reviews that customers actually trust is harder, because the verification model depends on data you control. <a href="/integrations/shopify/">See how the Shopify integration works</a> and choose your app based on its verification method, time your requests for after delivery, write specific (not generic) invitation emails, and understand what "Verified Buyer" actually means on your chosen app, because your customers trust that badge to mean more than it usually does. For the full range of supported [e-commerce integrations](/integrations/), including WooCommerce and custom Stripe stacks, see the integrations hub.
 
 **Further reading:**
 - [Fake Shopify Reviews](/blog/fake-shopify-reviews/), how fake reviews exploit the Shopify review-app model

@@ -13,8 +13,8 @@ Here's how Stripe verified reviews work, why [cryptographically signed reviews](
 A **Stripe verified review** is a customer review that is independently attested by Stripe, the payment processor, rather than by the merchant's own records. Three things come together:
 
 1. **The purchase**: A completed, non-refunded Stripe charge. Not an order record the merchant controls. Not an invitation list the merchant uploaded. The actual payment event, recorded by Stripe.
-2. **The reviewer**. The customer who made that payment, matched by the email address on the Stripe transaction.
-3. **The review**. The content the customer writes, producing cryptographically signed reviews at the moment of submission that can't be altered later.
+2. **The reviewer**: The customer who made that payment, matched by the email address on the Stripe transaction.
+3. **The review**: The content the customer writes, producing cryptographically signed reviews at the moment of submission that can't be altered later.
 
 When all three align (the reviewer is the payer, the payment is independently confirmed, and the result is tamper evident reviews that can't be altered), you have a Stripe verified review.
 
@@ -137,7 +137,9 @@ If you're on Stripe, you're eligible. The integration takes one click.
 4. **Customize your branding.** Add your logo, brand colors, and email sender name.
 5. **Go live.** Every new Stripe charge automatically generates a verified review invitation.
 
-Your public review page is live immediately. Embed reviews on your website via the public API, display the "Verified by Signed Reviews" trust badge, and watch your verified review count grow with every sale.
+For a full comparison of Stripe-compatible review apps, see our [review app for Stripe payments](/blog/review-app-for-stripe-payments/) guide.
+
+Your public review page is live immediately. Embed reviews on your website via the public API, display the "Verified by Signed Reviews" trust badge, and watch your verified review count grow with every sale. The full [documentation](/docs/) covers the API endpoints, webhook setup, and team management. To see the platform on your own Stripe data, [book a demo](/demo/) for a personalized walkthrough.
 
 ## The future of reviews is processor-attested
 

@@ -138,7 +138,7 @@ Beyond the plan price, these cost Trustpilot users real money:
 
 ## Is Trustpilot worth the price?
 
-For some businesses, yes, particularly those where Trustpilot is a primary consumer discovery channel and the $3,600+/year price is manageable. Trustpilot's brand recognition is real, and for certain industries (financial services, insurance, telecom), being absent from Trustpilot is a red flag.
+For some businesses, yes, particularly those where Trustpilot is a primary consumer discovery channel and the $3,600+/year price is manageable. Trustpilot's brand recognition is real, and for certain industries (financial services, insurance, telecom), being absent from Trustpilot is a red flag. For a broader look at the platform's trustworthiness, see our [assessment of whether Trustpilot is legit](/blog/is-trustpilot-legit/).
 
 For most small and mid-size businesses, the math is harder to justify:
 
@@ -157,5 +157,6 @@ Trustpilot pricing starts at "free" but the plan most businesses need starts at 
 **Further reading:**
 - [Trustpilot Alternatives for Small Business](/blog/trustpilot-alternatives-for-small-business/), which is 10 platforms ranked by verification method
 - [Are Trustpilot Reviews Reliable?](/blog/are-trustpilot-reviews-reliable/), what the Transparency Report actually tells you
+- [Trustpilot Widget Examples](/blog/trustpilot-widget-examples/), how TrustBox widgets look on a page
 - [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/), the verification spectrum explained
 - [Signed Reviews vs Trustpilot](/vs/trustpilot/), detailed head-to-head comparison

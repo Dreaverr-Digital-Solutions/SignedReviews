@@ -8,7 +8,7 @@ Everything you need to integrate Signed Reviews into your business. Collect revi
 
 1. **[Create an account](https://platform.signedreviews.com/register)** (free, no credit card)
 2. **Connect Stripe**: one-click OAuth, minimal permissions
-3. **First sync**. We import your Stripe transactions and match them to customers
+3. **First sync**: we import your Stripe transactions and match them to customers
 4. **Send invitations**: automated or manual, configurable delay after purchase
 5. **Reviews start flowing**: every review is cryptographically signed at submission
 

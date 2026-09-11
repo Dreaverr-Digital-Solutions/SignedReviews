@@ -130,6 +130,8 @@ These are legitimate advantages. For some businesses, particularly large brands 
 - **Judge.me**: Shopify-focused, offers photo and video reviews, email verification. Good for Shopify stores that don't need payment-processor attestation.
 - **Feefo**: Invitation-only (no organic reviews), which eliminates the fake review problem but limits review volume. Primarily UK/European.
 
+Signed Reviews is operated by [Paid Rightly LLC](/about/), a New Mexico limited liability company. For common questions about how the platform works, see our [FAQ](/faq/).
+
 ---
 
 ## FAQ: is Trustpilot legit?

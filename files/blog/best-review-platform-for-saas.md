@@ -160,7 +160,7 @@ See how our pricing scales with your SaaS revenue on the [pricing page](/pricing
 
 ## How SaaS Companies Benefit from Stripe-Verified Reviews
 
-Unlike one-time purchase verification, SaaS businesses with recurring Stripe subscriptions can prove that every reviewer is a paying customer right now, not just someone who bought once. This ongoing verification delivers a level of authenticity that traditional aggregator directories can't replicate. Read our [full breakdown of Stripe-verified reviews](/blog/stripe-verified-reviews/) and [what "verified buyer" actually means](/learn/what-does-verified-buyer-mean/).
+Unlike one-time purchase verification, SaaS businesses with recurring Stripe subscriptions can prove that every reviewer is a paying customer right now, not just someone who bought once. This ongoing verification delivers a level of authenticity that traditional aggregator directories can't replicate. Read our [full breakdown of Stripe-verified reviews](/blog/stripe-verified-reviews/) and [what "verified buyer" actually means](/learn/what-does-verified-buyer-mean/). The full [feature set](/features/) covers the API, embeddable widgets, and dashboard capabilities.
 
 SaaS review collection is different from e-commerce review collection in three ways:
 
@@ -183,10 +183,10 @@ For SaaS companies, trust isn't a nice-to-have. It's the conversion event. A pro
 
 ## The bottom line
 
-If you're a SaaS company on Stripe, you have access to a verification level no other business model can match. Use it. The platform that connects directly to your Stripe account and verifies every review against an independent payment record is the one that gives your prospects the strongest reason to trust what they read.
+If you're a SaaS company on Stripe, you have access to a verification level no other business model can match. Use it. The platform that connects directly to your Stripe account and verifies every review against an independent payment record is the one that gives your prospects the strongest reason to trust what they read. Signed Reviews is built by [Paid Rightly LLC](/about/), a New Mexico limited liability company.
 
 And list yourself on G2, Capterra, and TrustRadius regardless. Discovery and verification are complementary, not competing.
 
 ---
 
-**Further reading:** [Stripe Verified Reviews, the definitive guide](/blog/stripe-verified-reviews/) · [What "Verified Buyer" Actually Means](/learn/what-does-verified-buyer-mean/) · [Signed Reviews vs Trustpilot](/vs/trustpilot/) · [Signed Reviews vs Yotpo](/vs/yotpo/)
+**Further reading:** [Stripe Verified Reviews, the definitive guide](/blog/stripe-verified-reviews/) · [What "Verified Buyer" Actually Means](/learn/what-does-verified-buyer-mean/) · [Trustpilot Alternatives for SaaS](/blog/trustpilot-alternatives-for-saas/) · [Signed Reviews vs Trustpilot](/vs/trustpilot/) · [Signed Reviews vs Yotpo](/vs/yotpo/)
