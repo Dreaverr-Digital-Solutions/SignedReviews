@@ -182,7 +182,11 @@ console.log(`  body (counts)     ${padL(totalBody, 5)}`);
 console.log(`  related (boiler)  ${padL(totalRelated, 5)}`);
 console.log(`  nav               ${padL(totalNav, 5)}`);
 console.log(`  footer            ${padL(totalFooter, 5)}`);
-console.log(`\n  → ${((totalBody / (totalBody + totalRelated || 1)) * 100).toFixed(1)}% of counted links are body links.`);
+const contentLinks = totalBody + totalRelated;
+const chromeLinks = totalNav + totalFooter;
+const allLinks = contentLinks + chromeLinks;
+console.log(`\n  → body links are ${((totalBody / (contentLinks || 1)) * 100).toFixed(1)}% of content links (body + related).`);
+console.log(`  → ${((chromeLinks / (allLinks || 1)) * 100).toFixed(1)}% of all ${allLinks} internal links are nav+footer chrome.`);
 
 console.log(`\n── Orphans (fewer than 3 inbound BODY links): ${orphans.length} of ${pages.length} ──\n`);
 console.log(`  ${pad('body', 6)}${pad('rel', 6)}${pad('nav', 5)}${pad('ftr', 5)}  URL`);
