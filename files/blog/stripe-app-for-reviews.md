@@ -20,11 +20,11 @@ Most review platforms that claim to "integrate with Stripe" do so indirectly: th
 
 A Stripe-native review app is different. It:
 
-: not through an intermediary platform
-: charges, customers, refunds, subscriptions are read directly from the Stripe API
-: least-privilege OAuth scopes, enforced by Stripe, not by the app's own policy
-: charge.created, charge.refunded, customer.updated, via Stripe webhooks
-: discoverable by the millions of businesses that already use Stripe
+- **Connects directly to Stripe via OAuth**: not through an intermediary platform
+- **Uses Stripe as its primary data source**: charges, customers, refunds, subscriptions are read directly from the Stripe API
+- **Operates within Stripe's permission model**: least-privilege OAuth scopes, enforced by Stripe, not by the app's own policy
+- **Reacts to Stripe events in real time**: charge.created, charge.refunded, customer.updated, via Stripe webhooks
+- **Is listed on the Stripe App Marketplace**: discoverable by the millions of businesses that already use Stripe
 
 The architectural difference: a non-native integration translates between Stripe's data model and the review platform's data model. A native integration doesn't translate. It reads Stripe's data directly. There's no intermediary where data can be dropped, modified, or fabricated.
 

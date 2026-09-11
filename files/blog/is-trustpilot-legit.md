@@ -29,8 +29,8 @@ Anyone with a Trustpilot account can leave an organic review for any business on
 This is the source of most Trustpilot controversy. Businesses can receive:
 - **Fake positive reviews** from the business itself or agencies it hires
 - **Fake negative reviews** from competitors or disgruntled non-customers
-: coordinated campaigns to flood a business with 1-star reviews
-: negative reviews posted to pressure the business into paying for services or refunds
+- **Review bombing**: coordinated campaigns to flood a business with 1-star reviews
+- **Extortion reviews**: negative reviews posted to pressure the business into paying for services or refunds
 
 Trustpilot's automated detection catches some of these, but it's a reactive system. The review goes live first and may be removed later. During that window, which can be days or weeks, the fake review is visible to every potential customer.
 
@@ -83,8 +83,8 @@ For a small business, Trustpilot's paid plans start at roughly $3,600/year. That
 - **No free trial** on paid plans
 - **Annual contracts** with auto-renewal, cancellation requires notice
 - **Add-on costs** for features like Google Shopping integration, additional locations, and API access
-: if a customer gets a refund, you must manually flag and remove their review
-: managing your Trustpilot presence (responding to reviews, flagging fakes, monitoring) takes staff hours
+- **No refund detection**: if a customer gets a refund, you must manually flag and remove their review
+- **Time investment**: managing your Trustpilot presence (responding to reviews, flagging fakes, monitoring) takes staff hours
 
 ## What Trustpilot does well
 

@@ -19,8 +19,8 @@ Signed Reviews is a service operated by Paid Rightly LLC.
 
 The Service has two categories of users:
 
-: businesses and their authorized team members who register for a Signed Reviews account at `platform.signedreviews.com` to collect, verify, and display reviews from their customers.
-: customers of those businesses who receive a review invitation via email and submit a review through a one-time link.
+- **Business users**: businesses and their authorized team members who register for a Signed Reviews account at `platform.signedreviews.com` to collect, verify, and display reviews from their customers.
+- **Reviewers**: customers of those businesses who receive a review invitation via email and submit a review through a one-time link.
 
 A single reviewer does not create an account with Signed Reviews; they interact with the Service only by submitting reviews and receiving verification emails.
 
@@ -78,8 +78,8 @@ You may not:
 
 To use most of the Service, you first create a Signed Reviews account (email and password, magic link, or social sign-in), then **link your Stripe account**. You can link Stripe in one of two ways:
 
-: you authorize Signed Reviews from Stripe's hosted consent screen; or
-: you create a read-restricted Stripe API key and paste it into the Service.
+- **Stripe Connect (OAuth)**: you authorize Signed Reviews from Stripe's hosted consent screen; or
+- **Restricted API key**: you create a read-restricted Stripe API key and paste it into the Service.
 
 By linking your Stripe account, you:
 
@@ -361,9 +361,9 @@ If the class action waiver is found to be unenforceable in a particular case, th
 
 The following disputes are **not** subject to mandatory arbitration and may be brought in court:
 
-: either party may bring an individual claim in a small claims court of competent jurisdiction, as long as the matter stays in that court and is not removed or appealed to a court of general jurisdiction.
-: either party may seek temporary or preliminary injunctive relief in a court of competent jurisdiction to address urgent harms (such as misuse of login credentials, unauthorized scraping, or breaches of Section 9).
-: either party may bring a court action to protect its intellectual property rights (including claims of infringement, misappropriation of trade secrets, or enforcement of license terms).
+- **Small claims court actions**: either party may bring an individual claim in a small claims court of competent jurisdiction, as long as the matter stays in that court and is not removed or appealed to a court of general jurisdiction.
+- **Injunctive relief**: either party may seek temporary or preliminary injunctive relief in a court of competent jurisdiction to address urgent harms (such as misuse of login credentials, unauthorized scraping, or breaches of Section 9).
+- **Intellectual property disputes**: either party may bring a court action to protect its intellectual property rights (including claims of infringement, misappropriation of trade secrets, or enforcement of license terms).
 
 ### 18.5 Opt-out of arbitration
 

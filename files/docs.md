@@ -91,9 +91,9 @@ Enable self-service reviews on your public page. Customers can request their own
 
 Invite team members with role-based permissions:
 
-: full access, billing, account deletion
-: manage reviews, reply, configure settings
-: view reviews and analytics, reply to reviews
+- **Owner**: full access, billing, account deletion
+- **Admin**: manage reviews, reply, configure settings
+- **Member**: view reviews and analytics, reply to reviews
 
 [Manage team →](https://platform.signedreviews.com/dashboard/team)
 
@@ -101,10 +101,10 @@ Invite team members with role-based permissions:
 
 ## Data & compliance
 
-: Data Processing Agreement with Standard Contractual Clauses. [Accept DPA →](/dpa/)
-: [Full list →](/subprocessors/)
-: Owners can export all account data as a ZIP from Dashboard → Settings
-: Account deletion anonymizes reviews and removes all credentials. One-click, irreversible.
+- **GDPR-ready**: Data Processing Agreement with Standard Contractual Clauses. [Accept DPA →](/dpa/)
+- **Sub-processor transparency**: [Full list →](/subprocessors/)
+- **Data export**: Owners can export all account data as a ZIP from Dashboard → Settings
+- **Data deletion**: Account deletion anonymizes reviews and removes all credentials. One-click, irreversible.
 
 ---
 

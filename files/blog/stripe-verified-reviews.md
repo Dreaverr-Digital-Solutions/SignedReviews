@@ -12,7 +12,7 @@ Here's how Stripe verified reviews work, why [cryptographically signed reviews](
 
 A **Stripe verified review** is a customer review that is independently attested by Stripe, the payment processor, rather than by the merchant's own records. Three things come together:
 
-1. **The purchase**, A completed, non-refunded Stripe charge. Not an order record the merchant controls. Not an invitation list the merchant uploaded. The actual payment event, recorded by Stripe.
+1. **The purchase**: A completed, non-refunded Stripe charge. Not an order record the merchant controls. Not an invitation list the merchant uploaded. The actual payment event, recorded by Stripe.
 2. **The reviewer**. The customer who made that payment, matched by the email address on the Stripe transaction.
 3. **The review**. The content the customer writes, producing cryptographically signed reviews at the moment of submission that can't be altered later.
 
@@ -121,11 +121,11 @@ Getting started with Stripe verified reviews is straightforward. First, sign up 
 
 Stripe verified reviews are built for any business that processes payments through Stripe:
 
-: Shopify, [WooCommerce](/integrations/woocommerce/), BigCommerce, Squarespace, or custom. If Stripe processes your payments, Stripe verified reviews work.
-: Subscription businesses on Stripe Billing. Every recurring charge is a verification opportunity. Your churned customers can't review; your active ones can.
-: Consultants, agencies, freelancers who invoice through Stripe. Every paid invoice can become a verified review.
-: Platforms using Stripe Connect. Verify reviews from both sides of the transaction.
-: Anyone selling digital goods through Stripe.
+- **E-commerce stores**: Shopify, [WooCommerce](/integrations/woocommerce/), BigCommerce, Squarespace, or custom. If Stripe processes your payments, Stripe verified reviews work.
+- **SaaS companies**: Subscription businesses on Stripe Billing. Every recurring charge is a verification opportunity. Your churned customers can't review; your active ones can.
+- **Service businesses**: Consultants, agencies, freelancers who invoice through Stripe. Every paid invoice can become a verified review.
+- **Marketplaces**: Platforms using Stripe Connect. Verify reviews from both sides of the transaction.
+- **Creators and digital products**: Anyone selling digital goods through Stripe.
 
 If you're on Stripe, you're eligible. The integration takes one click.
 

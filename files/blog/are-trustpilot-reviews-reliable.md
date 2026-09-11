@@ -21,7 +21,7 @@ Trustpilot reviews are **directionally useful but individually uncertain.** The 
 
 Trustpilot is an **open review platform.** That means:
 
-: no proof of purchase required.
+- **Anyone can review any business**: no proof of purchase required.
 - **Reviews can be organic or invited.** An organic review is someone who found the business on Trustpilot and wrote a review. An invited review comes through the business's Automatic Feedback Service (AFS), usually by BCC'ing order-confirmation emails to Trustpilot.
 - **"Verified" means invited, not independently confirmed.** Trustpilot marks a review "Verified" when it has "corroborated a genuine experience", most commonly because the business sent a unique invitation link. The verification is against the business's customer data, not against a payment processor.
 - **The business decides who to invite.** The business controls its customer list and invitation triggers. A business could invite only happy customers and skip the unhappy ones, and Trustpilot wouldn't know.

@@ -109,10 +109,10 @@ Most SaaS companies already have the strongest possible review-verification infr
 Every Stripe subscription creates a paper trail: when the customer started, what plan they're on, every invoice they've paid, every upgrade and downgrade, whether they cancelled, and whether any payment failed. This data is **independent of your application database.** You can modify a "customer" record in your own database for free. You can't modify a Stripe invoice without Stripe's API recording the change.
 
 A review platform that connects to Stripe Billing can:
-: is this review from a customer whose subscription is still active?
-: a review from a customer with 18 paid invoices carries more signal than one from a customer with 2
-: if a customer churns, the review can be marked as "from a former customer" (still valuable, but contextualized)
-: after the 3rd successful invoice, after an upgrade, at annual renewal
+- **Verify review freshness**: is this review from a customer whose subscription is still active?
+- **Weight review credibility**: a review from a customer with 18 paid invoices carries more signal than one from a customer with 2
+- **Automatically age out reviews**: if a customer churns, the review can be marked as "from a former customer" (still valuable, but contextualized)
+- **Trigger review requests at natural moments**: after the 3rd successful invoice, after an upgrade, at annual renewal
 
 No e-commerce review platform does this, because they're built for one-time purchases. The subscription model is fundamentally different, and the review platform should reflect that.
 

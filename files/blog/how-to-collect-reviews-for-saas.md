@@ -56,9 +56,9 @@ When you ship a major feature, invite the customers who've adopted it to review 
 
 If you use Stripe Billing for subscriptions, every recurring payment is an independent verification event:
 
-: a subscription payment succeeded. This is a verification opportunity: the customer just paid real money. Their review will reflect current, active usage.
-: the customer upgraded, downgraded, or renewed. Upgrade events are particularly high-signal for review requests.
-: the customer cancelled. Don't ask for a review, but if they wrote one previously, ensure it's still attributed to a paying customer at the time of writing (the verification is tied to the charge that existed at review-submission time).
+- **`invoice.paid`**: a subscription payment succeeded. This is a verification opportunity: the customer just paid real money. Their review will reflect current, active usage.
+- **`customer.subscription.updated`**: the customer upgraded, downgraded, or renewed. Upgrade events are particularly high-signal for review requests.
+- **`customer.subscription.deleted`**: the customer cancelled. Don't ask for a review, but if they wrote one previously, ensure it's still attributed to a paying customer at the time of writing (the verification is tied to the charge that existed at review-submission time).
 
 The architectural advantage: a Stripe-native review platform can listen for these events and time review invitations around the subscription lifecycle automatically. No manual campaign management. No guessing when to ask. The billing data drives the timing.
 

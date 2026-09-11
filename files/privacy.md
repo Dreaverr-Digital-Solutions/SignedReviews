@@ -16,9 +16,9 @@ Signed Reviews is a service operated by Paid Rightly LLC, a New Mexico limited l
 
 Signed Reviews has three types of people whose personal data we handle:
 
-: the businesses that sign up for Signed Reviews and their team members who log in to the platform at `platform.signedreviews.com`.
-: the customers of those businesses who receive an email invitation to leave a review and submit one through a one-time link.
-: anyone who views a public review page or browses our marketing website.
+- **Business users**: the businesses that sign up for Signed Reviews and their team members who log in to the platform at `platform.signedreviews.com`.
+- **Reviewers**: the customers of those businesses who receive an email invitation to leave a review and submit one through a one-time link.
+- **Visitors**: anyone who views a public review page or browses our marketing website.
 
 Different parts of this policy apply to each group. Where relevant, we call this out explicitly.
 
@@ -84,8 +84,8 @@ If a business enables metrics on its public review page, we additionally read ag
 
 We collect limited technical information to keep the Service working:
 
-: used transiently for rate limiting to prevent abuse. We do not persist IP addresses in our database.
-: stored in your browser's local storage after you log in. These are not cookies.
+- **IP address**: used transiently for rate limiting to prevent abuse. We do not persist IP addresses in our database.
+- **Browser session tokens**: stored in your browser's local storage after you log in. These are not cookies.
 
 ### 3.4a Analytics
 
@@ -233,13 +233,13 @@ Depending on where you live, you may have rights under laws such as the EU Gener
 
 ### 9.1 Rights available to you
 
-: request a copy of the personal data we hold about you
-: correct inaccurate personal data
-: request deletion of your personal data (subject to the anonymization approach described below)
-: receive your personal data in a portable format
-: object to or restrict certain processing
-: withdraw consent where processing relies on consent
-: exercise these rights without being penalized in how the Service is provided
+- **Access**: request a copy of the personal data we hold about you
+- **Correction**: correct inaccurate personal data
+- **Erasure**: request deletion of your personal data (subject to the anonymization approach described below)
+- **Portability**: receive your personal data in a portable format
+- **Objection / restriction**: object to or restrict certain processing
+- **Withdrawal of consent**: withdraw consent where processing relies on consent
+- **Non-discrimination**: exercise these rights without being penalized in how the Service is provided
 
 ### 9.2 How erasure works
 

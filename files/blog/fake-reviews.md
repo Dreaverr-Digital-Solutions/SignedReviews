@@ -14,7 +14,7 @@ This post argues that detection is structurally insufficient. That the only real
 
 The scale of fake reviews is staggering, and it's growing:
 
-: 7.4% of all reviews submitted to the platform that year. That's up from 2.7 million in 2022. (Trustpilot Transparency Report)
+- **Trustpilot removed 4.5 million fake reviews in 2024**: 7.4% of all reviews submitted to the platform that year. That's up from 2.7 million in 2022. (Trustpilot Transparency Report)
 - **Amazon blocked over 200 million suspected fake reviews** in 2022 alone. (Amazon Brand Protection Report)
 - **The World Economic Forum estimates** fake reviews influence $152 billion in global consumer spending annually.
 - **79% of consumers** say they've read a fake review in the last year. (BrightLocal, 2024)

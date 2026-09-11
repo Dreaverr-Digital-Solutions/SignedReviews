@@ -67,7 +67,7 @@ These sub-processors receive data only when a user chooses to log in or attach a
 
 For transparency, we want to be clear about services we **do not** use as of the date above:
 
-: PostHog (listed above) is our only analytics provider, used for first-party product and marketing-site analytics. We do **not** use Google Analytics, Mixpanel, Amplitude, Segment, Plausible, Heap, or similar.
+- **No third-party analytics beyond PostHog**: PostHog (listed above) is our only analytics provider, used for first-party product and marketing-site analytics. We do **not** use Google Analytics, Mixpanel, Amplitude, Segment, Plausible, Heap, or similar.
 - **No advertising networks**
 - **No standalone session replay tools** (no FullStory, Hotjar, LogRocket, or similar). Session replay is provided by PostHog, our existing analytics sub-processor listed above, with all form-field inputs masked; we do not add a separate replay vendor.
 - **No error tracking services with PII access** (no Sentry, Datadog, Rollbar, or similar at this time)

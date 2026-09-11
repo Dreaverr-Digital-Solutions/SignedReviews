@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/chrome-extension/privacy/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="c4bca2a5d5b3cf4e1089d7b14c84184583f4b10a">
-  <meta name="build-time" content="2026-09-11T16:46:49.046Z">
+  <meta name="build-commit" content="3df0449ff350691bda5468033abe65f239a6fa34">
+  <meta name="build-time" content="2026-09-11T16:59:54.990Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Privacy Policy. SignedReviews Trust Detector">
@@ -622,8 +622,10 @@ main { padding: 0; }
 <h2 id="third-party-services"><a class="anchor" href="#third-party-services" aria-label="Permalink to Third-Party Services"></a>Third-Party Services</h2>
 <p>The only external request this extension makes is to the <strong>SignedReviews Badge API</strong> (<code>api.signedreviews.com/api/badge/*</code>), and only when a SignedReviews badge is present on the current page. These requests contain no user-identifiable information.</p>
 <h2 id="permissions"><a class="anchor" href="#permissions" aria-label="Permalink to Permissions"></a>Permissions</h2>
-<p>: to read the current page&#39;s DOM for review platform detection
-: to inject the content script on every page you visit (so detection works everywhere) and to allow the service worker to call the SignedReviews API</p>
+<ul>
+<li><strong><code>activeTab</code></strong>: to read the current page&#39;s DOM for review platform detection</li>
+<li><strong><code>&lt;all_urls&gt;</code> host permission</strong>: to inject the content script on every page you visit (so detection works everywhere) and to allow the service worker to call the SignedReviews API</li>
+</ul>
 <h2 id="contact"><a class="anchor" href="#contact" aria-label="Permalink to Contact"></a>Contact</h2>
 <p>For questions about this privacy policy, contact: <strong><a href="mailto:billing@dreaverr.com">billing@dreaverr.com</a></strong></p>
 <h2 id="changes"><a class="anchor" href="#changes" aria-label="Permalink to Changes"></a>Changes</h2>

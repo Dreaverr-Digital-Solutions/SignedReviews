@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/privacy/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="c4bca2a5d5b3cf4e1089d7b14c84184583f4b10a">
-  <meta name="build-time" content="2026-09-11T16:46:49.046Z">
+  <meta name="build-commit" content="3df0449ff350691bda5468033abe65f239a6fa34">
+  <meta name="build-time" content="2026-09-11T16:59:54.990Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Privacy Policy, Signed Reviews">
@@ -620,9 +620,11 @@ main { padding: 0; }
 <hr>
 <h2 id="1-who-this-policy-applies-to"><a class="anchor" href="#1-who-this-policy-applies-to" aria-label="Permalink to 1. Who this policy applies to"></a>1. Who this policy applies to</h2>
 <p>Signed Reviews has three types of people whose personal data we handle:</p>
-<p>: the businesses that sign up for Signed Reviews and their team members who log in to the platform at <code>platform.signedreviews.com</code>.
-: the customers of those businesses who receive an email invitation to leave a review and submit one through a one-time link.
-: anyone who views a public review page or browses our marketing website.</p>
+<ul>
+<li><strong>Business users</strong>: the businesses that sign up for Signed Reviews and their team members who log in to the platform at <code>platform.signedreviews.com</code>.</li>
+<li><strong>Reviewers</strong>: the customers of those businesses who receive an email invitation to leave a review and submit one through a one-time link.</li>
+<li><strong>Visitors</strong>: anyone who views a public review page or browses our marketing website.</li>
+</ul>
 <p>Different parts of this policy apply to each group. Where relevant, we call this out explicitly.</p>
 <hr>
 <h2 id="2-our-role-under-privacy-law"><a class="anchor" href="#2-our-role-under-privacy-law" aria-label="Permalink to 2. Our role under privacy law"></a>2. Our role under privacy law</h2>
@@ -669,8 +671,10 @@ main { padding: 0; }
 <p>If a business enables metrics on its public review page, we additionally read aggregate data from that business&#39;s Stripe account on a strictly read-only basis (such as charges, customers, subscriptions, refunds, disputes, and balance transactions) and store only the resulting privacy-thresholded aggregate values (for example, a banded refund rate or active-subscriber count), never the underlying raw records. We never store full card numbers, CVV codes, expiry dates, cardholder names, or full billing addresses.</p>
 <h3 id="34-technical-information"><a class="anchor" href="#34-technical-information" aria-label="Permalink to 3.4 Technical information"></a>3.4 Technical information</h3>
 <p>We collect limited technical information to keep the Service working:</p>
-<p>: used transiently for rate limiting to prevent abuse. We do not persist IP addresses in our database.
-: stored in your browser&#39;s local storage after you log in. These are not cookies.</p>
+<ul>
+<li><strong>IP address</strong>: used transiently for rate limiting to prevent abuse. We do not persist IP addresses in our database.</li>
+<li><strong>Browser session tokens</strong>: stored in your browser&#39;s local storage after you log in. These are not cookies.</li>
+</ul>
 <h3 id="34a-analytics"><a class="anchor" href="#34a-analytics" aria-label="Permalink to 3.4a Analytics"></a>3.4a Analytics</h3>
 <p>We use <strong>PostHog</strong> for first-party product and marketing analytics, to understand how our marketing site and merchant dashboard are used (pages viewed, features used, sign-up funnels). PostHog sets a first-party analytics cookie and may process usage and device data (pages viewed, UI interactions, approximate location derived from IP, browser/OS); for signed-in merchants it is also associated with your user ID, email, and business. PostHog is listed on our <a href="/subprocessors">Sub-processors</a> page.</p>
 <p><strong>Where analytics runs, and where it does not.</strong> PostHog runs only on our marketing site (<code>signedreviews.com</code>) and the authenticated merchant dashboard. It is <strong>not</strong> loaded on public review pages or the reviewer-facing review-submission flow, so review readers and reviewers are not tracked by our analytics. We honour your browser&#39;s &quot;Do Not Track&quot; setting.</p>
@@ -776,13 +780,15 @@ main { padding: 0; }
 <h2 id="9-your-rights-and-choices"><a class="anchor" href="#9-your-rights-and-choices" aria-label="Permalink to 9. Your rights and choices"></a>9. Your rights and choices</h2>
 <p>Depending on where you live, you may have rights under laws such as the EU General Data Protection Regulation (GDPR), the UK GDPR, the California Consumer Privacy Act (CCPA/CPRA), and similar US state laws (including Colorado, Connecticut, Virginia, Utah, Texas, and others). We honor these rights for all users regardless of location.</p>
 <h3 id="91-rights-available-to-you"><a class="anchor" href="#91-rights-available-to-you" aria-label="Permalink to 9.1 Rights available to you"></a>9.1 Rights available to you</h3>
-<p>: request a copy of the personal data we hold about you
-: correct inaccurate personal data
-: request deletion of your personal data (subject to the anonymization approach described below)
-: receive your personal data in a portable format
-: object to or restrict certain processing
-: withdraw consent where processing relies on consent
-: exercise these rights without being penalized in how the Service is provided</p>
+<ul>
+<li><strong>Access</strong>: request a copy of the personal data we hold about you</li>
+<li><strong>Correction</strong>: correct inaccurate personal data</li>
+<li><strong>Erasure</strong>: request deletion of your personal data (subject to the anonymization approach described below)</li>
+<li><strong>Portability</strong>: receive your personal data in a portable format</li>
+<li><strong>Objection / restriction</strong>: object to or restrict certain processing</li>
+<li><strong>Withdrawal of consent</strong>: withdraw consent where processing relies on consent</li>
+<li><strong>Non-discrimination</strong>: exercise these rights without being penalized in how the Service is provided</li>
+</ul>
 <h3 id="92-how-erasure-works"><a class="anchor" href="#92-how-erasure-works" aria-label="Permalink to 9.2 How erasure works"></a>9.2 How erasure works</h3>
 <p><strong>For business users:</strong> You can request account deletion by emailing <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a>. We will delete your account and associated personal data (email, display name, profile picture, team membership). Reviews and transaction records associated with your business will be anonymized: the review content, rating, and cryptographic signature remain public (because third parties rely on them), but reviewer identifiers tied to your account will be removed.</p>
 <p><strong>For reviewers:</strong> You can request erasure of your review by emailing <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a> with the email address you used to receive the review invitation. On verification, we will anonymize the review: your display name, photo, social handle, and email-derived identifiers will be removed, while the rating, review body, and verification signature will remain. We follow this anonymize-rather-than-delete approach because deleting reviews outright would undermine the integrity of the verified-review record that other users rely on. If anonymization does not satisfy your erasure request under applicable law, contact us and we will work with you in good faith to resolve it.</p>

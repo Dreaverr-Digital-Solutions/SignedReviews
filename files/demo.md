@@ -8,17 +8,17 @@ See Signed Reviews in action. Book a personalized walkthrough to learn how verif
 
 A 20-30 minute screen share covering:
 
-: dashboard, review collection flow, and public review page in real time
-: one-click OAuth, minimal permissions, and automatic invitation triggering
-: see a Stripe transaction become a cryptographically signed review
-: discuss your business, current review stack, and how Signed Reviews fits
+- **Live product demo**: dashboard, review collection flow, and public review page in real time
+- **Stripe integration**: one-click OAuth, minimal permissions, and automatic invitation triggering
+- **Verification walkthrough**: see a Stripe transaction become a cryptographically signed review
+- **Your use case**: discuss your business, current review stack, and how Signed Reviews fits
 
 ## Who this is for
 
-: if you process payments through Stripe and want the strongest review verification
-: DTC brands, Shopify merchants, and online retailers
-: B2B and B2C SaaS businesses looking for transaction-attested reviews
-: agencies managing review collection for multiple clients
+- **Stripe businesses**: if you process payments through Stripe and want the strongest review verification
+- **E-commerce brands**: DTC brands, Shopify merchants, and online retailers
+- **SaaS companies**: B2B and B2C SaaS businesses looking for transaction-attested reviews
+- **Agencies**: agencies managing review collection for multiple clients
 
 ## Book a time
 

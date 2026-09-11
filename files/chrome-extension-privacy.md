@@ -22,8 +22,8 @@ The only external request this extension makes is to the **SignedReviews Badge A
 
 ## Permissions
 
-: to read the current page's DOM for review platform detection
-: to inject the content script on every page you visit (so detection works everywhere) and to allow the service worker to call the SignedReviews API
+- **`activeTab`**: to read the current page's DOM for review platform detection
+- **`<all_urls>` host permission**: to inject the content script on every page you visit (so detection works everywhere) and to allow the service worker to call the SignedReviews API
 
 ## Contact
 

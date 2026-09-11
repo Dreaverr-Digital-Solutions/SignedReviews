@@ -14,7 +14,7 @@ Trustpilot doesn't publish prices on its pricing page. Understanding what Trustp
 
 If you visit [business.trustpilot.com/pricing](https://business.trustpilot.com/pricing), here's what you'll see, and what you won't:
 
-: "Use Trustpilot for free": a business profile, organic reviews, and public replies.
+- **The Free plan is front and center**: "Use Trustpilot for free": a business profile, organic reviews, and public replies.
 - **No prices for paid plans.** Growth, Scale, and Enterprise all sit behind a contact form or demo request. The pricing page is a lead-generation page, not a price list.
 - **Feature names, not costs.** The page lists what each tier *can* do (invitations, AFS, analytics) but never what it costs.
 - **What's missing:** the $299/mo starting price for Growth, add-on prices (API access, Google Seller Ratings), seat fees, and overage rules, all of which emerge later, in the sales conversation.
@@ -142,7 +142,7 @@ For some businesses, yes, particularly those where Trustpilot is a primary consu
 
 For most small and mid-size businesses, the math is harder to justify:
 
-: for the ability to invite customers to leave reviews, on a platform where unverified reviews sit next to invited ones.
+- **$299/month = $3,588/year**: for the ability to invite customers to leave reviews, on a platform where unverified reviews sit next to invited ones.
 - **Verification is Level 3 (merchant-supplied).** Trustpilot's "Verified" badge means the business invited the reviewer, not that a payment was independently confirmed. You're paying $3,600/year for invitations, not independent verification.
 - **You don't own the reviews.** Trustpilot owns the platform, the profile, and the review data. If you stop paying, you lose the ability to send invitations, but your profile (and its reviews) stay up. You just can't manage it actively.
 
