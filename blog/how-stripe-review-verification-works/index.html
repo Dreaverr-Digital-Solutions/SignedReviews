@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/how-stripe-review-verification-works/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="7609ea8e1f54e774682ce602c81102d213904553">
-  <meta name="build-time" content="2026-09-11T17:07:17.872Z">
+  <meta name="build-commit" content="75b3d458d9d18f48b0d4d44bb27e3939735d7364">
+  <meta name="build-time" content="2026-09-11T17:08:41.473Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="How Stripe Review Verification Works: A Technical Guide. Signed Reviews Blog">
@@ -614,7 +614,10 @@ main { padding: 0; }
     <div class="prose-wrap">
       <article class="prose">
       <p class="post-meta" style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">2026-07-04</p>
-      <p>If you accept payments through Stripe, you already have everything you need to collect verified, tamper-evident customer reviews. Here&#39;s how Stripe review verification works, from OAuth to cryptographic signing.</p>
+      
+<p><strong>Published:</strong> 2026-07-04 · <strong>Author:</strong> Signed Reviews Team · <strong>Description:</strong> Learn how Stripe review verification works, from OAuth connection and charge verification to cryptographic signing and automatic refund handling.</p>
+<hr>
+<p>If you accept payments through Stripe, you already have everything you need to collect verified, tamper-evident customer reviews. Here&#39;s how Stripe review verification works, from OAuth to cryptographic signing.</p>
 <p>Set up in under a minute. That&#39;s how Stripe review verification works. No API keys, no webhooks, no server changes. See the pricing page for plan details.</p>
 <h2 id="the-stripe-connection"><a class="anchor" href="#the-stripe-connection" aria-label="Permalink to The Stripe connection"></a>The Stripe connection</h2>
 <p>Signed Reviews connects to your Stripe account via Stripe&#39;s official OAuth flow. You click &quot;Connect,&quot; authorize the integration, and that&#39;s it. No API keys to copy and paste. No webhook configuration. No server changes. See <a href="/pricing/">pricing</a> for plan details.</p>
@@ -647,7 +650,7 @@ main { padding: 0; }
 <li><p><strong>Verification</strong>: The signature uses HMAC-SHA256 with a platform-wide signing key. Anyone can verify the signature independently. It proves the review was created through the platform and has not been altered.</p>
 </li>
 </ol>
-<h2 id="refund-handling-how-stripe-review-verification-works-after-a-refund"><a class="anchor" href="#refund-handling-how-stripe-review-verification-works-after-a-refund" aria-label="Permalink to Refund handling, how Stripe review verification works after a refund"></a>Refund handling, how Stripe review verification works after a refund</h2>
+<h2 id="refund-handling-how-stripe-review-verification-works-after-a-refund"><a class="anchor" href="#refund-handling-how-stripe-review-verification-works-after-a-refund" aria-label="Permalink to Refund handling: how Stripe review verification works after a refund"></a>Refund handling: how Stripe review verification works after a refund</h2>
 <p>If a charge is refunded, Stripe sends a <code>charge.refunded</code> event. Signed Reviews automatically hides the associated review from your public page and API. The cryptographic signature remains valid (the review <em>was</em> authentic), but the content is no longer displayed publicly.</p>
 <p>This is automatic: you don&#39;t need to flag, report, or manually hide anything. That&#39;s how Stripe review verification works end-to-end: the same payment processor that confirms the charge also confirms the refund, and the review follows automatically.</p>
 <h2 id="the-invitation-lifecycle"><a class="anchor" href="#the-invitation-lifecycle" aria-label="Permalink to The invitation lifecycle"></a>The invitation lifecycle</h2>

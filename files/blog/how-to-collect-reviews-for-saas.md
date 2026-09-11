@@ -40,7 +40,7 @@ Timing is everything. Ask too early and the review is shallow. Ask too late and 
 
 **Optimal window:** 30–60 days after first payment. This gives the customer time to onboard, form habits, and experience enough of the product to have a meaningful opinion.
 
-**Ongoing:** Consider asking annually, each yearly anniversary of the subscription is a natural moment to request an updated review. "You've been with us for a year. How are we doing?"
+**Ongoing:** Consider asking annually. Each yearly anniversary of the subscription is a natural moment to request an updated review. "You've been with us for a year. How are we doing?"
 
 ### Annual subscribers
 

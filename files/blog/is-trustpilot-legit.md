@@ -81,7 +81,7 @@ For a small business, Trustpilot's paid plans start at roughly $3,600/year. That
 ### The hidden costs
 
 - **No free trial** on paid plans
-- **Annual contracts** with auto-renewal, cancellation requires notice
+- **Annual contracts** with auto-renewal: cancellation requires notice
 - **Add-on costs** for features like Google Shopping integration, additional locations, and API access
 - **No refund detection**: if a customer gets a refund, you must manually flag and remove their review
 - **Time investment**: managing your Trustpilot presence (responding to reviews, flagging fakes, monitoring) takes staff hours

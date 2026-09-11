@@ -2782,7 +2782,7 @@ function buildComparisonSiteJabber() {
 
   const html = page({
     title: 'Signed Reviews vs SiteJabber. Comparison',
-    description: 'SiteJabber received an FTC order in 2024 for reviews from people who never received products. Signed Reviews is structurally FTC-compliant, every review requires a verified Stripe charge.',
+    description: 'SiteJabber received an FTC order in 2024 for reviews from people who never received products. Signed Reviews is structurally FTC-compliant: every review requires a verified Stripe charge.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs SiteJabber', subtitle: 'SiteJabber got an FTC order for reviews from people who never received products. We structurally can\'t have that problem.' },
     body,
@@ -3815,7 +3815,7 @@ function buildIntegrations() {
       <div class="ic-icon ic-stripe">S</div>
       <div class="ic-body">
         <h3>Stripe <span class="ic-badge ic-badge-live">Live</span></h3>
-        <p>The native integration. One-click OAuth, minimal permissions, zero code. Every Stripe charge automatically generates a verified review invitation. Refund-aware, reviews for refunded charges are hidden automatically. Works with Stripe Billing, Stripe Connect, and Stripe Checkout.</p>
+        <p>The native integration. One-click OAuth, minimal permissions, zero code. Every Stripe charge automatically generates a verified review invitation. Refund-aware: reviews for refunded charges are hidden automatically. Works with Stripe Billing, Stripe Connect, and Stripe Checkout.</p>
         <a class="ic-cta" href="${B}integrations/stripe/">Stripe integration details →</a>
       </div>
     </div>
@@ -3995,7 +3995,7 @@ function buildIntegrationsStripe() {
       <li><div class="step-num"></div><div><h3>Sign up or log in</h3><p>Create a free Signed Reviews account at <a href="${PLATFORM_URL}" rel="noopener">platform.signedreviews.com</a>. No credit card required. The Free plan includes Stripe integration with unlimited self-service reviews and 10 free automated review invitations.</p></div></li>
       <li><div class="step-num"></div><div><h3>Click "Connect Stripe"</h3><p>In your dashboard, click the Stripe connection button. You'll be redirected to Stripe's official OAuth authorization page, the same flow used by thousands of Stripe App installations.</p></div></li>
       <li><div class="step-num"></div><div><h3>Authorize the permissions</h3><p>Stripe shows you exactly which permissions are requested, four read scopes plus two coupon permissions used only for review incentives. Review and click "Connect." The redirect brings you back to your Signed Reviews dashboard.</p></div></li>
-      <li><div class="step-num"></div><div><h3>Configure auto-requests</h3><p>Choose your invitation timing: immediately after purchase (digital products), after a configurable delay (physical products), or triggered by your delivery webhook. Set reminder cadence, standard is 3 and 7 days.</p></div></li>
+      <li><div class="step-num"></div><div><h3>Configure auto-requests</h3><p>Choose your invitation timing: immediately after purchase (digital products), after a configurable delay (physical products), or triggered by your delivery webhook. Set reminder cadence: standard is 3 and 7 days.</p></div></li>
       <li><div class="step-num"></div><div><h3>Customize your branding</h3><p>Upload your logo, set brand colors, and customize the email sender name. Every review invitation carries your branding: your customers see your business, not ours.</p></div></li>
       <li><div class="step-num"></div><div><h3>Go live</h3><p>Switch from test mode to live. Every new Stripe charge automatically generates a verified review invitation. Your public review page is live immediately at <code>signedreviews.com/yourbusiness</code>.</p></div></li>
     </ol>
@@ -4582,7 +4582,7 @@ function buildFakeReviewChecker() {
 
       var claimHits = [];
       for (var m = 0; m < AUTH_CLAIMS.length; m++) { if (lower.indexOf(AUTH_CLAIMS[m]) !== -1) claimHits.push(AUTH_CLAIMS[m]); }
-      if (claimHits.length > 0) { score += 10; signals.push('The text argues for its own authenticity ("' + claimHits.slice(0, 2).join('", "') + '"). Real reviews rarely do, badges can be copied, and the claim itself is a known tell.'); }
+      if (claimHits.length > 0) { score += 10; signals.push('The text argues for its own authenticity ("' + claimHits.slice(0, 2).join('", "') + '"). Real reviews rarely do: badges can be copied, and the claim itself is a known tell.'); }
 
       var good = [];
       if (hasDetail) { score -= 20; good.push('Concrete details present (specifics, dates, or first-person purchase language).'); }

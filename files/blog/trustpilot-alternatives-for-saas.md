@@ -75,7 +75,7 @@ TrustRadius is the enterprise SaaS review aggregator: longer, more detailed revi
 | Stripe Billing | ❌ No native integration |
 | Starting price | $49/mo (Starter) / $99–$199/mo (Pro/Business) |
 
-Testimonial.to specializes in collecting and displaying video and text testimonials, making it a popular Trustpilot alternative for SaaS companies that want rich social proof on their landing pages. It offers embeddable widgets, a "Wall of Love" display, and easy collection via shareable links. However, there's no purchase verification, testimonials are self-attested. Best used alongside a verified review platform rather than as your sole review source.
+Testimonial.to specializes in collecting and displaying video and text testimonials, making it a popular Trustpilot alternative for SaaS companies that want rich social proof on their landing pages. It offers embeddable widgets, a "Wall of Love" display, and easy collection via shareable links. However, there's no purchase verification: testimonials are self-attested. Best used alongside a verified review platform rather than as your sole review source.
 
 **Best for:** SaaS startups wanting attractive testimonial displays on landing pages. Not a verification platform.
 

@@ -43,7 +43,7 @@ If a product has hundreds of 5-star reviews and zero 3-star reviews, the 5-star 
 On platforms that show reviewer profiles, look at:
 - **Review velocity**: A reviewer who posted 15 reviews in one day across unrelated product categories
 - **Review similarity**: The same review text posted for different products
-- **Rating pattern**: All 5-star or all 1-star reviews, real customers have varied experiences
+- **Rating pattern**: All 5-star or all 1-star reviews. Real customers have varied experiences
 - **Account age**: An account created last week with 30 reviews is more suspicious than a 5-year-old account with 30 reviews
 
 One or two suspicious signals isn't proof. A cluster of 3+ is a strong indicator.
@@ -54,7 +54,7 @@ AI-generated reviews have gotten very good, but they still have subtle tells:
 - **Uniform sentence length.** Humans vary sentence length naturally. AI tends toward consistent 15–25 word sentences.
 - **No specific details.** "This product is great, highly recommend" vs. "The zipper broke after three weeks but customer service sent a replacement in two days." AI is bad at invented specificity.
 - **Perfect grammar, no typos.** Real reviews contain occasional typos. A product with 200 grammatically flawless reviews and zero typos is statistically unlikely.
-- **Generic enthusiasm.** "Changed my life!" "Best purchase ever!" "You won't regret it!", real reviews are more measured, even when positive.
+- **Generic enthusiasm.** "Changed my life!" "Best purchase ever!" "You won't regret it!" Real reviews are more measured, even when positive.
 
 No single tell is conclusive on its own. Our [fake review checker](/blog/fake-review-checker/) scores a review against all of them at once and shows you which signals fired.
 

@@ -38,11 +38,11 @@ Trustpilot dominates online reviews, which is 361 million reviews and roughly 55
 
 Not all review platforms are built for online stores. Here's what matters when evaluating trustpilot alternatives for ecommerce:
 
-**Purchase verification.** Can the platform prove a reviewer actually bought the product? Look beyond "Verified Buyer" badges, ask who did the verifying. Platforms that verify against payment processor data (Stripe) give you cryptographic proof. Platforms that verify against store order data (Shopify) are solid but the data source is your own admin. Platforms with no verification at all leave you exposed to fake reviews.
+**Purchase verification.** Can the platform prove a reviewer actually bought the product? Look beyond "Verified Buyer" badges: ask who did the verifying. Platforms that verify against payment processor data (Stripe) give you cryptographic proof. Platforms that verify against store order data (Shopify) are solid but the data source is your own admin. Platforms with no verification at all leave you exposed to fake reviews.
 
 **Shopify, WooCommerce, and store integrations.** Your review platform should integrate natively with your ecommerce stack: auto-sending review invitations after fulfillment, syncing product catalogs, and embedding review widgets on product pages without custom development. If you're paying for a platform, it should work where your customers shop.
 
-**Google rich snippets.** Star ratings in search results directly impact click-through rates. Your review platform needs to generate valid aggregateRating schema markup that Google can parse. Not all platforms do this correctly, some use review counts that don't match the visible page, which Google flags as spam.
+**Google rich snippets.** Star ratings in search results directly impact click-through rates. Your review platform needs to generate valid aggregateRating schema markup that Google can parse. Not all platforms do this correctly: some use review counts that don't match the visible page, which Google flags as spam.
 
 **Pricing that scales with you.** Avoid platforms that charge per review or have opaque enterprise pricing. Fixed monthly tiers with clear review volume caps let you budget predictably.
 
@@ -151,7 +151,7 @@ Your review platform should plug into your existing stack without custom develop
 | Shopify (Stripe gateway) | Stripe-native platform (Level 4) | Signed Reviews, one connection covers verification + display |
 | WooCommerce (Stripe gateway) | Stripe-native platform (Level 4) | Signed Reviews + lightweight WooCommerce plugin |
 | BigCommerce / Magento | Level 3 (platform-native review app) | Stamped.io or Yotpo, best multi-platform support |
-| Custom / headless | Stripe-native platform (Level 4) | Signed Reviews, works with any Stripe-integrated stack |
+| Custom / headless | Stripe-native platform (Level 4) | Signed Reviews: works with any Stripe-integrated stack |
 
 ---
 

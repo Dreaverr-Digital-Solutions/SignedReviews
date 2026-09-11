@@ -45,7 +45,7 @@ The timing of reviews tells a story. Check:
 - [ ] **Reviews posted before product launch**: Self-explanatory. The reviews can't be genuine if the product wasn't available
 - [ ] **Reviews on the same date across products**: The same "reviewer" posted reviews for different products on the exact same date, a sign of a paid review campaign
 - [ ] **No reviews during known purchase periods**: If the business had a major sale or promotion and review volume didn't increase, existing reviews may not reflect real purchase patterns
-- [ ] **Reviews stop abruptly**: A product with weekly reviews that suddenly drops to zero, could indicate the end of a paid review campaign
+- [ ] **Reviews stop abruptly**: A product with weekly reviews that suddenly drops to zero: could indicate the end of a paid review campaign
 
 **Red flag if:** 1 or more of these are true. Timing anomalies are one of the strongest fake review signals.
 
@@ -92,7 +92,7 @@ Verification badges are not all equal. When you see a "Verified" badge:
 - [ ] **Who is the verifying party?** Is it the review platform itself, or an independent third party (payment processor, identity provider)? Self-attested verification is weaker.
 - [ ] **Is there a transaction reference?** The strongest verification badges reference a specific transaction (e.g., "Verified Stripe Purchase, charge ch_3QabcDEF..."). Anyone can verify the charge independently.
 - [ ] **What happens on refund?** If a verified review stays up after the customer gets a refund, the verification is misleading. Transaction-based verification should automatically flag or hide refunded purchases.
-- [ ] **Can the business remove reviews unilaterally?** If the business can delete any review they don't like, the "verified" badge loses meaning, verification should protect reviews from removal as well as fabrication.
+- [ ] **Can the business remove reviews unilaterally?** If the business can delete any review they don't like, the "verified" badge loses meaning: verification should protect reviews from removal as well as fabrication.
 
 **Red flag if:** The badge provides no specific information about what was verified or by whom.
 
@@ -162,7 +162,7 @@ Timing anomalies are the hardest to disguise. A product with 30 reviews posted o
 
 ### Are all negative reviews fake?
 
-No. Genuine customers leave negative reviews, in fact, a profile with only positive reviews is more suspicious than one with mixed sentiment. The question is whether the negative reviews follow the patterns above. A detailed, context-rich 2-star review from a reviewer with a genuine profile history is likely real. A one-sentence 1-star review from a newly created account is suspicious.
+No. Genuine customers leave negative reviews. In fact, a profile with only positive reviews is more suspicious than one with mixed sentiment. The question is whether the negative reviews follow the patterns above. A detailed, context-rich 2-star review from a reviewer with a genuine profile history is likely real. A one-sentence 1-star review from a newly created account is suspicious.
 
 ### How does transaction verification prevent fake reviews?
 

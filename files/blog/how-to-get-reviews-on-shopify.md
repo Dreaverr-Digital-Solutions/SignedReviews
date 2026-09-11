@@ -4,7 +4,7 @@
 
 ---
 
-Shopify stores live and die by social proof. If you're looking for how to get reviews on shopify, you're asking the right question, reviews are the highest-impact conversion element you can add to a product page, and Shopify gives you more review-collection options than any other e-commerce platform. The question isn't whether to collect reviews, but which method produces reviews your customers can actually trust.
+Shopify stores live and die by social proof. If you're looking for how to get reviews on shopify, you're asking the right question: reviews are the highest-impact conversion element you can add to a product page, and Shopify gives you more review-collection options than any other e-commerce platform. The question isn't whether to collect reviews, but which method produces reviews your customers can actually trust.
 
 This guide covers app selection, timing, email strategy, and the one verification approach that Shopify apps don't offer.
 
@@ -95,7 +95,7 @@ Once you're collecting reviews, put them where customers actually look:
 Shopify review apps verify against Shopify order data. That's good. It's Level 3, better than email-only or self-attested. But it has a built-in limitation: **the verification data is under your administrative control.**
 
 If someone with access to your Shopify admin wanted to manufacture a "Verified Buyer" review, they'd need to:
-1. Create an order (using a discount code, could be $0)
+1. Create an order (using a discount code: could be $0)
 2. Mark it as paid
 3. Submit a review against that order
 

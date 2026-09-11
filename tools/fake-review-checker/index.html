@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/tools/fake-review-checker/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="7609ea8e1f54e774682ce602c81102d213904553">
-  <meta name="build-time" content="2026-09-11T17:07:17.872Z">
+  <meta name="build-commit" content="75b3d458d9d18f48b0d4d44bb27e3939735d7364">
+  <meta name="build-time" content="2026-09-11T17:08:41.473Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Free Fake Review Checker. Spot Suspicious Review Text">
@@ -963,7 +963,7 @@ main { padding: 0; }
 
       var claimHits = [];
       for (var m = 0; m < AUTH_CLAIMS.length; m++) { if (lower.indexOf(AUTH_CLAIMS[m]) !== -1) claimHits.push(AUTH_CLAIMS[m]); }
-      if (claimHits.length > 0) { score += 10; signals.push('The text argues for its own authenticity ("' + claimHits.slice(0, 2).join('", "') + '"). Real reviews rarely do, badges can be copied, and the claim itself is a known tell.'); }
+      if (claimHits.length > 0) { score += 10; signals.push('The text argues for its own authenticity ("' + claimHits.slice(0, 2).join('", "') + '"). Real reviews rarely do: badges can be copied, and the claim itself is a known tell.'); }
 
       var good = [];
       if (hasDetail) { score -= 20; good.push('Concrete details present (specifics, dates, or first-person purchase language).'); }

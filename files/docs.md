@@ -26,7 +26,7 @@ Your business gets a public profile at `signedreviews.com/your-slug`. Customize 
 
 ### Trust Profile
 
-Optional Stripe-powered trust metrics displayed on your public page: refund rate, chargeback rate, repeat customer rate, active subscriptions, and more. Each metric respects a k-anonymity floor, individual transactions are never exposed.
+Optional Stripe-powered trust metrics displayed on your public page: refund rate, chargeback rate, repeat customer rate, active subscriptions, and more. Each metric respects a k-anonymity floor: individual transactions are never exposed.
 
 ---
 

@@ -124,7 +124,7 @@ If you're evaluating a Stripe app for reviews on the Stripe Marketplace:
 
 1. **Which permissions does the connection ask for?** If the app requests write permissions, ask why. A review app doesn't need to create charges or issue refunds to verify purchases: the only write Signed Reviews uses is minting single-use discount coupons for reviewers, and only when the business enables review incentives.
 2. **Does it react to charge.refunded?** The mark of a well-built Stripe integration: refunded charges automatically hide their associated reviews.
-3. **Does it work with Stripe Billing / subscriptions?** Subscription businesses have recurring charges, each renewal is a new verification opportunity.
+3. **Does it work with Stripe Billing / subscriptions?** Subscription businesses have recurring charges: each renewal is a new verification opportunity.
 4. **Does it support Stripe Connect?** If you run a platform or marketplace, your connected accounts should be able to use the app independently.
 5. **Is the verification cryptographic?** Does the app sign reviews so their authenticity can be independently verified? A cryptographic signature means the review can be checked for tampering at any point in the future by any party, not just by the platform that issued it.
 

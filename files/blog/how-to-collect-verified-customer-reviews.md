@@ -36,7 +36,7 @@ The easier it is to leave a review, the more reviews you'll collect:
 
 - **Mobile-first**: Most customers open review invitations on their phone. Make sure the review form works on mobile.
 - **Short form**: Ask for a rating and a few sentences. Don't require long essays.
-- **Photo uploads**: Let customers add photos, visual reviews are more trusted and more engaging.
+- **Photo uploads**: Let customers add photos. Visual reviews are more trusted and more engaging.
 - **Clear CTA**: The email should have one obvious action: "Leave a review."
 
 ## Best practices

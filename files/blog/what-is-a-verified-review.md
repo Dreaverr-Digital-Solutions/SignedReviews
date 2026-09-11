@@ -8,7 +8,7 @@
 
 **Verified purchaser reviews are more reliable than sponsored reviews.** A sponsored review is paid for regardless of whether the reviewer ever bought the product. It reflects a business relationship, not a purchase. A verified purchaser review requires proof of an actual purchase, independently confirmed before the review can exist. If you have to trust one kind, trust the one backed by a real transaction.
 
-**The difference between verified and unverified reviews** is what separates real customer feedback from noise. A verified review requires proof of purchase, without it, anyone can post anything.
+**The difference between verified and unverified reviews** is what separates real customer feedback from noise. A verified review requires proof of purchase: without it, anyone can post anything.
 
 Online reviews are broken. In 2022 alone, Trustpilot removed 2.7 million fake reviews from its platform. Amazon battles an endless flood of paid and incentivized reviews. The fundamental problem: **anyone can write a review, whether they purchased the product or not.**
 
@@ -54,7 +54,7 @@ Here's [how verification works with Signed Reviews](/how-verification-works/):
 A verified review requires proof of purchase, usually via a transaction ID or payment gateway like Stripe, ensuring only real buyers can leave feedback. This stops fake reviews and builds trust.
 
 ### What's the difference between verified and unverified reviews?
-A verified review comes from a buyer whose purchase has been independently confirmed, typically via a payment provider like Stripe. An unverified review requires no such proof, anyone can leave feedback, making it open to fake or biased ratings. This key difference shields businesses from review fraud and builds genuine trust.
+A verified review comes from a buyer whose purchase has been independently confirmed, typically via a payment provider like Stripe. An unverified review requires no such proof: anyone can leave feedback, making it open to fake or biased ratings. This key difference shields businesses from review fraud and builds genuine trust.
 
 ### Are sponsored reviews or verified purchaser reviews more reliable?
 
@@ -84,7 +84,7 @@ It depends on who does the verifying. If "verified" only means the merchant invi
     "name": "What's the difference between verified and unverified reviews?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "A verified review comes from a buyer whose purchase has been independently confirmed, typically via a payment provider like Stripe. An unverified review requires no such proof, anyone can leave feedback, making it open to fake or biased ratings."
+      "text": "A verified review comes from a buyer whose purchase has been independently confirmed, typically via a payment provider like Stripe. An unverified review requires no such proof: anyone can leave feedback, making it open to fake or biased ratings."
     }
   }, {
     "@type": "Question",

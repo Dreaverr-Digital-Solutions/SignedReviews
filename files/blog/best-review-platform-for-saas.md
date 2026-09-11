@@ -135,7 +135,7 @@ See how our pricing scales with your SaaS revenue on the [pricing page](/pricing
 |-----------|-------|-------|
 | Verification method | ★★★☆☆ | Merchant-supplied (Level 3). "Verified Reviewer" means the review came through the merchant's invitation system. |
 | Stripe integration | ★☆☆☆☆ | No native Stripe integration. |
-| SaaS suitability | ★★★☆☆ | General-purpose, works for SaaS but not optimized for it. |
+| SaaS suitability | ★★★☆☆ | General-purpose: works for SaaS but not optimized for it. |
 | Pricing for SaaS | ★★★☆☆ | From £89/mo. Mid-range. More affordable than Trustpilot, pricier than Signed Reviews. |
 | API & embeddability | ★★★★☆ | Good API, strong UK/European presence. |
 

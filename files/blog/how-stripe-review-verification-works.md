@@ -40,7 +40,7 @@ When a customer completes a purchase through your Stripe account, Stripe records
 
 5. **Verification**: The signature uses HMAC-SHA256 with a platform-wide signing key. Anyone can verify the signature independently. It proves the review was created through the platform and has not been altered.
 
-## Refund handling, how Stripe review verification works after a refund
+## Refund handling: how Stripe review verification works after a refund
 
 If a charge is refunded, Stripe sends a `charge.refunded` event. Signed Reviews automatically hides the associated review from your public page and API. The cryptographic signature remains valid (the review *was* authentic), but the content is no longer displayed publicly.
 

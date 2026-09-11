@@ -50,7 +50,7 @@ This is the smallest TrustBox: a single line showing your star rating, your Trus
   </p>
 </div>
 
-Same compact format, but adds the review count. The number matters, "1,234 reviews" is more convincing than "4 stars" alone. Research consistently shows that review volume is as important as review score in purchase decisions.
+Same compact format, but adds the review count. The number matters: "1,234 reviews" is more convincing than "4 stars" alone. Research consistently shows that review volume is as important as review score in purchase decisions.
 
 **Where you see it:** Product pages on mid-market e-commerce sites, SaaS landing pages below the hero, small business websites.
 

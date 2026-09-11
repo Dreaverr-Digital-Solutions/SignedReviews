@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/stripe-app-for-reviews/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="7609ea8e1f54e774682ce602c81102d213904553">
-  <meta name="build-time" content="2026-09-11T17:07:17.872Z">
+  <meta name="build-commit" content="75b3d458d9d18f48b0d4d44bb27e3939735d7364">
+  <meta name="build-time" content="2026-09-11T17:08:41.473Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Stripe App for Reviews: Collect Verified Customer Reviews Automatically. Signed Reviews Blog">
@@ -792,7 +792,7 @@ main { padding: 0; }
 <ol>
 <li><strong>Which permissions does the connection ask for?</strong> If the app requests write permissions, ask why. A review app doesn&#39;t need to create charges or issue refunds to verify purchases: the only write Signed Reviews uses is minting single-use discount coupons for reviewers, and only when the business enables review incentives.</li>
 <li><strong>Does it react to charge.refunded?</strong> The mark of a well-built Stripe integration: refunded charges automatically hide their associated reviews.</li>
-<li><strong>Does it work with Stripe Billing / subscriptions?</strong> Subscription businesses have recurring charges, each renewal is a new verification opportunity.</li>
+<li><strong>Does it work with Stripe Billing / subscriptions?</strong> Subscription businesses have recurring charges: each renewal is a new verification opportunity.</li>
 <li><strong>Does it support Stripe Connect?</strong> If you run a platform or marketplace, your connected accounts should be able to use the app independently.</li>
 <li><strong>Is the verification cryptographic?</strong> Does the app sign reviews so their authenticity can be independently verified? A cryptographic signature means the review can be checked for tampering at any point in the future by any party, not just by the platform that issued it.</li>
 </ol>

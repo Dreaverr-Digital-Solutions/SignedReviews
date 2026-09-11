@@ -4,7 +4,7 @@
 
 ---
 
-Shopify powers roughly 10% of U.S. e-commerce. With millions of merchants and over 13,000 apps in the App Store, it's also a significant target for fake-review operations. The problem isn't just Amazon's anymore, fake reviews on Shopify stores are rising, and Shopify's architecture makes certain kinds of fake-review fraud uniquely difficult to detect.
+Shopify powers roughly 10% of U.S. e-commerce. With millions of merchants and over 13,000 apps in the App Store, it's also a significant target for fake-review operations. The problem isn't just Amazon's anymore: fake reviews on Shopify stores are rising, and Shopify's architecture makes certain kinds of fake-review fraud uniquely difficult to detect.
 
 Fake reviews on Shopify exploit a structural weakness: verification is delegated to third-party apps with inconsistent standards. Here's how the schemes work, how to spot them, and how to stop them.
 
@@ -80,7 +80,7 @@ The fundamental gap: **Shopify secures the payment and fulfillment pipeline, not
 
 When you're shopping on a Shopify store:
 
-1. **Check which review app the store uses.** Look for the app's branding in the review section (often a subtle "Powered by Judge.me" or similar). Then check that app's verification documentation, what does their "Verified Buyer" badge actually mean?
+1. **Check which review app the store uses.** Look for the app's branding in the review section (often a subtle "Powered by Judge.me" or similar). Then check that app's verification documentation: what does their "Verified Buyer" badge actually mean?
 2. **Look at the review velocity graph.** A store that went from 0 reviews to 100 in a week and then flatlined likely bought a bulk package.
 3. **Read the five-star reviews critically.** Do they all use similar phrasing? Are they all roughly the same length? Do they all mention the product name in the same way? AI-generated reviews often share semantic patterns.
 4. **Check the reviewer's other reviews.** Some review apps show a reviewer's history. A reviewer who has left five-star reviews for 20 different Shopify stores in one month is either the world's most enthusiastic shopper or a paid reviewer.
