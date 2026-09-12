@@ -142,9 +142,13 @@ const STOP = new Set(['a','an','the','and','or','for','to','of','in','on','vs','
 // reported as a weak anchor purely because "feature" !== "features". Only plurals
 // and the two most common verb endings: aggressive enough to stop the noise,
 // conservative enough not to merge unrelated words.
+// Strip a plural/3rd-person "s" only. An earlier version also stripped "es",
+// which turned "features" into "featur" while "feature" stayed "feature", so the
+// two still failed to match. "ies" -> "y" handles companies/company.
 const stem = (w) => {
-  const s = w.replace(/(ies)$/, 'y').replace(/(es|s)$/, '');
-  return s.length > 2 ? s : w;
+  if (/ies$/.test(w)) return w.slice(0, -3) + 'y';
+  if (/ss$/.test(w) || !/s$/.test(w)) return w;
+  return w.slice(0, -1);
 };
 const toks = (s) => new Set(
   s.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/)

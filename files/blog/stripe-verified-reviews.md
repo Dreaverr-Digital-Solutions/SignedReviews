@@ -48,7 +48,7 @@ Most major platforms (Trustpilot, Yotpo, Judge.me, Reviews.io, Okendo, Stamped, 
 
 Stripe verified reviews operate at **Level 4**: the payment processor, an independent third party to both the merchant and the reviewer, confirms the charge occurred and whether it still stands. This verification cannot be derived from data the merchant curates or fabricates.
 
-This is the fundamental difference, and it's why no other review platform can claim what Stripe verified reviews claim. We've written the full breakdown on our [learn page](/learn/what-does-verified-buyer-mean/).
+This is the fundamental difference, and it's why no other review platform can claim what Stripe verified reviews claim. We've written the full breakdown on our [what "Verified Buyer" actually means](/learn/what-does-verified-buyer-mean/) page.
 
 ## The problem with merchant-supplied verification
 

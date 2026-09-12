@@ -144,7 +144,7 @@ For SaaS startups processing payments through Stripe, Signed Reviews offers the 
 
 ### Do I need Trustpilot if I'm already on G2 and Capterra?
 
-G2 and Capterra are discovery channels. SaaS buyers search there to find and compare products. But the reviews on those platforms have minimal verification and you don't control the display. The strongest SaaS review strategy layers all three: G2/Capterra for discovery, a verified review platform like Signed Reviews for on-site conversion proof (<a href="/pricing/">see plans</a>), and case studies for high-touch sales. Trustpilot occupies an awkward middle ground. It's not as strong for SaaS discovery as G2, and not as strong for verification as a Stripe-native platform.
+G2 and Capterra are discovery channels. SaaS buyers search there to find and compare products. But the reviews on those platforms have minimal verification and you don't control the display. The strongest SaaS review strategy layers all three: G2/Capterra for discovery, a verified review platform like Signed Reviews for on-site conversion proof (<a href="/pricing/">plans and pricing</a>), and case studies for high-touch sales. Trustpilot occupies an awkward middle ground. It's not as strong for SaaS discovery as G2, and not as strong for verification as a Stripe-native platform.
 
 ### Can I collect reviews from long-term SaaS subscribers, not just new customers?
 

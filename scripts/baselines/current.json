@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-12T04:15:15.320Z",
+  "generated": "2026-09-12T04:18:49.349Z",
   "pages": [
     {
       "slug": "/about/",
-      "title": "About, Signed Reviews",
+      "title": "About | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 4,
@@ -34,7 +34,7 @@
     },
     {
       "slug": "/api/",
-      "title": "Public API, Signed Reviews",
+      "title": "Public API | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 1,
@@ -111,7 +111,7 @@
     },
     {
       "slug": "/blog/best-review-platform-for-saas/",
-      "title": "Best Review Platform for SaaS (2026): Top Tools Ranked by Verification. Signed Reviews Blog",
+      "title": "Best Review Platform for SaaS (2026): Top Tools Ranked by Verification | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 14,
@@ -192,7 +192,7 @@
     },
     {
       "slug": "/blog/best-time-to-ask-for-a-review/",
-      "title": "Best Time to Ask for a Review: Data-Backed Timing That Maximizes Response Rates. Signed Reviews Blog",
+      "title": "Best Time to Ask for a Review: Data-Backed Timing That Maximizes Response Rates | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 7,
@@ -238,7 +238,7 @@
     },
     {
       "slug": "/blog/fake-review-checker/",
-      "title": "How to Check if Reviews Are Fake: 7-Point Fake Review Checker. Signed Reviews Blog",
+      "title": "How to Check if Reviews Are Fake: 7-Point Fake Review Checker | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 9,
@@ -294,7 +294,7 @@
     },
     {
       "slug": "/blog/fake-review-laws-ftc/",
-      "title": "FTC Fake Review Rule 2024: What It Means for Your Business. Signed Reviews Blog",
+      "title": "FTC Fake Review Rule 2024: What It Means for Your Business | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 4,
@@ -325,7 +325,7 @@
     },
     {
       "slug": "/blog/fake-review-statistics-2026/",
-      "title": "Fake Review Statistics 2026: The Scale of the Problem. Signed Reviews Blog",
+      "title": "Fake Review Statistics 2026: The Scale of the Problem | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 7,
@@ -371,7 +371,7 @@
     },
     {
       "slug": "/blog/fake-reviews/",
-      "title": "The Fake Review Problem: Why Detection Will Never Be Enough. Signed Reviews Blog",
+      "title": "The Fake Review Problem: Why Detection Will Never Be Enough | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 13,
@@ -447,7 +447,7 @@
     },
     {
       "slug": "/blog/fake-shopify-reviews/",
-      "title": "Fake Reviews on Shopify: How They Work, How to Spot Them, and How to Prevent Them. Signed Reviews Blog",
+      "title": "Fake Reviews on Shopify: How They Work, How to Spot Them, and How to Prevent Them | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 9,
@@ -503,7 +503,7 @@
     },
     {
       "slug": "/blog/how-stripe-review-verification-works/",
-      "title": "How Stripe Review Verification Works: A Technical Guide. Signed Reviews Blog",
+      "title": "How Stripe Review Verification Works: A Technical Guide | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 9,
@@ -559,7 +559,7 @@
     },
     {
       "slug": "/blog/how-to-collect-reviews-for-saas/",
-      "title": "How to Collect Reviews for SaaS: A Guide for Subscription Businesses. Signed Reviews Blog",
+      "title": "How to Collect Reviews for SaaS: A Guide for Subscription Businesses | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 9,
@@ -615,7 +615,7 @@
     },
     {
       "slug": "/blog/how-to-collect-verified-customer-reviews/",
-      "title": "How to Collect Verified Customer Reviews: A Practical Guide. Signed Reviews Blog",
+      "title": "How to Collect Verified Customer Reviews: A Practical Guide | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 9,
@@ -671,7 +671,7 @@
     },
     {
       "slug": "/blog/how-to-get-reviews-on-shopify/",
-      "title": "How to Get Reviews on Shopify (Verified, Not Fake). Signed Reviews Blog",
+      "title": "How to Get Reviews on Shopify (Verified, Not Fake) | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 11,
@@ -793,7 +793,7 @@
     },
     {
       "slug": "/blog/how-to-verify-a-customer-actually-bought/",
-      "title": "How to Verify a Customer Actually Bought: 4 Methods, Ranked. Signed Reviews Blog",
+      "title": "How to Verify a Customer Actually Bought: 4 Methods, Ranked | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 5,
@@ -829,7 +829,7 @@
     },
     {
       "slug": "/blog/",
-      "title": "Blog. Signed Reviews",
+      "title": "Blog | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 29,
@@ -985,7 +985,7 @@
     },
     {
       "slug": "/blog/is-trustpilot-legit/",
-      "title": "Is Trustpilot Legit? An Honest Assessment for Business Owners. Signed Reviews Blog",
+      "title": "Is Trustpilot Legit? An Honest Assessment for Business Owners | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 9,
@@ -1041,7 +1041,7 @@
     },
     {
       "slug": "/blog/post-purchase-review-email-templates/",
-      "title": "Post Purchase Review Email Templates: 5 Templates That Drive Verified Reviews. Signed Reviews Blog",
+      "title": "Post Purchase Review Email Templates: 5 Templates That Drive Verified Reviews | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 7,
@@ -1087,7 +1087,7 @@
     },
     {
       "slug": "/blog/purchase-verified-vs-email-verified-reviews/",
-      "title": "Payment Verified Reviews: What 'Verified Buyer' Really Means. Signed Reviews Blog",
+      "title": "Payment Verified Reviews: What 'Verified Buyer' Really Means | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 11,
@@ -1153,7 +1153,7 @@
     },
     {
       "slug": "/blog/review-app-for-stripe-payments/",
-      "title": "Choosing the Best Review App for Stripe Payments in 2026. Signed Reviews Blog",
+      "title": "Choosing the Best Review App for Stripe Payments in 2026 | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 10,
@@ -1214,7 +1214,7 @@
     },
     {
       "slug": "/blog/stripe-app-for-reviews/",
-      "title": "Stripe App for Reviews: Collect Verified Customer Reviews Automatically. Signed Reviews Blog",
+      "title": "Stripe App for Reviews: Collect Verified Customer Reviews Automatically | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 9,
@@ -1270,7 +1270,7 @@
     },
     {
       "slug": "/blog/stripe-proof-of-purchase-verification/",
-      "title": "Stripe Proof Integration: Complete Guide to Verified Purchase Reviews. Signed Reviews Blog",
+      "title": "Stripe Proof Integration: Complete Guide to Verified Purchase Reviews | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 8,
@@ -1350,7 +1350,7 @@
         },
         {
           "href": "/learn/what-does-verified-buyer-mean/",
-          "text": "learn page",
+          "text": "what &quot;Verified Buyer&quot; actually means",
           "order": 5
         },
         {
@@ -1422,7 +1422,7 @@
     },
     {
       "slug": "/blog/transaction-verified-reviews/",
-      "title": "Transaction Verified Reviews: What They Are &amp; Why They're Hardest to Fake. Signed Reviews Blog",
+      "title": "Transaction Verified Reviews: What They Are &amp; Why They're Hardest to Fake | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 9,
@@ -1478,7 +1478,7 @@
     },
     {
       "slug": "/blog/trustpilot-alternatives-for-ecommerce/",
-      "title": "7 Best Trustpilot Alternatives for Ecommerce Stores (2026). Signed Reviews Blog",
+      "title": "7 Best Trustpilot Alternatives for Ecommerce Stores (2026) | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 22,
@@ -1599,7 +1599,7 @@
     },
     {
       "slug": "/blog/trustpilot-alternatives-for-saas/",
-      "title": "7 Best Trustpilot Alternatives for SaaS (2026): Compared &amp; Ranked. Signed Reviews Blog",
+      "title": "7 Best Trustpilot Alternatives for SaaS (2026): Compared &amp; Ranked | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 11,
@@ -1623,7 +1623,7 @@
         },
         {
           "href": "/pricing/",
-          "text": "see plans",
+          "text": "plans and pricing",
           "order": 4
         },
         {
@@ -1816,7 +1816,7 @@
     },
     {
       "slug": "/blog/trustpilot-pricing-explained/",
-      "title": "Trustpilot Pricing Page Explained: 2026 Plans &amp; Costs. Signed Reviews Blog",
+      "title": "Trustpilot Pricing Page Explained: 2026 Plans &amp; Costs | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 9,
@@ -1872,7 +1872,7 @@
     },
     {
       "slug": "/blog/trustpilot-widget-examples/",
-      "title": "Trustpilot Widget Examples: What They Look Like, Where They Go, and What Each One Does. Signed Reviews Blog",
+      "title": "Trustpilot Widget Examples: What They Look Like, Where They Go, and What Each One Does | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 5,
@@ -1908,7 +1908,7 @@
     },
     {
       "slug": "/blog/verified-reviews-vs-unverified-reviews/",
-      "title": "Verified Reviews vs Unverified Reviews: The Complete Comparison Guide. Signed Reviews Blog",
+      "title": "Verified Reviews vs Unverified Reviews: The Complete Comparison Guide | Signed Reviews Blog",
       "outbound": {
         "nav": 7,
         "body": 6,
@@ -2025,7 +2025,7 @@
     },
     {
       "slug": "/contact/",
-      "title": "Contact, Signed Reviews",
+      "title": "Contact | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 1,
@@ -2041,7 +2041,7 @@
     },
     {
       "slug": "/demo/",
-      "title": "Request a Demo, Signed Reviews",
+      "title": "Request a Demo | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 2,
@@ -2062,7 +2062,7 @@
     },
     {
       "slug": "/dmca/",
-      "title": "DMCA and Copyright Policy, Signed Reviews",
+      "title": "DMCA and Copyright Policy | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 2,
@@ -2083,7 +2083,7 @@
     },
     {
       "slug": "/docs/",
-      "title": "Documentation, Signed Reviews",
+      "title": "Documentation | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 4,
@@ -2114,7 +2114,7 @@
     },
     {
       "slug": "/dpa/",
-      "title": "Data Processing Agreement, Signed Reviews",
+      "title": "Data Processing Agreement | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 4,
@@ -2145,7 +2145,7 @@
     },
     {
       "slug": "/faq/",
-      "title": "FAQ. Signed Reviews",
+      "title": "FAQ | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 1,
@@ -2161,7 +2161,7 @@
     },
     {
       "slug": "/features/",
-      "title": "Features, Signed Reviews",
+      "title": "Features | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 2,
@@ -2182,7 +2182,7 @@
     },
     {
       "slug": "/how-it-works/",
-      "title": "How It Works. Signed Reviews",
+      "title": "How It Works | Signed Reviews",
       "outbound": {
         "nav": 7,
         "footer": 24
@@ -2201,7 +2201,7 @@
     },
     {
       "slug": "/integrations/",
-      "title": "Integrations. Signed Reviews",
+      "title": "Integrations | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 4,
@@ -2233,7 +2233,7 @@
     },
     {
       "slug": "/integrations/shopify/",
-      "title": "Shopify Integration (Planned). Signed Reviews",
+      "title": "Shopify Integration (Planned) | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 1,
@@ -2250,7 +2250,7 @@
     },
     {
       "slug": "/integrations/stripe/",
-      "title": "Stripe Integration for Verified Reviews. Signed Reviews",
+      "title": "Stripe Integration for Verified Reviews | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 1,
@@ -2267,7 +2267,7 @@
     },
     {
       "slug": "/integrations/woocommerce/",
-      "title": "WooCommerce Integration (Planned). Signed Reviews",
+      "title": "WooCommerce Integration (Planned) | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 1,
@@ -2304,7 +2304,7 @@
     },
     {
       "slug": "/learn/what-does-verified-buyer-mean/",
-      "title": "What Does &quot;Verified Buyer&quot; Actually Mean?. Signed Reviews",
+      "title": "What Does &quot;Verified Buyer&quot; Actually Mean? | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 1,
@@ -2321,7 +2321,7 @@
     },
     {
       "slug": "/pricing/",
-      "title": "Pricing, Signed Reviews",
+      "title": "Pricing | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 1,
@@ -2337,7 +2337,7 @@
     },
     {
       "slug": "/privacy/",
-      "title": "Privacy Policy, Signed Reviews",
+      "title": "Privacy Policy | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 3,
@@ -2363,7 +2363,7 @@
     },
     {
       "slug": "/refund-policy/",
-      "title": "Refund and Cancellation Policy, Signed Reviews",
+      "title": "Refund and Cancellation Policy | Signed Reviews",
       "outbound": {
         "nav": 7,
         "footer": 24
@@ -2372,7 +2372,7 @@
     },
     {
       "slug": "/subprocessors/",
-      "title": "Sub-processors, Signed Reviews",
+      "title": "Sub-processors | Signed Reviews",
       "outbound": {
         "nav": 7,
         "footer": 24
@@ -2381,7 +2381,7 @@
     },
     {
       "slug": "/terms/",
-      "title": "Terms of Service, Signed Reviews",
+      "title": "Terms of Service | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 1,
@@ -2434,7 +2434,7 @@
     },
     {
       "slug": "/trust/",
-      "title": "Trust &amp; Security. Signed Reviews",
+      "title": "Trust &amp; Security | Signed Reviews",
       "outbound": {
         "nav": 7,
         "body": 5,
@@ -4019,14 +4019,6 @@
     },
     {
       "from": "/blog/best-review-platform-for-saas/",
-      "to": "/features/",
-      "text": "feature set",
-      "zone": "body",
-      "sim": 0,
-      "generic": false
-    },
-    {
-      "from": "/blog/best-review-platform-for-saas/",
       "to": "/about/",
       "text": "Paid Rightly LLC",
       "zone": "body",
@@ -4070,7 +4062,7 @@
       "to": "/learn/ftc-fake-reviews-rules/",
       "text": "Trade Regulation Rule on the Use of Consumer Reviews and Testimonials",
       "zone": "body",
-      "sim": 0,
+      "sim": 0.17,
       "generic": false
     },
     {
@@ -4219,14 +4211,6 @@
     },
     {
       "from": "/blog/stripe-verified-reviews/",
-      "to": "/learn/what-does-verified-buyer-mean/",
-      "text": "learn page",
-      "zone": "body",
-      "sim": 0,
-      "generic": false
-    },
-    {
-      "from": "/blog/stripe-verified-reviews/",
       "to": "/how-it-works/",
       "text": "how this prevents fake reviews",
       "zone": "body",
@@ -4269,14 +4253,6 @@
       "from": "/blog/trustpilot-alternatives-for-saas/",
       "to": "/trust/",
       "text": "See how the verification works →",
-      "zone": "body",
-      "sim": 0,
-      "generic": false
-    },
-    {
-      "from": "/blog/trustpilot-alternatives-for-saas/",
-      "to": "/pricing/",
-      "text": "see plans",
       "zone": "body",
       "sim": 0,
       "generic": false
