@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/api/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="7a75b016817eb93f3ddef9da3b8ed6c2f311872d">
-  <meta name="build-time" content="2026-09-11T17:21:33.953Z">
+  <meta name="build-commit" content="115e778de86891ae6cf875d9e7c480102cbe37a7">
+  <meta name="build-time" content="2026-09-12T04:13:09.958Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Public API, Signed Reviews">
@@ -556,6 +556,46 @@ main { padding: 0; }
             if (el.getAttribute && el.getAttribute('data-cta')) { ph.capture('landing_cta_click', { cta: el.getAttribute('data-cta'), href: el.getAttribute('href') || '' }); break; }
             el = el.parentNode;
           }
+        }, true);
+
+        // ── internal-link clicks (Phase 3 of INTERNAL_LINKING_PLAN.md) ──
+        // Zone names deliberately mirror scripts/link-graph.js so the event
+        // properties line up with "npm run audit:links". "order" is the
+        // click-probability proxy from §3.2: earlier in the article means more
+        // likely to be clicked, which is the assumption the plan is built on.
+        function zoneOf(a) {
+          if (a.closest('header.site-header')) return 'nav';
+          if (a.closest('footer.site-footer')) return 'footer';
+          var p = a.closest('p');
+          if (p && /^Relateds*:/i.test((p.textContent || '').replace(/s+/g, ' ').trim())) return 'related';
+          if (a.closest('[class*="related"]')) return 'related';
+          if (a.closest('article') || a.closest('main')) return 'body';
+          return 'other';
+        }
+        function internal(a) {
+          var h = a.getAttribute('href') || '';
+          if (!h || h.charAt(0) === '#') return false;
+          if (h.charAt(0) === '/') return true;
+          return h.indexOf(location.origin + '/') === 0;
+        }
+        var bodyLinks = [];
+        (function () {
+          var all = document.querySelectorAll('article a[href], main a[href]');
+          for (var i = 0; i < all.length; i++) if (internal(all[i]) && zoneOf(all[i]) === 'body') bodyLinks.push(all[i]);
+        })();
+        document.addEventListener('click', function (e) {
+          var el = e.target;
+          while (el && el !== document && el.tagName !== 'A') el = el.parentNode;
+          if (!el || el === document || !internal(el)) return;
+          var props = {
+            href: el.getAttribute('href'),
+            text: (el.textContent || '').replace(/s+/g, ' ').trim().slice(0, 80),
+            zone: zoneOf(el),
+            page: location.pathname
+          };
+          var idx = bodyLinks.indexOf(el);
+          if (idx >= 0) props.order = idx + 1;
+          ph.capture('landing_internal_link_click', props);
         }, true);
       }
       if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();

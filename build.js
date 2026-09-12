@@ -120,6 +120,13 @@ const POSTHOG_SNIPPET = POSTHOG_KEY
 //   landing_scroll_depth   { depth: 25|50|75|100 }   once per threshold / page
 //   landing_section_viewed { section: <data-track> }  first time a [data-track] enters view
 //   landing_cta_click      { cta: <data-cta>, href }  on click of a [data-cta] element
+//   landing_internal_link_click { href, text, zone, order, page }  on click of a
+//     same-origin link. `zone` mirrors scripts/link-graph.js (body|related|nav|
+//     footer|other) and `order` is the 1-based position among body links, so the
+//     click-probability claims in INTERNAL_LINKING_PLAN.md §3.2 can be checked
+//     against real behaviour instead of assumed. Related-block and nav/footer
+//     clicks are tracked too, which is how we find out whether the chrome really
+//     does absorb the clicks the audit says it does.
 // NOTE: no `${}` or backticks inside — it lives inside a template literal.
 const SR_TRACKERS_SNIPPET = POSTHOG_KEY
   ? `
@@ -160,6 +167,46 @@ const SR_TRACKERS_SNIPPET = POSTHOG_KEY
             if (el.getAttribute && el.getAttribute('data-cta')) { ph.capture('landing_cta_click', { cta: el.getAttribute('data-cta'), href: el.getAttribute('href') || '' }); break; }
             el = el.parentNode;
           }
+        }, true);
+
+        // ── internal-link clicks (Phase 3 of INTERNAL_LINKING_PLAN.md) ──
+        // Zone names deliberately mirror scripts/link-graph.js so the event
+        // properties line up with "npm run audit:links". "order" is the
+        // click-probability proxy from §3.2: earlier in the article means more
+        // likely to be clicked, which is the assumption the plan is built on.
+        function zoneOf(a) {
+          if (a.closest('header.site-header')) return 'nav';
+          if (a.closest('footer.site-footer')) return 'footer';
+          var p = a.closest('p');
+          if (p && /^Related\s*:/i.test((p.textContent || '').replace(/\s+/g, ' ').trim())) return 'related';
+          if (a.closest('[class*="related"]')) return 'related';
+          if (a.closest('article') || a.closest('main')) return 'body';
+          return 'other';
+        }
+        function internal(a) {
+          var h = a.getAttribute('href') || '';
+          if (!h || h.charAt(0) === '#') return false;
+          if (h.charAt(0) === '/') return true;
+          return h.indexOf(location.origin + '/') === 0;
+        }
+        var bodyLinks = [];
+        (function () {
+          var all = document.querySelectorAll('article a[href], main a[href]');
+          for (var i = 0; i < all.length; i++) if (internal(all[i]) && zoneOf(all[i]) === 'body') bodyLinks.push(all[i]);
+        })();
+        document.addEventListener('click', function (e) {
+          var el = e.target;
+          while (el && el !== document && el.tagName !== 'A') el = el.parentNode;
+          if (!el || el === document || !internal(el)) return;
+          var props = {
+            href: el.getAttribute('href'),
+            text: (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
+            zone: zoneOf(el),
+            page: location.pathname
+          };
+          var idx = bodyLinks.indexOf(el);
+          if (idx >= 0) props.order = idx + 1;
+          ph.capture('landing_internal_link_click', props);
         }, true);
       }
       if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
