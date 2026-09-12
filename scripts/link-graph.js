@@ -138,9 +138,18 @@ for (const p of pages) {
 
 // ── anchor quality: token overlap between anchor text and target title ───────
 const STOP = new Set(['a','an','the','and','or','for','to','of','in','on','vs','versus','is','are','your','you','with','what','how','signed','reviews','signedreviews','review','2026','mean','means','does','do','it','that','this','from','by']);
+// Crude suffix stripping. Without it "feature set" -> /features/ scored 0 and was
+// reported as a weak anchor purely because "feature" !== "features". Only plurals
+// and the two most common verb endings: aggressive enough to stop the noise,
+// conservative enough not to merge unrelated words.
+const stem = (w) => {
+  const s = w.replace(/(ies)$/, 'y').replace(/(es|s)$/, '');
+  return s.length > 2 ? s : w;
+};
 const toks = (s) => new Set(
   s.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/)
    .filter((w) => w.length > 2 && !STOP.has(w))
+   .map(stem)
 );
 const similarity = (a, b) => {
   const A = toks(a), B = toks(b);

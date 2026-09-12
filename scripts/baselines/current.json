@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-11T17:20:24.646Z",
+  "generated": "2026-09-12T04:15:15.320Z",
   "pages": [
     {
       "slug": "/about/",
@@ -4098,14 +4098,6 @@
       "generic": false
     },
     {
-      "from": "/blog/how-to-collect-reviews-for-saas/",
-      "to": "/how-it-works/",
-      "text": "See how verification and automation work together",
-      "zone": "body",
-      "sim": 0,
-      "generic": false
-    },
-    {
       "from": "/blog/how-to-collect-verified-customer-reviews/",
       "to": "/integrations/stripe/",
       "text": "Stripe&#39;s official OAuth flow",
@@ -4285,14 +4277,6 @@
       "from": "/blog/trustpilot-alternatives-for-saas/",
       "to": "/pricing/",
       "text": "see plans",
-      "zone": "body",
-      "sim": 0,
-      "generic": false
-    },
-    {
-      "from": "/blog/trustpilot-alternatives-for-saas/",
-      "to": "/how-it-works/",
-      "text": "Learn how review triggers work →",
       "zone": "body",
       "sim": 0,
       "generic": false

@@ -1108,7 +1108,7 @@ function buildLegal() {
     const bodyNoH1 = renderedBody.replace(/<h1[^>]*>[\s\S]*?<\/h1>/, '');
     const toc = buildToc(bodyNoH1);
     const html = page({
-      title: `${p.title}, ${COMPANY.brand}`,
+      title: `${p.title} | ${COMPANY.brand}`,
       description: p.metaDesc,
       slug: p.slug,
       hero: { eyebrow: p.eyebrow, title: p.title, subtitle: p.subtitle },
@@ -1654,7 +1654,7 @@ function buildPricing() {
 `;
 
   const html = page({
-    title: `Pricing, ${COMPANY.brand}`,
+    title: `Pricing | ${COMPANY.brand}`,
     description: 'Signed Reviews pricing: Free, Starter, Pro, and Scale plans. Free plan for self-service; paid plans from $29/mo.',
     slug: '/pricing/',
     hero: {
@@ -1703,7 +1703,7 @@ function buildContact() {
     </article>`;
 
   const html = page({
-    title: `Contact, ${COMPANY.brand}`,
+    title: `Contact | ${COMPANY.brand}`,
     description: `Contact Paid Rightly LLC, the operator of Signed Reviews. Support: ${COMPANY.supportEmail}. Legal: ${COMPANY.legalEmail}.`,
     slug: '/contact/',
     hero: {
@@ -1749,7 +1749,7 @@ function buildAbout() {
     </article>`;
 
   const html = page({
-    title: `About, ${COMPANY.brand}`,
+    title: `About | ${COMPANY.brand}`,
     description: `About ${COMPANY.brand}, the verified-reviews platform operated by ${COMPANY.legalName}.`,
     slug: '/about/',
     hero: {
@@ -1845,7 +1845,7 @@ function buildFaq() {
   </article>`;
 
   const html = page({
-    title: 'FAQ. Signed Reviews',
+    title: 'FAQ | Signed Reviews',
     description: 'Frequently asked questions about Signed Reviews: how purchase verification works, Stripe integration, pricing, security, and more.',
     slug: '/faq/',
     hero: { eyebrow: 'FAQ', title: 'Frequently Asked Questions', subtitle: 'Answers to common questions about review verification, Stripe, and pricing.' },
@@ -1937,7 +1937,7 @@ function buildBlog() {
     </article>`;
 
     const html = page({
-      title: post.metaTitle.includes('Signed Reviews') ? post.metaTitle : `${post.metaTitle}. Signed Reviews Blog`,
+      title: post.metaTitle.includes('Signed Reviews') ? post.metaTitle : `${post.metaTitle} | Signed Reviews Blog`,
       description: post.desc,
       slug: post.slug,
       pageType: 'article',
@@ -2149,7 +2149,7 @@ function buildBlog() {
   </article>`;
 
   const indexHtml = page({
-    title: 'Blog. Signed Reviews',
+    title: 'Blog | Signed Reviews',
     description: 'Insights on review authenticity, e-commerce trust, Stripe integrations, and verified customer reviews.',
     slug: '/blog/',
     hero: { eyebrow: 'Blog', title: 'Signed Reviews Blog', subtitle: 'Insights on review authenticity, trust, and the Stripe ecosystem.' },
@@ -2197,7 +2197,7 @@ function buildHowItWorks() {
   </article>`;
 
   const html = page({
-    title: 'How It Works. Signed Reviews',
+    title: 'How It Works | Signed Reviews',
     description: 'See how Signed Reviews verifies reviews: connect Stripe, customer purchases, auto-send invitation, customer reviews, cryptographic signing, and publishing, all automated.',
     slug: '/how-it-works/',
     hero: { eyebrow: 'How It Works', title: 'From purchase to verified review', subtitle: 'Six automated steps. Zero manual work. Every review cryptographically backed by a real Stripe transaction.' },
@@ -3366,7 +3366,7 @@ function buildComparisonPodium() {
 function buildLearn() {
   const slug = '/learn/what-does-verified-buyer-mean/';
   const canonical = `${SITE_URL}${slug}`;
-  const title = 'What Does "Verified Buyer" Actually Mean?. Signed Reviews';
+  const title = 'What Does "Verified Buyer" Actually Mean? | Signed Reviews';
   const description = 'What a "Verified Buyer" badge really means on Trustpilot, Yotpo, Judge.me and Reviews.io, and the 5-level verification spectrum that separates a badge from proof.';
 
   // ── Quotable Q/A pairs → FAQPage schema (rich results) + on-page accordion ──
@@ -3835,7 +3835,7 @@ function buildLearnFtcRules() {
 function buildIntegrations() {
   const slug = '/integrations/';
   const canonical = `${SITE_URL}${slug}`;
-  const title = 'Integrations. Signed Reviews';
+  const title = 'Integrations | Signed Reviews';
   const description = 'Connect Signed Reviews to your existing stack. Native Stripe App with one-click install, plus REST API, webhooks, and ecosystem integrations.';
 
   const extraStyle = `
@@ -3942,7 +3942,7 @@ function buildIntegrations() {
 function buildIntegrationsStripe() {
   const slug = '/integrations/stripe/';
   const canonical = `${SITE_URL}${slug}`;
-  const title = 'Stripe Integration for Verified Reviews. Signed Reviews';
+  const title = 'Stripe Integration for Verified Reviews | Signed Reviews';
   const description = 'Connect your Stripe account in one click and automatically collect verified, tamper-evident reviews on every charge. Minimal-permission, no-code setup.';
 
   const softwareSchema = {
@@ -4083,7 +4083,7 @@ function buildIntegrationsStripe() {
 function buildIntegrationsShopify() {
   const slug = '/integrations/shopify/';
   const canonical = `${SITE_URL}${slug}`;
-  const title = 'Shopify Integration (Planned). Signed Reviews';
+  const title = 'Shopify Integration (Planned) | Signed Reviews';
   const description = 'Shopify integration for Signed Reviews. Collect verified reviews on every Shopify order processed through Stripe. Currently planned.';
 
   const softwareSchema = {
@@ -4144,7 +4144,7 @@ function buildIntegrationsShopify() {
 function buildIntegrationsWooCommerce() {
   const slug = '/integrations/woocommerce/';
   const canonical = `${SITE_URL}${slug}`;
-  const title = 'WooCommerce Integration (Planned). Signed Reviews';
+  const title = 'WooCommerce Integration (Planned) | Signed Reviews';
   const description = 'WooCommerce plugin for Signed Reviews. Collect verified reviews on every WooCommerce order paid via Stripe. Currently planned.';
 
   const softwareSchema = {
@@ -4236,7 +4236,7 @@ function buildTrust() {
   </article>`;
 
   const html = page({
-    title: 'Trust & Security. Signed Reviews',
+    title: 'Trust & Security | Signed Reviews',
     description: 'How Signed Reviews keeps reviews authentic: cryptographic signing, minimal Stripe permissions, fake-review prevention by design, data ownership, and infrastructure security.',
     slug: '/trust/',
     hero: { eyebrow: 'Trust', title: 'Trust & Security', subtitle: 'How we ensure every review is authentic, every transaction is verified, and your data stays yours.' },
@@ -4288,7 +4288,7 @@ function buildMarketingPages() {
     const renderedBody = renderMarkdown(md);
     const bodyNoH1 = renderedBody.replace(/<h1[^>]*>[\s\S]*?<\/h1>/, '');
     const html = page({
-      title: `${p.title}, ${COMPANY.brand}`,
+      title: `${p.title} | ${COMPANY.brand}`,
       description: p.metaDesc,
       slug: p.slug,
       hero: { eyebrow: p.eyebrow, title: p.title, subtitle: p.subtitle },
