@@ -80,7 +80,7 @@ Every detection-based approach shares the same flaw: **a fake review must be wri
 
 Detection is a treadmill. The faster you run, the faster the ground moves beneath you. AI accelerates the ground speed; regulation adds a slight incline. Neither changes the fundamental dynamic.
 
-Understanding the mechanics does help you catch the amateur attempts — see [how fake reviews work](/learn/how-fake-reviews-work/) for the playbook — and you can run any suspicious review through our [free fake review checker](/tools/fake-review-checker/) to score it against the common signals.
+Understanding the mechanics does help you catch the amateur attempts. See [how fake reviews work](/learn/how-fake-reviews-work/) for the playbook, and you can run any suspicious review through our [free fake review checker](/tools/fake-review-checker/) to score it against the common signals.
 
 ## The structural alternative: processor-attested verification
 

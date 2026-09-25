@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/trustpilot-alternatives-for-ecommerce/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="b5771316ab5e4a4a678359934d8e83f3601780d4">
-  <meta name="build-time" content="2026-09-12T04:18:43.266Z">
+  <meta name="build-commit" content="unknown">
+  <meta name="build-time" content="2026-09-24T15:21:29.066Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="7 Best Trustpilot Alternatives for Ecommerce Stores (2026) | Signed Reviews Blog">
@@ -22,8 +22,8 @@
   <meta name="twitter:description" content="Looking for the best trustpilot alternatives for ecommerce? We compared verification, pricing, and integrations across 7 platforms. Find your match.">
   <meta name="twitter:image" content="https://signedreviews.com/images/og/trustpilot-alternatives-for-ecommerce.png">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png?v=20260729a">
-  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png?v=20260729a">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=20260924a">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=20260924a">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -541,14 +541,23 @@ main { padding: 0; }
         onScroll();
         if ('IntersectionObserver' in window) {
           var seen = {};
-          var io = new IntersectionObserver(function (entries) {
+          var onEntry = function (entries) {
             for (var i = 0; i < entries.length; i++) {
               var en = entries[i];
               if (en.isIntersecting) { var n = en.target.getAttribute('data-track'); if (n && !seen[n]) { seen[n] = true; ph.capture('landing_section_viewed', { section: n }); } }
             }
-          }, { threshold: 0.5 });
+          };
+          // Threshold has to depend on the element: one taller than the viewport can
+          // never be 50% visible, so at 0.5 it would never fire. Tall elements observe
+          // at 0 (any visible sliver); everything else keeps 0.5.
+          var tallIO = new IntersectionObserver(onEntry, { threshold: 0 });
+          var halfIO = new IntersectionObserver(onEntry, { threshold: 0.5 });
+          var viewportH = window.innerHeight || document.documentElement.clientHeight || 0;
           var tracked = document.querySelectorAll('[data-track]');
-          for (var j = 0; j < tracked.length; j++) io.observe(tracked[j]);
+          for (var j = 0; j < tracked.length; j++) {
+            var isTall = tracked[j].getBoundingClientRect().height > viewportH;
+            (isTall ? tallIO : halfIO).observe(tracked[j]);
+          }
         }
         document.addEventListener('click', function (e) {
           var el = e.target;
@@ -567,7 +576,7 @@ main { padding: 0; }
           if (a.closest('header.site-header')) return 'nav';
           if (a.closest('footer.site-footer')) return 'footer';
           var p = a.closest('p');
-          if (p && /^Relateds*:/i.test((p.textContent || '').replace(/s+/g, ' ').trim())) return 'related';
+          if (p && /^Related\s*:/i.test((p.textContent || '').replace(/\s+/g, ' ').trim())) return 'related';
           if (a.closest('[class*="related"]')) return 'related';
           if (a.closest('article') || a.closest('main')) return 'body';
           return 'other';
@@ -589,7 +598,7 @@ main { padding: 0; }
           if (!el || el === document || !internal(el)) return;
           var props = {
             href: el.getAttribute('href'),
-            text: (el.textContent || '').replace(/s+/g, ' ').trim().slice(0, 80),
+            text: (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
             zone: zoneOf(el),
             page: location.pathname
           };
@@ -644,7 +653,7 @@ main { padding: 0; }
     </ul>
   </div>
 </header>
-  <main id="main">
+  <main id="main" data-track="body">
     <section class="page-hero">
       <div class="page-hero-inner">
         <span class="eyebrow">Blog</span>
@@ -759,7 +768,7 @@ main { padding: 0; }
 <p>Stamped.io offers solid multi-platform support at a mid-market price point, covering Shopify, BigCommerce, Magento, and WooCommerce under one roof. It combines reviews, ratings, Q&amp;A, and loyalty features with purchase verification through order matching, making it a good all-rounder for brands that don&#39;t want to be locked into a single ecommerce platform. Pricing starts at $23/month. The limitation: Stamped.io&#39;s feature breadth means individual components (reviews, loyalty, Q&amp;A) are less polished than dedicated best-in-class tools. It&#39;s a jack-of-all-trades, master of none.</p>
 <p>→ <a href="/vs/stamped/">Signed Reviews vs Stamped</a></p>
 <h3 id="6-okendo-best-for-visual-first-shopify-dtc"><a class="anchor" href="#6-okendo-best-for-visual-first-shopify-dtc" aria-label="Permalink to 6. Okendo. Best for Visual-First Shopify DTC"></a>6. Okendo. Best for Visual-First Shopify DTC</h3>
-<p>Okendo is the premium Shopify review app for brands that treat reviews as a marketing asset: offering photo reviews, video testimonials, and customer attributes (skin type, size, fit) that make social proof more relevant to shoppers. Used by DTC brands like Skims, Haus Labs, and Olipop, it starts at $19/month with Shopify-only integration. Verification is standard Level 3 against Shopify order data. The limitation: Okendo is Shopify-exclusive and priced higher than Judge.me for comparable core review features. You&#39;re paying for the visual polish and customer attribute data, which only pays off if you actively leverage those features in your marketing.</p>
+<p>Okendo is the premium Shopify review app for brands that treat reviews as a marketing asset: offering photo reviews, video testimonials, and customer attributes (skin type, size, fit) that make social proof more relevant to shoppers. Used by DTC brands like Skims, Haus Labs, and Olipop, it starts at $19/month with Shopify-only integration. Verification is standard Level 3 against Shopify order data. The limitation: Okendo is Shopify-exclusive and priced higher than Judge.me for comparable core review features. You&#39;re paying for the visual polish and customer attribute data, which only pays off if you actively use those features in your marketing.</p>
 <p>→ <a href="/vs/okendo/">Signed Reviews vs Okendo</a></p>
 <h3 id="7-g2-best-for-b2b-and-software-reviews"><a class="anchor" href="#7-g2-best-for-b2b-and-software-reviews" aria-label="Permalink to 7. G2. Best for B2B and Software Reviews"></a>7. G2. Best for B2B and Software Reviews</h3>
 <p>G2 is the dominant B2B software review platform, verifying reviewers through LinkedIn profile matching and work email confirmation, a different model than ecommerce purchase verification but credible in its own domain. For ecommerce brands selling SaaS, logistics software, or marketing tools alongside physical products, G2 captures the B2B buyer audience that Trustpilot doesn&#39;t reach. Its free listing tier makes it accessible, with paid plans for advanced analytics and intent data. The limitation: G2&#39;s verification model doesn&#39;t confirm purchases at all. It confirms employment. For product reviews and consumer trust, G2 is the wrong tool; for B2B credibility and software category presence, it&#39;s essential.</p>

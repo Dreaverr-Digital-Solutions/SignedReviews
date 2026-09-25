@@ -196,7 +196,7 @@ We may suspend or terminate accounts that violate these restrictions.
 
 ## 10. Public API
 
-If you use the public API, you additionally agree that:
+If you use the public API, you also agree that:
 
 - Your API key is confidential; sharing it is a breach of these Terms
 - The public API is rate limited, and the limit depends on your plan (see our [Pricing page](https://signedreviews.com/pricing/)); excessive use may result in throttling or suspension

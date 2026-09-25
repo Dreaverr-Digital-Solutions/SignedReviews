@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/features/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="b5771316ab5e4a4a678359934d8e83f3601780d4">
-  <meta name="build-time" content="2026-09-12T04:18:43.266Z">
+  <meta name="build-commit" content="unknown">
+  <meta name="build-time" content="2026-09-24T15:21:29.066Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Features | Signed Reviews">
@@ -22,8 +22,8 @@
   <meta name="twitter:description" content="Explore Signed Reviews features: Stripe-native verification, cryptographic signing, automated review collection, public review pages, REST API, and team dashboard.">
   <meta name="twitter:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png?v=20260729a">
-  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png?v=20260729a">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=20260924a">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=20260924a">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -541,14 +541,23 @@ main { padding: 0; }
         onScroll();
         if ('IntersectionObserver' in window) {
           var seen = {};
-          var io = new IntersectionObserver(function (entries) {
+          var onEntry = function (entries) {
             for (var i = 0; i < entries.length; i++) {
               var en = entries[i];
               if (en.isIntersecting) { var n = en.target.getAttribute('data-track'); if (n && !seen[n]) { seen[n] = true; ph.capture('landing_section_viewed', { section: n }); } }
             }
-          }, { threshold: 0.5 });
+          };
+          // Threshold has to depend on the element: one taller than the viewport can
+          // never be 50% visible, so at 0.5 it would never fire. Tall elements observe
+          // at 0 (any visible sliver); everything else keeps 0.5.
+          var tallIO = new IntersectionObserver(onEntry, { threshold: 0 });
+          var halfIO = new IntersectionObserver(onEntry, { threshold: 0.5 });
+          var viewportH = window.innerHeight || document.documentElement.clientHeight || 0;
           var tracked = document.querySelectorAll('[data-track]');
-          for (var j = 0; j < tracked.length; j++) io.observe(tracked[j]);
+          for (var j = 0; j < tracked.length; j++) {
+            var isTall = tracked[j].getBoundingClientRect().height > viewportH;
+            (isTall ? tallIO : halfIO).observe(tracked[j]);
+          }
         }
         document.addEventListener('click', function (e) {
           var el = e.target;
@@ -567,7 +576,7 @@ main { padding: 0; }
           if (a.closest('header.site-header')) return 'nav';
           if (a.closest('footer.site-footer')) return 'footer';
           var p = a.closest('p');
-          if (p && /^Relateds*:/i.test((p.textContent || '').replace(/s+/g, ' ').trim())) return 'related';
+          if (p && /^Related\s*:/i.test((p.textContent || '').replace(/\s+/g, ' ').trim())) return 'related';
           if (a.closest('[class*="related"]')) return 'related';
           if (a.closest('article') || a.closest('main')) return 'body';
           return 'other';
@@ -589,7 +598,7 @@ main { padding: 0; }
           if (!el || el === document || !internal(el)) return;
           var props = {
             href: el.getAttribute('href'),
-            text: (el.textContent || '').replace(/s+/g, ' ').trim().slice(0, 80),
+            text: (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
             zone: zoneOf(el),
             page: location.pathname
           };
@@ -641,7 +650,7 @@ main { padding: 0; }
     </ul>
   </div>
 </header>
-  <main id="main">
+  <main id="main" data-track="body">
     <section class="page-hero">
       <div class="page-hero-inner">
         <span class="eyebrow">Features</span>

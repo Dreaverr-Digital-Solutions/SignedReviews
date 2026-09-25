@@ -152,14 +152,23 @@ const SR_TRACKERS_SNIPPET = POSTHOG_KEY
         onScroll();
         if ('IntersectionObserver' in window) {
           var seen = {};
-          var io = new IntersectionObserver(function (entries) {
+          var onEntry = function (entries) {
             for (var i = 0; i < entries.length; i++) {
               var en = entries[i];
               if (en.isIntersecting) { var n = en.target.getAttribute('data-track'); if (n && !seen[n]) { seen[n] = true; ph.capture('landing_section_viewed', { section: n }); } }
             }
-          }, { threshold: 0.5 });
+          };
+          // Threshold has to depend on the element: one taller than the viewport can
+          // never be 50% visible, so at 0.5 it would never fire. Tall elements observe
+          // at 0 (any visible sliver); everything else keeps 0.5.
+          var tallIO = new IntersectionObserver(onEntry, { threshold: 0 });
+          var halfIO = new IntersectionObserver(onEntry, { threshold: 0.5 });
+          var viewportH = window.innerHeight || document.documentElement.clientHeight || 0;
           var tracked = document.querySelectorAll('[data-track]');
-          for (var j = 0; j < tracked.length; j++) io.observe(tracked[j]);
+          for (var j = 0; j < tracked.length; j++) {
+            var isTall = tracked[j].getBoundingClientRect().height > viewportH;
+            (isTall ? tallIO : halfIO).observe(tracked[j]);
+          }
         }
         document.addEventListener('click', function (e) {
           var el = e.target;
@@ -178,7 +187,7 @@ const SR_TRACKERS_SNIPPET = POSTHOG_KEY
           if (a.closest('header.site-header')) return 'nav';
           if (a.closest('footer.site-footer')) return 'footer';
           var p = a.closest('p');
-          if (p && /^Related\s*:/i.test((p.textContent || '').replace(/\s+/g, ' ').trim())) return 'related';
+          if (p && /^Related\\s*:/i.test((p.textContent || '').replace(/\\s+/g, ' ').trim())) return 'related';
           if (a.closest('[class*="related"]')) return 'related';
           if (a.closest('article') || a.closest('main')) return 'body';
           return 'other';
@@ -200,7 +209,7 @@ const SR_TRACKERS_SNIPPET = POSTHOG_KEY
           if (!el || el === document || !internal(el)) return;
           var props = {
             href: el.getAttribute('href'),
-            text: (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
+            text: (el.textContent || '').replace(/\\s+/g, ' ').trim().slice(0, 80),
             zone: zoneOf(el),
             page: location.pathname
           };
@@ -759,8 +768,8 @@ const SHARED_HEAD = ({ title, description, canonical, slug, pageType = 'website'
   <meta name="twitter:description" content="${escapeHtml(description)}">
   <meta name="twitter:image" content="${SITE_URL}/images/SignedReviews_full_logo.png">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="${B}images/SignedReviews_logo_only.png?v=20260729a">
-  <link rel="apple-touch-icon" href="${B}images/SignedReviews_logo_only.png?v=20260729a">
+  <link rel="icon" type="image/png" sizes="32x32" href="${B}images/favicon-32.png?v=20260924a">
+  <link rel="apple-touch-icon" href="${B}images/apple-touch-icon.png?v=20260924a">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1008,7 +1017,7 @@ function page({ title, description, slug, hero, body, hasToc = false, active = '
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
   ${HEADER(active)}
-  <main id="main">
+  <main id="main" data-track="body">
     <section class="page-hero">
       <div class="page-hero-inner">
         ${hero.eyebrow ? `<span class="eyebrow">${hero.eyebrow}</span>` : ''}
@@ -4863,9 +4872,17 @@ if (fs.existsSync(distIndex)) {
   let html = fs.readFileSync(distIndex, 'utf8');
   let patched = false;
 
-  if (POSTHOG_SNIPPET && !html.includes('posthog.init(')) {
-    html = html.replace('</head>', `${POSTHOG_SNIPPET}${SR_TRACKERS_SNIPPET}\n</head>`);
-    console.log('  ✓ injected PostHog snippet into index.html');
+  // The two snippets are gated separately: the home page carries its own inline
+  // posthog.init() call, so tying the tracker to "PostHog is absent" starved it
+  // of scroll depth, section views, CTA clicks and internal link clicks.
+  const needsPosthog = Boolean(POSTHOG_SNIPPET) && !html.includes('posthog.init(');
+  const needsTrackers = Boolean(SR_TRACKERS_SNIPPET) && !html.includes('landing_scroll_depth');
+
+  if (needsPosthog || needsTrackers) {
+    // Single head write, PostHog first so the tracker always finds the global.
+    html = html.replace('</head>', `${needsPosthog ? POSTHOG_SNIPPET : ''}${needsTrackers ? SR_TRACKERS_SNIPPET : ''}\n</head>`);
+    if (needsPosthog) console.log('  ✓ injected PostHog snippet into index.html');
+    if (needsTrackers) console.log('  ✓ injected engagement tracker snippet into index.html');
     patched = true;
   }
 
@@ -4882,5 +4899,20 @@ if (fs.existsSync(distIndex)) {
   }
 }
 console.log(`  ✓ dist/ (${PUBLISH.length} entries)`);
+
+// ── Copy lint (content-humanization-plan.md §5 phase 0.2) ────────────────────
+// Warning only, never a gate: the linter is run without --strict and any
+// failure is swallowed so a copy finding can never fail a deploy.
+console.log('\nCopy lint (warning only):');
+try {
+  const lintOut = execSync(`node ${JSON.stringify(path.join(ROOT, 'scripts', 'content-lint.js'))}`, {
+    encoding: 'utf8',
+    timeout: 60000,
+  });
+  const lines = lintOut.split('\n').filter((line) => line.trim());
+  console.log(lines.length ? lines[lines.length - 1] : 'content-lint: no output');
+} catch (err) {
+  console.log('content-lint: did not run (see landingpage/scripts/content-lint.js)');
+}
 
 console.log('\nBuild complete.');

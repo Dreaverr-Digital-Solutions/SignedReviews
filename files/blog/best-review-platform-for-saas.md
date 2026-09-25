@@ -90,7 +90,7 @@ See how our pricing scales with your SaaS revenue on the [pricing page](/pricing
 | Verification method | ★★☆☆☆ | Minimal: G2 requires a LinkedIn login; anyone can review. No purchase verification. |
 | Stripe integration | ☆☆☆☆☆ | Not applicable: these are directories, not review collection tools. |
 | SaaS suitability | ★★★★★ | Purpose-built for SaaS discovery. The place B2B buyers look first. |
-| Pricing for SaaS | ★★★☆☆ | Free to be listed. Paid profiles unlock premium placement and intent data. |
+| Pricing for SaaS | ★★★☆☆ | Free to be listed. Paid profiles give you premium placement and intent data. |
 | API & embeddability | ★★★☆☆ | G2 offers review widgets and badges. Limited compared to a dedicated review platform. |
 
 **The case for G2/Capterra:** These are where SaaS buyers *discover* you. You should be listed on all three regardless of which review collection tool you use. But they don't replace a review collection platform. They're directories, not tools. Use them for discovery; use a dedicated platform for verified review collection.

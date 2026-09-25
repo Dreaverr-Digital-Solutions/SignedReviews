@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/stripe-verified-reviews/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="b5771316ab5e4a4a678359934d8e83f3601780d4">
-  <meta name="build-time" content="2026-09-12T04:18:43.266Z">
+  <meta name="build-commit" content="unknown">
+  <meta name="build-time" content="2026-09-24T15:21:29.066Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Stripe Verified Reviews: Tamper-Evident &amp; Cryptographically Signed | Signed Reviews Blog">
@@ -22,8 +22,8 @@
   <meta name="twitter:description" content="Learn how Stripe Verified Reviews are independently attested by Stripe using cryptographic signing, making them tamper-evident &amp; fraud-proof. Get started with Stripe verified reviews for true customer trust.">
   <meta name="twitter:image" content="https://signedreviews.com/images/og/stripe-verified-reviews.png">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png?v=20260729a">
-  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png?v=20260729a">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=20260924a">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=20260924a">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -541,14 +541,23 @@ main { padding: 0; }
         onScroll();
         if ('IntersectionObserver' in window) {
           var seen = {};
-          var io = new IntersectionObserver(function (entries) {
+          var onEntry = function (entries) {
             for (var i = 0; i < entries.length; i++) {
               var en = entries[i];
               if (en.isIntersecting) { var n = en.target.getAttribute('data-track'); if (n && !seen[n]) { seen[n] = true; ph.capture('landing_section_viewed', { section: n }); } }
             }
-          }, { threshold: 0.5 });
+          };
+          // Threshold has to depend on the element: one taller than the viewport can
+          // never be 50% visible, so at 0.5 it would never fire. Tall elements observe
+          // at 0 (any visible sliver); everything else keeps 0.5.
+          var tallIO = new IntersectionObserver(onEntry, { threshold: 0 });
+          var halfIO = new IntersectionObserver(onEntry, { threshold: 0.5 });
+          var viewportH = window.innerHeight || document.documentElement.clientHeight || 0;
           var tracked = document.querySelectorAll('[data-track]');
-          for (var j = 0; j < tracked.length; j++) io.observe(tracked[j]);
+          for (var j = 0; j < tracked.length; j++) {
+            var isTall = tracked[j].getBoundingClientRect().height > viewportH;
+            (isTall ? tallIO : halfIO).observe(tracked[j]);
+          }
         }
         document.addEventListener('click', function (e) {
           var el = e.target;
@@ -567,7 +576,7 @@ main { padding: 0; }
           if (a.closest('header.site-header')) return 'nav';
           if (a.closest('footer.site-footer')) return 'footer';
           var p = a.closest('p');
-          if (p && /^Relateds*:/i.test((p.textContent || '').replace(/s+/g, ' ').trim())) return 'related';
+          if (p && /^Related\s*:/i.test((p.textContent || '').replace(/\s+/g, ' ').trim())) return 'related';
           if (a.closest('[class*="related"]')) return 'related';
           if (a.closest('article') || a.closest('main')) return 'body';
           return 'other';
@@ -589,7 +598,7 @@ main { padding: 0; }
           if (!el || el === document || !internal(el)) return;
           var props = {
             href: el.getAttribute('href'),
-            text: (el.textContent || '').replace(/s+/g, ' ').trim().slice(0, 80),
+            text: (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
             zone: zoneOf(el),
             page: location.pathname
           };
@@ -643,7 +652,7 @@ main { padding: 0; }
     </ul>
   </div>
 </header>
-  <main id="main">
+  <main id="main" data-track="body">
     <section class="page-hero">
       <div class="page-hero-inner">
         <span class="eyebrow">Blog</span>
@@ -676,7 +685,7 @@ main { padding: 0; }
 <li><strong>The customer writes their review.</strong> They click the unique link, write their review, and submit. At the moment of submission, the review content, transaction ID, customer email, and timestamp are bundled into a cryptographic signature, producing cryptographically signed reviews that anyone can independently verify.</li>
 <li><strong>The review is published.</strong> The signed review appears on your public page and in your dashboard. The cryptographic signature can be independently verified by anyone, proving the review came from a real customer about a real purchase and hasn&#39;t been altered.</li>
 </ol>
-<p>If the charge is later refunded, Stripe sends a webhook and Signed Reviews automatically hides the review from public display. No manual moderation needed. For the full chain from charge to signature (matching, signing, and refund detection), see <a href="/blog/stripe-proof-of-purchase-verification/">Stripe proof integration</a>. For the verification model itself — the five levels, and what each one actually proves — see <a href="/how-verification-works/">how verification works</a>.</p>
+<p>If the charge is later refunded, Stripe sends a webhook and Signed Reviews automatically hides the review from public display. No manual moderation needed. For the full chain from charge to signature (matching, signing, and refund detection), see <a href="/blog/stripe-proof-of-purchase-verification/">Stripe proof integration</a>. For the verification model itself, see <a href="/how-verification-works/">how verification works</a>, which covers the five levels and what each one actually proves.</p>
 <h2 id="why-quotverifiedquot-usually-doesn39t-mean-verified"><a class="anchor" href="#why-quotverifiedquot-usually-doesn39t-mean-verified" aria-label="Permalink to Why &amp;quot;verified&amp;quot; usually doesn&amp;#39;t mean verified"></a>Why &quot;verified&quot; usually doesn&#39;t mean verified</h2>
 <p>To understand why Stripe verified reviews are different, you need to understand what &quot;verified&quot; means on most platforms.</p>
 <p>Every &quot;verified&quot; review on the internet sits on a verification spectrum. The level determines <strong>who is attesting</strong> that a purchase happened:</p>

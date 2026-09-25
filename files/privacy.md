@@ -78,7 +78,7 @@ Signed Reviews does not process payments from reviewers, does not take fees from
 
 The payment-adjacent data we store is a narrow slice of charge metadata received from Stripe: the charge ID, customer email, card last four digits, amount, and currency. These are used to link a review to a verified purchase.
 
-If a business enables metrics on its public review page, we additionally read aggregate data from that business's Stripe account on a strictly read-only basis (such as charges, customers, subscriptions, refunds, disputes, and balance transactions) and store only the resulting privacy-thresholded aggregate values (for example, a banded refund rate or active-subscriber count), never the underlying raw records. We never store full card numbers, CVV codes, expiry dates, cardholder names, or full billing addresses.
+If a business enables metrics on its public review page, we also read aggregate data from that business's Stripe account on a strictly read-only basis (such as charges, customers, subscriptions, refunds, disputes, and balance transactions) and store only the resulting privacy-thresholded aggregate values (for example, a banded refund rate or active-subscriber count), never the underlying raw records. We never store full card numbers, CVV codes, expiry dates, cardholder names, or full billing addresses.
 
 ### 3.4 Technical information
 

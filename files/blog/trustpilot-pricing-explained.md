@@ -25,7 +25,7 @@ That gap between the pricing page and the real bill is what the rest of this art
 
 ## Trustpilot pricing: how the pricing model works
 
-Trustpilot charges by **plan tier** (not by review volume directly), but higher tiers unlock higher invitation volumes. There's no per-review pricing. You pay a fixed monthly or annual amount for a bundle of features, and your review volume is capped by your tier's invitation limits.
+Trustpilot charges by **plan tier** (not by review volume directly), but higher tiers allow higher invitation volumes. There's no per-review pricing. You pay a fixed monthly or annual amount for a bundle of features, and your review volume is capped by your tier's invitation limits.
 
 Key things to understand before the numbers:
 

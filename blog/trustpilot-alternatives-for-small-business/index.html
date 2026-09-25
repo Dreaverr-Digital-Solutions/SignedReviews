@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/trustpilot-alternatives-for-small-business/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="b5771316ab5e4a4a678359934d8e83f3601780d4">
-  <meta name="build-time" content="2026-09-12T04:18:43.266Z">
+  <meta name="build-commit" content="unknown">
+  <meta name="build-time" content="2026-09-24T15:21:29.066Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Trustpilot Alternatives for Small Business: 10 Best Options &amp; Yotpo Alternative (2026) | Signed Reviews">
@@ -22,8 +22,8 @@
   <meta name="twitter:description" content="Looking for the best yotpo alternative? Compare 10 Trustpilot alternatives for small businesses, including the best reviews.io alternative with Stripe-verified buyer reviews. See pricing, verification strength, and why Signed Reviews is the top yotpo alternative for Stripe businesses.">
   <meta name="twitter:image" content="https://signedreviews.com/images/og/trustpilot-alternatives-for-small-business.png">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/SignedReviews_logo_only.png?v=20260729a">
-  <link rel="apple-touch-icon" href="/images/SignedReviews_logo_only.png?v=20260729a">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=20260924a">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=20260924a">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -541,14 +541,23 @@ main { padding: 0; }
         onScroll();
         if ('IntersectionObserver' in window) {
           var seen = {};
-          var io = new IntersectionObserver(function (entries) {
+          var onEntry = function (entries) {
             for (var i = 0; i < entries.length; i++) {
               var en = entries[i];
               if (en.isIntersecting) { var n = en.target.getAttribute('data-track'); if (n && !seen[n]) { seen[n] = true; ph.capture('landing_section_viewed', { section: n }); } }
             }
-          }, { threshold: 0.5 });
+          };
+          // Threshold has to depend on the element: one taller than the viewport can
+          // never be 50% visible, so at 0.5 it would never fire. Tall elements observe
+          // at 0 (any visible sliver); everything else keeps 0.5.
+          var tallIO = new IntersectionObserver(onEntry, { threshold: 0 });
+          var halfIO = new IntersectionObserver(onEntry, { threshold: 0.5 });
+          var viewportH = window.innerHeight || document.documentElement.clientHeight || 0;
           var tracked = document.querySelectorAll('[data-track]');
-          for (var j = 0; j < tracked.length; j++) io.observe(tracked[j]);
+          for (var j = 0; j < tracked.length; j++) {
+            var isTall = tracked[j].getBoundingClientRect().height > viewportH;
+            (isTall ? tallIO : halfIO).observe(tracked[j]);
+          }
         }
         document.addEventListener('click', function (e) {
           var el = e.target;
@@ -567,7 +576,7 @@ main { padding: 0; }
           if (a.closest('header.site-header')) return 'nav';
           if (a.closest('footer.site-footer')) return 'footer';
           var p = a.closest('p');
-          if (p && /^Relateds*:/i.test((p.textContent || '').replace(/s+/g, ' ').trim())) return 'related';
+          if (p && /^Related\s*:/i.test((p.textContent || '').replace(/\s+/g, ' ').trim())) return 'related';
           if (a.closest('[class*="related"]')) return 'related';
           if (a.closest('article') || a.closest('main')) return 'body';
           return 'other';
@@ -589,7 +598,7 @@ main { padding: 0; }
           if (!el || el === document || !internal(el)) return;
           var props = {
             href: el.getAttribute('href'),
-            text: (el.textContent || '').replace(/s+/g, ' ').trim().slice(0, 80),
+            text: (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
             zone: zoneOf(el),
             page: location.pathname
           };
@@ -643,7 +652,7 @@ main { padding: 0; }
     </ul>
   </div>
 </header>
-  <main id="main">
+  <main id="main" data-track="body">
     <section class="page-hero">
       <div class="page-hero-inner">
         <span class="eyebrow">Blog</span>
@@ -751,7 +760,7 @@ main { padding: 0; }
 | Stripe-native | ❌ No |
 | Review ownership | ✅ Yes |
 | Best for | Mid-to-large UK/European businesses |</p>
-<p>Feefo is the closest positioning competitor to Signed Reviews on paper. They also lead with &quot;verified reviews&quot; language, making them a popular starting point for businesses searching for a feefo alternative. But Feefo&#39;s verification is done against a transaction log <strong>the merchant uploads.</strong> The merchant decides what goes into the feed. It&#39;s closed (no unsolicited reviews) and Google Review Partner-certified, which is genuinely valuable. But the trust root is still the merchant&#39;s data. If you&#39;re on Stripe, the best feefo alternative is one where the verification source is the payment processor, not your own transaction feed. However, for businesses tired of manual feed integrations, a Feefo alternative like Signed Reviews offers a simpler, more robust verification model that doesn&#39;t break when you update your CRM.</p>
+<p>Feefo is the closest positioning competitor to Signed Reviews on paper. They also lead with &quot;verified reviews&quot; language, making them a popular starting point for businesses searching for a feefo alternative. But Feefo&#39;s verification is done against a transaction log <strong>the merchant uploads.</strong> The merchant decides what goes into the feed. It&#39;s closed (no unsolicited reviews) and Google Review Partner-certified, which is genuinely valuable. But the trust root is still the merchant&#39;s data. If you&#39;re on Stripe, the best feefo alternative is one where the verification source is the payment processor, not your own transaction feed. However, for businesses tired of manual feed integrations, a Feefo alternative like Signed Reviews offers a simpler, more reliable verification model that doesn&#39;t break when you update your CRM.</p>
 <p><strong>Why it&#39;s #4:</strong> Strong for UK/European businesses wanting Google Seller Ratings. The verification model is better than open platforms, but it&#39;s Level 3, the merchant supplies the data being verified against. If you process payments through Stripe, the strongest feefo alternative is one that verifies against Stripe charges, not a merchant-supplied feed. <a href="/vs/feefo/">See the full Signed Reviews vs Feefo comparison →</a></p>
 <p>→ <a href="/vs/feefo/">Signed Reviews vs Feefo</a></p>
 <h3 id="5-reviewsio-best-for-uk-businesses-wanting-strong-branding"><a class="anchor" href="#5-reviewsio-best-for-uk-businesses-wanting-strong-branding" aria-label="Permalink to 5. Reviews.io, ★ Best for UK businesses wanting strong branding"></a>5. Reviews.io, ★ Best for UK businesses wanting strong branding</h3>
@@ -966,7 +975,7 @@ main { padding: 0; }
 <td>Google Reviews</td>
 </tr>
 </tbody></table></div>
-<p>For local and multi-location businesses specifically, two dedicated reputation platforms are worth knowing about: <a href="/vs/birdeye/">BirdEye</a>, which pairs review generation with local listings management, and <a href="/vs/podium/">Podium</a>, which runs review requests over SMS. Neither verifies against the payment processor — both rest on the business&#39;s own invitation list — so treat them as a distribution and operations layer rather than a verification layer.</p>
+<p>For local and multi-location businesses specifically, two dedicated reputation platforms are worth knowing about: <a href="/vs/birdeye/">BirdEye</a>, which pairs review generation with local listings management, and <a href="/vs/podium/">Podium</a>, which runs review requests over SMS. Neither verifies against the payment processor. Both rest on the business&#39;s own invitation list, so treat them as a distribution and operations layer rather than a verification layer.</p>
 <hr>
 <h2 id="what-about-trustpilot"><a class="anchor" href="#what-about-trustpilot" aria-label="Permalink to What about Trustpilot?"></a>What about Trustpilot?</h2>
 <p>Trustpilot&#39;s not going anywhere. For some businesses, especially those selling to consumers who search &quot;company name + reviews&quot;, being present on Trustpilot is table stakes. The issue isn&#39;t that Trustpilot is useless; it&#39;s that Trustpilot alone leaves your review credibility on a platform where <strong>unverified reviews sit next to invited ones</strong> and the distinction is easily missed.</p>

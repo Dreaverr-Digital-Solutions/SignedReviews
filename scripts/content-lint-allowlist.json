@@ -1,0 +1,311 @@
+{
+  "note": "Known-legitimate matches for content-lint.js. An entry needs a repo-relative file path, a matcher (lineText, a line number, or the exact matched string) and a short reason. lineText is a substring of the finding's source line and, when present, is what the entry matches on: it survives edits elsewhere in the file, so an entry keyed to a line that moves keeps working and the 'line' value is only a hint. Entries are deliberately narrow: they suppress one line or one matched string, never a whole file. Entries that fall back to a line number are fail-safe: if the line drifts, the entry stops matching and the finding reappears for triage.",
+  "entries": [
+    {
+      "file": "landingpage/build.js",
+      "line": 92,
+      "lineText": "// Footer \"Privacy choices\" entry point",
+      "match": "—",
+      "reason": "JS line comment inside the privacy-banner script that build.js emits into a template literal. It is a code comment in the generated file, not prose."
+    },
+    {
+      "file": "landingpage/build.js",
+      "line": 902,
+      "lineText": "// Light is the default stylesheet state",
+      "match": "—",
+      "reason": "JS line comment inside the theme script that build.js emits into a template literal. It is a code comment in the generated file, not prose."
+    },
+    {
+      "file": "landingpage/build.js",
+      "line": 1520,
+      "lineText": "<td class=\"dim\">—</td>",
+      "match": "—",
+      "reason": "Pricing table null glyph, rule S2: a functional glyph, not prose."
+    },
+    {
+      "file": "landingpage/build.js",
+      "line": 1562,
+      "lineText": "<td class=\"dim\">—</td>",
+      "match": "—",
+      "reason": "Pricing table null glyph, rule S2: a functional glyph, not prose."
+    },
+    {
+      "file": "landingpage/build.js",
+      "line": 1569,
+      "lineText": "<td class=\"dim\">—</td>",
+      "match": "—",
+      "reason": "Pricing table null glyph, rule S2: a functional glyph, not prose."
+    },
+    {
+      "file": "landingpage/build.js",
+      "line": 1590,
+      "lineText": "<td class=\"dim\">—</td>",
+      "match": "—",
+      "reason": "Pricing table null glyph, rule S2: a functional glyph, not prose."
+    },
+    {
+      "file": "landingpage/build.js",
+      "line": 1591,
+      "lineText": "<td class=\"dim\">—</td>",
+      "match": "—",
+      "reason": "Pricing table null glyph, rule S2: a functional glyph, not prose."
+    },
+    {
+      "file": "landingpage/build.js",
+      "line": 1597,
+      "lineText": "<td class=\"dim\">—</td>",
+      "match": "—",
+      "reason": "Pricing table null glyph, rule S2: a functional glyph, not prose."
+    },
+    {
+      "file": "landingpage/build.js",
+      "line": 1598,
+      "lineText": "<td class=\"dim\">—</td>",
+      "match": "—",
+      "reason": "Pricing table null glyph, rule S2: a functional glyph, not prose."
+    },
+    {
+      "file": "landingpage/build.js",
+      "line": 4581,
+      "lineText": "var BUZZ = ",
+      "match": "revolutionary",
+      "reason": "The BUZZ array is the fake-review-checker's product word list; it is supposed to contain buzzwords (plan S3)."
+    },
+    {
+      "file": "landingpage/build.js",
+      "line": 4600,
+      "lineText": "class=\"frc-score\">—<",
+      "match": "—",
+      "reason": "Fake-review-checker score glyph shown when the text is too short to score, rule S2: functional, not prose."
+    },
+    {
+      "file": "landingpage/build.js",
+      "line": 4711,
+      "lineText": "# Signed Reviews — AI Crawler & SEO Policy",
+      "match": "—",
+      "reason": "Comment line inside the robots.txt template literal that build.js writes out. A comment in a generated machine file, not prose."
+    },
+    {
+      "file": "landingpage/build.js",
+      "line": 4712,
+      "lineText": "# Google Search (full crawl — must be allowed for indexation)",
+      "match": "—",
+      "reason": "Comment line inside the robots.txt template literal that build.js writes out. A comment in a generated machine file, not prose."
+    },
+    {
+      "file": "landingpage/build.js",
+      "line": 4721,
+      "lineText": "# Google AI Overviews — allow for AI search visibility, block training use",
+      "match": "—",
+      "reason": "Comment line inside the robots.txt template literal that build.js writes out. A comment in a generated machine file, not prose."
+    },
+    {
+      "file": "landingpage/build.js",
+      "line": 4726,
+      "lineText": "# ChatGPT / Perplexity — allow for search visibility, block training",
+      "match": "—",
+      "reason": "Comment line inside the robots.txt template literal that build.js writes out. A comment in a generated machine file, not prose."
+    },
+    {
+      "file": "landingpage/build.js",
+      "line": 4737,
+      "lineText": "# Claude — allow for search visibility (Claude web search), block training",
+      "match": "—",
+      "reason": "Comment line inside the robots.txt template literal that build.js writes out. A comment in a generated machine file, not prose."
+    },
+    {
+      "file": "landingpage/build.js",
+      "line": 4742,
+      "lineText": "# Perplexity — allow for search visibility, block training",
+      "match": "—",
+      "reason": "Comment line inside the robots.txt template literal that build.js writes out. A comment in a generated machine file, not prose."
+    },
+    {
+      "file": "landingpage/build.js",
+      "line": 4858,
+      "lineText": "not in PUBLISH",
+      "match": "—",
+      "reason": "Developer-facing build warning that build.js prints to the console when it auto-copies a directory into dist; terminal output, never reader prose."
+    },
+    {
+      "file": "landingpage/files/blog/fake-review-checker.md",
+      "line": 20,
+      "match": "revolutionary",
+      "reason": "The word appears as an example of the marketing-speak the article warns readers about, quoted in its own checklist, not as our word choice."
+    },
+    {
+      "file": "platform/frontend/src/components/BackfillStatus.jsx",
+      "line": 112,
+      "match": "—",
+      "reason": "Null glyph for a missing invitation count in a ternary, not prose."
+    },
+    {
+      "file": "platform/frontend/src/components/__tests__/PipelineFunnel.test.jsx",
+      "line": 40,
+      "match": "—",
+      "reason": "Test assertion that the dashed-out null glyph renders when funnel data is missing, not prose."
+    },
+    {
+      "file": "platform/frontend/src/components/trust/ReviewsSummaryBand.jsx",
+      "line": 41,
+      "match": "—",
+      "reason": "Ghost placeholder where the aggregate rating will render; null glyph, not prose."
+    },
+    {
+      "file": "platform/frontend/src/components/trust/ReviewsSummaryBand.jsx",
+      "line": 58,
+      "match": "—",
+      "reason": "Ghost placeholder where a per-star count will render; null glyph, not prose."
+    },
+    {
+      "file": "platform/frontend/src/components/trust/dashboard/ActivitySection.jsx",
+      "line": 254,
+      "match": "—",
+      "reason": "Null glyph for a missing run duration, not prose."
+    },
+    {
+      "file": "platform/frontend/src/components/trust/dashboard/metricCopy.js",
+      "line": 53,
+      "match": "—",
+      "reason": "Null glyph returned when nothing meaningful changed, not prose."
+    },
+    {
+      "file": "platform/frontend/src/components/trust/dashboard/metricCopy.js",
+      "line": 57,
+      "match": "—",
+      "reason": "Null glyph fallback for an unset display mode inside a before/after label, not prose."
+    },
+    {
+      "file": "platform/frontend/src/components/trust/dashboard/metricCopy.js",
+      "line": 71,
+      "match": "—",
+      "reason": "Null glyph returned when nothing meaningful changed, not prose."
+    },
+    {
+      "file": "platform/frontend/src/pages/AdminDashboard.jsx",
+      "line": 23,
+      "match": "—",
+      "reason": "Null glyph formatter for missing numbers, not prose."
+    },
+    {
+      "file": "platform/frontend/src/pages/AdminDashboard.jsx",
+      "line": 796,
+      "match": "—",
+      "reason": "Null glyph for a missing stat value, not prose."
+    },
+    {
+      "file": "platform/frontend/src/pages/AdminDashboard.jsx",
+      "line": 799,
+      "match": "—",
+      "reason": "Null glyph for a missing success rate, not prose."
+    },
+    {
+      "file": "platform/frontend/src/pages/AdminDashboard.jsx",
+      "line": 802,
+      "match": "—",
+      "reason": "Null glyph for a missing cost value, not prose."
+    },
+    {
+      "file": "platform/frontend/src/pages/AdminDashboard.jsx",
+      "line": 803,
+      "match": "—",
+      "reason": "Null glyph for a missing latency value, not prose."
+    },
+    {
+      "file": "platform/frontend/src/pages/AdminDashboard.jsx",
+      "line": 889,
+      "match": "—",
+      "reason": "Null glyph for a missing table cell value, not prose."
+    },
+    {
+      "file": "platform/frontend/src/pages/AdminDashboard.jsx",
+      "line": 892,
+      "match": "—",
+      "reason": "Null glyph for a missing average duration in a table cell, not prose."
+    },
+    {
+      "file": "platform/frontend/src/pages/AdminDashboard.jsx",
+      "line": 1156,
+      "match": "—",
+      "reason": "Null glyph for a missing success rate, not prose."
+    },
+    {
+      "file": "platform/frontend/src/pages/AdminDashboard.jsx",
+      "line": 1161,
+      "match": "—",
+      "reason": "Null glyph for a missing average latency, not prose."
+    },
+    {
+      "file": "platform/frontend/src/pages/AdminDashboard.jsx",
+      "line": 1232,
+      "match": "—",
+      "reason": "Null glyph for a missing model duration, not prose."
+    },
+    {
+      "file": "platform/frontend/src/pages/Billing.jsx",
+      "line": 44,
+      "match": "—",
+      "reason": "Plan comparison table null glyph (\"not included\"), same rule as the pricing table in build.js (S2)."
+    },
+    {
+      "file": "platform/frontend/src/pages/Billing.jsx",
+      "line": 47,
+      "match": "—",
+      "reason": "Plan comparison table null glyph (\"not included\"), same rule as the pricing table in build.js (S2)."
+    },
+    {
+      "file": "platform/frontend/src/pages/Billing.jsx",
+      "line": 48,
+      "match": "—",
+      "reason": "Plan comparison table null glyph (\"not included\"), same rule as the pricing table in build.js (S2)."
+    },
+    {
+      "file": "platform/frontend/src/pages/Billing.jsx",
+      "line": 49,
+      "match": "—",
+      "reason": "Plan comparison table null glyph (\"not included\"), same rule as the pricing table in build.js (S2)."
+    },
+    {
+      "file": "platform/frontend/src/pages/Dashboard.jsx",
+      "line": 132,
+      "match": "—",
+      "reason": "Null glyph for a missing response rate ({responseRate == null ? '—' : ...}), not prose. The brief cites components/Dashboard.jsx; the dashboard component lives at pages/Dashboard.jsx."
+    },
+    {
+      "file": "platform/frontend/src/pages/Dashboard.jsx",
+      "line": 579,
+      "match": "—",
+      "reason": "Null glyph when neither a Stripe account id nor a business id exists, not prose."
+    },
+    {
+      "file": "platform/frontend/src/pages/Dashboard.jsx",
+      "line": 656,
+      "match": "—",
+      "reason": "Null glyph for a missing transaction count, not prose."
+    },
+    {
+      "file": "platform/frontend/src/pages/Dashboard.jsx",
+      "line": 662,
+      "match": "—",
+      "reason": "Null glyph for a missing verified-customer count, not prose."
+    },
+    {
+      "file": "platform/frontend/src/pages/Dashboard.jsx",
+      "line": 668,
+      "match": "—",
+      "reason": "Null glyph for a missing verified-revenue figure, not prose."
+    },
+    {
+      "file": "platform/frontend/src/pages/ReviewPageSettings.jsx",
+      "line": 656,
+      "match": "—",
+      "reason": "Ghost aggregate score placeholder in the settings preview, not prose."
+    },
+    {
+      "file": "platform/frontend/src/pages/Reviews.jsx",
+      "line": 288,
+      "match": "—",
+      "reason": "Null glyph when there is no average rating, not prose."
+    }
+  ]
+}

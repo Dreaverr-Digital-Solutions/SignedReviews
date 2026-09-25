@@ -11,6 +11,7 @@
     "test": "playwright test",
     "audit:links": "node scripts/link-graph.js",
     "audit:links:json": "node scripts/link-graph.js --json scripts/baselines/current.json",
+    "lint:copy": "node scripts/content-lint.js",
     "test:ios": "playwright test --project=webkit-ios",
     "test:ios:headed": "playwright test --project=webkit-ios --headed",
     "notify-deploy": "node notify-deploy.js"
