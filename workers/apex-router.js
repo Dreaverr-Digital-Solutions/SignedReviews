@@ -5,8 +5,12 @@
  * bypasses the public *.workers.dev URL where same-account cross-Worker
  * fetches return 404 for valid paths.
  *
- * Strategy: try the landing first via service binding; fall through to the
- * platform SPA on Railway if landing returns 404.
+ * Strategy: try the landing Pages project first. If it answers 404, that path
+ * doesn't exist, so the landing's own 404 response (status + body) is returned
+ * as-is — a real 404 instead of the platform SPA's 200 shell. Platform-owned
+ * multi-segment routes are the exception: they fall through to the platform SPA
+ * on Railway, which is where they are actually served from. A landing 5xx (or an
+ * unreachable landing) also falls through, for resilience.
  *
  * Markdown for Agents: when Accept: text/markdown is present, serve a
  * markdown version of the requested page directly — no HTML conversion needed.
@@ -61,8 +65,8 @@ function isLandingPath(pathname) {
 }
 
 // Business-profile sub-paths: /:slug/leave-a-review and /:slug/reviews.
-// Route these directly to the platform SPA — they should never hit the
-// landing worker (which catches all paths as a SPA and never returns 404).
+// These are platform routes, not landing pages — the landing has no such
+// pages, so asking it first would waste a request and return its 404.
 const BP_SUB_RE = /^\/[^/]+\/(leave-a-review|reviews)(\/.*)?$/;
 
 // ── Page-specific markdown content ──────────────────────────────────────────
@@ -357,10 +361,25 @@ function estimateTokens(markdown) {
 
 // ── Markdown response helper ───────────────────────────────────────────────
 
-function serveMarkdown(pathname) {
-  const markdown = MARKDOWN_PAGES[pathname] || defaultMarkdown(pathname);
+// 404 body: the plain site overview plus an explicit note that the requested
+// path is not on this site, so an agent can recover from the sitemap.
+function missingMarkdown(pathname) {
+  return `# Signed Reviews — Page Not Found
+
+> **404** — \`${pathname}\` does not exist on this site. The links below list every page that does.
+
+- [Sitemap](https://signedreviews.com/sitemap.xml) — every page on this site
+- [LLMs.txt](https://signedreviews.com/llms.txt) — machine-readable site map
+
+${defaultMarkdown(pathname)}`;
+}
+
+function serveMarkdown(pathname, status = 200) {
+  const markdown = status === 404
+    ? missingMarkdown(pathname)
+    : MARKDOWN_PAGES[pathname] || defaultMarkdown(pathname);
   return new Response(markdown, {
-    status: 200,
+    status,
     headers: {
       'Content-Type': 'text/markdown; charset=utf-8',
       'x-markdown-tokens': String(estimateTokens(markdown)),
@@ -369,6 +388,29 @@ function serveMarkdown(pathname) {
       'Vary': 'Accept',
     },
   });
+}
+
+// ── Existence check for the markdown surface ──────────────────────────────
+// The markdown branch answers for any path, so it used to report 200 for paths
+// that don't exist. Ask the landing origin for the same pathname the way the
+// HTML path does below. Only landing-shaped paths are checked — platform routes
+// (and the /ph/* proxy, which a more specific route sends to another Worker)
+// keep today's behaviour. An explicit landing 404 becomes a 404; anything else
+// (a redirect for a non-slash URL, 2xx, 5xx, an unreachable landing) stays 200,
+// because we never report a page missing when we cannot prove it is.
+async function markdownStatusFor(pathname) {
+  if (!isLandingPath(pathname)) return 200;
+  try {
+    // No headers are forwarded: the landing's own markdown negotiation keys off
+    // Accept, and we want its plain static-asset / 404 answer here.
+    const landingResponse = await fetch(LANDING_ORIGIN + pathname, {
+      method: 'GET',
+      redirect: 'manual',
+    });
+    return landingResponse.status === 404 ? 404 : 200;
+  } catch (_) {
+    return 200;
+  }
 }
 
 // ── Main handler ───────────────────────────────────────────────────────────
@@ -392,21 +434,22 @@ export default {
     const accept = request.headers.get('Accept') || '';
 
     // Markdown for Agents — serve markdown directly without invoking landing
+    // (landing-shaped paths are existence-checked first; see markdownStatusFor)
     if (accept.includes('text/markdown')) {
-      return serveMarkdown(url.pathname);
+      return serveMarkdown(url.pathname, await markdownStatusFor(url.pathname));
     }
 
     // Business-profile sub-paths (/:slug/leave-a-review, /:slug/reviews)
-    // must bypass the landing worker — the landing SPA catches all paths
-    // and never returns 404, so the fallthrough would never trigger.
+    // are platform routes, not landing pages — the landing has no such
+    // pages, so asking it first would waste a request and return its 404.
     if (BP_SUB_RE.test(url.pathname)) {
       return proxyToPlatform(request, url);
     }
 
-    // ── Platform assets (must bypass the landing SPA) ──────────────────────────
-    // The landing Pages project is a SPA that returns 200 for every path. Any
-    // static asset that isn't explicitly a landing path would be served as HTML,
-    // which breaks JS/CSS bundles and images. Route platform-owned paths directly.
+    // ── Platform assets (must bypass the landing) ──────────────────────────────
+    // The landing Pages project has no such files and answers 404 (its HTML 404
+    // page) for them — serving that HTML in place of a JS/CSS bundle or an image
+    // breaks the platform SPA. Route platform-owned paths directly.
 
     // Vite build output — the SPA's hashed JS/CSS bundles live under /assets/.
     if (url.pathname.startsWith('/assets/')) {
@@ -422,13 +465,29 @@ export default {
       return proxyToPlatform(request, url);
     }
 
+    // Platform SPA routes that are reachable on the apex and are multi-segment.
+    // They must keep falling through to the platform even when the landing
+    // answers 404 for them (the landing has no such pages). See
+    // platform/frontend/src/App.jsx: /review/preview/:businessId, /review/:token,
+    // /verify/:reviewId, /invite/:token, /business/:slug, /b/:slug, and the
+    // /dashboard/* children. /:slug/reviews and /:slug/leave-a-review are already
+    // handled earlier by BP_SUB_RE and must not be duplicated here.
+    const PLATFORM_ROUTE_PREFIXES = [
+      '/review/',
+      '/verify/',
+      '/invite/',
+      '/business/',
+      '/b/',
+      '/dashboard/',
+    ];
+
     // Single-segment paths that aren't known landing pages are business
     // profiles (/:slug). Route them to the platform SPA. Static assets at
     // root level (.css, .js, images, etc.) may belong to either project;
     // the platform-specific ones are handled above — the rest fall through
     // to the landing-first logic below.
     const SINGLE_SEGMENT_RE = /^\/[^/]+\/?$/;
-    const STATIC_ASSET_RE = /\.(css|js|png|jpe?g|gif|svg|ico|webp|woff2?|ttf|xml|txt|json|webmanifest|pdf|map)$/i;
+    const STATIC_ASSET_RE = /\.(css|js|md|png|jpe?g|gif|svg|ico|webp|woff2?|ttf|xml|txt|json|webmanifest|pdf|map)$/i;
     if (SINGLE_SEGMENT_RE.test(url.pathname) && !isLandingPath(url.pathname) && !STATIC_ASSET_RE.test(url.pathname)) {
       return proxyToPlatform(request, url);
     }
@@ -437,10 +496,10 @@ export default {
     // Use the public pages.dev URL — service bindings to Pages projects
     // sometimes don't serve static assets correctly.
     //
-    // NOTE: the landing Pages project is a SPA and returns 200 for *every*
-    // path (including /assets/* and random slugs). The guards above ensure
-    // platform-owned paths never reach this block. If you add a new platform
-    // asset prefix, add it above — not here.
+    // NOTE: the landing Pages project serves real pages, and answers 404 with
+    // its own 404.html for anything it doesn't have (including /assets/* and
+    // random slugs). The guards above ensure platform-owned paths never reach
+    // this block. If you add a new platform asset prefix, add it above — not here.
     try {
       const target = LANDING_ORIGIN + url.pathname + url.search;
       const landingResponse = await fetch(target, {
@@ -451,11 +510,19 @@ export default {
       if (landingResponse.status !== 404 && landingResponse.status < 500) {
         return landingResponse;
       }
+      // Landing 404 → the path genuinely doesn't exist. Return the landing's 404
+      // response as-is (it already carries the 404 status and the correct body)
+      // so crawlers see a hard 404 instead of the platform SPA's 200 shell, which
+      // Google treats as a soft 404. Platform-owned routes are the exception:
+      // they don't exist in the landing project either, so keep the fallthrough.
+      if (landingResponse.status === 404 && !PLATFORM_ROUTE_PREFIXES.some(pref => url.pathname.startsWith(pref))) {
+        return landingResponse;
+      }
     } catch (_) {
       // landing unreachable — fall through to platform
     }
 
-    // Landing has no such path (or errored) → fall through to platform SPA.
+    // Platform-owned route, landing 5xx, or landing unreachable → platform SPA.
     return proxyToPlatform(request, url);
   },
 };

@@ -217,6 +217,20 @@ Covers Stripe verified reviews, Trustpilot alternatives, fake review detection, 
 `;
 }
 
+// ── 404 markdown ─────────────────────────────────────────────────────────────
+// The plain site overview plus an explicit note that the requested path is not
+// on this site, so an agent can recover from the sitemap.
+function missingMarkdown(pathname) {
+  return `# Signed Reviews — Page Not Found
+
+> **404** — \`${pathname}\` does not exist on this site. The links below list every page that does.
+
+- [Sitemap](https://signedreviews.com/sitemap.xml) — every page on this site
+- [LLMs.txt](https://signedreviews.com/llms.txt) — machine-readable site map
+
+${defaultMarkdown(pathname)}`;
+}
+
 // ── Token count estimate ─────────────────────────────────────────────────────
 // Rough heuristic: ~4 chars/token for English. Used for x-markdown-tokens.
 function estimateTokens(markdown) {
@@ -434,12 +448,19 @@ export async function onRequest(context) {
     return serveWebBotAuthDirectory(url.hostname);
   }
 
-  // Serve markdown when requested by AI agents
+  // Serve markdown when requested by AI agents.
+  // context.next() answers the static asset, or the site's 404 page for paths
+  // that don't exist — so the markdown surface can answer 404 too instead of a
+  // misleading 200 overview. Any other status keeps today's 200 behaviour.
   if (accept.includes('text/markdown')) {
-    const markdown = MARKDOWN_PAGES[pathname] || defaultMarkdown(pathname);
+    const assetResponse = await context.next();
+    const notFound = assetResponse.status === 404;
+    const markdown = notFound
+      ? missingMarkdown(pathname)
+      : MARKDOWN_PAGES[pathname] || defaultMarkdown(pathname);
 
     return new Response(markdown, {
-      status: 200,
+      status: notFound ? 404 : 200,
       headers: {
         'Content-Type': 'text/markdown; charset=utf-8',
         'x-markdown-tokens': String(estimateTokens(markdown)),
