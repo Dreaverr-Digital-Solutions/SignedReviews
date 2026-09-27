@@ -1,0 +1,645 @@
+{
+  "generated": "2026-09-27T05:38:51.932Z",
+  "script": "landingpage/scripts/keyword-guard.js",
+  "results": [
+    {
+      "keyword": "stripe verified reviews",
+      "page": "/blog/stripe-verified-reviews/",
+      "file": "landingpage/blog/stripe-verified-reviews/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "transaction verified reviews",
+      "page": "/blog/transaction-verified-reviews/",
+      "file": "landingpage/blog/transaction-verified-reviews/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "payment verified reviews",
+      "page": "/blog/purchase-verified-vs-email-verified-reviews/",
+      "file": "landingpage/blog/purchase-verified-vs-email-verified-reviews/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "proof of purchase reviews",
+      "page": "/blog/purchase-verified-vs-email-verified-reviews/",
+      "file": "landingpage/blog/purchase-verified-vs-email-verified-reviews/index.html",
+      "inTitle": false,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "tamper evident reviews",
+      "page": "/blog/stripe-verified-reviews/",
+      "file": "landingpage/blog/stripe-verified-reviews/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "cryptographically signed reviews",
+      "page": "/blog/stripe-verified-reviews/",
+      "file": "landingpage/blog/stripe-verified-reviews/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "trustpilot alternatives",
+      "page": "/blog/trustpilot-alternatives-for-small-business/",
+      "file": "landingpage/blog/trustpilot-alternatives-for-small-business/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "trustpilot alternatives for small business",
+      "page": "/blog/trustpilot-alternatives-for-small-business/",
+      "file": "landingpage/blog/trustpilot-alternatives-for-small-business/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "trustpilot alternatives for saas",
+      "page": "/blog/trustpilot-alternatives-for-saas/",
+      "file": "landingpage/blog/trustpilot-alternatives-for-saas/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "trustpilot alternatives for ecommerce",
+      "page": "/blog/trustpilot-alternatives-for-ecommerce/",
+      "file": "landingpage/blog/trustpilot-alternatives-for-ecommerce/index.html",
+      "inTitle": true,
+      "inMeta": false,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "reviews.io alternative",
+      "page": "/blog/trustpilot-alternatives-for-small-business/",
+      "file": "landingpage/blog/trustpilot-alternatives-for-small-business/index.html",
+      "inTitle": false,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "yotpo alternative",
+      "page": "/blog/trustpilot-alternatives-for-small-business/",
+      "file": "landingpage/blog/trustpilot-alternatives-for-small-business/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "judge.me alternative",
+      "page": "/blog/trustpilot-alternatives-for-small-business/",
+      "file": "landingpage/blog/trustpilot-alternatives-for-small-business/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "feefo alternative",
+      "page": "/blog/trustpilot-alternatives-for-small-business/",
+      "file": "landingpage/blog/trustpilot-alternatives-for-small-business/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "trustpilot pricing",
+      "page": "/blog/trustpilot-pricing-explained/",
+      "file": "landingpage/blog/trustpilot-pricing-explained/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "fake review statistics 2026",
+      "page": "/blog/fake-review-statistics-2026/",
+      "file": "landingpage/blog/fake-review-statistics-2026/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "fake reviews on shopify",
+      "page": "/blog/fake-shopify-reviews/",
+      "file": "landingpage/blog/fake-shopify-reviews/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "how to spot fake reviews",
+      "page": "/blog/how-to-spot-fake-reviews/",
+      "file": "landingpage/blog/how-to-spot-fake-reviews/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "are trustpilot reviews reliable",
+      "page": "/blog/are-trustpilot-reviews-reliable/",
+      "file": "landingpage/blog/are-trustpilot-reviews-reliable/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "how to collect verified customer reviews",
+      "page": "/blog/how-to-collect-verified-customer-reviews/",
+      "file": "landingpage/blog/how-to-collect-verified-customer-reviews/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "post purchase review email template",
+      "page": "/blog/post-purchase-review-email-templates/",
+      "file": "landingpage/blog/post-purchase-review-email-templates/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "best time to ask for a review",
+      "page": "/blog/best-time-to-ask-for-a-review/",
+      "file": "landingpage/blog/best-time-to-ask-for-a-review/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "how to get reviews on shopify",
+      "page": "/blog/how-to-get-reviews-on-shopify/",
+      "file": "landingpage/blog/how-to-get-reviews-on-shopify/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "how to verify a customer actually bought",
+      "page": "/blog/how-to-verify-a-customer-actually-bought/",
+      "file": "landingpage/blog/how-to-verify-a-customer-actually-bought/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "best review platform for saas",
+      "page": "/blog/best-review-platform-for-saas/",
+      "file": "landingpage/blog/best-review-platform-for-saas/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "stripe app for reviews",
+      "page": "/blog/stripe-app-for-reviews/",
+      "file": "landingpage/blog/stripe-app-for-reviews/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "review app for stripe payments",
+      "page": "/blog/review-app-for-stripe-payments/",
+      "file": "landingpage/blog/review-app-for-stripe-payments/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "how stripe review verification works",
+      "page": "/blog/how-stripe-review-verification-works/",
+      "file": "landingpage/blog/how-stripe-review-verification-works/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "what is a verified review",
+      "page": "/blog/what-is-a-verified-review/",
+      "file": "landingpage/blog/what-is-a-verified-review/index.html",
+      "inTitle": true,
+      "inMeta": false,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "verified review meaning",
+      "page": "/blog/what-is-a-verified-review/",
+      "file": "landingpage/blog/what-is-a-verified-review/index.html",
+      "inTitle": false,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "difference between verified and unverified reviews",
+      "page": "/blog/what-is-a-verified-review/",
+      "file": "landingpage/blog/what-is-a-verified-review/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "verified buyer meaning",
+      "page": "/learn/what-does-verified-buyer-mean/",
+      "file": "landingpage/learn/what-does-verified-buyer-mean/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": true,
+      "inH2": false
+    },
+    {
+      "keyword": "signed reviews vs trustpilot",
+      "page": "/vs/trustpilot/",
+      "file": "landingpage/vs/trustpilot/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "trustpilot vs signed reviews",
+      "page": "/vs/trustpilot/",
+      "file": "landingpage/vs/trustpilot/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "signed reviews",
+      "page": "/",
+      "file": "landingpage/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": false
+    },
+    {
+      "keyword": "signedreviews",
+      "page": "/",
+      "file": "landingpage/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": true,
+      "inH2": false
+    },
+    {
+      "keyword": "stripe verified review platform",
+      "page": "/",
+      "file": "landingpage/index.html",
+      "inTitle": true,
+      "inMeta": false,
+      "inBody": true,
+      "inH2": false
+    },
+    {
+      "keyword": "collect reviews for saas",
+      "page": "/blog/how-to-collect-reviews-for-saas/",
+      "file": "landingpage/blog/how-to-collect-reviews-for-saas/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "fake review checker",
+      "page": "/tools/fake-review-checker/",
+      "file": "landingpage/tools/fake-review-checker/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "how to check if reviews are fake",
+      "page": "/blog/fake-review-checker/",
+      "file": "landingpage/blog/fake-review-checker/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": false
+    },
+    {
+      "keyword": "stripe proof of purchase verification",
+      "page": "/blog/stripe-proof-of-purchase-verification/",
+      "file": "landingpage/blog/stripe-proof-of-purchase-verification/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "stripe proof integration",
+      "page": "/blog/stripe-proof-of-purchase-verification/",
+      "file": "landingpage/blog/stripe-proof-of-purchase-verification/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "verified reviews vs unverified reviews",
+      "page": "/blog/verified-reviews-vs-unverified-reviews/",
+      "file": "landingpage/blog/verified-reviews-vs-unverified-reviews/index.html",
+      "inTitle": true,
+      "inMeta": false,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "is trustpilot legit",
+      "page": "/blog/is-trustpilot-legit/",
+      "file": "landingpage/blog/is-trustpilot-legit/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "can i trust trustpilot reviews",
+      "page": "/blog/is-trustpilot-legit/",
+      "file": "landingpage/blog/is-trustpilot-legit/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "signed reviews vs podium",
+      "page": "/vs/podium/",
+      "file": "landingpage/vs/podium/index.html",
+      "inTitle": true,
+      "inMeta": false,
+      "inBody": true,
+      "inH2": false
+    },
+    {
+      "keyword": "podium alternative",
+      "page": "/vs/podium/",
+      "file": "landingpage/vs/podium/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "sitejabber reviews",
+      "page": "/vs/sitejabber/",
+      "file": "landingpage/vs/sitejabber/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": false,
+      "inH2": false
+    },
+    {
+      "keyword": "is sitejabber legit",
+      "page": "/vs/sitejabber/",
+      "file": "landingpage/vs/sitejabber/index.html",
+      "inTitle": false,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": false
+    },
+    {
+      "keyword": "trustpilot widget examples",
+      "page": "/blog/trustpilot-widget-examples/",
+      "file": "landingpage/blog/trustpilot-widget-examples/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": false
+    },
+    {
+      "keyword": "trustpilot pricing page",
+      "page": "/blog/trustpilot-pricing-explained/",
+      "file": "landingpage/blog/trustpilot-pricing-explained/index.html",
+      "inTitle": true,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "trustpilot plans",
+      "page": "/blog/trustpilot-pricing-explained/",
+      "file": "landingpage/blog/trustpilot-pricing-explained/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": false,
+      "inH2": false
+    },
+    {
+      "keyword": "trustpilot pricing for businesses",
+      "page": "/blog/trustpilot-pricing-explained/",
+      "file": "landingpage/blog/trustpilot-pricing-explained/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": false,
+      "inH2": false
+    },
+    {
+      "keyword": "trustpilot business pricing",
+      "page": "/blog/trustpilot-pricing-explained/",
+      "file": "landingpage/blog/trustpilot-pricing-explained/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": false,
+      "inH2": false
+    },
+    {
+      "keyword": "unprompted review meaning",
+      "page": "/blog/verified-reviews-vs-unverified-reviews/",
+      "file": "landingpage/blog/verified-reviews-vs-unverified-reviews/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": true,
+      "inH2": false
+    },
+    {
+      "keyword": "what does unprompted review mean",
+      "page": "/blog/verified-reviews-vs-unverified-reviews/",
+      "file": "landingpage/blog/verified-reviews-vs-unverified-reviews/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": false,
+      "inH2": false
+    },
+    {
+      "keyword": "reviewed and verified meaning",
+      "page": "/blog/verified-reviews-vs-unverified-reviews/",
+      "file": "landingpage/blog/verified-reviews-vs-unverified-reviews/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": false,
+      "inH2": false
+    },
+    {
+      "keyword": "real review checker",
+      "page": "/blog/fake-review-checker/",
+      "file": "landingpage/blog/fake-review-checker/index.html",
+      "inTitle": false,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": false
+    },
+    {
+      "keyword": "shopify fake reviews",
+      "page": "/blog/fake-shopify-reviews/",
+      "file": "landingpage/blog/fake-shopify-reviews/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": false,
+      "inH2": false
+    },
+    {
+      "keyword": "fake shopify review",
+      "page": "/blog/fake-shopify-reviews/",
+      "file": "landingpage/blog/fake-shopify-reviews/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": false,
+      "inH2": false
+    },
+    {
+      "keyword": "post purchase review form",
+      "page": "/blog/post-purchase-review-email-templates/",
+      "file": "landingpage/blog/post-purchase-review-email-templates/index.html",
+      "inTitle": false,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": true
+    },
+    {
+      "keyword": "trustpilot competitors",
+      "page": "/blog/trustpilot-alternatives-for-ecommerce/",
+      "file": "landingpage/blog/trustpilot-alternatives-for-ecommerce/index.html",
+      "inTitle": false,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": false
+    },
+    {
+      "keyword": "trustpilot competitor",
+      "page": "/blog/trustpilot-alternatives-for-ecommerce/",
+      "file": "landingpage/blog/trustpilot-alternatives-for-ecommerce/index.html",
+      "inTitle": false,
+      "inMeta": true,
+      "inBody": true,
+      "inH2": false
+    },
+    {
+      "keyword": "verified reviews shopify",
+      "page": "/blog/how-to-get-reviews-on-shopify/",
+      "file": "landingpage/blog/how-to-get-reviews-on-shopify/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": false,
+      "inH2": false
+    },
+    {
+      "keyword": "trustpilot reviews are fake",
+      "page": "/blog/are-trustpilot-reviews-reliable/",
+      "file": "landingpage/blog/are-trustpilot-reviews-reliable/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": false,
+      "inH2": false
+    },
+    {
+      "keyword": "skeepers reviews",
+      "page": "/vs/skeepers/",
+      "file": "landingpage/vs/skeepers/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": false,
+      "inH2": false
+    },
+    {
+      "keyword": "ekomi pricing",
+      "page": "/vs/ekomi/",
+      "file": "landingpage/vs/ekomi/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": false,
+      "inH2": false
+    },
+    {
+      "keyword": "judge.me verified reviews",
+      "page": "/vs/judge-me/",
+      "file": "landingpage/vs/judge-me/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": false,
+      "inH2": false
+    },
+    {
+      "keyword": "clutch review process",
+      "page": "/vs/clutch/",
+      "file": "landingpage/vs/clutch/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": false,
+      "inH2": false
+    },
+    {
+      "keyword": "ftc fake reviews rules",
+      "page": "/learn/ftc-fake-reviews-rules/",
+      "file": "landingpage/learn/ftc-fake-reviews-rules/index.html",
+      "inTitle": false,
+      "inMeta": true,
+      "inBody": false,
+      "inH2": false
+    },
+    {
+      "keyword": "ftc rules on fake reviews",
+      "page": "/learn/ftc-fake-reviews-rules/",
+      "file": "landingpage/learn/ftc-fake-reviews-rules/index.html",
+      "inTitle": false,
+      "inMeta": false,
+      "inBody": false,
+      "inH2": false
+    }
+  ]
+}

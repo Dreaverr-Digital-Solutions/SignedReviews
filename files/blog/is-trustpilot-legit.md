@@ -1,6 +1,7 @@
 # Is Trustpilot Legit? An Honest Assessment for Business Owners
+**Title:** Is Trustpilot Legit? An Honest 2026 Assessment
 
-**Published:** 2026-08-07 · **Author:** Signed Reviews Team · **Description:** Is Trustpilot legit? Yes, but with important caveats about how verification works, fake review risks, pricing transparency, and what "verified" actually means on the platform.
+**Published:** 2026-08-07 · **Author:** Signed Reviews Team · **Description:** Is Trustpilot legit? Yes, with caveats: how verification works, fake review risks, pricing transparency, and what "verified" means on the platform.
 
 ---
 

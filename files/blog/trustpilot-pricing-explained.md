@@ -1,6 +1,6 @@
 # Trustpilot Pricing 2026: Plans, Hidden Costs & Cheaper Alternatives
 
-**Title:** Trustpilot Pricing Page Explained: 2026 Plans & Costs
+**Title:** Trustpilot Pricing Page: 2026 Plans, Costs, Hidden Fees
 **Published:** 2026-07-24 · **Updated:** 2026-09-06 · **Author:** Signed Reviews Team
 **Description:** What's on the Trustpilot pricing page, and what it hides: every 2026 plan, the real costs, hidden fees, and cheaper alternatives.
 

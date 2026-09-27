@@ -1,6 +1,7 @@
 # Stripe App for Reviews: Collect Verified Customer Reviews Automatically
+**Title:** Stripe App for Reviews: Setup in Minutes | Signed Reviews
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Looking for a Stripe app for reviews? SignedReviews collects Stripe-verified reviews automatically after every payment. Setup in 5 minutes with minimal permissions, no code required.
+**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Looking for a Stripe app for reviews? SignedReviews collects Stripe-verified reviews after every payment. Setup in 5 minutes, minimal permissions, no code.
 
 ---
 

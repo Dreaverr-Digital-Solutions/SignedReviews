@@ -1,6 +1,7 @@
 # How to Collect Verified Customer Reviews: A Practical Guide
+**Title:** How to Collect Verified Customer Reviews | Signed Reviews
 
-**Published:** 2026-07-04 · **Author:** Signed Reviews Team · **Description:** How to collect verified customer reviews with Stripe: connect with minimal permissions, trigger a request per charge, and publish a verified review page in minutes.
+**Published:** 2026-07-04 · **Author:** Signed Reviews Team · **Description:** How to collect verified customer reviews with Stripe: connect with minimal permissions, trigger a request per charge, publish a verified page fast.
 
 ---
 

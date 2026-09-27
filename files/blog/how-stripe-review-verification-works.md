@@ -1,4 +1,5 @@
 # How Stripe Review Verification Works: A Technical Guide
+**Title:** How Stripe Review Verification Works | Signed Reviews
 
 **Published:** 2026-07-04 · **Author:** Signed Reviews Team · **Description:** Learn how Stripe review verification works, from OAuth connection and charge verification to cryptographic signing and automatic refund handling.
 

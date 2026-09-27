@@ -1,4 +1,5 @@
 # Trustpilot Widget Examples: What They Look Like, Where They Go, and What Each One Does
+**Title:** Trustpilot Widget Examples (2026): TrustBox Types Compared
 
 **Published:** 2026-07-29 · **Author:** Signed Reviews Team · **Description:** See real Trustpilot widget examples (TrustBox, carousel, product reviews, and service review widgets) plus how they compare to purchase-verified alternatives.**
 

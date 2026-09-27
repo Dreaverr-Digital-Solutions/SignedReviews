@@ -1,6 +1,7 @@
 # Transaction Verified Reviews: What They Are & Why They're Hardest to Fake
+**Title:** Transaction Verified Reviews | Signed Reviews
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Transaction verified reviews are independently confirmed by a payment processor, not by merchant-supplied data. Here's how they work, how they differ from email-verified and merchant-verified reviews, and why processor-attested verification is the strongest anti-fake mechanism available.**
+**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Transaction verified reviews are confirmed by the payment processor, not merchant data. How they work, and why processor-attested proof beats email badges.
 
 ---
 
@@ -70,7 +71,7 @@ Here's the concrete flow for a processor-attested, transaction-verified review:
 
 6. **If the charge is later refunded**, the platform receives a `charge.refunded` webhook from Stripe and automatically hides the review. The review record is preserved for audit but removed from public display.
 
-At no point does the business touch the verification data. The business can't decide which charges trigger invitations (every charge does), can't exclude unhappy customers, and can't prevent refunded-charge reviews from being hidden. The process is deterministic and independent of the merchant.
+At no point does the business touch the verification data. The business can't decide who gets an invitation (every customer does, exactly once), can't exclude unhappy customers, and can't prevent refunded-charge reviews from being hidden. The process is deterministic and independent of the merchant.
 
 ---
 

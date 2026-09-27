@@ -1,6 +1,7 @@
 # Fake Reviews on Shopify: How They Work, How to Spot Them, and How to Prevent Them
+**Title:** Fake Reviews on Shopify: How to Stop Them | Signed Reviews
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Fake reviews on Shopify are a growing problem: brushing schemes, incentivized reviews, and app-based manipulation. How they work, how Shopify fights them, and the structural fix that makes them impossible.**
+**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Fake reviews on Shopify: brushing schemes, incentivized reviews, and app manipulation. How they work, how Shopify fights them, and the structural fix.
 
 ---
 

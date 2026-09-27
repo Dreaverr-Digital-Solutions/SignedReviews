@@ -1,6 +1,7 @@
 # Post Purchase Review Email Templates: 5 Templates That Drive Verified Reviews
+**Title:** Post Purchase Review Email Templates | Signed Reviews
 
-**Published:** 2026-07-24 · **Updated:** 2026-09-06 · **Author:** Signed Reviews Team · **Description:** Post purchase review email templates and the post purchase review form that converts: copy-and-paste templates for e-commerce, SaaS, and services, with Stripe-triggered automation, timing rules, subject lines, and FTC compliance guidance.
+**Published:** 2026-07-24 · **Updated:** 2026-09-06 · **Author:** Signed Reviews Team · **Description:** Post purchase review email templates you can copy, plus the post purchase review form fields that lift response rates, with timing and FTC guidance.
 
 ---
 

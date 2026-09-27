@@ -1,6 +1,7 @@
 # FTC Fake Review Rule 2024: What It Means for Your Business
+**Title:** FTC Fake Review Rule 2024: A Business Guide | Signed Reviews
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** The FTC's 2024 fake review rule (16 CFR Part 465) bans fake reviews, review buying, and undisclosed insider reviews with civil penalties up to $51,744 per violation. Here's what it means and how to comply.
+**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** The FTC's 2024 fake review rule (16 CFR Part 465) bans fake reviews, review buying, and undisclosed insider reviews. Penalties: $51,744 per violation.
 
 ---
 

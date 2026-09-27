@@ -1,6 +1,7 @@
 # How to Verify a Customer Actually Bought: 4 Methods, Ranked
+**Title:** How to Verify a Customer Actually Bought | Signed Reviews
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** How to verify a customer actually bought: four methods ranked by falsifiability, from email confirmation to processor attestation. Learn which verification level fits your business.**
+**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** How to verify a customer actually bought: four methods ranked by falsifiability, from email confirmation to processor attestation. Pick the right level.
 
 ---
 
