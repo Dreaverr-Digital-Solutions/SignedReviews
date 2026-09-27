@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/about/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="a7c65aee6e68a99ebac49fe0ef9e49e864df44d4">
-  <meta name="build-time" content="2026-09-27T06:11:19.760Z">
+  <meta name="build-commit" content="15c917586f20becdec8129ca3ad16b43747b1d46">
+  <meta name="build-time" content="2026-09-27T13:52:09.522Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="About | Signed Reviews">
@@ -562,7 +562,7 @@ main { padding: 0; }
         document.addEventListener('click', function (e) {
           var el = e.target;
           while (el && el !== document) {
-            if (el.getAttribute && el.getAttribute('data-cta')) { ph.capture('landing_cta_click', { cta: el.getAttribute('data-cta'), href: el.getAttribute('href') || '' }); break; }
+            if (el.getAttribute && el.getAttribute('data-cta')) { ph.capture('landing_cta_click', { cta: el.getAttribute('data-cta'), href: el.getAttribute('href') || '', page: location.pathname }); break; }
             el = el.parentNode;
           }
         }, true);

@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/fake-review-statistics-2026/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="a7c65aee6e68a99ebac49fe0ef9e49e864df44d4">
-  <meta name="build-time" content="2026-09-27T06:11:19.760Z">
+  <meta name="build-commit" content="15c917586f20becdec8129ca3ad16b43747b1d46">
+  <meta name="build-time" content="2026-09-27T13:52:09.522Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Fake Review Statistics 2026 | Signed Reviews">
@@ -562,7 +562,7 @@ main { padding: 0; }
         document.addEventListener('click', function (e) {
           var el = e.target;
           while (el && el !== document) {
-            if (el.getAttribute && el.getAttribute('data-cta')) { ph.capture('landing_cta_click', { cta: el.getAttribute('data-cta'), href: el.getAttribute('href') || '' }); break; }
+            if (el.getAttribute && el.getAttribute('data-cta')) { ph.capture('landing_cta_click', { cta: el.getAttribute('data-cta'), href: el.getAttribute('href') || '', page: location.pathname }); break; }
             el = el.parentNode;
           }
         }, true);
@@ -785,6 +785,12 @@ main { padding: 0; }
 <p>The only structural fix is purchase verification, as used by SignedReviews through Stripe&#39;s API. By requiring cryptographic proof of a transaction before a review can be written, purchase verification makes fake reviews impossible rather than detectable. It&#39;s a different category of solution, one that eliminates the problem at its source.</p>
 <p><strong>Further reading:</strong> <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews: The Only Reviews Backed by Your Payment Processor</a> explains the structural fix, how processor-attested verification makes fake reviews impossible by design, not detectable after the fact. And <a href="/learn/what-does-verified-buyer-mean/">What Does &quot;Verified Buyer&quot; Actually Mean?</a> for the five-level verification spectrum that separates a badge from proof.</p>
 
+      <div class="post-cta" style="margin-top:2.5rem;padding:1.5rem;border:1px solid var(--border);border-radius:12px;background:var(--sunk,#fafafa);">
+        <p style="margin:0 0 .75rem;font-weight:600;color:var(--navy-900,#0c1320)">Every review tied to a real Stripe payment</p>
+        <p style="margin:0 0 1.25rem;color:var(--muted,#5b6b82);font-size:.95rem">Signed Reviews attaches a cryptographic signature to each review, linked to a completed transaction. Free to start: unlimited self-service reviews, 10 automated invitations, no credit card.</p>
+        <a class="btn btn-primary" href="https://platform.signedreviews.com/register" rel="noopener" data-cta="post-signup">Start free →</a>
+        <a class="btn btn-secondary" href="/how-verification-works/" style="margin-left:.5rem">How verification works</a>
+      </div>
       <p style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
         <a href="/blog/">← Back to blog</a>
       </p>

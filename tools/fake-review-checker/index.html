@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/tools/fake-review-checker/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="a7c65aee6e68a99ebac49fe0ef9e49e864df44d4">
-  <meta name="build-time" content="2026-09-27T06:11:19.760Z">
+  <meta name="build-commit" content="15c917586f20becdec8129ca3ad16b43747b1d46">
+  <meta name="build-time" content="2026-09-27T13:52:09.522Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Free Fake Review Checker. Spot Suspicious Review Text">
@@ -562,7 +562,7 @@ main { padding: 0; }
         document.addEventListener('click', function (e) {
           var el = e.target;
           while (el && el !== document) {
-            if (el.getAttribute && el.getAttribute('data-cta')) { ph.capture('landing_cta_click', { cta: el.getAttribute('data-cta'), href: el.getAttribute('href') || '' }); break; }
+            if (el.getAttribute && el.getAttribute('data-cta')) { ph.capture('landing_cta_click', { cta: el.getAttribute('data-cta'), href: el.getAttribute('href') || '', page: location.pathname }); break; }
             el = el.parentNode;
           }
         }, true);
@@ -1032,7 +1032,7 @@ main { padding: 0; }
         '<div class="frc-meter"><div class="frc-meter-fill" data-verdict="' + verdict + '" style="width:' + score + '%;"></div></div>';
       for (var s = 0; s < signals.length; s++) html += '<div class="frc-signal bad"><strong>Signal.</strong> ' + signals[s] + '</div>';
       for (var g = 0; g < good.length; g++) html += '<div class="frc-signal good"><strong>Credit.</strong> ' + good[g] + '</div>';
-      html += '<div class="frc-signal note">Heuristic estimate, not proof. A low score does not confirm a real customer; a high score does not confirm a fake review. The only structural answer is who attests the purchase. See <a href="/blog/transaction-verified-reviews/">transaction verified reviews</a>.</div></div>';
+      html += '<div class="frc-signal note">Heuristic estimate, not proof. A low score does not confirm a real customer; a high score does not confirm a fake review. The structural answer is who attests the purchase: a platform badge means the merchant vouched; a payment processor means a real charge was confirmed. Signed Reviews checks that at the source: <a href="/blog/transaction-verified-reviews/">how transaction verification works</a>. <a href="https://platform.signedreviews.com/register" data-cta="checker-signup">Start free</a>.</div></div>';
       output.innerHTML = html;
     }
 

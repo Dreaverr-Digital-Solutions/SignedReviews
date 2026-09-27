@@ -173,7 +173,7 @@ const SR_TRACKERS_SNIPPET = POSTHOG_KEY
         document.addEventListener('click', function (e) {
           var el = e.target;
           while (el && el !== document) {
-            if (el.getAttribute && el.getAttribute('data-cta')) { ph.capture('landing_cta_click', { cta: el.getAttribute('data-cta'), href: el.getAttribute('href') || '' }); break; }
+            if (el.getAttribute && el.getAttribute('data-cta')) { ph.capture('landing_cta_click', { cta: el.getAttribute('data-cta'), href: el.getAttribute('href') || '', page: location.pathname }); break; }
             el = el.parentNode;
           }
         }, true);
@@ -1940,6 +1940,12 @@ function buildBlog() {
     const body = `<article class="prose">
       ${post.dateStr ? `<p class="post-meta" style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">${escapeHtml(post.dateStr)}</p>` : ''}
       ${post.renderedBody}
+      <div class="post-cta" style="margin-top:2.5rem;padding:1.5rem;border:1px solid var(--border);border-radius:12px;background:var(--sunk,#fafafa);">
+        <p style="margin:0 0 .75rem;font-weight:600;color:var(--navy-900,#0c1320)">Every review tied to a real Stripe payment</p>
+        <p style="margin:0 0 1.25rem;color:var(--muted,#5b6b82);font-size:.95rem">Signed Reviews attaches a cryptographic signature to each review, linked to a completed transaction. Free to start: unlimited self-service reviews, 10 automated invitations, no credit card.</p>
+        <a class="btn btn-primary" href="${PLATFORM_URL}/register" rel="noopener" data-cta="post-signup">Start free →</a>
+        <a class="btn btn-secondary" href="${B}how-verification-works/" style="margin-left:.5rem">How verification works</a>
+      </div>
       <p style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
         <a href="${B}blog/">← Back to blog</a>
       </p>
@@ -4667,7 +4673,7 @@ function buildFakeReviewChecker() {
         '<div class="frc-meter"><div class="frc-meter-fill" data-verdict="' + verdict + '" style="width:' + score + '%;"></div></div>';
       for (var s = 0; s < signals.length; s++) html += '<div class="frc-signal bad"><strong>Signal.</strong> ' + signals[s] + '</div>';
       for (var g = 0; g < good.length; g++) html += '<div class="frc-signal good"><strong>Credit.</strong> ' + good[g] + '</div>';
-      html += '<div class="frc-signal note">Heuristic estimate, not proof. A low score does not confirm a real customer; a high score does not confirm a fake review. The only structural answer is who attests the purchase. See <a href="/blog/transaction-verified-reviews/">transaction verified reviews</a>.</div></div>';
+      html += '<div class="frc-signal note">Heuristic estimate, not proof. A low score does not confirm a real customer; a high score does not confirm a fake review. The structural answer is who attests the purchase: a platform badge means the merchant vouched; a payment processor means a real charge was confirmed. Signed Reviews checks that at the source: <a href="/blog/transaction-verified-reviews/">how transaction verification works</a>. <a href="https://platform.signedreviews.com/register" data-cta="checker-signup">Start free</a>.</div></div>';
       output.innerHTML = html;
     }
 

@@ -20,11 +20,17 @@ A 20-30 minute screen share covering:
 - **SaaS companies**: B2B and B2C SaaS businesses looking for transaction-attested reviews
 - **Agencies**: agencies managing review collection for multiple clients
 
-## Book a time
+## See it live now
+
+The free plan is the demo: unlimited self-service reviews, 10 automated invitations, no credit card.
+
+[Start free](https://platform.signedreviews.com/register)
+
+## Want a guided walkthrough?
+
+For teams weighing a larger rollout, we will walk through your setup and answer questions live.
 
 Email **demo@signedreviews.com** with your name, company, what you are looking for, and 2-3 times that work for you. We will reply within one business day with a confirmed time and video call link.
-
-Prefer to explore on your own? [Create a free account](https://platform.signedreviews.com/register), no credit card required.
 
 ---
 
