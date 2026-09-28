@@ -1467,6 +1467,10 @@
     .dark .bg-white{background:var(--color-navy-900)}
     .dark .bg-white\/60{background:rgba(255,255,255,.06)}
     .dark .bg-navy-50{background:var(--color-navy-800)}
+    /* Highlighted comparison row. Without this the row keeps the cream
+       bg-gold-50 while its text-navy-800 is remapped to light, so the label
+       is light-on-light. Gold tint matches the dark verify page. */
+    .dark .bg-gold-50{background:rgba(179,157,69,.12)}
     .dark .bg-white\/80{background:rgba(12,19,32,.78)}
     .dark .border-navy-100{border-color:rgba(255,255,255,.08)}
     .dark .border-navy-200{border-color:rgba(255,255,255,.10)}
