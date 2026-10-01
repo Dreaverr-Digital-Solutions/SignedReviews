@@ -164,7 +164,9 @@ This is the fundamental trade-off of the TrustBox: you get a polished, recogniza
 
 Signed Reviews takes a different approach to the widget problem: instead of pulling from a public profile where anyone can contribute, every embedded review carries cryptographic proof that it came from a completed Stripe transaction.
 
-The embed isn't a third-party `<script>` from an external CDN. It's a self-contained element rendered server-side from your own review data. No external requests, no third-party cookies, no widget loading delay.
+Our badge is an embed too, and it works the way embeds normally do: you paste a short snippet, and a `<script>` served from our domain mounts an `<iframe>` that renders the seal and fetches your aggregate review stats. That is one external request to us, and nothing else.
+
+What differs is not the mechanism but which reviews end up inside it. The TrustBox draws from a public profile where anyone can leave a review. Ours draws only from charges that actually completed in your Stripe account.
 
 | Widget feature | Trustpilot TrustBox | Signed Reviews embed |
 |---------------|-------------------|---------------------|
@@ -173,7 +175,7 @@ The embed isn't a third-party `<script>` from an external CDN. It's a self-conta
 | Review count | ✅ | ✅ |
 | Individual review cards | ✅ | ✅ |
 | Filters by verification | ❌ (all reviews shown) | ✅ (only purchase-verified) |
-| Third-party scripts | 1+ per widget | 0 |
+| Third-party scripts | 1+ per widget | 1 script + 1 iframe (ours) |
 | Cryptographic proof link | ❌ | ✅ (each review has a tamper-evident signature) |
 | Refund auto-hide | ❌ (manual) | ✅ (Stripe webhook, instant) |
 | Custom styling | Limited (themes) | Full CSS control |

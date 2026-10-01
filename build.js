@@ -234,10 +234,11 @@ const COMPANY = {
   attribution: 'Signed Reviews is a service operated by Paid Rightly LLC.',
 };
 
-// Sitewide Organization node (emitted on every page via SHARED_HEAD; the bespoke
-// homepage carries its own matching copy). `sameAs` is intentionally absent —
-// verified profiles don't exist yet (github.com/signedreviews + the LinkedIn page
-// both 404), and fabricated social URLs damage E-E-A-T more than a missing field.
+// Sitewide Organization node (emitted on every page via SHARED_HEAD). The bespoke
+// homepage carries a matching copy of this same entity — keep the two in step when
+// editing. `sameAs` anchors are limited to profiles that actually resolve; all three
+// below were verified 200 OK on 2026-10-01. A 404 in `sameAs` damages E-E-A-T more
+// than the field being absent, so re-check before adding a fourth.
 const ORG_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -247,6 +248,7 @@ const ORG_SCHEMA = {
   logo: `${SITE_URL}/images/SignedReviews_logo_only.png`,
   description: COMPANY.description,
   email: COMPANY.supportEmail,
+  foundingDate: '2025',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '1209 Mountain Road Pl NE, Ste N',
@@ -255,6 +257,11 @@ const ORG_SCHEMA = {
     postalCode: '87110',
     addressCountry: 'US',
   },
+  sameAs: [
+    'https://marketplace.stripe.com/apps/signedreviews',
+    'https://chromewebstore.google.com/detail/is-this-review-real-%E2%80%94-sig/jkfdbmlmfjbnbhillhlehabpbpeoljco',
+    'https://www.linkedin.com/company/signed-reviews',
+  ],
 };
 
 // Per-page BreadcrumbList. Skipped on the homepage (a lone "Home" crumb is noise).
@@ -1876,7 +1883,10 @@ function buildBlog() {
   if (fs.existsSync(blogDir)) {
     const files = fs.readdirSync(blogDir).filter(f => f.endsWith('.md')).sort().reverse();
     for (const file of files) {
-      const raw = fs.readFileSync(path.join(blogDir, file), 'utf8');
+      // Normalise CRLF to LF: the body is sliced at the `\n---\n` metadata separator below,
+      // and Node does not translate line endings on read. A CRLF file makes that lookup miss,
+      // which silently turns the whole file (front-matter included) into the article body.
+      const raw = fs.readFileSync(path.join(blogDir, file), 'utf8').replace(/\r\n/g, '\n');
       const slug = '/blog/' + file.replace(/\.md$/, '/');
 
       // Extract title from first H1

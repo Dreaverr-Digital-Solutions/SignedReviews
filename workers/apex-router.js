@@ -232,7 +232,7 @@ MARKDOWN_PAGES['/how-it-works/'] = `# How Signed Reviews Works
 When a Stripe charge is refunded, the associated review is **automatically hidden**. No manual moderation needed. If the charge is re-billed, the review reappears.
 
 ## Integration Options
-- **Widget API (v1):** Embed a review collection form on your site with a publishable key
+- **Trust badge:** Paste a snippet to display a "Verified by Signed Reviews" badge on your site
 - **Public API (v1):** Create review invitations programmatically from your backend
 - **Stripe App:** Install from the Stripe Marketplace for no-code setup
 - **Manual:** Send invitation links directly from the dashboard

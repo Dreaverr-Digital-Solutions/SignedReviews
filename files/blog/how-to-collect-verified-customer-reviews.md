@@ -7,6 +7,8 @@
 
 Learn how to collect verified customer reviews automatically using Stripe: a practical step-by-step guide covering setup, timing, and best practices.
 
+**In short:** connect Stripe, let each completed charge trigger one review request, and publish the results on a page where every review carries proof of the payment behind it. That makes each review processor-attested: the verification comes from Stripe's own charge record, not from an email address the customer typed in.
+
 Learning how to collect verified customer reviews doesn't require technical expertise or a large budget. If you process payments through Stripe, you can automate the entire process in minutes.
 
 ## Step 1: Connect your Stripe account
