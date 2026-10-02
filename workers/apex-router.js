@@ -18,6 +18,10 @@
 
 const PLATFORM_ORIGIN = 'https://platform.signedreviews.com';
 const LANDING_ORIGIN = 'https://signedreviews-landing.pages.dev';
+// The Express backend. Note the double /api: the app mounts its routers under
+// /api, and this host does not strip the prefix. platform.signedreviews.com
+// serves the SPA shell for /api/* paths, so it cannot answer an API question.
+const API_ORIGIN = 'https://api.signedreviews.com';
 
 // ── Known landing-page path prefixes ─────────────────────────────────────
 // Single-segment paths that belong to the landing site, not business slugs.
@@ -428,6 +432,88 @@ function proxyToPlatform(request, url) {
   return fetch(target, init);
 }
 
+// ── Business-profile slug existence ────────────────────────────────────────
+// Single-segment paths are assumed to be business profiles (/:slug). The SPA
+// answers 200 for every path — its nginx try_files falls back to index.html —
+// so a slug with no page behind it renders as a soft 404. Ask the public page
+// API instead, which answers 404 when no reachable page has that slug.
+//
+// Existence is NOT enforced when testmode=1 is set. That is the merchant
+// preview flag, and an unpublished page answers 404 to an anonymous lookup by
+// design — enforcing here would 404 the merchant's own preview of a page they
+// have not published yet (ReviewPageSettings builds /:slug?testmode=1 for
+// exactly that case).
+const SLUG_CHECK_ORIGIN = 'https://slug-check.signedreviews.internal/';
+
+// Single-segment paths the platform SPA owns. None of these can be a business
+// slug — the backend reserves them (RESERVED_SLUGS in routes/reviewPage.js) —
+// so they must proxy without a lookup. Mirrors that list, plus /install (an SPA
+// route the backend does not reserve); keep the two in step.
+const PLATFORM_SINGLE_SEGMENT = new Set([
+  'www', 'api', 'app', 'admin', 'dashboard', 'widget', 'verify', 'business',
+  'static', 'assets', 'b', 'login', 'logout', 'register', 'callback',
+  'confirm-age', 'review', 'invite', 'onboarding', 'onboard', 'me', 'account',
+  'settings', 'webhooks', 'oauth', 'support', 'pages', 'page', 'public',
+  'install',
+]);
+
+async function profileExists(slug) {
+  const cacheKey = new Request(SLUG_CHECK_ORIGIN + encodeURIComponent(slug));
+  try {
+    const hit = await caches.default.match(cacheKey);
+    if (hit) return (await hit.text()) === '1';
+  } catch (_) {
+    // cache unavailable — fall through to a live lookup
+  }
+
+  let exists;
+  try {
+    // HEAD: same route and same 404 semantics as the SPA's GET, without
+    // transferring the page payload (~47 KB). Any status other than 404 — a
+    // 429 from the public limiter, a 5xx, a network failure — counts as
+    // existing, so we never 404 a page we cannot prove is absent.
+    const res = await fetch(
+      `${API_ORIGIN}/api/review-page/page/${encodeURIComponent(slug)}`,
+      { method: 'HEAD', redirect: 'manual' },
+    );
+    exists = res.status !== 404;
+  } catch (_) {
+    return true;
+  }
+
+  try {
+    // Positives hold longer. A negative is short-lived so a page published
+    // moments ago is not 404'd for long.
+    await caches.default.put(cacheKey, new Response(exists ? '1' : '0', {
+      headers: { 'Cache-Control': `public, max-age=${exists ? 300 : 60}` },
+    }));
+  } catch (_) {
+    // caching is best-effort
+  }
+  return exists;
+}
+
+// Unknown paths get the landing's own 404 page — same status and body the
+// landing-first block below hands back for an unknown multi-segment path.
+async function pageNotFound(request, url) {
+  try {
+    const res = await fetch(LANDING_ORIGIN + url.pathname, {
+      method: request.method,
+      redirect: 'manual',
+    });
+    if (res.status === 404) return res;
+  } catch (_) {
+    // landing unreachable — fall back to a bare 404 below
+  }
+  return new Response('Not found', {
+    status: 404,
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'X-Robots-Tag': 'noindex',
+    },
+  });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -489,6 +575,15 @@ export default {
     const SINGLE_SEGMENT_RE = /^\/[^/]+\/?$/;
     const STATIC_ASSET_RE = /\.(css|js|md|png|jpe?g|gif|svg|ico|webp|woff2?|ttf|xml|txt|json|webmanifest|pdf|map)$/i;
     if (SINGLE_SEGMENT_RE.test(url.pathname) && !isLandingPath(url.pathname) && !STATIC_ASSET_RE.test(url.pathname)) {
+      // A profile URL must resolve to a real page. Unmatched single-segment
+      // paths otherwise reach the SPA and get its 200 shell — a soft 404.
+      const isReadable = request.method === 'GET' || request.method === 'HEAD';
+      if (isReadable && url.searchParams.get('testmode') !== '1') {
+        const slug = url.pathname.replace(/^\/+|\/+$/g, '');
+        if (!PLATFORM_SINGLE_SEGMENT.has(slug) && !(await profileExists(slug))) {
+          return pageNotFound(request, url);
+        }
+      }
       return proxyToPlatform(request, url);
     }
 
