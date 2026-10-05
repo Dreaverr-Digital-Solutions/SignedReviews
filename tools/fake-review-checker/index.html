@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/tools/fake-review-checker/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="689237392e1f1420dcca129bb48deb9fafdd3e1a">
-  <meta name="build-time" content="2026-10-01T09:31:07.699Z">
+  <meta name="build-commit" content="73ec376bf553e67e199230ce4cd240a324a3f3a2">
+  <meta name="build-time" content="2026-10-05T10:22:35.251Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Free Fake Review Checker. Spot Suspicious Review Text">
@@ -743,8 +743,42 @@ main { padding: 0; }
   :root.theme-dark .frc-signal.good, :root.theme-auto .frc-signal.good { background: rgba(63,148,95,.16); }
   :root.theme-dark .frc-signal.note, :root.theme-auto .frc-signal.note { background: rgba(179,157,69,.14); }
   .frc-card .frc-disclaimer { font-size: .85rem; color: var(--muted); margin: 1rem auto 0; max-width: 640px; text-align: center; }
+
+  /* AI cross-check card (fake review checker only) */
+  .frc-kind {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: .6rem;
+  }
+  .frc-card label.frc-url-label { margin-top: 1.5rem; }
+  .frc-card input[type="url"] {
+    width: 100%; max-width: 640px; margin-left: auto; margin-right: auto;
+    display: block; padding: .75rem 1rem;
+    font: inherit; color: var(--text); background: var(--surface);
+    border: 1px solid var(--border); border-radius: 10px; text-align: left;
+  }
+  .frc-card input[type="url"]::placeholder { color: var(--muted); opacity: .8; }
+  .frc-card input[type="url"]:focus { outline: 3px solid var(--gold-400); outline-offset: 2px; }
+  .frc-turnstile { display: flex; justify-content: center; margin-top: 1rem; }
+  .frc-run:disabled { opacity: .7; cursor: progress; }
+  .frc-run:disabled:hover { transform: none; box-shadow: 0 4px 14px rgba(179,157,69,.32); }
+  .frc-pill {
+    display: inline-block; padding: .3rem .85rem; border-radius: 999px;
+    font-weight: 700; font-size: .85rem; letter-spacing: .02em; color: #fff;
+    background: #87a2c4;
+  }
+  .frc-pill[data-verdict="OK"] { background: #3f945f; }
+  .frc-pill[data-verdict="SUSPICIOUS"] { background: var(--gold-500); }
+  .frc-pill[data-verdict="LIKELY_FAKE"] { background: #d64545; }
+  .frc-rows { margin-top: .9rem; font-size: .95rem; }
+  .frc-rows > div { display: flex; justify-content: space-between; gap: 1rem; padding: .5rem 0; border-bottom: 1px dashed var(--border); }
+  .frc-rows > div:last-child { border-bottom: none; }
+  .frc-rows span { color: var(--muted); }
+  .frc-rows .frc-rows-note { display: block; color: var(--muted); font-size: .85rem; padding: .35rem 0 .5rem; border-bottom: 1px dashed var(--border); }
+  .frc-ai-model { margin-top: .9rem; font-size: .85rem; color: var(--muted); }
+  .frc-ai-fineprint { margin-top: .5rem; font-size: .78rem; color: var(--muted); line-height: 1.5; }
 </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Signed Reviews Fake Review Checker","url":"https://signedreviews.com/tools/fake-review-checker/","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Free fake review checker: paste any review text and get a signal-based risk estimate. Client-side, no signup, nothing stored.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"image":"https://signedreviews.com/images/og/fake-review-checker-tool.png","publisher":{"@type":"Organization","name":"Signed Reviews","url":"https://signedreviews.com"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How accurate is this fake review checker?","acceptedAnswer":{"@type":"Answer","text":"It surfaces the writing patterns most common in fake reviews and reports signals with explanations rather than a definitive verdict. Treat a high score as a reason to look closer, not proof."}},{"@type":"Question","name":"Does this work for Amazon, Trustpilot, Google, or Shopify reviews?","acceptedAnswer":{"@type":"Answer","text":"Yes. It analyzes pasted text, so it is platform-agnostic. Nothing is sent to any server."}},{"@type":"Question","name":"Can it detect AI-written fake reviews?","acceptedAnswer":{"@type":"Answer","text":"Partially. AI text often trips the generic-praise and no-concrete-detail signals, but no text-based checker reliably detects AI writing. Verification at the source is the durable defense."}},{"@type":"Question","name":"What's the difference between checking text and verifying a purchase?","acceptedAnswer":{"@type":"Answer","text":"Text checking estimates likelihood from writing style. Purchase verification confirms fact from a payment record: an independent processor attests that a real charge occurred. The former is a screen; the latter is proof."}},{"@type":"Question","name":"Is the fake review checker free?","acceptedAnswer":{"@type":"Answer","text":"Yes: free, no signup, no data stored. The analysis runs entirely in the browser."}}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Signed Reviews Fake Review Checker","url":"https://signedreviews.com/tools/fake-review-checker/","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Free fake review checker: paste any review text and get a signal-based risk estimate. Instant heuristics plus an optional AI cross-check. Free, no signup, nothing stored.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"image":"https://signedreviews.com/images/og/fake-review-checker-tool.png","publisher":{"@type":"Organization","name":"Signed Reviews","url":"https://signedreviews.com"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How accurate is this fake review checker?","acceptedAnswer":{"@type":"Answer","text":"It surfaces the writing patterns most common in fake reviews and reports signals with explanations rather than a definitive verdict. Treat a high score as a reason to look closer, not proof."}},{"@type":"Question","name":"Does this work for Amazon, Trustpilot, Google, or Shopify reviews?","acceptedAnswer":{"@type":"Answer","text":"Yes. It analyzes pasted text, so it is platform-agnostic. The instant signals run in your browser; if you use the AI cross-check, the pasted text is scored on our server and not stored."}},{"@type":"Question","name":"Can it detect AI-written fake reviews?","acceptedAnswer":{"@type":"Answer","text":"Partially. AI text often trips the generic-praise and no-concrete-detail signals, but no text-based checker reliably detects AI writing. The AI cross-check adds a machine-written likelihood score, which catches many templated and LLM-written reviews, but no text-based method is proof. Verification at the source is the durable defense."}},{"@type":"Question","name":"What's the difference between checking text and verifying a purchase?","acceptedAnswer":{"@type":"Answer","text":"Text checking estimates likelihood from writing style. Purchase verification confirms fact from a payment record: an independent processor attests that a real charge occurred. The former is a screen; the latter is proof."}},{"@type":"Question","name":"Is the fake review checker free?","acceptedAnswer":{"@type":"Answer","text":"Yes: completely free, no signup. The instant signals run in your browser. The AI cross-check is also free (rate-limited per address). Nothing is stored."}},{"@type":"Question","name":"What happens to the text I paste?","acceptedAnswer":{"@type":"Answer","text":"Nothing is stored. The instant signals never leave your browser. If you run the AI cross-check, the review text and optional website URL are sent to our server, scored, and discarded. We do not keep a copy, log it, or use it for training."}}]}]}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -786,28 +820,33 @@ main { padding: 0; }
       <div class="page-hero-inner">
         <span class="eyebrow">Free tool</span>
         <h1>Fake Review Checker</h1>
-        <p>Paste a review. Get a signal-based risk estimate in seconds. Works on text from any platform. No signup, nothing leaves your browser.</p>
+        <p>Paste a review. Get a signal-based risk estimate in seconds. Works on text from any platform. No signup, nothing stored.</p>
       </div>
     </section>
     <div class="prose-wrap">
       <article class="prose">
-    <p>The <strong>fake review checker</strong> below reads a single review's text and scores the risk signals it finds: repetitive phrasing, superlative density, generic praise with no concrete details, authenticity claims embedded in the text. Paste any review from Amazon, Trustpilot, Google, Shopify, Tripadvisor, or your own store. Nothing is sent anywhere: the analysis runs in your browser, and nothing is stored.</p>
+    <p>The <strong>fake review checker</strong> below reads a single review's text and scores the risk signals it finds: repetitive phrasing, superlative density, generic praise with no concrete details, authenticity claims embedded in the text. Paste any review from Amazon, Trustpilot, Google, Shopify, Tripadvisor, or your own store. The instant signals run in your browser. If you use the AI cross-check, the review text (and the website URL, if provided) is sent to our server and scored by an AI model. Nothing is stored: no account, no review archive, no logging of pasted text.</p>
 
     <div class="frc-card" id="frc">
       <div class="frc-hero">
-        <span class="frc-eyebrow">Free tool · 100% client-side</span>
+        <span class="frc-eyebrow">Instant heuristics · optional AI cross-check</span>
         <h2>Check any review</h2>
-        <p class="frc-sub">Runs entirely in your browser, nothing is sent or stored.</p>
+        <p class="frc-sub">Instant pattern signals in your browser. Optional AI cross-check compares the review against the business website.</p>
       </div>
       <label for="frc-input">Paste the review text</label>
       <textarea id="frc-input" placeholder="Paste the full review text here (50+ words works best). The checker looks at language patterns, not the platform it came from." aria-describedby="frc-hint"></textarea>
       <p id="frc-hint" class="frc-hint">Heuristic signals, not proof. A clean score doesn't guarantee a real review. See below.</p>
+      <label class="frc-url-label" for="frc-url">Business website (optional)</label>
+      <input type="url" id="frc-url" placeholder="https://the-business-website.com" />
+      <p class="frc-hint">Adding the site enables the strongest check: the AI compares what the review claims against what the website actually sells.</p>
+      <!-- Turnstile not configured -->
       <div class="frc-actions">
         <button type="button" class="frc-run" id="frc-run">Check this review</button>
         <button type="button" class="frc-sample" id="frc-sample">Load a sample review</button>
       </div>
       <div class="frc-output" id="frc-output" aria-live="polite"></div>
-      <p class="frc-disclaimer">This checker evaluates writing patterns only. It cannot see who wrote the review, whether a purchase happened, or whether a platform verified anything. For that you need the verification source. See <a href="/blog/how-to-spot-fake-reviews/">how to spot fake reviews</a> and the <a href="/learn/what-does-verified-buyer-mean/">verification spectrum</a>.</p>
+      <div class="frc-output" id="frc-ai-output" aria-live="polite"></div>
+      <p class="frc-disclaimer">Instant heuristics run in your browser. The optional AI cross-check sends the pasted text (and URL, if given) to our server for scoring by an AI model; nothing is stored. Automated estimates, not proof. See <a href="/blog/how-to-spot-fake-reviews/">how to spot fake reviews</a> and the <a href="/learn/what-does-verified-buyer-mean/">verification spectrum</a>.</p>
     </div>
 
     <h2>How the fake review checker works</h2>
@@ -822,6 +861,10 @@ main { padding: 0; }
     </ul>
     <p>It also credits the opposite signals: concrete detail, and balanced tone: a real review usually carries at least a small reservation ("only", "slightly", "but"). A review that only praises and never specifies is the pattern to worry about.</p>
 
+    <h3>The AI cross-check</h3>
+    <p>Optional, and the stronger half of the tool. The pasted review text, plus the website text when you add a URL, is scored by Jev (TypeSafe's System One model) on three questions: does the review describe what the site sells (0 to 4), does the writing read like a real customer (0 to 4), and how likely is the text machine-written (0 or 1). The three combine into a single 0 to 100 score.</p>
+    <p>An honest limit: an AI cross-check is evidence, not proof. Determined humans can write reviews that score clean, and a genuinely enthusiastic customer can score suspicious. <a href="/blog/transaction-verified-reviews/">Verification at the source</a> remains the only structural defense.</p>
+
     <h2>What a text checker can't prove</h2>
     <p>Writing analysis is a filter, not a verdict. AI-generated fake reviews are now <a href="/blog/how-to-spot-fake-reviews/">virtually indistinguishable from human writing</a> in blind tests, and a genuinely concise happy customer can look identical to a seeded one. The checker answers "does this text look like typical fake-review writing?". It cannot answer "did this person actually buy the product?"</p>
     <p>That second question is the one that matters, and it has a structural answer: a review can only be certain to come from a real customer when an independent party attests the purchase. Under the FTC's Trade Regulation Rule on Consumer Reviews and Testimonials (16 CFR Part 465), fake reviews carry civil penalties, and the only reviews that make fabrication structurally irrational are transaction-verified ones: every fake attempt costs a real payment-processing fee. See <a href="/blog/transaction-verified-reviews/">transaction verified reviews</a> for the full mechanics.</p>
@@ -832,16 +875,19 @@ main { padding: 0; }
     <p>It surfaces the writing patterns most common in fake and template-generated reviews, and it is deliberately conservative: it reports signals with explanations rather than a definitive yes/no. Treat a high score as a reason to look closer (at reviewer history, timing, and the verification source) not as proof the review is fake.</p>
 
     <h3>Does this work for Amazon, Trustpilot, Google, or Shopify reviews?</h3>
-    <p>Yes. The checker analyzes pasted text, so it is platform-agnostic: copy the review text from any listing, platform, or email, paste it, and run. It does not read live pages or fetch reviews itself, and it sends nothing to any server.</p>
+    <p>Yes. The checker analyzes pasted text, so it is platform-agnostic: copy the review text from any listing, platform, or email, paste it, and run. It does not read live pages or fetch reviews itself. The instant signals run in your browser; if you use the AI cross-check, the pasted text is scored on our server and not stored.</p>
 
     <h3>Can it detect AI-written fake reviews?</h3>
-    <p>Partially. AI-generated review text often trips the generic-praise and no-concrete-detail signals, but modern AI can also write specific, balanced prose that passes a text check. No text-based checker, including commercial ones, reliably detects AI writing, which is why verification at the source (who attests the purchase) is the durable defense.</p>
+    <p>Partially. AI-generated review text often trips the generic-praise and no-concrete-detail signals, but modern AI can also write specific, balanced prose that passes a text check. The AI cross-check adds a machine-written likelihood score, which catches many templated and LLM-written reviews, but no text-based method is proof. Verification at the source (who attests the purchase) is the durable defense.</p>
 
     <h3>What's the difference between checking text and verifying a purchase?</h3>
     <p>Text checking estimates likelihood from writing style. Purchase verification confirms fact from a payment record: an independent processor such as Stripe attests that a real charge occurred between the reviewer and the business. The former is a screen; the latter is proof. <a href="/blog/verified-reviews-vs-unverified-reviews/">Verified vs unverified reviews</a> explains the levels in detail.</p>
 
     <h3>Is the fake review checker free?</h3>
-    <p>Yes: completely free, no signup, no data stored. It is a client-side tool: your pasted text never leaves your browser.</p>
+    <p>Yes: completely free, no signup. The instant signals run in your browser. The AI cross-check is also free (rate-limited per address). Nothing is stored.</p>
+
+    <h3>What happens to the text I paste?</h3>
+    <p>Nothing is stored. The instant signals never leave your browser. If you run the AI cross-check, the review text and optional website URL are sent to our server, scored, and discarded. We do not keep a copy, log it, or use it for training.</p>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Collect reviews that can't be faked →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/blog/fake-review-checker/">How to check if reviews are fake (7-point method)</a> · <a href="/blog/how-to-spot-fake-reviews/">How to spot fake reviews</a> · <a href="/blog/fake-review-statistics-2026/">Fake review statistics 2026</a></p>
@@ -948,8 +994,11 @@ main { padding: 0; }
   (function () {
     var input = document.getElementById('frc-input');
     var output = document.getElementById('frc-output');
+    var aiOutput = document.getElementById('frc-ai-output');
     var runBtn = document.getElementById('frc-run');
     var sampleBtn = document.getElementById('frc-sample');
+    var urlInput = document.getElementById('frc-url');
+    var API_URL = 'https://api.signedreviews.com/api/public/v1/check-review';
 
     var GENERIC = ['great product','highly recommend','would recommend','very good','good quality','fast shipping','great customer service','excellent product','works great','best purchase','five stars','5 stars','love it','amazing product'];
     var BUZZ = ['amazing','awesome','best','excellent','fantastic','game changer','game-changing','incredible','life changing','life-changing','must buy','perfect','superb','unbelievable','revolutionary','best-in-class','outstanding','exceptional'];
@@ -965,6 +1014,8 @@ main { padding: 0; }
       output.style.display = 'block';
       if (!t) {
         output.innerHTML = '<p class="frc-empty">Paste review text first, then press Check.</p>';
+        aiOutput.style.display = 'none';
+        aiOutput.innerHTML = '';
         return;
       }
       var words = t.toLowerCase().replace(/[^a-z0-9'\s-]/g, ' ').split(/\s+/).filter(Boolean);
@@ -974,6 +1025,7 @@ main { padding: 0; }
         output.innerHTML = '<div class="frc-result"><div class="frc-summary"><span class="frc-score">—</span>' +
           '<div class="frc-meta"><strong>Too short to assess</strong><div>Fewer than 25 words.</div></div></div>' +
           '<div class="frc-signal note">This checker needs enough text for its patterns to mean anything. Very short reviews are also a weak signal on their own: real experiences usually include at least one specific.</div></div>';
+        runAiCheck(t);
         return;
       }
 
@@ -1034,6 +1086,69 @@ main { padding: 0; }
       for (var g = 0; g < good.length; g++) html += '<div class="frc-signal good"><strong>Credit.</strong> ' + good[g] + '</div>';
       html += '<div class="frc-signal note">Heuristic estimate, not proof. A low score does not confirm a real customer; a high score does not confirm a fake review. The structural answer is who attests the purchase: a platform badge means the merchant vouched; a payment processor means a real charge was confirmed. Signed Reviews checks that at the source: <a href="/blog/transaction-verified-reviews/">how transaction verification works</a>. <a href="https://platform.signedreviews.com/register" data-cta="checker-signup">Start free</a>.</div></div>';
       output.innerHTML = html;
+      runAiCheck(t);
+    }
+
+    function runAiCheck(text) {
+      if (!aiOutput) return;
+      aiOutput.style.display = 'block';
+      aiOutput.innerHTML = '<p class="frc-empty">Running AI cross-check…</p>';
+      var url = urlInput && urlInput.value ? urlInput.value.trim() : '';
+      if (url && !/^https?:\/\//i.test(url)) {
+        aiOutput.innerHTML = '<p class="frc-empty">The website URL must start with http:// or https://. Fix it and run again. The instant heuristics above still apply.</p>';
+        return;
+      }
+      var payload = { reviewText: text.slice(0, 12000), rating: null };
+      if (url) payload.websiteUrl = url;
+      
+      runBtn.disabled = true;
+      runBtn.textContent = 'Checking…';
+      fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+        .then(function (r) {
+          return r.json().catch(function () { throw new Error('HTTP ' + r.status); }).then(function (data) {
+            if (!r.ok) throw new Error((data && data.error) ? data.error : ('HTTP ' + r.status));
+            return data;
+          });
+        })
+        .then(function (data) { renderAi(data); })
+        .catch(function (err) {
+          var reason = (err && err.message) ? err.message : 'network error';
+          aiOutput.innerHTML = '<p class="frc-empty">AI cross-check unavailable right now (' + esc(reason) + ').</p>';
+        })
+        .then(function () {
+          runBtn.disabled = false;
+          runBtn.textContent = 'Check this review';
+        });
+    }
+
+    function renderAi(data) {
+      var verdict = String(data.verdict || '');
+      var label = verdict === 'OK' ? 'OK' : (verdict === 'SUSPICIOUS' ? 'Suspicious' : (verdict === 'LIKELY_FAKE' ? 'Likely fake' : (verdict || 'Unknown')));
+      var composite = (typeof data.composite === 'number' && isFinite(data.composite)) ? String(Math.round(data.composite)) : 'n/a';
+      var sub = data.siteChecked ? 'Compared against the text of the website you provided.' : 'No website provided: text-only AI check.';
+      var html = '<div class="frc-result"><div class="frc-kind">AI cross-check</div>' +
+        '<div class="frc-summary"><span class="frc-pill" data-verdict="' + esc(verdict) + '">' + esc(label) + '</span>' +
+        '<div class="frc-meta"><strong>Overall AI score: ' + esc(composite) + '/100</strong><div>' + esc(sub) + '</div></div></div>' +
+        '<div class="frc-rows">';
+      if (data.siteChecked && data.matchScore !== null && data.matchScore !== undefined) {
+        html += '<div><span>Site match:</span><strong>' + esc(String(data.matchScore)) + '/4</strong></div>';
+      } else {
+        html += '<div><span>Site match:</span><strong>Not checked</strong></div>';
+        if (data.siteError) html += '<div class="frc-rows-note">' + esc(String(data.siteError)) + '</div>';
+      }
+      var genuine = (typeof data.genuineScore === 'number' && isFinite(data.genuineScore)) ? String(data.genuineScore) : 'n/a';
+      html += '<div><span>Genuine voice:</span><strong>' + esc(genuine) + '/4</strong></div>';
+      var aiPct = (typeof data.aiWritten === 'number' && isFinite(data.aiWritten)) ? Math.round(data.aiWritten * 100) : null;
+      html += '<div><span>AI-written likelihood:</span><strong>' + (aiPct === null ? 'n/a' : aiPct + '%') + '</strong></div>';
+      html += '</div>';
+      if (data.model) html += '<div class="frc-ai-model">Scored by ' + esc(String(data.model)) + '</div>';
+      if (data.disclaimer) html += '<div class="frc-ai-fineprint">' + esc(String(data.disclaimer)) + '</div>';
+      html += '</div>';
+      aiOutput.innerHTML = html;
     }
 
     function loadSample() {
