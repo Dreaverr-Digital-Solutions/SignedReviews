@@ -1,13 +1,36 @@
 # Fake Review Checker: 7 Ways to Tell if Reviews Are Real
 
 **Title:** How to Check if Reviews Are Fake | Signed Reviews
-**Published:** 2026-08-07 · **Author:** Signed Reviews Team · **Description:** How to check if reviews are fake with a real review checker method: language, profiles, timing, photos, platform signals, cross-references, badges.
+**Published:** 2026-08-07 · **Updated:** 2026-10-06 · **Author:** Signed Reviews Team · **Description:** How to check if reviews are fake with a real review checker method: language, profiles, timing, photos, platform signals, cross-references, badges.
 
 ---
 
 Fake reviews are everywhere. The FTC estimates that roughly 1 in every 7 online reviews is fabricated, and on some platforms, the number is significantly higher. But fake reviews leave traces. With the right checklist, you can spot them reliably.
 
 Here's a 7-point fake review checker: a practical methodology you can use right now to evaluate any set of reviews, whether they're on your own product pages, a competitor's listing, or a review platform you're considering. Want to check a single review instantly? Paste it into our free [fake review checker tool](/tools/fake-review-checker/). It scores the writing-pattern risk signals in seconds.
+
+## How to spot fake reviews: quick checklist
+
+The old tells (broken English, repetitive phrasing, generic praise) are losing their value. A 2024 Fakespot study found that AI-written reviews were virtually indistinguishable from human-written ones in blind testing. Each AI review can be grammatically clean and different in style from the last. So before you run the full 7-point method below, start with the signals that still hold up:
+
+- **Ask who verified the review, not whether it's verified.** A badge is not proof. The source behind it is. Check 7 below shows how to tell a merchant-supplied badge from a processor-backed one.
+- **Look at the shape of the ratings, not the average.** Good products usually cluster around 4.0 to 4.5 stars, with some 1-star reviews from shipping mishaps, defective units or wrong expectations. A product with 500 reviews and a 4.99 average is statistically improbable. So is a profile with no negative reviews at all.
+- **Read the middle ratings first.** The 2-, 3- and 4-star reviews are the most likely to be genuine (see below).
+- **Watch for bursts.** 50 reviews on one day, then three months of silence, is a warning sign. Organic review velocity is fairly smooth.
+- **Compare review count to market position.** If you're sizing up a competitor, a product with far more reviews than its market position suggests, plus an unusually high average, often has a manufactured profile. The economics of fake reviews make that pattern easy to produce and hard to hide.
+
+### Read the 2-, 3- and 4-star reviews first
+
+Fake review operations overwhelmingly target 1 star (to attack competitors) and 5 stars (to boost products). Middle ratings come from real customers with mixed experiences: "Product works but setup was confusing," "Good value but shipping was slow." If a product has hundreds of 5-star reviews and zero 3-star reviews, the 5-star reviews are suspicious. Not because each one is fake, but because the distribution doesn't match how real customers behave.
+
+### AI-written reviews: the tells that still work
+
+- **Uniform sentence length.** People vary sentence length naturally. AI text tends toward steady 15 to 25 word sentences.
+- **No specific details.** Compare "This product is great, highly recommend" with "The zipper broke after three weeks but customer service sent a replacement in two days." AI is bad at invented specifics.
+- **Perfect grammar, no typos.** Real reviews contain occasional typos. 200 flawless reviews with zero typos is statistically unlikely.
+- **Generic enthusiasm.** "Changed my life!" "Best purchase ever!" "You won't regret it!" Real reviews are more measured, even when positive.
+
+No single tell is conclusive on its own. The [fake review checker tool](/tools/fake-review-checker/) scores a review against these patterns at once and shows which signals fired.
 
 ## The 7-point fake review checker
 
@@ -17,7 +40,7 @@ Fake reviews tend to follow detectable language patterns. Run this checklist aga
 
 - [ ] **Overly generic language**: "Great product," "Highly recommend," "Excellent service": with no specifics about the product, the purchase experience, or what made it good
 - [ ] **Repeated phrases**: The same phrase or sentence structure appears across multiple reviews from different "reviewers"
-- [ ] **Marketing-speak**: The review reads like ad copy, using phrases like "game-changing," "revolutionary," or "best-in-class" without concrete examples
+- [ ] **Marketing-speak**: The review reads like ad copy, using phrases like "game-changing," "next-level," or "best-in-class" without concrete examples
 - [ ] **No personal context**: The reviewer doesn't mention how they used the product, what problem it solved, or why they chose it
 - [ ] **Unnatural grammar**: Awkward sentence construction that doesn't match typical customer language, often a sign of AI-generated or template-based fake reviews
 - [ ] **All 5-star or all 1-star**: Real review distributions cluster around 4 stars. A product with only 5-star and 1-star reviews (no 2, 3, or 4) is a red flag. See [fake review statistics 2026](/blog/fake-review-statistics-2026/) for the latest data.
@@ -94,6 +117,8 @@ Verification badges are not all equal. When you see a "Verified" badge:
 - [ ] **What happens on refund?** If a verified review stays up after the customer gets a refund, the verification is misleading. Transaction-based verification should automatically flag or hide refunded purchases.
 - [ ] **Can the business remove reviews unilaterally?** If the business can delete any review they don't like, the "verified" badge loses meaning: verification should protect reviews from removal as well as fabrication.
 
+**Merchant-supplied or processor-backed?** Most "Verified Buyer" badges sit at Level 3 on the [verification spectrum](/learn/what-does-verified-buyer-mean/): the business said this person was a customer. Trustpilot invited reviews, Yotpo, Judge.me and most Shopify apps work this way. Level 4 ties each review to a charge record from the merchant's payment processor instead of a customer list the merchant typed in. Only a handful of platforms operate at Level 4. If a platform doesn't make the distinction clear, ask why.
+
 **Red flag if:** The badge provides no specific information about what was verified or by whom.
 
 ## Fake review checker scorecard
@@ -148,13 +173,22 @@ The best defense against fake reviews is structural, not procedural. Instead of 
 
 Signed Reviews implements all four of these by design. See [how Stripe review verification works](/blog/how-stripe-review-verification-works/) for the technical architecture, or visit the [pricing page](/pricing/) for plan details.
 
+### Show shoppers your reviews are real
+
+Shoppers are getting more skeptical. Beyond keeping fakes out, make your real reviews easy to check:
+
+- **Show the chain, not just the word "verified."** Purchase, charge record, invitation, review, signature. The more links a shopper can check independently, the more each review is worth. [How Signed Reviews works](/how-it-works/) shows one example.
+- **Say who can review.** Publish who can leave a review, how you check it, and what your incentive policy is. A clear review policy is a trust signal on its own.
+- **Display verified and unverified reviews separately.** If you collect reviews from several sources, don't mix them. A verified review loses its trust value when it sits among unverified ones.
+- **Keep negative reviews up unless they break your policy.** A 4.5 average with some thoughtful 2-star reviews is more credible than a 5.0 with no complaints. Answer them professionally. They are a conversion asset, not a liability.
+
 ---
 
 ## FAQ: fake review checker
 
 ### Can AI detect fake reviews?
 
-Yes, to an extent. Machine learning models can identify language patterns, reviewer behavior anomalies, and timing irregularities that humans miss. However, AI-generated fake reviews are getting better: large language models can now produce reviews that are nearly indistinguishable from human-written ones. The arms race between fake review generators and detectors means no automated system is 100% reliable. The best approach combines automated detection (patterns, timing, metadata) with human judgment (context, nuance, specific details). See [how to spot a fake review](/blog/how-to-spot-fake-reviews/) for a deeper dive on detection techniques.
+Yes, to an extent. Machine learning models can identify language patterns, reviewer behavior anomalies, and timing irregularities that humans miss. However, AI-generated fake reviews are getting better: large language models can now produce reviews that are nearly indistinguishable from human-written ones. The arms race between fake review generators and detectors means no automated system is 100% reliable. The best approach combines automated detection (patterns, timing, metadata) with human judgment (context, nuance, specific details). See the [how to spot fake reviews checklist](#how-to-spot-fake-reviews-quick-checklist) above for the AI-writing tells that still work.
 
 ### What's the most reliable sign of a fake review?
 

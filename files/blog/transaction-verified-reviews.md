@@ -117,4 +117,4 @@ If you process payments through Stripe, transaction-verified reviews are availab
 - [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/), every major platform's verification explained
 - [Stripe Verified Reviews](/blog/stripe-verified-reviews/), the definitive guide
 - [How Stripe Review Verification Works](/blog/how-stripe-review-verification-works/), the technical deep-dive
-- [FTC Fake Review Rule](/blog/fake-review-laws-ftc/), what the 2024 rule means for businesses
+- [FTC Fake Review Rule](/learn/ftc-fake-reviews-rules/), what the 2024 rule means for businesses

@@ -35,7 +35,7 @@ Platforms can still detect fake-review *operations*: coordinated campaigns, IP c
 
 ## The regulatory response
 
-Governments are beginning to act, but regulation is inherently slower than technology. Here's [where fake review law currently stands](/blog/fake-review-laws-ftc/) across the major markets.
+Governments are beginning to act, but regulation is inherently slower than technology. Here's [where fake review law currently stands](/learn/ftc-fake-reviews-rules/) across the major markets.
 
 ### United States: FTC's 2024 Trade Regulation Rule
 

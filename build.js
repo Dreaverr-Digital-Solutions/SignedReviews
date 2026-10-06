@@ -2386,7 +2386,7 @@ const COMPARISON_STYLES = `
 function buildComparison() {
   const body = `<article class="prose">
     <p>Choosing a review platform is a trust decision. This Trustpilot vs Signed Reviews comparison breaks down how the largest general-purpose review platform stacks up against the first processor-attested alternative, across the dimensions that matter most for businesses that care about review authenticity.</p>
-    <p>Before comparing, see what Trustpilot widgets actually display, what Trustpilot pricing costs, and whether Trustpilot is legit: <a href="/blog/trustpilot-widget-examples/">Trustpilot widget examples</a>, <a href="/blog/trustpilot-pricing-explained/">Trustpilot pricing page explained</a>, and <a href="/blog/is-trustpilot-legit/">Is Trustpilot legit?</a>.</p>
+    <p>Before comparing, see what Trustpilot widgets actually display, what Trustpilot pricing costs, and whether Trustpilot is legit: <a href="/blog/trustpilot-widget-examples/">Trustpilot widget examples</a>, <a href="/blog/trustpilot-pricing-explained/">Trustpilot pricing page explained</a>, and <a href="/blog/are-trustpilot-reviews-reliable/">Is Trustpilot legit?</a>.</p>
 
     <h2>Signed Reviews vs Trustpilot: Why This Comparison Matters</h2>
 
@@ -2501,10 +2501,10 @@ function buildComparison() {
   </article>`;
 
   const html = page({
-    title: 'Trustpilot vs Signed Reviews: Verified vs Open Invites',
-    description: 'Trustpilot vs Signed Reviews: see how Stripe-verified, cryptographically signed reviews stop fake feedback. Features, authenticity, pricing, and ROI compared.',
+    title: 'Trustpilot Alternative | Stripe-Verified Reviews | Signed Reviews',
+    description: 'Trustpilot alternative for Stripe businesses: every review must match a charge in your Stripe account and is cryptographically signed. Features and pricing compared.',
     slug: '/vs/trustpilot/',
-    hero: { eyebrow: 'Comparison', title: 'Trustpilot vs Signed Reviews', subtitle: 'Compare the leading general-purpose review platform with the first processor-attested alternative across the dimensions that matter for authenticity.' },
+    hero: { eyebrow: 'Comparison', title: 'The Trustpilot Alternative for Stripe Businesses', subtitle: 'A Trustpilot alternative for Stripe businesses, where every review must match a real charge. Compared across the dimensions that matter for authenticity.' },
     body,
     extraStyle: COMPARISON_STYLES,
   });
@@ -2516,13 +2516,14 @@ function buildComparison() {
 function buildComparisonFeefo() {
   const slug = '/vs/feefo/';
   const body = `<article class="prose">
+    <h2>Signed Reviews vs Feefo</h2>
     <p>Feefo is the closest positioning competitor to Signed Reviews, both platforms emphasize verified, invitation-only reviews. But the verification source is fundamentally different: Feefo trusts the merchant's transaction feed; Signed Reviews trusts Stripe. Here's how they compare across every dimension that matters.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Feefo</th></tr></thead>
       <tbody>
-        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe, an independent payment processor. Every review is attested by Stripe confirming the charge occurred.</td><td class="lose">Merchant transaction feed, the merchant provides Feefo with a log of transactions, which Feefo uses to verify. The merchant is both the subject of the review and the source of the verification data.</td></tr>
+        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe, an independent payment processor. Every review is tied to a charge record that Stripe reports.</td><td class="lose">Merchant transaction feed, the merchant provides Feefo with a log of transactions, which Feefo uses to verify. The merchant is both the subject of the review and the source of the verification data.</td></tr>
         <tr><td>Fake review prevention</td><td class="win">Structural, no Stripe charge = no invitation = no review. Impossible to post without a verified payment.</td><td class="lose">Closed/invitation-only, only invited customers can review, but verification depends on the merchant's own transaction data.</td></tr>
         <tr class="highlight-row"><td>Integration setup</td><td class="win">One-click Stripe OAuth. No code, no feed configuration, no manual data upload. Works immediately.</td><td class="lose">Requires the merchant to integrate a transaction feed, more setup overhead for the same verification concept.</td></tr>
         <tr><td>Cryptographic proof</td><td class="win">Every review is cryptographically signed at submission (tamper-evident, independently verifiable.</td><td class="lose">No cryptographic signing) reviews are database records with no external verifiability.</td></tr>
@@ -2595,10 +2596,10 @@ function buildComparisonFeefo() {
   </script>`;
 
   const html = page({
-    title: 'Signed Reviews vs Feefo. Comparison',
-    description: 'Signed Reviews vs Feefo: both are invitation-only, but we verify against Stripe itself while Feefo trusts the merchant\'s feed. 10-dimension comparison.',
+    title: 'Feefo Alternative | Stripe-Verified Reviews | Signed Reviews',
+    description: 'Feefo alternative for Stripe businesses: Feefo checks reviews against a feed the merchant supplies; we match each review to a charge in your Stripe account.',
     slug,
-    hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Feefo', subtitle: 'Both verify purchases. The difference is who does the verifying, the payment processor, or the merchant\'s own feed.' },
+    hero: { eyebrow: 'Comparison', title: 'The Feefo Alternative for Stripe Businesses', subtitle: 'A Feefo alternative for Stripe businesses. Both verify purchases. The difference is the source: the merchant\'s own feed, or the charge record in Stripe.' },
     body,
     extraStyle: COMPARISON_STYLES,
   });
@@ -2610,6 +2611,7 @@ function buildComparisonFeefo() {
 function buildComparisonJudgeMe() {
   const slug = '/vs/judge-me/';
   const body = `<article class="prose">
+    <h2>Signed Reviews vs Judge.me</h2>
     <p>Judge.me is the #1 Shopify review app with 127 million reviews collected. It's excellent at what it does, but its "verified" badge trusts your Shopify order data, not an independent payment processor. Here's how they compare.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
@@ -2632,7 +2634,7 @@ function buildComparisonJudgeMe() {
 
     <div class="verdict">
       <h2>When to choose Signed Reviews</h2>
-      <p>If verification strength is your #1 priority, the difference between "matched to a Shopify order" and "attested by Stripe" is the whole ballgame. Signed Reviews gives you processor-attested verification with cryptographic proof, something no Shopify review app can claim. If you sell across multiple platforms (Shopify + custom site + invoices), Signed Reviews works everywhere Stripe does.</p>
+      <p>If verification strength is your #1 priority, the difference between "matched to a Shopify order" and "matched to a Stripe charge" is the whole ballgame. Signed Reviews gives you processor-attested verification with cryptographic proof, something no Shopify review app can claim. If you sell across multiple platforms (Shopify + custom site + invoices), Signed Reviews works everywhere Stripe does.</p>
     </div>
 
     <div class="verdict verdict-alt">
@@ -2645,10 +2647,10 @@ function buildComparisonJudgeMe() {
   </article>`;
 
   const html = page({
-    title: 'Signed Reviews vs Judge.me. Comparison',
-    description: 'Signed Reviews vs Judge.me: both verify purchases, but we verify against Stripe itself while Judge.me matches Shopify orders. Full comparison.',
+    title: 'Judge.me Alternative | Stripe-Verified Reviews | Signed Reviews',
+    description: 'Judge.me alternative for stores that take payments through Stripe: Judge.me matches Shopify orders; we match each review to a Stripe charge. Full comparison.',
     slug,
-    hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Judge.me', subtitle: 'Judge.me is excellent. But its "verified" trusts your Shopify data. Ours trusts Stripe.' },
+    hero: { eyebrow: 'Comparison', title: 'The Judge.me Alternative for Stripe Businesses', subtitle: 'A Judge.me alternative for Stripe businesses. Judge.me is excellent, but its "verified" trusts your Shopify data. Ours requires a matching Stripe charge.' },
     body,
     extraStyle: COMPARISON_STYLES,
   });
@@ -2660,6 +2662,7 @@ function buildComparisonJudgeMe() {
 function buildComparisonYotpo() {
   const slug = '/vs/yotpo/';
   const body = `<article class="prose">
+    <h2>Signed Reviews vs Yotpo</h2>
     <p>Yotpo is the enterprise DTC default: used by brands like Patagonia, Steve Madden, and Brooklinen. Its "Verified Buyer" badge means the merchant's Mail-After-Purchase email matched a customer record. Signed Reviews' badge means Stripe independently confirms the charge. Here's the detailed comparison.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
@@ -2739,10 +2742,10 @@ function buildComparisonYotpo() {
   </script>`;
 
   const html = page({
-    title: 'Signed Reviews vs Yotpo. Comparison',
-    description: 'Signed Reviews vs Yotpo: Yotpo\'s Verified Buyer means the MAP email worked; ours means a real Stripe charge. 10-dimension comparison.',
+    title: 'Yotpo Alternative | Stripe-Verified Reviews | Signed Reviews',
+    description: 'Yotpo alternative for Stripe businesses: Yotpo\'s Verified Buyer means the merchant\'s email matched; ours means a matching Stripe charge. 10-dimension comparison.',
     slug,
-    hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Yotpo', subtitle: 'Yotpo\'s Verified Buyer means the merchant\'s email matched. Ours means Stripe confirms the charge.' },
+    hero: { eyebrow: 'Comparison', title: 'The Yotpo Alternative for Stripe Businesses', subtitle: 'A Yotpo alternative for Stripe businesses. Yotpo\'s Verified Buyer means the merchant\'s email matched. Ours means the review matches a real Stripe charge.' },
     body,
     extraStyle: COMPARISON_STYLES,
   });
@@ -2754,6 +2757,7 @@ function buildComparisonYotpo() {
 function buildComparisonEkomi() {
   const slug = '/vs/ekomi/';
   const body = `<article class="prose">
+    <h2>Signed Reviews vs eKomi</h2>
     <p>eKomi is the closest "transaction-verified" competitor, a Google Review Partner that verifies reviews against a merchant-supplied transaction feed. The positioning is similar; the verification source is not. eKomi trusts the feed you supply; Signed Reviews trusts Stripe. Here's how they compare.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
@@ -2789,10 +2793,10 @@ function buildComparisonEkomi() {
   </article>`;
 
   const html = page({
-    title: 'Signed Reviews vs eKomi. Comparison',
-    description: 'Signed Reviews vs eKomi: eKomi verifies a feed you supply; we verify against Stripe itself. 10-dimension comparison with Google Seller Ratings and pricing.',
+    title: 'eKomi Alternative | Stripe-Verified Reviews | Signed Reviews',
+    description: 'eKomi alternative for Stripe businesses: eKomi verifies a feed you supply; we match every review to a Stripe charge. Includes Google Seller Ratings and pricing.',
     slug,
-    hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs eKomi', subtitle: 'eKomi verifies a feed you supply. We verify against Stripe itself. That\'s the difference.' },
+    hero: { eyebrow: 'Comparison', title: 'The eKomi Alternative for Stripe Businesses', subtitle: 'An eKomi alternative for Stripe businesses. eKomi verifies a feed you supply. We match every review to a charge in your Stripe account.' },
     body,
     extraStyle: COMPARISON_STYLES,
   });
@@ -2804,6 +2808,8 @@ function buildComparisonEkomi() {
 function buildComparisonSiteJabber() {
   const slug = '/vs/sitejabber/';
   const body = `<article class="prose">
+    <h2>Signed Reviews vs SiteJabber</h2>
+    <p><a href="${B}blog/is-sitejabber-legit/">Is SiteJabber legit?</a> Our full answer covers the FTC order and how SiteJabber reviews are collected.</p>
     <p><strong>In November 2024, the FTC issued a formal order against SiteJabber</strong> for publishing reviews from people who had never received the products they reviewed. SiteJabber's system allowed businesses to collect reviews at the point of sale, before the customer ever received the product. The FTC found this deceptive. Here's how Signed Reviews compares, and why our model structurally can't have the problem that got SiteJabber in trouble.</p>
 
     <h2>How SiteJabber's verification works</h2>
@@ -2861,10 +2867,10 @@ function buildComparisonSiteJabber() {
   </article>`;
 
   const html = page({
-    title: 'Signed Reviews vs SiteJabber. Comparison',
-    description: 'Is SiteJabber legitimate? The FTC ordered it in 2024 over reviews from people who never received products. Every Signed Reviews review needs a Stripe charge.',
+    title: 'SiteJabber Alternative | Stripe-Verified Reviews | Signed Reviews',
+    description: 'SiteJabber alternative for Stripe businesses: the FTC ordered SiteJabber in 2024 over reviews from people who never got products. Our reviews need a Stripe charge.',
     slug,
-    hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs SiteJabber', subtitle: 'SiteJabber got an FTC order for reviews from people who never received products. We structurally can\'t have that problem.' },
+    hero: { eyebrow: 'Comparison', title: 'The SiteJabber Alternative for Stripe Businesses', subtitle: 'A SiteJabber alternative for Stripe businesses. SiteJabber got an FTC order for reviews from people who never received products. Every Signed Reviews review needs a matching Stripe charge.' },
     body,
     extraStyle: COMPARISON_STYLES,
   });
@@ -2876,6 +2882,7 @@ function buildComparisonSiteJabber() {
 function buildComparisonBirdeye() {
   const slug = '/vs/birdeye/';
   const body = `<article class="prose">
+    <h2>Signed Reviews vs Birdeye</h2>
     <p><strong>Is Birdeye legitimate? Yes. Birdeye is a real, established reputation-management platform used by tens of thousands of local businesses.</strong> But legitimacy is a different question from verification strength: Birdeye's reviews rest on the business's own invitation list, and the platform never confirms a purchase against a payment processor. Here's how the two models compare.</p>
 
     <h2>How Birdeye's verification works</h2>
@@ -2962,10 +2969,10 @@ function buildComparisonBirdeye() {
   </script>`;
 
   const html = page({
-    title: 'Signed Reviews vs Birdeye. Comparison',
-    description: 'Is Birdeye legitimate? Yes, but it verifies against the business\'s own records. Signed Reviews requires Stripe to confirm each charge. Full comparison.',
+    title: 'Birdeye Alternative | Stripe-Verified Reviews | Signed Reviews',
+    description: 'Birdeye alternative for Stripe businesses: Birdeye verifies against your own customer records; we match every review to a Stripe charge. Full comparison.',
     slug,
-    hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Birdeye', subtitle: 'Birdeye verifies against your own customer list. Signed Reviews verifies against Stripe\'s charge record. The difference is who does the verifying.' },
+    hero: { eyebrow: 'Comparison', title: 'The Birdeye Alternative for Stripe Businesses', subtitle: 'A Birdeye alternative for Stripe businesses. Birdeye verifies against your own customer list. Signed Reviews matches each review to a charge in Stripe.' },
     body,
     extraStyle: COMPARISON_STYLES,
   });
@@ -2977,6 +2984,7 @@ function buildComparisonBirdeye() {
 function buildComparisonReviewsIo() {
   const slug = '/vs/reviews-io/';
   const body = `<article class="prose">
+    <h2>Signed Reviews vs Reviews.io</h2>
     <p>Reviews.io is the most frequently recommended Trustpilot alternative, particularly in the UK and Europe. Its "Verified Reviewer" badge marks reviews that came through the merchant's invitation system. Here's how that compares to processor-attested verification.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
@@ -3012,10 +3020,10 @@ function buildComparisonReviewsIo() {
   </article>`;
 
   const html = page({
-    title: 'Signed Reviews vs Reviews.io. Comparison',
-    description: 'Signed Reviews vs Reviews.io: Reviews.io verifies customer data you supply; we verify against Stripe itself. 10-dimension comparison.',
+    title: 'Reviews.io Alternative | Stripe-Verified Reviews | Signed Reviews',
+    description: 'Reviews.io alternative for Stripe businesses: Reviews.io verifies customer data you supply; we match every review to a Stripe charge. 10-dimension comparison.',
     slug,
-    hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Reviews.io', subtitle: 'The most-recommended Trustpilot alternative. But verification still depends on data you supply.' },
+    hero: { eyebrow: 'Comparison', title: 'The Reviews.io Alternative for Stripe Businesses', subtitle: 'A Reviews.io alternative for Stripe businesses. Reviews.io is a popular Trustpilot alternative, but its verification still depends on data you supply.' },
     body,
     extraStyle: COMPARISON_STYLES,
   });
@@ -3027,6 +3035,7 @@ function buildComparisonReviewsIo() {
 function buildComparisonStamped() {
   const slug = '/vs/stamped/';
   const body = `<article class="prose">
+    <h2>Signed Reviews vs Stamped</h2>
     <p>Stamped.io (also known as Stamped) is a well-established review and loyalty platform popular with mid-market e-commerce brands. Its purchase verification matches reviews to merchant order data, solid, but still merchant-supplied. Here's how it compares to processor-attested verification.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
@@ -3046,7 +3055,7 @@ function buildComparisonStamped() {
 
     <div class="verdict">
       <h2>When to choose Signed Reviews</h2>
-      <p>If verification strength is your priority, the difference between "matched to a merchant order" and "attested by Stripe" is the difference between a marketing claim and an independently verifiable fact. For Stripe-native businesses, Signed Reviews also offers simpler setup (one click vs platform connector configuration).</p>
+      <p>If verification strength is your priority, the difference between "matched to a merchant order" and "matched to a Stripe charge" is the difference between a marketing claim and an independently verifiable fact. For Stripe-native businesses, Signed Reviews also offers simpler setup (one click vs platform connector configuration).</p>
     </div>
 
     <div class="verdict verdict-alt">
@@ -3059,10 +3068,10 @@ function buildComparisonStamped() {
   </article>`;
 
   const html = page({
-    title: 'Signed Reviews vs Stamped. Comparison',
-    description: 'Signed Reviews vs Stamped.io: Stamped verifies merchant order data; we verify against Stripe. 7-dimension comparison for e-commerce brands.',
+    title: 'Stamped Alternative | Stripe-Verified Reviews | Signed Reviews',
+    description: 'Stamped alternative for Stripe businesses: Stamped verifies merchant order data; we match every review to a Stripe charge. 7-dimension comparison.',
     slug,
-    hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Stamped', subtitle: 'Stamped matches reviews to merchant orders. We match them to Stripe charges. The difference is who attests.' },
+    hero: { eyebrow: 'Comparison', title: 'The Stamped Alternative for Stripe Businesses', subtitle: 'A Stamped alternative for Stripe businesses. Stamped matches reviews to merchant orders. We match them to Stripe charges.' },
     body,
     extraStyle: COMPARISON_STYLES,
   });
@@ -3074,6 +3083,7 @@ function buildComparisonStamped() {
 function buildComparisonOkendo() {
   const slug = '/vs/okendo/';
   const body = `<article class="prose">
+    <h2>Signed Reviews vs Okendo</h2>
     <p>Okendo is the premium Shopify review app: favored by DTC brands like Skims, Haus Labs, and Olipop for its visual, brand-forward review display. Its "Verified Buyer" badge matches reviews to Shopify orders. Here's how processor-attested verification stacks up.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
@@ -3107,10 +3117,10 @@ function buildComparisonOkendo() {
   </article>`;
 
   const html = page({
-    title: 'Signed Reviews vs Okendo. Comparison',
-    description: 'Signed Reviews vs Okendo: Okendo leads on visual design but verifies Shopify order data; we verify against Stripe itself. 8-dimension comparison.',
+    title: 'Okendo Alternative | Stripe-Verified Reviews | Signed Reviews',
+    description: 'Okendo alternative for Stripe businesses: Okendo leads on visual design but verifies Shopify order data; we match every review to a Stripe charge.',
     slug,
-    hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Okendo', subtitle: 'Okendo\'s reviews look beautiful. But their "verified" trusts your Shopify data. Ours trusts Stripe.' },
+    hero: { eyebrow: 'Comparison', title: 'The Okendo Alternative for Stripe Businesses', subtitle: 'An Okendo alternative for Stripe businesses. Okendo\'s reviews look beautiful, but its "verified" trusts your Shopify data. Ours requires a matching Stripe charge.' },
     body,
     extraStyle: COMPARISON_STYLES,
   });
@@ -3122,6 +3132,7 @@ function buildComparisonOkendo() {
 function buildComparisonLoox() {
   const slug = '/vs/loox/';
   const body = `<article class="prose">
+    <h2>Signed Reviews vs Loox</h2>
     <p>Loox is a popular Shopify review app known for its photo-first review displays and auto-discount features for photo reviews. Like other Shopify apps, its "Verified" badge matches reviews to Shopify orders. Here's how processor-attested verification compares.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
@@ -3155,10 +3166,10 @@ function buildComparisonLoox() {
   </article>`;
 
   const html = page({
-    title: 'Signed Reviews vs Loox. Comparison',
-    description: 'Signed Reviews vs Loox: Loox leads on photo reviews and referrals but verifies Shopify orders; we verify against Stripe itself. 8-dimension comparison.',
+    title: 'Loox Alternative | Stripe-Verified Reviews | Signed Reviews',
+    description: 'Loox alternative for Stripe businesses: Loox leads on photo reviews and referrals but verifies Shopify orders; we match every review to a Stripe charge.',
     slug,
-    hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Loox', subtitle: 'Loox makes reviews beautiful. But "verified" still means matched to a Shopify order, not confirmed by Stripe.' },
+    hero: { eyebrow: 'Comparison', title: 'The Loox Alternative for Stripe Businesses', subtitle: 'A Loox alternative for Stripe businesses. Loox makes reviews beautiful, but "verified" still means matched to a Shopify order, not to a Stripe charge.' },
     body,
     extraStyle: COMPARISON_STYLES,
   });
@@ -3170,7 +3181,10 @@ function buildComparisonLoox() {
 function buildComparisonSkeepers() {
   const slug = '/vs/skeepers/';
   const body = `<article class="prose">
+    <h2>Signed Reviews vs Skeepers</h2>
     <p>Skeepers (formerly Verified Reviews) is a European review and UGC platform. Its verification model relies on merchant-provided transaction data, a Level 3 approach common among enterprise-focused platforms. Here's how that compares to processor-attested verification.</p>
+    <h2>What Skeepers reviews are</h2>
+    <p>Skeepers reviews come from its Verified Reviews product (sold in France as Avis Vérifiés). Merchants send review requests by email after each purchase, and Skeepers moderates reviews under the NF ISO 20488 standard, with AFNOR certification. Reviews can be syndicated to Google and other partners. Skeepers reports more than 26 million reviews collected (<a href="https://skeepers.io/verified-reviews/" rel="noopener">Skeepers Verified Reviews</a>). The purchase data behind each invitation comes from the merchant.</p>
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Skeepers</th></tr></thead>
@@ -3197,10 +3211,10 @@ function buildComparisonSkeepers() {
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a> · <a href="/vs/feefo/">Signed Reviews vs Feefo</a></p>
   </article>`;
   const html = page({
-    title: 'Signed Reviews vs Skeepers. Comparison',
-    description: 'Signed Reviews vs Skeepers: Skeepers verifies a merchant-supplied transaction feed, we verify against Stripe itself. Full comparison for enterprise brands.',
+    title: 'Skeepers Alternative | Stripe-Verified Reviews | Signed Reviews',
+    description: 'Skeepers alternative for Stripe businesses: Skeepers verifies a merchant-supplied transaction feed; we match every review to a Stripe charge. Full comparison.',
     slug,
-    hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Skeepers', subtitle: 'Skeepers verifies against data you supply. We verify against Stripe. The difference is who attests.' },
+    hero: { eyebrow: 'Comparison', title: 'The Skeepers Alternative for Stripe Businesses', subtitle: 'A Skeepers alternative for Stripe businesses. Skeepers verifies against data you supply. We verify against the charge record in Stripe.' },
     body,
     extraStyle: COMPARISON_STYLES,
   });
@@ -3235,7 +3249,7 @@ function buildComparisonGoogleReviews() {
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/blog/fake-reviews/">The Fake Review Problem</a> · <a href="/vs/yelp/">Signed Reviews vs Yelp</a></p>
   </article>`;
   const html = page({
-    title: 'Signed Reviews vs Google Reviews. Comparison',
+    title: 'Google Reviews vs Signed Reviews | Visibility vs Verification',
     description: 'Google Reviews has no purchase verification but owns search visibility; Signed Reviews has the strongest verification. Most businesses need both.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Google Reviews', subtitle: 'Google Reviews dominates visibility. We dominate verification. Here\'s why most businesses need both.' },
@@ -3274,7 +3288,7 @@ function buildComparisonYelp() {
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/google-reviews/">Signed Reviews vs Google Reviews</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a></p>
   </article>`;
   const html = page({
-    title: 'Signed Reviews vs Yelp. Comparison',
+    title: 'Yelp vs Signed Reviews | Open Reviews vs Verified Buyers',
     description: 'Signed Reviews vs Yelp: Yelp has no purchase verification and an opaque filter; we verify every review against Stripe. For local businesses.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Yelp', subtitle: 'Yelp\'s filter is algorithmic guesswork. Ours is deterministic: no Stripe charge = no review.' },
@@ -3290,6 +3304,8 @@ function buildComparisonClutch() {
   const slug = '/vs/clutch/';
   const body = `<article class="prose">
     <p>Clutch is the dominant review platform for B2B services: agencies, consultancies, IT firms, and professional service providers. Its review model relies on analyst-led interviews and client verification, which is fundamentally different from transaction-based verification. Here's how they compare, and why B2B service providers may need both.</p>
+    <h2>How Clutch's review process works</h2>
+    <p>Clutch's review process starts with identity: a client must log in with LinkedIn, Google or a company email address to leave a review. Clutch software then compares the reviewer's digital footprint against what they entered, and a human editor checks every submission before it is published. Reviews where Clutch confirms identity and relationship get a Verified badge; reviews it cannot confirm may still appear without the badge. In 2025 Clutch says it rejected 10% of submitted reviews for signs of falsified information (<a href="https://clutch.co/methodology" rel="noopener">Clutch methodology</a>, <a href="https://help.clutch.co/en/knowledge/how-clutch-verifies-reviews" rel="noopener">how Clutch verifies reviews</a>). That checks who the reviewer is. It does not check a payment.</p>
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Clutch</th></tr></thead>
@@ -3307,7 +3323,7 @@ function buildComparisonClutch() {
     </div>
     <div class="verdict">
       <h2>They serve fundamentally different purposes</h2>
-      <p>Clutch and Signed Reviews don't compete. They occupy different layers of the B2B trust stack. Clutch is a <strong>discovery channel</strong>: B2B buyers search Clutch to find service providers, compare them by rating and category, and shortlist candidates. Signed Reviews is a <strong>verification layer</strong>: every review is independently attested by Stripe, so the authenticity signal is structural rather than procedural. For a B2B service provider, the optimal setup is both: a Clutch profile for discovery and category presence, and processor-attested reviews on your own site for verification strength that Clutch's analyst-led model can't provide.</p>
+      <p>Clutch and Signed Reviews don't compete. They occupy different layers of the B2B trust stack. Clutch is a <strong>discovery channel</strong>: B2B buyers search Clutch to find service providers, compare them by rating and category, and shortlist candidates. Signed Reviews is a <strong>verification layer</strong>: every review is tied to a charge record from Stripe, so the authenticity signal is structural rather than procedural. For a B2B service provider, the optimal setup is both: a Clutch profile for discovery and category presence, and processor-attested reviews on your own site for verification strength that Clutch's analyst-led model can't provide.</p>
     </div>
     <div class="verdict verdict-alt">
       <h2>When Clutch is the priority</h2>
@@ -3317,7 +3333,7 @@ function buildComparisonClutch() {
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/google-reviews/">Signed Reviews vs Google Reviews</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a></p>
   </article>`;
   const html = page({
-    title: 'Signed Reviews vs Clutch. Comparison',
+    title: 'Clutch vs Signed Reviews | Discovery vs Verification',
     description: 'Clutch is the B2B services directory: its analyst review process verifies consulting firms; we verify processor-attested charges. Complementary for B2B.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Clutch', subtitle: 'Clutch is discovery. We\'re verification. For B2B service providers, you probably need both.' },
@@ -3331,6 +3347,7 @@ function buildComparisonClutch() {
 function buildComparisonPodium() {
   const slug = '/vs/podium/';
   const body = `<article class="prose">
+    <h2>Signed Reviews vs Podium</h2>
     <p>Podium is the leader in SMS-based review collection for local businesses: text invitations, multi-platform publishing, and deep Google Reviews integration. But its verification is email/SMS-based, not transaction-based. Here's how they compare.</p>
     <h2>Why businesses search for a Podium alternative</h2>
     <p>Podium dominates SMS reviews, but some businesses want transaction-attested proof that reviews are from real customers. <a href="${B}pricing/">A Podium alternative</a> like Signed Reviews <a href="${B}features/">uses Stripe verification</a> to prevent fake feedback that SMS invites can't guarantee.</p>
@@ -3361,10 +3378,10 @@ function buildComparisonPodium() {
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/judge-me/">Signed Reviews vs Judge.me</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews</a></p>
   </article>`;
   const html = page({
-    title: 'Podium Alternative: Signed Reviews vs Podium Comparison 2025',
-    description: 'Looking for a Podium alternative? Signed Reviews verifies every review against a real Stripe charge while Podium collects over SMS. Full breakdown.',
+    title: 'Podium Alternative | Stripe-Verified Reviews | Signed Reviews',
+    description: 'Podium alternative for Stripe businesses: Podium collects reviews over SMS; Signed Reviews matches every review to a real Stripe charge. Full breakdown.',
     slug,
-    hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Podium', subtitle: 'Podium leads on SMS review collection for local businesses. We lead on transaction-attested, cryptographically signed reviews.' },
+    hero: { eyebrow: 'Comparison', title: 'The Podium Alternative for Stripe Businesses', subtitle: 'A Podium alternative for Stripe businesses. Podium leads on SMS review collection for local businesses. We lead on reviews matched to a Stripe charge and cryptographically signed.' },
     body,
     extraStyle: COMPARISON_STYLES,
   });
@@ -3844,6 +3861,21 @@ function buildLearnFtcRules() {
       <p style="margin-top:1rem;"><strong>Structural compliance (strong):</strong> "Our review system physically cannot accept a review without an independently verified payment. A neutral third party, the payment processor, confirms the charge. If the charge is refunded, the review is hidden automatically. No human moderation required to enforce this. It's built into the code." This is compliance by construction: the system makes violations impossible, not just prohibited.</p>
     </div>
 
+    <h2 id="other-laws">How the FTC rule fits with UK and EU law</h2>
+    <h3>UK: Digital Markets, Competition and Consumers Act 2024</h3>
+    <p>Since April 2025, the UK's DMCC Act bans submitting or commissioning fake reviews, failing to disclose paid or incentivized reviews, and offering services that write or procure fake reviews. The Competition and Markets Authority can fine businesses up to 10% of global turnover (<a href="https://www.gov.uk/government/publications/fake-reviews" rel="noopener">CMA guidance on fake reviews</a>).</p>
+    <h3>EU: Digital Services Act</h3>
+    <p>The DSA requires very large online platforms to assess and reduce systemic risks to consumers. Fake reviews that distort buying decisions at scale fall under that duty, and platforms face fines of up to 6% of global annual revenue (<a href="https://digital-strategy.ec.europa.eu/en/policies/digital-services-act-package" rel="noopener">European Commission</a>).</p>
+
+    <h2 id="steps">Practical steps to take now</h2>
+    <ol>
+      <li><strong>Audit your current reviews.</strong> Know which reviews on your site came from verified purchasers and which did not. If you cannot answer that, you have a compliance gap.</li>
+      <li><strong>Document your verification method.</strong> Write down, publicly if you can, exactly what "verified" means on your reviews. Ambiguity is a risk; transparency is a defense.</li>
+      <li><strong>Separate verified from unverified.</strong> If you show reviews from several sources, label which are purchase-verified. An unverified review should not borrow the trust of a verified badge.</li>
+      <li><strong>Review your incentive practices.</strong> Incentives must not depend on sentiment. Document that they do not.</li>
+      <li><strong>Tie reviews to records you do not control.</strong> Reviews matched to payment records from your processor are harder to fake than reviews checked against your own lists.</li>
+    </ol>
+
     <h2 id="impact">What this means for your review strategy</h2>
     <p>The FTC rule changes the risk calculus for review collection:</p>
     <ul>
@@ -3853,7 +3885,7 @@ function buildLearnFtcRules() {
     </ul>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Collect structurally compliant reviews →</a></p>
-    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" Actually Means</a> · <a href="/learn/how-fake-reviews-work/">How Fake Reviews Work</a> · <a href="/blog/fake-review-laws-ftc/">FTC Fake Review Laws</a></p>
+    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" Actually Means</a> · <a href="/learn/how-fake-reviews-work/">How Fake Reviews Work</a></p>
   </article>`;
 
   const html = page({
@@ -4106,7 +4138,7 @@ function buildIntegrationsStripe() {
     description,
     slug,
     pageType: 'article',
-    hero: { eyebrow: 'Integrations', title: 'Stripe Integration', subtitle: 'One click. Minimal permissions. Automatically collect verified reviews from your customers.' },
+    hero: { eyebrow: 'Integrations', title: 'Verified Reviews for Stripe', subtitle: 'Signed Reviews connects to Stripe in one click and asks every paying customer for a review, linked to their charge. Minimal permissions.' },
     body,
     extraStyle,
   });
@@ -4559,7 +4591,7 @@ function buildFakeReviewChecker() {
 `;
 
   const body = `<article class="prose">
-    <p>The <strong>fake review checker</strong> below reads a single review's text and scores the risk signals it finds: repetitive phrasing, superlative density, generic praise with no concrete details, authenticity claims embedded in the text. Paste any review from Amazon, Trustpilot, Google, Shopify, Tripadvisor, or your own store. The instant signals run in your browser. If you use the AI cross-check, the review text (and the website URL, if provided) is sent to our server and scored by an AI model. Nothing is stored: no account, no review archive, no logging of pasted text.</p>
+    <p>The <strong>fake review checker</strong> below reads a single review's text and scores the risk signals it finds: repetitive phrasing, superlative density, generic praise with no concrete details, authenticity claims embedded in the text. Paste any review from Amazon, Trustpilot, Google, Shopify, Tripadvisor, or your own store. The instant signals run in your browser. If you use the AI cross-check, the review text (and the website URL, if provided) is sent to our server and scored by an AI model. Nothing is stored: no account, no review archive, no logging of pasted text. For a manual method, see <a href="/blog/fake-review-checker/">how to check if reviews are fake</a>.</p>
 
     <div class="frc-card" id="frc">
       <div class="frc-hero">
@@ -4581,7 +4613,7 @@ function buildFakeReviewChecker() {
       </div>
       <div class="frc-output" id="frc-output" aria-live="polite"></div>
       <div class="frc-output" id="frc-ai-output" aria-live="polite"></div>
-      <p class="frc-disclaimer">Instant heuristics run in your browser. The optional AI cross-check sends the pasted text (and URL, if given) to our server for scoring by an AI model; nothing is stored. Automated estimates, not proof. See <a href="/blog/how-to-spot-fake-reviews/">how to spot fake reviews</a> and the <a href="/learn/what-does-verified-buyer-mean/">verification spectrum</a>.</p>
+      <p class="frc-disclaimer">Instant heuristics run in your browser. The optional AI cross-check sends the pasted text (and URL, if given) to our server for scoring by an AI model; nothing is stored. Automated estimates, not proof. See <a href="/blog/fake-review-checker/">how to spot fake reviews</a> and the <a href="/learn/what-does-verified-buyer-mean/">verification spectrum</a>.</p>
     </div>
 
     <h2>How the fake review checker works</h2>
@@ -4601,7 +4633,7 @@ function buildFakeReviewChecker() {
     <p>An honest limit: an AI cross-check is evidence, not proof. Determined humans can write reviews that score clean, and a genuinely enthusiastic customer can score suspicious. <a href="/blog/transaction-verified-reviews/">Verification at the source</a> remains the only structural defense.</p>
 
     <h2>What a text checker can't prove</h2>
-    <p>Writing analysis is a filter, not a verdict. AI-generated fake reviews are now <a href="/blog/how-to-spot-fake-reviews/">virtually indistinguishable from human writing</a> in blind tests, and a genuinely concise happy customer can look identical to a seeded one. The checker answers "does this text look like typical fake-review writing?". It cannot answer "did this person actually buy the product?"</p>
+    <p>Writing analysis is a filter, not a verdict. AI-generated fake reviews are now <a href="/blog/fake-review-checker/">virtually indistinguishable from human writing</a> in blind tests, and a genuinely concise happy customer can look identical to a seeded one. The checker answers "does this text look like typical fake-review writing?". It cannot answer "did this person actually buy the product?"</p>
     <p>That second question is the one that matters, and it has a structural answer: a review can only be certain to come from a real customer when an independent party attests the purchase. Under the FTC's Trade Regulation Rule on Consumer Reviews and Testimonials (16 CFR Part 465), fake reviews carry civil penalties, and the only reviews that make fabrication structurally irrational are transaction-verified ones: every fake attempt costs a real payment-processing fee. See <a href="/blog/transaction-verified-reviews/">transaction verified reviews</a> for the full mechanics.</p>
 
     <h2>Frequently asked questions</h2>
@@ -4625,7 +4657,7 @@ function buildFakeReviewChecker() {
     <p>Nothing is stored. The instant signals never leave your browser. If you run the AI cross-check, the review text and optional website URL are sent to our server, scored, and discarded. We do not keep a copy, log it, or use it for training.</p>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Collect reviews that can't be faked →</a></p>
-    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/blog/fake-review-checker/">How to check if reviews are fake (7-point method)</a> · <a href="/blog/how-to-spot-fake-reviews/">How to spot fake reviews</a> · <a href="/blog/fake-review-statistics-2026/">Fake review statistics 2026</a></p>
+    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/blog/fake-review-checker/">How to check if reviews are fake (7-point method)</a> · <a href="/blog/fake-review-statistics-2026/">Fake review statistics 2026</a></p>
   </article>`;
 
   const schema = {
@@ -4844,7 +4876,7 @@ function buildFakeReviewChecker() {
   })();`;
 
   let html = page({
-    title: 'Free Fake Review Checker. Spot Suspicious Review Text',
+    title: 'Fake Review Checker | Free, Paste Any Review | Signed Reviews',
     description: 'Free fake review checker: paste any review from Amazon, Trustpilot, Google, or Shopify for a signal-based risk estimate in seconds. Nothing stored.',
     slug,
     hero: { eyebrow: 'Free tool', title: 'Fake Review Checker', subtitle: 'Paste a review. Get a signal-based risk estimate in seconds. Works on text from any platform. No signup, nothing stored.' },
@@ -4870,7 +4902,7 @@ function buildSeoFiles(blogPosts = []) {
   // crawlers to ignore the signal entirely.
   const STATIC_PAGES_LASTMOD = '2026-09-06';
   const blogLastmod = new Map(blogPosts.map(p => [p.slug, p.lastmod]));
-  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/integrations/stripe/', '/integrations/shopify/', '/integrations/woocommerce/', '/faq/', '/how-it-works/', '/how-verification-works/', '/demo/', '/tools/fake-review-checker/', '/docs/', '/api/', '/trust/', '/chrome-extension/privacy/', '/vs/trustpilot/', '/vs/feefo/', '/vs/judge-me/', '/vs/yotpo/', '/vs/ekomi/', '/vs/sitejabber/', '/vs/reviews-io/', '/vs/stamped/', '/vs/okendo/', '/vs/loox/', '/vs/skeepers/', '/vs/google-reviews/', '/vs/yelp/', '/vs/clutch/', '/vs/birdeye/', '/learn/what-does-verified-buyer-mean/', '/learn/how-fake-reviews-work/', '/learn/ftc-fake-reviews-rules/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/', ...blogPosts.map(p => p.slug)];
+  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/integrations/stripe/', '/integrations/shopify/', '/integrations/woocommerce/', '/faq/', '/how-it-works/', '/how-verification-works/', '/demo/', '/tools/fake-review-checker/', '/docs/', '/api/', '/trust/', '/chrome-extension/privacy/', '/vs/trustpilot/', '/vs/feefo/', '/vs/judge-me/', '/vs/yotpo/', '/vs/ekomi/', '/vs/sitejabber/', '/vs/reviews-io/', '/vs/stamped/', '/vs/okendo/', '/vs/loox/', '/vs/skeepers/', '/vs/google-reviews/', '/vs/yelp/', '/vs/clutch/', '/vs/birdeye/', '/vs/podium/', '/learn/what-does-verified-buyer-mean/', '/learn/how-fake-reviews-work/', '/learn/ftc-fake-reviews-rules/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/', ...blogPosts.map(p => p.slug)];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
@@ -5039,7 +5071,14 @@ for (const entry of fs.readdirSync(ROOT)) {
 	// Redirect stale GitHub Pages project-URL paths (e.g.
 	// /SignedReviews/blog/<E2><80><A6>) to the custom-domain root equivalents so
 	// Googlebot stops reporting them as 404s.
+	// Merged pages (2026-10-06 page-intent audit): retired URL -> survivor.
 	fs.writeFileSync(path.join(DIST_DIR, '_redirects'),
+		'/blog/how-to-spot-fake-reviews/ /blog/fake-review-checker/ 301\n' +
+		'/blog/how-to-spot-fake-reviews /blog/fake-review-checker/ 301\n' +
+		'/blog/is-trustpilot-legit/ /blog/are-trustpilot-reviews-reliable/ 301\n' +
+		'/blog/is-trustpilot-legit /blog/are-trustpilot-reviews-reliable/ 301\n' +
+		'/blog/fake-review-laws-ftc/ /learn/ftc-fake-reviews-rules/ 301\n' +
+		'/blog/fake-review-laws-ftc /learn/ftc-fake-reviews-rules/ 301\n' +
 		'/SignedReviews/* /:splat 301\n');
 // The home page (index.html) is bespoke and not generated through SHARED_HEAD,
 // so inject PostHog + build metadata into its dist copy here (keeps the source

@@ -123,4 +123,4 @@ Fake reviews on Shopify work because the verification model trusts the merchant'
 - [How Fake Reviews Work](/learn/how-fake-reviews-work/): the full ecosystem: click farms, AI generation, brushing, economics
 - [FTC Fake Review Rules](/learn/ftc-fake-reviews-rules/), which is 16 CFR Part 465 explained for merchants
 - [How to Verify a Customer Actually Bought](/blog/how-to-verify-a-customer-actually-bought/), which is 4 verification methods ranked
-- [How to Spot Fake Reviews](/blog/how-to-spot-fake-reviews/), a consumer's guide to review authenticity
+- [How to Spot Fake Reviews](/blog/fake-review-checker/), a consumer's guide to review authenticity

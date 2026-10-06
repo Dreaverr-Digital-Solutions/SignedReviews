@@ -292,8 +292,8 @@ MARKDOWN_PAGES['/blog/'] = `# Signed Reviews Blog
 - [Stripe Verified Reviews: The Definitive Guide](https://signedreviews.com/blog/stripe-verified-reviews/) — How processor-attested verification works
 - [The 10 Best Trustpilot Alternatives in 2026](https://signedreviews.com/blog/trustpilot-alternatives-for-small-business/) — Ranked by verification method
 - [How Fake Reviews Work — The Full Ecosystem](https://signedreviews.com/blog/fake-reviews/)
-- [FTC Fake Review Rules (16 CFR Part 465)](https://signedreviews.com/blog/fake-review-laws-ftc/)
-- [How to Spot Fake Reviews in 2026](https://signedreviews.com/blog/how-to-spot-fake-reviews/)
+- [FTC Fake Review Rules (16 CFR Part 465)](https://signedreviews.com/learn/ftc-fake-reviews-rules/)
+- [How to Spot Fake Reviews: 7 Checks](https://signedreviews.com/blog/fake-review-checker/)
 
 ## All Posts (24 articles)
 Covers Stripe verified reviews, Trustpilot alternatives (SaaS, e-commerce, small business), fake review detection, review collection guides (Shopify, SaaS, email templates), FTC compliance, and platform-specific guides.

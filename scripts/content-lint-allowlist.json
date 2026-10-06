@@ -128,12 +128,6 @@
       "reason": "Developer-facing build warning that build.js prints to the console when it auto-copies a directory into dist; terminal output, never reader prose."
     },
     {
-      "file": "landingpage/files/blog/fake-review-checker.md",
-      "line": 20,
-      "match": "revolutionary",
-      "reason": "The word appears as an example of the marketing-speak the article warns readers about, quoted in its own checklist, not as our word choice."
-    },
-    {
       "file": "platform/frontend/src/components/BackfillStatus.jsx",
       "line": 112,
       "match": "—",
