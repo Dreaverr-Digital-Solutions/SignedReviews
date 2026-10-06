@@ -2868,7 +2868,7 @@ function buildComparisonSiteJabber() {
 
   const html = page({
     title: 'SiteJabber Alternative | Stripe-Verified Reviews | Signed Reviews',
-    description: 'SiteJabber alternative for Stripe businesses: the FTC ordered SiteJabber in 2024 over reviews from people who never got products. Our reviews need a Stripe charge.',
+    description: 'SiteJabber alternative for Stripe businesses: the FTC charged SiteJabber in 2024 over reviews collected before customers got their orders. Our reviews need a Stripe charge.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'The SiteJabber Alternative for Stripe Businesses', subtitle: 'A SiteJabber alternative for Stripe businesses. SiteJabber got an FTC order for reviews from people who never received products. Every Signed Reviews review needs a matching Stripe charge.' },
     body,
