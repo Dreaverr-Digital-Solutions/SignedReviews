@@ -3390,7 +3390,7 @@ function buildComparisonPodium() {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: 'Podium Alternative: Signed Reviews vs Podium',
-    description: 'Looking for a Podium alternative? Compare Signed Reviews vs Podium: Stripe-verified, cryptographically signed reviews vs SMS-based collection.',
+    description: 'Podium alternative for Stripe businesses: reviews matched to a Stripe charge and cryptographically signed, compared with SMS-based collection.',
     mainEntity: {
       '@type': 'FAQPage',
       mainEntity: [{

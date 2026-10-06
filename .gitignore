@@ -21,3 +21,4 @@ Thumbs.db
 
 # Session scratch (holds the only copy of the globe scene — keep on disk, never commit)
 .seo_tmp/
+workers/.wrangler/

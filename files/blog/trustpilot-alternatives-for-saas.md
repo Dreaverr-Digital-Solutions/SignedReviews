@@ -60,7 +60,7 @@ G2 is where SaaS buyers search. It's not a review-collection platform. It's a re
 
 ### 3. Capterra / GetApp, ★ For software-category visibility
 
-Capterra and GetApp (both Gartner properties) are major SaaS discovery channels, particularly for SMB and mid-market buyers. Like G2, they're aggregators, not verification platforms. List your product, collect reviews through their mechanisms, and use a separate verified-review platform for on-site social proof.
+Capterra and GetApp (part of the G2 ecosystem since 2026, per [G2](https://www.prnewswire.com/news-releases/g2-introduces-innovations-to-help-software-companies-build-trust-and-win-in-the-ai-answer-economy-302725392.html)) are major SaaS discovery channels, particularly for SMB and mid-market buyers. Like G2, they're aggregators, not verification platforms. List your product, collect reviews through their mechanisms, and use a separate verified-review platform for on-site social proof.
 
 ### 4. Product Hunt, ★ For launch and early-stage SaaS
 
