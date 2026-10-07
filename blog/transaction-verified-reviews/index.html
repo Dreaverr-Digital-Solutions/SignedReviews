@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/transaction-verified-reviews/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="5582f236d0d7751686ac6ee1dce80938f656b479">
-  <meta name="build-time" content="2026-10-06T04:52:02.884Z">
+  <meta name="build-commit" content="07a0ecd17ad4892c842836d6044bf5c52c4213cc">
+  <meta name="build-time" content="2026-10-07T11:58:08.795Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Transaction Verified Reviews | Signed Reviews">
@@ -733,7 +733,7 @@ main { padding: 0; }
 <li><strong>&quot;Verified Buyer&quot; = matched to an order record</strong> (Yotpo, Judge.me, Reviews.io, most Shopify apps). The reviewer&#39;s email matches a record in the merchant&#39;s store system. Better than an invitation-only check, but the data source is still the merchant.</li>
 <li><strong>&quot;Verified&quot; = the merchant uploaded a transaction log</strong> (Feefo, <a href="/vs/ekomi/">eKomi</a>). The merchant decides what goes into the feed being verified against.</li>
 </ul>
-<p>In every case, the thing being verified against is <strong>data the merchant supplies.</strong> A merchant determined to manufacture reviews could, depending on the platform, invite fake accounts, create test orders, or curate which transactions go into the verification feed. An outsider can&#39;t do this easily, but the merchant themselves can.</p>
+<p>In every case, the thing being verified against is <strong>data the merchant supplies.</strong> A merchant determined to manufacture reviews could, depending on the platform, invite fake accounts, create test orders, or curate which transactions go into the verification feed.</p>
 <p><strong>Transaction verified reviews change the power dynamic:</strong> the merchant doesn&#39;t control the verification data. The payment processor does. If the processor says no charge exists, there&#39;s no review. Period.</p>
 <hr>
 <h2 id="how-processor-attested-verification-works-the-stripe-model"><a class="anchor" href="#how-processor-attested-verification-works-the-stripe-model" aria-label="Permalink to How processor-attested verification works (the Stripe model)"></a>How processor-attested verification works (the Stripe model)</h2>
@@ -752,7 +752,7 @@ main { padding: 0; }
 <li><p><strong>If the charge is later refunded</strong>, the platform receives a <code>charge.refunded</code> webhook from Stripe and automatically hides the review. The review record is preserved for audit but removed from public display.</p>
 </li>
 </ol>
-<p>At no point does the business touch the verification data. The business can&#39;t decide who gets an invitation (every customer does, exactly once), can&#39;t exclude unhappy customers, and can&#39;t prevent refunded-charge reviews from being hidden. The process is deterministic and independent of the merchant.</p>
+<p>At no point does the business touch the verification data. The business can&#39;t decide who gets an invitation (every customer does, exactly once), can&#39;t exclude unhappy customers, and can&#39;t prevent refunded-charge reviews from being hidden.</p>
 <hr>
 <h2 id="why-this-matters-the-ftc-and-the-fake-review-era"><a class="anchor" href="#why-this-matters-the-ftc-and-the-fake-review-era" aria-label="Permalink to Why this matters: the FTC and the fake-review era"></a>Why this matters: the FTC and the fake-review era</h2>
 <p>The U.S. Federal Trade Commission&#39;s <strong>Trade Regulation Rule on Consumer Reviews and Testimonials</strong> (16 CFR Part 465, effective October 2024) now prohibits fake reviews with civil penalties. The rule bans:</p>
@@ -768,7 +768,7 @@ main { padding: 0; }
 <li>Risk Stripe account closure for fraudulent activity</li>
 <li>The review hides automatically if you refund the charge</li>
 </ol>
-<p>At Level 3, a merchant could theoretically manufacture reviews through their own systems at near-zero cost. At Level 4, every fake review costs real money and risks the merchant&#39;s ability to process payments at all. <strong>That&#39;s the difference between a policy and a structural guarantee.</strong></p>
+<p>At Level 3, a merchant could theoretically manufacture reviews through their own systems at near-zero cost. At Level 4, every fake review costs real money and risks the merchant&#39;s ability to process payments at all.</p>
 <hr>
 <h2 id="what-transaction-verified-reviews-don39t-solve"><a class="anchor" href="#what-transaction-verified-reviews-don39t-solve" aria-label="Permalink to What transaction-verified reviews don&amp;#39;t solve"></a>What transaction-verified reviews don&#39;t solve</h2>
 <p>Transaction-verified reviews eliminate the &quot;is this person a real customer?&quot; question. They don&#39;t eliminate:</p>
@@ -778,11 +778,11 @@ main { padding: 0; }
 <li><strong>Incentivized reviews:</strong> A business could still offer discounts for reviews (though platforms should prohibit this).</li>
 <li><strong>Low-quality reviews:</strong> &quot;Great product&quot; with a 5-star rating is still not very useful to future buyers.</li>
 </ul>
-<p>Transaction verification answers one question, &quot;did this person actually buy this product?&quot;, definitively. It doesn&#39;t answer &quot;is this review fair, detailed, and honest?&quot; But answering the first question definitively is the foundation for any credible review system. Without it, you&#39;re always guessing.</p>
+<p>Transaction verification answers one question, &quot;did this person actually buy this product?&quot;, definitively. It doesn&#39;t answer &quot;is this review fair, detailed, and honest?&quot;</p>
 <hr>
 <h2 id="the-bottom-line"><a class="anchor" href="#the-bottom-line" aria-label="Permalink to The bottom line"></a>The bottom line</h2>
 <p>&quot;Verified&quot; is a spectrum, not a standard. Most platforms operate at Level 3, they trust the merchant&#39;s data. Transaction-verified reviews (Level 4) trust the payment processor, an independent third party that has no incentive to fabricate reviews and every incentive to maintain the integrity of its payment network.</p>
-<p>If you process payments through Stripe, transaction-verified reviews are available to you today, and they&#39;re the strongest anti-fake signal you can offer your customers. If you&#39;re a consumer, knowing the difference between &quot;verified by the merchant&quot; and &quot;verified by the payment processor&quot; changes how you read every review you encounter.</p>
+<p>If you process payments through Stripe, transaction-verified reviews are available to you today, and they&#39;re the strongest anti-fake signal you can offer your customers.</p>
 <p><strong>Further reading:</strong></p>
 <ul>
 <li><a href="/learn/what-does-verified-buyer-mean/">What Does &quot;Verified Buyer&quot; Actually Mean?</a>, every major platform&#39;s verification explained</li>

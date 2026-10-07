@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/how-to-verify-a-customer-actually-bought/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="5582f236d0d7751686ac6ee1dce80938f656b479">
-  <meta name="build-time" content="2026-10-06T04:52:02.884Z">
+  <meta name="build-commit" content="07a0ecd17ad4892c842836d6044bf5c52c4213cc">
+  <meta name="build-time" content="2026-10-07T11:58:08.795Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="How to Verify a Customer Actually Bought | Signed Reviews">
@@ -701,7 +701,7 @@ main { padding: 0; }
 <li>The charge hasn&#39;t been refunded (refunds automatically hide the review)</li>
 <li>The reviewer&#39;s email matches the payment email on the Stripe charge</li>
 </ul>
-<p><strong>What it doesn&#39;t prove:</strong> That the review is fair, detailed, or unbiased. A real customer can still write a misleading review.</p>
+<p><strong>What it doesn&#39;t prove:</strong> That the review is fair, detailed, or unbiased.</p>
 <p><strong>Fake difficulty:</strong> Very high. To create a fake processor-attested review, a merchant would need to:</p>
 <ol>
 <li>Run a real Stripe charge (pays Stripe processing fees, ~2.9% + $0.30)</li>
@@ -710,7 +710,7 @@ main { padding: 0; }
 </ol>
 <p>The economics of faking reviews at Level 4 are terrible: every fake review costs real money, and Stripe&#39;s fraud detection makes pattern abuse risky. Contrast this with Level 3, where fake reviews cost nothing but time.</p>
 <p><strong>Best for:</strong> Any business processing payments through Stripe that wants the strongest possible verification signal, and is willing to let the payment processor (not the business) be the arbiter of who&#39;s a real customer.</p>
-<p><strong>The verdict:</strong> Processor attestation is the only method where the attesting party is <strong>independent of the merchant.</strong> It&#39;s the difference between &quot;we checked our own records&quot; and &quot;Stripe confirmed the charge.&quot; For businesses that want review authenticity to be a structural guarantee rather than a policy promise, it&#39;s the only option.</p>
+<p><strong>The verdict:</strong> Processor attestation is the only method where the attesting party is <strong>independent of the merchant.</strong> It&#39;s the difference between &quot;we checked our own records&quot; and &quot;Stripe confirmed the charge.&quot;</p>
 <hr>
 <h2 id="how-to-verify-a-customer-actually-bought-comparison-at-a-glance"><a class="anchor" href="#how-to-verify-a-customer-actually-bought-comparison-at-a-glance" aria-label="Permalink to How to verify a customer actually bought: comparison at a glance"></a>How to verify a customer actually bought: comparison at a glance</h2>
 <div class="table-wrap"><table>
@@ -784,7 +784,7 @@ main { padding: 0; }
 <hr>
 <h2 id="the-bottom-line"><a class="anchor" href="#the-bottom-line" aria-label="Permalink to The bottom line"></a>The bottom line</h2>
 <p>How you verify a customer bought something is a choice about <strong>who you trust to tell the truth.</strong> At Level 1–2, you trust the reviewer. At Level 3, you trust the merchant. At Level 4, you trust the payment processor, an independent third party whose entire business depends on accurately reporting financial transactions.</p>
-<p>If you process payments through Stripe, you already have the infrastructure for Level 4 verification. The question is whether your review platform uses it.</p>
+<p>If you process payments through Stripe, you already have the infrastructure for Level 4 verification.</p>
 <p><strong>Further reading:</strong></p>
 <ul>
 <li><a href="/learn/what-does-verified-buyer-mean/">What Does &quot;Verified Buyer&quot; Actually Mean?</a>, the verification spectrum explained</li>

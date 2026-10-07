@@ -51,7 +51,7 @@ The Signed Reviews Stripe App uses Stripe's standard OAuth flow, the same OAuth 
 2. **Stripe shows you exactly which permissions are requested.** The scopes are:
    - Four read permissions: charges, customers, subscriptions, balance transactions
    - Two write permissions, `coupon_write` and `promotion_code_write`, used only for opt-in review-incentive coupons
-   - That's it. No ability to create charges, issue refunds, or move funds.
+   - No ability to create charges, issue refunds, or move funds.
 3. **You review and click "Connect."** Stripe redirects you back to Signed Reviews with an authorization code.
 4. **Signed Reviews exchanges the code for a token**: a short-lived access token limited to the scopes you approved. The token never touches your Stripe API keys; it's an OAuth token with strictly limited permissions.
 5. **The connection is live.** Every new Stripe charge automatically triggers a review invitation. Every refund automatically hides the associated review.
@@ -82,7 +82,7 @@ This isn't a policy promise. It's enforced by Stripe's OAuth permission model. I
 | **Setup** | API keys, webhooks, platform connectors | One-click OAuth, no code |
 | **Verification level** | Level 1–3 (email to merchant-supplied) | Level 4 (processor-attested) |
 
-Most review platforms verify against data you provide, which means you're both the subject of the review and the source of the verification. A Stripe app for reviews breaks that conflict of interest by using Stripe as an independent third party. Your [Stripe-verified reviews](/trust) carry a trust signal no generic platform can replicate.
+Most review platforms verify against data you provide, which means you're both the subject of the review and the source of the verification. A Stripe app for reviews breaks that conflict of interest by using Stripe as an independent third party. Your [Stripe-verified reviews](/trust) carry a trust signal.
 
 ---
 
@@ -98,7 +98,7 @@ Every fake-review method relies on the reviewer or the merchant being able to fa
 | **Incentivized review (refund after review)** | Refunding the charge triggers `charge.refunded` webhook → review hidden |
 | **AI-generated review from non-customer** | No Stripe charge → no invitation → no review path exists |
 
-The economics change completely. At Level 3 (merchant-supplied verification), a fake review costs whatever the merchant pays for the fake order, which can be zero (with discount codes, test orders, or manual order creation). At Level 4 (processor-attested), every fake review costs at minimum the Stripe processing fee (~2.9% + $0.30) plus the product cost, and risks Stripe account suspension for fraudulent activity. The cost-benefit of fake reviews flips from "cheap and low-risk" to "expensive and account-threatening."
+At Level 3 (merchant-supplied verification), a fake review costs whatever the merchant pays for the fake order, which can be zero (with discount codes, test orders, or manual order creation). At Level 4 (processor-attested), every fake review costs at minimum the Stripe processing fee (~2.9% + $0.30) plus the product cost, and risks Stripe account suspension for fraudulent activity.
 
 ---
 
@@ -124,10 +124,10 @@ A Shopify review app is excellent for Shopify-only businesses. A Stripe app for 
 If you're evaluating a Stripe app for reviews on the Stripe Marketplace:
 
 1. **Which permissions does the connection ask for?** If the app requests write permissions, ask why. A review app doesn't need to create charges or issue refunds to verify purchases: the only write Signed Reviews uses is minting single-use discount coupons for reviewers, and only when the business enables review incentives.
-2. **Does it react to charge.refunded?** The mark of a well-built Stripe integration: refunded charges automatically hide their associated reviews.
+2. **Does it react to charge.refunded?** Refunded charges automatically hide their associated reviews.
 3. **Does it work with Stripe Billing / subscriptions?** Subscription businesses have recurring charges: each renewal is a new verification opportunity.
 4. **Does it support Stripe Connect?** If you run a platform or marketplace, your connected accounts should be able to use the app independently.
-5. **Is the verification cryptographic?** Does the app sign reviews so their authenticity can be independently verified? A cryptographic signature means the review can be checked for tampering at any point in the future by any party, not just by the platform that issued it.
+5. **Is the verification cryptographic?** Does the app sign reviews? A cryptographic signature means the review can be checked for tampering at any point in the future by any party.
 
 ---
 
@@ -135,7 +135,7 @@ If you're evaluating a Stripe app for reviews on the Stripe Marketplace:
 
 ### Is there a Stripe app for reviews that actually verifies purchases?
 
-Yes, the SignedReviews Stripe App is listed on the Stripe App Marketplace and verifies every review against a real, non-refunded Stripe charge. Unlike generic review tools that rely on email invites or merchant-supplied order data, it uses Stripe's independent charge records as the source of truth for purchase verification.
+Yes, the SignedReviews Stripe App is listed on the Stripe App Marketplace and verifies every review against a real, non-refunded Stripe charge. It uses Stripe's independent charge records as the source of truth for purchase verification.
 
 ### How is a Stripe app for reviews different from a Shopify review app?
 
@@ -149,7 +149,7 @@ Under 5 minutes. Connect your Stripe account via one-click OAuth (minimal permis
 
 ## Bottom line
 
-A Stripe-native review app isn't just a review app that happens to connect to Stripe. It's a review app whose verification model is built on Stripe's data: independent, least-privilege, and structurally resistant to fabrication. If you process payments through Stripe, a dedicated Stripe app for reviews gives you processor-attested verification that no generic review platform can match.
+A Stripe-native review app is a review app whose verification model is built on Stripe's data: independent, least-privilege, and structurally resistant to fabrication. If you process payments through Stripe, a dedicated Stripe app for reviews gives you processor-attested verification that no generic review platform can match.
 
 **Further reading:**
 - [Stripe Verified Reviews](/blog/stripe-verified-reviews/), the complete guide to processor-attested review collection

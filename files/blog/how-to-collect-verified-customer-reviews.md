@@ -39,26 +39,26 @@ The easier it is to leave a review, the more reviews you'll collect:
 
 - **Mobile-first**: Most customers open review invitations on their phone. Make sure the review form works on mobile.
 - **Short form**: Ask for a rating and a few sentences. Don't require long essays.
-- **Photo uploads**: Let customers add photos. Visual reviews are more trusted and more engaging.
+- **Photo uploads**: Let customers add photos.
 - **Clear CTA**: The email should have one obvious action: "Leave a review."
 
 ## Best practices
 
 - **Send at the right time**: For physical products, wait until delivery. For services, send after the service is complete. For subscriptions, send after the first payment or after a milestone.
 - **Don't over-send**: One invitation per purchase. Reminders should be limited (2 max) and stop when the link is clicked.
-- **Respond to reviews**: Publicly thank positive reviewers and address negative feedback professionally. Responding to reviews shows you're engaged.
+- **Respond to reviews**: Publicly thank positive reviewers and address negative feedback professionally.
 - **Never incentivize**: Don't offer discounts or rewards for reviews. This violates most platforms' terms and can get your reviews removed.
-- **Show your review count**: Display the number of verified reviews prominently. A higher count builds trust.
-- **Running physical locations?** Review volume for local businesses comes from messaging and listings more than from email, which is what [BirdEye](/vs/birdeye/) and [Podium](/vs/podium/) are built for. Neither verifies against the payment processor, so treat them as a distribution layer alongside a verified review engine, not a replacement for one.
+- **Show your review count**: Display the number of verified reviews prominently.
+- **Running physical locations?** Review volume for local businesses comes from messaging and listings more than from email, which is what [BirdEye](/vs/birdeye/) and [Podium](/vs/podium/) are built for. Neither verifies against the payment processor.
 
 ## What to avoid
 
-- **Buying reviews**: Never purchase reviews from review farms. They're always fake and will be detected eventually.
+- **Buying reviews**: Never purchase reviews from review farms.
 - **Review gating**: Don't ask happy customers to leave a public review while funneling unhappy customers to private feedback. This is against FTC guidelines.
 - **Editing reviews**: Don't modify customer reviews. If a review violates content guidelines, report it, don't alter it.
 
 ## How to collect verified customer reviews: start today
 
-The technical setup takes minutes. The hard part (building a reputation of authentic, verified reviews) happens over time, one real purchase at a time. But that's exactly what makes verified reviews valuable. See [pricing](/pricing/) for plan details and start collecting verified customer reviews today.
+The technical setup takes minutes. See [pricing](/pricing/) for plan details and start collecting verified customer reviews today.
 
 **Further reading:** [Stripe Verified Reviews](/blog/stripe-verified-reviews/). Learn why processor-attested verification (Level 4) is fundamentally different from merchant-supplied badges. And [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/) for the honest, platform-by-platform breakdown.

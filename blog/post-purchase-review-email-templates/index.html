@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/post-purchase-review-email-templates/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="5582f236d0d7751686ac6ee1dce80938f656b479">
-  <meta name="build-time" content="2026-10-06T04:52:02.884Z">
+  <meta name="build-commit" content="07a0ecd17ad4892c842836d6044bf5c52c4213cc">
+  <meta name="build-time" content="2026-10-07T11:58:08.795Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Post Purchase Review Email Templates | Signed Reviews">
@@ -670,10 +670,10 @@ main { padding: 0; }
 <p>A <strong>post purchase review form</strong> is the page where the review actually gets written (star rating, headline, review text) and it can appear two ways: embedded on a thank-you page right after checkout, or reached through a review request email.</p>
 <ul>
 <li><strong>The on-site form alone</strong> reaches only the customers who are still on your site. Most people leave after paying; the form they never saw generates nothing. Worse, a form alone proves nothing: anyone can fill one in, which is why unverified on-site forms are easy to flood with fake reviews.</li>
-<li><strong>The email-to-form flow</strong> reaches every customer: the review request email is triggered by the charge event, and its link opens the form on your own review page. This is the pattern behind the templates below.</li>
+<li><strong>The email-to-form flow</strong> reaches every customer: the review request email is triggered by the charge event, and its link opens the form on your own review page.</li>
 <li><strong>The verification layer</strong> is what makes the form&#39;s output trustworthy. When the purchase is attested by the payment processor, the review the form collects becomes a payment verified review: the strongest badge a customer can see. See <a href="/blog/purchase-verified-vs-email-verified-reviews/">payment verified reviews</a> for how that works.</li>
 </ul>
-<p>If your goal is review volume plus verified status, the email-to-form flow beats an on-site form alone. That combination is exactly what the templates below are built for.</p>
+<p>If your goal is review volume plus verified status, the email-to-form flow beats an on-site form alone.</p>
 <h2 id="the-golden-rules-of-any-post-purchase-review-email-template"><a class="anchor" href="#the-golden-rules-of-any-post-purchase-review-email-template" aria-label="Permalink to The golden rules of any post purchase review email template"></a>The golden rules of any post purchase review email template</h2>
 <p>Before the templates, three principles that determine whether your emails get opened, or deleted:</p>
 <h3 id="1-one-ask-one-action"><a class="anchor" href="#1-one-ask-one-action" aria-label="Permalink to 1. One ask, one action"></a>1. One ask, one action</h3>
@@ -723,7 +723,7 @@ main { padding: 0; }
 <td>Time to try the product</td>
 </tr>
 </tbody></table></div>
-<p><strong>Never send a review request before the customer has received the product.</strong> This is the single most common mistake, and it&#39;s the one that got SiteJabber in trouble with the FTC in 2024. Sending a review request at checkout, before the customer has the product, generates reviews about expectations, not experience. Those reviews are misleading, and they&#39;re now a regulatory risk.</p>
+<p><strong>Never send a review request before the customer has received the product.</strong> This is the single most common mistake, and it&#39;s the one that got SiteJabber in trouble with the FTC in 2024. Sending a review request at checkout, before the customer has the product, generates reviews about expectations, not experience.</p>
 <h2 id="template-1-e-commerce-physical-products"><a class="anchor" href="#template-1-e-commerce-physical-products" aria-label="Permalink to Template 1: E-commerce, physical products"></a>Template 1: E-commerce, physical products</h2>
 <p><strong>Subject:</strong> How was your [Product Name]?</p>
 <hr>
@@ -749,7 +749,7 @@ main { padding: 0; }
 [Founder Name]</p>
 <p>P.S. If something isn&#39;t working, reply to this email. It goes directly to me, and I&#39;ll make sure it gets fixed.</p>
 <hr>
-<p><strong>Why it works:</strong> The P.S. is the highest-read element of any email. Making it a direct line to the founder converts people who wouldn&#39;t leave a review but might report a problem, reducing churn and negative reviews simultaneously. The &quot;we built it to [specific problem]&quot; line reminds them of the value proposition without being salesy.</p>
+<p><strong>Why it works:</strong> The P.S. is the highest-read element of any email. Making it a direct line to the founder converts people who wouldn&#39;t leave a review but might report a problem, reducing churn and negative reviews simultaneously.</p>
 <p><strong>Stripe automation:</strong> For SaaS, trigger on <code>invoice.paid</code> rather than a one-time charge. Set a 14-day delay from the first successful subscription payment to give the customer time to experience the product. Subsequent renewal payments can trigger follow-up invitations if the customer hasn&#39;t left a review yet.</p>
 <h2 id="template-3-services-freelancers-agencies"><a class="anchor" href="#template-3-services-freelancers-agencies" aria-label="Permalink to Template 3: Services / freelancers / agencies"></a>Template 3: Services / freelancers / agencies</h2>
 <p><strong>Subject:</strong> Thanks for trusting us with [project/engagement]</p>
@@ -762,7 +762,7 @@ main { padding: 0; }
 <p>Best,
 [Your Name]</p>
 <hr>
-<p><strong>Why it works:</strong> Services are personal. The review request should be personal too, from the specific person they worked with, referencing the specific project. Generic service review requests (&quot;Please review our company&quot;), get ignored. Specific ones get responses.</p>
+<p><strong>Why it works:</strong> Services are personal. The review request should be personal too, from the specific person they worked with, referencing the specific project.</p>
 <p><strong>Stripe automation:</strong> Trigger on a <code>charge.succeeded</code> event for the final project payment. If you invoice in milestones, set the trigger to fire after the final invoice is paid, not mid-project when the outcome is still uncertain.</p>
 <h2 id="template-4-short-follow-up-for-non-responders"><a class="anchor" href="#template-4-short-follow-up-for-non-responders" aria-label="Permalink to Template 4: Short follow-up (for non-responders)"></a>Template 4: Short follow-up (for non-responders)</h2>
 <p><strong>Subject:</strong> One quick question</p>
@@ -788,12 +788,12 @@ main { padding: 0; }
 <p>Thanks,
 [Brand Name]</p>
 <hr>
-<p><strong>Why it works:</strong> The delivery trigger is the most accurate timing for physical products. And explicitly saying &quot;we ask after delivery, not before&quot; signals integrity. It tells the customer you&#39;re not one of those companies collecting reviews at checkout. This builds trust even before they write the review.</p>
+<p><strong>Why it works:</strong> The delivery trigger is the most accurate timing for physical products. And explicitly saying &quot;we ask after delivery, not before&quot; signals integrity.</p>
 <h2 id="what-to-avoid"><a class="anchor" href="#what-to-avoid" aria-label="Permalink to What to avoid"></a>What to avoid</h2>
 <h3 id="don39t-incentivize-positive-reviews"><a class="anchor" href="#don39t-incentivize-positive-reviews" aria-label="Permalink to Don&amp;#39;t incentivize positive reviews"></a>Don&#39;t incentivize positive reviews</h3>
 <p>The FTC&#39;s 2024 rule explicitly prohibits incentives conditioned on sentiment. &quot;Leave a 5-star review and get 10% off&quot; is illegal. &quot;Leave a review and get 10% off&quot; is still allowed, but your email copy must make the distinction clear.</p>
 <h3 id="don39t-send-more-than-2-reminders"><a class="anchor" href="#don39t-send-more-than-2-reminders" aria-label="Permalink to Don&amp;#39;t send more than 2 reminders"></a>Don&#39;t send more than 2 reminders</h3>
-<p>One initial request + one follow-up, max. A third email is spam. If the customer hasn&#39;t responded after two attempts, they&#39;re not going to, and continuing to email them damages your brand.</p>
+<p>One initial request + one follow-up, max. A third email is spam.</p>
 <h3 id="don39t-ask-for-reviews-at-the-wrong-time"><a class="anchor" href="#don39t-ask-for-reviews-at-the-wrong-time" aria-label="Permalink to Don&amp;#39;t ask for reviews at the wrong time"></a>Don&#39;t ask for reviews at the wrong time</h3>
 <ul>
 <li>Immediately after a support ticket is resolved? Yes (fresh relief/gratitude).</li>
@@ -812,7 +812,6 @@ main { padding: 0; }
 <li><strong>Review invitations send automatically</strong> at the timing you configured, with your template, your branding, and your sender name</li>
 <li><strong>Every review is tied to a Stripe charge</strong>: the review carries a &quot;Verified Stripe Purchase&quot; badge, not a generic &quot;Verified Reviewer&quot; tag</li>
 </ol>
-<p>The templates above still matter, good copy drives response rates. The timing rules still matter, send too early and you annoy, too late and you&#39;re forgotten. But the automation removes the operational overhead of manually sending review requests, and the Stripe verification makes every review more credible when it arrives.</p>
 <h3 id="the-stripe-events-that-can-trigger-review-invitations"><a class="anchor" href="#the-stripe-events-that-can-trigger-review-invitations" aria-label="Permalink to The Stripe events that can trigger review invitations"></a>The Stripe events that can trigger review invitations</h3>
 <div class="table-wrap"><table>
 <thead>

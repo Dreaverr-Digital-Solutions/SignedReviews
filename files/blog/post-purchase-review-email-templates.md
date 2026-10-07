@@ -16,10 +16,10 @@ This guide covers when to send, what to say, and how to structure your review re
 A **post purchase review form** is the page where the review actually gets written (star rating, headline, review text) and it can appear two ways: embedded on a thank-you page right after checkout, or reached through a review request email.
 
 - **The on-site form alone** reaches only the customers who are still on your site. Most people leave after paying; the form they never saw generates nothing. Worse, a form alone proves nothing: anyone can fill one in, which is why unverified on-site forms are easy to flood with fake reviews.
-- **The email-to-form flow** reaches every customer: the review request email is triggered by the charge event, and its link opens the form on your own review page. This is the pattern behind the templates below.
+- **The email-to-form flow** reaches every customer: the review request email is triggered by the charge event, and its link opens the form on your own review page.
 - **The verification layer** is what makes the form's output trustworthy. When the purchase is attested by the payment processor, the review the form collects becomes a payment verified review: the strongest badge a customer can see. See [payment verified reviews](/blog/purchase-verified-vs-email-verified-reviews/) for how that works.
 
-If your goal is review volume plus verified status, the email-to-form flow beats an on-site form alone. That combination is exactly what the templates below are built for.
+If your goal is review volume plus verified status, the email-to-form flow beats an on-site form alone.
 
 ## The golden rules of any post purchase review email template
 
@@ -52,7 +52,7 @@ The best-written email sent at the wrong time will get ignored. The rules:
 | Services (consulting, etc.) | Within 48 hours of completion | Fresh impression, not yet stale |
 | Consumables / food | 5–10 days after delivery | Time to try the product |
 
-**Never send a review request before the customer has received the product.** This is the single most common mistake, and it's the one that got SiteJabber in trouble with the FTC in 2024. Sending a review request at checkout, before the customer has the product, generates reviews about expectations, not experience. Those reviews are misleading, and they're now a regulatory risk.
+**Never send a review request before the customer has received the product.** This is the single most common mistake, and it's the one that got SiteJabber in trouble with the FTC in 2024. Sending a review request at checkout, before the customer has the product, generates reviews about expectations, not experience.
 
 ## Template 1: E-commerce, physical products
 
@@ -101,7 +101,7 @@ P.S. If something isn't working, reply to this email. It goes directly to me, an
 
 ---
 
-**Why it works:** The P.S. is the highest-read element of any email. Making it a direct line to the founder converts people who wouldn't leave a review but might report a problem, reducing churn and negative reviews simultaneously. The "we built it to [specific problem]" line reminds them of the value proposition without being salesy.
+**Why it works:** The P.S. is the highest-read element of any email. Making it a direct line to the founder converts people who wouldn't leave a review but might report a problem, reducing churn and negative reviews simultaneously.
 
 **Stripe automation:** For SaaS, trigger on `invoice.paid` rather than a one-time charge. Set a 14-day delay from the first successful subscription payment to give the customer time to experience the product. Subsequent renewal payments can trigger follow-up invitations if the customer hasn't left a review yet.
 
@@ -126,7 +126,7 @@ Best,
 
 ---
 
-**Why it works:** Services are personal. The review request should be personal too, from the specific person they worked with, referencing the specific project. Generic service review requests ("Please review our company"), get ignored. Specific ones get responses.
+**Why it works:** Services are personal. The review request should be personal too, from the specific person they worked with, referencing the specific project.
 
 **Stripe automation:** Trigger on a `charge.succeeded` event for the final project payment. If you invoice in milestones, set the trigger to fire after the final invoice is paid, not mid-project when the outcome is still uncertain.
 
@@ -175,7 +175,7 @@ Thanks,
 
 ---
 
-**Why it works:** The delivery trigger is the most accurate timing for physical products. And explicitly saying "we ask after delivery, not before" signals integrity. It tells the customer you're not one of those companies collecting reviews at checkout. This builds trust even before they write the review.
+**Why it works:** The delivery trigger is the most accurate timing for physical products. And explicitly saying "we ask after delivery, not before" signals integrity.
 
 ## What to avoid
 
@@ -185,7 +185,7 @@ The FTC's 2024 rule explicitly prohibits incentives conditioned on sentiment. "L
 
 ### Don't send more than 2 reminders
 
-One initial request + one follow-up, max. A third email is spam. If the customer hasn't responded after two attempts, they're not going to, and continuing to email them damages your brand.
+One initial request + one follow-up, max. A third email is spam.
 
 ### Don't ask for reviews at the wrong time
 
@@ -207,8 +207,6 @@ If you process payments through Stripe, you can automate every template on this 
 3. **The platform detects every new charge** through Stripe's event system
 4. **Review invitations send automatically** at the timing you configured, with your template, your branding, and your sender name
 5. **Every review is tied to a Stripe charge**: the review carries a "Verified Stripe Purchase" badge, not a generic "Verified Reviewer" tag
-
-The templates above still matter, good copy drives response rates. The timing rules still matter, send too early and you annoy, too late and you're forgotten. But the automation removes the operational overhead of manually sending review requests, and the Stripe verification makes every review more credible when it arrives.
 
 ### The Stripe events that can trigger review invitations
 

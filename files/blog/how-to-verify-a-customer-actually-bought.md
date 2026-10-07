@@ -73,7 +73,7 @@ How to verify a customer actually bought: four methods ranked by how hard each i
 - The charge hasn't been refunded (refunds automatically hide the review)
 - The reviewer's email matches the payment email on the Stripe charge
 
-**What it doesn't prove:** That the review is fair, detailed, or unbiased. A real customer can still write a misleading review.
+**What it doesn't prove:** That the review is fair, detailed, or unbiased.
 
 **Fake difficulty:** Very high. To create a fake processor-attested review, a merchant would need to:
 1. Run a real Stripe charge (pays Stripe processing fees, ~2.9% + $0.30)
@@ -84,7 +84,7 @@ The economics of faking reviews at Level 4 are terrible: every fake review costs
 
 **Best for:** Any business processing payments through Stripe that wants the strongest possible verification signal, and is willing to let the payment processor (not the business) be the arbiter of who's a real customer.
 
-**The verdict:** Processor attestation is the only method where the attesting party is **independent of the merchant.** It's the difference between "we checked our own records" and "Stripe confirmed the charge." For businesses that want review authenticity to be a structural guarantee rather than a policy promise, it's the only option.
+**The verdict:** Processor attestation is the only method where the attesting party is **independent of the merchant.** It's the difference between "we checked our own records" and "Stripe confirmed the charge."
 
 ---
 
@@ -120,7 +120,7 @@ Follow this progression to choose the right verification method for your busines
 
 How you verify a customer bought something is a choice about **who you trust to tell the truth.** At Level 1–2, you trust the reviewer. At Level 3, you trust the merchant. At Level 4, you trust the payment processor, an independent third party whose entire business depends on accurately reporting financial transactions.
 
-If you process payments through Stripe, you already have the infrastructure for Level 4 verification. The question is whether your review platform uses it.
+If you process payments through Stripe, you already have the infrastructure for Level 4 verification.
 
 **Further reading:**
 - [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/), the verification spectrum explained
