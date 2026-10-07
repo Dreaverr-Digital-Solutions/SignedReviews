@@ -3486,6 +3486,8 @@ function buildForCoaches() {
     <h2>Questions coaches ask</h2>
     <h3>Do my clients need an account?</h3>
     <p>No. They click the link in the email and write the review. The link only works for the payment it was sent for.</p>
+    <h3>Can I ask clients who paid me before I signed up?</h3>
+    <p>Yes. When you connect, SignedReviews imports your Stripe charges from up to 6 years back. With collection switched on, it emails up to 5 past clients an hour, newest first, until you reach your plan's limit. Free covers 10 clients. Starter covers 250 a month.</p>
     <h3>I use Kajabi. Will it work?</h3>
     <p>Only if your Kajabi checkout is connected to your own Stripe account. If you use Kajabi Payments, the charges stay inside Kajabi and SignedReviews can't see them.</p>
     <h3>I use ThriveCart. Which Stripe account do I connect?</h3>
