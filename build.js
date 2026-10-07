@@ -3408,6 +3408,106 @@ function buildComparisonPodium() {
   console.log('  ✓ /vs/podium/');
 }
 
+// ── Niche: coaches (2026-10 positioning test) ───────────────────────────────
+// Every product claim here maps to code: poller cadence (scheduler.js
+// CHARGE_POLL_INTERVAL_MS), one sequence per customer + 2 reminders
+// (InviteSequence), 10:00-20:00 local send window, business can only reply
+// (routes/replies.js), public /verify/:reviewId page, plan limits (pricing).
+// Platform reachability comes from the 2026-10-07 creator-platform check.
+// Do NOT add a refund auto-hide sentence until the refund sweep is live.
+const FOR_PAGE_STYLES = `
+  .for-shot{margin:1.25rem 0 2rem}
+  .for-shot img{width:100%;height:auto;border-radius:12px;border:1px solid var(--border, rgba(127,127,127,.25))}
+  .for-shot figcaption{font-size:.85rem;color:var(--muted);margin-top:.5rem}
+  .for-fit{display:grid;grid-template-columns:1fr;gap:1rem;margin:1rem 0 2rem}
+  @media (min-width:720px){.for-fit{grid-template-columns:1fr 1fr}}
+  .for-fit > div{border:1px solid var(--border, rgba(127,127,127,.25));border-radius:12px;padding:1rem 1.25rem}
+  .for-fit h3{margin-top:0}
+`;
+
+function buildForCoaches() {
+  const slug = '/for/coaches/';
+  const body = `<article class="prose">
+    <p>A screenshot, a first name and a photo are easy to fake, and buyers know it. In April 2026 the FTC told consumers that coaching success stories "could be fake or misleading" (<a href="https://consumer.ftc.gov/consumer-alerts/2026/04/how-spot-and-avoid-business-coaching-scams" rel="noopener">FTC consumer alert</a>).</p>
+    <p>SignedReviews only asks people who paid you. It reads your Stripe charges, emails each client a review link tied to their payment, and signs the review when they submit it.</p>
+
+    <h2>Does it work with how you get paid?</h2>
+    <p>It works if you can log into your own Stripe account and your client payments land there.</p>
+    <div class="for-fit">
+      <div>
+        <h3>Works</h3>
+        <ul>
+          <li>Stripe Payment Links, Checkout and Invoicing</li>
+          <li>ThriveCart and SamCart, using the Stripe account they connect to</li>
+          <li>Circle, Podia, GoHighLevel, Kartra, Systeme.io, LearnWorlds and Memberful, which connect your own Stripe</li>
+          <li>Kajabi, Teachable or Thinkific, only if checkout runs on your own Stripe account</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Doesn't work</h3>
+        <ul>
+          <li>Skool, Stan Store, Whop and Patreon. They process the payment, so the sale never reaches your Stripe.</li>
+          <li>Kajabi Payments, Teachable Payments and Thinkific Payments</li>
+          <li>PayPal, bank transfer and cash</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>How it works</h2>
+    <h3>1. Install the app in Stripe</h3>
+    <p>SignedReviews is an app on the Stripe App Marketplace. It can read your charges, customers and subscriptions. It cannot create charges, issue refunds or move money. The only thing it can create is a discount coupon, and only if you switch on review incentives.</p>
+    <figure class="for-shot"><img src="${B}images/stripe-app-install.webp" width="876" height="876" loading="lazy" alt="The SignedReviews install screen on the Stripe App Marketplace, listing what the app can access."><figcaption>The install screen in Stripe.</figcaption></figure>
+
+    <h3>2. A client pays, and gets one request</h3>
+    <p>New charges are picked up within about 5 minutes. The request goes out after the delay you set, between 10:00 and 20:00 in the client's local time when their country is known. Each client gets one request, plus up to two reminders on paid plans. A client who buys again is not asked again.</p>
+    <figure class="for-shot"><img src="${B}images/workflow/email.webp" width="1920" height="1200" loading="lazy" alt="A review request email greeting the customer by name and showing the purchase amount, with a Leave your review now button."><figcaption>The request email, shown for a demo store. The link is unique to that payment and expires after 14 days.</figcaption></figure>
+
+    <h3>3. They write it, and it gets signed</h3>
+    <p>The review is signed with HMAC-SHA256 at the moment the client submits it. The signature covers the rating, title, text, date and the Stripe charge it belongs to.</p>
+    <figure class="for-shot"><img src="${B}images/workflow/review-card.webp" width="1920" height="1200" loading="lazy" alt="A public review page with an average rating, review count and review cards marked Purchase Verified."><figcaption>Your public review page, shown with demo data.</figcaption></figure>
+
+    <h3>4. Anyone can check it</h3>
+    <p>Every review has a Verify link. It opens a page that re-checks the signature, so a prospect can see the text has not changed since your client wrote it.</p>
+    <figure class="for-shot"><img src="${B}images/workflow/verify-page.webp" width="1920" height="1200" loading="lazy" alt="A review verification page showing Signature Valid, the review, and its HMAC-SHA256 signature."><figcaption>The verification page for one review.</figcaption></figure>
+
+    <h2>What you can and can't do with a review</h2>
+    <ul>
+      <li>You can reply to it publicly.</li>
+      <li>You can't edit the text, change the rating or delete it.</li>
+      <li>You can show the reviews on your hosted review page, with an embeddable badge, or through the read-only API.</li>
+    </ul>
+
+    <h2>Why it matters for coaches in particular</h2>
+    <p>The FTC's rule on consumer reviews and testimonials took effect on October 21, 2024. It bans fake testimonials, and reviews by insiders such as employees unless that connection is disclosed (<a href="${B}learn/ftc-fake-reviews-rules/">summary of the FTC rule</a>). In April 2026, Publishing.com, which sold a course with a coaching add-on, agreed to pay $1.5 million. Part of the complaint was reviews written by employees and relatives without disclosure (<a href="https://www.ftc.gov/news-events/news/press-releases/2026/04/publishingcom-pay-15-million-misleading-consumers-about-how-much-income-they-could-earn-using" rel="noopener">FTC press release</a>).</p>
+
+    <h2>Pricing</h2>
+    <p>Free includes 10 automatic review requests and an unlimited self-service link you can share. Starter is $29 a month for 250 automatic requests, with reminders. A coach with 20 new clients a month fits in Starter. <a href="${B}pricing/">See all plans</a>.</p>
+
+    <h2>Questions coaches ask</h2>
+    <h3>Do my clients need an account?</h3>
+    <p>No. They click the link in the email and write the review. The link only works for the payment it was sent for.</p>
+    <h3>I use Kajabi. Will it work?</h3>
+    <p>Only if your Kajabi checkout is connected to your own Stripe account. If you use Kajabi Payments, the charges stay inside Kajabi and SignedReviews can't see them.</p>
+    <h3>I use ThriveCart. Which Stripe account do I connect?</h3>
+    <p>ThriveCart's Stripe connection can create a separate Stripe account under your login. Install SignedReviews in the account your ThriveCart sales land in.</p>
+    <h3>Will a client who buys again get asked again?</h3>
+    <p>No. Automatic requests go to each client once, and every review is tied to one payment.</p>
+
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start free →</a></p>
+    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="${B}how-verification-works/">How review verification works</a> · <a href="${B}learn/ftc-fake-reviews-rules/">FTC fake review rules</a> · <a href="${B}pricing/">Pricing</a></p>
+  </article>`;
+  const html = page({
+    title: 'Verified Testimonials for Coaches Paid Through Stripe | Signed Reviews',
+    description: 'For coaches and consultants paid through Stripe: every client who pays gets one review request, and every review is signed so you can reply but never edit it.',
+    slug,
+    hero: { eyebrow: 'For coaches and consultants', title: 'Proof from clients who actually paid you', subtitle: 'If your clients pay you through Stripe, SignedReviews asks each one for a review and signs what they write. You can reply. You can\'t edit it.' },
+    body,
+    extraStyle: FOR_PAGE_STYLES,
+  });
+  writePage(slug, html);
+  console.log('  ✓ /for/coaches/');
+}
+
 // ── Learn: canonical explainer (citation target for /vs/* + blog) ─────────────
 // Answer-first structure: the opening paragraph is a self-contained, quotable
 // definition so AI answer engines (Google AI Overviews, ChatGPT, Perplexity) can
@@ -4901,7 +5001,7 @@ function buildSeoFiles(blogPosts = []) {
   // crawlers to ignore the signal entirely.
   const STATIC_PAGES_LASTMOD = '2026-09-06';
   const blogLastmod = new Map(blogPosts.map(p => [p.slug, p.lastmod]));
-  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/integrations/stripe/', '/integrations/shopify/', '/integrations/woocommerce/', '/faq/', '/how-it-works/', '/how-verification-works/', '/demo/', '/tools/fake-review-checker/', '/docs/', '/api/', '/trust/', '/chrome-extension/privacy/', '/vs/trustpilot/', '/vs/feefo/', '/vs/judge-me/', '/vs/yotpo/', '/vs/ekomi/', '/vs/sitejabber/', '/vs/reviews-io/', '/vs/stamped/', '/vs/okendo/', '/vs/loox/', '/vs/skeepers/', '/vs/google-reviews/', '/vs/yelp/', '/vs/clutch/', '/vs/birdeye/', '/vs/podium/', '/learn/what-does-verified-buyer-mean/', '/learn/how-fake-reviews-work/', '/learn/ftc-fake-reviews-rules/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/', ...blogPosts.map(p => p.slug)];
+  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/integrations/stripe/', '/integrations/shopify/', '/integrations/woocommerce/', '/faq/', '/how-it-works/', '/how-verification-works/', '/demo/', '/tools/fake-review-checker/', '/docs/', '/api/', '/trust/', '/chrome-extension/privacy/', '/vs/trustpilot/', '/vs/feefo/', '/vs/judge-me/', '/vs/yotpo/', '/vs/ekomi/', '/vs/sitejabber/', '/vs/reviews-io/', '/vs/stamped/', '/vs/okendo/', '/vs/loox/', '/vs/skeepers/', '/vs/google-reviews/', '/vs/yelp/', '/vs/clutch/', '/vs/birdeye/', '/vs/podium/', '/for/coaches/', '/learn/what-does-verified-buyer-mean/', '/learn/how-fake-reviews-work/', '/learn/ftc-fake-reviews-rules/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/', ...blogPosts.map(p => p.slug)];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
@@ -5007,6 +5107,7 @@ buildComparisonGoogleReviews();
 buildComparisonYelp();
 buildComparisonClutch();
 buildComparisonPodium();
+buildForCoaches();
 buildFakeReviewChecker();
 buildLearn();
 buildLearnFakeReviewsWork();
@@ -5038,7 +5139,7 @@ const PUBLISH = [
   'index.html', '404.html', 'favicon.svg', 'sitemap.xml', 'robots.txt', 'CNAME',
   'about', 'contact', 'dpa', 'files', 'images', 'output.css', 'trust', 'vs',
   'privacy', 'refund-policy', 'subprocessors', 'terms', 'pricing', 'dmca',
-  'features', 'blog', 'integrations', 'faq', 'how-it-works', 'how-verification-works', 'demo', 'tools', 'docs', 'api', 'learn',
+  'features', 'blog', 'integrations', 'faq', 'how-it-works', 'how-verification-works', 'demo', 'tools', 'docs', 'api', 'learn', 'for',
   'chrome-extension', 'video',
   '_headers', 'js', 'llms.txt', 'b2f3a1c8d9e0475f8a6c1d3b5e7f9a2c.txt',
   '.well-known', 'auth.md', 'openapi.json', 'functions',
