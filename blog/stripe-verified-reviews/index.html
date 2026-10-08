@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/stripe-verified-reviews/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="d5e66ccd689c83ef9b1d4097f8983a6726870305">
-  <meta name="build-time" content="2026-10-07T14:47:49.134Z">
+  <meta name="build-commit" content="13ff47aba1669cf3e2d42b46a584a12271aacc38">
+  <meta name="build-time" content="2026-10-08T14:01:41.472Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Stripe Verified Reviews: Tamper-Evident | Signed Reviews">
@@ -678,7 +678,7 @@ main { padding: 0; }
 <ol>
 <li><strong>Connect your Stripe account.</strong> One-click OAuth. The connection uses minimal permissions: Signed Reviews can verify charges but can never charge, refund, or move funds. The only write is creating discount coupons for reviewers, and only when you enable review incentives. See <a href="/how-it-works/">how it works</a> for the full technical flow.</li>
 <li><strong>A customer completes a purchase.</strong> Stripe processes the payment as usual. Signed Reviews detects the <code>charge.succeeded</code> webhook and automatically creates a unique, expiring review invitation linked to that specific transaction.</li>
-<li><strong>The invitation is sent.</strong> The email goes to the customer&#39;s verified payment email from the Stripe transaction. You control the timing: immediately, after a delay for shipped products, or triggered by your delivery webhook.</li>
+<li><strong>The invitation is sent.</strong> The email goes to the customer&#39;s verified payment email from the Stripe transaction. You control the timing: immediately, or after a delay for shipped products.</li>
 <li><strong>The customer writes their review.</strong> They click the unique link, write their review, and submit. At the moment of submission, the review content, transaction ID, customer email, and timestamp are bundled into a cryptographic signature, producing cryptographically signed reviews that anyone can independently verify.</li>
 <li><strong>The review is published.</strong> The signed review appears on your public page and in your dashboard. The cryptographic signature can be independently verified by anyone, proving the review came from a real customer about a real purchase and hasn&#39;t been altered.</li>
 </ol>
@@ -848,7 +848,7 @@ main { padding: 0; }
 <ol>
 <li><strong>Sign up</strong> at <a href="https://platform.signedreviews.com">platform.signedreviews.com</a>. Free plan available, no credit card required. See <a href="/pricing/">pricing</a> for plan details.</li>
 <li><strong>Connect your Stripe account.</strong> One-click OAuth. Minimal permissions. Takes 30 seconds.</li>
-<li><strong>Configure your timing.</strong> Choose when invitations go out: immediately after purchase, after a delay (for shipped products), or on your delivery webhook.</li>
+<li><strong>Configure your timing.</strong> Choose when invitations go out: immediately after purchase, or after a delay for shipped products.</li>
 <li><strong>Customize your branding.</strong> Add your logo, brand colors, and email sender name.</li>
 <li><strong>Go live.</strong> Every new Stripe charge automatically generates a verified review invitation.</li>
 </ol>

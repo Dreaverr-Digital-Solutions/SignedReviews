@@ -25,7 +25,7 @@ The flow is automated from end to end. You connect once; Signed Reviews handles 
 
 1. **Connect your Stripe account.** One-click OAuth. The connection uses minimal permissions: Signed Reviews can verify charges but can never charge, refund, or move funds. The only write is creating discount coupons for reviewers, and only when you enable review incentives. See [how it works](/how-it-works/) for the full technical flow.
 2. **A customer completes a purchase.** Stripe processes the payment as usual. Signed Reviews detects the `charge.succeeded` webhook and automatically creates a unique, expiring review invitation linked to that specific transaction.
-3. **The invitation is sent.** The email goes to the customer's verified payment email from the Stripe transaction. You control the timing: immediately, after a delay for shipped products, or triggered by your delivery webhook.
+3. **The invitation is sent.** The email goes to the customer's verified payment email from the Stripe transaction. You control the timing: immediately, or after a delay for shipped products.
 4. **The customer writes their review.** They click the unique link, write their review, and submit. At the moment of submission, the review content, transaction ID, customer email, and timestamp are bundled into a cryptographic signature, producing cryptographically signed reviews that anyone can independently verify.
 5. **The review is published.** The signed review appears on your public page and in your dashboard. The cryptographic signature can be independently verified by anyone, proving the review came from a real customer about a real purchase and hasn't been altered.
 
@@ -134,7 +134,7 @@ If you're on Stripe, you're eligible. The integration takes one click.
 
 1. **Sign up** at [platform.signedreviews.com](https://platform.signedreviews.com). Free plan available, no credit card required. See [pricing](/pricing/) for plan details.
 2. **Connect your Stripe account.** One-click OAuth. Minimal permissions. Takes 30 seconds.
-3. **Configure your timing.** Choose when invitations go out: immediately after purchase, after a delay (for shipped products), or on your delivery webhook.
+3. **Configure your timing.** Choose when invitations go out: immediately after purchase, or after a delay for shipped products.
 4. **Customize your branding.** Add your logo, brand colors, and email sender name.
 5. **Go live.** Every new Stripe charge automatically generates a verified review invitation.
 

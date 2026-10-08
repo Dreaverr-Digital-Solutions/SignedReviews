@@ -2195,7 +2195,7 @@ function buildHowItWorks() {
   const steps = [
     { num: '1', title: 'Connect your Stripe account', body: 'One click. You authorize Signed Reviews via Stripe\'s official OAuth flow. We get <strong>minimal permissions</strong>: we can verify charges but can never charge, refund, or move funds. The only write we use is creating discount coupons for reviewers, and only when you enable review incentives.' },
     { num: '2', title: 'Customer completes a purchase', body: 'A customer buys from you. Stripe processes the payment as usual. Signed Reviews detects the <code>charge.succeeded</code> event and automatically creates a unique, expiring review invitation linked to that specific transaction.' },
-    { num: '3', title: 'Review invitation is sent', body: 'The invitation email is sent to the customer\'s verified payment email from the Stripe transaction. You control the timing: immediately, after a delay (for shipped products), or on delivery via our delivery webhook. The email carries your branding and logo.' },
+    { num: '3', title: 'Review invitation is sent', body: 'The invitation email is sent to the customer\'s verified payment email from the Stripe transaction. You control the timing: immediately, or after a delay for shipped products. The email carries your branding and logo.' },
     { num: '4', title: 'Customer submits their review', body: 'The customer clicks the unique link, writes their review, and submits it. At the moment of submission, the review content, transaction ID, customer email, and timestamp are <strong>cryptographically signed</strong>, creating a tamper-evident record.' },
     { num: '5', title: 'Review is verified and published', body: 'The signed review appears on your public page and in your dashboard. The cryptographic signature can be independently verified by anyone: proving the review came from a real customer, about a real purchase, and hasn\'t been altered.' },
     { num: '6', title: 'Optional: reminders and follow-ups', body: 'If the customer hasn\'t left a review after a few days, automatic reminders are sent (configurable cadence). Reminders stop when the customer clicks the link, submits a review, or unsubscribes. You can also trigger review requests at delivery time via our webhook.' },
@@ -2417,7 +2417,7 @@ function buildComparison() {
         <tr><td>Stripe integration</td><td class="win">Native (one-click OAuth, minimal permissions, automatic review requests, one per customer)</td><td class="lose">No native Stripe integration, requires third-party connectors or manual CSV imports</td></tr>
         <tr class="highlight-row"><td>Review gating</td><td class="win">Automatic, invitations go to the email on each Stripe transaction, and customers can also request their own verified link from the business's public page. Either way, a completed purchase is required.</td><td class="lose">Manual: businesses must upload customer lists or send invitations themselves</td></tr>
         <tr><td>Refund handling</td><td class="win">Automatic, refunded reviews are hidden from public display immediately via Stripe webhook</td><td class="lose">Manual, businesses must flag or report reviews from refunded customers</td></tr>
-        <tr class="highlight-row"><td>API & integrations</td><td class="win">REST API, webhooks, delivery webhook, public page API</td><td class="win">Extensive API, 100+ integrations, white-label options on Enterprise</td></tr>
+        <tr class="highlight-row"><td>API & integrations</td><td class="win">REST API, webhooks, public page API</td><td class="win">Extensive API, 100+ integrations, white-label options on Enterprise</td></tr>
         <tr><td>Pricing model</td><td class="win">Free plan + paid plans from $29/mo (Starter) to $199/mo (Scale). Transparent tiered pricing with monthly invitation caps.</td><td class="lose">Free tier available; paid plans start at $99/mo (Starter, billed annually) and run to $799/mo+ (Premium). Enterprise pricing is opaque.</td></tr>
         <tr class="highlight-row"><td>Organic discoverability</td><td class="lose">Early stage, limited domain authority and no consumer-facing review directory</td><td class="win">Established, Trustpilot.com has massive organic traffic and a consumer-facing review search</td></tr>
         <tr><td>Trust mark / badge</td><td class="win">"Verified by Signed Reviews" badge links to cryptographic proof. Included on every plan, including Free.</td><td class="win">Trustpilot TrustBox widgets and star ratings. Widely recognized by consumers.</td></tr>
@@ -4050,7 +4050,7 @@ function buildIntegrations() {
       <div class="ic-icon ic-webhook">W</div>
       <div class="ic-body">
         <h3>Webhooks <span class="ic-badge ic-badge-live">Live</span></h3>
-        <p>Real-time event delivery: review submitted, review updated, review hidden (refund), invitation sent, invitation expired. Deliver to your own endpoint. Includes a delivery webhook for triggering review invitations at exactly the right moment (e.g., when the tracking number shows "delivered").</p>
+        <p>Real-time event delivery: review submitted, review updated, review hidden (refund), invitation sent, invitation expired. Deliver to your own endpoint.</p>
         <a class="ic-cta" href="${B}docs/">Documentation →</a>
       </div>
     </div>
@@ -4139,7 +4139,7 @@ function buildIntegrationsStripe() {
       { '@type': 'HowToStep', position: 1, name: 'Sign up or log in', text: 'Create a free Signed Reviews account at platform.signedreviews.com. No credit card required.' },
       { '@type': 'HowToStep', position: 2, name: 'Click "Connect Stripe"', text: 'In your dashboard, click the Stripe connection button. You\'ll be redirected to Stripe\'s official OAuth page.' },
       { '@type': 'HowToStep', position: 3, name: 'Authorize the permissions', text: 'Stripe shows you exactly which permissions are requested: read charges, read customers, read subscriptions, plus two coupon permissions used only for review incentives. Signed Reviews cannot charge, refund, move funds, or change your customers, subscriptions, or prices.' },
-      { '@type': 'HowToStep', position: 4, name: 'Configure auto-requests', text: 'Choose when review invitations go out: immediately after purchase, after a delay for shipped products, or on your delivery webhook.' },
+      { '@type': 'HowToStep', position: 4, name: 'Configure auto-requests', text: 'Choose when review invitations go out: immediately after purchase, or after a delay for shipped products.' },
       { '@type': 'HowToStep', position: 5, name: 'Customize your branding', text: 'Add your logo, brand colors, and email sender name. Review invitations carry your branding.' },
       { '@type': 'HowToStep', position: 6, name: 'Go live', text: 'Every new Stripe charge automatically generates a verified review invitation. No ongoing management needed.' },
     ],
@@ -4212,7 +4212,7 @@ function buildIntegrationsStripe() {
       <li><div class="step-num"></div><div><h3>Sign up or log in</h3><p>Create a free Signed Reviews account at <a href="${PLATFORM_URL}" rel="noopener">platform.signedreviews.com</a>. No credit card required. The Free plan includes Stripe integration with unlimited self-service reviews and 10 free automated review invitations.</p></div></li>
       <li><div class="step-num"></div><div><h3>Click "Connect Stripe"</h3><p>In your dashboard, click the Stripe connection button. You'll be redirected to Stripe's official OAuth authorization page, the same flow used by thousands of Stripe App installations.</p></div></li>
       <li><div class="step-num"></div><div><h3>Authorize the permissions</h3><p>Stripe shows you exactly which permissions are requested, four read scopes plus two coupon permissions used only for review incentives. Review and click "Connect." The redirect brings you back to your Signed Reviews dashboard.</p></div></li>
-      <li><div class="step-num"></div><div><h3>Configure auto-requests</h3><p>Choose your invitation timing: immediately after purchase (digital products), after a configurable delay (physical products), or triggered by your delivery webhook. Set reminder cadence: standard is 3 and 7 days.</p></div></li>
+      <li><div class="step-num"></div><div><h3>Configure auto-requests</h3><p>Choose your invitation timing: immediately after purchase (digital products) or after a configurable delay (physical products). Set reminder cadence: standard is 3 and 7 days.</p></div></li>
       <li><div class="step-num"></div><div><h3>Customize your branding</h3><p>Upload your logo, set brand colors, and customize the email sender name. Every review invitation carries your branding: your customers see your business, not ours.</p></div></li>
       <li><div class="step-num"></div><div><h3>Go live</h3><p>Switch from test mode to live. Every new Stripe charge automatically generates a verified review invitation. Your public review page is live immediately at <code>signedreviews.com/yourbusiness</code>.</p></div></li>
     </ol>
@@ -4223,7 +4223,6 @@ function buildIntegrationsStripe() {
       <li><strong>Public review page</strong>: a hosted, branded page showing every verified review with cryptographic proof badges.</li>
       <li><strong>Public API</strong>: embed reviews on your own website (<a href="/api/">API docs</a>).</li>
       <li><strong>Trust badge</strong>: "Verified by Signed Reviews" badge to display on your site and in email footers.</li>
-      <li><strong>Delivery webhook</strong>: trigger review invitations (e.g., when the tracking number shows "delivered").</li>
       <li><strong>Analytics</strong>: invitation sent/opened/submitted rates, review volume over time, average rating trends.</li>
     </ul>
 
