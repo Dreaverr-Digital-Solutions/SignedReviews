@@ -1,13 +1,13 @@
 # Transaction Verified Reviews: What They Are & Why They're Hardest to Fake
 **Title:** Transaction Verified Reviews | Signed Reviews
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Transaction verified reviews are confirmed by the payment processor, not merchant data. How they work, and why processor-attested proof beats email badges.
+**Published:** 2026-07-24 · **Updated:** 2026-10-09 · **Author:** Robinson Guerra · **Description:** Transaction verified reviews are tied to the payment processor's records, not merchant data. How they work, and why processor-attested proof beats email badges.
 
 ---
 
-Every review platform says its reviews are "verified." The word is on every badge, every landing page, every sales deck. But "verified" can mean almost anything, from "this person has an email address" to "an independent payment processor confirmed the charge."
+Transaction verified reviews are reviews tied to a payment record held by the payment processor, such as a completed Stripe charge, rather than to the merchant's own order data. Most "verified" badges mean less. On many platforms the word covers anything from "this person has an email address" to "the merchant's records show an order."
 
-Transaction verified reviews sit at the strongest end of that spectrum. Here's what they are and why the distinction matters. New to the space? Start with [what is a verified review](/blog/what-is-a-verified-review/).
+That puts transaction verified reviews at the strongest end of the verification spectrum. Here's how they work and why the distinction matters. New to the space? Start with [what is a verified review](/blog/what-is-a-verified-review/).
 
 ## What are transaction verified reviews?
 
@@ -63,21 +63,21 @@ Here's the concrete flow for a processor-attested, transaction-verified review:
 
 2. **The business connects their Stripe account** to the review platform via OAuth, **least-privilege access.** The platform can query charges, customers, and refunds. It cannot create, modify, or refund anything; the only write is opt-in review-incentive coupons. See [how it works](/how-it-works/) for the full setup flow.
 
-3. **When a new charge appears**: the platform sends a review invitation to the customer's verified payment email, the email Stripe has on file for that transaction. No invitation is sent for charges that are disputed, refunded, or flagged.
+3. **When a new charge appears** from a customer who hasn't been invited before: the platform sends a review invitation to the customer's verified payment email, the email Stripe has on file for that transaction.
 
 4. **The customer writes a review** via a unique, expiring invitation link tied to that specific charge.
 
-5. **At submission**: the platform checks that the charge still stands (not refunded, not disputed), grabs a timestamp and charge fingerprint from Stripe, and cryptographically signs the review: binding the review content, the Stripe charge metadata, and the timestamp into a tamper-evident record.
+5. **At submission**: the platform matches the review to the charge record it imported from Stripe and cryptographically signs it, binding the review content, the Stripe charge reference, and a timestamp into a tamper-evident record.
 
-6. **If the charge is later refunded**, the platform receives a `charge.refunded` webhook from Stripe and automatically hides the review. The review record is preserved for audit but removed from public display.
+6. **If the charge is later fully refunded or disputed**, a background check that re-reads charges every 6 hours hides the review automatically. Partial refunds stay visible. The review record is preserved for audit but removed from public display.
 
-At no point does the business touch the verification data. The business can't decide who gets an invitation (every customer does, exactly once), can't exclude unhappy customers, and can't prevent refunded-charge reviews from being hidden.
+At no point does the business touch the verification data. The platform invites each new paying customer once, so the business doesn't hand-pick its reviewers, and it can't stop reviews on fully refunded or disputed charges from being hidden.
 
 ---
 
 ## Why this matters: the FTC and the fake-review era
 
-The U.S. Federal Trade Commission's **Trade Regulation Rule on Consumer Reviews and Testimonials** (16 CFR Part 465, effective October 2024) now prohibits fake reviews with civil penalties. The rule bans:
+The U.S. Federal Trade Commission's **Trade Regulation Rule on Consumer Reviews and Testimonials** ([16 CFR Part 465](https://www.federalregister.gov/documents/2024/08/22/2024-18519/trade-regulation-rule-on-the-use-of-consumer-reviews-and-testimonials), effective 21 October 2024) now prohibits fake reviews and lets the FTC seek civil penalties against knowing violators ([FTC announcement](https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials)). The rule bans:
 
 - Reviews that misrepresent genuine experience with a product
 - Buying or selling reviews
@@ -86,9 +86,9 @@ The U.S. Federal Trade Commission's **Trade Regulation Rule on Consumer Reviews 
 
 Transaction-verified reviews don't just comply with these rules. They make violating them **structurally more expensive than complying.** To fake a processor-attested review, you'd need to:
 
-1. Create a real Stripe charge (pays Stripe fees, ~2.9% + $0.30)
+1. Create a real Stripe charge (pays Stripe fees: [2.9% + 30¢ per successful domestic card transaction](https://stripe.com/pricing) on standard US pricing)
 2. Risk Stripe account closure for fraudulent activity
-3. The review hides automatically if you refund the charge
+3. The review hides automatically if you fully refund the charge
 
 At Level 3, a merchant could theoretically manufacture reviews through their own systems at near-zero cost. At Level 4, every fake review costs real money and risks the merchant's ability to process payments at all.
 
@@ -100,7 +100,7 @@ Transaction-verified reviews eliminate the "is this person a real customer?" que
 
 - **Biased reviews:** A real customer can still write an unfair or exaggerated review.
 - **Selective response:** Happy customers write more reviews than unhappy ones regardless of verification method.
-- **Incentivized reviews:** A business could still offer discounts for reviews (though platforms should prohibit this).
+- **Incentivized reviews:** A business could still offer discounts for reviews (an incentive should never be tied to a positive rating).
 - **Low-quality reviews:** "Great product" with a 5-star rating is still not very useful to future buyers.
 
 Transaction verification answers one question, "did this person actually buy this product?", definitively. It doesn't answer "is this review fair, detailed, and honest?"

@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/trust/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="13ff47aba1669cf3e2d42b46a584a12271aacc38">
-  <meta name="build-time" content="2026-10-08T14:01:41.472Z">
+  <meta name="build-commit" content="b81f2a982a604245c8457043f1b5fa41ac2f8c2a">
+  <meta name="build-time" content="2026-10-09T17:49:30.267Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Trust &amp; Security | Signed Reviews">
@@ -611,7 +611,7 @@ main { padding: 0; }
     })();
   </script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.","email":"support@signedreviews.com","foundingDate":"2025","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"},"sameAs":["https://marketplace.stripe.com/apps/signedreviews","https://chromewebstore.google.com/detail/is-this-review-real-%E2%80%94-sig/jkfdbmlmfjbnbhillhlehabpbpeoljco","https://www.linkedin.com/company/signed-reviews"]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"Trust & Security | Signed Reviews","item":"https://signedreviews.com/trust/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"Trust & Security","item":"https://signedreviews.com/trust/"}]}</script>
   <script async preferred-sources-control="manual" src="https://news.google.com/swg/js/v1/publisher.js"></script>
   <script defer src="/js/preferred-source.js"></script>
 </head>
@@ -664,19 +664,19 @@ main { padding: 0; }
     <p>Signed Reviews is built on a simple premise: <strong>a review should only exist if a real purchase backs it</strong>. Every design decision flows from this principle.</p>
 
     <h3>Cryptographic signing</h3>
-    <p>Every review collected through Signed Reviews is cryptographically signed at the moment of submission. The signature binds together the review content, the Stripe transaction ID, the reviewer's email, and a timestamp, creating a tamper-evident record. Anyone can verify this signature later to confirm the review has not been altered.</p>
+    <p>Every review collected through Signed Reviews is cryptographically signed at the moment of submission. The signature binds together the rating, the review text, the Stripe charge ID and a timestamp, creating a tamper-evident record. Anyone can check a review on its public verification page to confirm it has not been altered.</p>
 
     <h3>Minimal Stripe permissions</h3>
     <p>Our Stripe integration requests the least privilege needed to verify reviews. We <strong>cannot</strong> charge, refund, transfer funds, or change your customers, subscriptions, or prices. The only object we can ever create is a discount coupon for a reviewer, and only when you enable review incentives. We read your Stripe data only to:</p>
     <ul>
       <li>Verify that a reviewer completed a purchase from your business</li>
       <li>Match the reviewer to the correct transaction</li>
-      <li>Detect refunds and automatically hide refunded reviews</li>
+      <li>Detect full refunds and disputes (checked every 6 hours) and automatically hide those reviews</li>
       <li>Compute aggregate public-page metrics (when enabled)</li>
     </ul>
 
-    <h3>No fake reviews by design</h3>
-    <p>Most review platforms fight fake reviews with detection algorithms, a reactive approach. Signed Reviews prevents fake reviews structurally: every review requires a verified purchase. A review link is issued either automatically after a Stripe charge succeeds or on request from the business's public page, and in both cases the email must match a real completed purchase. Links are single-use and expire after a set period. No matching purchase = no link = no review.</p>
+    <h3>Purchase-gated by design</h3>
+    <p>Most review platforms fight fake reviews with detection algorithms, a reactive approach. Signed Reviews keeps non-customers out structurally: every review requires a verified purchase. A review link is issued either automatically when a new customer's charge comes in from Stripe or on request from the business's public page, and in both cases the email must match a real completed purchase. Links are single-use and expire after a set period. No matching purchase = no link = no review.</p>
 
     <h3>Data ownership</h3>
     <p>You own your review data. Signed Reviews is the processor; your business is the controller. Reviews collected through our platform belong to you: we do not sell, share, or use your review data for any purpose other than providing the service. See our <a href="/privacy/">Privacy Policy</a> and <a href="/dpa/">Data Processing Agreement</a> for the full legal framework.</p>

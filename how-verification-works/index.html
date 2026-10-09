@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/how-verification-works/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="13ff47aba1669cf3e2d42b46a584a12271aacc38">
-  <meta name="build-time" content="2026-10-08T14:01:41.472Z">
+  <meta name="build-commit" content="b81f2a982a604245c8457043f1b5fa41ac2f8c2a">
+  <meta name="build-time" content="2026-10-09T17:49:30.267Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="How Review Verification Works: The 4 Verification Levels">
@@ -611,7 +611,7 @@ main { padding: 0; }
     })();
   </script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.","email":"support@signedreviews.com","foundingDate":"2025","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"},"sameAs":["https://marketplace.stripe.com/apps/signedreviews","https://chromewebstore.google.com/detail/is-this-review-real-%E2%80%94-sig/jkfdbmlmfjbnbhillhlehabpbpeoljco","https://www.linkedin.com/company/signed-reviews"]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"How Review Verification Works: The 4 Verification Levels","item":"https://signedreviews.com/how-verification-works/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"How Review Verification Works","item":"https://signedreviews.com/how-verification-works/"}]}</script>
   <script async preferred-sources-control="manual" src="https://news.google.com/swg/js/v1/publisher.js"></script>
   <script defer src="/js/preferred-source.js"></script>
 
@@ -696,8 +696,8 @@ main { padding: 0; }
     <h3>Level 3. Merchant-supplied order data</h3>
     <p>The business sends the platform a feed of its own orders (or connects its e-commerce system), and the platform matches reviews to records in that feed. This is the model behind Yotpo's "Verified Buyer" (Mail-After-Purchase matching) and Feefo's invitation-only reviews. It is a real improvement over Levels 0–2, but the party being reviewed (the merchant) is also the party supplying the verification data, and the merchant controls that data in its own systems.</p>
 
-    <h3>Level 4. Processor-attested (independently verified)</h3>
-    <p>A neutral third party, the payment processor, independently confirms that a real charge occurred between this specific customer and this specific business before a review can exist. The merchant cannot invite a reviewer whose payment the processor has not seen, cannot edit the record, and cannot remove the verification after the fact. This is the level Signed Reviews provides: every review is bound to a specific Stripe charge ID and cryptographically signed at submission.</p>
+    <h3>Level 4. Processor-attested</h3>
+    <p>A neutral third party, the payment processor, holds the record of a real charge between this specific customer and this specific business, and a review can only exist if it matches that record. The merchant cannot invite a reviewer whose payment the processor has not seen, cannot edit the record, and cannot remove the verification after the fact. This is the level Signed Reviews provides: every review is bound to a specific Stripe charge ID and cryptographically signed at submission.</p>
 
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
@@ -713,19 +713,19 @@ main { padding: 0; }
     </div>
 
     <h2>Why the verification source matters</h2>
-    <p>The source decides whether fake reviews are <em>prevented</em> or merely <em>detected</em>. On Levels 0–3, a fake review is an invitation list or a doctored order away. The platform can only police reviews after they appear. On Level 4, a fake review from a non-customer is structurally impossible, because the review flow starts with a confirmed transaction rather than a claim about one.</p>
+    <p>The source decides whether fake reviews are <em>prevented</em> or merely <em>detected</em>. On Levels 0–3, a fake review is an invitation list or a doctored order away. The platform can only police reviews after they appear. On Level 4, a non-customer cannot post a review at all, because the review flow starts with a real charge in the processor's records rather than a claim about one. Faking one means running a real payment, which costs money and leaves a record.</p>
     <p>The scale of the problem is measurable. Trustpilot removed <strong>4.5 million fake reviews in 2024, which is 7.4% of all reviews submitted</strong> to the platform that year. That is a detection system working at scale, not a prevention system: the fakes were already live, already influencing shoppers, before they were removed.</p>
-    <p>Regulators have noticed the same gap. The FTC's rule banning fake reviews and testimonials (effective October 2024) targets exactly the practices that Level 4 makes impossible: reviews from non-customers, purchased reviews, and "verified" claims without substance. The FTC's own guidance answers the question directly: a platform's "verified" label must mean the platform actually verified what it claims.</p>
+    <p>Regulators have noticed the same gap. The FTC's rule banning fake reviews and testimonials (effective October 2024) targets exactly the practices that Level 4 makes much harder: reviews from non-customers, purchased reviews, and "verified" claims without substance. The FTC's own guidance answers the question directly: a platform's "verified" label must mean the platform actually verified what it claims.</p>
 
     <h2>How processor attestation works at Signed Reviews</h2>
     <p>Signed Reviews connects to a business's Stripe account via Stripe's official OAuth: with <strong>least-privilege scopes</strong> that allow reading charges, customers, and subscriptions, but can never create charges, issue refunds, or move funds. Then:</p>
     <ul>
-      <li><strong>A charge succeeds.</strong> Stripe's <code>charge.succeeded</code> event triggers a unique, expiring review invitation bound to that specific charge ID.</li>
+      <li><strong>A charge succeeds.</strong> Signed Reviews picks up the new charge from Stripe and, for a customer it has not invited before, creates a unique, expiring review invitation bound to that specific charge ID.</li>
       <li><strong>The invitation goes to the payment email.</strong> The address Stripe has on file for the actual payment, not an address the merchant typed into a list.</li>
-      <li><strong>The review is signed at submission.</strong> Review content, charge ID, customer email, and timestamp are cryptographically signed together, creating a tamper-evident record anyone can verify.</li>
-      <li><strong>Refunds hide reviews automatically.</strong> If the charge is refunded, Stripe's webhook removes the associated review from public display, no merchant action, no appeal window.</li>
+      <li><strong>The review is signed at submission.</strong> The rating, review text, charge ID and timestamp are cryptographically signed together, creating a tamper-evident record anyone can check on the public verification page.</li>
+      <li><strong>Refunds hide reviews automatically.</strong> A background check re-reads charges every 6 hours. If a charge is fully refunded or disputed, the review is hidden from public display and kept for audit, with no merchant action. Partial refunds stay visible.</li>
     </ul>
-    <p>The result is a review that proves three things at once: a real customer, a real purchase, and unchanged content. The cryptographic signature makes the tamper-evident part independently checkable, not a claim by the platform, but a verifiable property of the data.</p>
+    <p>The result is a review that proves three things at once: a real customer, a real purchase, and unchanged content. The cryptographic signature makes edits detectable: if the review text or its charge reference changes, the signature no longer matches, and anyone can see that on the review's public verification page.</p>
 
     <div class="verdict">
       <h3>The verification hierarchy in one sentence</h3>
@@ -735,10 +735,10 @@ main { padding: 0; }
     <h2>Frequently asked questions</h2>
 
     <h3>What does a verified review actually prove?</h3>
-    <p>Depends entirely on who did the verifying. An email-invitation "verified" badge proves the business sent an invitation. A merchant-feed badge proves the review matches a record the merchant supplied. A processor-attested badge proves a payment processor independently confirmed a real charge. Before trusting a badge, ask what the platform verified, and against whom.</p>
+    <p>Depends entirely on who did the verifying. An email-invitation "verified" badge proves the business sent an invitation. A merchant-feed badge proves the review matches a record the merchant supplied. A processor-attested badge proves the review matches a real charge in the payment processor's records. Before trusting a badge, ask what the platform verified, and against whom.</p>
 
     <h3>Can processor-verified reviews be faked?</h3>
-    <p>Not without committing real payment fraud. To produce a fake processor-verified review you would need to run a genuine payment through the merchant's Stripe account and then have the cardholder submit a review: an attack that costs money, leaves a financial record, and gains nothing that paying customers don't already provide. That is the structural difference between prevention and detection.</p>
+    <p>Not without a real payment. To produce a fake processor-verified review you would need to run a genuine payment through the merchant's Stripe account and then have the cardholder submit a review: an attack that costs money, leaves a financial record, and gains nothing that paying customers don't already provide. That is the structural difference between prevention and detection.</p>
 
     <h3>Which review platforms verify against the payment processor?</h3>
     <p>Signed Reviews is the only review platform that attests reviews against Stripe's own charge record. Other platforms verify against data the merchant supplies: an email address, an uploaded order list, or an e-commerce feed. None of them confirm the payment independently.</p>
@@ -757,7 +757,7 @@ main { padding: 0; }
         "name": "What does a verified review actually prove?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "It depends on who did the verifying. An email-invitation 'verified' badge proves the business sent an invitation. A merchant-feed badge proves the review matches a record the merchant supplied. A processor-attested badge proves a payment processor independently confirmed a real charge. Before trusting a badge, ask what the platform verified, and against whom."
+          "text": "It depends on who did the verifying. An email-invitation 'verified' badge proves the business sent an invitation. A merchant-feed badge proves the review matches a record the merchant supplied. A processor-attested badge proves the review matches a real charge in the payment processor's records. Before trusting a badge, ask what the platform verified, and against whom."
         }
       },
       {
@@ -765,7 +765,7 @@ main { padding: 0; }
         "name": "Can processor-verified reviews be faked?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Not without committing real payment fraud. Producing a fake processor-verified review would require running a genuine payment through the merchant's Stripe account and having the cardholder submit a review: an attack that costs money, leaves a financial record, and gains nothing that paying customers don't already provide."
+          "text": "Not without a real payment. Producing a fake processor-verified review would require running a genuine payment through the merchant's Stripe account and having the cardholder submit a review: an attack that costs money, leaves a financial record, and gains nothing that paying customers don't already provide."
         }
       },
       {

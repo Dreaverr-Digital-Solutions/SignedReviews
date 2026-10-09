@@ -1,13 +1,13 @@
 # How to Collect Reviews for SaaS: A Guide for Subscription Businesses
 **Title:** How to Collect Reviews for SaaS | Signed Reviews
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** How to collect reviews for SaaS: timing by subscription lifecycle, Stripe Billing verification, and platforms that turn payments into social proof.
+**Published:** 2026-07-24 · **Updated:** 2026-10-09 · **Author:** Robinson Guerra · **Description:** How to collect reviews for SaaS: timing by subscription lifecycle, Stripe Billing verification, and platforms that turn payments into social proof.
 
 ---
 
-SaaS companies have a review problem that e-commerce businesses don't: there's no package to photograph, no unboxing experience to describe, and the "product" changes every month. If you're trying to collect reviews for SaaS, the timing and verification model matter more than they do for any other business type. A review written three days into a free trial is fundamentally different from one written after two years of paid subscription, but most review platforms treat them identically.
+To collect reviews for SaaS, ask after the customer's first paid payment, never during the free trial. For monthly subscribers that means 30–60 days after the first payment; for annual subscribers, 60–90 days, and if you want a second ask at renewal, send it yourself. Trigger each request from your billing events and verify the review against the payment processor, not your own customer database.
 
-Here's how to collect reviews for SaaS: timing around the subscription lifecycle, Stripe-native verification, and the tools that turn recurring payments into recurring social proof.
+SaaS has no package to unbox, and the product changes every month. A review written three days into a free trial says something very different from one written after two years of paid use. The sections below cover timing, Stripe Billing events and where to show the reviews.
 
 ---
 
@@ -55,13 +55,13 @@ When you ship a major feature, invite the customers who've adopted it to review 
 
 ## How Stripe Billing creates recurring verification
 
-If you use Stripe Billing for subscriptions, every recurring payment is an independent verification event:
+If you use Stripe Billing for subscriptions, every recurring payment leaves a record in Stripe that a review can be checked against. These are the relevant events from [Stripe's event types reference](https://docs.stripe.com/api/events/types):
 
 - **`invoice.paid`**: a subscription payment succeeded. This is a verification opportunity: the customer just paid real money. Their review will reflect current, active usage.
-- **`customer.subscription.updated`**: the customer upgraded, downgraded, or renewed. Upgrade events are particularly high-signal for review requests.
+- **`customer.subscription.updated`**: the subscription changed, for example the customer switched plans or moved from trial to active. Upgrade events are particularly high-signal for review requests.
 - **`customer.subscription.deleted`**: the customer cancelled. Don't ask for a review, but if they wrote one previously, ensure it's still attributed to a paying customer at the time of writing (the verification is tied to the charge that existed at review-submission time).
 
-The architectural advantage: a Stripe-native review platform can listen for these events and time review invitations around the subscription lifecycle automatically. No manual campaign management. No guessing when to ask. The billing data drives the timing.
+The architectural advantage: a Stripe-native review platform can read this billing data and time invitations from it. No manual campaign management. No guessing when to ask. Signed Reviews, for example, picks up a customer's first charge and sends one invitation sequence per customer (an invite plus up to 2 reminders), immediately or after a delay you set. It does not re-invite on renewals, so any later ask is one you send yourself.
 
 ---
 
@@ -100,7 +100,7 @@ SaaS reviews need to appear where prospects make buying decisions, which is diff
 
 | Layer | Tool | Purpose |
 |-------|------|---------|
-| **Verified reviews (your site)** | Stripe-native review platform | Processor-attested reviews on your own domain. Full control, full verification. |
+| **Verified reviews (your site)** | Stripe-native review platform | Processor-attested reviews on a hosted page, or rendered on your own domain through the public API. |
 | **Aggregator presence** | G2, Capterra, TrustRadius, Product Hunt | Discovery. SaaS buyers search here. Your G2 profile should link to your verified reviews. |
 | **Social proof** | Testimonials, case studies, customer logos | High-touch sales support. Pair testimonials with verified reviews from the same customer. |
 | **Feedback / NPS** | In-app surveys, NPS tools | Internal measurement, not public reviews. These tell you how you're doing, not prospects. |
@@ -112,10 +112,10 @@ If you're weighing Trustpilot specifically, [Trustpilot alternatives for SaaS](/
 ## Common questions about collecting reviews for SaaS
 
 ### How often should I ask for reviews?
-Ask SaaS customers once per subscription milestone, end of free trial, first month payment, annual renewal, rather than after every interaction. Over-requesting dilutes authenticity and annoys power users.
+Ask each customer once after their first paid month, not after every interaction. If you want a second ask later, such as at an annual renewal, send it yourself; Signed Reviews sends one invitation sequence per customer, ever. Over-requesting dilutes authenticity and annoys power users.
 
 ### Can I automate review requests?
-Yes. Use Stripe webhooks to trigger review emails when a payment succeeds, or integrate review platforms with your CRM so requests sync with the subscription lifecycle automatically.
+Yes. If you build it yourself, listen for Stripe's `invoice.paid` webhook and send the email from your own code. Without code, Signed Reviews picks up new charges from your connected Stripe account and sends the invitation immediately or after a delay you set.
 
 ### What's the minimum number of reviews I need?
 Aim for 10 reviews on your primary platform to establish baseline social proof. Then add a new review every week, prioritizing verified reviews from paying users.
@@ -124,7 +124,7 @@ Aim for 10 reviews on your primary platform to establish baseline social proof. 
 
 ## How to turn SaaS reviews into a product development feedback loop
 
-Collecting reviews for SaaS isn't just about social proof. It's raw product intelligence. Analyze sentiment across recurring reviews to spot trends, prioritize feature requests, and reduce churn. Use a platform like SignedReviews to automatically tag feedback by subscription tier and close the loop with reviewers when your team ships a fix they asked for. [See how verification and automation work together](/how-it-works).
+Collecting reviews for SaaS isn't just about social proof. It's raw product intelligence. Analyze sentiment across recurring reviews to spot trends, prioritize feature requests, and reduce churn. Tag feedback by subscription tier in your own tracker, and close the loop with reviewers when your team ships a fix they asked for. SignedReviews lets you reply to each review publicly, which is a good place to say so. [See how verification and automation work together](/how-it-works).
 
 ---
 

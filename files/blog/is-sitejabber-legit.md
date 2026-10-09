@@ -1,7 +1,7 @@
 # Is SiteJabber Legit? What the FTC Order Means for Its Reviews
 **Title:** Is SiteJabber Legit? The FTC Order Explained | Signed Reviews
 
-**Published:** 2026-10-06 · **Author:** Signed Reviews Team · **Description:** Is SiteJabber legit? It's a real review site, now SmartCustomer, but the FTC says it inflated ratings. What the 2025 order requires and how to read its reviews.
+**Published:** 2026-10-06 · **Author:** Robinson Guerra · **Description:** Is SiteJabber legit? It's a real review site, now SmartCustomer, but the FTC says it inflated ratings. What the 2025 order requires and how to read its reviews.
 
 ---
 

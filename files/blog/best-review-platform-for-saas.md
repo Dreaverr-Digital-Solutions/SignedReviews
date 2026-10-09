@@ -1,7 +1,7 @@
 # SaaS Review Sites: Where to Get Listed in 2026
 **Title:** SaaS Review Sites: 9 Places to Get Listed (2026) | Signed Reviews
 
-**Published:** 2026-07-24 · **Updated:** 2026-10-06 · **Author:** Signed Reviews Team · **Description:** SaaS review sites compared: G2, Capterra, TrustRadius, Gartner Peer Insights and 5 more, with free listing options and how each one verifies reviewers.
+**Published:** 2026-07-24 · **Updated:** 2026-10-06 · **Author:** Robinson Guerra · **Description:** SaaS review sites compared: G2, Capterra, TrustRadius, Gartner Peer Insights and 5 more, with free listing options and how each one verifies reviewers.
 
 ---
 

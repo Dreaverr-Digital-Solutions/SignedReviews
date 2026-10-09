@@ -1,13 +1,13 @@
 # How to Verify a Customer Actually Bought: 4 Methods, Ranked
 **Title:** How to Verify a Customer Actually Bought | Signed Reviews
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** How to verify a customer actually bought: four methods ranked by falsifiability, from email confirmation to processor attestation. Pick the right level.
+**Published:** 2026-07-24 · **Updated:** 2026-10-09 · **Author:** Robinson Guerra · **Description:** How to verify a customer actually bought: four methods ranked by falsifiability, from email confirmation to processor attestation. Pick the right level.
 
 ---
 
-Every business collecting reviews faces the same question: how to verify a customer actually bought something. The answer depends on your tech stack, your payment processor, and how much certainty you want.
+How to verify a customer actually bought, ranked from weakest to strongest: email confirmation, invitation-only collection, order matching against your store records, and processor attestation, where each review is matched to a completed charge in your payment processor. Only the last one checks a record the merchant cannot create for free.
 
-How to verify a customer actually bought: four methods ranked by how hard each is to fake, from email confirmation to processor attestation.
+Which one fits depends on your tech stack, your payment processor and how much certainty you need.
 
 ---
 
@@ -19,7 +19,7 @@ How to verify a customer actually bought: four methods ranked by how hard each i
 
 **What it doesn't prove:** That the reviewer ever interacted with the business, let alone made a purchase.
 
-**Fake difficulty:** Zero. Anyone can create a free email address in 30 seconds.
+**Fake difficulty:** Zero. Anyone can create a free email address.
 
 **Best for:** Open forums, community reviews, platforms where volume matters more than authenticity.
 
@@ -31,7 +31,7 @@ How to verify a customer actually bought: four methods ranked by how hard each i
 
 **How it works:** The business sends review invitations to specific email addresses, usually by integrating with their e-commerce platform or uploading a customer list. Only invited email addresses can leave a "verified" review.
 
-**What it proves:** The business selected this person to receive an invitation. (Trustpilot, Feefo, and most platforms rely on this model.)
+**What it proves:** The business selected this person to receive an invitation. (Trustpilot and Feefo both work this way. [Trustpilot](https://corporate.trustpilot.com/trust/how-trustpilot-works) says invitations triggered from a business's ecommerce or CRM systems let it "link each verified review to a specific customer interaction", and [Feefo](https://business.feefo.com/resources/business-insights/where-do-fake-reviews-come-from) says its verified reviews "come from people invited to leave their opinions".)
 
 **What it doesn't prove:** That the invited person actually made a purchase, only that the business put them on a list.
 
@@ -55,7 +55,7 @@ How to verify a customer actually bought: four methods ranked by how hard each i
 
 **Fake difficulty:** Medium. A merchant could create a test order in their own Shopify store and write a review against it. The platform would see "order record exists → verified." The merchant needs access to their own store admin, which they have by definition.
 
-**The gap:** The data source is still the merchant. A merchant can create orders (for $0, with discount codes), invite the "customer" (themselves or an accomplice), and collect "Verified Buyer" reviews. Most merchants don't do this, but the architecture doesn't prevent it.
+**The gap:** The data source is still the merchant. A merchant can create a draft order, apply a discount or mark it as paid ([Shopify Help Center](https://help.shopify.com/en/manual/fulfillment/managing-orders/create-orders)), invite the "customer" (themselves or an accomplice), and collect "Verified Buyer" reviews. Most merchants don't do this, but the architecture doesn't prevent it.
 
 **Best for:** E-commerce businesses on Shopify or similar platforms that want a stronger verification signal than email alone.
 
@@ -65,18 +65,18 @@ How to verify a customer actually bought: four methods ranked by how hard each i
 
 ## Method 4: Processor attestation (Level 4)
 
-**How it works:** The review platform connects directly to the business's payment processor (Stripe) via least-privilege OAuth. Every review is matched to a confirmed, settled, non-refunded charge in the payment processor's system, and signed cryptographically so the attestation is independently verifiable.
+**How it works:** The review platform connects directly to the business's payment processor (Stripe) via least-privilege OAuth. Every review is matched to a completed charge imported from the payment processor, and signed cryptographically so any later edit is detectable.
 
 **What it proves:**
-- A real charge occurred (amount, date, payment method confirmed by Stripe)
+- A real charge occurred (amount, date and payment method come from Stripe's charge record)
 - The charge settled (not pending or failed)
-- The charge hasn't been refunded (refunds automatically hide the review)
+- The charge hasn't been fully refunded or disputed (charges are re-checked every 6 hours, and a full refund or dispute hides the review)
 - The reviewer's email matches the payment email on the Stripe charge
 
 **What it doesn't prove:** That the review is fair, detailed, or unbiased.
 
 **Fake difficulty:** Very high. To create a fake processor-attested review, a merchant would need to:
-1. Run a real Stripe charge (pays Stripe processing fees, ~2.9% + $0.30)
+1. Run a real Stripe charge and pay the processing fee (2.9% + 30¢ per successful domestic card transaction on [Stripe's standard US pricing](https://stripe.com/pricing))
 2. Risk their Stripe account being flagged for fraudulent activity
 3. Accept that refunding the charge hides the review automatically
 
@@ -84,7 +84,7 @@ The economics of faking reviews at Level 4 are terrible: every fake review costs
 
 **Best for:** Any business processing payments through Stripe that wants the strongest possible verification signal, and is willing to let the payment processor (not the business) be the arbiter of who's a real customer.
 
-**The verdict:** Processor attestation is the only method where the attesting party is **independent of the merchant.** It's the difference between "we checked our own records" and "Stripe confirmed the charge."
+**The verdict:** Processor attestation is the only method where the attesting party is **independent of the merchant.** It's the difference between "we checked our own records" and "the charge record came from Stripe."
 
 ---
 
@@ -136,7 +136,7 @@ If you process payments through Stripe, you already have the infrastructure for 
     {"@type": "HowToStep", "text": "Email confirmation", "description": "Send a confirmation link; proves email ownership, not purchase."},
     {"@type": "HowToStep", "text": "Invitation-only", "description": "Send review invitations to known customers; increases authenticity but still relies on email."},
     {"@type": "HowToStep", "text": "Order matching", "description": "Match review request to a specific order record; confirms transaction exists."},
-    {"@type": "HowToStep", "text": "Processor attestation", "description": "Direct API check with payment processor; near-impossible to fake."}
+    {"@type": "HowToStep", "text": "Processor attestation", "description": "Match each review to a completed charge imported from the payment processor; much harder to fake."}
   ]
 }
 </script>

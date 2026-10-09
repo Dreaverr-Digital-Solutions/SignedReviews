@@ -1,11 +1,11 @@
 # Fake Reviews on Shopify: How They Work, How to Spot Them, and How to Prevent Them
 **Title:** Fake Reviews on Shopify: How to Stop Them | Signed Reviews
 
-**Published:** 2026-07-24 · **Author:** Signed Reviews Team · **Description:** Fake reviews on Shopify: brushing schemes, incentivized reviews, and app manipulation. How they work, how Shopify fights them, and the structural fix.
+**Published:** 2026-07-24 · **Updated:** 2026-10-09 · **Author:** Robinson Guerra · **Description:** Fake reviews on Shopify: brushing schemes, incentivized reviews, and app manipulation. How they work, how Shopify fights them, and the structural fix.
 
 ---
 
-Shopify powers roughly 10% of U.S. e-commerce. With millions of merchants and over 13,000 apps in the App Store, it's also a significant target for fake-review operations. The problem isn't just Amazon's anymore: fake reviews on Shopify stores are rising, and Shopify's architecture makes certain kinds of fake-review fraud uniquely difficult to detect.
+To stop fake reviews on Shopify, use a review app that verifies against data the merchant can't edit, keep unverified imports and positive-only manual approval out of your review flow, and never tie an incentive to a positive rating. Many Shopify review apps only check that an order exists, and the merchant controls Shopify order data, so a self-made order can carry a "Verified Buyer" badge. The target is large: 10% of U.S. ecommerce sales are processed through Shopify ([Shopify](https://www.shopify.com/about)), and its App Store lists over 16,000 apps ([Shopify App Store](https://apps.shopify.com/)).
 
 Fake reviews on Shopify exploit a structural weakness: verification is delegated to third-party apps with inconsistent standards.
 
@@ -37,7 +37,7 @@ The merchant buys their own product using a discount code (often 100% off), ship
 
 A merchant offers a discount or free product in exchange for a review. Sometimes disclosed ("I received this product at a discount..."), often not. The purchase is real, the reviewer actually paid something, but the incentive distorts the review content (toward positivity) and the reviewer selection (only deal-seekers, not genuine customers).
 
-**Why it works:** The purchase is real, so order-matching verification can't detect it. Shopify's terms prohibit incentivized reviews, but enforcement is complaint-driven and uneven across the 13,000+ app ecosystem.
+**Why it works:** The purchase is real, so order-matching verification can't detect it. The FTC's 2024 rule bans incentives conditioned on a positive or negative review ([FTC](https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials)), but an order record can't show whether a review was incentivized.
 
 ### 3. App-based manipulation
 
@@ -54,8 +54,8 @@ A merchant using one of these apps can manufacture a perfect review profile: sel
 ### 4. Third-party fake-review marketplaces
 
 The same click farms and bot networks that target Amazon and Trustpilot also target Shopify stores. On underground forums, you can buy:
-- **"Verified Purchase" Shopify reviews:** $5–$15 each, with real-looking order history
-- **Bulk review packages:** 50 reviews for $200–$500, distributed over weeks to avoid velocity detection
+- **"Verified Purchase" Shopify reviews**, sold with real-looking order history
+- **Bulk review packages**, distributed over weeks to avoid velocity detection
 - **"Aged account" reviews:** Reviews from Shopify customer accounts that are months or years old, making them look like genuine repeat shoppers
 
 These operations use residential proxies, unique device fingerprints, and AI-generated review text to evade automated detection. The reviews look real because, to a review app checking order data, they are real. The fake order was created, the fake payment was processed, and the fake review was submitted.
@@ -70,7 +70,6 @@ Shopify's defenses operate at the platform level, not the review-app level:
 |---------|-------------|-----------|
 | **Shopify Fraud Protect** | Flags high-risk orders for fulfillment | Doesn't prevent the order from existing; review apps still see it as an order |
 | **App Store review process** | Vets apps before listing | Checks for functional bugs, not verification-model integrity |
-| **Terms of Service enforcement** | Prohibits fake and incentivized reviews | Complaint-driven; reactive, not preventative |
 | **Shopify Protect (chargeback protection)** | Covers chargeback costs on eligible orders | Irrelevant to fake-review prevention |
 
 The fundamental gap: **Shopify secures the payment and fulfillment pipeline, not the review pipeline.** Review authenticity is delegated to third-party apps, each with its own (variable) verification standards.
@@ -95,7 +94,7 @@ If you're a Shopify merchant, fake reviews hurt you too: they damage consumer tr
 
 1. **Choose a review app with strong verification.** Ask: does this app verify against payment data, order data, or just an email address? Order matching (Level 3) is the Shopify standard; anything less is weak.
 2. **Don't import reviews from other platforms unless they carry their original verification status.** Mixing verified and unverified reviews under the same "Reviews" heading misleads consumers and may violate FTC rules.
-3. **Don't gate reviews behind a manual approval step that only passes positive ones.** The FTC's 2024 rule prohibits suppression of negative reviews.
+3. **Don't gate reviews behind a manual approval step that only passes positive ones.** The FTC's 2024 rule bars presenting your reviews as complete when negative ones have been suppressed.
 4. **Don't offer incentives for positive reviews.** Incentives for writing *a review* are generally fine if disclosed.
 5. **Use a review platform that verifies against something you can't control.** If your verification data comes from your own Shopify store, a bad actor with access to your store admin can manufacture verified reviews. If your verification data comes from the payment processor (Stripe), manufacturing a verified review requires manufacturing a real payment, which costs money, leaves a paper trail, and risks your payment-processing ability.
 
@@ -107,11 +106,11 @@ For the complete process of collecting reviews on a Shopify store, including app
 
 Every method for generating fake reviews on Shopify exploits the same weakness: **the review app trusts data the merchant can control.** Shopify orders, customer lists, discount codes: these are all under the merchant's administrative control.
 
-The only way to structurally prevent fake reviews is to verify against something the merchant **cannot** control: the payment processor. A Stripe charge is an independent record. The merchant can't create one without paying real Stripe fees. They can't delete one. They can't modify the amount, the customer email, or the charge status. And if they refund it, the review platform receives a `charge.refunded` webhook and hides the review automatically.
+The only way to structurally prevent fake reviews is to verify against something the merchant **cannot** control: the payment processor. A Stripe charge is an independent record. The merchant can't create one without paying real Stripe fees. They can't delete one. They can't change the amount of a completed charge or mark an unpaid one as paid. And if they fully refund it, a review platform that re-checks the charge can hide the review automatically. Signed Reviews re-reads charges every 6 hours and hides reviews on fully refunded or disputed charges.
 
 This is processor-attested verification (Level 4 on the [verification spectrum](/learn/what-does-verified-buyer-mean/)). No Shopify review app offers it. Only platforms that integrate directly with Stripe do, and that's a small list. [See how it works](/how-it-works/) for the full technical breakdown.
 
-For Shopify merchants who process payments through Stripe (including Shopify Payments, which runs on Stripe's infrastructure), the question isn't whether you can prevent fake reviews on your store. It's whether your review app verifies against the one data source you can't fabricate. [See pricing](/pricing/) for plans that include processor-attested verification.
+For Shopify merchants who take payment through their own Stripe account, the question isn't whether you can prevent fake reviews on your store. It's whether your review app verifies against the one data source you can't fabricate. Stores on Shopify Payments can't connect: it runs on Stripe, but the merchant has no Stripe account of their own to link. [See pricing](/pricing/) for plans that include processor-attested verification.
 
 ---
 

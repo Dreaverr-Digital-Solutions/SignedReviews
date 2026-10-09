@@ -1,23 +1,23 @@
 # Post Purchase Review Email Templates: 5 Templates That Drive Verified Reviews
 **Title:** Post Purchase Review Email Templates | Signed Reviews
 
-**Published:** 2026-07-24 · **Updated:** 2026-09-06 · **Author:** Signed Reviews Team · **Description:** Post purchase review email templates you can copy, plus the post purchase review form fields that lift response rates, with timing and FTC guidance.
+**Published:** 2026-07-24 · **Updated:** 2026-10-09 · **Author:** Robinson Guerra · **Description:** Post purchase review email templates you can copy, plus the post purchase review form fields that lift response rates, with timing and FTC guidance.
 
 ---
 
-The best time to ask for a review is right after a customer has experienced your product, but not so soon that they haven't formed an opinion. The worst time is when they're annoyed by yet another marketing email. A well-crafted post purchase review email template can double your response rates, but only if you get the timing, structure, and ask right.
+A good post purchase review email template is short, comes from a real person, asks for one thing (a click to the review form), and arrives after the customer has used the product: 3–7 days after delivery for physical goods, the same or next day for digital products, and within 48 hours of finishing a service. Follow up with people who don't respond, then stop.
 
-This guide covers when to send, what to say, and how to structure your review request emails for maximum response rates. Every template is based on patterns that consistently outperform generic "please leave us a review" messages.
+Below are five templates you can copy, the timing for each, and how to send them automatically from Stripe.
 
-**New in this update:** All five templates now include Stripe-automation notes, so if you use Stripe, you can trigger these emails automatically on charge events, skip the manual work, and collect transaction-verified reviews that carry a "Verified Stripe Purchase" badge instead of a generic "Verified Reviewer" tag.
+**New in this update:** The templates now include Stripe-automation notes, so if you use Stripe, you can send review requests automatically when a charge comes in, skip the manual work, and collect transaction-verified reviews that carry a "Verified by Signed Reviews" badge backed by a completed Stripe charge instead of a generic "Verified Reviewer" tag.
 
 ## Post Purchase Review Form vs Review Email: Which Converts Better?
 
 A **post purchase review form** is the page where the review actually gets written (star rating, headline, review text) and it can appear two ways: embedded on a thank-you page right after checkout, or reached through a review request email.
 
 - **The on-site form alone** reaches only the customers who are still on your site. Most people leave after paying; the form they never saw generates nothing. Worse, a form alone proves nothing: anyone can fill one in, which is why unverified on-site forms are easy to flood with fake reviews.
-- **The email-to-form flow** reaches every customer: the review request email is triggered by the charge event, and its link opens the form on your own review page.
-- **The verification layer** is what makes the form's output trustworthy. When the purchase is attested by the payment processor, the review the form collects becomes a payment verified review: the strongest badge a customer can see. See [payment verified reviews](/blog/purchase-verified-vs-email-verified-reviews/) for how that works.
+- **The email-to-form flow** reaches every customer: the review request email goes out when the charge comes in (or after a delay you set), and its link opens the form on your own review page.
+- **The verification layer** is what makes the form's output trustworthy. When the review is matched to a completed charge from the payment processor, the review the form collects becomes a payment verified review: the strongest badge a customer can see. See [payment verified reviews](/blog/purchase-verified-vs-email-verified-reviews/) for how that works.
 
 If your goal is review volume plus verified status, the email-to-form flow beats an on-site form alone.
 
@@ -29,7 +29,7 @@ Before the templates, three principles that determine whether your emails get op
 
 Your email has exactly one job: get the customer to click the review link. Don't cross-sell. Don't ask them to follow you on social media. Don't include three different CTAs. One email, one link, one action.
 
-Emails with a single CTA increase click-through rates by 42% compared to emails with multiple CTAs (Campaign Monitor, 2023).
+Campaign Monitor reports that [emails with a single CTA receive 371% more clicks](https://www.campaignmonitor.com/resources/knowledge-base/do-ctas-help-to-improve-email-response-rates/) than emails with multiple calls to action.
 
 ### 2. The subject line is everything
 
@@ -38,7 +38,7 @@ Most review request emails die in the inbox. Your subject line needs to:
 - Not look like marketing ("Your order #1234, quick question")
 - Be short (under 50 characters for mobile)
 
-"Quick question about your order" consistently outperforms "Please review your purchase" by 2–3× on open rates.
+"Quick question about your order" reads like a note from a person. "Please review your purchase" reads like marketing.
 
 ### 3. Timing matters more than copy
 
@@ -52,7 +52,7 @@ The best-written email sent at the wrong time will get ignored. The rules:
 | Services (consulting, etc.) | Within 48 hours of completion | Fresh impression, not yet stale |
 | Consumables / food | 5–10 days after delivery | Time to try the product |
 
-**Never send a review request before the customer has received the product.** This is the single most common mistake, and it's the one that got SiteJabber in trouble with the FTC in 2024. Sending a review request at checkout, before the customer has the product, generates reviews about expectations, not experience.
+**Never send a review request before the customer has received the product.** It's a common mistake. In November 2024 the [FTC charged Sitejabber](https://www.ftc.gov/news-events/news/press-releases/2024/11/ftc-order-against-ai-enabled-review-platform-sitejabber-will-ensure-consumers-get-truthful-accurate) with collecting reviews at the time of purchase, before customers had received what they bought, and presenting them as reviews from people who had experienced the product. Sending a review request at checkout, before the customer has the product, generates reviews about expectations, not experience.
 
 ## Template 1: E-commerce, physical products
 
@@ -77,7 +77,7 @@ Thanks,
 
 **Why it works:** Short, personal, and explicitly invites honest feedback. "Good, bad, or in-between" signals that you're not fishing for 5-star reviews, which increases both response rate and review authenticity. The founder's name as the sender (rather than a generic brand email) increases open rates.
 
-**Stripe automation:** Set this to trigger 3–7 days after a `charge.succeeded` event for physical products. The platform automatically pulls the product name from the Stripe charge metadata and inserts it into the subject line and body.
+**Stripe automation:** For physical products, set a send delay that covers shipping plus 3–7 days of use. Signed Reviews picks up the new charge from Stripe and sends after that delay. Its email names the purchase amount and your business rather than the product, so keep [Product Name] for emails you send yourself.
 
 ## Template 2: SaaS, subscription products
 
@@ -101,9 +101,9 @@ P.S. If something isn't working, reply to this email. It goes directly to me, an
 
 ---
 
-**Why it works:** The P.S. is the highest-read element of any email. Making it a direct line to the founder converts people who wouldn't leave a review but might report a problem, reducing churn and negative reviews simultaneously.
+**Why it works:** The P.S. gives the reader a direct line to the founder. That converts people who wouldn't leave a review but might report a problem, reducing churn and negative reviews simultaneously.
 
-**Stripe automation:** For SaaS, trigger on `invoice.paid` rather than a one-time charge. Set a 14-day delay from the first successful subscription payment to give the customer time to experience the product. Subsequent renewal payments can trigger follow-up invitations if the customer hasn't left a review yet.
+**Stripe automation:** For SaaS, the first subscription payment starts the invitation. Set a delay after it to give the customer time to experience the product. Renewal payments don't start new invitations: each customer gets one sequence (an invite plus up to 2 reminders), ever.
 
 ## Template 3: Services / freelancers / agencies
 
@@ -128,7 +128,7 @@ Best,
 
 **Why it works:** Services are personal. The review request should be personal too, from the specific person they worked with, referencing the specific project.
 
-**Stripe automation:** Trigger on a `charge.succeeded` event for the final project payment. If you invoice in milestones, set the trigger to fire after the final invoice is paid, not mid-project when the outcome is still uncertain.
+**Stripe automation:** Signed Reviews invites each customer once, after their first charge comes in (immediately or after your delay). If you invoice in milestones, that first charge may land mid-project, so set a delay long enough to reach completion, or send this email yourself after the final payment.
 
 ## Template 4: Short follow-up (for non-responders)
 
@@ -152,9 +152,9 @@ Thanks,
 
 ---
 
-**Why it works:** The binary question reduces friction to near zero. "Yes" clickers can be routed to a review form pre-loaded with a positive sentiment; "Not really" clickers can be routed to private feedback. This is sometimes called a "sentiment gate" and can increase review submission rates by 40–60% compared to a direct review link.
+**Why it works:** The binary question reduces friction to near zero. "Yes" clickers can be routed to a review form pre-loaded with a positive sentiment; "Not really" clickers can be routed to private feedback. This is sometimes called a "sentiment gate".
 
-**⚠️ Important:** If you route "yes" clickers to a review form, you must also give "not really" clickers a path to leave a review. Otherwise you're review gating, funneling happy customers to public reviews and unhappy ones to private feedback, which is an FTC compliance risk under the 2024 rule.
+**⚠️ Important:** If you route "yes" clickers to a review form, you must also give "not really" clickers a path to leave a review. Otherwise you're review gating, funneling happy customers to public reviews and unhappy ones to private feedback, which the [FTC's guide for marketers](https://www.ftc.gov/business-guidance/resources/soliciting-paying-online-reviews-guide-marketers) warns against: "Don't ask for reviews only from customers you think will leave positive ones."
 
 ## Template 5: Delivery-triggered (physical products)
 
@@ -177,15 +177,17 @@ Thanks,
 
 **Why it works:** The delivery trigger is the most accurate timing for physical products. And explicitly saying "we ask after delivery, not before" signals integrity.
 
+**Stripe automation:** Signed Reviews has no delivery trigger. It can't see carrier tracking, so send this one yourself from your shipping tool, or set a Signed Reviews send delay that covers typical shipping. Signed Reviews writes its own subject line, so the "just delivered" wording belongs to emails you send yourself.
+
 ## What to avoid
 
 ### Don't incentivize positive reviews
 
-The FTC's 2024 rule explicitly prohibits incentives conditioned on sentiment. "Leave a 5-star review and get 10% off" is illegal. "Leave a review and get 10% off" is still allowed, but your email copy must make the distinction clear.
+The [FTC's 2024 rule](https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials) explicitly prohibits incentives conditioned on a review expressing a particular sentiment. "Leave a 5-star review and get 10% off" is illegal. "Leave a review and get 10% off" is still allowed, but your email copy must make the distinction clear.
 
 ### Don't send more than 2 reminders
 
-One initial request + one follow-up, max. A third email is spam.
+One initial request plus up to 2 reminders, then stop. That's the sequence Signed Reviews sends, and reminders stop once the customer clicks the review link.
 
 ### Don't ask for reviews at the wrong time
 
@@ -200,15 +202,17 @@ A no-reply sender address says "we want your opinion but not your conversation."
 
 ## How Stripe-native review collection automates everything above
 
-If you process payments through Stripe, you can automate every template on this page. Here's how it works:
+If you process payments through Stripe, you can automate the sending. Here's how it works with Signed Reviews:
 
-1. **Connect your Stripe account** via OAuth (one click, minimal permissions)
-2. **Configure your timing rules**: same-day, delayed, delivery-triggered, or custom
-3. **The platform detects every new charge** through Stripe's event system
-4. **Review invitations send automatically** at the timing you configured, with your template, your branding, and your sender name
-5. **Every review is tied to a Stripe charge**: the review carries a "Verified Stripe Purchase" badge, not a generic "Verified Reviewer" tag
+1. **Connect your Stripe account** by installing the Signed Reviews Stripe App (one click, minimal permissions)
+2. **Configure your timing**: send immediately or after a delay you set. There's no delivery trigger, so cover shipping time in the delay
+3. **The platform picks up each new charge** from your Stripe account
+4. **Review invitations send automatically** at the timing you configured, with your branding: one invite plus up to 2 reminders per customer, ever
+5. **Every review is tied to a Stripe charge**: the review carries a "Verified by Signed Reviews" badge backed by that charge record, not a generic "Verified Reviewer" tag
 
-### The Stripe events that can trigger review invitations
+### Stripe events to use if you build it yourself
+
+Signed Reviews doesn't use these events; it pulls new charges from your Stripe account. If you wire up your own review emails, these are the events to listen for. Descriptions follow [Stripe's event types reference](https://docs.stripe.com/api/events/types).
 
 | Stripe Event | When It Fires | Best For |
 |---|---|---|
@@ -221,12 +225,12 @@ If you process payments through Stripe, you can automate every template on this 
 
 | | Manual Email | Stripe-Triggered |
 |---|---|---|
-| **Timing accuracy** | Whenever you remember to send | Within minutes of the charge clearing |
-| **Personalization** | Generic "Dear customer" | Auto-populated with product name, charge amount, date |
+| **Timing accuracy** | Whenever you remember to send | When the charge comes in, or after the delay you set |
+| **Personalization** | Generic "Dear customer" | Auto-populated with the customer's name, purchase amount and your business name |
 | **Verification** | Email confirmed only | Stripe charge ID cryptographically bound to review |
-| **Refund handling** | Manual, you must track refunds | Automatic, review hidden on refund |
-| **Scale** | Breaks down above ~50 orders/month | Handles any volume |
-| **FTC compliance** | Depends on your process | Built in, no pre-delivery reviews, no review gating |
+| **Refund handling** | Manual, you must track refunds | Automatic, review hidden after a full refund or dispute |
+| **Scale** | Breaks down as order volume grows | Scales with your plan (up to 5,000 invitations a month on Scale) |
+| **FTC compliance** | Depends on your process | No review gating built in; set a delay so requests land after delivery |
 
 The combination of automated timing + transaction verification means every review on your page is backed by a real Stripe charge. No email-only "verified" badge. No manual invitation list. No wondering whether the reviewer actually bought something. See [Stripe proof of purchase verification](/blog/stripe-proof-of-purchase-verification/) for how the verification architecture works end-to-end.
 

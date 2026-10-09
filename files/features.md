@@ -10,13 +10,13 @@ Connect your Stripe account in one click via Stripe's official OAuth. We get min
 
 - **Automatic review invitations**: every successful Stripe charge triggers a verified review invitation
 - **Refund-aware**: if a charge is refunded, the associated review is automatically hidden
-- **Processor-attested**: the strongest verification level available; Stripe independently confirms each transaction
+- **Processor-attested**: the strongest verification level available; every review is matched to a completed charge from your Stripe account
 
 ## Cryptographic signing
 
 Every review is signed with HMAC-SHA256 at submission time. The signed payload includes review content, rating, timestamp, and transaction reference.
 
-- **Tamper-proof**: any modification after signing invalidates the signature
+- **Tamper-evident**: any modification after signing invalidates the signature
 - **Public verification page**: every review gets a verification URL showing the full cryptographic proof
 
 ## Public review page

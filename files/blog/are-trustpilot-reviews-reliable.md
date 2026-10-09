@@ -1,21 +1,21 @@
 # Are Trustpilot Reviews Reliable? The Honest Truth (2026)
 
 **Title:** Are Trustpilot Reviews Reliable? | Signed Reviews Blog
-**Published:** 2026-07-24 · **Updated:** 2026-10-06 · **Author:** Signed Reviews Team · **Description:** Are Trustpilot reviews reliable? How Trustpilot verifies reviews, where fakes slip through, what Reddit users say, and a Stripe-verified alternative.
+**Published:** 2026-07-24 · **Updated:** 2026-10-09 · **Author:** Robinson Guerra · **Description:** Are Trustpilot reviews reliable? How Trustpilot verifies reviews, where fakes slip through, what Reddit users say, and a Stripe-verified alternative.
 
 ---
 
-Are Trustpilot reviews reliable? The honest answer: **Trustpilot reviews are moderately reliable in aggregate, but any individual review could be fake.** The platform's "Verified" badge doesn't mean the reviewer purchased anything. It means the business sent them an invitation. And Trustpilot's own Transparency Report confirms the scale of the problem: **4.5 million fake reviews removed in 2024**, which is 7.4% of all submissions.
+Are Trustpilot reviews reliable? The honest answer: **Trustpilot reviews are moderately reliable in aggregate, but any individual review could be fake.** The platform's "Verified" badge doesn't mean the reviewer purchased anything. It means the business sent them an invitation. And [Trustpilot's own Trust Report 2025](https://corporate.trustpilot.com/trust/trust-report-2025) (formerly the Transparency Report) shows the scale of the problem: **4.5 million fake reviews removed in 2024**, which is 7.4% of all reviews submitted.
 
-That means roughly 1 in 13 reviews submitted to Trustpilot is fake. Here's exactly how Trustpilot's verification works, where fake reviews still slip through, what Reddit users say about the platform, and how Stripe-verified reviews offer a structurally different alternative.
+That means roughly 1 in 13 reviews submitted to Trustpilot was removed as fake. Here's exactly how Trustpilot's verification works, where fake reviews still slip through, what Reddit users say about the platform, and how Stripe-verified reviews offer a structurally different alternative.
 
 ---
 
 ## Is Trustpilot legit? The short answer for shoppers and business owners
 
-Yes, Trustpilot is a legitimate company. It was founded in 2007 in Copenhagen and has been listed on the London Stock Exchange since 2021 (LSE: TRST). It publishes an annual Transparency Report and runs a Content Integrity team. It is not a scam.
+Yes, Trustpilot is a legitimate company. It was [founded in 2007 and is headquartered in Copenhagen](https://corporate.trustpilot.com/), and it has been [listed on the London Stock Exchange since March 2021](https://moneybase.com/blog/news/trustpilot-ipo-the-online-review-platform-is-going-public) (LSE: TRST). It publishes an annual Trust Report (formerly the Transparency Report) and runs a Content Integrity team. It is not a scam.
 
-But a legitimate company is not the same as reliable reviews. If you're asking "can I trust Trustpilot reviews?", the answer is that they are **directionally useful but individually uncertain.** The platform's scale (361 million reviews) means aggregate scores tend to be statistically meaningful for businesses with large review volumes. But the open-platform model, anyone can review any business without proving they purchased anything, means **any individual review could be fake, and "Verified" doesn't independently confirm a payment happened.**
+But a legitimate company is not the same as reliable reviews. If you're asking "can I trust Trustpilot reviews?", the answer is that they are **directionally useful but individually uncertain.** The platform's scale (301 million active reviews at the end of 2024) means aggregate scores tend to be statistically meaningful for businesses with large review volumes. But the open-platform model, anyone can review any business without proving they purchased anything, means **any individual review could be fake, and "Verified" doesn't independently confirm a payment happened.**
 
 For business owners, "is Trustpilot legit" usually means something else: is it worth paying for? The [business owner section](#for-business-owners-is-trustpilot-worth-paying-for) below covers pricing, hidden costs and when it fits.
 
@@ -27,7 +27,7 @@ Trustpilot is an **open review platform.** That means:
 
 - **Anyone can review any business**: no proof of purchase required.
 - **Reviews can be organic or invited.** An organic review is someone who found the business on Trustpilot and wrote a review. An invited review comes through the business's Automatic Feedback Service (AFS), usually by BCC'ing order-confirmation emails to Trustpilot.
-- **"Verified" means invited, not independently confirmed.** Trustpilot marks a review "Verified" when it has "corroborated a genuine experience", most commonly because the business sent a unique invitation link. The verification is against the business's customer data, not against a payment processor.
+- **"Verified" means invited, not independently confirmed.** Trustpilot says it may label a review "Verified" when it "can confirm a business interaction took place" ([Trustpilot's standard note on company profiles](https://uk.trustpilot.com/review/reviewnicely.com)), most commonly because the business sent a unique invitation link. The verification is against the business's customer data, not against a payment processor.
 - **The business decides who to invite.** The business controls its customer list and invitation triggers. A business could invite only happy customers and skip the unhappy ones, and Trustpilot wouldn't know.
 
 This creates a structural asymmetry: **organic reviews skew negative** (angry people seek out the platform to complain), while **invited reviews skew positive** (businesses invite satisfied customers). Both are "verified" in different ways; neither independently confirms a transaction occurred.
@@ -38,24 +38,24 @@ Open posting also exposes businesses to **review bombing** (coordinated floods o
 
 ## What the data says
 
-Trustpilot publishes an annual Transparency Report. The 2024 edition reported:
+Trustpilot publishes an annual report on platform integrity, renamed from Transparency Report to Trust Report in 2025. The 2025 edition, covering 2024, reported:
 
 | Metric | 2024 figure |
 |--------|------------|
-| Total reviews on the platform | 361 million |
-| Reviews submitted in 2024 | ~60 million |
+| Active reviews on the platform (end of 2024) | 301 million |
+| Reviews written in 2024 | 61 million |
 | Fake reviews detected & removed | 4.5 million (7.4% of submissions) |
-| Automated detection rate | ~80% of fakes caught by automated systems |
-| Reviews reported by consumers/businesses | ~1.3 million |
-| Reviews removed after being reported | ~700,000 |
+| Share of removed fakes detected automatically | 90% |
+| Reviews flagged by consumers | 92 thousand |
+| Reviews flagged by businesses | 61 thousand |
 
-**What this tells us:** Trustpilot's automated systems catch most fakes before they're published, but the pipeline is large enough that fake reviews are a constant, industrial-scale problem. A 7.4% fake submission rate means **roughly 1 in 13 reviews submitted to Trustpilot is fake.**
+**What this tells us:** Trustpilot's automated systems catch most fakes before they're published, but the pipeline is large enough that fake reviews are a constant, industrial-scale problem. A 7.4% removal rate means **roughly 1 in 13 reviews submitted to Trustpilot was removed as fake.**
 
 ---
 
 ## The verification gap
 
-Trustpilot's "Verified" badge means something much weaker than most consumers assume. Consumer research consistently finds that shoppers interpret "Verified" to mean "this person definitely bought the product." On Trustpilot, "Verified" most commonly means "the business sent this person an email invitation."
+Trustpilot's "Verified" badge means something much weaker than many shoppers assume. It is easy to read "Verified" as "this person definitely bought the product." On Trustpilot, "Verified" most commonly means "the business sent this person an email invitation."
 
 This gap, between what consumers think "Verified" means and what it actually means on Trustpilot, is the central reliability problem. It's not that Trustpilot is dishonest about its definitions (they publish them clearly). It's that **the word "Verified" carries a payment-confirmation connotation that Trustpilot's definition doesn't fulfill.**
 
@@ -83,8 +83,8 @@ Reddit is one of the top destinations for people asking "are Trustpilot reviews 
 
 **Common Reddit themes about Trustpilot reliability:**
 
-- **"Verified ≠ real purchase."** This is the most recurring observation on Reddit. Users regularly point out that Trustpilot's "Verified" tag only means the business invited the reviewer, not that a transaction occurred. One widely upvoted comment in r/ecommerce: "Trustpilot verified just means the company has your email address."
-- **"Businesses pay Trustpilot to manage reviews, so there's a conflict of interest."** Reddit users frequently note that Trustpilot's paid plans let businesses flag, respond to, and influence the visibility of reviews. The business is Trustpilot's customer, not the reviewer.
+- **"Verified ≠ real purchase."** This is the most recurring observation on Reddit. Users regularly point out that Trustpilot's "Verified" tag only means the business invited the reviewer, not that a transaction occurred. Put simply, the label shows the company had the reviewer's email address, not a receipt.
+- **"Businesses pay Trustpilot to manage reviews, so there's a conflict of interest."** Reddit users frequently note that Trustpilot's plans let businesses flag, respond to, and influence the visibility of reviews. The business is Trustpilot's customer, not the reviewer.
 - **"Fake positive reviews are rampant."** Users in r/smallbusiness and r/shopify regularly share stories of competitors being flooded with fake 5-star reviews, or discovering that their own negative reviews were suspiciously outnumbered by vague positives.
 - **"It's useful for patterns, not individual reviews."** The most balanced Reddit takes acknowledge that Trustpilot's aggregate scores are useful for high-volume businesses, but warn against trusting any single review at face value.
 
@@ -96,11 +96,11 @@ If you're considering paying for Trustpilot, [Trustpilot pricing explained](/blo
 
 ## What Trustpilot does well
 
-To be fair: Trustpilot invests heavily in fake-review detection. Their automated systems scan for patterns (review velocity spikes, IP clustering, text similarity), their Content Integrity team investigates flagged content, and their Transparency Report is more detailed than any competitor's equivalent. The platform also allows businesses to respond publicly to reviews and flag ones that violate guidelines.
+To be fair: Trustpilot invests heavily in fake-review detection. Their automated systems scan for patterns (review velocity spikes, IP clustering, text similarity), their Content Integrity team investigates flagged content, and their annual Trust Report is more detailed than any competitor's equivalent. The platform also allows businesses to respond publicly to reviews and flag ones that violate guidelines.
 
 For large businesses with thousands of reviews, Trustpilot's aggregate scores are probably directionally accurate: the statistical weight of volume drowns out individual fakes. The problem is at the individual-review level and for small businesses, where a handful of fake reviews can swing a star rating dramatically.
 
-For businesses, the brand itself is an asset. Trustpilot star ratings can appear in Google Ads, Google Shopping and organic search results, which drives click-through, and consumers know they can leave reviews there, which can drive volume.
+For businesses, the brand itself is an asset. Trustpilot is an official Google Review Partner, and its ratings can feed Google Ads, Google Shopping and your Google Store Rating ([Trustpilot's review SEO page](https://business.trustpilot.com/features/review-seo)), which drives click-through, and consumers know they can leave reviews there, which can drive volume.
 
 ---
 
@@ -120,19 +120,19 @@ When you're reading Trustpilot reviews as a consumer, here's a practical checkli
 
 ### What you pay
 
-Trustpilot doesn't publish full pricing. You need a sales call for a quote, and the number varies with business size and industry. The free plan gives you a profile and organic reviews but no invitations. Paid review collection starts at $299/month on the Growth plan (about $3,588 a year), and Scale or Enterprise plans typically run $599 to $1,500+ a month. [Trustpilot pricing explained](/blog/trustpilot-pricing-explained/) has the plan-by-plan breakdown.
+Trustpilot publishes starting prices. The Free plan includes 50 review invitations a month. Paid plans start at $99 (Starter), $319 (Plus) and $799 (Premium) per month, per domain, billed annually, and Enterprise is quote-only ([Trustpilot pricing](https://business.trustpilot.com/pricing)). The final quote depends on your traffic, business size and revenue, and contracts run 12 months, prepaid. [Trustpilot pricing explained](/blog/trustpilot-pricing-explained/) has the plan-by-plan breakdown.
 
 Costs that show up later:
 
-- **Annual contracts** that auto-renew, with notice required to cancel.
-- **Add-ons** such as Google Seller Ratings, API access and extra locations.
+- **Annual contracts**: 12 months, prepaid.
+- **Add-ons** such as Product Reviews, Location Reviews and API access, plus a separate price for each domain.
 - **Staff time** to respond to reviews, flag fakes and monitor your profile.
 
 ### What to watch out for
 
 - **You don't control whether you're listed.** Anyone can create a Trustpilot profile for your business and start leaving reviews, negative ones included.
 - **Removing fakes takes time.** You flag a review and wait for the Content Integrity team to investigate.
-- **Pay to play.** Paid plans get invitations, analytics and Google integration. Free plans get organic reviews with limited recourse. That creates pressure to pay.
+- **Pay to play.** Paid plans get 100 to unlimited invitations a month, showcase widgets for your site and more analytics. The Free plan stops at 50 invitations a month and has no widget to show your rating. That creates pressure to pay.
 - **"Verified" still means invited.** Even on paid plans, a shopper can't tell whether the reviewer actually bought anything.
 
 ### Use Trustpilot if
@@ -145,7 +145,7 @@ Costs that show up later:
 ### Consider alternatives if
 
 - You want reviews tied to payment data, not an email invitation.
-- You're cost-sensitive. $299/month is a lot for invited reviews.
+- You're cost-sensitive. Plus at $319/month per domain is a lot for invited reviews.
 - You want proof that reviews haven't been edited after submission.
 - You want invitations to go out on real purchase events in Stripe.
 
@@ -164,9 +164,9 @@ For industry-specific comparisons, see [Trustpilot alternatives for small busine
 
 The reliability problem isn't unique to Trustpilot. It's inherent to **any open platform where the reviewer doesn't have to prove a purchase.** The only way to structurally guarantee that a review comes from a real customer is to verify against something the merchant cannot control: an independent payment processor.
 
-**Processor-attested verification** (Level 4 on the [verification spectrum](/learn/what-does-verified-buyer-mean/)) ties every review to a confirmed Stripe charge. The payment processor, a neutral third party, confirms the charge occurred and whether it was refunded. The merchant cannot game this without faking a real Stripe transaction, which costs real Stripe fees and risks account termination. And refunded charges automatically hide their associated reviews.
+**Processor-attested verification** (Level 4 on the [verification spectrum](/learn/what-does-verified-buyer-mean/)) ties every review to a completed Stripe charge. The charge record, and whether it was later refunded, comes from the payment processor, a neutral third party, not from the merchant. The merchant cannot game this without a real, completed Stripe transaction, which costs real Stripe fees and leaves a payment record. And charges refunded in full or disputed automatically hide their associated reviews.
 
-This model doesn't eliminate the possibility of biased or inaccurate reviews. A real customer can still write something misleading. But it **eliminates fake reviews from non-customers entirely,** because there's no path to write a review without a confirmed payment.
+This model doesn't eliminate the possibility of biased or inaccurate reviews. A real customer can still write something misleading. But it **shuts out reviews from non-customers,** because there's no path to write a review without a completed Stripe charge.
 
 ---
 
@@ -174,27 +174,27 @@ This model doesn't eliminate the possibility of biased or inaccurate reviews. A 
 
 ### Can companies fake Trustpilot reviews?
 
-Yes. Because Trustpilot is an open platform, anyone can leave a review without proving they purchased anything. Businesses can (and do) pay for fake positive reviews, and competitors can leave fake negative reviews. Trustpilot's automated detection catches most, 4.5 million in 2024, but some inevitably get through. The platform's "Verified" badge doesn't prevent fake reviews; it only indicates the business invited the reviewer via email.
+Yes. Because Trustpilot is an open platform, anyone can leave a review without proving they purchased anything. Businesses can (and do) pay for fake positive reviews, and competitors can leave fake negative reviews. Trustpilot removed 4.5 million fake reviews in 2024, 90% of them detected automatically, but some inevitably get through. The platform's "Verified" badge doesn't prevent fake reviews; it only indicates the business invited the reviewer via email.
 
 ### Does Trustpilot remove negative reviews?
 
-Trustpilot removes reviews that violate its content guidelines (including hate speech, conflicts of interest, and factually false claims) but it does **not** remove reviews simply because they're negative. Businesses on paid plans can flag reviews for Trustpilot to investigate, and they can respond publicly. However, businesses cannot unilaterally delete negative reviews from the platform. If a review is flagged and found to violate guidelines, Trustpilot removes it; otherwise it stays. Businesses can still change which reviews are most visible: inviting more customers to review pushes older negative reviews down the page.
+Trustpilot removes reviews that violate its content guidelines (including hate speech, conflicts of interest, and factually false claims) but it does **not** remove reviews simply because they're negative. Businesses on any plan, including Free, can flag reviews for Trustpilot to investigate, and they can respond publicly. However, businesses cannot unilaterally delete negative reviews from the platform. If a review is flagged and found to violate guidelines, Trustpilot removes it; otherwise it stays. Businesses can still change which reviews are most visible: inviting more customers to review pushes older negative reviews down the page.
 
 ### How does Trustpilot detect fake reviews?
 
-Trustpilot uses a combination of automated systems and human review. The automated layer scans for patterns: review velocity spikes, IP address clustering (multiple reviews from the same location), text similarity across accounts, and reviewer account history. Reviews flagged by the system go to Trustpilot's Content Integrity team for investigation. In 2024, roughly 80% of fake reviews were caught by automated systems before publication.
+Trustpilot uses a combination of automated systems and human review. The automated layer scans for patterns: review velocity spikes, IP address clustering (multiple reviews from the same location), text similarity across accounts, and reviewer account history. Reviews flagged by the system go to Trustpilot's Content Integrity team for investigation. Of the 4.5 million fake reviews Trustpilot removed in 2024, 90% were detected automatically.
 
 ### Is Trustpilot better than Google Reviews?
 
-It depends on what you need. Google Reviews has wider reach and integrates with Google Maps and Search, making it more visible, but its verification is even weaker. Google requires no proof of purchase and has minimal fake-review detection. Trustpilot has stronger detection and more detailed review content, but its consumer reach is smaller. For businesses, the best strategy is to collect verified reviews (with actual purchase proof) that can be displayed across both platforms.
+It depends on what you need. Google Reviews has wider reach and integrates with Google Maps and Search, making it more visible, but its verification is even weaker. Google requires no proof of purchase. Trustpilot has stronger detection and more detailed review content, but its consumer reach is smaller. For businesses, the best strategy is to collect verified reviews (with actual purchase proof) that can be displayed across both platforms.
 
 ### What's the most reliable alternative to Trustpilot?
 
-The most reliable alternative is a review platform that uses **processor-attested verification**, where an independent payment processor (like Stripe) confirms that a transaction actually occurred. Unlike Trustpilot's invited-review model, processor-attested reviews eliminate fake reviews structurally: no purchase, no invitation, no review. <a href="/how-it-works/">Signed Reviews connects to your Stripe account</a> with least-privilege OAuth and automatically verifies every review against a real charge. Refunded charges automatically hide their reviews. It's the difference between detecting fakes and making them impossible.
+The most reliable alternative is a review platform that uses **processor-attested verification**, where each review is matched to a transaction record from an independent payment processor (like Stripe), not from the merchant. Unlike Trustpilot's invited-review model, processor-attested reviews shut out non-customers: no purchase, no invitation, no review. <a href="/how-it-works/">Signed Reviews connects to your Stripe account</a> with least-privilege OAuth and automatically matches every review to a completed charge. Charges refunded in full or disputed automatically hide their reviews. It's the difference between detecting fakes after the fact and requiring a real purchase before a review can exist.
 
 ### Is Trustpilot legitimate?
 
-Yes. Trustpilot is a legitimate company, founded in 2007 in Copenhagen and listed on the London Stock Exchange (LSE: TRST) since 2021. It is not a scam. But legitimacy is a different question from review reliability: Trustpilot's open platform means fake reviews get published despite its detection systems, which is why "is Trustpilot legit" is best answered as "legitimate company, mixed review reliability."
+Yes. Trustpilot is a legitimate company, founded in 2007, headquartered in Copenhagen and listed on the London Stock Exchange (LSE: TRST) since 2021. It is not a scam. But legitimacy is a different question from review reliability: Trustpilot's open platform means fake reviews get published despite its detection systems, which is why "is Trustpilot legit" is best answered as "legitimate company, mixed review reliability."
 
 ### Does Trustpilot verify that reviewers are real customers?
 
@@ -202,7 +202,7 @@ Not against a payment. A "Verified" review on Trustpilot most commonly means the
 
 ### Is Trustpilot worth the price?
 
-It depends on your business. For large consumer brands where Trustpilot's Google star integration drives measurable return, the cost can make sense. For small and medium businesses, invite-based verification, a $299/month starting price for paid review collection and the staff time to manage a profile often add up to poor value. See [Trustpilot pricing explained](/blog/trustpilot-pricing-explained/) for the full breakdown.
+It depends on your business. For large consumer brands where Trustpilot's Google star integration drives measurable return, the cost can make sense. For small and medium businesses, invite-based verification, paid plans from $99 to $799 a month per domain on 12-month contracts, and the staff time to manage a profile often add up to poor value. See [Trustpilot pricing explained](/blog/trustpilot-pricing-explained/) for the full breakdown.
 
 ### Can I trust Trustpilot reviews?
 
@@ -218,7 +218,7 @@ Are Trustpilot reviews to be trusted? In aggregate, for high-volume businesses, 
       "name": "Can companies fake Trustpilot reviews?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Because Trustpilot is an open platform, anyone can leave a review without proving they purchased anything. Businesses can pay for fake positive reviews, and competitors can leave fake negative reviews. Trustpilot's automated detection caught 4.5 million fake reviews in 2024, but some inevitably get through. The Verified badge only means the business invited the reviewer via email, not that a purchase occurred."
+        "text": "Yes. Because Trustpilot is an open platform, anyone can leave a review without proving they purchased anything. Businesses can pay for fake positive reviews, and competitors can leave fake negative reviews. Trustpilot removed 4.5 million fake reviews in 2024, 90% of them detected automatically, but some inevitably get through. The Verified badge only means the business invited the reviewer via email, not that a purchase occurred."
       }
     },
     {
@@ -226,7 +226,7 @@ Are Trustpilot reviews to be trusted? In aggregate, for high-volume businesses, 
       "name": "Does Trustpilot remove negative reviews?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Trustpilot removes reviews that violate its content guidelines (hate speech, conflicts of interest, false claims) but does not remove reviews simply because they are negative. Businesses on paid plans can flag reviews for investigation and respond publicly, but they cannot unilaterally delete negative reviews. They can still change which reviews are most visible: inviting more customers to review pushes older negative reviews down the page."
+        "text": "Trustpilot removes reviews that violate its content guidelines (hate speech, conflicts of interest, false claims) but does not remove reviews simply because they are negative. Businesses on any plan, including Free, can flag reviews for investigation and respond publicly, but they cannot unilaterally delete negative reviews. They can still change which reviews are most visible: inviting more customers to review pushes older negative reviews down the page."
       }
     },
     {
@@ -234,7 +234,7 @@ Are Trustpilot reviews to be trusted? In aggregate, for high-volume businesses, 
       "name": "How does Trustpilot detect fake reviews?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Trustpilot uses automated systems and human review. The automated layer scans for review velocity spikes, IP clustering, text similarity, and reviewer account history. Flagged reviews go to the Content Integrity team. In 2024, about 80% of fake reviews were caught by automated systems before publication."
+        "text": "Trustpilot uses automated systems and human review. The automated layer scans for review velocity spikes, IP clustering, text similarity, and reviewer account history. Flagged reviews go to the Content Integrity team. Of the 4.5 million fake reviews Trustpilot removed in 2024, 90% were detected automatically."
       }
     },
     {
@@ -250,7 +250,7 @@ Are Trustpilot reviews to be trusted? In aggregate, for high-volume businesses, 
       "name": "What is the most reliable alternative to Trustpilot?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The most reliable alternative uses processor-attested verification, where a payment processor like Stripe independently confirms each transaction. Unlike Trustpilot's invited-review model, this eliminates fake reviews structurally: no purchase means no invitation and no review. Signed Reviews connects via least-privilege Stripe OAuth and verifies every review against a real charge, with automatic refund handling."
+        "text": "The most reliable alternative uses processor-attested verification, where each review is matched to a transaction record from a payment processor like Stripe, not from the merchant. Unlike Trustpilot's invited-review model, this shuts out non-customers: no purchase means no invitation and no review. Signed Reviews connects via least-privilege Stripe OAuth and matches every review to a completed charge; reviews on charges refunded in full or disputed are hidden automatically."
       }
     },
     {
@@ -258,7 +258,7 @@ Are Trustpilot reviews to be trusted? In aggregate, for high-volume businesses, 
       "name": "Is Trustpilot legitimate?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Trustpilot is a legitimate company, founded in 2007 in Copenhagen and listed on the London Stock Exchange (LSE: TRST) since 2021. It is not a scam. But legitimacy is a different question from review reliability: Trustpilot's open platform means fake reviews get published despite its detection systems, so it is best answered as a legitimate company with mixed review reliability."
+        "text": "Yes. Trustpilot is a legitimate company, founded in 2007, headquartered in Copenhagen and listed on the London Stock Exchange (LSE: TRST) since 2021. It is not a scam. But legitimacy is a different question from review reliability: Trustpilot's open platform means fake reviews get published despite its detection systems, so it is best answered as a legitimate company with mixed review reliability."
       }
     },
     {
@@ -274,7 +274,7 @@ Are Trustpilot reviews to be trusted? In aggregate, for high-volume businesses, 
       "name": "Is Trustpilot worth the price?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It depends on your business. For large consumer brands where Trustpilot's Google star integration drives measurable return, the cost can make sense. For small and medium businesses, invite-based verification, a $299/month starting price for paid review collection and the staff time to manage a profile often add up to poor value."
+        "text": "It depends on your business. For large consumer brands where Trustpilot's Google star integration drives measurable return, the cost can make sense. For small and medium businesses, invite-based verification, paid plans from $99 to $799 a month per domain on 12-month contracts, and the staff time to manage a profile often add up to poor value."
       }
     },
     {
@@ -293,7 +293,7 @@ Are Trustpilot reviews to be trusted? In aggregate, for high-volume businesses, 
 
 ## Bottom line
 
-Trustpilot reviews are reliable enough for aggregate trending: a business with 5,000 reviews and a 4.5 average is probably decent. But at the individual level, "Verified" on Trustpilot doesn't mean what most people think it means, and the platform's 7.4% fake-submission rate means roughly 1 in 13 submissions isn't from a real customer.
+Trustpilot reviews are reliable enough for aggregate trending: a business with 5,000 reviews and a 4.5 average is probably decent. But at the individual level, "Verified" on Trustpilot doesn't mean what most people think it means, and in 2024 Trustpilot removed 7.4% of submissions as fake, roughly 1 in 13.
 
 If you're a business, the question isn't whether to be on Trustpilot. It's whether Trustpilot is the **strongest verification signal** you can offer your customers. If you process payments through Stripe, it's not.
 

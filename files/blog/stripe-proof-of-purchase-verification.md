@@ -1,7 +1,7 @@
 # Stripe Proof of Purchase Verification: The Complete Guide
 
 **Title:** Stripe Proof of Purchase Verification | Signed Reviews
-**Published:** 2026-08-07 · **Updated:** 2026-10-07 · **Author:** Signed Reviews Team · **Description:** How Stripe proof of purchase verification works: charge matching, cryptographic signing, and the audit trail each review carries.
+**Published:** 2026-08-07 · **Updated:** 2026-10-09 · **Author:** Robinson Guerra · **Description:** How Stripe proof of purchase verification works: charge matching, cryptographic signing, and the audit trail each review carries.
 
 ---
 
@@ -23,7 +23,7 @@ Email verification confirms someone controls an inbox. Stripe verification confi
 
 ### 1. Connect your Stripe account
 
-Click "Connect with Stripe" and authorize the OAuth integration. The connection is least-privilege. The platform can read charges, customers, subscriptions, and balance transactions but cannot create charges, issue refunds, or move funds. The only write permission is coupon creation for opt-in review incentives. Stripe's OAuth permission model enforces this.
+Click "Connect with Stripe" and authorize the OAuth integration. The connection is least-privilege. The platform can read charges, customers, subscriptions, and balance transactions but cannot create charges, issue refunds, or move funds. The only write permissions cover coupons and promotion codes, used for opt-in review incentives. Stripe's [app permission model](https://docs.stripe.com/stripe-apps/reference/permissions) enforces this.
 
 No API keys to copy. No webhooks to configure. No server changes. See [pricing](/pricing/) for plan details.
 
@@ -38,7 +38,7 @@ When a customer pays you through Stripe, Stripe records the charge in your accou
 
 ### 3. A review invitation is generated
 
-The platform detects the new charge and generates a unique, cryptographically random invitation token linked to that specific Stripe charge ID. The invitation is sent to the customer's payment email, the same address that received the Stripe receipt.
+The platform picks up the new charge and, if this customer hasn't been invited before, generates a unique, cryptographically random invitation token linked to that specific Stripe charge ID. The invitation is sent to the customer's payment email, the same address that received the Stripe receipt.
 
 The invitation goes to the payment email on file with Stripe, not an email the reviewer typed into a form. There is no way for a reviewer to substitute a different email address.
 
@@ -59,7 +59,7 @@ See [how Signed Reviews works](/how-it-works/) for the full verification lifecyc
 | | Stripe Proof Verification | Email Verification |
 |---|---|---|
 | **What it proves** | Customer paid you through Stripe | Customer controls an email address |
-| **Fabrication cost** | Real Stripe processing fees (~2.9% + $0.30) | Free, create a Gmail account |
+| **Fabrication cost** | Real Stripe processing fees (2.9% + 30¢ per domestic card charge on [Stripe's standard US pricing](https://stripe.com/pricing)) | Free, create a Gmail account |
 | **Signature check** | Anyone can check the signature through the public verification endpoint | No external evidence exists |
 | **Auditability** | Full chain: Stripe charge → token → signature → review | No chain of custody |
 | **Source of the record** | Stripe recorded the transaction | No processor involved |
@@ -94,9 +94,9 @@ The OAuth connection is least-privilege, four read scopes plus two coupon permis
 2. **Connect your Stripe account** via OAuth, one click, minimal permissions
 3. **Configure when invitations send**: immediately after purchase, after a delay, or manually
 4. **Customize your review page**: add your logo, colors, and branding
-5. **Start collecting verified reviews**: every new Stripe charge generates an invitation automatically
+5. **Start collecting verified reviews**: each new paying customer gets an invitation automatically, once
 
-Set up takes under a minute. The Stripe proof integration runs in the background: you collect reviews and the platform handles verification and signing automatically. See [pricing](/pricing/) for plan options.
+Setup takes a few minutes. The Stripe proof integration runs in the background: you collect reviews and the platform handles verification and signing automatically. See [pricing](/pricing/) for plan options.
 
 ---
 

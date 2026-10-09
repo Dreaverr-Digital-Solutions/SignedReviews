@@ -1,31 +1,31 @@
 # Fake Review Checker: 7 Ways to Tell if Reviews Are Real
 
 **Title:** How to Check if Reviews Are Fake | Signed Reviews
-**Published:** 2026-08-07 · **Updated:** 2026-10-06 · **Author:** Signed Reviews Team · **Description:** How to check if reviews are fake with a real review checker method: language, profiles, timing, photos, platform signals, cross-references, badges.
+**Published:** 2026-08-07 · **Updated:** 2026-10-09 · **Author:** Robinson Guerra · **Description:** How to check if reviews are fake with a real review checker method: language, profiles, timing, photos, platform signals, cross-references, badges.
 
 ---
 
-Fake reviews are everywhere. The FTC estimates that roughly 1 in every 7 online reviews is fabricated, and on some platforms, the number is significantly higher. But fake reviews leave traces. With the right checklist, you can spot them reliably.
+To check if reviews are fake, use this 7-point fake review checker: look at the language, the reviewer's profile, the timing, the photos, the platform's own signals, other sources, and what the "verified" badge actually verifies. Timing anomalies and reviewer profiles are the hardest signals to disguise. No single sign proves a review is fake, but several together are strong evidence.
 
-Here's a 7-point fake review checker: a practical methodology you can use right now to evaluate any set of reviews, whether they're on your own product pages, a competitor's listing, or a review platform you're considering. Want to check a single review instantly? Paste it into our free [fake review checker tool](/tools/fake-review-checker/). It scores the writing-pattern risk signals in seconds.
+You can run the checks on your own product pages, a competitor's listing, or a review platform you're considering. Want to check a single review instantly? Paste it into our free [fake review checker tool](/tools/fake-review-checker/). It scores the writing-pattern risk signals in seconds.
 
 ## How to spot fake reviews: quick checklist
 
-The old tells (broken English, repetitive phrasing, generic praise) are losing their value. A 2024 Fakespot study found that AI-written reviews were virtually indistinguishable from human-written ones in blind testing. Each AI review can be grammatically clean and different in style from the last. So before you run the full 7-point method below, start with the signals that still hold up:
+The old tells (broken English, repetitive phrasing, generic praise) are losing their value. In two experiments published in [Marketing Letters in April 2024](https://link.springer.com/article/10.1007/s11002-024-09729-3), researchers found that "humans cannot recognize AI-written reviews," and AI detectors were fooled too. Each AI review can be grammatically clean and different in style from the last. So before you run the full 7-point method below, start with the signals that still hold up:
 
 - **Ask who verified the review, not whether it's verified.** A badge is not proof. The source behind it is. Check 7 below shows how to tell a merchant-supplied badge from a processor-backed one.
-- **Look at the shape of the ratings, not the average.** Good products usually cluster around 4.0 to 4.5 stars, with some 1-star reviews from shipping mishaps, defective units or wrong expectations. A product with 500 reviews and a 4.99 average is statistically improbable. So is a profile with no negative reviews at all.
+- **Look at the shape of the ratings, not the average.** Good products usually collect some low ratings too, from shipping mishaps, defective units or wrong expectations. A product with 500 reviews and a 4.99 average is statistically improbable. So is a profile with no negative reviews at all.
 - **Read the middle ratings first.** The 2-, 3- and 4-star reviews are the most likely to be genuine (see below).
 - **Watch for bursts.** 50 reviews on one day, then three months of silence, is a warning sign. Organic review velocity is fairly smooth.
 - **Compare review count to market position.** If you're sizing up a competitor, a product with far more reviews than its market position suggests, plus an unusually high average, often has a manufactured profile. The economics of fake reviews make that pattern easy to produce and hard to hide.
 
 ### Read the 2-, 3- and 4-star reviews first
 
-Fake review operations overwhelmingly target 1 star (to attack competitors) and 5 stars (to boost products). Middle ratings come from real customers with mixed experiences: "Product works but setup was confusing," "Good value but shipping was slow." If a product has hundreds of 5-star reviews and zero 3-star reviews, the 5-star reviews are suspicious. Not because each one is fake, but because the distribution doesn't match how real customers behave.
+Fake review operations overwhelmingly target 1 star (to attack competitors) and 5 stars (to boost products). Of the 4.5 million fake reviews Trustpilot removed in 2024, 3.4 million were 5-star and 627,000 were 1-star, against 70,000 at 3 stars ([Trustpilot Trust Report 2025](https://corporate.trustpilot.com/trust/trust-report-2025)). Middle ratings come from real customers with mixed experiences: "Product works but setup was confusing," "Good value but shipping was slow." If a product has hundreds of 5-star reviews and zero 3-star reviews, the 5-star reviews are suspicious. Not because each one is fake, but because the distribution doesn't match how real customers behave.
 
 ### AI-written reviews: the tells that still work
 
-- **Uniform sentence length.** People vary sentence length naturally. AI text tends toward steady 15 to 25 word sentences.
+- **Uniform sentence length.** People vary sentence length naturally. AI text tends toward steady, mid-length sentences.
 - **No specific details.** Compare "This product is great, highly recommend" with "The zipper broke after three weeks but customer service sent a replacement in two days." AI is bad at invented specifics.
 - **Perfect grammar, no typos.** Real reviews contain occasional typos. 200 flawless reviews with zero typos is statistically unlikely.
 - **Generic enthusiasm.** "Changed my life!" "Best purchase ever!" "You won't regret it!" Real reviews are more measured, even when positive.
@@ -43,7 +43,7 @@ Fake reviews tend to follow detectable language patterns. Run this checklist aga
 - [ ] **Marketing-speak**: The review reads like ad copy, using phrases like "game-changing," "next-level," or "best-in-class" without concrete examples
 - [ ] **No personal context**: The reviewer doesn't mention how they used the product, what problem it solved, or why they chose it
 - [ ] **Unnatural grammar**: Awkward sentence construction that doesn't match typical customer language, often a sign of AI-generated or template-based fake reviews
-- [ ] **All 5-star or all 1-star**: Real review distributions cluster around 4 stars. A product with only 5-star and 1-star reviews (no 2, 3, or 4) is a red flag. See [fake review statistics 2026](/blog/fake-review-statistics-2026/) for the latest data.
+- [ ] **All 5-star or all 1-star**: Real review distributions include middle ratings. A product with only 5-star and 1-star reviews (no 2, 3, or 4) is a red flag. See [fake review statistics 2026](/blog/fake-review-statistics-2026/) for the latest data.
 
 **Red flag if:** 3 or more of these are true.
 
@@ -92,7 +92,7 @@ The review platform itself provides signals. Look at:
 - [ ] **Platform reputation**: Is the review platform known for aggressive fake review prevention? Or is it a free-for-all with no verification?
 - [ ] **Review moderation policy**: Does the platform publish its moderation policy? Do they explain how they detect and remove fake reviews? Transparency is a positive signal.
 - [ ] **Can anyone post?** Platforms that allow anyone to review any business without proof of purchase are inherently vulnerable to fake reviews, both positive and negative.
-- [ ] **Does the platform use cryptographic signing?** A few platforms cryptographically sign reviews so the content is tamper-evident. If a review is signed, you can independently verify it hasn't been altered after submission.
+- [ ] **Does the platform use cryptographic signing?** A few platforms cryptographically sign reviews so the content is tamper-evident. If a review is signed, look for a public verification page where you can confirm it hasn't been altered after submission.
 
 **Red flag if:** The platform has no verification mechanism and allows unrestricted posting.
 
@@ -113,7 +113,7 @@ Verification badges are not all equal. When you see a "Verified" badge:
 
 - [ ] **What does the badge actually verify?** Click it. Read the tooltip or linked page. If it says "This reviewer confirmed their email address," that's email verification, the weakest form.
 - [ ] **Who is the verifying party?** Is it the review platform itself, or an independent third party (payment processor, identity provider)? Self-attested verification is weaker.
-- [ ] **Is there a transaction reference?** The strongest verification badges reference a specific transaction (e.g., "Verified Stripe Purchase, charge ch_3QabcDEF..."). Anyone can verify the charge independently.
+- [ ] **Is there a transaction reference?** The strongest verification badges tie each review to a specific transaction record from the payment processor (e.g., a Stripe charge such as ch_3QabcDEF...), not to a customer list. Check whether the badge links to a page that shows what was matched.
 - [ ] **What happens on refund?** If a verified review stays up after the customer gets a refund, the verification is misleading. Transaction-based verification should automatically flag or hide refunded purchases.
 - [ ] **Can the business remove reviews unilaterally?** If the business can delete any review they don't like, the "verified" badge loses meaning: verification should protect reviews from removal as well as fabrication.
 
@@ -148,7 +148,7 @@ Use this scorecard to evaluate any set of reviews. Tally the red flags:
 
 Document what you found. If the competitor is using fake reviews to gain an unfair advantage, you may be able to:
 - Report them to the platform (most platforms have fraud reporting mechanisms)
-- Report them to the FTC (the 2024 Consumer Review Rule makes fake reviews illegal)
+- Report them to the FTC (its [2024 Consumer Reviews and Testimonials Rule](https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials) bans fake reviews)
 - Use it as competitive intelligence, if their reviews are fake, your genuine verified reviews are a stronger trust signal
 
 See [FTC fake reviews rules: what every business owner needs to know](/learn/ftc-fake-reviews-rules/) for the legal landscape.
@@ -160,15 +160,15 @@ Fake positive reviews can appear on your product pages without your knowledge: f
 1. **Don't ignore them.** Fake reviews on your pages can trigger FTC penalties even if you didn't commission them.
 2. **Report them to the platform** for removal.
 3. **Audit your review sources.** If you use a review collection service, verify their practices.
-4. **Switch to transaction-verified reviews.** When every review is tied to a real Stripe charge, fake reviews become structurally impossible to post.
+4. **Switch to transaction-verified reviews.** When every review is tied to a real, completed Stripe charge, no one can post without buying first, and each fake costs real money and leaves a payment record.
 
 ## How to prevent fake reviews on your own pages
 
-The best defense against fake reviews is structural, not procedural. Instead of trying to catch fakes after they're posted, use a system where fakes can't be posted in the first place:
+The best defense against fake reviews is structural, not procedural. Instead of trying to catch fakes after they're posted, use a system where nobody can post a review without a real purchase:
 
 1. **Use transaction-verified reviews**: Require a real, settled payment before a review can be submitted. This makes fake reviews economically irrational, each one costs real money.
-2. **Use cryptographic signing**: Sign every review so the content is tamper-evident. Anyone can verify the review hasn't been altered.
-3. **Automate refund handling**: When a customer gets a refund, their review should automatically come down. Manual processes fail.
+2. **Use cryptographic signing**: Sign every review so the content is tamper-evident. Anyone can check on a public verification page that the review hasn't been altered.
+3. **Automate refund handling**: When a customer gets a full refund or files a dispute, their review should automatically come down. Manual processes fail.
 4. **Publish your verification methodology**: Be transparent about how your reviews are verified. The more specific, the more credible.
 
 Signed Reviews implements all four of these by design. See [how Stripe review verification works](/blog/how-stripe-review-verification-works/) for the technical architecture, or visit the [pricing page](/pricing/) for plan details.
@@ -177,7 +177,7 @@ Signed Reviews implements all four of these by design. See [how Stripe review ve
 
 Shoppers are getting more skeptical. Beyond keeping fakes out, make your real reviews easy to check:
 
-- **Show the chain, not just the word "verified."** Purchase, charge record, invitation, review, signature. The more links a shopper can check independently, the more each review is worth. [How Signed Reviews works](/how-it-works/) shows one example.
+- **Show the chain, not just the word "verified."** Purchase, charge record, invitation, review, signature. The more links a shopper can check, the more each review is worth. [How Signed Reviews works](/how-it-works/) shows one example.
 - **Say who can review.** Publish who can leave a review, how you check it, and what your incentive policy is. A clear review policy is a trust signal on its own.
 - **Display verified and unverified reviews separately.** If you collect reviews from several sources, don't mix them. A verified review loses its trust value when it sits among unverified ones.
 - **Keep negative reviews up unless they break your policy.** A 4.5 average with some thoughtful 2-star reviews is more credible than a 5.0 with no complaints. Answer them professionally. They are a conversion asset, not a liability.
@@ -200,11 +200,11 @@ No. Genuine customers leave negative reviews. In fact, a profile with only posit
 
 ### How does transaction verification prevent fake reviews?
 
-Transaction verification requires a real, settled payment through a regulated payment processor (Stripe) before a review can be submitted. Each fake review would cost real Stripe processing fees (~2.9% + $0.30), and the charge would appear permanently in the merchant's Stripe dashboard. The combination of real cost and permanent audit trail makes systematic fake reviews structurally irrational. It's not that they're impossible. It's that they don't make economic sense.
+Transaction verification requires a real, settled payment through a regulated payment processor (Stripe) before a review can be submitted. Each fake review would cost real Stripe processing fees ([2.9% + 30¢ per domestic card charge](https://stripe.com/pricing) on Stripe's standard pricing), and the charge would appear permanently in the merchant's Stripe dashboard. The combination of real cost and permanent audit trail makes systematic fake reviews structurally irrational. It's not that they're impossible. It's that they don't make economic sense.
 
 ### Is there a fake review checker tool I can use?
 
-Several browser extensions offer automated fake review detection (Fakespot, ReviewMeta, TheReviewIndex). These tools analyze review text, reviewer profiles, and rating distributions to estimate how many reviews might be fake. They're useful for quick checks but have limitations: they primarily work on major platforms (Amazon, Yelp, Trustpilot), they can produce false positives, and they can't access the underlying transaction data that would conclusively verify or disprove a review. For your own business, the better approach is to use a verification system that prevents fake reviews from being posted in the first place.
+Third-party checkers analyze review text, reviewer profiles, and rating distributions to estimate how many reviews might be fake. The best-known browser extension, Fakespot, shut down on July 1, 2025 ([Mozilla](https://blog.mozilla.org/en/mozilla/building-whats-next/)), so confirm that any tool you rely on is still maintained. These tools are useful for quick checks but have limitations: they primarily work on major platforms (Amazon, Yelp, Trustpilot), they can produce false positives, and they can't access the underlying transaction data that would conclusively verify or disprove a review. For your own business, the better approach is to use a verification system that stops non-customers from posting reviews in the first place.
 
 ### Is there a real review checker that actually works?
 

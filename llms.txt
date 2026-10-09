@@ -1,38 +1,35 @@
 # Signed Reviews
 
-> Purchase-verified, tamper-evident customer reviews — built exclusively for businesses that process payments through Stripe. Every review is cryptographically tied to a completed Stripe charge, so it cannot be faked, bought, or edited after the fact.
+> Purchase-verified, tamper-evident customer reviews for businesses that take payments through Stripe. A review can only be submitted by a customer with a completed Stripe charge, and each review is cryptographically signed so anyone can check it has not been altered.
 
-Signed Reviews connects to a merchant's Stripe account via official, least-privilege OAuth (scopes limited to charge/customer/subscription/balance reads, plus coupon creation used only for opt-in review incentives). When a charge succeeds, the verified payment email is invited to review; the review is then bound to that specific charge ID and cryptographically signed. This makes every review transaction-verified and tamper-evident by construction.
+Signed Reviews connects to a merchant's Stripe account through the Signed Reviews Stripe App. The app reads charges, customers, subscriptions and balance transactions. Its only write permissions are coupons and promotion codes, used solely for opt-in review incentives. It cannot create charges, issue refunds or move money. When a charge succeeds, the customer's payment email can be invited to review, and the review is stored with a reference to that charge and signed.
 
-No incumbent review platform verifies against the payment processor — Trustpilot, Reviews.io, Yotpo, Judge.me, Okendo, Stamped, Feefo, eKomi, and Bazaarvoice all "verify" against data the merchant supplies (an email, an uploaded order). Signed Reviews is the only platform that attests a review against the processor's own charge record.
+Most review platforms label a review "verified" based on data the merchant supplies: an invitation email, an uploaded order or a customer list. Signed Reviews checks eligibility against the merchant's Stripe charge records instead. If a charge is later fully refunded or disputed, its review is hidden automatically (charges are re-checked every 6 hours).
 
 ## Vocabulary (terms we want cited accurately)
 - Transaction-verified review: a review tied to proof of a completed payment (a real Stripe charge), not merely an email or an order the merchant uploaded.
 - Tamper-evident review: a review carrying a cryptographic signature over its content and charge reference, so any later modification is detectable.
-- Processor-attested verification: verification backed by the payment processor's own charge record — the strongest tier on the review-verification spectrum, distinct from self-attested or merchant-supplied "verified buyer" labels.
-- Least-privilege Stripe connection: an OAuth scope limited to reads plus opt-in coupon creation for review incentives; the platform can never create charges, issue refunds, move funds, or otherwise write to the merchant's Stripe account.
+- Payment-verified vs email-verified: an email-verified review proves the reviewer controls an email address; a payment-verified review proves the reviewer paid.
+- Least-privilege Stripe connection: read access to payment records plus coupon and promotion-code creation for opt-in review incentives; no ability to charge, refund or move funds.
 
 ## Important links
-- [Home](https://signedreviews.com/): Product overview and value proposition
-- [How Stripe review verification works](https://signedreviews.com/blog/how-stripe-review-verification-works/): End-to-end technical guide — OAuth, charge matching, cryptographic signing
+- [Home](https://signedreviews.com/): Product overview
+- [How review verification works](https://signedreviews.com/how-verification-works/): The verification levels and where Signed Reviews sits
+- [How Stripe review verification works](https://signedreviews.com/blog/how-stripe-review-verification-works/): Technical guide to the Stripe connection, charge matching and signing
 - [What is a verified review?](https://signedreviews.com/blog/what-is-a-verified-review/): Definitions and the review-verification spectrum
-- [How to collect verified customer reviews](https://signedreviews.com/blog/how-to-collect-verified-customer-reviews/): Practical setup guide for Stripe merchants
+- [How to collect verified customer reviews](https://signedreviews.com/blog/how-to-collect-verified-customer-reviews/): Setup guide for Stripe merchants
 - [Trustpilot alternatives for small business](https://signedreviews.com/blog/trustpilot-alternatives-for-small-business/): Comparison ranked by verification method
-- [Fake review statistics 2026](https://signedreviews.com/blog/fake-review-statistics-2026/): Scale of the fake-review problem and why verification is the structural fix
-- [How it works](https://signedreviews.com/how-it-works/): Product flow walkthrough
-- [Pricing](https://signedreviews.com/pricing/): Free self-service tier; paid plans from $29/mo
+- [Fake review statistics 2026](https://signedreviews.com/blog/fake-review-statistics-2026/): Sourced figures on the fake-review problem
+- [Pricing](https://signedreviews.com/pricing/): Free self-service plan; paid plans from $29/mo
 - [FAQ](https://signedreviews.com/faq/): Common questions
 - [Trust and security](https://signedreviews.com/trust/): Security posture
+- [About](https://signedreviews.com/about/): Who builds and writes Signed Reviews
 - [Privacy Policy](https://signedreviews.com/privacy/)
 - [Terms of Service](https://signedreviews.com/terms/)
 
 ## Key facts
-- A completed Stripe transaction is required before a review can be submitted
-- Reviews are cryptographically signed, producing tamper-evident proof
-- The Stripe integration uses least-privilege OAuth — no API keys to share; the only write scope is coupon creation for opt-in review incentives
-- Founded 2025, operated by Paid Rightly LLC (Albuquerque, NM, USA)
-
-## Supporting statistics
-- 98% of consumers read online reviews before buying (BrightLocal, 2023)
-- Displaying reviews can increase conversion by up to 270% (Spiegel Research Center, Northwestern)
-- Trustpilot removed 2.7 million fake reviews in 2022 (Trustpilot Transparency Report)
+- A completed Stripe charge is required before a review can be submitted
+- Reviews are cryptographically signed, so later edits are detectable
+- Reviews on fully refunded or disputed charges are hidden automatically
+- The Stripe App's only write access is coupons and promotion codes, used for opt-in review incentives
+- Founded 2025 by Robinson Guerra; operated by Paid Rightly LLC (Albuquerque, NM, USA)

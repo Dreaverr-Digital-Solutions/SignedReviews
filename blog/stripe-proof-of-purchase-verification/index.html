@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/stripe-proof-of-purchase-verification/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="13ff47aba1669cf3e2d42b46a584a12271aacc38">
-  <meta name="build-time" content="2026-10-08T14:01:41.472Z">
+  <meta name="build-commit" content="b81f2a982a604245c8457043f1b5fa41ac2f8c2a">
+  <meta name="build-time" content="2026-10-09T17:49:30.267Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Stripe Proof of Purchase Verification | Signed Reviews">
@@ -611,11 +611,12 @@ main { padding: 0; }
     })();
   </script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.","email":"support@signedreviews.com","foundingDate":"2025","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"},"sameAs":["https://marketplace.stripe.com/apps/signedreviews","https://chromewebstore.google.com/detail/is-this-review-real-%E2%80%94-sig/jkfdbmlmfjbnbhillhlehabpbpeoljco","https://www.linkedin.com/company/signed-reviews"]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://signedreviews.com/blog/"},{"@type":"ListItem","position":3,"name":"Stripe Proof of Purchase Verification | Signed Reviews","item":"https://signedreviews.com/blog/stripe-proof-of-purchase-verification/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://signedreviews.com/blog/"},{"@type":"ListItem","position":3,"name":"Stripe Proof of Purchase Verification","item":"https://signedreviews.com/blog/stripe-proof-of-purchase-verification/"}]}</script>
   <script async preferred-sources-control="manual" src="https://news.google.com/swg/js/v1/publisher.js"></script>
   <script defer src="/js/preferred-source.js"></script>
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Stripe Proof of Purchase Verification: The Complete Guide","description":"How Stripe proof of purchase verification works: charge matching, cryptographic signing, and the audit trail each review carries.","datePublished":"2026-08-07","dateModified":"2026-10-07","mainEntityOfPage":{"@type":"WebPage","@id":"https://signedreviews.com/blog/stripe-proof-of-purchase-verification/"},"image":["https://signedreviews.com/images/og/stripe-proof-of-purchase-verification.png"],"author":{"@type":"Organization","name":"Signed Reviews","url":"https://signedreviews.com"},"publisher":{"@type":"Organization","name":"Signed Reviews","logo":{"@type":"ImageObject","url":"https://signedreviews.com/images/SignedReviews_logo_only.png"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Stripe Proof of Purchase Verification: The Complete Guide","description":"How Stripe proof of purchase verification works: charge matching, cryptographic signing, and the audit trail each review carries.","datePublished":"2026-08-07","dateModified":"2026-10-09","mainEntityOfPage":{"@type":"WebPage","@id":"https://signedreviews.com/blog/stripe-proof-of-purchase-verification/"},"image":["https://signedreviews.com/images/og/stripe-proof-of-purchase-verification.png"],"author":{"@type":"Person","name":"Robinson Guerra","jobTitle":"Founder","url":"https://signedreviews.com/about/#founder","worksFor":{"@type":"Organization","name":"Signed Reviews","url":"https://signedreviews.com"}},"publisher":{"@type":"Organization","name":"Signed Reviews","logo":{"@type":"ImageObject","url":"https://signedreviews.com/images/SignedReviews_logo_only.png"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does this work with Stripe Connect?","acceptedAnswer":{"@type":"Answer","text":"Partly. If you use Stripe Connect (e.g., a marketplace or platform), the OAuth flow connects to your platform's Stripe account. Charges created on that account are verified the same way as any other charge. Direct charges created on your connected accounts are not imported."}},{"@type":"Question","name":"What about subscription businesses?","acceptedAnswer":{"@type":"Answer","text":"Stripe proof of purchase verification works for subscriptions. Subscription payments create Stripe charges like any other purchase, so subscribers get invited too. Each customer receives one invitation sequence, ever, so renewals do not trigger repeat requests."}},{"@type":"Question","name":"What if a customer uses a different email for the review?","acceptedAnswer":{"@type":"Answer","text":"The review invitation is sent to the payment email on the Stripe charge. The reviewer must access that email to click the review link. If they forward the link, the review is still cryptographically bound to the original charge. See how Stripe review verification works for the technical details."}},{"@type":"Question","name":"Can I verify reviews from non-Stripe payments?","acceptedAnswer":{"@type":"Answer","text":"No. Stripe proof of purchase verification requires a Stripe charge. If you use multiple payment processors (e.g., Stripe + PayPal), only Stripe-processed transactions can generate verified reviews."}},{"@type":"Question","name":"Is Stripe proof integration secure?","acceptedAnswer":{"@type":"Answer","text":"The OAuth connection is least-privilege, four read scopes plus two coupon permissions used only for opt-in review incentives. The platform never sees your Stripe API keys. The cryptographic signatures use HMAC-SHA256 with a platform-wide key that is never exposed to clients. Stripe's OAuth permission model means you can revoke access at any time from your Stripe dashboard. The integration stops immediately."}}]}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -662,7 +663,7 @@ main { padding: 0; }
     </section>
     <div class="prose-wrap">
       <article class="prose">
-      <p class="post-meta" style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">2026-08-07</p>
+      <p class="post-meta" style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">By <a href="/about/#founder" rel="author">Robinson Guerra</a>, Founder · Published 2026-08-07 · Updated 2026-10-09</p>
       <p>If you run a business on Stripe, you already generate a proof of purchase for every transaction. Stripe proof of purchase verification turns those payment records into verified, tamper-evident reviews.</p>
 <p>Here&#39;s how Stripe proof integration works and how to set it up.</p>
 <h2 id="what-is-stripe-proof-of-purchase-verification"><a class="anchor" href="#what-is-stripe-proof-of-purchase-verification" aria-label="Permalink to What is Stripe proof of purchase verification?"></a>What is Stripe proof of purchase verification?</h2>
@@ -675,7 +676,7 @@ main { padding: 0; }
 <p>Email verification confirms someone controls an inbox. Stripe verification confirms someone paid you money through a processor that records every transaction permanently.</p>
 <h2 id="how-stripe-proof-integration-works-step-by-step"><a class="anchor" href="#how-stripe-proof-integration-works-step-by-step" aria-label="Permalink to How Stripe proof integration works: step by step"></a>How Stripe proof integration works: step by step</h2>
 <h3 id="1-connect-your-stripe-account"><a class="anchor" href="#1-connect-your-stripe-account" aria-label="Permalink to 1. Connect your Stripe account"></a>1. Connect your Stripe account</h3>
-<p>Click &quot;Connect with Stripe&quot; and authorize the OAuth integration. The connection is least-privilege. The platform can read charges, customers, subscriptions, and balance transactions but cannot create charges, issue refunds, or move funds. The only write permission is coupon creation for opt-in review incentives. Stripe&#39;s OAuth permission model enforces this.</p>
+<p>Click &quot;Connect with Stripe&quot; and authorize the OAuth integration. The connection is least-privilege. The platform can read charges, customers, subscriptions, and balance transactions but cannot create charges, issue refunds, or move funds. The only write permissions cover coupons and promotion codes, used for opt-in review incentives. Stripe&#39;s <a href="https://docs.stripe.com/stripe-apps/reference/permissions">app permission model</a> enforces this.</p>
 <p>No API keys to copy. No webhooks to configure. No server changes. See <a href="/pricing/">pricing</a> for plan details.</p>
 <h3 id="2-a-customer-completes-a-purchase"><a class="anchor" href="#2-a-customer-completes-a-purchase" aria-label="Permalink to 2. A customer completes a purchase"></a>2. A customer completes a purchase</h3>
 <p>When a customer pays you through Stripe, Stripe records the charge in your account. The charge contains:</p>
@@ -686,7 +687,7 @@ main { padding: 0; }
 <li>A timestamp</li>
 </ul>
 <h3 id="3-a-review-invitation-is-generated"><a class="anchor" href="#3-a-review-invitation-is-generated" aria-label="Permalink to 3. A review invitation is generated"></a>3. A review invitation is generated</h3>
-<p>The platform detects the new charge and generates a unique, cryptographically random invitation token linked to that specific Stripe charge ID. The invitation is sent to the customer&#39;s payment email, the same address that received the Stripe receipt.</p>
+<p>The platform picks up the new charge and, if this customer hasn&#39;t been invited before, generates a unique, cryptographically random invitation token linked to that specific Stripe charge ID. The invitation is sent to the customer&#39;s payment email, the same address that received the Stripe receipt.</p>
 <p>The invitation goes to the payment email on file with Stripe, not an email the reviewer typed into a form. There is no way for a reviewer to substitute a different email address.</p>
 <h3 id="4-the-review-is-cryptographically-signed"><a class="anchor" href="#4-the-review-is-cryptographically-signed" aria-label="Permalink to 4. The review is cryptographically signed"></a>4. The review is cryptographically signed</h3>
 <p>When the customer submits their review, the platform creates an HMAC-SHA256 signature binding together:</p>
@@ -713,7 +714,7 @@ main { padding: 0; }
 </tr>
 <tr>
 <td><strong>Fabrication cost</strong></td>
-<td>Real Stripe processing fees (~2.9% + $0.30)</td>
+<td>Real Stripe processing fees (2.9% + 30¢ per domestic card charge on <a href="https://stripe.com/pricing">Stripe&#39;s standard US pricing</a>)</td>
 <td>Free, create a Gmail account</td>
 </tr>
 <tr>
@@ -750,9 +751,9 @@ main { padding: 0; }
 <li><strong>Connect your Stripe account</strong> via OAuth, one click, minimal permissions</li>
 <li><strong>Configure when invitations send</strong>: immediately after purchase, after a delay, or manually</li>
 <li><strong>Customize your review page</strong>: add your logo, colors, and branding</li>
-<li><strong>Start collecting verified reviews</strong>: every new Stripe charge generates an invitation automatically</li>
+<li><strong>Start collecting verified reviews</strong>: each new paying customer gets an invitation automatically, once</li>
 </ol>
-<p>Set up takes under a minute. The Stripe proof integration runs in the background: you collect reviews and the platform handles verification and signing automatically. See <a href="/pricing/">pricing</a> for plan options.</p>
+<p>Setup takes a few minutes. The Stripe proof integration runs in the background: you collect reviews and the platform handles verification and signing automatically. See <a href="/pricing/">pricing</a> for plan options.</p>
 <hr>
 <p><strong>Further reading:</strong> <a href="/blog/how-stripe-review-verification-works/">How Stripe Review Verification Works: A Technical Guide</a>, the architecture deep-dive. <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews: The Only Reviews Backed by Your Payment Processor</a>. <a href="/learn/what-does-verified-buyer-mean/">What Does &quot;Verified Buyer&quot; Actually Mean?</a>, the full verification spectrum explained.</p>
 
