@@ -3711,7 +3711,7 @@ function buildLearnFakeReviewsWork() {
 
     <div class="verdict">
       <h3>The only structural defense</h3>
-      <p>Transaction verification is the only defense that's <strong>preventative rather than reactive.</strong> When every review requires an independently confirmed payment, fakes are structurally blocked at submission time, not detected and removed after the fact. But this only works if the verification data comes from an independent source (Level 4, the payment processor), not from the merchant (Level 3, the merchant's own records). A merchant can manufacture a fake order in their own Shopify store for free. They cannot manufacture a fake Stripe charge without paying real Stripe fees and risking account termination.</p>
+      <p>Transaction verification is the only defense that's <strong>preventative rather than reactive.</strong> When every review must match a completed payment, a reviewer with no payment never gets a review link, so fakes are stopped before submission instead of detected and removed afterwards. But this only works if the verification data comes from an independent source (Level 4, the payment processor), not from the merchant (Level 3, the merchant's own records). A merchant can manufacture a fake order in their own Shopify store for free. They cannot manufacture a fake Stripe charge without paying real Stripe fees and risking account termination.</p>
     </div>
 
     <h2 id="economics">The economics of fake reviews</h2>
@@ -3726,7 +3726,7 @@ function buildLearnFakeReviewsWork() {
 
     <h2 id="structural-fix">The structural fix: why verification level matters</h2>
     <p>Every fake-review method exploits the same vulnerability: <strong>the platform doesn't independently verify that the reviewer paid for the product.</strong> At Level 0 (no verification), anyone can post. At Level 1 (email), anyone with an email address can post. At Level 2 (self-attested), anyone willing to check a box can post. At Level 3 (merchant-supplied), anyone the merchant puts on a list can post, and the merchant can put anyone on the list.</p>
-    <p>At Level 4 (processor-attested), the payment processor independently confirms the charge. Click farms can't fake a Stripe charge. AI bots can't generate a Stripe transaction ID. Brushing schemes still cost real Stripe fees.</p>
+    <p>At Level 4 (processor-attested), the charge record comes from the payment processor, not from the merchant. A click farm can't post without a real Stripe charge behind each review. AI bots can't generate a Stripe transaction ID. Brushing schemes still cost real Stripe fees.</p>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Collect reviews from real, paying customers →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" Actually Means</a> · <a href="/learn/ftc-fake-reviews-rules/">FTC Fake Review Rules</a> · <a href="/blog/fake-review-statistics-2026/">Fake Review Statistics 2026</a></p>
