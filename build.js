@@ -1007,9 +1007,7 @@ const COMPARISON_NAMES = {
   '/vs/google-reviews/': 'Google Reviews',
   '/vs/judge-me/': 'Judge.me',
   '/vs/yotpo/': 'Yotpo',
-  '/vs/loox/': 'Loox',
-  '/vs/okendo/': 'Okendo',
-  '/vs/stamped/': 'Stamped.io',
+  '/vs/shopify-review-apps/': 'Loox / Okendo / Stamped',
   '/vs/skeepers/': 'Skeepers',
   '/vs/reviews-io/': 'Reviews.io',
   '/vs/ekomi/': 'eKomi',
@@ -1024,7 +1022,7 @@ const COMPARISON_CLUSTERS = [
     say: (list) => `sits in the open-review tier alongside ${list}. Anyone can post there, so "verified" is a platform policy rather than proof of purchase, the distinction the table below measures.`,
   },
   {
-    members: ['/vs/judge-me/', '/vs/yotpo/', '/vs/loox/', '/vs/okendo/', '/vs/stamped/', '/vs/skeepers/', '/vs/reviews-io/'],
+    members: ['/vs/judge-me/', '/vs/yotpo/', '/vs/shopify-review-apps/', '/vs/skeepers/', '/vs/reviews-io/'],
     say: (list) => `belongs to the Shopify-era review apps, alongside ${list}. Each verifies against the store's own order records rather than the payment processor itself.`,
   },
   {
@@ -1040,8 +1038,11 @@ const COMPARISON_CLUSTERS = [
   },
 ];
 
+// Multi-app pages explain their own cluster, so they only receive sibling links.
+const NO_SIBLING_INTRO = new Set(['/vs/shopify-review-apps/']);
+
 function injectComparisonSiblings(slug, body) {
-  if (!COMPARISON_NAMES[slug]) return body;
+  if (!COMPARISON_NAMES[slug] || NO_SIBLING_INTRO.has(slug)) return body;
   const cluster = COMPARISON_CLUSTERS.find((c) => c.members.includes(slug));
   if (!cluster) return body;
 
@@ -2921,150 +2922,86 @@ function buildComparisonReviewsIo() {
   console.log('  ✓ /vs/reviews-io/');
 }
 
-// ── Comparison: Signed Reviews vs Stamped ─────────────────────────────────────
-function buildComparisonStamped() {
-  const slug = '/vs/stamped/';
+// ── Comparison: Signed Reviews vs Loox, Okendo and Stamped ────────────────────
+// Merged 2026-10-11 from /vs/loox/, /vs/okendo/ and /vs/stamped/ (301s in the
+// _redirects block). The three pages were the thinnest comparisons (about 400
+// words each, heavily overlapping) and Google never crawled them. Competitor
+// prices and ratings were read from each app's Shopify App Store listing and
+// stamped.io/pricing on 2026-10-11; re-check them before editing.
+function buildComparisonShopifyReviewApps() {
+  const slug = '/vs/shopify-review-apps/';
+  const LOOX = 'https://apps.shopify.com/loox';
+  const OKENDO = 'https://apps.shopify.com/okendo-reviews';
+  const STAMPED = 'https://apps.shopify.com/product-reviews-addon';
   const body = `<article class="prose">
-    <h2>Signed Reviews vs Stamped</h2>
-    <p>Stamped.io (also known as Stamped) is a well-established review and loyalty platform popular with mid-market e-commerce brands. Its purchase verification matches reviews to merchant order data, merchant-supplied. Here's how it compares to processor-attested verification.</p>
+    <p><strong>Signed Reviews only works for stores that charge customers through their own Stripe account.</strong> A Shopify store that takes payment through Shopify Payments cannot connect, so for that store Loox, Okendo or Stamped is the right kind of tool. If your store charges through its own Stripe account, or you also sell outside Shopify (subscriptions, services, invoices), Signed Reviews matches every review to a completed Stripe charge, which none of the three do.</p>
+    <p>This page compares the three Shopify review apps with each other and with Signed Reviews: what each one checks a review against, what it costs, and what it does best.</p>
 
+    <h2>First: is Signed Reviews a Loox alternative for your store?</h2>
+    <ul>
+      <li><strong>Yes</strong> if your checkout charges cards through a Stripe account you own: Stripe Checkout or Payment Links, WooCommerce with Stripe, a SaaS app, or Stripe invoices.</li>
+      <li><strong>No</strong> if your store uses Shopify Payments. Shopify handles the payment there, and there is no Stripe account of yours for Signed Reviews to read.</li>
+      <li><strong>Not yet</strong> if you need a native Shopify or WooCommerce app. Both integrations are planned; today the connection is the Signed Reviews Stripe App.</li>
+    </ul>
+
+    <h2>Loox, Okendo, Stamped and Signed Reviews compared</h2>
     <div class="vs-table-wrap" style="overflow-x:auto;">
     <table class="vs-table">
-      <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Stamped</th></tr></thead>
+      <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Loox</th><th>Okendo</th><th>Stamped</th></tr></thead>
       <tbody>
-        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe, independent payment processor. Processor-attested (Level 4).</td><td class="lose">Merchant order data, matches reviews to orders in the merchant's e-commerce platform. Merchant-supplied (Level 3).</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native, one-click OAuth, minimal permissions. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration. Works through e-commerce platform connectors (Shopify, BigCommerce, etc.).</td></tr>
-        <tr class="highlight-row"><td>Feature breadth</td><td class="lose">Focused: core review collection, verification, API, and publishing.</td><td class="win">Broad: reviews, ratings, Q&A, loyalty & rewards, community, checkout upsells. Full retention suite.</td></tr>
-        <tr><td>Cryptographic proof</td><td class="win">Yes, tamper-evident digital signature on every review.</td><td class="lose">No cryptographic signing.</td></tr>
-        <tr class="highlight-row"><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="lose">From $23/mo (Lite) to $149/mo+ (Enterprise). Mid-range but features gated behind tiers.</td></tr>
-        <tr><td>Platform support</td><td class="win">Any platform that takes payment through your own Stripe account (not Shopify Payments): WooCommerce, custom, SaaS, invoices.</td><td class="win">Shopify, BigCommerce, Magento, WooCommerce. Wide platform support.</td></tr>
-        <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews.</td><td class="win">Business owns the reviews.</td></tr>
+        <tr class="highlight-row"><td>What a review is matched to</td><td class="win">A completed charge in your Stripe account (<a href="/how-verification-works/">Level 4, processor-attested</a>)</td><td class="lose">An order in the store's own records (Level 3)</td><td class="lose">An order in the store's own records (Level 3)</td><td class="lose">An order in the store's own records (Level 3)</td></tr>
+        <tr><td>Platform</td><td>Any business paid through its own Stripe account</td><td>Shopify</td><td>Shopify</td><td>Shopify</td></tr>
+        <tr class="highlight-row"><td>Free plan</td><td class="win">Yes: unlimited self-service reviews plus 10 automated invitations</td><td class="win">Yes: up to 500 orders</td><td class="win">Yes: up to 50 orders a month</td><td class="lose">No free plan listed</td></tr>
+        <tr><td>Paid plans</td><td>$29, $79, $199 a month (<a href="/pricing/">pricing</a>)</td><td>$49.99 a month (300 orders, then $50 per 300 more) or $299.99 a month (<a href="${LOOX}" rel="noopener">listing</a>)</td><td>$19, $119, $299 a month for 200, 1,500 and 3,500 orders (<a href="${OKENDO}" rel="noopener">listing</a>)</td><td>$23, $99, $199 a month for 200, 1,000 and 5,000 orders (<a href="${STAMPED}" rel="noopener">listing</a>)</td></tr>
+        <tr class="highlight-row"><td>Signed, checkable reviews</td><td class="win">Each review is signed when submitted, and anyone can check it on its public verification page</td><td class="lose">No</td><td class="lose">No</td><td class="lose">No</td></tr>
+        <tr><td>Refunds</td><td class="win">A full refund or dispute hides the review (checked every 6 hours)</td><td>Not stated</td><td>Not stated</td><td>Not stated</td></tr>
+        <tr class="highlight-row"><td>Best at</td><td>Proving a reviewer paid</td><td>Photo and video reviews, referrals</td><td>Reviews joined to loyalty, referrals, surveys and quizzes</td><td>Reviews joined to loyalty and repeat-purchase emails</td></tr>
+        <tr><td>Shopify App Store rating</td><td>Not on Shopify</td><td>4.9 from 9,830 reviews</td><td>4.8 from 1,432 reviews</td><td>4.7 from 3,752 reviews</td></tr>
       </tbody>
     </table>
     </div>
+    <p style="font-size:.9rem;color:var(--muted);">Competitor plans and ratings as listed on each app's Shopify App Store page on October 11, 2026. Prices are in USD and change; check the listing before you buy.</p>
+
+    <h2>What all three check a review against</h2>
+    <p>Loox, Okendo and Stamped work the same way at the core: the store gets an order, the app emails the customer a review request, and the review is tied to that order. The order lives in the store's own records, which the merchant controls. That is the <a href="/learn/what-does-verified-buyer-mean/">merchant-supplied level</a> of verification, and it is the industry norm. It keeps random strangers out, but nothing outside the store confirms that anyone paid.</p>
+    <p>Signed Reviews changes the source. A review link only goes to the email on a completed Stripe charge, the review is stored with a reference to that charge, and it is signed so later edits can be detected. Faking one would take a real payment, with real Stripe fees and a record in your account. A real customer can still write something unfair; what Signed Reviews shows is that they paid.</p>
+
+    <h2>Loox: photo and video reviews with referrals</h2>
+    <p>Loox is built around visual reviews. Its <a href="${LOOX}" rel="noopener">Shopify App Store listing</a> shows a free Beginner plan for up to 500 orders that already includes review request emails with reminders, discounts for photo reviews, Google rich snippets and Shop app syndication. The Convert plan ($49.99 a month, 300 orders included, then $50 per extra 300) adds video reviews, AI review summaries, post-purchase and on-site referrals, syndication to Google, Meta and TikTok, and API access. Unlimited is $299.99 a month.</p>
+    <p><strong>Pick Loox</strong> if you run on Shopify Payments and photo reviews are what sell your product. Its free plan is generous for a small store.</p>
+
+    <h2>Okendo: reviews as part of a loyalty stack</h2>
+    <p>Okendo presents itself as five connected apps: reviews, loyalty, surveys, quizzes and referrals (<a href="${OKENDO}" rel="noopener">Shopify App Store listing</a>). The free plan covers up to 50 orders a month with automated review requests, review rewards and Google snippets. Essential is $19 a month for up to 200 orders. Growth is $119 for up to 1,500 orders and adds AI review summaries, a Q&amp;A widget and a TikTok Shop integration. Power is $299 for up to 3,500 orders, with review campaigns and advanced reporting.</p>
+    <p><strong>Pick Okendo</strong> if you want reviews, points and referrals in one Shopify-native system and your order volume fits its tiers.</p>
+
+    <h2>Stamped: reviews next to loyalty and repeat-purchase automation</h2>
+    <p>Stamped sells three separate products, Reviews, Loyalty and Repeat, each with its own subscription (<a href="https://stamped.io/pricing" rel="noopener">stamped.io pricing</a>). On Shopify the Reviews plan is $23 a month for up to 200 orders, $99 for up to 1,000 and $199 for up to 5,000 (<a href="${STAMPED}" rel="noopener">Shopify App Store listing</a>). Every tier includes in-email review collection, on-site widgets and photo and video reviews. The feature list also covers Q&amp;A, Net Promoter Score surveys, checkout reviews on Shopify and Google seller ratings.</p>
+    <p><strong>Pick Stamped</strong> if you plan to add loyalty or repeat-purchase emails and want them from the same vendor as your reviews.</p>
 
     <div class="verdict">
       <h2>When to choose Signed Reviews</h2>
-      <p>If verification strength is your priority, the difference between "matched to a merchant order" and "matched to a Stripe charge" is the difference between data the merchant controls and a charge record from Stripe. For Stripe-native businesses, Signed Reviews also offers simpler setup (one click vs platform connector configuration).</p>
+      <p>Choose Signed Reviews if your store charges through its own Stripe account and you want reviews that carry proof of payment: each one matched to a completed charge, signed, checkable by anyone, and hidden if the charge is fully refunded or disputed. It works the same way for everything else you sell through Stripe, so one review page can cover a store, a subscription and invoiced work.</p>
     </div>
 
     <div class="verdict verdict-alt">
-      <h2>When Stamped may be a better fit</h2>
-      <p>If you need a full retention suite, reviews + loyalty + rewards + Q&A + community, Stamped's breadth is compelling. The loyalty integration is a differentiator if you're running a points-based retention program alongside reviews.</p>
+      <h2>When a Shopify review app is the better fit</h2>
+      <p>Choose Loox, Okendo or Stamped if you use Shopify Payments, if photo and video galleries matter more to you than proof of purchase, or if you want loyalty and referrals bundled with reviews. A store can also run both: a Shopify app for photo reviews on product pages and Signed Reviews for payment-verified reviews on a public page.</p>
     </div>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
-    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/yotpo/">Signed Reviews vs Yotpo</a> · <a href="/vs/judge-me/">Signed Reviews vs Judge.me</a></p>
+    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/vs/judge-me/">Signed Reviews vs Judge.me</a> · <a href="/vs/yotpo/">Signed Reviews vs Yotpo</a> · <a href="/integrations/shopify/">Shopify integration status</a> · <a href="/blog/how-to-get-reviews-on-shopify/">How to get reviews on Shopify</a></p>
   </article>`;
 
   const html = page({
-    title: 'Stamped Alternative | Stripe-Verified Reviews | Signed Reviews',
-    description: 'Stamped alternative for Stripe businesses: Stamped verifies merchant order data; we match every review to a Stripe charge. 7-dimension comparison.',
+    title: 'Loox Alternative: Loox vs Okendo vs Stamped | Signed Reviews',
+    description: 'Looking for a Loox alternative? Loox vs Okendo vs Stamped vs Signed Reviews: plans, prices and what each checks a review against. For stores paid through Stripe.',
     slug,
-    hero: { eyebrow: 'Comparison', title: 'The Stamped Alternative for Stripe Businesses', subtitle: 'A Stamped alternative for Stripe businesses. Stamped matches reviews to merchant orders. We match them to Stripe charges.' },
+    hero: { eyebrow: 'Comparison', title: 'Loox, Okendo and Stamped vs Signed Reviews', subtitle: 'Three Shopify review apps that match reviews to store orders, and one that matches them to Stripe charges. Start with how your store gets paid.' },
     body,
     extraStyle: COMPARISON_STYLES,
   });
   writePage(slug, html);
-  console.log('  ✓ /vs/stamped/');
-}
-
-// ── Comparison: Signed Reviews vs Okendo ──────────────────────────────────────
-function buildComparisonOkendo() {
-  const slug = '/vs/okendo/';
-  const body = `<article class="prose">
-    <h2>Signed Reviews vs Okendo</h2>
-    <p>Okendo is the premium Shopify review app: favored by DTC brands like Skims, Haus Labs, and Olipop for its visual, brand-forward review display. Its "Verified Buyer" badge matches reviews to Shopify orders. Here's how processor-attested verification stacks up.</p>
-
-    <div class="vs-table-wrap" style="overflow-x:auto;">
-    <table class="vs-table">
-      <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Okendo</th></tr></thead>
-      <tbody>
-        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe, independent payment processor. Processor-attested (Level 4).</td><td class="lose">Shopify order data, matches reviews to orders. Merchant-supplied (Level 3).</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native, one-click OAuth, minimal permissions. Works with any Stripe-connected platform.</td><td class="lose">Shopify-only, no direct Stripe integration. Depends on the Shopify-Stripe connection.</td></tr>
-        <tr class="highlight-row"><td>Review display & branding</td><td class="tie">Clean, brandable public page. Embeddable reviews via API.</td><td class="win">Best-in-class visual design: highly customizable review displays, photo/video reviews, shoppable galleries. Okendo leads on aesthetics.</td></tr>
-        <tr><td>Cryptographic proof</td><td class="win">Yes, tamper-evident digital signature on every review.</td><td class="lose">No cryptographic signing.</td></tr>
-        <tr class="highlight-row"><td>Customer insights</td><td class="lose">Focused on verification data: purchase confirmation, review authenticity metrics.</td><td class="win">Rich zero-party data: customer attributes, preferences, and profiles derived from reviews. Strong for segmentation.</td></tr>
-        <tr><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="lose">From $19/mo (Essential) to $119/mo+ (Advanced). Shopify-only. Features gated behind higher tiers.</td></tr>
-        <tr class="highlight-row"><td>Platform support</td><td class="win">Any platform using Stripe.</td><td class="lose">Shopify-only.</td></tr>
-        <tr><td>Review ownership</td><td class="win">Business owns the reviews.</td><td class="win">Business owns the reviews. Exportable.</td></tr>
-      </tbody>
-    </table>
-    </div>
-
-    <div class="verdict">
-      <h2>When to choose Signed Reviews</h2>
-      <p>If you want the strongest verification possible, a payment processor's charge record plus cryptographic proof, and you're on Stripe, Signed Reviews gives you a trust signal Okendo can't replicate. If you sell across multiple platforms (Shopify + custom + invoices), Signed Reviews works anywhere you take payment through your own Stripe account, while Okendo is Shopify-only.</p>
-    </div>
-
-    <div class="verdict verdict-alt">
-      <h2>When Okendo may be a better fit</h2>
-      <p>If you're a Shopify DTC brand and visual brand experience is paramount, Okendo's review displays are the best in the category. Its zero-party data features, capturing customer attributes and preferences through reviews, are genuinely valuable for segmentation and personalization.</p>
-    </div>
-
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
-    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/judge-me/">Signed Reviews vs Judge.me</a> · <a href="/vs/yotpo/">Signed Reviews vs Yotpo</a></p>
-  </article>`;
-
-  const html = page({
-    title: 'Okendo Alternative | Stripe-Verified Reviews | Signed Reviews',
-    description: 'Okendo alternative for Stripe businesses: Okendo leads on visual design but verifies Shopify order data; we match every review to a Stripe charge.',
-    slug,
-    hero: { eyebrow: 'Comparison', title: 'The Okendo Alternative for Stripe Businesses', subtitle: 'An Okendo alternative for Stripe businesses. Okendo\'s reviews look beautiful, but its "verified" trusts your Shopify data. Ours requires a matching Stripe charge.' },
-    body,
-    extraStyle: COMPARISON_STYLES,
-  });
-  writePage(slug, html);
-  console.log('  ✓ /vs/okendo/');
-}
-
-// ── Comparison: Signed Reviews vs Loox ────────────────────────────────────────
-function buildComparisonLoox() {
-  const slug = '/vs/loox/';
-  const body = `<article class="prose">
-    <h2>Signed Reviews vs Loox</h2>
-    <p>Loox is a popular Shopify review app known for its photo-first review displays and auto-discount features for photo reviews. Like other Shopify apps, its "Verified" badge matches reviews to Shopify orders. Here's how processor-attested verification compares.</p>
-
-    <div class="vs-table-wrap" style="overflow-x:auto;">
-    <table class="vs-table">
-      <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Loox</th></tr></thead>
-      <tbody>
-        <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe, independent payment processor. Processor-attested (Level 4).</td><td class="lose">Shopify order data, matches reviews to orders. Merchant-supplied (Level 3).</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native, one-click OAuth, minimal permissions. Works with any Stripe-connected platform.</td><td class="lose">Shopify-only, no direct Stripe integration.</td></tr>
-        <tr class="highlight-row"><td>Photo reviews</td><td class="tie">Photo reviews supported, customers can attach images.</td><td class="win">Best-in-class photo reviews, auto-discount incentives for photo submissions, beautiful photo-first gallery displays. Loox leads here.</td></tr>
-        <tr><td>Cryptographic proof</td><td class="win">Yes, tamper-evident digital signature on every review.</td><td class="lose">No cryptographic signing.</td></tr>
-        <tr class="highlight-row"><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="win">From $9.99/mo (Beginner) to $34.99/mo+ (Scale). Very affordable, especially for photo-heavy review collection.</td></tr>
-        <tr><td>Platform support</td><td class="win">Any platform using Stripe.</td><td class="lose">Shopify-only.</td></tr>
-        <tr class="highlight-row"><td>Referral features</td><td class="lose">Not offered, focused on review authenticity.</td><td class="win">Built-in referral program, post-review upsells and referral discounts. Loox uses reviews as a referral engine.</td></tr>
-        <tr><td>Review ownership</td><td class="win">Business owns the reviews.</td><td class="win">Business owns the reviews. Exportable.</td></tr>
-      </tbody>
-    </table>
-    </div>
-
-    <div class="verdict">
-      <h2>When to choose Signed Reviews</h2>
-      <p>If you want the strongest verification possible and you're on Stripe, Signed Reviews gives you processor-attested, cryptographically signed reviews, a trust signal no Shopify review app can match. For businesses that sell across multiple platforms, Signed Reviews works anywhere you take payment through your own Stripe account.</p>
-    </div>
-
-    <div class="verdict verdict-alt">
-      <h2>When Loox may be a better fit</h2>
-      <p>If you're a Shopify store and visual social proof is your primary goal, Loox's photo-first approach and auto-discount incentives consistently drive high photo-review submission rates.</p>
-    </div>
-
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
-    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/judge-me/">Signed Reviews vs Judge.me</a> · <a href="/vs/okendo/">Signed Reviews vs Okendo</a></p>
-  </article>`;
-
-  const html = page({
-    title: 'Loox Alternative | Stripe-Verified Reviews | Signed Reviews',
-    description: 'Loox alternative for Stripe businesses: Loox leads on photo reviews and referrals but verifies Shopify orders; we match every review to a Stripe charge.',
-    slug,
-    hero: { eyebrow: 'Comparison', title: 'The Loox Alternative for Stripe Businesses', subtitle: 'A Loox alternative for Stripe businesses. Loox makes reviews beautiful, but "verified" still means matched to a Shopify order, not to a Stripe charge.' },
-    body,
-    extraStyle: COMPARISON_STYLES,
-  });
-  writePage(slug, html);
-  console.log('  ✓ /vs/loox/');
+  console.log('  ✓ /vs/shopify-review-apps/');
 }
 
 // ── Comparison: Signed Reviews vs Skeepers ────────────────────────────────────
@@ -4188,6 +4125,7 @@ function buildIntegrationsShopify() {
 
     <h2 id="today">What you can do today</h2>
     <p>If your Shopify store takes payment through its own Stripe account (not Shopify Payments), you can connect your Stripe account directly to Signed Reviews right now, the same Level 4 verification, the same automatic invitations, one per customer. The Shopify App Store integration will make this even easier. <a href="/integrations/stripe/">Set up the Stripe integration →</a></p>
+    <p>On Shopify Payments? Then a Shopify review app is the right tool for now. We compare <a href="/vs/shopify-review-apps/">Loox, Okendo and Stamped</a> on plans, prices and what each one checks a review against.</p>
 
     <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Join the waitlist →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/integrations/stripe/">Stripe integration</a> · <a href="/integrations/">All integrations</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews</a></p>
@@ -4898,7 +4836,7 @@ function buildSeoFiles(blogPosts = []) {
   // crawlers to ignore the signal entirely.
   const STATIC_PAGES_LASTMOD = '2026-09-06';
   const blogLastmod = new Map(blogPosts.map(p => [p.slug, p.lastmod]));
-  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/integrations/stripe/', '/integrations/shopify/', '/integrations/woocommerce/', '/faq/', '/how-it-works/', '/how-verification-works/', '/demo/', '/tools/fake-review-checker/', '/docs/', '/api/', '/trust/', '/chrome-extension/privacy/', '/vs/trustpilot/', '/vs/feefo/', '/vs/judge-me/', '/vs/yotpo/', '/vs/ekomi/', '/vs/sitejabber/', '/vs/reviews-io/', '/vs/stamped/', '/vs/okendo/', '/vs/loox/', '/vs/skeepers/', '/vs/google-reviews/', '/vs/yelp/', '/vs/clutch/', '/vs/birdeye/', '/vs/podium/', '/learn/what-does-verified-buyer-mean/', '/learn/how-fake-reviews-work/', '/learn/ftc-fake-reviews-rules/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/', ...blogPosts.map(p => p.slug)];
+  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/integrations/stripe/', '/integrations/shopify/', '/integrations/woocommerce/', '/faq/', '/how-it-works/', '/how-verification-works/', '/demo/', '/tools/fake-review-checker/', '/docs/', '/api/', '/trust/', '/chrome-extension/privacy/', '/vs/trustpilot/', '/vs/feefo/', '/vs/judge-me/', '/vs/yotpo/', '/vs/ekomi/', '/vs/sitejabber/', '/vs/reviews-io/', '/vs/shopify-review-apps/', '/vs/skeepers/', '/vs/google-reviews/', '/vs/yelp/', '/vs/clutch/', '/vs/birdeye/', '/vs/podium/', '/learn/what-does-verified-buyer-mean/', '/learn/how-fake-reviews-work/', '/learn/ftc-fake-reviews-rules/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/', ...blogPosts.map(p => p.slug)];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
@@ -4996,9 +4934,7 @@ buildComparisonEkomi();
 buildComparisonSiteJabber();
 buildComparisonBirdeye();
 buildComparisonReviewsIo();
-buildComparisonStamped();
-buildComparisonOkendo();
-buildComparisonLoox();
+buildComparisonShopifyReviewApps();
 buildComparisonSkeepers();
 buildComparisonGoogleReviews();
 buildComparisonYelp();
@@ -5076,6 +5012,12 @@ for (const entry of fs.readdirSync(ROOT)) {
 		'/blog/is-trustpilot-legit /blog/are-trustpilot-reviews-reliable/ 301\n' +
 		'/blog/fake-review-laws-ftc/ /learn/ftc-fake-reviews-rules/ 301\n' +
 		'/blog/fake-review-laws-ftc /learn/ftc-fake-reviews-rules/ 301\n' +
+		'/vs/loox/ /vs/shopify-review-apps/ 301\n' +
+		'/vs/loox /vs/shopify-review-apps/ 301\n' +
+		'/vs/okendo/ /vs/shopify-review-apps/ 301\n' +
+		'/vs/okendo /vs/shopify-review-apps/ 301\n' +
+		'/vs/stamped/ /vs/shopify-review-apps/ 301\n' +
+		'/vs/stamped /vs/shopify-review-apps/ 301\n' +
 		'/SignedReviews/* /:splat 301\n');
 // The home page (index.html) is bespoke and not generated through SHARED_HEAD,
 // so inject PostHog + build metadata into its dist copy here (keeps the source

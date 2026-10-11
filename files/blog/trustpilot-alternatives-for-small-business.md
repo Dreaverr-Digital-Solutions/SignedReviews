@@ -168,7 +168,7 @@ Stamped.io (formerly Stamped) supports reviews, ratings, Q&A, and visual marketi
 
 **Why it's #7:** Good value for multi-platform stores. Nothing wrong with it. It just sits at the same Level 3 as everyone else, without a distinctive verification story.
 
-→ [Signed Reviews vs Stamped](/vs/stamped/)
+→ [Loox, Okendo and Stamped vs Signed Reviews](/vs/shopify-review-apps/)
 
 ### 8. Okendo, ★ Best for Shopify brands focused on visual UGC
 
@@ -182,7 +182,7 @@ Okendo is Shopify-native and strong on photo/video reviews and customer attribut
 
 **Why it's #8:** Excellent for Shopify brands that want rich visual reviews with customer attributes. Not a fit outside Shopify.
 
-→ [Signed Reviews vs Okendo](/vs/okendo/)
+→ [Loox, Okendo and Stamped vs Signed Reviews](/vs/shopify-review-apps/)
 
 ### 9. Loox, ★ Best for Shopify product reviews with photo emphasis
 
@@ -196,7 +196,7 @@ Loox is a popular Shopify review app known for automated photo review collection
 
 **Why it's #9:** Affordable and effective for Shopify photo reviews, with a usable free plan.
 
-→ [Signed Reviews vs Loox](/vs/loox/)
+→ [Loox, Okendo and Stamped vs Signed Reviews](/vs/shopify-review-apps/)
 
 ### 10. Google Reviews, ★ Essential supplement, not a replacement
 

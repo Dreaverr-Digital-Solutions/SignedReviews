@@ -76,7 +76,7 @@ Judge.me is a widely used Shopify review app that reports [142M+ verified review
 
 Loox is a Shopify review app built around automatic photo-review collection. Its [Shopify App Store listing](https://apps.shopify.com/loox) shows a free plan for up to 500 orders, with review request emails, photo-review discounts and Google rich snippets. Paid plans start at $49.99/month for 300 orders, plus $50 per additional 300 orders. It verifies against Shopify order data and follows up with customers for photo reviews. The limitation: Loox is Shopify-only with no cross-platform support, and video reviews and API access sit on the paid plan. Photo reviews are its core strength; if you don't need visual UGC, Judge.me's free plan covers the basics.
 
-→ [Signed Reviews vs Loox](/vs/loox/)
+→ [Loox, Okendo and Stamped vs Signed Reviews](/vs/shopify-review-apps/)
 
 ### 4. Yotpo. Best for Enterprise DTC
 
@@ -88,13 +88,13 @@ Yotpo is the enterprise DTC default, used by brands generating millions in reven
 
 Stamped.io offers solid multi-platform support at a mid-market price point, covering Shopify, BigCommerce, Magento, and WooCommerce under one roof. It combines reviews, ratings, Q&A, and loyalty features with purchase verification through order matching, making it a good all-rounder for brands that don't want to be locked into a single ecommerce platform. Its [Shopify app](https://apps.shopify.com/product-reviews-addon) starts at $23/month for up to 200 orders; plans bought directly start at [$199/month for Reviews](https://stamped.io/pricing). The limitation: Stamped.io's feature breadth means individual components (reviews, loyalty, Q&A) are less polished than dedicated best-in-class tools. It's a jack-of-all-trades, master of none.
 
-→ [Signed Reviews vs Stamped](/vs/stamped/)
+→ [Loox, Okendo and Stamped vs Signed Reviews](/vs/shopify-review-apps/)
 
 ### 6. Okendo. Best for Visual-First Shopify DTC
 
 Okendo is the premium Shopify review app for brands that treat reviews as a marketing asset: offering photo reviews, video testimonials, and customer attributes (skin type, size, fit) that make social proof more relevant to shoppers. Its [Shopify App Store listing](https://apps.shopify.com/okendo-reviews) shows a free plan for up to 50 orders/month and a $19/month plan for up to 200 orders. Verification is standard Level 3 against Shopify order data. The limitation: Okendo is Shopify-exclusive, and above 200 orders it costs more than Judge.me, which caps at $15/month. You're paying for the visual polish and customer attribute data, which only pays off if you actively use those features in your marketing.
 
-→ [Signed Reviews vs Okendo](/vs/okendo/)
+→ [Loox, Okendo and Stamped vs Signed Reviews](/vs/shopify-review-apps/)
 
 ### 7. G2. Best for B2B and Software Reviews
 

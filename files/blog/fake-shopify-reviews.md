@@ -110,7 +110,7 @@ The only way to structurally prevent fake reviews is to verify against something
 
 This is processor-attested verification (Level 4 on the [verification spectrum](/learn/what-does-verified-buyer-mean/)). No Shopify review app offers it. Only platforms that integrate directly with Stripe do, and that's a small list. [See how it works](/how-it-works/) for the full technical breakdown.
 
-For Shopify merchants who take payment through their own Stripe account, the question isn't whether you can prevent fake reviews on your store. It's whether your review app verifies against the one data source you can't fabricate. Stores on Shopify Payments can't connect: it runs on Stripe, but the merchant has no Stripe account of their own to link. [See pricing](/pricing/) for plans that include processor-attested verification.
+For Shopify merchants who take payment through their own Stripe account, the question isn't whether you can prevent fake reviews on your store. It's whether your review app verifies against the one data source you can't fabricate. Stores on Shopify Payments can't connect: it runs on Stripe, but the merchant has no Stripe account of their own to link. To see what the main Shopify review apps check a review against, read [Loox, Okendo and Stamped vs Signed Reviews](/vs/shopify-review-apps/). [See pricing](/pricing/) for plans that include processor-attested verification.
 
 ---
 

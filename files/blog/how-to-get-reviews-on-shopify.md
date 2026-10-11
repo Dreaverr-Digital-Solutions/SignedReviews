@@ -106,7 +106,7 @@ The review app would see a real order in Shopify and mark it "Verified Buyer." T
 
 This is Level 4 on the verification spectrum, and it needs a review platform that connects to your Stripe account directly, outside the Shopify app ecosystem. Stores on Shopify Payments can't use it. Stripe [powers Shopify Payments](https://stripe.com/customers/shopify), but those charges don't sit in a Stripe account the merchant can connect to another app, so Signed Reviews can't read them.
 
-For most Shopify merchants, a good Shopify review app is sufficient. Level 3 verification is the industry standard, and consumers trust it. But if review authenticity is a competitive differentiator for your brand, the gap between "verified by our Shopify order data" and "verified against a Stripe charge" is worth understanding.
+For most Shopify merchants, a good Shopify review app is sufficient; we compare [Loox, Okendo and Stamped](/vs/shopify-review-apps/) on plans and verification. Level 3 verification is the industry standard, and consumers trust it. But if review authenticity is a competitive differentiator for your brand, the gap between "verified by our Shopify order data" and "verified against a Stripe charge" is worth understanding.
 
 ---
 
