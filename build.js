@@ -1693,7 +1693,7 @@ function buildPricing() {
   </section>
 
   <section class="cta-bar" aria-label="Get started">
-    <h2>Start collecting unfakable reviews today.</h2>
+    <h2>Start collecting reviews tied to real purchases.</h2>
     <p>Free plan available. No credit card required to start.</p>
     <a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener">Sign up free →</a>
   </section>
@@ -2086,7 +2086,7 @@ function buildHowItWorks() {
     { num: '1', title: 'Connect your Stripe account', body: 'One click. You authorize Signed Reviews via Stripe\'s official OAuth flow. We get <strong>minimal permissions</strong>: we can verify charges but can never charge, refund, or move funds. The only write we use is creating discount coupons for reviewers, and only when you enable review incentives.' },
     { num: '2', title: 'Customer completes a purchase', body: 'A customer buys from you. Stripe processes the payment as usual. Signed Reviews picks up the new charge from Stripe and, if this customer has not been invited before, automatically creates a unique, expiring review invitation linked to that specific transaction.' },
     { num: '3', title: 'Review invitation is sent', body: 'The invitation email is sent to the customer\'s verified payment email from the Stripe transaction. You control the timing: immediately, or after a delay for shipped products. The email carries your branding and logo.' },
-    { num: '4', title: 'Customer submits their review', body: 'The customer clicks the unique link, writes their review, and submits it. At the moment of submission, the review content, transaction ID, customer email, and timestamp are <strong>cryptographically signed</strong>, creating a tamper-evident record.' },
+    { num: '4', title: 'Customer submits their review', body: 'The customer clicks the unique link, writes their review, and submits it. At the moment of submission, the review text, rating, the Stripe charge it belongs to, and the submission time are <strong>cryptographically signed</strong>, creating a tamper-evident record.' },
     { num: '5', title: 'Review is verified and published', body: 'The signed review appears on your public page and in your dashboard. Anyone can check the review on its public verification page, which shows it matches a real Stripe charge and hasn\'t been altered since submission.' },
     { num: '6', title: 'Optional: reminders and follow-ups', body: 'If the customer hasn\'t left a review after a few days, up to two automatic reminders are sent (configurable cadence). Reminders stop when the customer clicks the link, submits a review, or unsubscribes. Each customer gets this sequence once, ever.' },
   ];
@@ -5112,6 +5112,13 @@ if (fs.existsSync(distIndex)) {
   }
 }
 console.log(`  ✓ dist/ (${PUBLISH.length} entries)`);
+
+// Markdown twins: dist/<page>/index.md for AI agents, built from this run's HTML.
+{
+  const { writeMarkdownTwins } = require('./scripts/markdown-twins');
+  const { written, skipped } = writeMarkdownTwins(DIST_DIR, SITE_URL);
+  console.log(`  ✓ markdown twins: ${written} pages (${skipped} skipped: noindex, redirect or no <main>)`);
+}
 
 // ── Copy lint (content-humanization-plan.md §5 phase 0.2) ────────────────────
 // Warning only, never a gate: the linter is run without --strict and any

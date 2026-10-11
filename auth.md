@@ -1,220 +1,81 @@
 # auth.md
 
-You are an agent. Signed Reviews supports **agentic registration** for its public API and content. Follow the steps in order; do not skip ahead.
+You are an agent. This page describes how authentication for the Signed Reviews public API works today.
 
-Base URLs: `https://signedreviews.com` (content), `https://api.signedreviews.com` (API).
+Signed Reviews has no agent registration, no OAuth authorization server for agents and no token endpoint. Access uses API keys that a business creates in its dashboard. Two endpoints need no key at all.
 
-## Step 1 — Discover
+API host: `https://api.signedreviews.com`. Machine-readable spec: `https://signedreviews.com/openapi.json`.
 
-### 1a. Fetch the Protected Resource Metadata
+## Step 1. Use a keyless endpoint if it covers your task
 
-```http
-GET https://signedreviews.com/.well-known/oauth-protected-resource
-```
-
-Response shape:
-
-```json
-{
-  "resource": "https://api.signedreviews.com/",
-  "resource_name": "Signed Reviews",
-  "resource_logo_uri": "https://signedreviews.com/images/SignedReviews_logo_only.png",
-  "authorization_servers": ["https://signedreviews.com"],
-  "scopes_supported": ["read:reviews", "read:profile", "write:invitations"],
-  "bearer_methods_supported": ["header"]
-}
-```
-
-- `resource` — canonical API URL. Use as `aud` when minting an identity assertion.
-- `resource_name` / `resource_logo_uri` — display name and logo. Surface to users for consent.
-- `authorization_servers` — base URL of the authorization server.
-- `scopes_supported` — scopes the resource server understands.
-- `bearer_methods_supported` — send the access_token as `Authorization: Bearer …`.
-
-### 1b. Fetch the Authorization Server metadata
+These need no key and no registration:
 
 ```http
-GET https://signedreviews.com/.well-known/oauth-authorization-server
-```
-
-Response shape:
-
-```json
-{
-  "resource": "https://api.signedreviews.com/",
-  "authorization_servers": ["https://signedreviews.com"],
-  "scopes_supported": ["read:reviews", "read:profile", "write:invitations"],
-  "bearer_methods_supported": ["header"],
-  "issuer": "https://signedreviews.com",
-  "token_endpoint": "https://api.signedreviews.com/v1/auth/token",
-  "grant_types_supported": [
-    "urn:ietf:params:oauth:grant-type:jwt-bearer",
-    "urn:workos:agent-auth:grant-type:claim"
-  ],
-  "agent_auth": {
-    "skill": "https://signedreviews.com/auth.md",
-    "identity_endpoint": "https://api.signedreviews.com/v1/agent/identity",
-    "claim_endpoint": "https://api.signedreviews.com/v1/agent/identity/claim",
-    "identity_types_supported": ["anonymous", "identity_assertion", "service_auth"],
-    "identity_assertion": {
-      "assertion_types_supported": [
-        "urn:ietf:params:oauth:token-type:id-jag"
-      ]
-    },
-    "events_supported": [
-      "https://schemas.workos.com/events/agent/auth/identity/assertion/revoked"
-    ]
-  }
-}
-```
-
-- `issuer` — canonical issuer URL. Validate the `iss` claim against this.
-- `token_endpoint` — where you exchange an identity assertion for an access_token (Step 5).
-- `grant_types_supported` — `jwt-bearer` for identity assertion exchange, `claim` for claim ceremony polling.
-- `agent_auth.skill` — the URL of this document.
-- `agent_auth.identity_endpoint` — where you POST to register (Step 3).
-- `agent_auth.claim_endpoint` — where you POST the claim invite and poll for completion.
-- `agent_auth.identity_types_supported` — registration methods this service accepts.
-- `agent_auth.identity_assertion.assertion_types_supported` — assertion types accepted (currently ID-JAG).
-- `agent_auth.events_supported` — event schemas ingested. Informational.
-
-## Step 2 — Pick a method
-
-Use this decision tree:
-
-1. **You have a session tied to a user identity and can exchange it for an ID-JAG, audience-bound to this service** → `identity_assertion` + id-jag.
-2. **You have only the user's email** → `service_auth`. Claims ceremony required.
-3. **You have neither** → `anonymous`. Access to public content only; claim ceremony optional for upgrades.
-
-## Step 3 — Register
-
-### identity_assertion + id-jag
-
-Mint the ID-JAG with `aud` = the `resource` from Step 1a, fresh `jti`, near-term `exp` (≤5 minutes), and `auth_time` (epoch seconds of last user authentication).
-
-```http
-POST https://api.signedreviews.com/v1/agent/identity
+POST https://api.signedreviews.com/api/public/v1/check-review
 Content-Type: application/json
 
-{
-  "type": "identity_assertion",
-  "assertion_type": "urn:ietf:params:oauth:token-type:id-jag",
-  "assertion": "<your ID-JAG JWT>"
-}
+{ "reviewText": "Great product, fast shipping.", "websiteUrl": "https://example.com", "rating": 5 }
 ```
 
-### service_auth
+Free automated estimate of whether a review looks fake or AI-written. `reviewText` is required (up to 12,000 characters); `websiteUrl` (up to 2,048 characters) and `rating` (integer 1-5) are optional. When the server has Cloudflare Turnstile switched on, a `turnstileToken` is also required. Limits: 10 requests per hour per IP address, plus a platform-wide daily cap.
 
 ```http
-POST https://api.signedreviews.com/v1/agent/identity
-Content-Type: application/json
-
-{
-  "type": "service_auth",
-  "login_hint": "user@example.com"
-}
+GET https://api.signedreviews.com/api/verify/{reviewId}
 ```
 
-Response includes `user_code` and `verification_uri` for the claim ceremony.
+Returns a published review and whether its HMAC-SHA256 signature is still valid. Limit: 60 requests per minute per IP address.
 
-### anonymous
+## Step 2. Get an API key from the business
+
+The profile and reviews endpoints return data for one business: the business that owns the key. A business creates its keys at `https://platform.signedreviews.com/dashboard/api`. Creating a key requires a Starter plan or higher.
+
+| Key | Prefix | Where it belongs |
+|-----|--------|------------------|
+| Publishable | `rvwpk_` | Browsers, apps, client-side code |
+| Secret | `rvw_` | Servers only. Never expose it. |
+
+Both keys are read-only on these endpoints. Rotating a key in the dashboard invalidates the old one at once.
+
+## Step 3. Call the API
+
+Send the key as a Bearer token:
 
 ```http
-POST https://api.signedreviews.com/v1/agent/identity
-Content-Type: application/json
-
-{
-  "type": "anonymous"
-}
+GET https://api.signedreviews.com/api/public/v1/profile
+Authorization: Bearer rvwpk_...
 ```
-
-Returns a public-scope `identity_assertion` immediately. No user identity is asserted. Use for unauthenticated read access (public reviews, profiles, content).
-
-## Step 4 — Claim (service_auth and anonymous only)
-
-When the user wants to claim an anonymous registration or complete a service_auth ceremony:
 
 ```http
-POST https://api.signedreviews.com/v1/agent/identity/claim
-Content-Type: application/json
-
-{
-  "claim_token": "<claim_token from registration>",
-  "email": "user@example.com"
-}
+GET https://api.signedreviews.com/api/public/v1/reviews?page=1&limit=10&sort=date_desc
+Authorization: Bearer rvwpk_...
 ```
 
-Response includes `user_code` and `verification_uri`. Surface these to the user. The user visits `verification_uri`, signs in via email magic link, and enters `user_code`.
-
-Poll for completion:
+Or pass a publishable key as a query parameter, for static pages that cannot set headers:
 
 ```http
-GET https://api.signedreviews.com/v1/agent/identity/claim/view?claim_token=<claim_token>
+GET https://api.signedreviews.com/api/public/v1/reviews?key=rvwpk_...
 ```
 
-While pending, the response is `{ "status": "pending" }`. On completion, status is `"claimed"` with an updated `identity_assertion`.
+Both endpoints allow requests from any origin (CORS), so browser-based agents can call them directly.
 
-## Step 5 — Exchange for access_token
+## Step 4. Handle errors and limits
 
-Once you have an `identity_assertion` from Step 3:
-
-```http
-POST https://api.signedreviews.com/v1/auth/token
-Content-Type: application/x-www-form-urlencoded
-
-grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
-&assertion=<your identity_assertion JWT>
-```
-
-Response:
-
-```json
-{
-  "access_token": "sk_agent_...",
-  "token_type": "Bearer",
-  "expires_in": 3600,
-  "scope": "read:reviews read:profile"
-}
-```
-
-## Step 6 — Use the API
-
-```http
-GET https://api.signedreviews.com/v1/public/{slug}/reviews
-Authorization: Bearer sk_agent_...
-```
-
-For unauthenticated public access (anonymous agents), the Public API also accepts publishable keys (`pk_...`) and supports CORS for browser-based agents:
-
-```http
-GET https://api.signedreviews.com/v1/public/{slug}/reviews
-Authorization: Bearer pk_live_...
-```
-
-## Step 7 — Handle revocation
-
-The authorization server may revoke tokens. If you receive a 401 with `error="invalid_token"`:
-
-```http
-POST https://api.signedreviews.com/v1/auth/revoke
-Content-Type: application/x-www-form-urlencoded
-
-token=<access_token>
-```
-
-Re-register from Step 3 to get a fresh token.
+- `401`: key missing or invalid. Ask the business for a valid key. There is no refresh flow.
+- `403`: the business's plan does not include this API.
+- `429`: rate limit reached. Per business per minute: Free 30, Starter 60, Pro 300, Scale 1,000. Responses are cacheable for 60 seconds, so cache on your side.
 
 ## Additional agent resources
 
-- **Markdown for Agents:** `Accept: text/markdown` on any signedreviews.com page
+- **Markdown for Agents:** send `Accept: text/markdown` to any signedreviews.com page
 - **LLMs.txt:** `https://signedreviews.com/llms.txt`
+- **API catalog:** `https://signedreviews.com/.well-known/api-catalog`
 - **Agent Skills:** `https://signedreviews.com/.well-known/agent-skills/index.json`
 - **OpenAPI spec:** `https://signedreviews.com/openapi.json`
 - **Web Bot Auth JWKS:** `https://signedreviews.com/.well-known/http-message-signatures-directory`
 
-## Stripe OAuth (merchant account connection)
+## Stripe connection (merchants only)
 
-Businesses connecting their Stripe account use Stripe's standard OAuth 2.0 flow at `https://connect.stripe.com/oauth/authorize`. This is a separate flow from agent authentication and is not relevant to agent access — agents connect to the Signed Reviews API, not to individual merchant Stripe accounts.
+Businesses connect Stripe by installing the Signed Reviews Stripe App, which uses Stripe's OAuth install flow. The app reads charges, customers, subscriptions and balance transactions. It writes only coupons and promotion codes, and only when the business switches on review incentives. It never charges, refunds or moves money. This connection is separate from API access: agents never receive Stripe access through Signed Reviews.
 
 ## Security
 

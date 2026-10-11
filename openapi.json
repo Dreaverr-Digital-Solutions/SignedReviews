@@ -1,72 +1,196 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.1.0",
   "info": {
     "title": "Signed Reviews Public API",
     "version": "1.0.0",
-    "description": "Public API for retrieving verified reviews, business profiles, and ratings from Signed Reviews. All endpoints are read-only and authenticated via publishable key (bearer token). For full documentation see https://signedreviews.com/api/",
+    "description": "Read-only public API for Signed Reviews. Two endpoints return a business's own public profile and reviews and need an API key. Two endpoints need no key: the free review check and public review verification. Guide: https://signedreviews.com/api/",
     "contact": {
       "email": "api@signedreviews.com"
     }
   },
   "servers": [
     {
-      "url": "https://api.signedreviews.com/v1",
+      "url": "https://api.signedreviews.com",
       "description": "Production API"
     }
   ],
-  "security": [
-    {
-      "bearerAuth": []
-    }
-  ],
   "paths": {
-    "/businesses/{slug}": {
+    "/api/public/v1/profile": {
       "get": {
-        "summary": "Get business profile",
-        "description": "Returns public business profile including aggregate rating, review count, and public metadata.",
-        "x-payment-info": { "type": "free", "description": "No charge — public API accessible with publishable key" },
-        "parameters": [
-          {
-            "name": "slug",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "string" }
-          }
-        ],
+        "operationId": "getProfile",
+        "summary": "Get your business profile",
+        "description": "Returns the public identity, rating summary and displayable verified metrics of the business that owns the key. Works from any origin (CORS). Rate limit per business per minute: Free 30, Starter 60, Pro 300, Scale 1000. Responses carry Cache-Control: public, max-age=60, stale-while-revalidate=300.",
+        "x-payment-info": { "type": "free", "description": "No charge" },
+        "security": [{ "bearerAuth": [] }, { "queryKey": [] }],
         "responses": {
           "200": {
-            "description": "Business profile with aggregate rating"
-          }
+            "description": "Profile envelope",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ProfileResponse" }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "403": { "$ref": "#/components/responses/PlanRequired" },
+          "429": { "$ref": "#/components/responses/KeyRateLimited" },
+          "500": { "$ref": "#/components/responses/EnvelopeError" }
         }
       }
     },
-    "/businesses/{slug}/reviews": {
+    "/api/public/v1/reviews": {
       "get": {
-        "summary": "List verified reviews",
-        "description": "Returns paginated list of verified reviews for a business. All reviews are processor-attested (Level 4).",
-        "x-payment-info": { "type": "free", "description": "No charge — public API accessible with publishable key" },
+        "operationId": "listReviews",
+        "summary": "List your reviews",
+        "description": "Returns paginated, privacy-masked reviews of the business that owns the key. Hidden reviews are excluded. Works from any origin (CORS). Rate limit per business per minute: Free 30, Starter 60, Pro 300, Scale 1000. Responses carry Cache-Control: public, max-age=60, stale-while-revalidate=300.",
+        "x-payment-info": { "type": "free", "description": "No charge" },
+        "security": [{ "bearerAuth": [] }, { "queryKey": [] }],
         "parameters": [
-          {
-            "name": "slug",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "string" }
-          },
           {
             "name": "page",
             "in": "query",
-            "schema": { "type": "integer", "default": 1 }
+            "description": "Page number, starting at 1.",
+            "schema": { "type": "integer", "minimum": 1, "default": 1 }
           },
           {
             "name": "limit",
             "in": "query",
-            "schema": { "type": "integer", "default": 20, "maximum": 100 }
+            "description": "Reviews per page. Default 10, maximum 100, unless the business has set its own default and maximum page size. Values above the maximum are clamped.",
+            "schema": { "type": "integer", "minimum": 1, "maximum": 100, "default": 10 }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort order. Unknown values fall back to date_desc.",
+            "schema": {
+              "type": "string",
+              "enum": ["date_desc", "date_asc", "rating_desc", "rating_asc"],
+              "default": "date_desc"
+            }
+          },
+          {
+            "name": "minRating",
+            "in": "query",
+            "description": "Only reviews with at least this star rating. Values outside 1-5 are ignored.",
+            "schema": { "type": "integer", "minimum": 1, "maximum": 5 }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Only reviews created at or after this date (ISO 8601).",
+            "schema": { "type": "string", "format": "date-time" }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "Only reviews created at or before this date (ISO 8601).",
+            "schema": { "type": "string", "format": "date-time" }
           }
         ],
         "responses": {
           "200": {
-            "description": "Paginated list of verified reviews"
+            "description": "Reviews envelope",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ReviewsResponse" }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "403": { "$ref": "#/components/responses/PlanRequired" },
+          "429": { "$ref": "#/components/responses/KeyRateLimited" },
+          "500": { "$ref": "#/components/responses/EnvelopeError" }
+        }
+      }
+    },
+    "/api/public/v1/check-review": {
+      "post": {
+        "operationId": "checkReview",
+        "summary": "Check a review for fake signals",
+        "description": "Free automated estimate of whether a review text looks fake or AI-written, optionally compared against the text of a website. No API key. Nothing is stored. Rate limits: 10 requests per hour per IP address, plus a platform-wide daily cap (2000 checks per day by default). When the server has Cloudflare Turnstile configured, a valid turnstileToken is required.",
+        "x-payment-info": { "type": "free", "description": "No charge" },
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CheckReviewRequest" }
+            }
           }
+        },
+        "responses": {
+          "200": {
+            "description": "Check result",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CheckReviewResponse" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/PlainError" },
+          "403": {
+            "description": "Turnstile token missing or rejected.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PlainError" } }
+            }
+          },
+          "429": {
+            "description": "Per-IP hourly limit or platform daily cap reached.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PlainError" } }
+            }
+          },
+          "500": { "$ref": "#/components/responses/PlainError" },
+          "502": {
+            "description": "Turnstile verification or the AI check failed upstream.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PlainError" } }
+            }
+          },
+          "503": {
+            "description": "AI checking is not configured right now.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PlainError" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/verify/{reviewId}": {
+      "get": {
+        "operationId": "verifyReview",
+        "summary": "Verify a review signature",
+        "description": "Returns a published review and whether its HMAC-SHA256 signature still matches the signed payload. No API key. Rate limit: 60 requests per minute per IP address. The human-readable page is https://signedreviews.com/verify/{reviewId}.",
+        "x-payment-info": { "type": "free", "description": "No charge" },
+        "security": [],
+        "parameters": [
+          {
+            "name": "reviewId",
+            "in": "path",
+            "required": true,
+            "description": "Review ID (UUID), as returned in reviews[].id.",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Review and verification result",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/VerifyResponse" }
+              }
+            }
+          },
+          "404": {
+            "description": "Review not found, hidden, or its business was deleted.",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/PlainError" } }
+            }
+          },
+          "429": {
+            "description": "Per-IP rate limit reached."
+          },
+          "500": { "$ref": "#/components/responses/PlainError" }
         }
       }
     }
@@ -76,7 +200,257 @@
       "bearerAuth": {
         "type": "http",
         "scheme": "bearer",
-        "description": "Publishable key (pk_...) for public read-only access"
+        "description": "API key from the dashboard. Publishable keys start with rvwpk_ and are safe in browsers. Secret keys start with rvw_ and belong on servers only. Both are read-only on these endpoints."
+      },
+      "queryKey": {
+        "type": "apiKey",
+        "in": "query",
+        "name": "key",
+        "description": "Same key passed as ?key=. Use it only with a publishable (rvwpk_) key."
+      }
+    },
+    "responses": {
+      "Unauthorized": {
+        "description": "Key missing or invalid.",
+        "content": {
+          "application/json": { "schema": { "$ref": "#/components/schemas/EnvelopeError" } }
+        }
+      },
+      "PlanRequired": {
+        "description": "The business's plan does not include this API.",
+        "content": {
+          "application/json": { "schema": { "$ref": "#/components/schemas/PlanError" } }
+        }
+      },
+      "KeyRateLimited": {
+        "description": "Per-business per-minute limit reached.",
+        "content": {
+          "application/json": { "schema": { "$ref": "#/components/schemas/PlainError" } }
+        }
+      },
+      "EnvelopeError": {
+        "description": "Server error.",
+        "content": {
+          "application/json": { "schema": { "$ref": "#/components/schemas/EnvelopeError" } }
+        }
+      },
+      "PlainError": {
+        "description": "Error.",
+        "content": {
+          "application/json": { "schema": { "$ref": "#/components/schemas/PlainError" } }
+        }
+      }
+    },
+    "schemas": {
+      "PlainError": {
+        "type": "object",
+        "required": ["error"],
+        "properties": {
+          "error": { "type": "string" }
+        }
+      },
+      "EnvelopeError": {
+        "type": "object",
+        "required": ["success", "data", "error"],
+        "properties": {
+          "success": { "const": false },
+          "data": { "type": "null" },
+          "error": { "type": "string" }
+        }
+      },
+      "PlanError": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string" },
+          "requiredPlan": { "type": "string" },
+          "currentPlan": { "type": ["string", "null"] },
+          "capability": { "type": ["string", "null"] },
+          "upgradeUrl": { "type": "string" }
+        }
+      },
+      "Business": {
+        "type": "object",
+        "properties": {
+          "name": { "type": ["string", "null"] },
+          "slug": { "type": ["string", "null"] },
+          "profileUrl": { "type": ["string", "null"], "description": "Hosted public page, https://signedreviews.com/{slug}." },
+          "reviewRequestUrl": { "type": ["string", "null"], "description": "Self-service review request page. Null when the business has it switched off." },
+          "logoUrl": { "type": ["string", "null"] },
+          "logoBackground": { "type": ["string", "null"] },
+          "tagline": { "type": ["string", "null"] },
+          "websiteUrl": { "type": ["string", "null"] },
+          "brandColor": { "type": ["string", "null"] }
+        }
+      },
+      "Metric": {
+        "type": "object",
+        "description": "A verified metric the business displays. Metrics that are suppressed, failing or never computed are left out.",
+        "properties": {
+          "key": { "type": "string", "examples": ["account_age", "refund_rate_banded"] },
+          "label": { "type": "string" },
+          "value": { "type": "object", "description": "Metric-specific fields." },
+          "lastRefreshAt": { "type": ["string", "null"], "format": "date-time" }
+        }
+      },
+      "ProfileResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "const": true },
+          "data": {
+            "type": "object",
+            "properties": {
+              "business": { "$ref": "#/components/schemas/Business" },
+              "summary": {
+                "type": "object",
+                "properties": {
+                  "average": { "type": "number", "description": "Average rating, one decimal. 0 when there are no reviews." },
+                  "total": { "type": "integer" },
+                  "distribution": {
+                    "type": "object",
+                    "description": "Review count per star rating, keys 1 to 5.",
+                    "additionalProperties": { "type": "integer" }
+                  }
+                }
+              },
+              "metrics": {
+                "type": "array",
+                "items": { "$ref": "#/components/schemas/Metric" }
+              }
+            }
+          },
+          "error": { "type": "null" },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "generatedAt": { "type": "string", "format": "date-time" }
+            }
+          }
+        }
+      },
+      "Review": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "description": "UUID." },
+          "rating": { "type": "integer", "minimum": 1, "maximum": 5 },
+          "title": { "type": "string" },
+          "body": { "type": "string" },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "reviewer": {
+            "type": "object",
+            "properties": {
+              "displayName": { "type": ["string", "null"] },
+              "photoUrl": { "type": ["string", "null"] }
+            }
+          },
+          "social": {
+            "type": ["object", "null"],
+            "description": "Null unless the reviewer chose to show their social handle.",
+            "properties": {
+              "provider": { "type": "string", "enum": ["INSTAGRAM", "LINKEDIN", "GOOGLE", "GITHUB", "FACEBOOK", "TWITTER"] },
+              "handle": { "type": ["string", "null"] }
+            }
+          },
+          "purchase": {
+            "type": ["object", "null"],
+            "description": "Null unless the reviewer chose to show the purchase amount.",
+            "properties": {
+              "amount": { "type": ["integer", "null"], "description": "Stripe amount in the currency's smallest unit (for example cents)." },
+              "currency": { "type": ["string", "null"] }
+            }
+          },
+          "photos": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "businessReply": {
+            "type": ["object", "null"],
+            "properties": {
+              "body": { "type": "string" },
+              "repliedAt": { "type": ["string", "null"], "format": "date-time" }
+            }
+          },
+          "verification": {
+            "type": "object",
+            "properties": {
+              "method": { "type": "string", "enum": ["EMAIL_MATCH", "EMAIL_AND_CARD"] },
+              "signature": { "type": "string", "description": "Hex HMAC-SHA256 signature." },
+              "url": { "type": "string", "description": "https://signedreviews.com/verify/{id}" }
+            }
+          }
+        }
+      },
+      "ReviewsResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "const": true },
+          "data": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Review" }
+          },
+          "error": { "type": "null" },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "page": { "type": "integer" },
+              "limit": { "type": "integer" },
+              "total": { "type": "integer" },
+              "totalPages": { "type": "integer" }
+            }
+          }
+        }
+      },
+      "CheckReviewRequest": {
+        "type": "object",
+        "required": ["reviewText"],
+        "properties": {
+          "reviewText": { "type": "string", "minLength": 1, "maxLength": 12000 },
+          "websiteUrl": { "type": "string", "maxLength": 2048, "description": "Optional site to compare the review against." },
+          "rating": { "type": "integer", "minimum": 1, "maximum": 5 },
+          "turnstileToken": { "type": "string", "description": "Cloudflare Turnstile token. Required when the server has Turnstile configured." }
+        }
+      },
+      "CheckReviewResponse": {
+        "type": "object",
+        "properties": {
+          "verdict": { "type": "string", "enum": ["OK", "SUSPICIOUS", "LIKELY_FAKE"] },
+          "composite": { "type": "integer", "minimum": 0, "maximum": 100, "description": "Overall score. Lower looks less genuine." },
+          "matchScore": { "type": ["number", "null"], "description": "0-4 fit between review and website. Null when no site was checked." },
+          "genuineScore": { "type": ["number", "null"], "description": "0-4 genuine-voice score." },
+          "aiWritten": { "type": "number", "minimum": 0, "maximum": 1, "description": "Estimated probability the text was written by an AI." },
+          "siteChecked": { "type": "boolean" },
+          "siteError": { "type": ["string", "null"] },
+          "model": { "type": ["string", "null"] },
+          "disclaimer": { "type": "string" }
+        }
+      },
+      "VerifyResponse": {
+        "type": "object",
+        "properties": {
+          "review": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "rating": { "type": "integer" },
+              "title": { "type": "string" },
+              "body": { "type": "string" },
+              "verificationMethod": { "type": "string", "enum": ["EMAIL_MATCH", "EMAIL_AND_CARD"] },
+              "socialProvider": { "type": ["string", "null"] },
+              "socialHandle": { "type": ["string", "null"] },
+              "createdAt": { "type": "string", "format": "date-time" },
+              "businessName": { "type": "string" }
+            }
+          },
+          "verification": {
+            "type": "object",
+            "properties": {
+              "isValid": { "type": "boolean" },
+              "cryptoSignature": { "type": "string" },
+              "signedPayload": { "type": "string" },
+              "algorithm": { "const": "HMAC-SHA256" },
+              "note": { "type": "string" }
+            }
+          }
+        }
       }
     }
   }

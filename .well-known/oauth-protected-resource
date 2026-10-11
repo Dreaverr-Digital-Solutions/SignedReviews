@@ -1,8 +1,0 @@
-{
-  "resource": "https://signedreviews.com",
-  "resource_name": "Signed Reviews",
-  "resource_logo_uri": "https://signedreviews.com/images/SignedReviews_logo_only.png",
-  "authorization_servers": ["https://signedreviews.com"],
-  "scopes_supported": ["read:reviews", "read:profile", "write:invitations"],
-  "bearer_methods_supported": ["header"]
-}

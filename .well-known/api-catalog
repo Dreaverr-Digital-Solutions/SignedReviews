@@ -6,10 +6,10 @@
         {
           "name": "Signed Reviews Public API",
           "type": "rest",
-          "description": "Headless public API for verified reviews. Publishable-key authenticated with CORS support. Retrieve reviews, ratings, and business profiles.",
+          "description": "Read-only public API for verified reviews. Profile and reviews endpoints take a publishable (rvwpk_) key and allow CORS; review check and review verification need no key.",
           "documentation": "https://signedreviews.com/api/",
-          "baseUrl": "https://api.signedreviews.com/v1",
-          "specUrl": "https://api.signedreviews.com/v1/openapi.json",
+          "baseUrl": "https://api.signedreviews.com",
+          "specUrl": "https://signedreviews.com/openapi.json",
           "auth": {
             "type": "bearer",
             "key": "publishable_key"

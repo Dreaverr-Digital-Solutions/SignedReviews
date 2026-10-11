@@ -8,7 +8,7 @@ The Signed Reviews Public API lets you fetch verified reviews, ratings, and busi
 
 ```bash
 curl -H "Authorization: Bearer YOUR_PUBLISHABLE_KEY" \
-  https://api.signedreviews.com/v1/public/profile
+  https://api.signedreviews.com/api/public/v1/profile
 ```
 
 That's it. One endpoint for profile data, one for reviews. Both are read-only and safe for client-side use with a publishable key.
@@ -19,8 +19,8 @@ Two key types, both read-only:
 
 | Key type | Prefix | Safe for |
 |----------|--------|----------|
-| **Publishable key** | `rvwpk_live_…` | Browser, mobile apps, client-side code |
-| **Secret key** | `rvw_live_…` | Server-to-server only |
+| **Publishable key** | `rvwpk_…` | Browser, mobile apps, client-side code |
+| **Secret key** | `rvw_…` | Server-to-server only |
 
 Get your keys from the API Keys section of your dashboard. Publishable keys are available on Starter plans and above.
 
@@ -28,7 +28,7 @@ Pass your key as a Bearer token in the `Authorization` header, or as a `?key=` q
 
 ## Endpoints
 
-Base URL: `https://api.signedreviews.com/v1/public`
+Base URL: `https://api.signedreviews.com/api/public/v1`
 
 ### GET /profile
 
@@ -42,7 +42,11 @@ Returns your business identity, aggregate rating, star distribution, and verifie
       "name": "Acme Widgets",
       "slug": "acme-widgets",
       "profileUrl": "https://signedreviews.com/acme-widgets",
+      "reviewRequestUrl": "https://signedreviews.com/acme-widgets/leave-a-review",
       "logoUrl": "https://…",
+      "logoBackground": null,
+      "tagline": "Widgets that last",
+      "websiteUrl": "https://acme.example",
       "brandColor": "#1a56db"
     },
     "summary": {
@@ -51,7 +55,12 @@ Returns your business identity, aggregate rating, star distribution, and verifie
       "distribution": { "1": 2, "2": 3, "3": 8, "4": 31, "5": 98 }
     },
     "metrics": [
-      { "key": "refund_rate", "label": "Refund rate", "value": { "rate": 0.012 } }
+      {
+        "key": "account_age",
+        "label": "Verifying reviews since (account age)",
+        "value": { "sinceMonthYear": "March 2023", "accountAgeDays": 950, "source": "account" },
+        "lastRefreshAt": "2026-08-10T06:00:00.000Z"
+      }
     ]
   },
   "error": null,
@@ -72,7 +81,7 @@ Returns paginated, privacy-masked reviews.
   "success": true,
   "data": [
     {
-      "id": "rev_abc123",
+      "id": "3f6c2a9e-8b1d-4c57-9a0e-2d4b7c1e5f80",
       "rating": 5,
       "title": "Exactly what we needed",
       "body": "Switched from Trustpilot. The Stripe verification alone…",
@@ -81,17 +90,17 @@ Returns paginated, privacy-masked reviews.
         "displayName": "James K.",
         "photoUrl": "https://…"
       },
-      "social": { "provider": "linkedin", "handle": "jamesk" },
-      "purchase": { "amount": 49.00, "currency": "usd" },
+      "social": { "provider": "LINKEDIN", "handle": "jamesk" },
+      "purchase": { "amount": 4900, "currency": "usd" },
       "photos": ["https://…"],
       "businessReply": {
         "body": "Thanks James!",
         "repliedAt": "2026-07-16T10:00:00.000Z"
       },
       "verification": {
-        "method": "stripe_payment",
-        "signature": "sha256:abc123…",
-        "url": "https://signedreviews.com/verify/rev_abc123"
+        "method": "EMAIL_MATCH",
+        "signature": "9c1e4b7a…",
+        "url": "https://signedreviews.com/verify/3f6c2a9e-8b1d-4c57-9a0e-2d4b7c1e5f80"
       }
     }
   ],
@@ -100,11 +109,11 @@ Returns paginated, privacy-masked reviews.
 }
 ```
 
-Privacy masking is applied server-side: purchase amounts and social handles are only included when the reviewer explicitly opted to show them.
+Privacy masking is applied server-side: purchase amounts and social handles are only included when the reviewer explicitly opted to show them. `purchase.amount` is in the currency's smallest unit (4900 = $49.00).
 
 ## Response format
 
-Every response uses a consistent envelope:
+Successful responses use this envelope:
 
 ```json
 {
@@ -115,7 +124,7 @@ Every response uses a consistent envelope:
 }
 ```
 
-On error:
+Errors for a missing or invalid key (401) and server errors (500) use the same envelope:
 
 ```json
 {
@@ -125,10 +134,15 @@ On error:
 }
 ```
 
+A plan without API access gets `403` and a rate-limited request gets `429`. Both return a plain object with an `error` string instead of the envelope.
+
 ## Rate limits
+
+Limits apply per business, across all of its keys.
 
 | Plan | Requests per minute |
 |------|-------------------|
+| Free | 30 |
 | Starter | 60 |
 | Pro | 300 |
 | Scale | 1,000 |

@@ -12,7 +12,7 @@
     {
       "id": "signedreviews-fake-reviews",
       "name": "Signed Reviews — Fake Review Detection Guide",
-      "description": "How fake reviews are manufactured, detected, and structurally prevented. Covers click farms, AI generation, brushing schemes, and the economics of the $152B fake-review industry.",
+      "description": "How fake reviews are manufactured, detected, and structurally prevented. Covers click farms, AI generation, brushing schemes, and the economics behind fake reviews.",
       "format": "markdown",
       "url": "https://signedreviews.com/learn/how-fake-reviews-work/",
       "capabilities": ["read", "reference"]
@@ -44,7 +44,7 @@
   ],
   "metadata": {
     "site": "Signed Reviews",
-    "description": "Processor-attested verified reviews for Stripe businesses. Every review is independently verified against a confirmed Stripe charge.",
+    "description": "Processor-attested verified reviews for Stripe businesses. Every review is matched to a completed Stripe charge.",
     "url": "https://signedreviews.com"
   }
 }

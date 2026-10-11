@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date:** April 19, 2026
-**Last updated:** June 28, 2026
+**Last updated:** October 11, 2026
 
 This Privacy Policy explains how Paid Rightly LLC ("we," "us," "our") collects, uses, discloses, and protects information when you use Signed Reviews, available at [signedreviews.com](https://signedreviews.com) and [platform.signedreviews.com](https://platform.signedreviews.com) (collectively, the "Service").
 
@@ -168,6 +168,7 @@ We use a small number of service providers to operate the Service. A complete, c
 - **Resend** (transactional email delivery)
 - **Cloudinary** (image hosting for review photos and brand assets)
 - **Anthropic** and **Google** (business-facing branding AI, logo extraction; see Section 6 for specifics)
+- **TypeSafe** (AI scoring of review text for the free fake review checker and for review moderation; see Section 6.2)
 - **Railway** (cloud hosting and managed database)
 - **PostHog** (first-party product and marketing-site analytics, see Section 3.4a)
 - **Decodo** (proxy service used only for Instagram public profile lookups)
@@ -188,18 +189,31 @@ We may disclose information in response to lawful subpoenas, court orders, or go
 
 ## 6. How we use AI
 
-We use AI only for **business-facing branding features**, and only on content a business provides about its own brand. When a business sets up or restyles its public review page, badge, or brand profile, we send the HTML of the website URL the business enters, along with any candidate logo or brand images from that site, to a vision-capable large language model, which selects the most likely logo for the business to accept or discard.
+We use AI for two purposes: business-facing branding, and scoring review text for signs of fake reviews.
 
-These features run on **Anthropic's Claude** models by default, with **Google's Gemini** models available as an alternate provider we may select on a per-feature basis. Both are used only for the branding tasks described above.
+### 6.1 Branding (Anthropic and Google)
 
-We do **not** use AI to analyze, moderate, score, or train on:
+When a business sets up or restyles its public review page, badge, or brand profile, we send the HTML of the website URL the business enters, along with any candidate logo or brand images from that site, to a vision-capable large language model, which selects the most likely logo for the business to accept or discard.
 
-- Review content (ratings, titles, bodies, photos)
-- Reviewer names, email addresses, social handles, or any reviewer personal data
+This runs on **Anthropic's Claude** models by default, with **Google's Gemini** models available as an alternate provider we may select on a per-feature basis. Anthropic and Google receive only the website content and brand images the business asked us to analyze. Under the commercial API terms applicable to our use, they do not train their models on the data we send.
+
+### 6.2 Review-text scoring (TypeSafe)
+
+Two features send review text to **TypeSafe**, whose Jev model scores it:
+
+- **The free fake review checker** at [signedreviews.com/tools/fake-review-checker](https://signedreviews.com/tools/fake-review-checker/). When you run the optional AI cross-check, we send the review text you paste (the model reads the first 4,000 characters), the rating if you give one, and text from the website you enter, if any; our server fetches that website. We do not send your IP address, a timestamp or any user identifier, and we do not store the text you paste. The quick check that runs without the AI cross-check stays in your browser.
+- **Moderation of reviews on Signed Reviews.** Our staff can score published reviews for signs of fakes. For each review we send its title, body and rating, the business name, and text from the business's website. We never send the reviewer's name, email address, social handles or any payment data. We keep the resulting score with the review so staff can act on it, for example by hiding a review.
+
+### 6.3 What we do not use AI on
+
+Beyond the uses above, we do **not** use AI to analyze, moderate, score, or train on:
+
+- Review photos
+- Reviewer names, email addresses, social handles, or any other reviewer personal data
 - Payment or transaction data
 - Private messages, business-reply text, or any business user's account data
 
-The only data that flows to these AI providers is the publicly accessible website content and brand images the business asked us to analyze. Under the commercial API terms applicable to our use, these providers do not train their models on the data we send.
+We do not use any data from the Service to train AI models.
 
 ---
 

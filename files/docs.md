@@ -26,7 +26,7 @@ Your business gets a public profile at `signedreviews.com/your-slug`. Customize 
 
 ### Trust Profile
 
-Optional Stripe-powered trust metrics displayed on your public page: refund rate, chargeback rate, repeat customer rate, active subscriptions, and more. Each metric respects a k-anonymity floor: individual transactions are never exposed.
+Optional Stripe-powered trust metrics displayed on your public page: refund rate, repeat clients, active subscriber count, monthly revenue range, countries served, and more. Each metric respects a k-anonymity floor: individual transactions are never exposed.
 
 ---
 
@@ -42,8 +42,8 @@ REST API for fetching reviews, ratings, and business profile data into your own 
 
 Two key types, managed from your dashboard:
 
-- **Publishable key** (`rvwpk_live_…`), safe for client-side code. Starter+ plans.
-- **Secret key** (`rvw_live_…`), server-to-server only. Starter+ plans.
+- **Publishable key** (`rvwpk_…`), safe for client-side code. Starter+ plans.
+- **Secret key** (`rvw_…`), server-to-server only. Starter+ plans.
 
 Rotate keys anytime from Dashboard → API Keys. Old keys stop working immediately on rotation.
 
@@ -61,8 +61,7 @@ Get real-time notifications when events happen in your account. Available on Pro
 |-------|---------|
 | `review.created` | A customer submits a new review |
 | `review.replied` | Your business reply is posted |
-| `review.hidden` | A review is hidden (you hide it, or the charge is refunded) |
-| `connection.revoked` | Your Stripe connection is disconnected |
+| `charge.refunded` | The charge behind a review is refunded or disputed, and the review is hidden |
 
 Configure webhook URLs from Dashboard → Webhooks. We'll send a test event so you can verify your endpoint before going live.
 
@@ -110,7 +109,7 @@ Invite team members with role-based permissions:
 
 ## Stripe App
 
-Install Signed Reviews from the [Stripe Marketplace](https://marketplace.stripe.com/apps/signedreviews) for dashboard-native access. Manage reviews, reply to customers, and view verification status directly inside your Stripe dashboard.
+Install Signed Reviews from the [Stripe Marketplace](https://marketplace.stripe.com/apps/signedreviews) to connect your Stripe account. Reviews, replies and verification status are managed in the Signed Reviews dashboard.
 
 ---
 

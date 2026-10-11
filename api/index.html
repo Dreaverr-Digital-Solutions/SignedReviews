@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/api/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="b81f2a982a604245c8457043f1b5fa41ac2f8c2a">
-  <meta name="build-time" content="2026-10-09T17:49:30.267Z">
+  <meta name="build-commit" content="2bbbae7cb8ae37766300a96a182d4aabe07974b9">
+  <meta name="build-time" content="2026-10-11T12:28:58.971Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Public API | Signed Reviews">
@@ -664,7 +664,7 @@ main { padding: 0; }
 <hr>
 <h2 id="quickstart"><a class="anchor" href="#quickstart" aria-label="Permalink to Quickstart"></a>Quickstart</h2>
 <pre><code class="language-bash">curl -H &quot;Authorization: Bearer YOUR_PUBLISHABLE_KEY&quot; \
-  https://api.signedreviews.com/v1/public/profile
+  https://api.signedreviews.com/api/public/v1/profile
 </code></pre>
 <p>That&#39;s it. One endpoint for profile data, one for reviews. Both are read-only and safe for client-side use with a publishable key.</p>
 <h2 id="authentication"><a class="anchor" href="#authentication" aria-label="Permalink to Authentication"></a>Authentication</h2>
@@ -679,19 +679,19 @@ main { padding: 0; }
 </thead>
 <tbody><tr>
 <td><strong>Publishable key</strong></td>
-<td><code>rvwpk_live_…</code></td>
+<td><code>rvwpk_…</code></td>
 <td>Browser, mobile apps, client-side code</td>
 </tr>
 <tr>
 <td><strong>Secret key</strong></td>
-<td><code>rvw_live_…</code></td>
+<td><code>rvw_…</code></td>
 <td>Server-to-server only</td>
 </tr>
 </tbody></table></div>
 <p>Get your keys from the API Keys section of your dashboard. Publishable keys are available on Starter plans and above.</p>
 <p>Pass your key as a Bearer token in the <code>Authorization</code> header, or as a <code>?key=</code> query parameter.</p>
 <h2 id="endpoints"><a class="anchor" href="#endpoints" aria-label="Permalink to Endpoints"></a>Endpoints</h2>
-<p>Base URL: <code>https://api.signedreviews.com/v1/public</code></p>
+<p>Base URL: <code>https://api.signedreviews.com/api/public/v1</code></p>
 <h3 id="get-profile"><a class="anchor" href="#get-profile" aria-label="Permalink to GET /profile"></a>GET /profile</h3>
 <p>Returns your business identity, aggregate rating, star distribution, and verified trust metrics.</p>
 <pre><code class="language-json">{
@@ -701,7 +701,11 @@ main { padding: 0; }
       &quot;name&quot;: &quot;Acme Widgets&quot;,
       &quot;slug&quot;: &quot;acme-widgets&quot;,
       &quot;profileUrl&quot;: &quot;https://signedreviews.com/acme-widgets&quot;,
+      &quot;reviewRequestUrl&quot;: &quot;https://signedreviews.com/acme-widgets/leave-a-review&quot;,
       &quot;logoUrl&quot;: &quot;https://…&quot;,
+      &quot;logoBackground&quot;: null,
+      &quot;tagline&quot;: &quot;Widgets that last&quot;,
+      &quot;websiteUrl&quot;: &quot;https://acme.example&quot;,
       &quot;brandColor&quot;: &quot;#1a56db&quot;
     },
     &quot;summary&quot;: {
@@ -710,7 +714,12 @@ main { padding: 0; }
       &quot;distribution&quot;: { &quot;1&quot;: 2, &quot;2&quot;: 3, &quot;3&quot;: 8, &quot;4&quot;: 31, &quot;5&quot;: 98 }
     },
     &quot;metrics&quot;: [
-      { &quot;key&quot;: &quot;refund_rate&quot;, &quot;label&quot;: &quot;Refund rate&quot;, &quot;value&quot;: { &quot;rate&quot;: 0.012 } }
+      {
+        &quot;key&quot;: &quot;account_age&quot;,
+        &quot;label&quot;: &quot;Verifying reviews since (account age)&quot;,
+        &quot;value&quot;: { &quot;sinceMonthYear&quot;: &quot;March 2023&quot;, &quot;accountAgeDays&quot;: 950, &quot;source&quot;: &quot;account&quot; },
+        &quot;lastRefreshAt&quot;: &quot;2026-08-10T06:00:00.000Z&quot;
+      }
     ]
   },
   &quot;error&quot;: null,
@@ -725,7 +734,7 @@ main { padding: 0; }
   &quot;success&quot;: true,
   &quot;data&quot;: [
     {
-      &quot;id&quot;: &quot;rev_abc123&quot;,
+      &quot;id&quot;: &quot;3f6c2a9e-8b1d-4c57-9a0e-2d4b7c1e5f80&quot;,
       &quot;rating&quot;: 5,
       &quot;title&quot;: &quot;Exactly what we needed&quot;,
       &quot;body&quot;: &quot;Switched from Trustpilot. The Stripe verification alone…&quot;,
@@ -734,17 +743,17 @@ main { padding: 0; }
         &quot;displayName&quot;: &quot;James K.&quot;,
         &quot;photoUrl&quot;: &quot;https://…&quot;
       },
-      &quot;social&quot;: { &quot;provider&quot;: &quot;linkedin&quot;, &quot;handle&quot;: &quot;jamesk&quot; },
-      &quot;purchase&quot;: { &quot;amount&quot;: 49.00, &quot;currency&quot;: &quot;usd&quot; },
+      &quot;social&quot;: { &quot;provider&quot;: &quot;LINKEDIN&quot;, &quot;handle&quot;: &quot;jamesk&quot; },
+      &quot;purchase&quot;: { &quot;amount&quot;: 4900, &quot;currency&quot;: &quot;usd&quot; },
       &quot;photos&quot;: [&quot;https://…&quot;],
       &quot;businessReply&quot;: {
         &quot;body&quot;: &quot;Thanks James!&quot;,
         &quot;repliedAt&quot;: &quot;2026-07-16T10:00:00.000Z&quot;
       },
       &quot;verification&quot;: {
-        &quot;method&quot;: &quot;stripe_payment&quot;,
-        &quot;signature&quot;: &quot;sha256:abc123…&quot;,
-        &quot;url&quot;: &quot;https://signedreviews.com/verify/rev_abc123&quot;
+        &quot;method&quot;: &quot;EMAIL_MATCH&quot;,
+        &quot;signature&quot;: &quot;9c1e4b7a…&quot;,
+        &quot;url&quot;: &quot;https://signedreviews.com/verify/3f6c2a9e-8b1d-4c57-9a0e-2d4b7c1e5f80&quot;
       }
     }
   ],
@@ -752,9 +761,9 @@ main { padding: 0; }
   &quot;meta&quot;: { &quot;page&quot;: 1, &quot;limit&quot;: 10, &quot;total&quot;: 142, &quot;totalPages&quot;: 15 }
 }
 </code></pre>
-<p>Privacy masking is applied server-side: purchase amounts and social handles are only included when the reviewer explicitly opted to show them.</p>
+<p>Privacy masking is applied server-side: purchase amounts and social handles are only included when the reviewer explicitly opted to show them. <code>purchase.amount</code> is in the currency&#39;s smallest unit (4900 = $49.00).</p>
 <h2 id="response-format"><a class="anchor" href="#response-format" aria-label="Permalink to Response format"></a>Response format</h2>
-<p>Every response uses a consistent envelope:</p>
+<p>Successful responses use this envelope:</p>
 <pre><code class="language-json">{
   &quot;success&quot;: true,
   &quot;data&quot;: { … },
@@ -762,14 +771,16 @@ main { padding: 0; }
   &quot;meta&quot;: { &quot;page&quot;: 1, &quot;limit&quot;: 10 }
 }
 </code></pre>
-<p>On error:</p>
+<p>Errors for a missing or invalid key (401) and server errors (500) use the same envelope:</p>
 <pre><code class="language-json">{
   &quot;success&quot;: false,
   &quot;data&quot;: null,
   &quot;error&quot;: &quot;Invalid API key&quot;
 }
 </code></pre>
+<p>A plan without API access gets <code>403</code> and a rate-limited request gets <code>429</code>. Both return a plain object with an <code>error</code> string instead of the envelope.</p>
 <h2 id="rate-limits"><a class="anchor" href="#rate-limits" aria-label="Permalink to Rate limits"></a>Rate limits</h2>
+<p>Limits apply per business, across all of its keys.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -778,6 +789,10 @@ main { padding: 0; }
 </tr>
 </thead>
 <tbody><tr>
+<td>Free</td>
+<td>30</td>
+</tr>
+<tr>
 <td>Starter</td>
 <td>60</td>
 </tr>

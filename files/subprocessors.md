@@ -1,6 +1,6 @@
 # Sub-processors
 
-**Last updated:** June 27, 2026
+**Last updated:** October 11, 2026
 
 This page lists the third-party service providers ("sub-processors") that Paid Rightly LLC uses to provide Signed Reviews. Each sub-processor is contractually required to use personal data only to provide services to us and to maintain appropriate security safeguards.
 
@@ -25,6 +25,7 @@ We may update this list from time to time. Material additions will be reflected 
 |---|---|---|---|
 | **Anthropic** | Business-facing AI feature: logo extraction (selecting the most likely logo from a business's website for the public review page and badge), using Claude models | Public website HTML/URL and candidate logo or brand images provided by the business during setup | **Not used on review content, reviewer data, or payment data.** Anthropic does not train on data sent through its API under its commercial terms. |
 | **Google (Gemini)** | Alternate AI provider for the same business-facing AI feature (logo extraction), via the Google Gemini API | Public website HTML/URL and candidate logo or brand images provided by the business during setup | **Not used on review content, reviewer data, or payment data.** |
+| **TypeSafe** | Scores review text for signs of fake reviews, using its Jev model: the free fake review checker on signedreviews.com, and staff moderation of reviews published on Signed Reviews | Checker: the review text a visitor pastes, an optional rating, and text from a website the visitor enters. Moderation: review title, body and rating, business name, and text from the business's website | **No reviewer names, email addresses or payment data.** No IP address or user identifier is sent. Text pasted into the checker is not stored by us. |
 
 ---
 
