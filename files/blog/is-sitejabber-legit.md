@@ -125,3 +125,5 @@ Neither FTC press release mentions a payment, and the [final order](https://www.
 ### What does "verified" mean on SiteJabber?
 
 It depends on the label. Reviews submitted without an invitation are verified with proof of purchase. Reviews from the business's automated invitations are marked verified based on customer records the business provides. Manual and unconfirmed invitations are not marked verified. SmartCustomer says verification does not mean every claim in a review is fact-checked ([source](https://www.smartcustomer.com/trust/review-collection)).
+
+**Further reading:** [The Fake Review Problem](/blog/fake-reviews/) on why detection alone is not enough, and [Fake Review Checker](/blog/fake-review-checker/) for a 7-point method to spot fakes.

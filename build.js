@@ -2115,6 +2115,7 @@ function buildHowItWorks() {
         <p>${s.body}</p>
       </div>
     </div>`).join('')}
+    <p style="margin-top:2rem;">Want to show verified reviews on your own site? The <a href="/api/">public API</a> and the <a href="/docs/">documentation</a> cover how.</p>
     <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Connect your Stripe account →</a></p>
   </article>`;
 
@@ -4053,7 +4054,7 @@ function buildIntegrationsStripe() {
     <p>Once connected, you get more than automated review collection:</p>
     <ul>
       <li><strong>Public review page</strong>: a hosted, branded page showing every verified review with cryptographic proof badges.</li>
-      <li><strong>Public API</strong>: embed reviews on your own website (<a href="/api/">API docs</a>).</li>
+      <li><strong>Public API</strong>: embed reviews on your own website (<a href="/api/">API reference</a> and <a href="/docs/">documentation</a>).</li>
       <li><strong>Trust badge</strong>: "Verified by Signed Reviews" badge to display on your site and in email footers.</li>
       <li><strong>Analytics</strong>: invitation sent/opened/submitted rates, review volume over time, average rating trends.</li>
     </ul>

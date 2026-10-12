@@ -179,3 +179,4 @@ Trustpilot pricing starts at free with 50 invitations a month. Paid plans run fr
 - [Trustpilot Widget Examples](/blog/trustpilot-widget-examples/), how TrustBox widgets look on a page
 - [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/), the verification spectrum explained
 - [Signed Reviews vs Trustpilot](/vs/trustpilot/), detailed head-to-head comparison
+- [7 Best Trustpilot Alternatives for SaaS](/blog/trustpilot-alternatives-for-saas/), compared on verification depth and pricing

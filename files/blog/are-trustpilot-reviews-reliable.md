@@ -302,3 +302,5 @@ If you're a business, the question isn't whether to be on Trustpilot. It's wheth
 - [What Does "Verified Buyer" Actually Mean?](/learn/what-does-verified-buyer-mean/): every platform, every verification level, explained
 - [Fake Review Statistics 2026](/blog/fake-review-statistics-2026/), the data behind the fake-review problem
 - [Fake Review Checker](/blog/fake-review-checker/), a 7-point method for spotting fake reviews
+- [7 Best Trustpilot Alternatives for SaaS](/blog/trustpilot-alternatives-for-saas/), compared on verification depth and pricing
+- [The Fake Review Problem](/blog/fake-reviews/), why detection alone keeps losing to fakes
