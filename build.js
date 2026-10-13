@@ -950,7 +950,10 @@ const FOOTER = `
     <span>${COMPANY.copyright}</span>
     <span>${COMPANY.attribution}</span>
     <a href="https://codehype.ai/product/signed-reviews?utm_source=codehype_badge" target="_blank" rel="noopener noreferrer">
-      <img src="https://codehype.ai/badges/signed-reviews.svg?variant=find-us&v=20" alt="Featured on CodeHype" width="180" height="65" loading="lazy" decoding="async" style="display:inline-block;border:0;width:100%;max-width:180px;height:auto;max-height:65px;" />
+      <img src="https://codehype.ai/badges/signed-reviews.svg?variant=find-us&v=20" alt="Featured on CodeHype" width="180" height="60" loading="lazy" decoding="async" style="display:block;border:0;width:180px;max-width:100%;height:60px;object-fit:contain;" />
+    </a>
+    <a href="https://vibeking.fun/product/signed-reviews" target="_blank" rel="noopener noreferrer">
+      <img src="https://vibeking.fun/badge/5373.svg" alt="Featured on VibeKing" width="180" height="60" loading="lazy" decoding="async" style="display:block;border:0;width:180px;max-width:100%;height:60px;object-fit:contain;" />
     </a>
   </div>
 </footer>
