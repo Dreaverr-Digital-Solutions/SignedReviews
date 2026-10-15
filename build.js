@@ -949,12 +949,17 @@ const FOOTER = `
   <div class="footer-fineprint">
     <span>${COMPANY.copyright}</span>
     <span>${COMPANY.attribution}</span>
-    <a href="https://codehype.ai/product/signed-reviews?utm_source=codehype_badge" target="_blank" rel="noopener noreferrer">
-      <img src="https://codehype.ai/badges/signed-reviews.svg?variant=find-us&v=20" alt="Featured on CodeHype" width="180" height="60" loading="lazy" decoding="async" style="display:block;border:0;width:180px;max-width:100%;height:60px;object-fit:contain;" />
-    </a>
-    <a href="https://vibeking.fun/product/signed-reviews" target="_blank" rel="noopener noreferrer">
-      <img src="https://vibeking.fun/badge/5373.svg" alt="Featured on VibeKing" width="180" height="60" loading="lazy" decoding="async" style="display:block;border:0;width:180px;max-width:100%;height:60px;object-fit:contain;" />
-    </a>
+    <div class="footer-badges" style="display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem;">
+      <a href="https://codehype.ai/product/signed-reviews?utm_source=codehype_badge" target="_blank" rel="noopener noreferrer">
+        <img src="https://codehype.ai/badges/signed-reviews.svg?variant=find-us&v=20" alt="Featured on CodeHype" width="180" height="60" loading="lazy" decoding="async" style="display:block;border:0;width:180px;max-width:100%;height:60px;object-fit:contain;" />
+      </a>
+      <a href="https://vibeking.fun/product/signed-reviews" target="_blank" rel="noopener noreferrer">
+        <img src="https://vibeking.fun/badge/5373.svg" alt="Featured on VibeKing" width="180" height="60" loading="lazy" decoding="async" style="display:block;border:0;width:180px;max-width:100%;height:60px;object-fit:contain;" />
+      </a>
+      <a href="https://zerorevenue.club/?utm_source=zerorevenue.club&utm_medium=referral&utm_content=badge" target="_blank" rel="noopener noreferrer">
+        <img src="https://zerorevenue.club/badges/zero-revenue-club.svg" alt="Listed on Zero Revenue Club" width="190" height="44" loading="lazy" decoding="async" style="display:block;border:0;width:190px;max-width:100%;height:44px;object-fit:contain;" />
+      </a>
+    </div>
   </div>
 </footer>
 <script>
