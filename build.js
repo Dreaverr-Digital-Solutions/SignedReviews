@@ -135,6 +135,51 @@ const SR_TRACKERS_SNIPPET = POSTHOG_KEY
       function setup() {
         var ph = window.posthog;
         if (!ph || typeof ph.capture !== 'function') return; // posthog not loaded yet
+        // ── delivery helper: never hand events to the loader stub ─────────────
+        // The posthog snippet above installs a *stub*: its methods exist and are
+        // callable, but a call only pushes onto an array that never reaches the
+        // SDK, so an event handed to the stub is lost. The real instance sets
+        // __loaded = true in init() and its own capture() refuses to send while
+        // that is false; the stub never defines the property, so __loaded is the
+        // SDK's own "real instance is live" flag. Deliver straight through when
+        // it is set, otherwise hold the call in order and flush on a timer.
+        // Bounded so a page where posthog never loads stops holding state:
+        // 200 retries at 75ms (~15s), and at most 200 held events.
+        var pending = [];
+        var retryTimer = null;
+        var attempts = 0;
+        var RETRY_MS = 75;
+        var MAX_ATTEMPTS = 200;
+        var MAX_PENDING = 200;
+        function live() {
+          var p = window.posthog;
+          return (p && p.__loaded === true && typeof p.capture === 'function') ? p : null;
+        }
+        function flush() {
+          retryTimer = null;
+          while (pending.length) {
+            var p = live();
+            if (!p) break;                        // still the stub: keep order, keep waiting
+            p.capture(pending[0][0], pending[0][1]);
+            pending.shift();
+          }
+          if (!pending.length) { attempts = 0; return; }
+          if (++attempts >= MAX_ATTEMPTS) { pending.length = 0; return; } // give up
+          retryTimer = setTimeout(flush, RETRY_MS);
+        }
+        // One entry point for every event. Returns true when the event is on its
+        // way (sent, or safely queued in order); callers mark their once-only
+        // flags off that, never off the stub, so nothing is recorded as
+        // already-seen while it has not actually been sent.
+        function track(name, props) {
+          var p = live();
+          if (p) { p.capture(name, props); return true; }
+          if (attempts >= MAX_ATTEMPTS || pending.length >= MAX_PENDING) return false;
+          pending.push([name, props]);
+          if (!retryTimer) retryTimer = setTimeout(flush, RETRY_MS);
+          return true;
+        }
+
         var fired = {};
         function onScroll() {
           var doc = document.documentElement, body = document.body;
@@ -142,7 +187,7 @@ const SR_TRACKERS_SNIPPET = POSTHOG_KEY
           var max = (doc.scrollHeight || body.scrollHeight || 0) - (doc.clientHeight || 0);
           var pct = max > 0 ? (top / max) * 100 : 0;
           var ts = [25, 50, 75, 100];
-          for (var i = 0; i < ts.length; i++) { var t = ts[i]; if (pct >= t && !fired[t]) { fired[t] = true; ph.capture('landing_scroll_depth', { depth: t }); } }
+          for (var i = 0; i < ts.length; i++) { var t = ts[i]; if (pct >= t && !fired[t]) { if (track('landing_scroll_depth', { depth: t })) fired[t] = true; } }
         }
         var ticking = false;
         window.addEventListener('scroll', function () {
@@ -155,7 +200,7 @@ const SR_TRACKERS_SNIPPET = POSTHOG_KEY
           var onEntry = function (entries) {
             for (var i = 0; i < entries.length; i++) {
               var en = entries[i];
-              if (en.isIntersecting) { var n = en.target.getAttribute('data-track'); if (n && !seen[n]) { seen[n] = true; ph.capture('landing_section_viewed', { section: n }); } }
+              if (en.isIntersecting) { var n = en.target.getAttribute('data-track'); if (n && !seen[n]) { if (track('landing_section_viewed', { section: n })) seen[n] = true; } }
             }
           };
           // Threshold has to depend on the element: one taller than the viewport can
@@ -173,7 +218,7 @@ const SR_TRACKERS_SNIPPET = POSTHOG_KEY
         document.addEventListener('click', function (e) {
           var el = e.target;
           while (el && el !== document) {
-            if (el.getAttribute && el.getAttribute('data-cta')) { ph.capture('landing_cta_click', { cta: el.getAttribute('data-cta'), href: el.getAttribute('href') || '', page: location.pathname }); break; }
+            if (el.getAttribute && el.getAttribute('data-cta')) { track('landing_cta_click', { cta: el.getAttribute('data-cta'), href: el.getAttribute('href') || '', page: location.pathname }); break; }
             el = el.parentNode;
           }
         }, true);
@@ -215,7 +260,7 @@ const SR_TRACKERS_SNIPPET = POSTHOG_KEY
           };
           var idx = bodyLinks.indexOf(el);
           if (idx >= 0) props.order = idx + 1;
-          ph.capture('landing_internal_link_click', props);
+          track('landing_internal_link_click', props);
         }, true);
       }
       if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
