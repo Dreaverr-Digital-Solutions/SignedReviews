@@ -4579,7 +4579,7 @@ function buildFakeReviewChecker() {
 `;
 
   const body = `<article class="prose">
-    <p>The <strong>fake review checker</strong> below reads a single review's text and scores the risk signals it finds: repetitive phrasing, superlative density, generic praise with no concrete details, authenticity claims embedded in the text. Paste any review from Amazon, Trustpilot, Google, Shopify, Tripadvisor, or your own store. The instant signals run in your browser. If you use the AI cross-check, the review text (and the website URL, if provided) is sent to our server and scored by an AI model. Nothing is stored: no account, no review archive, no logging of pasted text. For a manual method, see <a href="/blog/fake-review-checker/">how to check if reviews are fake</a>.</p>
+    <p>The <strong>fake review checker</strong> below reads a single review's text and scores the risk signals it finds: repetitive phrasing, superlative density, generic praise with no concrete details, authenticity claims embedded in the text. Paste any review from Amazon, Trustpilot, Google, Shopify, Tripadvisor, or your own store. The instant signals run in your browser. If you use the AI cross-check, the review text (and the website URL, if provided) is sent to our server and scored by an AI model. We do not store the pasted text: no account, no review archive. We keep only a usage record per check (token count and cost), with no text or IP address. For a manual method, see <a href="/blog/fake-review-checker/">how to check if reviews are fake</a>.</p>
 
     <div class="frc-card" id="frc">
       <div class="frc-hero">
@@ -4601,7 +4601,7 @@ function buildFakeReviewChecker() {
       </div>
       <div class="frc-output" id="frc-output" aria-live="polite"></div>
       <div class="frc-output" id="frc-ai-output" aria-live="polite"></div>
-      <p class="frc-disclaimer">Instant heuristics run in your browser. The optional AI cross-check sends the pasted text (and URL, if given) to our server for scoring by an AI model; nothing is stored. Automated estimates, not proof. See <a href="/blog/fake-review-checker/">how to spot fake reviews</a> and the <a href="/learn/what-does-verified-buyer-mean/">verification spectrum</a>.</p>
+      <p class="frc-disclaimer">Instant heuristics run in your browser. The optional AI cross-check sends the pasted text (and URL, if given) to our server for scoring by an AI model; the text is not stored. Automated estimates, not proof. See <a href="/blog/fake-review-checker/">how to spot fake reviews</a> and the <a href="/learn/what-does-verified-buyer-mean/">verification spectrum</a>.</p>
     </div>
 
     <h2>How the fake review checker works</h2>
@@ -4639,10 +4639,10 @@ function buildFakeReviewChecker() {
     <p>Text checking estimates likelihood from writing style. Purchase verification confirms fact from a payment record: an independent processor such as Stripe attests that a real charge occurred between the reviewer and the business. The former is a screen; the latter is proof. <a href="/blog/verified-reviews-vs-unverified-reviews/">Verified vs unverified reviews</a> explains the levels in detail.</p>
 
     <h3>Is the fake review checker free?</h3>
-    <p>Yes: completely free, no signup. The instant signals run in your browser. The AI cross-check is also free (rate-limited per address). Nothing is stored.</p>
+    <p>Yes: completely free, no signup. The instant signals run in your browser. The AI cross-check is also free (rate-limited per address). We do not store what you paste.</p>
 
     <h3>What happens to the text I paste?</h3>
-    <p>Nothing is stored. The instant signals never leave your browser. If you run the AI cross-check, the review text and optional website URL are sent to our server, scored, and discarded. We do not keep a copy, log it, or use it for training.</p>
+    <p>We do not store what you paste. The instant signals never leave your browser. If you run the AI cross-check, the review text and optional website URL are sent to our server, scored, and discarded. We do not keep a copy or use it for training. We do keep a usage record per check (token count, cost and duration), which holds no text, website or IP address.</p>
 
     <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Collect reviews from real, paying customers →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/blog/fake-review-checker/">How to check if reviews are fake (7-point method)</a> · <a href="/blog/fake-review-statistics-2026/">Fake review statistics 2026</a></p>
@@ -4657,7 +4657,7 @@ function buildFakeReviewChecker() {
         url: canonical,
         applicationCategory: 'BusinessApplication',
         operatingSystem: 'Web',
-        description: 'Free fake review checker: paste any review text and get a signal-based risk estimate. Instant heuristics plus an optional AI cross-check. Free, no signup, nothing stored.',
+        description: 'Free fake review checker: paste any review text and get a signal-based risk estimate. Instant heuristics plus an optional AI cross-check. Free, no signup, pasted text not stored.',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
         image: ogImage,
         publisher: { '@type': 'Organization', name: 'Signed Reviews', url: SITE_URL },
@@ -4669,8 +4669,8 @@ function buildFakeReviewChecker() {
           { '@type': 'Question', name: 'Does this work for Amazon, Trustpilot, Google, or Shopify reviews?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. It analyzes pasted text, so it is platform-agnostic. The instant signals run in your browser; if you use the AI cross-check, the pasted text is scored on our server and not stored.' } },
           { '@type': 'Question', name: 'Can it detect AI-written fake reviews?', acceptedAnswer: { '@type': 'Answer', text: 'Partially. AI text often trips the generic-praise and no-concrete-detail signals, but no text-based checker reliably detects AI writing. The AI cross-check adds a machine-written likelihood score, which catches many templated and LLM-written reviews, but no text-based method is proof. Verification at the source is the durable defense.' } },
           { '@type': 'Question', name: "What's the difference between checking text and verifying a purchase?", acceptedAnswer: { '@type': 'Answer', text: 'Text checking estimates likelihood from writing style. Purchase verification confirms fact from a payment record: an independent processor attests that a real charge occurred. The former is a screen; the latter is proof.' } },
-          { '@type': 'Question', name: 'Is the fake review checker free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes: completely free, no signup. The instant signals run in your browser. The AI cross-check is also free (rate-limited per address). Nothing is stored.' } },
-          { '@type': 'Question', name: 'What happens to the text I paste?', acceptedAnswer: { '@type': 'Answer', text: 'Nothing is stored. The instant signals never leave your browser. If you run the AI cross-check, the review text and optional website URL are sent to our server, scored, and discarded. We do not keep a copy, log it, or use it for training.' } },
+          { '@type': 'Question', name: 'Is the fake review checker free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes: completely free, no signup. The instant signals run in your browser. The AI cross-check is also free (rate-limited per address). We do not store what you paste.' } },
+          { '@type': 'Question', name: 'What happens to the text I paste?', acceptedAnswer: { '@type': 'Answer', text: 'We do not store what you paste. The instant signals never leave your browser. If you run the AI cross-check, the review text and optional website URL are sent to our server, scored, and discarded. We do not keep a copy or use it for training. We do keep a usage record per check (token count, cost and duration), which holds no text, website or IP address.' } },
         ],
       },
     ],
@@ -4865,9 +4865,9 @@ function buildFakeReviewChecker() {
 
   let html = page({
     title: 'Fake Review Checker | Free, Paste Any Review | Signed Reviews',
-    description: 'Free fake review checker: paste any review from Amazon, Trustpilot, Google, or Shopify for a signal-based risk estimate in seconds. Nothing stored.',
+    description: 'Free fake review checker: paste any review from Amazon, Trustpilot, Google, or Shopify for a signal-based risk estimate in seconds. Pasted text not stored.',
     slug,
-    hero: { eyebrow: 'Free tool', title: 'Fake Review Checker', subtitle: 'Paste a review. Get a signal-based risk estimate in seconds. Works on text from any platform. No signup, nothing stored.' },
+    hero: { eyebrow: 'Free tool', title: 'Fake Review Checker', subtitle: 'Paste a review. Get a signal-based risk estimate in seconds. Works on text from any platform. No signup, pasted text not stored.' },
     body,
     extraStyle: TOOL_STYLES + AI_STYLES,
   });

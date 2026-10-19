@@ -123,6 +123,10 @@ The web checker logs nothing beyond the daily counter, so we can't measure it ei
 - Retention: 90 days, then delete. State it in the privacy policy.
 - Hand-write the migration (`migrate dev` is broken in this repo; see memory `fake-review-detector`).
 
+### 6.3a Jev spend guard (shipped 2026-10-19, platform commit 0acc52f)
+
+Every Jev call, including the plugin's, goes through `jevClient.js`, which refuses calls once `JEV_DAILY_BUDGET_USD` (default 2) or `JEV_MONTHLY_BUDGET_USD` (default 20) is spent, and logs one `AiRequestLog` row per call (capability, tokens, cost, latency; no text, no IP). The MCP tool must pass its own `capability` (for example `plugin_check_review`) to `systemOne` and map a `SPEND_CAP` error to a plain "unavailable right now" result, as `publicApiV1.js` does with a 503. This is a metadata row per call, so "Nothing is stored" in the checker FAQ (`landingpage/build.js` ~4673 and its JSON-LD) and Privacy §6 must change to "No review text is stored" and list the cost/usage metadata before submission. OpenAI's guidelines require disclosing metadata collection.
+
 ### 6.4 Tests
 
 - Unit: subject limiter, separate daily key, refund on Jev failure, no review text in logs, 404 on hidden reviews.
