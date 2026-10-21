@@ -265,7 +265,7 @@
        The fixed glass nav (h-16, 65px with border) overlays the section top,
        so top padding and the panel's centering compensate: copy gets +4rem on
        top, panel centers +2rem down — both land centered in the visible area. */
-    .hero-copy { width: 100%; max-width: 576px; padding: 11rem 0 7rem; }
+    .hero-copy { width: 100%; max-width: 576px; padding: 8rem 0 6rem; }
     /* Cap at 48vw-44px: below ~1230px the copy box itself would overlap the
        panel — keeps text clear of the glass even if the webfont falls back
        to the wider Georgia (Firefox font-load race) */
@@ -1522,6 +1522,23 @@
   </script>
   <script async preferred-sources-control="manual" src="https://news.google.com/swg/js/v1/publisher.js"></script>
   <script defer src="js/preferred-source.js"></script>
+<style>
+    .demo-btn { display: inline-flex; align-items: center; gap: .6rem; margin: 0; padding: .55rem 1.1rem .55rem .6rem; background: rgba(255,255,255,.72); border: 1.5px solid #b39d45; border-radius: 999px; font: inherit; font-size: .9rem; font-weight: 600; color: #1c2840; cursor: pointer; white-space: nowrap; box-shadow: 0 0 14px rgba(179,157,69,.35); animation: demoGlow 3.4s ease-in-out infinite; transition: background .15s, transform .15s; }
+    .demo-btn .demo-play { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #b39d45; color: #fff; }
+    @keyframes demoGlow {
+      0%,100% { box-shadow: 0 0 12px rgba(179,157,69,.30), 0 0 0 0 rgba(179,157,69,.22); }
+      50%     { box-shadow: 0 0 26px rgba(179,157,69,.62), 0 0 0 7px rgba(179,157,69,0); }
+    }
+    .demo-btn .demo-play { box-shadow: 0 0 10px rgba(179,157,69,.55); }
+    .demo-btn:hover { background: #fff; animation: none; box-shadow: 0 0 30px rgba(179,157,69,.7); transform: translateY(-1px); }
+    @media (prefers-reduced-motion: reduce) { .demo-btn { animation: none; } }
+    .demo-btn:focus-visible { outline: 2px solid #b39d45; outline-offset: 3px; }
+    .dark .demo-btn { background: rgba(12,19,32,.6); color: #f3efe0; }
+    .demo-dialog { width: min(960px, calc(100vw - 2rem)); margin: auto; max-height: calc(100vh - 2rem); padding: 0; border: 0; border-radius: 14px; background: #000; overflow: hidden; }
+    .demo-dialog::backdrop { background: rgba(8,12,22,.78); }
+    .demo-dialog video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #000; }
+    .demo-close { position: absolute; top: .5rem; right: .5rem; z-index: 2; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(12,19,32,.7); color: #fff; font-size: 22px; line-height: 1; cursor: pointer; }
+  </style>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -1576,6 +1593,12 @@
             <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center mb-4">
               <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]" data-cta="hero-signup">Sign up free &rarr;</a>
               <a href="https://platform.signedreviews.com/b/coldsire" rel="noopener" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-600 border border-navy-300 hover:border-navy-400 hover:bg-white/40 transition-colors inline-flex items-center justify-center min-w-[140px]" data-cta="hero-see-review">See a live verified review &rarr;</a>
+            </div>
+            <div class="flex justify-center lg:justify-start mb-1">
+            <button type="button" id="demoOpen" class="demo-btn" aria-haspopup="dialog" data-cta="hero-watch-demo">
+              <span class="demo-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M8.5 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+              Watch the 40s demo
+            </button>
             </div>
             <div class="mt-3 mb-1">
               <div class="flex flex-wrap justify-center lg:justify-start gap-2">
@@ -3747,6 +3770,37 @@
     }
   })();
   </script>
+<dialog id="demoDialog" class="demo-dialog" aria-label="Signed Reviews 40 second demo">
+  <button type="button" class="demo-close" id="demoClose" aria-label="Close video">&times;</button>
+  <video id="demoVideo" controls playsinline preload="none"></video>
+</dialog>
+<script>
+  (function(){
+    var open = document.getElementById('demoOpen'), dlg = document.getElementById('demoDialog'),
+        close = document.getElementById('demoClose'), v = document.getElementById('demoVideo');
+    if (!open || !dlg || !dlg.showModal) { if (open) open.hidden = true; return; }
+    var SRC = 'https://video.signedreviews.com/hero-demo-v1.mp4', POSTER = 'https://video.signedreviews.com/hero-demo-poster-v1.webp', warmed = false, half = false;
+    function cap(n, p){ try { window.posthog && window.posthog.capture(n, p || {}); } catch (e) {} }
+    function warm(){
+      if (warmed) return; warmed = true;
+      v.poster = POSTER; v.preload = 'auto'; v.src = SRC;
+    }
+    ['pointerenter', 'focus', 'touchstart'].forEach(function(ev){ open.addEventListener(ev, warm, {passive: true, once: true}); });
+    open.addEventListener('click', function(){
+      warm(); dlg.showModal(); cap('demo_video_open');
+      var p = v.play(); if (p && p.catch) p.catch(function(){});
+    });
+    function shut(){ v.pause(); if (dlg.open) dlg.close(); }
+    close.addEventListener('click', shut);
+    dlg.addEventListener('click', function(e){ if (e.target === dlg) shut(); });
+    dlg.addEventListener('close', function(){ v.pause(); open.focus(); });
+    v.addEventListener('play', function(){ cap('demo_video_play'); }, {once: true});
+    v.addEventListener('timeupdate', function(){
+      if (!half && v.duration && v.currentTime / v.duration >= 0.5) { half = true; cap('demo_video_50'); }
+    });
+    v.addEventListener('ended', function(){ cap('demo_video_complete'); });
+  })();
+</script>
 <script>
   (function(){
     var btn = document.getElementById('back-to-top');
