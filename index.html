@@ -1537,6 +1537,10 @@
     .demo-dialog { width: min(960px, calc(100vw - 2rem)); margin: auto; max-height: calc(100vh - 2rem); padding: 0; border: 0; border-radius: 14px; background: #000; overflow: hidden; }
     .demo-dialog::backdrop { background: rgba(8,12,22,.78); }
     .demo-dialog video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #000; }
+    /* While the player is open, stop painting the page behind it: the hero animations and
+       backdrop blurs otherwise compete with video decoding and cause dropped frames. */
+    html.demo-open body > *:not(#demoDialog) { visibility: hidden !important; }
+    html.demo-open *, html.demo-open *::before, html.demo-open *::after { animation-play-state: paused !important; }
     .demo-close { position: absolute; top: .5rem; right: .5rem; z-index: 2; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(12,19,32,.7); color: #fff; font-size: 22px; line-height: 1; cursor: pointer; }
   </style>
 </head>
@@ -3787,13 +3791,13 @@
     }
     ['pointerenter', 'focus', 'touchstart'].forEach(function(ev){ open.addEventListener(ev, warm, {passive: true, once: true}); });
     open.addEventListener('click', function(){
-      warm(); dlg.showModal(); cap('demo_video_open');
+      warm(); document.documentElement.classList.add('demo-open'); dlg.showModal(); cap('demo_video_open');
       var p = v.play(); if (p && p.catch) p.catch(function(){});
     });
     function shut(){ v.pause(); if (dlg.open) dlg.close(); }
     close.addEventListener('click', shut);
     dlg.addEventListener('click', function(e){ if (e.target === dlg) shut(); });
-    dlg.addEventListener('close', function(){ v.pause(); open.focus(); });
+    dlg.addEventListener('close', function(){ v.pause(); document.documentElement.classList.remove('demo-open'); open.focus(); });
     v.addEventListener('play', function(){ cap('demo_video_play'); }, {once: true});
     v.addEventListener('timeupdate', function(){
       if (!half && v.duration && v.currentTime / v.duration >= 0.5) { half = true; cap('demo_video_50'); }
