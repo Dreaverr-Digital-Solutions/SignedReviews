@@ -6,6 +6,29 @@ Raw research captures (OpenAI docs fetched 2026-10-11): `C:\Users\robin\AppData\
 
 ---
 
+## 0. Status and TODO (updated 2026-10-25)
+
+Done: Jev spend guard (platform 0acc52f); checker/privacy "nothing is stored" rewording (landing a47f4f0); MCP endpoint `POST /mcp` with `verify_signed_review` and `check_review_text`, tests passing (platform a513661).
+
+**Owner (user), long lead, start first**
+- [ ] **OpenAI business verification** for the org that will own the plugin: platform.openai.com/settings/organization/general. Needs the legal name exactly as registered (Paid Rightly LLC?), registered address, EIN or registration number, formation documents, proof of authority. Decide which name the directory should display; "Paid Rightly LLC" weakens the brand mention.
+- [ ] Be an **owner** of that org (only owners submit; others need Apps Management Write).
+- [ ] Project data residency is **global**, not EU.
+- [ ] ChatGPT account shows **Add custom MCP server** at chatgpt.com/plugins.
+- [ ] **Cloudflare vs `api.signedreviews.com/mcp`**: connect from ChatGPT, then check Security > Events for path `/mcp`. If blocked, add a WAF skip rule for OpenAI's connector IP ranges, or move the endpoint to a DNS-only host (e.g. `mcp.signedreviews.com`) BEFORE submitting; the MCP URL can't change afterwards. Free-plan Bot Fight Mode can't be skipped by rule. Re-check right before submit.
+- [ ] Set `OPENAI_APPS_CHALLENGE_TOKEN` on Railway when the portal shows the domain-verification token.
+- [ ] Set a spend cap or low-balance alert in console.typesafe.ai; give each app its own TypeSafe key (SR already has `signedreviews-prod`).
+- [ ] Connect `/mcp` in ChatGPT, run the section 9 golden prompts, and report whether links in tool results are clickable.
+
+**Claude, next**
+- [ ] Skill `get-started` + verification-levels reference file, `plugin.json`, icons, screenshot.
+- [ ] 5 positive and 3 negative test cases, release notes, video script.
+- [ ] Privacy "Signed Reviews in ChatGPT" subsection (OpenAI anonymized subject hashed for limits, per-call usage row, no review text).
+- [ ] Decide on `ToolCallLog` (unique subjects) only if the 60-day decision needs it.
+- [ ] After approval: `/chatgpt/` page, internal links, `llms.txt`.
+
+---
+
 ## 1. Verdict: build a ChatGPT plugin, not a custom GPT
 
 The custom GPT idea from 2026-10-09 is dead on arrival:
