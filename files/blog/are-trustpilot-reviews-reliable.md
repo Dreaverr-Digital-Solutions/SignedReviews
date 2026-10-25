@@ -1,7 +1,7 @@
 # Are Trustpilot Reviews Reliable? The Honest Truth (2026)
 
-**Title:** Are Trustpilot Reviews Reliable? | Signed Reviews Blog
-**Published:** 2026-07-24 · **Updated:** 2026-10-09 · **Author:** Robinson Guerra · **Description:** Are Trustpilot reviews reliable? How Trustpilot verifies reviews, where fakes slip through, what Reddit users say, and a Stripe-verified alternative.
+**Title:** Is Trustpilot Legit? Are Trustpilot Reviews Reliable? (2026)
+**Published:** 2026-07-24 · **Updated:** 2026-10-22 · **Author:** Robinson Guerra · **Description:** Are Trustpilot reviews reliable? How Trustpilot verifies reviews, where fakes slip through, what Reddit users say, and a Stripe-verified alternative.
 
 ---
 
@@ -18,6 +18,8 @@ Yes, Trustpilot is a legitimate company. It was [founded in 2007 and is headquar
 But a legitimate company is not the same as reliable reviews. If you're asking "can I trust Trustpilot reviews?", the answer is that they are **directionally useful but individually uncertain.** The platform's scale (301 million active reviews at the end of 2024) means aggregate scores tend to be statistically meaningful for businesses with large review volumes. But the open-platform model, anyone can review any business without proving they purchased anything, means **any individual review could be fake, and "Verified" doesn't independently confirm a payment happened.**
 
 For business owners, "is Trustpilot legit" usually means something else: is it worth paying for? The [business owner section](#for-business-owners-is-trustpilot-worth-paying-for) below covers pricing, hidden costs and when it fits.
+
+The law also matters here. The FTC's rule on consumer reviews and testimonials took effect on October 21, 2024. It bans fake testimonials, and reviews by insiders such as employees unless that connection is disclosed. It applies to every review platform, Trustpilot included (see the [summary of the FTC rule](/learn/ftc-fake-reviews-rules/)).
 
 ---
 

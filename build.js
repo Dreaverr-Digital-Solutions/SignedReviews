@@ -1780,7 +1780,7 @@ function buildPricing() {
 `;
 
   const html = page({
-    title: `Pricing: Free and Paid Plans for Verified Reviews | ${COMPANY.brand}`,
+    title: `Pricing: Free and Paid Plans | ${COMPANY.brand}`,
     description: 'Signed Reviews pricing: Free, Starter, Pro, and Scale plans. Free plan for self-service; paid plans from $29/mo.',
     slug: '/pricing/',
     hero: {
@@ -2123,7 +2123,7 @@ function buildBlog() {
   </article>`;
 
   const indexHtml = page({
-    title: 'Blog: Verified Reviews, Fake Reviews and Stripe | Signed Reviews',
+    title: 'Blog: Verified and Fake Reviews | Signed Reviews',
     description: 'Insights on review authenticity, e-commerce trust, Stripe integrations, and verified customer reviews.',
     slug: '/blog/',
     hero: { eyebrow: 'Blog', title: 'Signed Reviews Blog', subtitle: 'Insights on review authenticity, trust, and the Stripe ecosystem.' },
@@ -2446,8 +2446,8 @@ function buildComparison() {
   </article>`;
 
   const html = page({
-    title: 'Trustpilot Alternative | Stripe-Verified Reviews | Signed Reviews',
-    description: 'Trustpilot alternative for Stripe businesses: every review must match a charge in your Stripe account and is cryptographically signed. Features and pricing compared.',
+    title: 'Trustpilot Alternative: Stripe-Verified Reviews',
+    description: 'Trustpilot alternative for Stripe businesses: every review must match a charge in your Stripe account and is signed. Features and pricing compared.',
     slug: '/vs/trustpilot/',
     hero: { eyebrow: 'Comparison', title: 'The Trustpilot Alternative for Stripe Businesses', subtitle: 'A Trustpilot alternative for Stripe businesses, where every review must match a real charge. Compared across the dimensions that matter for authenticity.' },
     body,
@@ -2541,7 +2541,7 @@ function buildComparisonFeefo() {
   </script>`;
 
   const html = page({
-    title: 'Feefo Alternative | Stripe-Verified Reviews | Signed Reviews',
+    title: 'Feefo Alternative: Stripe-Verified Reviews',
     description: 'Feefo alternative for Stripe businesses: Feefo checks reviews against a feed the merchant supplies; we match each review to a charge in your Stripe account.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'The Feefo Alternative for Stripe Businesses', subtitle: 'A Feefo alternative for Stripe businesses. Both verify purchases. The difference is the source: the merchant\'s own feed, or the charge record in Stripe.' },
@@ -2592,7 +2592,7 @@ function buildComparisonJudgeMe() {
   </article>`;
 
   const html = page({
-    title: 'Judge.me Alternative | Stripe-Verified Reviews | Signed Reviews',
+    title: 'Judge.me Alternative: Stripe-Verified Reviews',
     description: 'Judge.me alternative for stores that take payments through Stripe: Judge.me matches Shopify orders; we match each review to a Stripe charge. Full comparison.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'The Judge.me Alternative for Stripe Businesses', subtitle: 'A Judge.me alternative for Stripe businesses. Judge.me is excellent, but its "verified" trusts your Shopify data. Ours requires a matching Stripe charge.' },
@@ -2687,8 +2687,8 @@ function buildComparisonYotpo() {
   </script>`;
 
   const html = page({
-    title: 'Yotpo Alternative | Stripe-Verified Reviews | Signed Reviews',
-    description: 'Yotpo alternative for Stripe businesses: Yotpo\'s Verified Buyer means the merchant\'s email matched; ours means a matching Stripe charge. 10-dimension comparison.',
+    title: 'Yotpo Alternative: Stripe-Verified Reviews',
+    description: 'Yotpo alternative for Stripe businesses: Yotpo\'s Verified Buyer means an email matched; ours means a matching Stripe charge. 10 dimensions compared.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'The Yotpo Alternative for Stripe Businesses', subtitle: 'A Yotpo alternative for Stripe businesses. Yotpo\'s Verified Buyer means the merchant\'s email matched. Ours means the review matches a real Stripe charge.' },
     body,
@@ -2738,7 +2738,7 @@ function buildComparisonEkomi() {
   </article>`;
 
   const html = page({
-    title: 'eKomi Alternative | Stripe-Verified Reviews | Signed Reviews',
+    title: 'eKomi Alternative: Stripe-Verified Reviews',
     description: 'eKomi alternative for Stripe businesses: eKomi verifies a feed you supply; we match every review to a Stripe charge. Includes Google Seller Ratings and pricing.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'The eKomi Alternative for Stripe Businesses', subtitle: 'An eKomi alternative for Stripe businesses. eKomi verifies a feed you supply. We match every review to a charge in your Stripe account.' },
@@ -2812,8 +2812,8 @@ function buildComparisonSiteJabber() {
   </article>`;
 
   const html = page({
-    title: 'SiteJabber Alternative | Stripe-Verified Reviews | Signed Reviews',
-    description: 'SiteJabber alternative for Stripe businesses: the FTC charged SiteJabber in 2024 over reviews collected before customers got their orders. Our reviews need a Stripe charge.',
+    title: 'SiteJabber Alternative: Stripe-Verified Reviews',
+    description: 'SiteJabber alternative for Stripe businesses: the FTC charged SiteJabber in 2024 over reviews gathered before orders arrived. Ours need a Stripe charge.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'The SiteJabber Alternative for Stripe Businesses', subtitle: 'A SiteJabber alternative for Stripe businesses. SiteJabber got an FTC order for reviews from people who never received products. Every Signed Reviews review needs a matching Stripe charge.' },
     body,
@@ -2914,7 +2914,7 @@ function buildComparisonBirdeye() {
   </script>`;
 
   const html = page({
-    title: 'Birdeye Alternative | Stripe-Verified Reviews | Signed Reviews',
+    title: 'Birdeye Alternative: Stripe-Verified Reviews',
     description: 'Birdeye alternative for Stripe businesses: Birdeye verifies against your own customer records; we match every review to a Stripe charge. Full comparison.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'The Birdeye Alternative for Stripe Businesses', subtitle: 'A Birdeye alternative for Stripe businesses. Birdeye verifies against your own customer list. Signed Reviews matches each review to a charge in Stripe.' },
@@ -2965,7 +2965,7 @@ function buildComparisonReviewsIo() {
   </article>`;
 
   const html = page({
-    title: 'Reviews.io Alternative | Stripe-Verified Reviews | Signed Reviews',
+    title: 'Reviews.io Alternative: Stripe-Verified Reviews',
     description: 'Reviews.io alternative for Stripe businesses: Reviews.io verifies customer data you supply; we match every review to a Stripe charge. 10-dimension comparison.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'The Reviews.io Alternative for Stripe Businesses', subtitle: 'A Reviews.io alternative for Stripe businesses. Reviews.io is a popular Trustpilot alternative, but its verification still depends on data you supply.' },
@@ -3048,7 +3048,7 @@ function buildComparisonShopifyReviewApps() {
 
   const html = page({
     title: 'Loox Alternative: Loox vs Okendo vs Stamped | Signed Reviews',
-    description: 'Looking for a Loox alternative? Loox vs Okendo vs Stamped vs Signed Reviews: plans, prices and what each checks a review against. For stores paid through Stripe.',
+    description: 'Looking for a Loox alternative? Loox vs Okendo vs Stamped vs Signed Reviews: plans, prices and what each checks a review against.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Loox, Okendo and Stamped vs Signed Reviews', subtitle: 'Three Shopify review apps that match reviews to store orders, and one that matches them to Stripe charges. Start with how your store gets paid.' },
     body,
@@ -3092,7 +3092,7 @@ function buildComparisonSkeepers() {
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a> · <a href="/vs/feefo/">Signed Reviews vs Feefo</a></p>
   </article>`;
   const html = page({
-    title: 'Skeepers Alternative | Stripe-Verified Reviews | Signed Reviews',
+    title: 'Skeepers Alternative: Stripe-Verified Reviews',
     description: 'Skeepers alternative for Stripe businesses: Skeepers verifies a merchant-supplied transaction feed; we match every review to a Stripe charge. Full comparison.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'The Skeepers Alternative for Stripe Businesses', subtitle: 'A Skeepers alternative for Stripe businesses. Skeepers verifies against data you supply. We verify against the charge record in Stripe.' },
@@ -3130,7 +3130,7 @@ function buildComparisonGoogleReviews() {
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/blog/fake-reviews/">The Fake Review Problem</a> · <a href="/vs/yelp/">Signed Reviews vs Yelp</a></p>
   </article>`;
   const html = page({
-    title: 'Google Reviews vs Signed Reviews | Visibility vs Verification',
+    title: 'Google Reviews vs Signed Reviews: Visibility vs Proof',
     description: 'Google Reviews has no purchase verification but owns search visibility; Signed Reviews has the strongest verification. Most businesses need both.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'Signed Reviews vs Google Reviews', subtitle: 'Google Reviews dominates visibility. We dominate verification. Here\'s why most businesses need both.' },
@@ -3259,7 +3259,7 @@ function buildComparisonPodium() {
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/judge-me/">Signed Reviews vs Judge.me</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews</a></p>
   </article>`;
   const html = page({
-    title: 'Podium Alternative | Stripe-Verified Reviews | Signed Reviews',
+    title: 'Podium Alternative: Stripe-Verified Reviews',
     description: 'Podium alternative for Stripe businesses: Podium collects reviews over SMS; Signed Reviews matches every review to a real Stripe charge. Full breakdown.',
     slug,
     hero: { eyebrow: 'Comparison', title: 'The Podium Alternative for Stripe Businesses', subtitle: 'A Podium alternative for Stripe businesses. Podium leads on SMS review collection for local businesses. We lead on reviews matched to a Stripe charge and cryptographically signed.' },
@@ -4308,7 +4308,7 @@ const MARKETING_PAGES = [
     slug: '/features/',
     file: 'features.md',
     title: 'Features',
-    metaTitle: 'Features: Verified Review Collection for Stripe | Signed Reviews',
+    metaTitle: 'Features: Verified Review Collection for Stripe',
     eyebrow: 'Features',
     subtitle: 'Stripe-verified reviews with cryptographic signing. Everything you need to collect, verify, and publish reviews your customers can trust.',
     metaDesc: 'Explore Signed Reviews features: Stripe-native verification, cryptographic signing, automated collection, public review pages, REST API, dashboard.',
@@ -4864,7 +4864,7 @@ function buildFakeReviewChecker() {
   })();`;
 
   let html = page({
-    title: 'Fake Review Checker | Free, Paste Any Review | Signed Reviews',
+    title: 'Free Fake Review Checker: Paste Any Review',
     description: 'Free fake review checker: paste any review from Amazon, Trustpilot, Google, or Shopify for a signal-based risk estimate in seconds. Pasted text not stored.',
     slug,
     hero: { eyebrow: 'Free tool', title: 'Fake Review Checker', subtitle: 'Paste a review. Get a signal-based risk estimate in seconds. Works on text from any platform. No signup, pasted text not stored.' },

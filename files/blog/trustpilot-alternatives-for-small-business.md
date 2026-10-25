@@ -1,5 +1,5 @@
 # Trustpilot Alternatives for Small Business: 10 Options Compared (2026)
-**Title:** Trustpilot Alternatives for Small Business: 10 Compared (2026)
+**Title:** Trustpilot Alternatives for Small Business (2026)
 
 **Published:** 2026-07-24 · **Updated:** 2026-10-09 · **Author:** Robinson Guerra · **Description:** 10 Trustpilot alternatives for small business, including the best yotpo alternative and reviews.io alternative, compared on price, verification, and Stripe fit.
 
