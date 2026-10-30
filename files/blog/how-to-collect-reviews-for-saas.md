@@ -124,7 +124,7 @@ Aim for 10 reviews on your primary platform to establish baseline social proof. 
 
 ## How to turn SaaS reviews into a product development feedback loop
 
-Collecting reviews for SaaS isn't just about social proof. It's raw product intelligence. Analyze sentiment across recurring reviews to spot trends, prioritize feature requests, and reduce churn. Tag feedback by subscription tier in your own tracker, and close the loop with reviewers when your team ships a fix they asked for. SignedReviews lets you reply to each review publicly, which is a good place to say so. [See how verification and automation work together](/how-it-works).
+Collecting reviews for SaaS isn't just about social proof. It's raw product intelligence. Analyze sentiment across recurring reviews to spot trends, prioritize feature requests, and reduce churn. Tag feedback by subscription tier in your own tracker, and close the loop with reviewers when your team ships a fix they asked for. SignedReviews lets you reply to each review publicly, which is a good place to say so. Support quality shows up in reviews too, so it is worth getting your escalation rules right; Jobbit's guide on [automating customer support with AI without annoying customers](https://jobbit.uk/en/blog/ai-customer-support-automation-2026) covers that. [See how verification and automation work together](/how-it-works).
 
 ---
 
