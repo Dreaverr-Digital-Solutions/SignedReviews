@@ -9,6 +9,36 @@ To check if reviews are fake, use this 7-point fake review checker: look at the 
 
 You can run the checks on your own product pages, a competitor's listing, or a review platform you're considering. Want to check a single review instantly? Paste it into our free [fake review checker tool](/tools/fake-review-checker/). It scores the writing-pattern risk signals in seconds.
 
+<div class="callout" id="frc-blog-box">
+<strong>Check a review now</strong>
+<p style="margin:.4rem 0 .6rem;font-size:.95rem;color:var(--muted);">Paste one review. You get instant writing-pattern signals plus an AI cross-check. Free, no sign-up, and we do not store the text.</p>
+<textarea id="frc-blog-input" rows="4" maxlength="12000" aria-label="Paste the review text" placeholder="Paste the full review text here (50+ words works best)" style="width:100%;box-sizing:border-box;padding:.7rem .9rem;font:inherit;color:var(--text);background:var(--bg,var(--surface));border:1px solid var(--border);border-radius:8px;resize:vertical;"></textarea>
+<button type="button" id="frc-blog-go" style="margin-top:.6rem;padding:.65rem 1.2rem;font:inherit;font-weight:700;color:#fff;background:var(--gold-500);border:0;border-radius:8px;cursor:pointer;">Check this review</button>
+<span id="frc-blog-msg" style="margin-left:.75rem;font-size:.9rem;color:var(--muted);" aria-live="polite"></span>
+<script>
+(function () {
+  var ta = document.getElementById('frc-blog-input');
+  var go = document.getElementById('frc-blog-go');
+  var msg = document.getElementById('frc-blog-msg');
+  if (!ta || !go) return;
+  function cap(name, props) {
+    var p = window.posthog;
+    if (p && p.__loaded === true && typeof p.capture === 'function') p.capture(name, props);
+  }
+  var started = false;
+  ta.addEventListener('focus', function () { if (!started) { started = true; cap('blog_checker_focus', {}); } });
+  go.addEventListener('click', function () {
+    var t = ta.value.trim();
+    if (!t) { msg.textContent = 'Paste a review first.'; return; }
+    try { sessionStorage.setItem('frc_handoff', t.slice(0, 12000)); } catch (_) {}
+    cap('blog_checker_submit', { chars: t.length });
+    msg.textContent = 'Opening the checker...';
+    setTimeout(function () { location.href = '/tools/fake-review-checker/?src=blog#frc'; }, 200);
+  });
+})();
+</script>
+</div>
+
 ## How to spot fake reviews: quick checklist
 
 The old tells (broken English, repetitive phrasing, generic praise) are losing their value. In two experiments published in [Marketing Letters in April 2024](https://link.springer.com/article/10.1007/s11002-024-09729-3), researchers found that "humans cannot recognize AI-written reviews," and AI detectors were fooled too. Each AI review can be grammatically clean and different in style from the last. So before you run the full 7-point method below, start with the signals that still hold up:

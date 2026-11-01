@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/blog/fake-review-checker/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="dcbbb96099ff0d632f54df63692f82966d74ceb1">
-  <meta name="build-time" content="2026-10-22T13:16:36.475Z">
+  <meta name="build-commit" content="f9db46db8015b748c65829bce070a23c3a706147">
+  <meta name="build-time" content="2026-11-01T17:16:47.966Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="How to Check if Reviews Are Fake | Signed Reviews">
@@ -711,6 +711,36 @@ main { padding: 0; }
       <p class="post-meta" style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">By <a href="/about/#founder" rel="author">Robinson Guerra</a>, Founder · Published 2026-08-07 · Updated 2026-10-09</p>
       <p>To check if reviews are fake, use this 7-point fake review checker: look at the language, the reviewer&#39;s profile, the timing, the photos, the platform&#39;s own signals, other sources, and what the &quot;verified&quot; badge actually verifies. Timing anomalies and reviewer profiles are the hardest signals to disguise. No single sign proves a review is fake, but several together are strong evidence.</p>
 <p>You can run the checks on your own product pages, a competitor&#39;s listing, or a review platform you&#39;re considering. Want to check a single review instantly? Paste it into our free <a href="/tools/fake-review-checker/">fake review checker tool</a>. It scores the writing-pattern risk signals in seconds.</p>
+<div class="callout" id="frc-blog-box">
+<strong>Check a review now</strong>
+<p style="margin:.4rem 0 .6rem;font-size:.95rem;color:var(--muted);">Paste one review. You get instant writing-pattern signals plus an AI cross-check. Free, no sign-up, and we do not store the text.</p>
+<textarea id="frc-blog-input" rows="4" maxlength="12000" aria-label="Paste the review text" placeholder="Paste the full review text here (50+ words works best)" style="width:100%;box-sizing:border-box;padding:.7rem .9rem;font:inherit;color:var(--text);background:var(--bg,var(--surface));border:1px solid var(--border);border-radius:8px;resize:vertical;"></textarea>
+<button type="button" id="frc-blog-go" style="margin-top:.6rem;padding:.65rem 1.2rem;font:inherit;font-weight:700;color:#fff;background:var(--gold-500);border:0;border-radius:8px;cursor:pointer;">Check this review</button>
+<span id="frc-blog-msg" style="margin-left:.75rem;font-size:.9rem;color:var(--muted);" aria-live="polite"></span>
+<script>
+(function () {
+  var ta = document.getElementById('frc-blog-input');
+  var go = document.getElementById('frc-blog-go');
+  var msg = document.getElementById('frc-blog-msg');
+  if (!ta || !go) return;
+  function cap(name, props) {
+    var p = window.posthog;
+    if (p && p.__loaded === true && typeof p.capture === 'function') p.capture(name, props);
+  }
+  var started = false;
+  ta.addEventListener('focus', function () { if (!started) { started = true; cap('blog_checker_focus', {}); } });
+  go.addEventListener('click', function () {
+    var t = ta.value.trim();
+    if (!t) { msg.textContent = 'Paste a review first.'; return; }
+    try { sessionStorage.setItem('frc_handoff', t.slice(0, 12000)); } catch (_) {}
+    cap('blog_checker_submit', { chars: t.length });
+    msg.textContent = 'Opening the checker...';
+    setTimeout(function () { location.href = '/tools/fake-review-checker/?src=blog#frc'; }, 200);
+  });
+})();
+</script>
+</div>
+
 <h2 id="how-to-spot-fake-reviews-quick-checklist"><a class="anchor" href="#how-to-spot-fake-reviews-quick-checklist" aria-label="Permalink to How to spot fake reviews: quick checklist"></a>How to spot fake reviews: quick checklist</h2>
 <p>The old tells (broken English, repetitive phrasing, generic praise) are losing their value. In two experiments published in <a href="https://link.springer.com/article/10.1007/s11002-024-09729-3">Marketing Letters in April 2024</a>, researchers found that &quot;humans cannot recognize AI-written reviews,&quot; and AI detectors were fooled too. Each AI review can be grammatically clean and different in style from the last. So before you run the full 7-point method below, start with the signals that still hold up:</p>
 <ul>

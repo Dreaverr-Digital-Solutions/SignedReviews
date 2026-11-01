@@ -4713,6 +4713,20 @@ function buildFakeReviewChecker() {
 
     function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 
+    // Usage events. Metadata only: never the pasted text or the URL itself.
+    var srcParam = '';
+    try { srcParam = new URLSearchParams(location.search).get('src') || ''; } catch (_) {}
+    function cap(name, props) {
+      props = props || {};
+      props.source = srcParam || 'direct';
+      var tries = 0;
+      (function send() {
+        var p = window.posthog;
+        if (p && p.__loaded === true && typeof p.capture === 'function') { p.capture(name, props); return; }
+        if (++tries < 40) setTimeout(send, 150);
+      })();
+    }
+
     function analyze() {
       var t = input.value.trim();
       output.style.display = 'block';
@@ -4807,6 +4821,7 @@ function buildFakeReviewChecker() {
       ${turnstileGate}
       runBtn.disabled = true;
       runBtn.textContent = 'Checking…';
+      cap('check_review_submitted', { has_url: !!url, chars: text.length });
       fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -4818,9 +4833,10 @@ function buildFakeReviewChecker() {
             return data;
           });
         })
-        .then(function (data) { renderAi(data); })
+        .then(function (data) { cap('check_review_result', { ok: true, verdict: String(data.verdict || ''), site_checked: !!data.siteChecked }); renderAi(data); })
         .catch(function (err) {
           var reason = (err && err.message) ? err.message : 'network error';
+          cap('check_review_result', { ok: false, reason: reason.slice(0, 80) });
           aiOutput.innerHTML = '<p class="frc-empty">AI cross-check unavailable right now (' + esc(reason) + ').</p>';
         })
         .then(function () {
@@ -4861,6 +4877,17 @@ function buildFakeReviewChecker() {
 
     runBtn.addEventListener('click', analyze);
     sampleBtn.addEventListener('click', loadSample);
+
+    // Hand-off from the blog post box: text lives in sessionStorage only, is
+    // removed on read, and runs the same check as pressing the button.
+    try {
+      var handed = sessionStorage.getItem('frc_handoff');
+      if (handed) {
+        sessionStorage.removeItem('frc_handoff');
+        input.value = handed;
+        analyze();
+      }
+    } catch (_) {}
   })();`;
 
   let html = page({
