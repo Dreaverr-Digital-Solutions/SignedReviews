@@ -5053,7 +5053,7 @@ fs.mkdirSync(DIST_DIR, { recursive: true });
 
 const PUBLISH = [
   'index.html', '404.html', 'favicon.svg', 'sitemap.xml', 'robots.txt', 'CNAME',
-  'about', 'contact', 'dpa', 'files', 'images', 'output.css', 'trust', 'vs',
+  'about', 'contact', 'dpa', 'files', 'fonts', 'images', 'output.css', 'trust', 'vs',
   'privacy', 'refund-policy', 'subprocessors', 'terms', 'pricing', 'dmca',
   'features', 'blog', 'integrations', 'faq', 'how-it-works', 'how-verification-works', 'demo', 'tools', 'docs', 'api', 'learn', 'for',
   'chrome-extension', 'video',
@@ -5121,6 +5121,20 @@ if (fs.existsSync(distIndex)) {
     html = html.replace('</head>', `${needsPosthog ? POSTHOG_SNIPPET : ''}${needsTrackers ? SR_TRACKERS_SNIPPET : ''}\n</head>`);
     if (needsPosthog) console.log('  ✓ injected PostHog snippet into index.html');
     if (needsTrackers) console.log('  ✓ injected engagement tracker snippet into index.html');
+    patched = true;
+  }
+
+  // Inline the Tailwind build (output.css) in place of its <link>. The home page
+  // is its only user; as a separate file it was a render-blocking request, and
+  // _headers serves *.css as immutable for a year although the name has no hash.
+  // It stays at the link's position because the later <style> blocks use its
+  // variables. A function replacer keeps any `$` in the CSS literal.
+  const CSS_LINK = '<link rel="stylesheet" href="output.css">';
+  if (html.includes(CSS_LINK)) {
+    const css = fs.readFileSync(path.join(ROOT, 'output.css'), 'utf8').trim();
+    if (/<\/style/i.test(css)) throw new Error('output.css contains </style; cannot inline it');
+    html = html.replace(CSS_LINK, () => `<style>${css}</style>`);
+    console.log(`  ✓ inlined output.css into index.html (${(css.length / 1024).toFixed(1)} KiB)`);
     patched = true;
   }
 

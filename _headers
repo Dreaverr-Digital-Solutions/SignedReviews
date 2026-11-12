@@ -58,6 +58,10 @@
 /images/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Self-hosted web fonts; filenames carry the Google Fonts version (e.g. inter-v20-latin.woff2)
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /*.css
   Cache-Control: public, max-age=31536000, immutable
 
