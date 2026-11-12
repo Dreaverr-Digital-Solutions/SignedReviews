@@ -58,9 +58,9 @@ Key things to understand before the numbers:
 
 **The catch:** Organic reviews skew negative. People who had a bad experience seek out Trustpilot to complain; happy customers rarely do. Invitations balance the ratio by prompting satisfied customers, and the Free plan caps them at 50 a month. Past that, your Trustpilot profile will disproportionately reflect negative experiences. Trustpilot knows this. It's the incentive to upgrade.
 
-### Starter: removed in late October 2026
+### Starter ($99/month): removed in fall 2026
 
-Until October 2026 the cheapest paid tier was Starter, from $99 a month billed annually ($1,188 a year per domain). It came with 100 invitations a month, one showcase widget and one user login, and Trustpilot limited it to new customers with up to $5M in revenue. It was on the pricing page on October 11 and gone by November 2 ([archived October 11](https://web.archive.org/web/20261011010155/https://business.trustpilot.com/pricing), [archived November 2](https://web.archive.org/web/20261102011213/https://business.trustpilot.com/pricing)). The page doesn't say what happens to existing Starter contracts.
+Until at least October 11, 2026 the cheapest paid tier was Starter, from $99 a month billed annually ($1,188 a year per domain). It came with 100 invitations a month, one showcase widget and one user login, and Trustpilot limited it to new customers with up to $5M in revenue. It was on the pricing page on October 11 and gone by November 2 ([archived October 11](https://web.archive.org/web/20261011010155/https://business.trustpilot.com/pricing), [archived November 2](https://web.archive.org/web/20261102011213/https://business.trustpilot.com/pricing)). The page doesn't say what happens to existing Starter contracts.
 
 **What it means for you:** the cheapest paid plan is now Plus at $319 a month, or $3,828 a year per domain. That is more than three times what Starter cost. A business that only needed Starter's 100 invitations a month now has to choose between Free (50) and Plus (300).
 

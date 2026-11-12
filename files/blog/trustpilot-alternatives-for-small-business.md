@@ -5,7 +5,7 @@
 
 ---
 
-The best trustpilot alternatives for small business are Signed Reviews if you take payments through Stripe, Judge.me if you sell on Shopify, and Yotpo, Feefo, Reviews.io, eKomi, Stamped.io, Okendo, Loox and Google Reviews for narrower needs. Trustpilot has [400 million reviews on trustpilot.com](https://corporate.trustpilot.com/), but [anyone can review a business](https://corporate.trustpilot.com/trust/how-trustpilot-works) "with or without an invitation," and its verified reviews come from business-sent invitations, not a payment check. Its paid plans start at $319/month (Plus), billed annually, since the $99 Starter plan was removed in late October 2026 ([Trustpilot pricing](https://business.trustpilot.com/pricing)).
+The best trustpilot alternatives for small business are Signed Reviews if you take payments through Stripe, Judge.me if you sell on Shopify, and Yotpo, Feefo, Reviews.io, eKomi, Stamped.io, Okendo, Loox and Google Reviews for narrower needs. Trustpilot has [400 million reviews on trustpilot.com](https://corporate.trustpilot.com/), but [anyone can review a business](https://corporate.trustpilot.com/trust/how-trustpilot-works) "with or without an invitation," and its verified reviews come from business-sent invitations, not a payment check. Its paid plans start at $319/month (Plus), billed annually, since the $99 Starter plan was removed from the pricing page between October 11 and November 2, 2026 ([Trustpilot pricing](https://business.trustpilot.com/pricing)).
 
 These 10 Trustpilot alternatives for small business are ranked by one question: when a review says "Verified," who did the verifying? Each entry lists the verification level, starting price and best fit, including Yotpo, Feefo, Judge.me and Reviews.io.
 

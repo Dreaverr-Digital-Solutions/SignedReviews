@@ -122,7 +122,7 @@ When you're reading Trustpilot reviews as a consumer, here's a practical checkli
 
 ### What you pay
 
-Trustpilot publishes starting prices. The Free plan includes 50 review invitations a month. Paid plans start at $319 (Plus) and $799 (Premium) per month, per domain, billed annually, and Enterprise is quote-only ([Trustpilot pricing](https://business.trustpilot.com/pricing)). The $99 Starter plan was removed in late October 2026. The final quote depends on your traffic, business size and revenue, and contracts run 12 months, prepaid. [Trustpilot pricing explained](/blog/trustpilot-pricing-explained/) has the plan-by-plan breakdown.
+Trustpilot publishes starting prices. The Free plan includes 50 review invitations a month. Paid plans start at $319 (Plus) and $799 (Premium) per month, per domain, billed annually, and Enterprise is quote-only ([Trustpilot pricing](https://business.trustpilot.com/pricing)). The $99 Starter plan was removed from the pricing page between October 11 and November 2, 2026. The final quote depends on your traffic, business size and revenue, and contracts run 12 months, prepaid. [Trustpilot pricing explained](/blog/trustpilot-pricing-explained/) has the plan-by-plan breakdown.
 
 Costs that show up later:
 

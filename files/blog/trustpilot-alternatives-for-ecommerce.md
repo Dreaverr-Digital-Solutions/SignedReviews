@@ -27,7 +27,7 @@ The best trustpilot alternatives for ecommerce are Signed Reviews for stores tha
 
 Trustpilot is the biggest name in online reviews, with [400 million reviews on trustpilot.com](https://corporate.trustpilot.com/). But for ecommerce stores, the platform has three problems.
 
-**Pricing that doesn't fit ecommerce.** Trustpilot's free plan includes 50 automated invitations a month. Paid plans start at $319/month (Plus), billed annually on a 12-month contract, since Trustpilot removed its $99 Starter plan in late October 2026 ([Trustpilot pricing](https://business.trustpilot.com/pricing)). When Judge.me offers unlimited reviews for free and Signed Reviews starts at $29/month, the value proposition gets harder to justify.
+**Pricing that doesn't fit ecommerce.** Trustpilot's free plan includes 50 automated invitations a month. Paid plans start at $319/month (Plus), billed annually on a 12-month contract, since Trustpilot removed its $99 Starter plan from the pricing page between October 11 and November 2, 2026 ([Trustpilot pricing](https://business.trustpilot.com/pricing)). When Judge.me offers unlimited reviews for free and Signed Reviews starts at $29/month, the value proposition gets harder to justify.
 
 **Anyone can review without buying.** [Trustpilot says](https://corporate.trustpilot.com/trust/how-trustpilot-works) consumers can leave a review "with or without an invitation." Its verified reviews come from business-sent invitations linked to a customer interaction, not from a payment processor confirming a purchase. For ecommerce stores, this opens the door to competitors leaving fake negative reviews, customers reviewing products they never bought, and review ganging from forum campaigns. The [FTC's final rule on fake reviews](https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials), announced in August 2024, makes this a compliance risk, not just a trust problem.
 
@@ -174,7 +174,7 @@ For most e-commerce brands, the decision comes down to one question: does your s
 
 ### Is Trustpilot free for ecommerce stores?
 
-Trustpilot has a free plan with 50 automated review invitations a month. Paid plans start at $319/month (Plus, 300 invitations), billed annually on a 12-month contract. The $99 Starter plan was removed in late October 2026. Product reviews are sold as a separate paid add-on. For a store sending more than 50 invitations a month, the free tier runs out fast.
+Trustpilot has a free plan with 50 automated review invitations a month. Paid plans start at $319/month (Plus, 300 invitations), billed annually on a 12-month contract. The $99 Starter plan was removed from the pricing page between October 11 and November 2, 2026. Product reviews are sold as a separate paid add-on. For a store sending more than 50 invitations a month, the free tier runs out fast.
 
 ### What is the cheapest Trustpilot alternative?
 
@@ -198,7 +198,7 @@ They can, if a widget blocks the initial render. The key factor is whether the p
       "name": "Is Trustpilot free for ecommerce stores?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Trustpilot has a free plan with 50 automated review invitations a month. Paid plans start at $319/month (Plus), billed annually on a 12-month contract. The $99 Starter plan was removed in late October 2026. Product reviews are sold as a separate paid add-on."
+        "text": "Trustpilot has a free plan with 50 automated review invitations a month. Paid plans start at $319/month (Plus), billed annually on a 12-month contract. The $99 Starter plan was removed from the pricing page between October 11 and November 2, 2026. Product reviews are sold as a separate paid add-on."
       }
     },
     {

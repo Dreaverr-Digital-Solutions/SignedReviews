@@ -105,7 +105,7 @@ One change to know first: Capterra, Software Advice and GetApp now sit inside th
 
 **Audience:** Consumers and small business owners.
 
-**How listing works:** There is a [free plan with 50 review invitations a month](https://business.trustpilot.com/plans). Paid plans are billed annually per domain: Plus from $319/month (300 invitations) and Premium from $799/month (1,000). The $99 Starter plan was removed in late October 2026. For a closer look, see [what Trustpilot's pricing page leaves out](/blog/trustpilot-pricing-explained/).
+**How listing works:** There is a [free plan with 50 review invitations a month](https://business.trustpilot.com/plans). Paid plans are billed annually per domain: Plus from $319/month (300 invitations) and Premium from $799/month (1,000). The $99 Starter plan was removed from the pricing page between October 11 and November 2, 2026. For a closer look, see [what Trustpilot's pricing page leaves out](/blog/trustpilot-pricing-explained/).
 
 **How it verifies reviewers:** Trustpilot calls itself an open platform: [anyone can write a review without being invited](https://legal.trustpilot.com/for-reviewers/guidelines-for-reviewers) by the business.
 

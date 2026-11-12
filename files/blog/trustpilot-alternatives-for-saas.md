@@ -23,7 +23,7 @@ Trustpilot's model assumes a transaction is a discrete event: customer buys, bus
 | Volume = credibility | A SaaS company with 20 detailed, time-anchored reviews may be more credible than one with 200 generic ones |
 | The B2C review-reading experience | SaaS buyers read reviews differently: they want use-case fit, role relevance, and time depth |
 
-SaaS companies are increasingly looking for Trustpilot alternatives for SaaS because the platform's B2C model doesn't fit B2B purchasing. Paid plans start at $319/month (Plus), billed annually on a 12-month contract, since the $99 Starter plan was removed in late October 2026 ([Trustpilot pricing](https://business.trustpilot.com/pricing)). And [Trustpilot's verified reviews](https://corporate.trustpilot.com/trust/how-trustpilot-works) come from business-sent invitations linked to a customer interaction, not from a payment processor confirming a purchase.
+SaaS companies are increasingly looking for Trustpilot alternatives for SaaS because the platform's B2C model doesn't fit B2B purchasing. Paid plans start at $319/month (Plus), billed annually on a 12-month contract, since the $99 Starter plan was removed from the pricing page between October 11 and November 2, 2026 ([Trustpilot pricing](https://business.trustpilot.com/pricing)). And [Trustpilot's verified reviews](https://corporate.trustpilot.com/trust/how-trustpilot-works) come from business-sent invitations linked to a customer interaction, not from a payment processor confirming a purchase.
 
 ---
 
