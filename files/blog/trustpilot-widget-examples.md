@@ -1,11 +1,11 @@
 # Trustpilot Widget Examples: What They Look Like, Where They Go, and What Each One Does
 **Title:** Trustpilot Widget Examples (2026): TrustBox Types Compared
 
-**Published:** 2026-07-29 · **Updated:** 2026-10-09 · **Author:** Robinson Guerra · **Description:** See real Trustpilot widget examples (TrustBox, carousel, product reviews, and service review widgets) plus how they compare to purchase-verified alternatives.**
+**Published:** 2026-07-29 · **Updated:** 2026-11-12 · **Author:** Robinson Guerra · **Description:** See real Trustpilot widget examples (TrustBox, carousel, product reviews, and service review widgets) plus how they compare to purchase-verified alternatives.**
 
 ---
 
-The main Trustpilot widget examples are six TrustBox types: Micro Star, Micro Review Count, Mini Carousel, Product Reviews, Service Review and Grid. Put the Micro Star on checkout and footers, the Mini Carousel on your homepage, Product Reviews on product pages and the Grid on a dedicated reviews page. How many you can use depends on your plan: Starter includes 2 widgets, Plus 10, Premium 21 and Enterprise 23 ([Trustpilot pricing](https://business.trustpilot.com/pricing)). Below is an example of each, where it appears, and what it tells visitors.
+The main Trustpilot widget examples are six TrustBox types: Micro Star, Micro Review Count, Mini Carousel, Product Reviews, Service Review and Grid. Put the Micro Star on checkout and footers, the Mini Carousel on your homepage, Product Reviews on product pages and the Grid on a dedicated reviews page. How many you can use depends on your plan: Plus includes 10 widgets, Premium 21 and Enterprise 23, and the Free plan has none for showing your rating ([Trustpilot pricing](https://business.trustpilot.com/pricing)). Below is an example of each, where it appears, and what it tells visitors.
 
 ---
 
@@ -96,7 +96,7 @@ This is the widget Trustpilot positions for e-commerce product detail pages. It 
 
 **Where you see it:** Product detail pages on Shopify stores, BigCommerce product pages, Magento product listings.
 
-**The catch:** Setting up product-level reviews requires mapping your product catalog to Trustpilot's product IDs and passing them in review invitations. It's not automatic. It requires integration work, and Product Reviews is a paid add-on on every Trustpilot plan from Starter up.
+**The catch:** Setting up product-level reviews requires mapping your product catalog to Trustpilot's product IDs and passing them in review invitations. It's not automatic. It requires integration work, and Product Reviews is a paid add-on on every Trustpilot paid plan, Plus and up.
 
 ### 5. Service Review Widget (for non-e-commerce)
 

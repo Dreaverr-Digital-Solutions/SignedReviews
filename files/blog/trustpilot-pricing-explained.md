@@ -1,12 +1,12 @@
 # Trustpilot Pricing 2026: Plans, Real Costs & Cheaper Alternatives
 
 **Title:** Trustpilot Pricing Page: 2026 Plans and Real Costs
-**Published:** 2026-07-24 · **Updated:** 2026-10-09 · **Author:** Robinson Guerra
-**Description:** What's on the Trustpilot pricing page: every 2026 plan from Free to Premium, add-ons, contract terms, real yearly costs and cheaper alternatives.
+**Published:** 2026-07-24 · **Updated:** 2026-11-12 · **Author:** Robinson Guerra
+**Description:** What's on the Trustpilot pricing page now the $99 Starter plan is gone: Free, Plus and Premium, add-ons, contract terms and real yearly costs.
 
 ---
 
-Trustpilot pricing in 2026 starts with a Free plan that sends 50 review invitations a month. Paid plans start at $99 (Starter), $319 (Plus) and $799 (Premium) per month, per domain, billed annually, and Enterprise is quote-only ([Trustpilot pricing page](https://business.trustpilot.com/pricing)). Every paid contract runs 12 months, prepaid. This article covers what each plan includes, what the "from" prices leave out, and where the extra costs sit.
+Trustpilot pricing in 2026 starts with a Free plan that sends 50 review invitations a month. Paid plans start at $319 (Plus) and $799 (Premium) per month, per domain, billed annually, and Enterprise is quote-only ([Trustpilot pricing page](https://business.trustpilot.com/pricing)). The $99 Starter plan is gone: it was on the pricing page on October 11, 2026 and missing by November 2 ([archived October 11](https://web.archive.org/web/20261011010155/https://business.trustpilot.com/pricing), [archived November 2](https://web.archive.org/web/20261102011213/https://business.trustpilot.com/pricing)). Every paid contract runs 12 months, prepaid. This article covers what each plan includes, what the "from" prices leave out, and where the extra costs sit.
 
 ---
 
@@ -14,8 +14,8 @@ Trustpilot pricing in 2026 starts with a Free plan that sends 50 review invitati
 
 If you visit [business.trustpilot.com/pricing](https://business.trustpilot.com/pricing), here's what you'll see, and what you won't:
 
-- **Three published starting prices.** Starter from $99, Plus from $319 and Premium from $799 per month, per domain, billed annually. Enterprise says "Contact sales for a pricing estimate."
-- **A free plan with a small invitation allowance.** Free includes 50 automated invitations a month. Starter gets 100, Plus 300, Premium 1,000 and Enterprise unlimited.
+- **Two published starting prices.** Plus from $319 and Premium from $799 per month, per domain, billed annually. Enterprise says "Contact sales for a pricing estimate." The $99 Starter plan no longer appears.
+- **A free plan with a small invitation allowance.** Free includes 50 automated invitations a month. Plus gets 300, Premium 1,000 and Enterprise unlimited.
 - **"From" prices, not final prices.** The page says you'll get a personalized quote that considers site traffic, business size per domain and annual revenue. Each domain is priced separately.
 - **What's missing:** the Enterprise price and the prices of add-ons such as Product Reviews, Location Reviews and API access. Those emerge in the sales conversation.
 
@@ -31,7 +31,7 @@ Key things to understand before the numbers:
 
 - **Most features are bundled into tiers.** A few are sold as add-ons, but if you want a bundled feature from a higher tier, you pay for the whole tier.
 - **Contracts run 12 months.** The page says all contracts are a 12-month commitment and the initial term is prepaid. The listed prices are the billed-annually prices.
-- **Invitations are capped by tier.** 50, 100, 300 and 1,000 a month on Free, Starter, Plus and Premium. Only Enterprise is unlimited.
+- **Invitations are capped by tier.** 50, 300 and 1,000 a month on Free, Plus and Premium. Only Enterprise is unlimited.
 - **Add-ons cost extra.** Product Reviews and Location Reviews are add-ons on every paid plan. API access is an add-on on Premium and Enterprise only, and isn't offered on the cheaper plans.
 
 ---
@@ -58,34 +58,19 @@ Key things to understand before the numbers:
 
 **The catch:** Organic reviews skew negative. People who had a bad experience seek out Trustpilot to complain; happy customers rarely do. Invitations balance the ratio by prompting satisfied customers, and the Free plan caps them at 50 a month. Past that, your Trustpilot profile will disproportionately reflect negative experiences. Trustpilot knows this. It's the incentive to upgrade.
 
-### Starter, from $99/month
+### Starter: removed in late October 2026
 
-This is the cheapest paid tier, and Trustpilot limits it to new small-business customers with up to $5M in revenue.
+Until October 2026 the cheapest paid tier was Starter, from $99 a month billed annually ($1,188 a year per domain). It came with 100 invitations a month, one showcase widget and one user login, and Trustpilot limited it to new customers with up to $5M in revenue. It was on the pricing page on October 11 and gone by November 2 ([archived October 11](https://web.archive.org/web/20261011010155/https://business.trustpilot.com/pricing), [archived November 2](https://web.archive.org/web/20261102011213/https://business.trustpilot.com/pricing)). The page doesn't say what happens to existing Starter contracts.
+
+**What it means for you:** the cheapest paid plan is now Plus at $319 a month, or $3,828 a year per domain. That is more than three times what Starter cost. A business that only needed Starter's 100 invitations a month now has to choose between Free (50) and Plus (300).
+
+### Plus, from $319/month
+
+Since Starter was removed, this is the cheapest paid tier, and it's where Trustpilot's pricing starts to have real teeth.
 
 | Feature | Included? |
 |---------|-----------|
 | Everything in Free | ✅ |
-| Automated review invitations | ✅ (100/month) |
-| TrustBox widgets to showcase your rating | ✅ (1) |
-| User logins | 1 |
-| Live chat support | ✅ |
-| Product Reviews / Location Reviews | Add-on |
-| API access | ❌ |
-
-**What you actually get:** Double the Free plan's invitations, one showcase widget for your site, and downloadable Trustpilot assets for ads. At $99/month billed annually, that is $1,188 a year per domain.
-
-**The catch at this tier:**
-- **Eligibility is limited.** Only new customers up to $5M in revenue qualify.
-- **One user, one showcase widget.** Enough for a footer badge, not for a reviews section across product pages.
-- **No API.** API access isn't offered below Premium.
-
-### Plus, from $319/month
-
-This is the tier most growing businesses look at, and it's where Trustpilot's pricing starts to have real teeth.
-
-| Feature | Included? |
-|---------|-----------|
-| Everything in Starter | ✅ |
 | Automated review invitations | ✅ (300/month) |
 | TrustBox widgets to showcase your rating | ✅ (9) |
 | User logins | 3 |
@@ -133,8 +118,8 @@ Beyond the plan price, these cost Trustpilot users real money:
 |------|---------|
 | **Per-domain pricing** | Every price on the page is per domain. A business with two storefronts pays for two. |
 | **Product and Location Reviews** | Sold as add-ons on every paid plan. Trustpilot doesn't publish the add-on price. It emerges in the sales conversation. |
-| **API access** | Not available on Free, Starter or Plus. An add-on on Premium and Enterprise, with no published price. |
-| **User logins** | Fixed per plan: 1 on Free and Starter, 3 on Plus, 10 on Premium. The page lists no seat add-on. |
+| **API access** | Not available on Free or Plus. An add-on on Premium and Enterprise, with no published price. |
+| **User logins** | Fixed per plan: 1 on Free, 3 on Plus, 10 on Premium. The page lists no seat add-on. |
 | **Annual contract lock-in** | The initial term is 12 months, prepaid, making it expensive to switch if Trustpilot isn't working out. |
 | **Time cost of moderation** | Trustpilot is an open platform. You or your team will spend time flagging fake reviews, responding to unverified complaints, and managing your profile, costs that don't appear on the invoice. |
 
@@ -144,14 +129,14 @@ Beyond the plan price, these cost Trustpilot users real money:
 
 | Platform | Starting price | Free plan? | Pricing model | Google Seller Ratings |
 |----------|---------------|-----------|---------------|----------------------|
-| **Trustpilot** | $99/mo (Starter, per domain, billed annually) | Yes (50 invitations/mo) | Tiered, per domain + add-ons | Not itemized on the pricing page |
+| **Trustpilot** | $319/mo (Plus, per domain, billed annually) | Yes (50 invitations/mo) | Tiered, per domain + add-ons | Not itemized on the pricing page |
 | **[Signed Reviews](/pricing/)** | Free (self-service + 10 automated) | Yes (with invitations) | Tiered, transparent | Planned |
 | [Judge.me](https://judge.me/pricing) | Free (unlimited reviews) | Yes | Flat ($15/mo is the most you pay) | Google Shopping on the $15 plan |
 | [Reviews.io](https://www.reviews.io/front/pricingplans) | Free (25 invites/mo) | Yes | Tiered | Listed as a feature |
 | [Feefo](https://business.feefo.com/en-us/pricing) | $200/mo (Essentials, US pricing) | No | Tiered | Included from Essentials |
 | [Yotpo](https://www.yotpo.com/pricing/) | $15/mo+ | Yes (up to 50 orders/mo) | Order-volume based | Pro plan and up |
 
-**Key difference:** Trustpilot's free plan includes invitations, but only 50 a month, and showing your rating on your own site starts at Starter. By contrast, Judge.me offers unlimited reviews on its free plan, and Signed Reviews offers unlimited self-service reviews plus 10 free automated invitations on its free plan (Stripe businesses). Trustpilot's free tier is a listening post with a small invitation allowance, not a full collection tool.
+**Key difference:** Trustpilot's free plan includes invitations, but only 50 a month, and showing your rating on your own site starts at Plus ($319 a month). By contrast, Judge.me offers unlimited reviews on its free plan, and Signed Reviews offers unlimited self-service reviews plus 10 free automated invitations on its free plan (Stripe businesses). Trustpilot's free tier is a listening post with a small invitation allowance, not a full collection tool.
 
 ---
 
@@ -165,13 +150,13 @@ For most small and mid-size businesses, the math is harder to justify:
 - **Verification is Level 3 (merchant-supplied).** Trustpilot's "Verified" badge means the business invited the reviewer, not that a payment was independently confirmed. You're paying for invitations, not independent verification.
 - **You don't own the reviews.** Trustpilot owns the platform, the profile, and the review data. If you stop paying, your reviews stay on your Trustpilot profile, per Trustpilot's own pricing FAQ, but you lose your paid plan's invitation volume and widgets.
 
-Before committing to a Trustpilot annual contract, ask: **is the Trustpilot brand and consumer directory worth $1,188 to $9,588 a year per domain to your business, or would that budget go further on a platform that ties each review to a completed Stripe charge, gives you review ownership, and has a lower starting price?**
+Before committing to a Trustpilot annual contract, ask: **is the Trustpilot brand and consumer directory worth $3,828 to $9,588 a year per domain to your business, or would that budget go further on a platform that ties each review to a completed Stripe charge, gives you review ownership, and has a lower starting price?**
 
 ---
 
 ## Bottom line
 
-Trustpilot pricing starts at free with 50 invitations a month. Paid plans run from $99 to $799 a month per domain on 12-month prepaid contracts, and the extras (Product Reviews, Location Reviews, API access, more domains) mean the real cost is often higher. The free plan is a reputation-monitoring tool, not a full review-collection one. Before signing an annual contract, understand exactly which features are in your tier, which are add-ons, and whether a Level 3 (merchant-supplied) verification model is the strongest signal you can offer your customers. <a href="/pricing/">See Signed Reviews pricing →</a>
+Trustpilot pricing starts at free with 50 invitations a month. Since the $99 Starter plan was removed, paid plans run from $319 to $799 a month per domain on 12-month prepaid contracts, and the extras (Product Reviews, Location Reviews, API access, more domains) mean the real cost is often higher. The free plan is a reputation-monitoring tool, not a full review-collection one. Before signing an annual contract, understand exactly which features are in your tier, which are add-ons, and whether a Level 3 (merchant-supplied) verification model is the strongest signal you can offer your customers. <a href="/pricing/">See Signed Reviews pricing →</a>
 
 **Further reading:**
 - [Trustpilot Alternatives for Small Business](/blog/trustpilot-alternatives-for-small-business/), which is 10 platforms ranked by verification method

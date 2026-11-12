@@ -1,7 +1,7 @@
 # Are Trustpilot Reviews Reliable? The Honest Truth (2026)
 
 **Title:** Is Trustpilot Legit? Are Trustpilot Reviews Reliable? (2026)
-**Published:** 2026-07-24 · **Updated:** 2026-10-22 · **Author:** Robinson Guerra · **Description:** Are Trustpilot reviews reliable? How Trustpilot verifies reviews, where fakes slip through, what Reddit users say, and a Stripe-verified alternative.
+**Published:** 2026-07-24 · **Updated:** 2026-11-12 · **Author:** Robinson Guerra · **Description:** Are Trustpilot reviews reliable? How Trustpilot verifies reviews, where fakes slip through, what Reddit users say, and a Stripe-verified alternative.
 
 ---
 
@@ -122,7 +122,7 @@ When you're reading Trustpilot reviews as a consumer, here's a practical checkli
 
 ### What you pay
 
-Trustpilot publishes starting prices. The Free plan includes 50 review invitations a month. Paid plans start at $99 (Starter), $319 (Plus) and $799 (Premium) per month, per domain, billed annually, and Enterprise is quote-only ([Trustpilot pricing](https://business.trustpilot.com/pricing)). The final quote depends on your traffic, business size and revenue, and contracts run 12 months, prepaid. [Trustpilot pricing explained](/blog/trustpilot-pricing-explained/) has the plan-by-plan breakdown.
+Trustpilot publishes starting prices. The Free plan includes 50 review invitations a month. Paid plans start at $319 (Plus) and $799 (Premium) per month, per domain, billed annually, and Enterprise is quote-only ([Trustpilot pricing](https://business.trustpilot.com/pricing)). The $99 Starter plan was removed in late October 2026. The final quote depends on your traffic, business size and revenue, and contracts run 12 months, prepaid. [Trustpilot pricing explained](/blog/trustpilot-pricing-explained/) has the plan-by-plan breakdown.
 
 Costs that show up later:
 
@@ -204,7 +204,7 @@ Not against a payment. A "Verified" review on Trustpilot most commonly means the
 
 ### Is Trustpilot worth the price?
 
-It depends on your business. For large consumer brands where Trustpilot's Google star integration drives measurable return, the cost can make sense. For small and medium businesses, invite-based verification, paid plans from $99 to $799 a month per domain on 12-month contracts, and the staff time to manage a profile often add up to poor value. See [Trustpilot pricing explained](/blog/trustpilot-pricing-explained/) for the full breakdown.
+It depends on your business. For large consumer brands where Trustpilot's Google star integration drives measurable return, the cost can make sense. For small and medium businesses, invite-based verification, paid plans from $319 to $799 a month per domain on 12-month contracts, and the staff time to manage a profile often add up to poor value. See [Trustpilot pricing explained](/blog/trustpilot-pricing-explained/) for the full breakdown.
 
 ### Can I trust Trustpilot reviews?
 
@@ -276,7 +276,7 @@ Are Trustpilot reviews to be trusted? In aggregate, for high-volume businesses, 
       "name": "Is Trustpilot worth the price?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It depends on your business. For large consumer brands where Trustpilot's Google star integration drives measurable return, the cost can make sense. For small and medium businesses, invite-based verification, paid plans from $99 to $799 a month per domain on 12-month contracts, and the staff time to manage a profile often add up to poor value."
+        "text": "It depends on your business. For large consumer brands where Trustpilot's Google star integration drives measurable return, the cost can make sense. For small and medium businesses, invite-based verification, paid plans from $319 to $799 a month per domain on 12-month contracts, and the staff time to manage a profile often add up to poor value."
       }
     },
     {

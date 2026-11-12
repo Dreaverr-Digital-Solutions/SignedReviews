@@ -2131,7 +2131,9 @@ function buildBlog() {
   });
   writePage('/blog/', indexHtml);
   console.log('  ✓ /blog/ (index)');
-  return posts.map(p => ({ slug: p.slug, lastmod: p.dateStr }));
+  // lastmod = the post's `**Updated:**` date when present, else its publish date. Both only
+  // move on a real content edit, so this keeps the no-flap rule in buildSeoFiles.
+  return posts.map(p => ({ slug: p.slug, lastmod: p.updatedStr || p.dateStr }));
 }
 
 // ── How It Works page ─────────────────────────────────────────────────────────
@@ -2363,7 +2365,7 @@ function buildComparison() {
         <tr class="highlight-row"><td>Review gating</td><td class="win">Automatic, invitations go to the payment email from Stripe, once per customer, and customers can also request their own verified link from the business's public page. Either way, a completed purchase is required.</td><td class="lose">Manual: businesses must upload customer lists or send invitations themselves</td></tr>
         <tr><td>Refund handling</td><td class="win">Automatic, a refund check every 6 hours hides reviews on fully refunded or disputed charges.</td><td class="lose">Manual, businesses must flag or report reviews from refunded customers</td></tr>
         <tr class="highlight-row"><td>API & integrations</td><td class="win">REST API, webhooks, public page API</td><td class="win">Extensive API, 100+ integrations, white-label options on Enterprise</td></tr>
-        <tr><td>Pricing model</td><td class="win">Free plan + paid plans from $29/mo (Starter) to $199/mo (Scale). Transparent tiered pricing with monthly invitation caps.</td><td class="lose">Free tier available; paid plans start at $99/mo (Starter, billed annually) and run to $799/mo+ (Premium). Enterprise pricing is opaque.</td></tr>
+        <tr><td>Pricing model</td><td class="win">Free plan + paid plans from $29/mo (Starter) to $199/mo (Scale). Transparent tiered pricing with monthly invitation caps.</td><td class="lose">Free tier available; paid plans start at $319/mo (Plus, billed annually) and run to $799/mo+ (Premium). Enterprise pricing is opaque.</td></tr>
         <tr class="highlight-row"><td>Organic discoverability</td><td class="lose">Early stage, limited domain authority and no consumer-facing review directory</td><td class="win">Established, Trustpilot.com has massive organic traffic and a consumer-facing review search</td></tr>
         <tr><td>Trust mark / badge</td><td class="win">"Verified by Signed Reviews" badge links to cryptographic proof. Included on every plan, including Free.</td><td class="win">Trustpilot TrustBox widgets and star ratings. Widely recognized by consumers.</td></tr>
         <tr class="highlight-row"><td>Review ownership</td><td class="win">Business owns the reviews, Signed Reviews is the processor. Reviews belong to you.</td><td class="lose">Reviews live on Trustpilot's platform, businesses cannot export and move reviews to another provider.</td></tr>
@@ -4911,7 +4913,7 @@ function buildFakeReviewChecker() {
 
 // ── robots / sitemap / favicon ───────────────────────────────────────────────
 function buildSeoFiles(blogPosts = []) {
-  // Blog posts carry their own publish date as lastmod; static pages share a stable
+  // Blog posts carry their own updated (or publish) date as lastmod; static pages share a stable
   // constant that is bumped ONLY when their content materially changes. Stamping
   // today's date on every URL makes lastmod flap on every build, which teaches
   // crawlers to ignore the signal entirely.
