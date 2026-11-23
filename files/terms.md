@@ -1,7 +1,7 @@
 # Terms of Service
 
 **Effective date:** April 19, 2026
-**Last updated:** June 28, 2026
+**Last updated:** November 23, 2026
 
 These Terms of Service ("Terms") are a binding legal agreement between you and **Paid Rightly LLC** ("we," "us," "our"), a New Mexico limited liability company, regarding your use of Signed Reviews ("Service"), available at [signedreviews.com](https://signedreviews.com) and [platform.signedreviews.com](https://platform.signedreviews.com).
 
@@ -42,8 +42,8 @@ You are responsible for keeping your login credentials (email, password, OAuth a
 
 Signed Reviews helps businesses collect verified, tamper-evident reviews from their customers. The core workflow:
 
-1. A business connects their Stripe account to Signed Reviews.
-2. When a customer makes a purchase (resulting in a successful Stripe charge), Signed Reviews sends the customer an email invitation to leave a review.
+1. A business connects their Stripe account, or their Paddle account, to Signed Reviews.
+2. When a customer makes a purchase (resulting in a successful Stripe charge or a completed Paddle transaction), Signed Reviews sends the customer an email invitation to leave a review.
 3. The customer clicks a one-time, time-limited link, writes a review, and submits it.
 4. The review is cryptographically signed server-side and stored.
 5. If enabled by the business, the review is displayed publicly on a hosted review page and via a public API.
@@ -90,6 +90,16 @@ By linking your Stripe account, you:
 We **never** initiate charges, issue refunds, move or transfer funds, take platform fees, or modify customers, subscriptions, or prices. The only write action available to the integration is creating the review-incentive coupons described above, and only when you enable review incentives.
 
 You can disconnect your Stripe account at any time through the Service. Doing so stops future review requests from being triggered; your Signed Reviews account and existing reviews remain intact.
+
+### 5A. Your Paddle connection
+
+If you sell through Paddle Billing, you can connect Paddle instead of Stripe. One payment provider can be connected per account. You connect Paddle by creating a Paddle API key with read access to transactions, customers, addresses, and adjustments, and pasting it into the Service. By connecting Paddle, you:
+
+- Grant us read-only access to those records, used to import your completed sales, send review requests, and check those sales for refunds and chargebacks. We never write anything to your Paddle account.
+- Confirm that your privacy notice covers post-purchase review requests to your Paddle buyers. Paddle is the merchant of record for your Paddle sales and shares buyer data with you under its own terms; you are responsible for having a lawful basis to send those buyers review requests.
+- Remain solely responsible for your relationship with Paddle, including compliance with Paddle's terms and policies.
+
+Paddle API keys expire (at most one year after you create them). We remind you before a key expires; while a key is rejected or expired, review requests for your Paddle sales are held until you replace it. Disconnecting Paddle deletes the stored key immediately, unpublishes your review page, and stops all pending review requests and reminders for your Paddle sales; your Signed Reviews account and existing reviews remain intact.
 
 ---
 

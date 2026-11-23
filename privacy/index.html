@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/privacy/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="0c28f4dd4d5d26522beb0cd3fe2256cf0d36c928">
-  <meta name="build-time" content="2026-11-12T15:15:36.403Z">
+  <meta name="build-commit" content="2dec15c016eb2fd7798a1f7ac0fe06fd785bbc66">
+  <meta name="build-time" content="2026-11-23T08:32:40.769Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Privacy Policy | Signed Reviews">
@@ -706,7 +706,7 @@ main { padding: 0; }
     <div class="prose-wrap has-toc">
       <article class="prose">
 <p><strong>Effective date:</strong> April 19, 2026
-<strong>Last updated:</strong> October 11, 2026</p>
+<strong>Last updated:</strong> November 23, 2026</p>
 <p>This Privacy Policy explains how Paid Rightly LLC (&quot;we,&quot; &quot;us,&quot; &quot;our&quot;) collects, uses, discloses, and protects information when you use Signed Reviews, available at <a href="https://signedreviews.com">signedreviews.com</a> and <a href="https://platform.signedreviews.com">platform.signedreviews.com</a> (collectively, the &quot;Service&quot;).</p>
 <p>Signed Reviews is a service operated by Paid Rightly LLC, a New Mexico limited liability company.</p>
 <p><strong>Contact for privacy matters:</strong> <a href="mailto:legal@signedreviews.com">legal@signedreviews.com</a>
@@ -743,13 +743,17 @@ main { padding: 0; }
 </ul>
 <p>We do not collect phone numbers, dates of birth, physical addresses, government identification, or tax identification numbers from business users.</p>
 <h3 id="32-from-reviewers"><a class="anchor" href="#32-from-reviewers" aria-label="Permalink to 3.2 From reviewers"></a>3.2 From reviewers</h3>
-<p>When a business uses Signed Reviews to request a review from you, we receive the following information from that business&#39;s Stripe account:</p>
+<p>When a business uses Signed Reviews to request a review from you, we receive the following information from the payment provider that business has connected (Stripe, or Paddle for businesses that sell through Paddle):</p>
 <ul>
 <li><strong>Your email address</strong> (used to deliver the review invitation)</li>
-<li><strong>The last four digits of the payment card you used</strong> (used for the optional email-and-card verification level)</li>
+<li><strong>Your name, if the payment provider has it</strong> (used to greet you in the invitation)</li>
+<li><strong>The last four digits of the payment card you used, if the payment provider shares it</strong> (used for the optional email-and-card verification level)</li>
 <li><strong>The transaction amount and currency</strong> (displayed on the review form if the business enables it)</li>
-<li><strong>A Stripe charge identifier</strong> (used to prevent duplicate review requests and to cryptographically sign your review)</li>
+<li><strong>Your country and region, if the payment provider shares them</strong> (used to send invitations at a reasonable local time)</li>
+<li><strong>A payment identifier</strong>, meaning a Stripe charge ID or a Paddle transaction ID (used to prevent duplicate review requests and to cryptographically sign your review)</li>
+<li><strong>For Paddle purchases, whether you agreed to marketing at Paddle&#39;s checkout</strong> (stored with the purchase record; we never send marketing to reviewers)</li>
 </ul>
+<p>If you bought through Paddle, Paddle is the merchant of record (the legal seller) for that purchase and shares your details with the business under Paddle&#39;s own terms. The business connects a read-only Paddle API key so that Signed Reviews can read completed sales and their refunds. We never write anything to Paddle.</p>
 <p>If you choose to submit a review, we also collect whatever you enter into the review form, which may include:</p>
 <ul>
 <li><strong>A star rating</strong></li>
@@ -760,9 +764,9 @@ main { padding: 0; }
 </ul>
 <p>Attaching a social handle and photo is always optional. You can submit a review with only the email address the business already has for you.</p>
 <h3 id="33-payment-information"><a class="anchor" href="#33-payment-information" aria-label="Permalink to 3.3 Payment information"></a>3.3 Payment information</h3>
-<p>Signed Reviews does not process payments from reviewers, does not take fees from business Stripe accounts, and does not store full card numbers, CVV codes, expiry dates, cardholder names, or full billing addresses.</p>
-<p>The payment-adjacent data we store is a narrow slice of charge metadata received from Stripe: the charge ID, customer email, card last four digits, amount, and currency. These are used to link a review to a verified purchase.</p>
-<p>If a business enables metrics on its public review page, we also read aggregate data from that business&#39;s Stripe account on a strictly read-only basis (such as charges, customers, subscriptions, refunds, disputes, and balance transactions) and store only the resulting privacy-thresholded aggregate values (for example, a banded refund rate or active-subscriber count), never the underlying raw records. We never store full card numbers, CVV codes, expiry dates, cardholder names, or full billing addresses.</p>
+<p>Signed Reviews does not process payments from reviewers, does not take fees from business payment accounts, and does not store full card numbers, CVV codes, expiry dates, cardholder names, or full billing addresses.</p>
+<p>The payment-adjacent data we store is a narrow slice of purchase metadata received from the business&#39;s payment provider (Stripe or Paddle): the charge or transaction ID, customer email and name, card last four digits where shared, amount, currency, and country. These are used to link a review to a verified purchase.</p>
+<p>If a business enables metrics on its public review page, we also read aggregate data from that business&#39;s Stripe account on a strictly read-only basis (such as charges, customers, subscriptions, refunds, disputes, and balance transactions) and store only the resulting privacy-thresholded aggregate values (for example, a banded refund rate or active-subscriber count), never the underlying raw records. We never store full card numbers, CVV codes, expiry dates, cardholder names, or full billing addresses. For businesses connected through Paddle, public-page metrics are computed only from the sales and reviews already stored in Signed Reviews; we do not read aggregate Paddle account data.</p>
 <h3 id="34-technical-information"><a class="anchor" href="#34-technical-information" aria-label="Permalink to 3.4 Technical information"></a>3.4 Technical information</h3>
 <p>We collect limited technical information to keep the Service working:</p>
 <ul>
@@ -783,7 +787,7 @@ main { padding: 0; }
 <h3 id="41-to-provide-the-service"><a class="anchor" href="#41-to-provide-the-service" aria-label="Permalink to 4.1 To provide the Service"></a>4.1 To provide the Service</h3>
 <ul>
 <li>Authenticate business users and maintain logged-in sessions (7-day session tokens)</li>
-<li>Deliver review-request emails triggered by successful Stripe charges</li>
+<li>Deliver review-request emails triggered by completed purchases on the business&#39;s connected payment provider (Stripe or Paddle)</li>
 <li>Generate and validate one-time review submission links (valid for 14 days, single-use)</li>
 <li>Display reviews on public review pages and via the public API, subject to each business&#39;s configuration</li>
 <li>Produce aggregate analytics for business users from their own review and transaction data</li>
@@ -791,11 +795,11 @@ main { padding: 0; }
 <h3 id="42-to-verify-reviews"><a class="anchor" href="#42-to-verify-reviews" aria-label="Permalink to 4.2 To verify reviews"></a>4.2 To verify reviews</h3>
 <p>Every review submitted through Signed Reviews is cryptographically signed server-side using HMAC-SHA256. This signature proves, to anyone who inspects the review later, that:</p>
 <ul>
-<li>The review was linked to a specific Stripe charge</li>
+<li>The review was linked to a specific purchase (a Stripe charge or a Paddle transaction)</li>
 <li>The reviewer had access to the email address on that charge</li>
 <li>The review content has not been altered since submission</li>
 </ul>
-<p>We label these reviews as &quot;Purchase Verified.&quot; This does <strong>not</strong> mean we have verified the reviewer&#39;s legal identity, verified that they are who they claim to be socially, or evaluated the honesty of their review. It only means the review is tied to a real purchase on the business&#39;s Stripe account.</p>
+<p>We label these reviews as &quot;Purchase Verified.&quot; This does <strong>not</strong> mean we have verified the reviewer&#39;s legal identity, verified that they are who they claim to be socially, or evaluated the honesty of their review. It only means the review is tied to a real purchase on the business&#39;s connected Stripe or Paddle account.</p>
 <h3 id="43-to-communicate-with-you"><a class="anchor" href="#43-to-communicate-with-you" aria-label="Permalink to 4.3 To communicate with you"></a>4.3 To communicate with you</h3>
 <p>We send the following emails, all transactional, none marketing:</p>
 <ul>
@@ -918,8 +922,8 @@ main { padding: 0; }
 <hr>
 <h2 id="12-california-specific-disclosures"><a class="anchor" href="#12-california-specific-disclosures" aria-label="Permalink to 12. California-specific disclosures"></a>12. California-specific disclosures</h2>
 <p>If you are a California resident, the following additional information applies to you under the California Consumer Privacy Act / California Privacy Rights Act (CCPA/CPRA):</p>
-<p><strong>Categories of personal information collected in the last 12 months:</strong> identifiers (email, name, IP address transiently), commercial information (transaction metadata from Stripe), internet/electronic activity information (login events), professional information (business name, role), and user-generated content (reviews, photos).</p>
-<p><strong>Sources:</strong> directly from you, from OAuth providers when you choose to use them, from Stripe webhooks when a business you&#39;ve purchased from uses Signed Reviews, and from public websites during brand extraction.</p>
+<p><strong>Categories of personal information collected in the last 12 months:</strong> identifiers (email, name, IP address transiently), commercial information (transaction metadata from Stripe or Paddle), internet/electronic activity information (login events), professional information (business name, role), and user-generated content (reviews, photos).</p>
+<p><strong>Sources:</strong> directly from you, from OAuth providers when you choose to use them, from a business&#39;s connected payment provider (Stripe or Paddle) when a business you&#39;ve purchased from uses Signed Reviews, and from public websites during brand extraction.</p>
 <p><strong>Business purposes for which we use this information:</strong> providing the Service, verifying reviews, security and fraud prevention, communicating with you, and legal compliance.</p>
 <p><strong>Categories disclosed to sub-processors:</strong> see Section 5.2 and the sub-processor list.</p>
 <p><strong>Sale or sharing of personal information:</strong> We do <strong>not</strong> sell personal information and do <strong>not</strong> &quot;share&quot; personal information for cross-context behavioral advertising, as those terms are defined under CCPA/CPRA.</p>

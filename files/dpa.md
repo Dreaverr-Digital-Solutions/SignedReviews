@@ -1,6 +1,7 @@
 # Data Processing Agreement
 
 **Effective:** April 26, 2026
+**Last updated:** November 23, 2026 (Paddle added as a payment data source)
 **Operator (Processor):** Paid Rightly LLC, 1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States ("we", "us", "our", "Signed Reviews")
 **Customer (Controller):** the Business User who has signed up for the Service ("you", "your")
 
@@ -29,6 +30,8 @@ For Personal Data processed in connection with the Service:
 - You act as the **controller** (or, where applicable, **business** under CCPA/CPRA).
 - We act as the **processor** (or, where applicable, **service provider** under CCPA/CPRA).
 
+If you sell through Paddle, Paddle is the merchant of record for those sales and an independent controller of its buyers' data, which it shares with you under its own terms. You instruct us to read that data from your Paddle account. Paddle is your provider, not our Sub-processor. You are responsible for having a lawful basis to send review requests to those buyers and for telling them about review requests in your privacy notice; you confirm this when you connect Paddle.
+
 For Personal Data we process about you (the Business User account holder) in our capacity as the Service operator (for example, to invoice you under future paid plans or to provide customer support), we act as a controller in our own right; that processing is governed by our [Privacy Policy](/privacy/), not by this DPA.
 
 ---
@@ -53,7 +56,8 @@ This DPA applies to Personal Data we process on your behalf in connection with y
 - Reviewer display name (if provided)
 - Reviewer profile picture (if provided)
 - Reviewer social-media handle (if provided)
-- Stripe charge identifier and transaction metadata (charge ID, amount, currency, card last-4)
+- Payment identifier and transaction metadata from your connected payment provider: for Stripe, charge ID, amount, currency, card last-4; for Paddle, transaction ID, amount, currency, card last-4 where shared, country and region, and the buyer's marketing-consent flag
+- Reviewer name and country, where your payment provider shares them
 - Aggregate Stripe account data read on a read-only basis to compute merchant-enabled public-page metrics (e.g. charges, customers, subscriptions, refunds, disputes, balance transactions), stored only as privacy-thresholded aggregates, not raw records
 - Review content (rating, title, body, photos)
 - Team-member email, display name, and OAuth identifiers
@@ -63,7 +67,7 @@ We do **not** process special-category data (Article 9 GDPR), criminal-convictio
 
 ### 4.3 Nature and purpose of processing
 
-We process Personal Data solely to provide the Service: read Stripe charge metadata on a read-only basis (and, for merchant-enabled public-page metrics, aggregate read-only account data), send review-request emails, host signed review-submission links, store cryptographically-signed reviews, render reviews on the public review page, expose reviews via the Public API, and perform basic operational functions (rate limiting, deliverability suppression, audit logging).
+We process Personal Data solely to provide the Service: read purchase metadata from your connected payment provider on a read-only basis (Stripe charges, or completed Paddle transactions and their refund and chargeback adjustments; and, for merchant-enabled public-page metrics on Stripe, aggregate read-only account data), send review-request emails, host signed review-submission links, store cryptographically-signed reviews, render reviews on the public review page, expose reviews via the Public API, and perform basic operational functions (rate limiting, deliverability suppression, audit logging).
 
 ### 4.4 Duration
 
@@ -90,7 +94,7 @@ Our personnel authorized to process Personal Data are bound by written confident
 We implement appropriate technical and organizational measures consistent with GDPR Article 32 and equivalent obligations, including:
 
 - **Encryption in transit:** all traffic to the Service uses TLS 1.2 or higher.
-- **Encryption at rest:** sensitive credentials (Stripe API keys, Stripe webhook secrets) are encrypted with AES-256-GCM before being stored. User passwords are hashed with bcrypt (cost factor 12).
+- **Encryption at rest:** sensitive credentials (Stripe access tokens and API keys, Stripe webhook secrets, Paddle API keys) are encrypted with AES-256-GCM before being stored. User passwords are hashed with bcrypt (cost factor 12).
 - **Access controls:** access to production systems is limited to authorized personnel and protected by strong authentication.
 - **Network isolation:** databases are not exposed to the public internet.
 - **Logging and monitoring:** application logs exclude payloads containing Personal Data where reasonable; logs are retained on a rolling basis for operational diagnostics.
