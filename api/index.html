@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/api/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="2dec15c016eb2fd7798a1f7ac0fe06fd785bbc66">
-  <meta name="build-time" content="2026-11-23T08:32:40.769Z">
+  <meta name="build-commit" content="bd08be2143e14e01fe97882f4915e68baadc9698">
+  <meta name="build-time" content="2026-11-23T08:59:34.427Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Public API | Signed Reviews">
@@ -655,7 +655,7 @@ main { padding: 0; }
       if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
     })();
   </script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.","email":"support@signedreviews.com","foundingDate":"2025","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"},"sameAs":["https://marketplace.stripe.com/apps/signedreviews","https://chromewebstore.google.com/detail/is-this-review-real-%E2%80%94-sig/jkfdbmlmfjbnbhillhlehabpbpeoljco","https://www.linkedin.com/company/signed-reviews"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe or Paddle transaction.","email":"support@signedreviews.com","foundingDate":"2025","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"},"sameAs":["https://marketplace.stripe.com/apps/signedreviews","https://chromewebstore.google.com/detail/is-this-review-real-%E2%80%94-sig/jkfdbmlmfjbnbhillhlehabpbpeoljco","https://www.linkedin.com/company/signed-reviews"]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"Public API","item":"https://signedreviews.com/api/"}]}</script>
   <script async preferred-sources-control="manual" src="https://news.google.com/swg/js/v1/publisher.js"></script>
   <script defer src="/js/preferred-source.js"></script>
@@ -705,7 +705,7 @@ main { padding: 0; }
     </section>
     <div class="prose-wrap">
       <article class="prose">
-<p>The Signed Reviews Public API lets you fetch verified reviews, ratings, and business profile data directly into your own site or app. Every review is processor-attested, backed by a real, non-refunded Stripe payment.</p>
+<p>The Signed Reviews Public API lets you fetch verified reviews, ratings, and business profile data directly into your own site or app. Every review is processor-attested, backed by a real, non-refunded Stripe or Paddle payment.</p>
 <hr>
 <h2 id="quickstart"><a class="anchor" href="#quickstart" aria-label="Permalink to Quickstart"></a>Quickstart</h2>
 <pre><code class="language-bash">curl -H &quot;Authorization: Bearer YOUR_PUBLISHABLE_KEY&quot; \
@@ -771,7 +771,7 @@ main { padding: 0; }
   &quot;meta&quot;: { &quot;generatedAt&quot;: &quot;2026-08-10T12:00:00.000Z&quot; }
 }
 </code></pre>
-<p>Metrics are computed from your Stripe data. Each metric respects a k-anonymity cohort floor, if there aren&#39;t enough transactions to compute a metric without identifying individual customers, it&#39;s suppressed.</p>
+<p>Metrics are computed from your payment data (most need a Stripe connection; Paddle accounts get the four metrics computed from your imported sales and reviews). Each metric respects a k-anonymity cohort floor, if there aren&#39;t enough transactions to compute a metric without identifying individual customers, it&#39;s suppressed.</p>
 <h3 id="get-reviews"><a class="anchor" href="#get-reviews" aria-label="Permalink to GET /reviews"></a>GET /reviews</h3>
 <p>Returns paginated, privacy-masked reviews.</p>
 <p><strong>Parameters:</strong> <code>page</code> (default 1), <code>limit</code> (default 10, max 100), <code>sort</code> (<code>date_desc</code>, <code>date_asc</code>, <code>rating_desc</code>, <code>rating_asc</code>), <code>minRating</code> (1-5), <code>from</code>, <code>to</code> (ISO 8601 dates).</p>

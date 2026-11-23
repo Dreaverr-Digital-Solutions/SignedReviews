@@ -1,6 +1,6 @@
 # Signed Reviews
 
-> Purchase-verified, tamper-evident customer reviews for businesses that take payments through Stripe. A review can only be submitted by a customer with a completed Stripe charge, and each review is cryptographically signed so anyone can check it has not been altered.
+> Purchase-verified, tamper-evident customer reviews for businesses that take payments through Stripe or Paddle Billing. A review can only be submitted by a customer with a completed Stripe charge or Paddle transaction, and each review is cryptographically signed so anyone can check it has not been altered.
 
 Signed Reviews connects to a merchant's Stripe account through the Signed Reviews Stripe App. The app reads charges, customers, subscriptions and balance transactions. Its only write permissions are coupons and promotion codes, used solely for opt-in review incentives. It cannot create charges, issue refunds or move money. When a charge succeeds, the customer's payment email can be invited to review, and the review is stored with a reference to that charge and signed.
 
@@ -28,7 +28,8 @@ Most review platforms label a review "verified" based on data the merchant suppl
 - [Terms of Service](https://signedreviews.com/terms/)
 
 ## Key facts
-- A completed Stripe charge is required before a review can be submitted
+- A completed Stripe charge or Paddle transaction is required before a review can be submitted
+- Paddle Billing sellers connect with an API key they create with read-only permissions; Signed Reviews never writes to Paddle. Discount coupons are Stripe-only ([Paddle integration](https://signedreviews.com/integrations/paddle/))
 - Reviews are cryptographically signed, so later edits are detectable
 - Reviews on fully refunded or disputed charges are hidden automatically
 - The Stripe App's only write access is coupons and promotion codes, used for opt-in review incentives

@@ -1,16 +1,18 @@
 # Signed Reviews Features
 
-Signed Reviews is a verification-first review platform built on Stripe. Every review is cryptographically signed and backed by a real, non-refunded payment.
+Signed Reviews is a verification-first review platform built on your payment provider: Stripe or Paddle Billing. Every review is cryptographically signed and backed by a real, non-refunded payment.
 
 ---
 
-## Stripe-native verification
+## Payment-native verification (Stripe and Paddle)
 
 Connect your Stripe account in one click via Stripe's official OAuth. We get minimal permissions: we can verify charges but can never charge, refund, or move funds. The only thing we can ever create is a discount coupon for a reviewer, and only when you enable review incentives.
 
-- **Automatic review invitations**: every successful Stripe charge triggers a verified review invitation
-- **Refund-aware**: if a charge is refunded, the associated review is automatically hidden
-- **Processor-attested**: the strongest verification level available; every review is matched to a completed charge from your Stripe account
+Selling through Paddle Billing? Paste an API key you create with read-only permissions instead. We never write to Paddle. Thank-you discount codes are Stripe-only, and four trust metrics are available for Paddle. [Paddle integration details](/integrations/paddle/)
+
+- **Automatic review invitations**: every completed Stripe or Paddle payment triggers a verified review invitation for a new customer
+- **Refund-aware**: if a payment is fully refunded or charged back, the associated review is automatically hidden
+- **Processor-attested**: the strongest verification level available; every review is matched to a completed payment from your Stripe or Paddle account
 
 ## Cryptographic signing
 

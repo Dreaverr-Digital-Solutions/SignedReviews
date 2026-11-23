@@ -77,6 +77,10 @@ Both endpoints allow requests from any origin (CORS), so browser-based agents ca
 
 Businesses connect Stripe by installing the Signed Reviews Stripe App, which uses Stripe's OAuth install flow. The app reads charges, customers, subscriptions and balance transactions. It writes only coupons and promotion codes, and only when the business switches on review incentives. It never charges, refunds or moves money. This connection is separate from API access: agents never receive Stripe access through Signed Reviews.
 
+## Paddle connection (merchants only)
+
+Businesses that sell through Paddle Billing connect with an API key they create in Paddle with read access to transactions, customers, addresses and adjustments, and paste into the Signed Reviews dashboard. Signed Reviews never writes to Paddle. As with Stripe, this connection is separate from API access: agents never receive the Paddle key.
+
 ## Security
 
 Email `security@signedreviews.com`. Do not disclose vulnerabilities publicly.

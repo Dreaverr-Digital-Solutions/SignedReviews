@@ -4,22 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Integrations | Signed Reviews</title>
-  <meta name="description" content="Connect Signed Reviews to your existing stack. Native Stripe App with one-click install, plus REST API, webhooks, and ecosystem integrations.">
+  <meta name="description" content="Connect Signed Reviews to your existing stack. Native Stripe App with one-click install, Paddle Billing via a read-only API key, plus REST API and webhooks.">
   <link rel="canonical" href="https://signedreviews.com/integrations/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="2dec15c016eb2fd7798a1f7ac0fe06fd785bbc66">
-  <meta name="build-time" content="2026-11-23T08:32:40.769Z">
+  <meta name="build-commit" content="bd08be2143e14e01fe97882f4915e68baadc9698">
+  <meta name="build-time" content="2026-11-23T08:59:34.427Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Integrations | Signed Reviews">
-  <meta property="og:description" content="Connect Signed Reviews to your existing stack. Native Stripe App with one-click install, plus REST API, webhooks, and ecosystem integrations.">
+  <meta property="og:description" content="Connect Signed Reviews to your existing stack. Native Stripe App with one-click install, Paddle Billing via a read-only API key, plus REST API and webhooks.">
   <meta property="og:url" content="https://signedreviews.com/integrations/">
   <meta property="og:site_name" content="Signed Reviews">
   <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Integrations | Signed Reviews">
-  <meta name="twitter:description" content="Connect Signed Reviews to your existing stack. Native Stripe App with one-click install, plus REST API, webhooks, and ecosystem integrations.">
+  <meta name="twitter:description" content="Connect Signed Reviews to your existing stack. Native Stripe App with one-click install, Paddle Billing via a read-only API key, plus REST API and webhooks.">
   <meta name="twitter:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
 
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=20260924a">
@@ -655,7 +655,7 @@ main { padding: 0; }
       if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
     })();
   </script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.","email":"support@signedreviews.com","foundingDate":"2025","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"},"sameAs":["https://marketplace.stripe.com/apps/signedreviews","https://chromewebstore.google.com/detail/is-this-review-real-%E2%80%94-sig/jkfdbmlmfjbnbhillhlehabpbpeoljco","https://www.linkedin.com/company/signed-reviews"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe or Paddle transaction.","email":"support@signedreviews.com","foundingDate":"2025","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"},"sameAs":["https://marketplace.stripe.com/apps/signedreviews","https://chromewebstore.google.com/detail/is-this-review-real-%E2%80%94-sig/jkfdbmlmfjbnbhillhlehabpbpeoljco","https://www.linkedin.com/company/signed-reviews"]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"Integrations","item":"https://signedreviews.com/integrations/"}]}</script>
   <script async preferred-sources-control="manual" src="https://news.google.com/swg/js/v1/publisher.js"></script>
   <script defer src="/js/preferred-source.js"></script>
@@ -716,7 +716,7 @@ main { padding: 0; }
       <div class="page-hero-inner">
         <span class="eyebrow">Integrations</span>
         <h1>Connect Your Stack</h1>
-        <p>One-click Stripe integration plus REST API, webhooks, and planned ecosystem connectors, every one tied to processor-attested verification.</p>
+        <p>One-click Stripe integration, Paddle Billing, REST API, webhooks, and planned ecosystem connectors, every one tied to processor-attested verification.</p>
       </div>
     </section>
     <div class="prose-wrap">
@@ -730,6 +730,15 @@ main { padding: 0; }
         <h3>Stripe <span class="ic-badge ic-badge-live">Live</span></h3>
         <p>The native integration. One-click OAuth, minimal permissions, zero code. Every customer is automatically invited once for a verified review. Refund-aware: reviews for refunded charges are hidden automatically. Works with Stripe Billing, Stripe Connect, and Stripe Checkout.</p>
         <a class="ic-cta" href="/integrations/stripe/">Stripe integration details →</a>
+      </div>
+    </div>
+
+    <div class="integration-card">
+      <div class="ic-icon ic-api">P</div>
+      <div class="ic-body">
+        <h3>Paddle Billing <span class="ic-badge ic-badge-live">Live</span></h3>
+        <p>For sellers who use Paddle as their merchant of record. Paste an API key you create with read-only permissions; nothing is written to Paddle. Every paying customer is invited once for a verified review, and full refunds and chargebacks hide their reviews. Discount codes and most trust metrics stay Stripe-only.</p>
+        <a class="ic-cta" href="/integrations/paddle/">Paddle integration details →</a>
       </div>
     </div>
 
@@ -778,16 +787,16 @@ main { padding: 0; }
     <h2 id="how-they-work">How our integrations work</h2>
     <p>Every Signed Reviews integration follows the same pattern:</p>
     <ol>
-      <li><strong>Connect</strong>: link your Stripe account (or install the platform-specific app) in one click.</li>
-      <li><strong>Detect</strong>. Signed Reviews watches for new Stripe charges automatically.</li>
+      <li><strong>Connect</strong>: link your Stripe account in one click, or paste a Paddle Billing API key with read access.</li>
+      <li><strong>Detect</strong>. Signed Reviews watches for new completed payments automatically.</li>
       <li><strong>Invite</strong>: a unique, expiring review invitation is sent to the customer's verified payment email, once per customer.</li>
       <li><strong>Sign</strong>. The review is cryptographically signed at submission, creating a tamper-evident record.</li>
       <li><strong>Publish</strong>: the verified review appears on your public page and via the API.</li>
     </ol>
-    <p>Because every integration verifies against Stripe, not merchant-supplied data, the verification chain is independent of which platform or plugin you use. <a href="/learn/what-does-verified-buyer-mean/">Learn why that matters →</a></p>
+    <p>Because every integration verifies against the payment provider's records, not merchant-supplied data, the verification chain is independent of which platform or plugin you use. <a href="/learn/what-does-verified-buyer-mean/">Learn why that matters →</a></p>
 
-    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Connect your Stripe account →</a></p>
-    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/integrations/stripe/">Stripe integration details</a> · <a href="/api/">API reference</a> · <a href="/docs/">Documentation</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews guide</a></p>
+    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="https://platform.signedreviews.com" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Connect Stripe or Paddle →</a></p>
+    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/integrations/stripe/">Stripe integration details</a> · <a href="/integrations/paddle/">Paddle integration details</a> · <a href="/api/">API reference</a> · <a href="/docs/">Documentation</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews guide</a></p>
   </article>
     </div>
   </main>

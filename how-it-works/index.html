@@ -4,22 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How It Works | Signed Reviews</title>
-  <meta name="description" content="How Signed Reviews verifies reviews: connect Stripe, purchase, invitation, review, cryptographic signing, publishing. Six automated steps.">
+  <meta name="description" content="How Signed Reviews verifies reviews: connect Stripe or Paddle, purchase, invitation, review, cryptographic signing, publishing. Six automated steps.">
   <link rel="canonical" href="https://signedreviews.com/how-it-works/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="2dec15c016eb2fd7798a1f7ac0fe06fd785bbc66">
-  <meta name="build-time" content="2026-11-23T08:32:40.769Z">
+  <meta name="build-commit" content="bd08be2143e14e01fe97882f4915e68baadc9698">
+  <meta name="build-time" content="2026-11-23T08:59:34.427Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="How It Works | Signed Reviews">
-  <meta property="og:description" content="How Signed Reviews verifies reviews: connect Stripe, purchase, invitation, review, cryptographic signing, publishing. Six automated steps.">
+  <meta property="og:description" content="How Signed Reviews verifies reviews: connect Stripe or Paddle, purchase, invitation, review, cryptographic signing, publishing. Six automated steps.">
   <meta property="og:url" content="https://signedreviews.com/how-it-works/">
   <meta property="og:site_name" content="Signed Reviews">
   <meta property="og:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="How It Works | Signed Reviews">
-  <meta name="twitter:description" content="How Signed Reviews verifies reviews: connect Stripe, purchase, invitation, review, cryptographic signing, publishing. Six automated steps.">
+  <meta name="twitter:description" content="How Signed Reviews verifies reviews: connect Stripe or Paddle, purchase, invitation, review, cryptographic signing, publishing. Six automated steps.">
   <meta name="twitter:image" content="https://signedreviews.com/images/SignedReviews_full_logo.png">
 
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=20260924a">
@@ -655,7 +655,7 @@ main { padding: 0; }
       if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
     })();
   </script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.","email":"support@signedreviews.com","foundingDate":"2025","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"},"sameAs":["https://marketplace.stripe.com/apps/signedreviews","https://chromewebstore.google.com/detail/is-this-review-real-%E2%80%94-sig/jkfdbmlmfjbnbhillhlehabpbpeoljco","https://www.linkedin.com/company/signed-reviews"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe or Paddle transaction.","email":"support@signedreviews.com","foundingDate":"2025","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"},"sameAs":["https://marketplace.stripe.com/apps/signedreviews","https://chromewebstore.google.com/detail/is-this-review-real-%E2%80%94-sig/jkfdbmlmfjbnbhillhlehabpbpeoljco","https://www.linkedin.com/company/signed-reviews"]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"How It Works","item":"https://signedreviews.com/how-it-works/"}]}</script>
   <script async preferred-sources-control="manual" src="https://news.google.com/swg/js/v1/publisher.js"></script>
   <script defer src="/js/preferred-source.js"></script>
@@ -716,28 +716,28 @@ main { padding: 0; }
     </section>
     <div class="prose-wrap">
       <article class="prose">
-    <p>From Stripe purchase to verified review in six steps. The entire flow is automated. You connect once, and Signed Reviews handles the rest.</p>
+    <p>From Stripe or Paddle purchase to verified review in six steps. The entire flow is automated. You connect once, and Signed Reviews handles the rest.</p>
     <h2>From purchase to verified review, step by step</h2>
     
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-body">
-        <h3>Connect your Stripe account</h3>
-        <p>One click. You authorize Signed Reviews via Stripe's official OAuth flow. We get <strong>minimal permissions</strong>: we can verify charges but can never charge, refund, or move funds. The only write we use is creating discount coupons for reviewers, and only when you enable review incentives.</p>
+        <h3>Connect Stripe or Paddle</h3>
+        <p>Stripe is one click: you authorize Signed Reviews via Stripe's official OAuth flow. We get <strong>minimal permissions</strong>: we can verify charges but can never charge, refund, or move funds. The only write we use is creating discount coupons for reviewers, and only when you enable review incentives. Paddle Billing sellers paste an API key they create with read-only permissions instead.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-body">
         <h3>Customer completes a purchase</h3>
-        <p>A customer buys from you. Stripe processes the payment as usual. Signed Reviews picks up the new charge from Stripe and, if this customer has not been invited before, automatically creates a unique, expiring review invitation linked to that specific transaction.</p>
+        <p>A customer buys from you. Stripe or Paddle processes the payment as usual. Signed Reviews picks up the new completed payment and, if this customer has not been invited before, automatically creates a unique, expiring review invitation linked to that specific transaction.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-body">
         <h3>Review invitation is sent</h3>
-        <p>The invitation email is sent to the customer's verified payment email from the Stripe transaction. You control the timing: immediately, or after a delay for shipped products. The email carries your branding and logo.</p>
+        <p>The invitation email is sent to the customer's verified payment email from the Stripe or Paddle transaction. You control the timing: immediately, or after a delay for shipped products. The email carries your branding and logo.</p>
       </div>
     </div>
     <div class="step">

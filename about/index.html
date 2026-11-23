@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/about/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="2dec15c016eb2fd7798a1f7ac0fe06fd785bbc66">
-  <meta name="build-time" content="2026-11-23T08:32:40.769Z">
+  <meta name="build-commit" content="bd08be2143e14e01fe97882f4915e68baadc9698">
+  <meta name="build-time" content="2026-11-23T08:59:34.427Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="About Signed Reviews: Founder, Company and Contact Details">
@@ -655,7 +655,7 @@ main { padding: 0; }
       if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
     })();
   </script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.","email":"support@signedreviews.com","foundingDate":"2025","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"},"sameAs":["https://marketplace.stripe.com/apps/signedreviews","https://chromewebstore.google.com/detail/is-this-review-real-%E2%80%94-sig/jkfdbmlmfjbnbhillhlehabpbpeoljco","https://www.linkedin.com/company/signed-reviews"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe or Paddle transaction.","email":"support@signedreviews.com","foundingDate":"2025","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"},"sameAs":["https://marketplace.stripe.com/apps/signedreviews","https://chromewebstore.google.com/detail/is-this-review-real-%E2%80%94-sig/jkfdbmlmfjbnbhillhlehabpbpeoljco","https://www.linkedin.com/company/signed-reviews"]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"About Signed Reviews","item":"https://signedreviews.com/about/"}]}</script>
   <script async preferred-sources-control="manual" src="https://news.google.com/swg/js/v1/publisher.js"></script>
   <script defer src="/js/preferred-source.js"></script>
@@ -707,8 +707,8 @@ main { padding: 0; }
       
     <article class="prose">
       <h2>What we do</h2>
-      <p>Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.</p>
-      <p>Every review collected through our platform is tied to a real, completed Stripe transaction. A review link is issued either automatically after a charge succeeds (emailed to the buyer's verified address) or on request from the business's public page, and in both cases the email must match an actual purchase. Each review is cryptographically signed so anyone can later verify it hasn't been altered. The result is a review record that ties back to a specific, completed payment, instead of a star rating posted by an anonymous account that may never have purchased anything.</p>
+      <p>Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe or Paddle transaction.</p>
+      <p>Every review collected through our platform is tied to a real, completed Stripe or Paddle transaction. A review link is issued either automatically after a payment completes (emailed to the buyer's verified address) or on request from the business's public page, and in both cases the email must match an actual purchase. Each review is cryptographically signed so anyone can later verify it hasn't been altered. The result is a review record that ties back to a specific, completed payment, instead of a star rating posted by an anonymous account that may never have purchased anything.</p>
 
       <h2 id="founder">Who writes this site</h2>
       <p>Signed Reviews was founded by <strong>Robinson Guerra</strong>, who builds the product and writes the articles on the <a href="/blog/">blog</a> and in the guides. Questions or corrections about an article go to <a href="mailto:support@signedreviews.com">support@signedreviews.com</a>.</p>
@@ -723,8 +723,8 @@ main { padding: 0; }
       <ul class="feature-list">
         <li>No advertising networks, cross-site tracking, or data brokers. Our only analytics is first-party PostHog (form inputs masked, no third-party trackers)</li>
         <li>No selling or sharing of personal data. We are not in the data-broker business</li>
-        <li>Limited Stripe permissions: we read charges, customers, and subscriptions, and only ever write review-incentive coupons when you enable them</li>
-        <li>No fake or seeded reviews: a review only exists if a real, completed Stripe transaction backs it</li>
+        <li>Limited permissions: on Stripe we read charges, customers, and subscriptions, and only ever write review-incentive coupons when you enable them; on Paddle Billing we only read</li>
+        <li>No fake or seeded reviews: a review only exists if a real, completed Stripe or Paddle transaction backs it</li>
       </ul>
 
       <h2>Contact</h2>

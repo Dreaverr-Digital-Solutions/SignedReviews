@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/how-verification-works/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="2dec15c016eb2fd7798a1f7ac0fe06fd785bbc66">
-  <meta name="build-time" content="2026-11-23T08:32:40.769Z">
+  <meta name="build-commit" content="bd08be2143e14e01fe97882f4915e68baadc9698">
+  <meta name="build-time" content="2026-11-23T08:59:34.427Z">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="How Review Verification Works: The 4 Verification Levels">
@@ -655,7 +655,7 @@ main { padding: 0; }
       if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
     })();
   </script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.","email":"support@signedreviews.com","foundingDate":"2025","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"},"sameAs":["https://marketplace.stripe.com/apps/signedreviews","https://chromewebstore.google.com/detail/is-this-review-real-%E2%80%94-sig/jkfdbmlmfjbnbhillhlehabpbpeoljco","https://www.linkedin.com/company/signed-reviews"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe or Paddle transaction.","email":"support@signedreviews.com","foundingDate":"2025","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"},"sameAs":["https://marketplace.stripe.com/apps/signedreviews","https://chromewebstore.google.com/detail/is-this-review-real-%E2%80%94-sig/jkfdbmlmfjbnbhillhlehabpbpeoljco","https://www.linkedin.com/company/signed-reviews"]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"How Review Verification Works","item":"https://signedreviews.com/how-verification-works/"}]}</script>
   <script async preferred-sources-control="manual" src="https://news.google.com/swg/js/v1/publisher.js"></script>
   <script defer src="/js/preferred-source.js"></script>
@@ -752,7 +752,7 @@ main { padding: 0; }
         <tr><td>Level 1. Email invitation</td><td>The business</td><td>That the business sent an invite</td><td>Trustpilot "Verified"</td></tr>
         <tr><td>Level 2. Receipt upload</td><td>The reviewer</td><td>That the reviewer attached something</td><td>Dispute flows on some platforms</td></tr>
         <tr><td>Level 3. Merchant-supplied feed</td><td>The business (its own records)</td><td>That the review matches a merchant order</td><td>Yotpo "Verified Buyer", Feefo</td></tr>
-        <tr class="highlight-row"><td>Level 4. Processor-attested</td><td>The payment processor</td><td>That a real payment occurred</td><td>Signed Reviews (Stripe)</td></tr>
+        <tr class="highlight-row"><td>Level 4. Processor-attested</td><td>The payment processor</td><td>That a real payment occurred</td><td>Signed Reviews (Stripe, Paddle)</td></tr>
       </tbody>
     </table>
     </div>
@@ -763,12 +763,12 @@ main { padding: 0; }
     <p>Regulators have noticed the same gap. The FTC's rule banning fake reviews and testimonials (effective October 2024) targets exactly the practices that Level 4 makes much harder: reviews from non-customers, purchased reviews, and "verified" claims without substance. The FTC's own guidance answers the question directly: a platform's "verified" label must mean the platform actually verified what it claims.</p>
 
     <h2>How processor attestation works at Signed Reviews</h2>
-    <p>Signed Reviews connects to a business's Stripe account via Stripe's official OAuth: with <strong>least-privilege scopes</strong> that allow reading charges, customers, and subscriptions, but can never create charges, issue refunds, or move funds. Then:</p>
+    <p>Signed Reviews connects to a business's Stripe account via Stripe's official OAuth: with <strong>least-privilege scopes</strong> that allow reading charges, customers, and subscriptions, but can never create charges, issue refunds, or move funds. Paddle Billing sellers connect with an API key they create with read-only permissions; we only read completed transactions, customers, addresses and refund adjustments. Then:</p>
     <ul>
-      <li><strong>A charge succeeds.</strong> Signed Reviews picks up the new charge from Stripe and, for a customer it has not invited before, creates a unique, expiring review invitation bound to that specific charge ID.</li>
-      <li><strong>The invitation goes to the payment email.</strong> The address Stripe has on file for the actual payment, not an address the merchant typed into a list.</li>
-      <li><strong>The review is signed at submission.</strong> The rating, review text, charge ID and timestamp are cryptographically signed together, creating a tamper-evident record anyone can check on the public verification page.</li>
-      <li><strong>Refunds hide reviews automatically.</strong> A background check re-reads charges every 6 hours. If a charge is fully refunded or disputed, the review is hidden from public display and kept for audit, with no merchant action. Partial refunds stay visible.</li>
+      <li><strong>A payment completes.</strong> Signed Reviews picks up the new charge from Stripe, or the completed transaction from Paddle, and, for a customer it has not invited before, creates a unique, expiring review invitation bound to that specific payment ID.</li>
+      <li><strong>The invitation goes to the payment email.</strong> The address Stripe or Paddle has on file for the actual payment, not an address the merchant typed into a list.</li>
+      <li><strong>The review is signed at submission.</strong> The rating, review text, payment ID and timestamp are cryptographically signed together, creating a tamper-evident record anyone can check on the public verification page.</li>
+      <li><strong>Refunds hide reviews automatically.</strong> A background check re-reads payments every 6 hours. If a payment is fully refunded, disputed or charged back, the review is hidden from public display and kept for audit, with no merchant action. Partial refunds stay visible.</li>
     </ul>
     <p>The result is a review that proves three things at once: a real customer, a real purchase, and unchanged content. The cryptographic signature makes edits detectable: if the review text or its charge reference changes, the signature no longer matches, and anyone can see that on the review's public verification page.</p>
 

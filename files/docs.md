@@ -7,8 +7,8 @@ Everything you need to integrate Signed Reviews into your business. Collect revi
 ## Getting started
 
 1. **[Create an account](https://platform.signedreviews.com/register)** (free, no credit card)
-2. **Connect Stripe**: one-click OAuth, minimal permissions
-3. **First sync**: we import your Stripe transactions and match them to customers
+2. **Connect Stripe or Paddle**: one-click OAuth for Stripe, or a Paddle Billing API key with read-only permissions ([Paddle setup](/integrations/paddle/))
+3. **First sync**: we import your transactions and match them to customers
 4. **Send invitations**: automated or manual, configurable delay after purchase
 5. **Reviews start flowing**: every review is cryptographically signed at submission
 
@@ -16,7 +16,7 @@ Everything you need to integrate Signed Reviews into your business. Collect revi
 
 ### Verification
 
-Every review on Signed Reviews is **processor-attested**. The review is cryptographically signed with HMAC-SHA256 at submission time, binding it to a specific Stripe charge. Anyone can verify a review's authenticity at the public verification page.
+Every review on Signed Reviews is **processor-attested**. The review is cryptographically signed with HMAC-SHA256 at submission time, binding it to a specific Stripe charge or Paddle transaction. Anyone can verify a review's authenticity at the public verification page.
 
 [Learn more about verification →](/learn/what-does-verified-buyer-mean/)
 
@@ -26,7 +26,7 @@ Your business gets a public profile at `signedreviews.com/your-slug`. Customize 
 
 ### Trust Profile
 
-Optional Stripe-powered trust metrics displayed on your public page: refund rate, repeat clients, active subscriber count, monthly revenue range, countries served, and more. Each metric respects a k-anonymity floor: individual transactions are never exposed.
+Optional trust metrics displayed on your public page: refund rate, repeat clients, active subscriber count, monthly revenue range, countries served, and more. Most need a Stripe connection; Paddle accounts get reviews summary, countries served, repeat clients and completed projects. Each metric respects a k-anonymity floor: individual transactions are never exposed.
 
 ---
 
@@ -71,7 +71,7 @@ Configure webhook URLs from Dashboard → Webhooks. We'll send a test event so y
 
 ### Automated (recommended)
 
-1. Connect Stripe → we detect every successful charge
+1. Connect Stripe or Paddle → we detect every completed payment
 2. We send a branded review invitation email after your configured delay (immediate to N days)
 3. Customer clicks the one-time link → submits review with optional photos and social handle
 4. Review is cryptographically signed and published
@@ -82,7 +82,7 @@ From your dashboard, send individual review requests to any past customer by ema
 
 ### Self-service
 
-Enable self-service reviews on your public page. Customers can request their own verified review link by entering the email address they used at checkout. We verify it against your Stripe transactions before issuing a link.
+Enable self-service reviews on your public page. Customers can request their own verified review link by entering the email address they used at checkout. We verify it against your Stripe or Paddle transactions before issuing a link.
 
 ---
 

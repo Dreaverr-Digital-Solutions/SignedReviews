@@ -271,7 +271,7 @@ const SR_TRACKERS_SNIPPET = POSTHOG_KEY
 const COMPANY = {
   legalName: 'Paid Rightly LLC',
   brand: 'Signed Reviews',
-  description: 'Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe transaction.',
+  description: 'Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe or Paddle transaction.',
   supportEmail: 'support@signedreviews.com',
   legalEmail: 'legal@signedreviews.com',
   address: '1209 Mountain Road Pl NE, Ste N, Albuquerque, NM 87110, United States',
@@ -1730,11 +1730,11 @@ function buildPricing() {
   <section class="assurances" aria-label="Common questions">
     <article class="assurance">
       <h3>The trust badge stays on every plan.</h3>
-      <p>"Verified by Signed Reviews" is how your visitors know each review was signed by a real Stripe purchase. It's included at every tier, including Free.</p>
+      <p>"Verified by Signed Reviews" is how your visitors know each review was signed by a real Stripe or Paddle purchase. It's included at every tier, including Free.</p>
     </article>
     <article class="assurance">
-      <h3>Minimal Stripe permissions.</h3>
-      <p>We never charge, refund, or move funds, and we never change your customers, subscriptions, or prices. The only thing we can ever create in your Stripe account is a discount coupon for a reviewer, and only when you enable review incentives. We read your Stripe data only to verify reviews and to compute the public-page metrics you choose to show.</p>
+      <h3>Minimal permissions.</h3>
+      <p>We never charge, refund, or move funds, and we never change your customers, subscriptions, or prices. On Stripe, the only thing we can ever create is a discount coupon for a reviewer, and only when you enable review incentives. On Paddle Billing, we only read. We read your payment data only to verify reviews and to compute the public-page metrics you choose to show.</p>
     </article>
     <article class="assurance">
       <h3>The API can't create reviews.</h3>
@@ -1786,7 +1786,7 @@ function buildPricing() {
     hero: {
       eyebrow: 'Pricing',
       title: 'Plans that scale with real customer reviews.',
-      subtitle: 'Every plan includes the "Verified by Signed Reviews" trust badge, the mark that tells your visitors each review was signed by a real Stripe purchase.',
+      subtitle: 'Every plan includes the "Verified by Signed Reviews" trust badge, the mark that tells your visitors each review was signed by a real Stripe or Paddle purchase.',
     },
     body,
     active: 'pricing',
@@ -1849,7 +1849,7 @@ function buildAbout() {
     <article class="prose">
       <h2>What we do</h2>
       <p>${COMPANY.description}</p>
-      <p>Every review collected through our platform is tied to a real, completed Stripe transaction. A review link is issued either automatically after a charge succeeds (emailed to the buyer's verified address) or on request from the business's public page, and in both cases the email must match an actual purchase. Each review is cryptographically signed so anyone can later verify it hasn't been altered. The result is a review record that ties back to a specific, completed payment, instead of a star rating posted by an anonymous account that may never have purchased anything.</p>
+      <p>Every review collected through our platform is tied to a real, completed Stripe or Paddle transaction. A review link is issued either automatically after a payment completes (emailed to the buyer's verified address) or on request from the business's public page, and in both cases the email must match an actual purchase. Each review is cryptographically signed so anyone can later verify it hasn't been altered. The result is a review record that ties back to a specific, completed payment, instead of a star rating posted by an anonymous account that may never have purchased anything.</p>
 
       <h2 id="founder">Who writes this site</h2>
       <p>${COMPANY.brand} was founded by <strong>${AUTHOR.name}</strong>, who builds the product and writes the articles on the <a href="${B}blog/">blog</a> and in the guides. Questions or corrections about an article go to <a href="mailto:${COMPANY.supportEmail}">${COMPANY.supportEmail}</a>.</p>
@@ -1864,8 +1864,8 @@ function buildAbout() {
       <ul class="feature-list">
         <li>No advertising networks, cross-site tracking, or data brokers. Our only analytics is first-party PostHog (form inputs masked, no third-party trackers)</li>
         <li>No selling or sharing of personal data. We are not in the data-broker business</li>
-        <li>Limited Stripe permissions: we read charges, customers, and subscriptions, and only ever write review-incentive coupons when you enable them</li>
-        <li>No fake or seeded reviews: a review only exists if a real, completed Stripe transaction backs it</li>
+        <li>Limited permissions: on Stripe we read charges, customers, and subscriptions, and only ever write review-incentive coupons when you enable them; on Paddle Billing we only read</li>
+        <li>No fake or seeded reviews: a review only exists if a real, completed Stripe or Paddle transaction backs it</li>
       </ul>
 
       <h2>Contact</h2>
@@ -1898,23 +1898,23 @@ function buildFaq() {
   const faqItems = [
     {
       q: 'What is a purchase-verified review?',
-      a: 'A purchase-verified review is a customer review that is cryptographically linked to a completed payment transaction. Signed Reviews connects to your Stripe account and only allows reviews from customers who have actually purchased from you. Every review is tamper-evident and tied to a real purchase.',
+      a: 'A purchase-verified review is a customer review that is cryptographically linked to a completed payment transaction. Signed Reviews connects to your Stripe or Paddle account and only allows reviews from customers who have actually purchased from you. Every review is tamper-evident and tied to a real purchase.',
     },
     {
       q: 'How does Signed Reviews verify reviews?',
-      a: 'Signed Reviews links each review to a completed Stripe transaction. When a customer submits a review, the platform checks it against the completed charges it imported from your Stripe account and cryptographically signs the review, creating a tamper-evident record that proves the reviewer is a real customer and that the review has not been altered.',
+      a: 'Signed Reviews links each review to a completed Stripe or Paddle transaction. When a customer submits a review, the platform checks it against the completed payments it imported from your Stripe or Paddle account and cryptographically signs the review, creating a tamper-evident record that proves the reviewer is a real customer and that the review has not been altered.',
     },
     {
       q: 'How is Signed Reviews different from Trustpilot?',
-      a: 'Unlike Trustpilot, which allows anyone to write a review without verifying a purchase, Signed Reviews requires a completed Stripe transaction before a review can be submitted. This means every review on Signed Reviews is backed by proof of purchase, and faking one requires a real, paid Stripe charge. Trustpilot removed 4.5 million fake reviews in 2024 alone. Signed Reviews stops non-customers from writing them in the first place.',
+      a: 'Unlike Trustpilot, which allows anyone to write a review without verifying a purchase, Signed Reviews requires a completed Stripe or Paddle transaction before a review can be submitted. This means every review on Signed Reviews is backed by proof of purchase, and faking one requires a real, paid purchase. Trustpilot removed 4.5 million fake reviews in 2024 alone. Signed Reviews stops non-customers from writing them in the first place.',
     },
     {
       q: 'Do I need to share my Stripe API keys?',
-      a: 'No. Signed Reviews uses Stripe\'s official OAuth integration, which means you grant minimal permissions with one click: no API keys to copy, paste, or store. We can never charge, refund, or move funds, and we never change your customers, subscriptions, or prices. The only thing we can ever create is a discount coupon for a reviewer, and only when you enable review incentives.',
+      a: 'Not for Stripe. Signed Reviews uses Stripe\'s official OAuth integration, which means you grant minimal permissions with one click: no API keys to copy, paste, or store. We can never charge, refund, or move funds, and we never change your customers, subscriptions, or prices. The only thing we can ever create is a discount coupon for a reviewer, and only when you enable review incentives. Paddle Billing is different: Paddle connects through an API key that you create with read-only permissions and paste once. We store it encrypted, never write to Paddle, and you can revoke it in Paddle at any time.',
     },
     {
       q: 'Can customers leave reviews without a purchase?',
-      a: 'No. Every review requires a verified purchase. A review link is issued in one of two ways: automatically when a new customer\'s charge comes in from Stripe (emailed to the customer\'s verified email from the transaction), or on request. A customer can visit the business\'s public page and enter their checkout email to receive their own link. In both cases, the email must match a real completed purchase on the business\'s Stripe account. Without a matching purchase, no link is issued and no review can be submitted.',
+      a: 'No. Every review requires a verified purchase. A review link is issued in one of two ways: automatically when a new customer\'s payment comes in from Stripe or Paddle (emailed to the customer\'s verified email from the transaction), or on request. A customer can visit the business\'s public page and enter their checkout email to receive their own link. In both cases, the email must match a real completed purchase on the business\'s Stripe or Paddle account. Without a matching purchase, no link is issued and no review can be submitted.',
     },
     {
       q: 'What happens if a charge is refunded?',
@@ -1930,7 +1930,11 @@ function buildFaq() {
     },
     {
       q: 'Does Signed Reviews work with Shopify, WooCommerce, or Squarespace?',
-      a: 'Yes, as long as your payments land in your own Stripe account. Signed Reviews is a Stripe App, so it installs in one click and connects to that account. WooCommerce and Squarespace stores that use Stripe can connect today, with no separate plugin required. Shopify Payments stores cannot connect: Shopify Payments runs on Stripe, but there is no Stripe account for you to connect. Native Shopify and WooCommerce integrations are planned.',
+      a: 'Yes, as long as your payments land in your own Stripe account, or you sell through Paddle Billing. Signed Reviews is a Stripe App, so it installs in one click and connects to that account. WooCommerce and Squarespace stores that use Stripe can connect today, with no separate plugin required. Shopify Payments stores cannot connect: Shopify Payments runs on Stripe, but there is no Stripe account for you to connect. Native Shopify and WooCommerce integrations are planned.',
+    },
+    {
+      q: 'Does Signed Reviews work with Paddle?',
+      a: 'Yes, with Paddle Billing (Paddle Classic is not supported). Create a Paddle API key with read access to transactions, customers, addresses and adjustments, paste it into Signed Reviews, and confirm that your privacy notice covers review requests, since Paddle is the merchant of record for your sales. We import your completed sales from the last 24 months, and every new paying customer gets one review invitation. Full refunds and chargebacks hide reviews, as on Stripe. Thank-you discount codes are Stripe-only, and four trust metrics are available for Paddle: reviews summary, countries served, repeat clients and completed projects. Paddle keys expire within a year, and we email you before yours does.',
     },
     {
       q: 'Is Signed Reviews free?',
@@ -1969,15 +1973,15 @@ function buildFaq() {
   `;
 
   const body = `<article class="prose">
-    <p>Answers to the most common questions about review verification, Stripe integration, and how Signed Reviews works.</p>
+    <p>Answers to the most common questions about review verification, the Stripe and Paddle integrations, and how Signed Reviews works.</p>
     ${faqHtml}
   </article>`;
 
   const html = page({
     title: 'FAQ: Stripe-Verified Reviews, Answered | Signed Reviews',
-    description: 'Frequently asked questions about Signed Reviews: how purchase verification works, Stripe integration, pricing, security, and more.',
+    description: 'Frequently asked questions about Signed Reviews: how purchase verification works, the Stripe and Paddle integrations, pricing, security, and more.',
     slug: '/faq/',
-    hero: { eyebrow: 'FAQ', title: 'Frequently Asked Questions', subtitle: 'Answers to common questions about review verification, Stripe, and pricing.' },
+    hero: { eyebrow: 'FAQ', title: 'Frequently Asked Questions', subtitle: 'Answers to common questions about review verification, Stripe, Paddle, and pricing.' },
     body,
     extraStyle,
   });
@@ -2066,7 +2070,7 @@ function buildBlog() {
       ${authorByline(post.dateStr, post.updatedStr)}
       ${post.renderedBody}
       <div class="post-cta" style="margin-top:2.5rem;padding:1.5rem;border:1px solid var(--border);border-radius:12px;background:var(--sunk,#fafafa);">
-        <p style="margin:0 0 .75rem;font-weight:600;color:var(--navy-900,#0c1320)">Every review tied to a real Stripe payment</p>
+        <p style="margin:0 0 .75rem;font-weight:600;color:var(--navy-900,#0c1320)">Every review tied to a real Stripe or Paddle payment</p>
         <p style="margin:0 0 1.25rem;color:var(--muted,#5b6b82);font-size:.95rem">Signed Reviews attaches a cryptographic signature to each review, linked to a completed transaction. Free to start: unlimited self-service reviews, 10 automated invitations, no credit card.</p>
         <a class="btn btn-primary" href="${PLATFORM_URL}/register" rel="noopener" data-cta="post-signup">Start free →</a>
         <a class="btn btn-secondary" href="${B}how-verification-works/" style="margin-left:.5rem">How verification works</a>
@@ -2139,9 +2143,9 @@ function buildBlog() {
 // ── How It Works page ─────────────────────────────────────────────────────────
 function buildHowItWorks() {
   const steps = [
-    { num: '1', title: 'Connect your Stripe account', body: 'One click. You authorize Signed Reviews via Stripe\'s official OAuth flow. We get <strong>minimal permissions</strong>: we can verify charges but can never charge, refund, or move funds. The only write we use is creating discount coupons for reviewers, and only when you enable review incentives.' },
-    { num: '2', title: 'Customer completes a purchase', body: 'A customer buys from you. Stripe processes the payment as usual. Signed Reviews picks up the new charge from Stripe and, if this customer has not been invited before, automatically creates a unique, expiring review invitation linked to that specific transaction.' },
-    { num: '3', title: 'Review invitation is sent', body: 'The invitation email is sent to the customer\'s verified payment email from the Stripe transaction. You control the timing: immediately, or after a delay for shipped products. The email carries your branding and logo.' },
+    { num: '1', title: 'Connect Stripe or Paddle', body: 'Stripe is one click: you authorize Signed Reviews via Stripe\'s official OAuth flow. We get <strong>minimal permissions</strong>: we can verify charges but can never charge, refund, or move funds. The only write we use is creating discount coupons for reviewers, and only when you enable review incentives. Paddle Billing sellers paste an API key they create with read-only permissions instead.' },
+    { num: '2', title: 'Customer completes a purchase', body: 'A customer buys from you. Stripe or Paddle processes the payment as usual. Signed Reviews picks up the new completed payment and, if this customer has not been invited before, automatically creates a unique, expiring review invitation linked to that specific transaction.' },
+    { num: '3', title: 'Review invitation is sent', body: 'The invitation email is sent to the customer\'s verified payment email from the Stripe or Paddle transaction. You control the timing: immediately, or after a delay for shipped products. The email carries your branding and logo.' },
     { num: '4', title: 'Customer submits their review', body: 'The customer clicks the unique link, writes their review, and submits it. At the moment of submission, the review text, rating, the Stripe charge it belongs to, and the submission time are <strong>cryptographically signed</strong>, creating a tamper-evident record.' },
     { num: '5', title: 'Review is verified and published', body: 'The signed review appears on your public page and in your dashboard. Anyone can check the review on its public verification page, which shows it matches a real Stripe charge and hasn\'t been altered since submission.' },
     { num: '6', title: 'Optional: reminders and follow-ups', body: 'If the customer hasn\'t left a review after a few days, up to two automatic reminders are sent (configurable cadence). Reminders stop when the customer clicks the link, submits a review, or unsubscribes. Each customer gets this sequence once, ever.' },
@@ -2160,7 +2164,7 @@ function buildHowItWorks() {
   `;
 
   const body = `<article class="prose">
-    <p>From Stripe purchase to verified review in six steps. The entire flow is automated. You connect once, and Signed Reviews handles the rest.</p>
+    <p>From Stripe or Paddle purchase to verified review in six steps. The entire flow is automated. You connect once, and Signed Reviews handles the rest.</p>
     <h2>From purchase to verified review, step by step</h2>
     ${steps.map(s => `
     <div class="step">
@@ -2176,7 +2180,7 @@ function buildHowItWorks() {
 
   const html = page({
     title: 'How It Works | Signed Reviews',
-    description: 'How Signed Reviews verifies reviews: connect Stripe, purchase, invitation, review, cryptographic signing, publishing. Six automated steps.',
+    description: 'How Signed Reviews verifies reviews: connect Stripe or Paddle, purchase, invitation, review, cryptographic signing, publishing. Six automated steps.',
     slug: '/how-it-works/',
     hero: { eyebrow: 'How It Works', title: 'From purchase to verified review', subtitle: 'Six automated steps. Zero manual work. Every review cryptographically backed by a real Stripe transaction.' },
     body,
@@ -2222,7 +2226,7 @@ function buildHowVerificationWorks() {
         <tr><td>Level 1. Email invitation</td><td>The business</td><td>That the business sent an invite</td><td>Trustpilot "Verified"</td></tr>
         <tr><td>Level 2. Receipt upload</td><td>The reviewer</td><td>That the reviewer attached something</td><td>Dispute flows on some platforms</td></tr>
         <tr><td>Level 3. Merchant-supplied feed</td><td>The business (its own records)</td><td>That the review matches a merchant order</td><td>Yotpo "Verified Buyer", Feefo</td></tr>
-        <tr class="highlight-row"><td>Level 4. Processor-attested</td><td>The payment processor</td><td>That a real payment occurred</td><td>Signed Reviews (Stripe)</td></tr>
+        <tr class="highlight-row"><td>Level 4. Processor-attested</td><td>The payment processor</td><td>That a real payment occurred</td><td>Signed Reviews (Stripe, Paddle)</td></tr>
       </tbody>
     </table>
     </div>
@@ -2233,12 +2237,12 @@ function buildHowVerificationWorks() {
     <p>Regulators have noticed the same gap. The FTC's rule banning fake reviews and testimonials (effective October 2024) targets exactly the practices that Level 4 makes much harder: reviews from non-customers, purchased reviews, and "verified" claims without substance. The FTC's own guidance answers the question directly: a platform's "verified" label must mean the platform actually verified what it claims.</p>
 
     <h2>How processor attestation works at Signed Reviews</h2>
-    <p>Signed Reviews connects to a business's Stripe account via Stripe's official OAuth: with <strong>least-privilege scopes</strong> that allow reading charges, customers, and subscriptions, but can never create charges, issue refunds, or move funds. Then:</p>
+    <p>Signed Reviews connects to a business's Stripe account via Stripe's official OAuth: with <strong>least-privilege scopes</strong> that allow reading charges, customers, and subscriptions, but can never create charges, issue refunds, or move funds. Paddle Billing sellers connect with an API key they create with read-only permissions; we only read completed transactions, customers, addresses and refund adjustments. Then:</p>
     <ul>
-      <li><strong>A charge succeeds.</strong> Signed Reviews picks up the new charge from Stripe and, for a customer it has not invited before, creates a unique, expiring review invitation bound to that specific charge ID.</li>
-      <li><strong>The invitation goes to the payment email.</strong> The address Stripe has on file for the actual payment, not an address the merchant typed into a list.</li>
-      <li><strong>The review is signed at submission.</strong> The rating, review text, charge ID and timestamp are cryptographically signed together, creating a tamper-evident record anyone can check on the public verification page.</li>
-      <li><strong>Refunds hide reviews automatically.</strong> A background check re-reads charges every 6 hours. If a charge is fully refunded or disputed, the review is hidden from public display and kept for audit, with no merchant action. Partial refunds stay visible.</li>
+      <li><strong>A payment completes.</strong> Signed Reviews picks up the new charge from Stripe, or the completed transaction from Paddle, and, for a customer it has not invited before, creates a unique, expiring review invitation bound to that specific payment ID.</li>
+      <li><strong>The invitation goes to the payment email.</strong> The address Stripe or Paddle has on file for the actual payment, not an address the merchant typed into a list.</li>
+      <li><strong>The review is signed at submission.</strong> The rating, review text, payment ID and timestamp are cryptographically signed together, creating a tamper-evident record anyone can check on the public verification page.</li>
+      <li><strong>Refunds hide reviews automatically.</strong> A background check re-reads payments every 6 hours. If a payment is fully refunded, disputed or charged back, the review is hidden from public display and kept for audit, with no merchant action. Partial refunds stay visible.</li>
     </ul>
     <p>The result is a review that proves three things at once: a real customer, a real purchase, and unchanged content. The cryptographic signature makes edits detectable: if the review text or its charge reference changes, the signature no longer matches, and anyone can see that on the review's public verification page.</p>
 
@@ -2475,7 +2479,7 @@ function buildComparisonFeefo() {
         <tr class="highlight-row"><td>Integration setup</td><td class="win">One-click Stripe OAuth. No code, no feed configuration, no manual data upload. Works immediately.</td><td class="lose">Requires the merchant to integrate a transaction feed, more setup overhead for the same verification concept.</td></tr>
         <tr><td>Cryptographic proof</td><td class="win">Every review is cryptographically signed at submission. Tamper-evident, and checkable on its public verification page.</td><td class="lose">No cryptographic signing. Reviews are database records with no external verifiability.</td></tr>
         <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic. A refund check every 6 hours hides reviews on fully refunded or disputed charges. No merchant action required.</td><td class="lose">Depends on the merchant updating their transaction feed with refund status.</td></tr>
-        <tr><td>Stripe integration</td><td class="win">Native, built exclusively for Stripe. One-click, minimal permissions, zero maintenance.</td><td class="lose">No native Stripe integration. Works through a generic transaction feed API.</td></tr>
+        <tr><td>Stripe integration</td><td class="win">Native and one-click, with minimal permissions and zero maintenance. Paddle Billing is also supported.</td><td class="lose">No native Stripe integration. Works through a generic transaction feed API.</td></tr>
         <tr class="highlight-row"><td>Pricing model</td><td class="win">Free plan + paid plans from $29/mo (Starter) to $199/mo (Scale). Transparent, per-invitation caps.</td><td class="lose">Custom pricing, typically £99–£399/month for SMB tiers. Enterprise pricing is opaque.</td></tr>
         <tr><td>Google Seller Ratings</td><td class="tie">Planned, on the roadmap for Q4 2026.</td><td class="win">Yes, Feefo is a Google Review Partner and feeds into Google Seller Ratings.</td></tr>
         <tr class="highlight-row"><td>Platform maturity</td><td class="lose">Early stage, launched 2026, building domain authority and customer base.</td><td class="win">Established, founded 2010, strong UK presence, mature enterprise offering.</td></tr>
@@ -2618,7 +2622,7 @@ function buildComparisonYotpo() {
       <tbody>
         <tr class="highlight-row"><td>Verification method</td><td class="win">Processor-attested, every review matches a completed charge recorded in Stripe. Level 4 on the verification spectrum.</td><td class="lose">Mail-After-Purchase (MAP), the review invitation email is matched to a merchant order record. Level 3, merchant-supplied.</td></tr>
         <tr><td>Fake review prevention</td><td class="win">Structural, no Stripe charge = no review. Manufacturing one requires a real Stripe payment, with real fees and a payment record.</td><td class="lose">Order-matched, reviews are matched to orders in the merchant's system. Stronger than open platforms, but the merchant controls the order data.</td></tr>
-        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native, one-click OAuth, minimal permissions, zero code. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration. Works through e-commerce platform connectors (Shopify, Magento, BigCommerce).</td></tr>
+        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native, one-click OAuth, minimal permissions, zero code. Paddle Billing is also supported.</td><td class="lose">No native Stripe integration. Works through e-commerce platform connectors (Shopify, Magento, BigCommerce).</td></tr>
         <tr><td>Cryptographic proof</td><td class="win">Yes, every review carries a tamper-evident digital signature. Anyone can check it on the public verification page.</td><td class="lose">No, reviews are database records. Yotpo's moderation is algorithmic, not cryptographic.</td></tr>
         <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic, a refund check every 6 hours hides reviews on fully refunded or disputed charges. No configuration needed.</td><td class="lose">Manual, merchants must manage review display for refunded orders themselves.</td></tr>
         <tr><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent tiered pricing with invitation caps.</td><td class="lose">Free plan (limited) + paid plans from $15/mo (Silver) to $119/mo+ (Enterprise). Many features, including Google Seller Ratings, are locked behind higher tiers.</td></tr>
@@ -2848,7 +2852,7 @@ function buildComparisonBirdeye() {
         <tr><td>Fake review prevention</td><td class="win">Structural, no Stripe charge = no review. Non-customers cannot post; faking one requires a real Stripe charge with real fees.</td><td class="lose">Reactive, moderation catches fakes after publication; aggregated third-party reviews carry those platforms' weaker verification.</td></tr>
         <tr class="highlight-row"><td>Cryptographic proof</td><td class="win">Every review is cryptographically signed at submission. Tamper-evident, and checkable on its public verification page.</td><td class="lose">No cryptographic signing. Reviews are database records.</td></tr>
         <tr><td>Refund handling</td><td class="win">Automatic, a refund check every 6 hours hides reviews on fully refunded or disputed charges.</td><td class="lose">No processor connection, refunds are invisible to the platform.</td></tr>
-        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native, one-click OAuth with least-privilege scopes. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration.</td></tr>
+        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native, one-click OAuth with least-privilege scopes. Paddle Billing is also supported.</td><td class="lose">No native Stripe integration.</td></tr>
         <tr><td>Local presence & listings</td><td class="lose">Not the focus, Signed Reviews is purchase verification and publishing.</td><td class="win">Strength, listings management, Google Business Profile tools, messaging, multi-location reporting.</td></tr>
         <tr class="highlight-row"><td>Market fit</td><td class="lose">Stripe businesses of any size: e-commerce, SaaS, services.</td><td class="win">Local & multi-location businesses: healthcare, home services, automotive, retail.</td></tr>
         <tr><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="lose">Custom pricing, typically requires a sales conversation.</td></tr>
@@ -2940,7 +2944,7 @@ function buildComparisonReviewsIo() {
       <tbody>
         <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe, independent payment processor. Processor-attested (Level 4).</td><td class="lose">Merchant customer data, the business provides customer lists or integrates its CRM. Merchant-supplied (Level 3).</td></tr>
         <tr><td>Fake review prevention</td><td class="win">Structural, no Stripe charge = no review. Gaming it requires a real Stripe payment, with real fees.</td><td class="lose">Invitation-gated, reviews require an invitation, but invitations are sent to lists the merchant controls.</td></tr>
-        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native, one-click OAuth, minimal permissions. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration. Works through CRM integrations and manual customer list uploads.</td></tr>
+        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native, one-click OAuth, minimal permissions. Paddle Billing is also supported.</td><td class="lose">No native Stripe integration. Works through CRM integrations and manual customer list uploads.</td></tr>
         <tr><td>Cryptographic proof</td><td class="win">Yes, tamper-evident digital signature on every review, checkable on its public verification page.</td><td class="lose">No, reviews are database records with no cryptographic proof of integrity.</td></tr>
         <tr class="highlight-row"><td>Refund handling</td><td class="win">Automatic, a refund check every 6 hours hides reviews on fully refunded or disputed charges.</td><td class="lose">Manual, merchants must manage review display for refunded orders.</td></tr>
         <tr><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve pricing.</td><td class="lose">From £89/mo (~$113). Mid-range pricing. No free plan.</td></tr>
@@ -2990,7 +2994,7 @@ function buildComparisonShopifyReviewApps() {
   const OKENDO = 'https://apps.shopify.com/okendo-reviews';
   const STAMPED = 'https://apps.shopify.com/product-reviews-addon';
   const body = `<article class="prose">
-    <p><strong>Signed Reviews only works for stores that charge customers through their own Stripe account.</strong> A Shopify store that takes payment through Shopify Payments cannot connect, so for that store Loox, Okendo or Stamped is the right kind of tool. If your store charges through its own Stripe account, or you also sell outside Shopify (subscriptions, services, invoices), Signed Reviews matches every review to a completed Stripe charge, which none of the three do.</p>
+    <p><strong>Signed Reviews only works for stores that charge customers through their own Stripe account, or sell through Paddle Billing.</strong> A Shopify store that takes payment through Shopify Payments cannot connect, so for that store Loox, Okendo or Stamped is the right kind of tool. If your store charges through its own Stripe account, or you also sell outside Shopify (subscriptions, services, invoices), Signed Reviews matches every review to a completed Stripe charge, which none of the three do.</p>
     <p>This page compares the three Shopify review apps with each other and with Signed Reviews: what each one checks a review against, what it costs, and what it does best.</p>
 
     <h2>First: is Signed Reviews a Loox alternative for your store?</h2>
@@ -3006,7 +3010,7 @@ function buildComparisonShopifyReviewApps() {
       <thead><tr><th>Capability</th><th>Signed Reviews</th><th>Loox</th><th>Okendo</th><th>Stamped</th></tr></thead>
       <tbody>
         <tr class="highlight-row"><td>What a review is matched to</td><td class="win">A completed charge in your Stripe account (<a href="/how-verification-works/">Level 4, processor-attested</a>)</td><td class="lose">An order in the store's own records (Level 3)</td><td class="lose">An order in the store's own records (Level 3)</td><td class="lose">An order in the store's own records (Level 3)</td></tr>
-        <tr><td>Platform</td><td>Any business paid through its own Stripe account</td><td>Shopify</td><td>Shopify</td><td>Shopify</td></tr>
+        <tr><td>Platform</td><td>Any business paid through its own Stripe account or Paddle Billing</td><td>Shopify</td><td>Shopify</td><td>Shopify</td></tr>
         <tr class="highlight-row"><td>Free plan</td><td class="win">Yes: unlimited self-service reviews plus 10 automated invitations</td><td class="win">Yes: up to 500 orders</td><td class="win">Yes: up to 50 orders a month</td><td class="lose">No free plan listed</td></tr>
         <tr><td>Paid plans</td><td>$29, $79, $199 a month (<a href="/pricing/">pricing</a>)</td><td>$49.99 a month (300 orders, then $50 per 300 more) or $299.99 a month (<a href="${LOOX}" rel="noopener">listing</a>)</td><td>$19, $119, $299 a month for 200, 1,500 and 3,500 orders (<a href="${OKENDO}" rel="noopener">listing</a>)</td><td>$23, $99, $199 a month for 200, 1,000 and 5,000 orders (<a href="${STAMPED}" rel="noopener">listing</a>)</td></tr>
         <tr class="highlight-row"><td>Signed, checkable reviews</td><td class="win">Each review is signed when submitted, and anyone can check it on its public verification page</td><td class="lose">No</td><td class="lose">No</td><td class="lose">No</td></tr>
@@ -3074,7 +3078,7 @@ function buildComparisonSkeepers() {
       <tbody>
         <tr class="highlight-row"><td>Verification source</td><td class="win">Stripe, independent payment processor. Processor-attested (Level 4).</td><td class="lose">Merchant transaction feed, the business supplies the data being verified against. Merchant-supplied (Level 3).</td></tr>
         <tr><td>Fake review prevention</td><td class="win">Structural, no Stripe charge = no review. Refunds auto-hide reviews.</td><td class="lose">Feed-gated, verification quality depends on what the merchant chooses to include in the feed.</td></tr>
-        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native, one-click OAuth, minimal permissions. Built exclusively for Stripe.</td><td class="lose">No native Stripe integration. Relies on merchant-provided data feeds.</td></tr>
+        <tr class="highlight-row"><td>Stripe integration</td><td class="win">Native, one-click OAuth, minimal permissions. Paddle Billing is also supported.</td><td class="lose">No native Stripe integration. Relies on merchant-provided data feeds.</td></tr>
         <tr><td>UGC breadth</td><td class="lose">Focused: review collection, verification, and publishing.</td><td class="win">Broad: reviews, ratings, video UGC, social proof widgets, influencer content.</td></tr>
         <tr class="highlight-row"><td>Pricing</td><td class="win">Free plan + $29–$199/mo. Transparent, self-serve.</td><td class="lose">Custom pricing, enterprise-focused. Not publicly listed.</td></tr>
         <tr><td>Geographic strength</td><td class="tie">Global, Stripe is the payment processor in 40+ countries.</td><td class="win">European, strong presence in France, Germany, and Southern Europe.</td></tr>
@@ -3539,7 +3543,7 @@ function buildLearn() {
         <tr><td>1</td><td>Email ownership</td><td>Reviewer controls an email address</td><td>Email provider</td><td>"Confirm your email" sign-ups</td></tr>
         <tr><td>2</td><td>Self-attested</td><td>Reviewer states they purchased</td><td>The reviewer</td><td>"I purchased this product" tick-box</td></tr>
         <tr><td>3</td><td>Merchant-supplied</td><td>Merchant's order or customer records contain a matching purchase</td><td>The merchant</td><td>Trustpilot (invited), Yotpo, Judge.me, Reviews.io, most Shopify review apps</td></tr>
-        <tr class="highlight-row"><td class="win">4</td><td class="win">Processor-attested</td><td class="win">An independent payment processor confirms a completed, non-refunded charge</td><td class="win">The payment processor</td><td class="win">Signed Reviews (via Stripe)</td></tr>
+        <tr class="highlight-row"><td class="win">4</td><td class="win">Processor-attested</td><td class="win">An independent payment processor confirms a completed, non-refunded charge</td><td class="win">The payment processor</td><td class="win">Signed Reviews (via Stripe or Paddle)</td></tr>
       </tbody>
     </table>
     </div>
@@ -3893,7 +3897,7 @@ function buildIntegrations() {
   const slug = '/integrations/';
   const canonical = `${SITE_URL}${slug}`;
   const title = 'Integrations | Signed Reviews';
-  const description = 'Connect Signed Reviews to your existing stack. Native Stripe App with one-click install, plus REST API, webhooks, and ecosystem integrations.';
+  const description = 'Connect Signed Reviews to your existing stack. Native Stripe App with one-click install, Paddle Billing via a read-only API key, plus REST API and webhooks.';
 
   const extraStyle = `
     .integration-card { border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; margin: 1.25rem 0; background: var(--surface); display: flex; gap: 1.25rem; align-items: flex-start; }
@@ -3922,6 +3926,15 @@ function buildIntegrations() {
         <h3>Stripe <span class="ic-badge ic-badge-live">Live</span></h3>
         <p>The native integration. One-click OAuth, minimal permissions, zero code. Every customer is automatically invited once for a verified review. Refund-aware: reviews for refunded charges are hidden automatically. Works with Stripe Billing, Stripe Connect, and Stripe Checkout.</p>
         <a class="ic-cta" href="${B}integrations/stripe/">Stripe integration details →</a>
+      </div>
+    </div>
+
+    <div class="integration-card">
+      <div class="ic-icon ic-api">P</div>
+      <div class="ic-body">
+        <h3>Paddle Billing <span class="ic-badge ic-badge-live">Live</span></h3>
+        <p>For sellers who use Paddle as their merchant of record. Paste an API key you create with read-only permissions; nothing is written to Paddle. Every paying customer is invited once for a verified review, and full refunds and chargebacks hide their reviews. Discount codes and most trust metrics stay Stripe-only.</p>
+        <a class="ic-cta" href="${B}integrations/paddle/">Paddle integration details →</a>
       </div>
     </div>
 
@@ -3970,23 +3983,23 @@ function buildIntegrations() {
     <h2 id="how-they-work">How our integrations work</h2>
     <p>Every Signed Reviews integration follows the same pattern:</p>
     <ol>
-      <li><strong>Connect</strong>: link your Stripe account (or install the platform-specific app) in one click.</li>
-      <li><strong>Detect</strong>. Signed Reviews watches for new Stripe charges automatically.</li>
+      <li><strong>Connect</strong>: link your Stripe account in one click, or paste a Paddle Billing API key with read access.</li>
+      <li><strong>Detect</strong>. Signed Reviews watches for new completed payments automatically.</li>
       <li><strong>Invite</strong>: a unique, expiring review invitation is sent to the customer's verified payment email, once per customer.</li>
       <li><strong>Sign</strong>. The review is cryptographically signed at submission, creating a tamper-evident record.</li>
       <li><strong>Publish</strong>: the verified review appears on your public page and via the API.</li>
     </ol>
-    <p>Because every integration verifies against Stripe, not merchant-supplied data, the verification chain is independent of which platform or plugin you use. <a href="/learn/what-does-verified-buyer-mean/">Learn why that matters →</a></p>
+    <p>Because every integration verifies against the payment provider's records, not merchant-supplied data, the verification chain is independent of which platform or plugin you use. <a href="/learn/what-does-verified-buyer-mean/">Learn why that matters →</a></p>
 
-    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Connect your Stripe account →</a></p>
-    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/integrations/stripe/">Stripe integration details</a> · <a href="/api/">API reference</a> · <a href="/docs/">Documentation</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews guide</a></p>
+    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Connect Stripe or Paddle →</a></p>
+    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/integrations/stripe/">Stripe integration details</a> · <a href="/integrations/paddle/">Paddle integration details</a> · <a href="/api/">API reference</a> · <a href="/docs/">Documentation</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews guide</a></p>
   </article>`;
 
   const html = page({
     title,
     description,
     slug,
-    hero: { eyebrow: 'Integrations', title: 'Connect Your Stack', subtitle: 'One-click Stripe integration plus REST API, webhooks, and planned ecosystem connectors, every one tied to processor-attested verification.' },
+    hero: { eyebrow: 'Integrations', title: 'Connect Your Stack', subtitle: 'One-click Stripe integration, Paddle Billing, REST API, webhooks, and planned ecosystem connectors, every one tied to processor-attested verification.' },
     body,
     extraStyle,
   });
@@ -4134,6 +4147,123 @@ function buildIntegrationsStripe() {
   const schemaTag = `\n  <script type="application/ld+json">${JSON.stringify(softwareSchema)}</script>\n  <script type="application/ld+json">${JSON.stringify(howToSchema)}</script>\n  <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>\n</head>`;
   writePage(slug, html.replace('</head>', schemaTag));
   console.log('  ✓ /integrations/stripe/');
+}
+
+// ── Integrations: Paddle ─────────────────────────────────────────────────────
+// Paddle Billing sellers connect with an API key they create with read-only
+// permissions. Claims here must match the product: no discount coupons, four
+// trust metrics, 24-month first import, key expiry, privacy-notice confirmation.
+function buildIntegrationsPaddle() {
+  const slug = '/integrations/paddle/';
+  const title = 'Paddle Integration for Verified Reviews | Signed Reviews';
+  const description = 'Connect Paddle Billing with a read-only API key and invite every paying customer to leave a verified, tamper-evident review. No code, nothing written to Paddle.';
+
+  const howToSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'Connect Paddle Billing to Signed Reviews',
+    description: 'Create a Paddle API key with read-only permissions and paste it into Signed Reviews.',
+    step: [
+      { '@type': 'HowToStep', position: 1, name: 'Sign up or log in', text: 'Create a free Signed Reviews account at platform.signedreviews.com. No credit card required.' },
+      { '@type': 'HowToStep', position: 2, name: 'Create a Paddle API key', text: 'In Paddle, open My account, Settings, Authentication. On the API keys tab, click New API key and give it read access to transactions, customers, addresses and adjustments.' },
+      { '@type': 'HowToStep', position: 3, name: 'Paste the key into Signed Reviews', text: 'Choose "I sell with Paddle" during setup, or open Settings. Paste the key, enter its expiry date, and confirm that your privacy notice covers review requests.' },
+      { '@type': 'HowToStep', position: 4, name: 'Import your sales', text: 'Signed Reviews imports your completed sales from the last 24 months. No emails go out during the import.' },
+      { '@type': 'HowToStep', position: 5, name: 'Turn on review collection', text: 'Each paying customer gets one verified review invitation, plus up to two reminders.' },
+    ],
+  };
+
+  const faqItems = [
+    { q: 'Why an API key instead of a one-click connection?', a: 'Paddle connects third-party apps through API keys today. You create the key yourself in Paddle with read-only permissions, so you decide exactly what Signed Reviews can see, and you can revoke it in Paddle at any time. We store the key encrypted and never write anything to your Paddle account.' },
+    { q: 'Does this work with Paddle Classic?', a: 'No. Signed Reviews supports Paddle Billing only. Paddle Classic accounts use a different API.' },
+    { q: 'Which sales get a review invitation?', a: 'Completed Paddle transactions with a captured payment above zero. Free (100% discount) checkouts, payment-method updates and sales that were already fully refunded when we first see them are skipped. Each customer is invited once, ever, plus up to two reminders.' },
+    { q: 'What happens if a sale is refunded or charged back?', a: 'Signed Reviews re-checks Paddle every 6 hours. If a sale is fully refunded, or charged back and not reversed, the review is hidden from your public page. If Paddle wins the chargeback, the review shows again. Partial refunds stay visible.' },
+    { q: 'Paddle is the merchant of record for my sales. Is that a problem?', a: 'No, but it changes one thing. Paddle is the legal seller and shares buyer details with you under its own terms, so before you connect you confirm that your privacy notice covers post-purchase review requests. Our <a href="/terms/">Terms (section 5A)</a> and <a href="/privacy/">Privacy Policy</a> describe how Paddle data is used.' },
+    { q: 'What is different from the Stripe integration?', a: 'Thank-you discount codes for reviewers are Stripe-only, because they are Stripe coupons. Four trust metrics are available for Paddle (reviews summary, countries served, repeat clients, completed projects); the others need Stripe data. The first import covers 24 months. Paddle keys expire (at most one year after you create them), and we email you before yours does. One payment provider can be connected per account.' },
+    { q: 'Can I test with a Paddle sandbox?', a: 'Yes. Connect a sandbox key to try the whole flow: review emails go to your own address, and your page cannot go public until you replace it with a live key.' },
+  ];
+
+  const extraStyle = `
+    .howto-steps { counter-reset: step; list-style: none; padding: 0; margin: 1.5rem 0 2rem; }
+    .howto-steps li { counter-increment: step; display: flex; gap: 1.2rem; align-items: flex-start; padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
+    .howto-steps li:first-child { padding-top: 0; }
+    .howto-steps li:last-child { border-bottom: 0; padding-bottom: 0; }
+    .howto-steps .step-num { flex-shrink: 0; width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, #1f2a44, #3b4a6b); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    .howto-steps .step-num::before { content: counter(step); }
+    .howto-steps h3 { margin: 0 0 .3rem; font-family: 'Instrument Serif', Georgia, serif; font-size: 1.15rem; color: var(--navy-900); }
+    :root.theme-dark .howto-steps h3, :root.theme-auto .howto-steps h3 { color: #fff; }
+    .howto-steps p { margin: 0; color: var(--text); line-height: 1.6; }
+    .perm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .75rem; margin: 1.25rem 0 2rem; }
+    .perm-card { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; background: var(--surface); }
+    .perm-card h3 { margin: 0 0 .3rem; font-size: .92rem; font-family: 'JetBrains Mono', ui-monospace, monospace; color: var(--navy-900); }
+    :root.theme-dark .perm-card h3, :root.theme-auto .perm-card h3 { color: #fff; }
+    .perm-card p { margin: 0; font-size: .85rem; color: var(--text); line-height: 1.5; }
+    .faq-item { border: 1px solid var(--border); border-radius: 12px; margin-bottom: .65rem; background: var(--surface); overflow: hidden; }
+    .faq-q { padding: 1.1rem 1.2rem; font-weight: 600; font-size: 1rem; color: var(--navy-900); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q::after { content: '+'; font-size: 1.25rem; font-weight: 400; color: var(--gold-500); margin-left: .75rem; flex-shrink: 0; }
+    details[open] > .faq-q::after { content: '\u2212'; }
+    :root.theme-dark .faq-q, :root.theme-auto .faq-q { color: #fff; }
+    .faq-a { padding: 0 1.2rem 1.15rem; color: var(--text); line-height: 1.65; font-size: .95rem; }
+  `;
+
+  const faqHtml = faqItems.map((item, i) => `
+    <details class="faq-item"${i === 0 ? ' open' : ''}>
+      <summary class="faq-q">${escapeHtml(item.q)}</summary>
+      <div class="faq-a"><p>${item.a}</p></div>
+    </details>`).join('');
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map(item => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a.replace(/<[^>]+>/g, '') },
+    })),
+  };
+
+  const body = `<article class="prose">
+    <p>Sell through <strong>Paddle Billing</strong>? Signed Reviews reads your completed Paddle sales with an API key you create with read-only permissions. Every paying customer gets one verified review invitation, and every review is tied to the Paddle transaction behind it. We never write anything to your Paddle account.</p>
+
+    <h2 id="permissions">What the key can (and can't) do</h2>
+    <div class="perm-grid">
+      <div class="perm-card"><h3>✅ Read transactions</h3><p>Find completed, paid sales and match each review to one.</p></div>
+      <div class="perm-card"><h3>✅ Read customers</h3><p>The buyer's email and name, used for the review invitation.</p></div>
+      <div class="perm-card"><h3>✅ Read addresses</h3><p>The buyer's country, so invitations arrive at a reasonable local time.</p></div>
+      <div class="perm-card"><h3>✅ Read adjustments</h3><p>Spot full refunds and chargebacks, so their reviews are hidden.</p></div>
+      <div class="perm-card"><h3>❌ Write anything</h3><p>Signed Reviews never creates, changes or deletes anything in Paddle.</p></div>
+      <div class="perm-card"><h3>❌ Move money</h3><p>We <strong>cannot</strong> charge, refund or change subscriptions.</p></div>
+    </div>
+
+    <h2 id="setup">How to connect</h2>
+    <ol class="howto-steps">
+      <li><div class="step-num"></div><div><h3>Sign up or log in</h3><p>Create a free Signed Reviews account at <a href="${PLATFORM_URL}" rel="noopener">platform.signedreviews.com</a>. No credit card required.</p></div></li>
+      <li><div class="step-num"></div><div><h3>Create a Paddle API key</h3><p>In Paddle, open <strong>My account, Settings, Authentication</strong>. On the <strong>API keys</strong> tab, click <strong>New API key</strong> and give it <strong>read</strong> access to transactions, customers, addresses and adjustments. Nothing else is needed. Pick an expiry date (Paddle allows up to one year).</p></div></li>
+      <li><div class="step-num"></div><div><h3>Paste it into Signed Reviews</h3><p>Choose <strong>I sell with Paddle</strong> during setup, or open Settings. Paste the key, enter the same expiry date, and confirm that your privacy notice covers review requests. We check the four permissions with Paddle before saving.</p></div></li>
+      <li><div class="step-num"></div><div><h3>Import your sales</h3><p>Signed Reviews imports your completed sales from the last 24 months. The import is display-only: no emails go out.</p></div></li>
+      <li><div class="step-num"></div><div><h3>Turn on review collection</h3><p>Each paying customer gets one verified review invitation, plus up to two reminders, carrying your branding. New sales are picked up every 5 minutes.</p></div></li>
+    </ol>
+
+    <h2 id="faq">Frequently asked questions</h2>
+    ${faqHtml}
+
+    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Connect your Paddle account →</a></p>
+    <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/integrations/">All integrations</a> · <a href="/how-it-works/">How it works</a> · <a href="/how-verification-works/">How verification works</a></p>
+  </article>`;
+
+  const html = page({
+    title,
+    description,
+    slug,
+    pageType: 'article',
+    hero: { eyebrow: 'Integrations', title: 'Verified Reviews for Paddle', subtitle: 'Paste a Paddle Billing API key with read access and Signed Reviews asks every paying customer for a review, linked to their Paddle transaction.' },
+    body,
+    extraStyle,
+  });
+
+  const schemaTag = `\n  <script type="application/ld+json">${JSON.stringify(howToSchema)}</script>\n  <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>\n</head>`;
+  writePage(slug, html.replace('</head>', schemaTag));
+  console.log('  ✓ /integrations/paddle/');
 }
 
 // ── Integrations: Shopify ─────────────────────────────────────────────────────
@@ -4919,7 +5049,7 @@ function buildSeoFiles(blogPosts = []) {
   // crawlers to ignore the signal entirely.
   const STATIC_PAGES_LASTMOD = '2026-09-06';
   const blogLastmod = new Map(blogPosts.map(p => [p.slug, p.lastmod]));
-  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/integrations/stripe/', '/integrations/shopify/', '/integrations/woocommerce/', '/faq/', '/how-it-works/', '/how-verification-works/', '/demo/', '/tools/fake-review-checker/', '/docs/', '/api/', '/trust/', '/chrome-extension/privacy/', '/vs/trustpilot/', '/vs/feefo/', '/vs/judge-me/', '/vs/yotpo/', '/vs/ekomi/', '/vs/sitejabber/', '/vs/reviews-io/', '/vs/shopify-review-apps/', '/vs/skeepers/', '/vs/google-reviews/', '/vs/yelp/', '/vs/clutch/', '/vs/birdeye/', '/vs/podium/', '/learn/what-does-verified-buyer-mean/', '/learn/how-fake-reviews-work/', '/learn/ftc-fake-reviews-rules/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/', ...blogPosts.map(p => p.slug)];
+  const urls = ['/', '/pricing/', '/about/', '/contact/', '/features/', '/blog/', '/integrations/', '/integrations/stripe/', '/integrations/paddle/', '/integrations/shopify/', '/integrations/woocommerce/', '/faq/', '/how-it-works/', '/how-verification-works/', '/demo/', '/tools/fake-review-checker/', '/docs/', '/api/', '/trust/', '/chrome-extension/privacy/', '/vs/trustpilot/', '/vs/feefo/', '/vs/judge-me/', '/vs/yotpo/', '/vs/ekomi/', '/vs/sitejabber/', '/vs/reviews-io/', '/vs/shopify-review-apps/', '/vs/skeepers/', '/vs/google-reviews/', '/vs/yelp/', '/vs/clutch/', '/vs/birdeye/', '/vs/podium/', '/learn/what-does-verified-buyer-mean/', '/learn/how-fake-reviews-work/', '/learn/ftc-fake-reviews-rules/', '/privacy/', '/terms/', '/dpa/', '/dmca/', '/refund-policy/', '/subprocessors/', ...blogPosts.map(p => p.slug)];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
@@ -5030,6 +5160,7 @@ buildLearnFakeReviewsWork();
 buildLearnFtcRules();
 buildIntegrations();
 buildIntegrationsStripe();
+buildIntegrationsPaddle();
 buildIntegrationsShopify();
 buildIntegrationsWooCommerce();
 console.log('\nMarketing pages:');

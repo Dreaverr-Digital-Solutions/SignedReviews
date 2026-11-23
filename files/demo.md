@@ -1,6 +1,6 @@
 # Request a Demo
 
-See Signed Reviews in action. Book a personalized walkthrough to learn how verified, cryptographically signed reviews build trust for your Stripe business.
+See Signed Reviews in action. Book a personalized walkthrough to learn how verified, cryptographically signed reviews build trust for your Stripe or Paddle business.
 
 ---
 
@@ -9,13 +9,13 @@ See Signed Reviews in action. Book a personalized walkthrough to learn how verif
 A 20-30 minute screen share covering:
 
 - **Live product demo**: dashboard, review collection flow, and public review page in real time
-- **Stripe integration**: one-click OAuth, minimal permissions, and automatic invitation triggering
-- **Verification walkthrough**: see a Stripe transaction become a cryptographically signed review
+- **Stripe and Paddle integrations**: one-click OAuth for Stripe, a read-only API key for Paddle Billing, and automatic invitation triggering
+- **Verification walkthrough**: see a Stripe or Paddle transaction become a cryptographically signed review
 - **Your use case**: discuss your business, current review stack, and how Signed Reviews fits
 
 ## Who this is for
 
-- **Stripe businesses**: if you process payments through Stripe and want the strongest review verification
+- **Stripe and Paddle businesses**: if you get paid through Stripe or Paddle Billing and want the strongest review verification
 - **E-commerce brands**: DTC brands, Shopify merchants, and online retailers
 - **SaaS companies**: B2B and B2C SaaS businesses looking for transaction-attested reviews
 - **Agencies**: agencies managing review collection for multiple clients
