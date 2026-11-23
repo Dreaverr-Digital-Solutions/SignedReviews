@@ -4682,14 +4682,14 @@ function buildFakeReviewChecker() {
     color: var(--muted); margin-bottom: .6rem;
   }
   .frc-card label.frc-url-label { margin-top: 1.5rem; }
-  .frc-card input[type="url"] {
+  .frc-card #frc-url {
     width: 100%; max-width: 640px; margin-left: auto; margin-right: auto;
     display: block; padding: .75rem 1rem;
     font: inherit; color: var(--text); background: var(--surface);
     border: 1px solid var(--border); border-radius: 10px; text-align: left;
   }
-  .frc-card input[type="url"]::placeholder { color: var(--muted); opacity: .8; }
-  .frc-card input[type="url"]:focus { outline: 3px solid var(--gold-400); outline-offset: 2px; }
+  .frc-card #frc-url::placeholder { color: var(--muted); opacity: .8; }
+  .frc-card #frc-url:focus { outline: 3px solid var(--gold-400); outline-offset: 2px; }
   .frc-turnstile { display: flex; justify-content: center; margin-top: 1rem; }
   .frc-run:disabled { opacity: .7; cursor: progress; }
   .frc-run:disabled:hover { transform: none; box-shadow: 0 4px 14px rgba(179,157,69,.32); }
@@ -4723,7 +4723,7 @@ function buildFakeReviewChecker() {
       <textarea id="frc-input" placeholder="Paste the full review text here (50+ words works best). The checker looks at language patterns, not the platform it came from." aria-describedby="frc-hint"></textarea>
       <p id="frc-hint" class="frc-hint">Heuristic signals, not proof. A clean score doesn't guarantee a real review. See below.</p>
       <label class="frc-url-label" for="frc-url">Business website (optional)</label>
-      <input type="url" id="frc-url" placeholder="https://the-business-website.com" />
+      <input type="text" id="frc-url" inputmode="url" autocomplete="url" placeholder="the-business-website.com" />
       <p class="frc-hint">Adding the site enables the strongest check: the AI compares what the review claims against what the website actually sells.</p>${TURNSTILE_SITE_KEY ? `
       <div class="frc-turnstile"><div class="cf-turnstile" data-sitekey="${TURNSTILE_SITE_KEY}"></div></div>` : `
       <!-- Turnstile not configured -->`}
@@ -4944,10 +4944,9 @@ function buildFakeReviewChecker() {
       aiOutput.style.display = 'block';
       aiOutput.innerHTML = '<p class="frc-empty">Running AI cross-check…</p>';
       var url = urlInput && urlInput.value ? urlInput.value.trim() : '';
-      if (url && !/^https?:\\/\\//i.test(url)) {
-        aiOutput.innerHTML = '<p class="frc-empty">The website URL must start with http:// or https://. Fix it and run again. The instant heuristics above still apply.</p>';
-        return;
-      }
+      // A typed domain gets https:// so nobody has to type the scheme. An
+      // unsupported one is left as-is for the server to reject.
+      if (url && !/^https?:\\/\\//i.test(url)) url = 'https://' + url;
       var payload = { reviewText: text.slice(0, 12000), rating: null };
       if (url) payload.websiteUrl = url;
       ${turnstileGate}

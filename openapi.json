@@ -404,7 +404,7 @@
         "required": ["reviewText"],
         "properties": {
           "reviewText": { "type": "string", "minLength": 1, "maxLength": 12000 },
-          "websiteUrl": { "type": "string", "maxLength": 2048, "description": "Optional site to compare the review against." },
+          "websiteUrl": { "type": "string", "maxLength": 2048, "description": "Optional site to compare the review against. The https scheme is optional: a bare domain is accepted and fetched over https." },
           "rating": { "type": "integer", "minimum": 1, "maximum": 5 },
           "turnstileToken": { "type": "string", "description": "Cloudflare Turnstile token. Required when the server has Turnstile configured." }
         }
