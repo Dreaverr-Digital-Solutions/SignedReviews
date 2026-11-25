@@ -906,7 +906,7 @@ const HEADER = (active = '') => `
         <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
       <a class="btn btn-secondary" href="${PLATFORM_URL}" rel="noopener" data-cta="login">Log in</a>
-      <a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" data-cta="signup">Sign up</a>
+      <a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" data-cta="signup">Sign up</a>
       <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer" onclick="(function(b){var d=document.getElementById('mobileDrawer'); if(!d)return; var open=d.classList.toggle('is-open'); b.setAttribute('aria-expanded', open?'true':'false');})(this);">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -1519,7 +1519,7 @@ function buildPricing() {
           <span class="tier-invitations">Self-service · unlimited</span>
         </div>
         <p class="tier-cta">
-          <a class="btn btn-secondary" href="${PLATFORM_URL}" rel="noopener">Start free</a>
+          <a class="btn btn-secondary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener">Start free</a>
         </p>
         <ul class="tier-features">
           <li class="feature-primary">10 free automated review invitations</li>
@@ -1545,7 +1545,7 @@ function buildPricing() {
           <span class="tier-invitations">250 invitations / month</span>
         </div>
         <p class="tier-cta">
-          <a class="btn btn-secondary" href="${PLATFORM_URL}" rel="noopener">Sign up free</a>
+          <a class="btn btn-secondary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener">Sign up free</a>
         </p>
         <ul class="tier-features">
           <li class="feature-primary">Automated review requests, one per customer</li>
@@ -1573,7 +1573,7 @@ function buildPricing() {
           <span class="tier-invitations">1,500 invitations / month</span>
         </div>
         <p class="tier-cta">
-          <a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener">Sign up free</a>
+          <a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener">Sign up free</a>
         </p>
         <ul class="tier-features">
           <li class="feature-primary">1,500 review invitations / month</li>
@@ -1600,7 +1600,7 @@ function buildPricing() {
           <span class="tier-invitations">5,000 invitations / month</span>
         </div>
         <p class="tier-cta">
-          <a class="btn btn-secondary" href="${PLATFORM_URL}" rel="noopener">Sign up free</a>
+          <a class="btn btn-secondary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener">Sign up free</a>
         </p>
         <ul class="tier-features">
           <li class="feature-primary">5,000 review invitations / month</li>
@@ -1749,7 +1749,7 @@ function buildPricing() {
   <section class="cta-bar" aria-label="Get started">
     <h2>Start collecting reviews tied to real purchases.</h2>
     <p>Free plan available. No credit card required to start.</p>
-    <a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener">Sign up free →</a>
+    <a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener">Sign up free →</a>
   </section>
 
   <script>
@@ -2175,7 +2175,7 @@ function buildHowItWorks() {
       </div>
     </div>`).join('')}
     <p style="margin-top:2rem;">Want to show verified reviews on your own site? The <a href="/api/">public API</a> and the <a href="/docs/">documentation</a> cover how.</p>
-    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Connect your Stripe account →</a></p>
+    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Connect your Stripe account →</a></p>
   </article>`;
 
   const html = page({
@@ -2262,7 +2262,7 @@ function buildHowVerificationWorks() {
     <h3>Which review platforms verify against the payment processor?</h3>
     <p>Signed Reviews is the only review platform that attests reviews against Stripe's own charge record. Other platforms verify against data the merchant supplies: an email address, an uploaded order list, or an e-commerce feed. None of them confirm the payment independently.</p>
 
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting processor-verified reviews →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting processor-verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/blog/what-is-a-verified-review/">What Is a Verified Review?</a> · <a href="/blog/are-trustpilot-reviews-reliable/">Are Trustpilot Reviews Reliable?</a></p>
   </article>
 
@@ -2387,7 +2387,7 @@ function buildComparison() {
       <p>If you need maximum consumer reach, have a large existing review base, or don't process payments through Stripe, Trustpilot's established brand recognition and consumer-facing directory give it an edge in organic discoverability. Many businesses use both. Trustpilot for breadth, Signed Reviews for verifiable depth.</p>
     </div>
 
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/pricing/">Pricing plans</a> · <a href="/how-it-works/">How verification works</a> · <a href="/blog/are-trustpilot-reviews-reliable/">Are Trustpilot reviews reliable?</a></p>
 
     <h2>How Signed Reviews' Cryptographic Verification Makes Fake Reviews Much Harder. Where Trustpilot Often Fails</h2>
@@ -2498,7 +2498,7 @@ function buildComparisonFeefo() {
       <p>If you need Google Seller Ratings today, Feefo's Google Review Partner status is a concrete advantage. If you don't process payments through Stripe, or if you need a mature, enterprise-grade platform with a long track record in the UK and EU, Feefo's 15-year history and deep integration ecosystem may outweigh the verification-method difference.</p>
     </div>
 
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/how-verification-works/">How Review Verification Works</a> · <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews</a></p>
 
     <h2>Frequently asked questions</h2>
@@ -2593,7 +2593,7 @@ function buildComparisonJudgeMe() {
       <p>If you're a Shopify-only store, want the lowest possible price ($15/mo for unlimited reviews), and need deep Shopify admin integration, Judge.me is the category leader. Its review volume and Shopify App Store presence give it distribution and credibility that a newer entrant can't match yet.</p>
     </div>
 
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews</a></p>
   </article>`;
 
@@ -2644,7 +2644,7 @@ function buildComparisonYotpo() {
       <p>If you need a full marketing suite (loyalty programs, SMS marketing, visual UGC galleries, AI-driven insights) Yotpo's breadth is unmatched. For enterprise DTC brands spending six figures on retention, Yotpo is the category leader.</p>
     </div>
 
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/how-verification-works/">How Review Verification Works</a> · <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/feefo/">Signed Reviews vs Feefo</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews</a></p>
 
     <h2>Frequently asked questions</h2>
@@ -2739,7 +2739,7 @@ function buildComparisonEkomi() {
       <p>If Google Seller Ratings is a must-have today, eKomi's certified Google Review Partner status delivers concrete SEO value that Signed Reviews is still building toward. If you don't use Stripe as your primary processor, or if you operate primarily in the EU and value eKomi's 15-year track record and established Google partnership, eKomi is a strong choice, especially for businesses that already have the technical resources to maintain a transaction feed.</p>
     </div>
 
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/feefo/">Signed Reviews vs Feefo</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews</a></p>
   </article>`;
 
@@ -2813,7 +2813,7 @@ function buildComparisonSiteJabber() {
     <h3>Is Signed Reviews better than SiteJabber?</h3>
     <p>For verification strength and FTC-compliance risk, yes. Signed Reviews is processor-attested by construction, while SiteJabber operates under an FTC order requiring it to change its collection practices. SiteJabber's advantages are its brand recognition and existing review base. If your priority is provably authentic reviews from confirmed customers, Signed Reviews is the structurally stronger choice.</p>
 
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting FTC-compliant reviews →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting FTC-compliant reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/tools/fake-review-checker/">Free fake review checker</a> · <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/blog/fake-reviews/">The Fake Review Problem</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a></p>
   </article>`;
 
@@ -2882,7 +2882,7 @@ function buildComparisonBirdeye() {
     <h3>Is Signed Reviews better than Birdeye?</h3>
     <p>For verification strength, yes. Signed Reviews is processor-attested by construction, while Birdeye verifies against the merchant's own records. For local-presence operations (listings, multi-location management, messaging), Birdeye is the stronger platform. If your reviews must prove a real purchase, choose Signed Reviews; if you need to operate a local reputation program at scale, Birdeye's toolkit wins.</p>
 
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting processor-verified reviews →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting processor-verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/how-verification-works/">How Review Verification Works</a> · <a href="/vs/sitejabber/">Signed Reviews vs SiteJabber</a> · <a href="/vs/yotpo/">Signed Reviews vs Yotpo</a></p>
   </article>
 
@@ -2966,7 +2966,7 @@ function buildComparisonReviewsIo() {
       <p>If you're a UK or European business and want a local provider with established regional presence, Google integrations, and a mature platform, Reviews.io is the most frequently recommended Trustpilot alternative for good reason.</p>
     </div>
 
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a> · <a href="/vs/feefo/">Signed Reviews vs Feefo</a></p>
   </article>`;
 
@@ -3048,7 +3048,7 @@ function buildComparisonShopifyReviewApps() {
       <p>Choose Loox, Okendo or Stamped if you use Shopify Payments, if photo and video galleries matter more to you than proof of purchase, or if you want loyalty and referrals bundled with reviews. A store can also run both: a Shopify app for photo reviews on product pages and Signed Reviews for payment-verified reviews on a public page.</p>
     </div>
 
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/vs/judge-me/">Signed Reviews vs Judge.me</a> · <a href="/vs/yotpo/">Signed Reviews vs Yotpo</a> · <a href="/integrations/shopify/">Shopify integration status</a> · <a href="/blog/how-to-get-reviews-on-shopify/">How to get reviews on Shopify</a></p>
   </article>`;
 
@@ -3094,7 +3094,7 @@ function buildComparisonSkeepers() {
       <h2>When Skeepers may be a better fit</h2>
       <p>If you're a European enterprise needing a broad UGC suite (reviews, video testimonials, social proof, influencer content) Skeepers covers more surface area.</p>
     </div>
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a> · <a href="/vs/feefo/">Signed Reviews vs Feefo</a></p>
   </article>`;
   const html = page({
@@ -3132,7 +3132,7 @@ function buildComparisonGoogleReviews() {
       <h2>You need both. Here's why.</h2>
       <p>Google Reviews give you search visibility, local SEO, and broad consumer reach, but they carry zero purchase verification. Signed Reviews give you verified, tamper-evident reviews you own and display on your own site, but they don't directly influence Google's local pack. The strongest approach: collect verified reviews on Signed Reviews for your website + trust badges, and encourage happy verified customers to also leave a Google Review for search visibility.</p>
     </div>
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/blog/fake-reviews/">The Fake Review Problem</a> · <a href="/vs/yelp/">Signed Reviews vs Yelp</a></p>
   </article>`;
   const html = page({
@@ -3171,7 +3171,7 @@ function buildComparisonYelp() {
       <h2>The Yelp reality</h2>
       <p>Yelp is essential for local businesses (particularly restaurants, home services, and retail) because it's where consumers search. But relying on Yelp as your only review presence means trusting an opaque algorithm to fairly represent your business, with zero purchase verification on any review. The smarter play: use Signed Reviews for verified, tamper-evident reviews on your own site, maintain a clean Yelp presence for local discovery, and encourage verified customers to cross-post to Yelp if they're active there.</p>
     </div>
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/google-reviews/">Signed Reviews vs Google Reviews</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a></p>
   </article>`;
   const html = page({
@@ -3216,7 +3216,7 @@ function buildComparisonClutch() {
       <h2>When Clutch is the priority</h2>
       <p>If you're a B2B agency or consultancy and your clients find you through Clutch searches, invest in your Clutch presence first. But supplement Clutch reviews with verified reviews on your own site. Clutch reviews live on Clutch's domain. Verified reviews on your own domain can rank for branded and long-tail queries and provide a verification signal (processor-attested), that Clutch's analyst-verification model can't match.</p>
     </div>
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/google-reviews/">Signed Reviews vs Google Reviews</a> · <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a></p>
   </article>`;
   const html = page({
@@ -3261,7 +3261,7 @@ function buildComparisonPodium() {
     <div class="verdict verdict-alt">
       <h2>When Podium may be a better fit</h2><p>If you run a brick-and-mortar local business (dental practice, auto shop, medical office) where Google Reviews and local SEO are your top priority, Podium's SMS-based invitations and deep Google integration are hard to beat. Multi-location management is purpose-built for businesses with 5-500 locations. If you don't sell online and don't use Stripe, Podium is the relevant choice, but you won't get transaction verification.</p>
     </div>
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start collecting verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" means</a> · <a href="/vs/judge-me/">Signed Reviews vs Judge.me</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews</a></p>
   </article>`;
   const html = page({
@@ -3382,7 +3382,7 @@ function buildForCoaches() {
     <h3>Will a client who buys again get asked again?</h3>
     <p>No. Automatic requests go to each client once, and every review is tied to one payment.</p>
 
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start free →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Start free →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="${B}how-verification-works/">How review verification works</a> · <a href="${B}learn/ftc-fake-reviews-rules/">FTC fake review rules</a> · <a href="${B}pricing/">Pricing</a></p>
   </article>`;
   const html = page({
@@ -3602,7 +3602,7 @@ function buildLearn() {
       <p>"Verified" is a spectrum, not a standard. When you read the word on a review, the useful question isn't "is it verified?" but "verified by whom?" A badge backed by the merchant means the merchant vouches for you; a badge backed by the payment processor means an independent party confirms the transaction actually happened.</p>
     </div>
 
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Collect processor-verified reviews →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Collect processor-verified reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/vs/trustpilot/">Signed Reviews vs Trustpilot</a> · <a href="/trust/">How Signed Reviews verifies reviews</a> · <a href="/faq/">FAQ</a></p>
   </article>`;
 
@@ -3725,7 +3725,7 @@ function buildLearnFakeReviewsWork() {
     <p>Every fake-review method exploits the same vulnerability: <strong>the platform doesn't independently verify that the reviewer paid for the product.</strong> At Level 0 (no verification), anyone can post. At Level 1 (email), anyone with an email address can post. At Level 2 (self-attested), anyone willing to check a box can post. At Level 3 (merchant-supplied), anyone the merchant puts on a list can post, and the merchant can put anyone on the list.</p>
     <p>At Level 4 (processor-attested), the charge record comes from the payment processor, not from the merchant. A click farm can't post without a real Stripe charge behind each review. AI bots can't generate a Stripe transaction ID. Brushing schemes still cost real Stripe fees.</p>
 
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Collect reviews from real, paying customers →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Collect reviews from real, paying customers →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" Actually Means</a> · <a href="/learn/ftc-fake-reviews-rules/">FTC Fake Review Rules</a> · <a href="/blog/fake-review-statistics-2026/">Fake Review Statistics 2026</a></p>
   </article>`;
 
@@ -3877,7 +3877,7 @@ function buildLearnFtcRules() {
       <li><strong>Processor-attested platforms (Level 4)</strong>: lowest risk. Verification is independent. Faking a review requires running a real payment through Stripe, which costs fees and leaves a payment record. The system is structurally compliant; you don't need to trust your policies because the code enforces the compliance.</li>
     </ul>
 
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Collect structurally compliant reviews →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Collect structurally compliant reviews →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/learn/what-does-verified-buyer-mean/">What "Verified Buyer" Actually Means</a> · <a href="/learn/how-fake-reviews-work/">How Fake Reviews Work</a></p>
   </article>`;
 
@@ -3991,7 +3991,7 @@ function buildIntegrations() {
     </ol>
     <p>Because every integration verifies against the payment provider's records, not merchant-supplied data, the verification chain is independent of which platform or plugin you use. <a href="/learn/what-does-verified-buyer-mean/">Learn why that matters →</a></p>
 
-    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Connect Stripe or Paddle →</a></p>
+    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Connect Stripe or Paddle →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/integrations/stripe/">Stripe integration details</a> · <a href="/integrations/paddle/">Paddle integration details</a> · <a href="/api/">API reference</a> · <a href="/docs/">Documentation</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews guide</a></p>
   </article>`;
 
@@ -4110,7 +4110,7 @@ function buildIntegrationsStripe() {
 
     <h2 id="setup">How to connect</h2>
     <ol class="howto-steps">
-      <li><div class="step-num"></div><div><h3>Sign up or log in</h3><p>Create a free Signed Reviews account at <a href="${PLATFORM_URL}" rel="noopener">platform.signedreviews.com</a>. No credit card required. The Free plan includes Stripe integration with unlimited self-service reviews and 10 free automated review invitations.</p></div></li>
+      <li><div class="step-num"></div><div><h3>Sign up or log in</h3><p>Create a free Signed Reviews account at <a href="${PLATFORM_URL}" data-conversion="signup" rel="noopener">platform.signedreviews.com</a>. No credit card required. The Free plan includes Stripe integration with unlimited self-service reviews and 10 free automated review invitations.</p></div></li>
       <li><div class="step-num"></div><div><h3>Click "Connect Stripe"</h3><p>In your dashboard, click the Stripe connection button. You'll be redirected to Stripe's official OAuth authorization page, the same flow used by thousands of Stripe App installations.</p></div></li>
       <li><div class="step-num"></div><div><h3>Authorize the permissions</h3><p>Stripe shows you exactly which permissions are requested, four read scopes plus two coupon permissions used only for review incentives. Review and click "Connect." The redirect brings you back to your Signed Reviews dashboard.</p></div></li>
       <li><div class="step-num"></div><div><h3>Configure auto-requests</h3><p>Choose your invitation timing: immediately after purchase (digital products) or after a configurable delay (physical products). Set reminder cadence: standard is 3 and 7 days.</p></div></li>
@@ -4130,7 +4130,7 @@ function buildIntegrationsStripe() {
     <h2 id="faq">Frequently asked questions</h2>
     ${faqHtml}
 
-    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Connect your Stripe account →</a></p>
+    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Connect your Stripe account →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews guide</a> · <a href="/how-it-works/">How it works</a> · <a href="/api/">API reference</a></p>
   </article>`;
 
@@ -4237,7 +4237,7 @@ function buildIntegrationsPaddle() {
 
     <h2 id="setup">How to connect</h2>
     <ol class="howto-steps">
-      <li><div class="step-num"></div><div><h3>Sign up or log in</h3><p>Create a free Signed Reviews account at <a href="${PLATFORM_URL}" rel="noopener">platform.signedreviews.com</a>. No credit card required.</p></div></li>
+      <li><div class="step-num"></div><div><h3>Sign up or log in</h3><p>Create a free Signed Reviews account at <a href="${PLATFORM_URL}" data-conversion="signup" rel="noopener">platform.signedreviews.com</a>. No credit card required.</p></div></li>
       <li><div class="step-num"></div><div><h3>Create a Paddle API key</h3><p>In Paddle, open <strong>My account, Settings, Authentication</strong>. On the <strong>API keys</strong> tab, click <strong>New API key</strong> and give it <strong>read</strong> access to transactions, customers, addresses and adjustments. Nothing else is needed. Pick an expiry date (Paddle allows up to one year).</p></div></li>
       <li><div class="step-num"></div><div><h3>Paste it into Signed Reviews</h3><p>Choose <strong>I sell with Paddle</strong> during setup, or open Settings. Paste the key, enter the same expiry date, and confirm that your privacy notice covers review requests. We check the four permissions with Paddle before saving.</p></div></li>
       <li><div class="step-num"></div><div><h3>Import your sales</h3><p>Signed Reviews imports your completed sales from the last 24 months. The import is display-only: no emails go out.</p></div></li>
@@ -4247,7 +4247,7 @@ function buildIntegrationsPaddle() {
     <h2 id="faq">Frequently asked questions</h2>
     ${faqHtml}
 
-    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Connect your Paddle account →</a></p>
+    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Connect your Paddle account →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/integrations/">All integrations</a> · <a href="/how-it-works/">How it works</a> · <a href="/how-verification-works/">How verification works</a></p>
   </article>`;
 
@@ -4313,7 +4313,7 @@ function buildIntegrationsShopify() {
     <p>If your Shopify store takes payment through its own Stripe account (not Shopify Payments), you can connect your Stripe account directly to Signed Reviews right now, the same Level 4 verification, the same automatic invitations, one per customer. The Shopify App Store integration will make this even easier. <a href="/integrations/stripe/">Set up the Stripe integration →</a></p>
     <p>On Shopify Payments? Then a Shopify review app is the right tool for now. We compare <a href="/vs/shopify-review-apps/">Loox, Okendo and Stamped</a> on plans, prices and what each one checks a review against.</p>
 
-    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Join the waitlist →</a></p>
+    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Join the waitlist →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/integrations/stripe/">Stripe integration</a> · <a href="/integrations/">All integrations</a> · <a href="/blog/stripe-verified-reviews/">Stripe Verified Reviews</a></p>
   </article>`;
 
@@ -4374,7 +4374,7 @@ function buildIntegrationsWooCommerce() {
     <h2 id="today">What you can do today</h2>
     <p>If your WooCommerce store uses the Stripe payment gateway, you can connect your Stripe account directly to Signed Reviews right now. Charges processed through WooCommerce are covered, and every customer is invited once for a verified review. The plugin will make setup a one-click WordPress-admin experience. <a href="/integrations/stripe/">Set up the Stripe integration →</a></p>
 
-    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Join the waitlist →</a></p>
+    <p style="text-align:center;margin-top:2.5rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Join the waitlist →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/integrations/stripe/">Stripe integration</a> · <a href="/integrations/">All integrations</a> · <a href="/integrations/shopify/">Shopify integration</a></p>
   </article>`;
 
@@ -4776,7 +4776,7 @@ function buildFakeReviewChecker() {
     <h3>What happens to the text I paste?</h3>
     <p>We do not store what you paste. The instant signals never leave your browser. If you run the AI cross-check, the review text and optional website URL are sent to our server, scored, and discarded. We do not keep a copy or use it for training. We do keep a usage record per check (token count, cost and duration), which holds no text, website or IP address.</p>
 
-    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Collect reviews from real, paying customers →</a></p>
+    <p style="text-align:center;margin-top:2rem;"><a class="btn btn-primary" href="${PLATFORM_URL}" data-conversion="signup" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem">Collect reviews from real, paying customers →</a></p>
     <p style="text-align:center;margin-top:1.25rem;font-size:.9rem;color:var(--muted);">Related: <a href="/blog/fake-review-checker/">How to check if reviews are fake (7-point method)</a> · <a href="/blog/fake-review-statistics-2026/">Fake review statistics 2026</a></p>
   </article>`;
 
@@ -4857,6 +4857,10 @@ function buildFakeReviewChecker() {
         if (p && p.__loaded === true && typeof p.capture === 'function') { p.capture(name, props); return; }
         if (++tries < 40) setTimeout(send, 150);
       })();
+    }
+    // First-party analytics (platform/ANALYTICS.md): outcome only, never the text or the URL.
+    function fpa(name, props) {
+      try { var f = window.fpa = window.fpa || { q: [] }; if (f.track) f.track(name, { props: props }); else f.q.push([name, { props: props }]); } catch (_) {}
     }
 
     function analyze() {
@@ -4953,6 +4957,7 @@ function buildFakeReviewChecker() {
       runBtn.disabled = true;
       runBtn.textContent = 'Checking…';
       cap('check_review_submitted', { has_url: !!url, chars: text.length });
+      fpa('checker_run', { has_url: url ? 'yes' : 'no' });
       fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -4964,10 +4969,11 @@ function buildFakeReviewChecker() {
             return data;
           });
         })
-        .then(function (data) { cap('check_review_result', { ok: true, verdict: String(data.verdict || ''), site_checked: !!data.siteChecked }); renderAi(data); })
+        .then(function (data) { cap('check_review_result', { ok: true, verdict: String(data.verdict || ''), site_checked: !!data.siteChecked }); fpa('checker_result', { ok: 'yes', verdict: String(data.verdict || '').slice(0, 60) }); renderAi(data); })
         .catch(function (err) {
           var reason = (err && err.message) ? err.message : 'network error';
           cap('check_review_result', { ok: false, reason: reason.slice(0, 80) });
+          fpa('checker_result', { ok: 'no' });
           aiOutput.innerHTML = '<p class="frc-empty">AI cross-check unavailable right now (' + esc(reason) + ').</p>';
         })
         .then(function () {
@@ -5281,6 +5287,52 @@ if (fs.existsSync(distIndex)) {
   }
 }
 console.log(`  ✓ dist/ (${PUBLISH.length} entries)`);
+
+// ── First-party analytics tracker (platform/ANALYTICS.md) ────────────────────
+// Inlined before </body> of every HTML page in dist/ (generated, bespoke and static pages
+// alike) with the client part of the tracking plan. The plan's canonical copy lives in the
+// platform repo; analytics/analytics.config.json is synced from it by
+// scripts/sync-analytics-config.js (scripts/check-analytics.js fails when they differ). The
+// tracker only runs on signedreviews.com, so local previews and pages.dev deploys send nothing.
+{
+  const plan = JSON.parse(fs.readFileSync(path.join(ROOT, 'analytics', 'analytics.config.json'), 'utf8'));
+  const client = {
+    prefix: plan.prefix,
+    host: plan.host,
+    endpoint: plan.endpoint,
+    linkKinds: plan.linkKinds.map(({ kind, hosts, paths }) => (paths ? { kind, hosts, paths } : { kind, hosts })),
+    conversions: plan.conversions.map(({ kind, scope }) => ({ kind, scope })),
+    pageGoals: plan.goals.filter((g) => g.type === 'pageview').map(({ name, path: p, match }) => ({ name, path: p, match: match || 'exact' })),
+    entity: plan.entity,
+    choices: plan.choices,
+    search: plan.search,
+  };
+  const src = fs.readFileSync(path.join(ROOT, 'analytics', 'tracker.js'), 'utf8')
+    .split(/\r?\n/)
+    .filter((line) => !/^\s*\/\//.test(line))
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .join('\n')
+    .replace('__SR_FPA_CONFIG__', () => JSON.stringify(client));
+  if (/<\/script/i.test(src)) throw new Error('analytics/tracker.js must not contain </script');
+  const tag = `<script data-sr-fpa>${src}</script>`;
+  let injected = 0;
+  const walk = (dir) => {
+    for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, ent.name);
+      if (ent.isDirectory()) walk(full);
+      else if (ent.name.endsWith('.html')) {
+        const html = fs.readFileSync(full, 'utf8');
+        const at = html.lastIndexOf('</body>');
+        if (at < 0 || html.includes('data-sr-fpa')) continue;
+        fs.writeFileSync(full, `${html.slice(0, at)}${tag}\n${html.slice(at)}`, 'utf8');
+        injected += 1;
+      }
+    }
+  };
+  walk(DIST_DIR);
+  console.log(`  ✓ first-party analytics tracker inlined into ${injected} pages (${(tag.length / 1024).toFixed(1)} KiB)`);
+}
 
 // Markdown twins: dist/<page>/index.md for AI agents, built from this run's HTML.
 {

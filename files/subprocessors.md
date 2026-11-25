@@ -1,6 +1,6 @@
 # Sub-processors
 
-**Last updated:** October 11, 2026
+**Last updated:** November 25, 2026
 
 This page lists the third-party service providers ("sub-processors") that Paid Rightly LLC uses to provide Signed Reviews. Each sub-processor is contractually required to use personal data only to provide services to us and to maintain appropriate security safeguards.
 
@@ -13,6 +13,7 @@ We may update this list from time to time. Material additions will be reflected 
 | Sub-processor | Purpose | Data categories | Location |
 |---|---|---|---|
 | **Railway** | Cloud hosting and managed PostgreSQL database | All Service data at rest | United States |
+| **Cloudflare** | Hosting and content delivery for signedreviews.com; supplies the approximate location (from the IP address) used by our own visit statistics | Request metadata: IP address, user agent, requested URL, referrer | Global network |
 | **Cloudinary** | Image hosting for review photos and business brand assets | User-uploaded images (review photos, logos) | United States |
 | **Stripe** | Business Stripe account linking (Connect OAuth or a restricted API key) and webhooks. Limited access used to verify reviews and to compute the metrics a merchant chooses to show on their public review page. We never charge, refund, move funds, or modify the connected account. The only write action is creating single-use, customer-restricted discount coupons, and only when the merchant enables review incentives. | Stripe account ID or restricted API key (encrypted at rest); transaction metadata (charge ID, customer email, card last-4, amount, currency); aggregate read of charges, customers, subscriptions, refunds, disputes, and balance transactions for merchant-enabled metrics | United States |
 | **Resend** | Transactional email delivery | Recipient email addresses; email content (verification links, magic links, team invitations, review-request emails) | United States |

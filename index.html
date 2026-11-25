@@ -1592,7 +1592,7 @@
             <svg class="ic-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
           </button>
           <a href="https://platform.signedreviews.com" rel="noopener" class="hidden md:inline-flex px-3 py-2 text-sm font-semibold text-navy-700 hover:text-navy-900 rounded-lg hover:bg-navy-50 transition-colors">Log in</a>
-          <a href="https://platform.signedreviews.com" rel="noopener" class="px-3 sm:px-4 py-2 btn-gold btn-ripple text-white rounded-xl text-sm font-semibold whitespace-nowrap">Sign up</a>
+          <a href="https://platform.signedreviews.com" rel="noopener" class="px-3 sm:px-4 py-2 btn-gold btn-ripple text-white rounded-xl text-sm font-semibold whitespace-nowrap" data-cta="nav-signup" data-conversion="signup">Sign up</a>
         </div>
       </div>
     </nav>
@@ -1617,7 +1617,7 @@
           </p>
           <div class="fade-up delay-3">
             <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center mb-4">
-              <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]" data-cta="hero-signup">Sign up free &rarr;</a>
+              <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]" data-cta="hero-signup" data-conversion="signup">Sign up free &rarr;</a>
               <a href="https://platform.signedreviews.com/b/coldsire" rel="noopener" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-600 border border-navy-300 hover:border-navy-400 hover:bg-white/40 transition-colors inline-flex items-center justify-center min-w-[140px]" data-cta="hero-see-review">See a live verified review &rarr;</a>
             </div>
             <div class="flex justify-center lg:justify-start mb-1">
@@ -2219,7 +2219,7 @@
     <h2 class="font-serif text-4xl sm:text-5xl font-normal leading-tight text-navy-900 mb-4">Free plan. Paid plans from $29/mo.</h2>
     <p class="text-navy-600 text-lg leading-relaxed max-w-xl mx-auto mb-8">There is a free plan for self-service collection, always: no credit card, no per-review fees, no commissions. Paid plans from $29/mo add automation: every customer is asked for a verified review once, and reminders are handled for you.</p>
     <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-6">
-      <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 btn-gold btn-ripple text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free &rarr;</a>
+      <a href="https://platform.signedreviews.com" rel="noopener" data-cta="pricing-signup" data-conversion="signup" class="px-7 py-3.5 btn-gold btn-ripple text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]">Sign up free &rarr;</a>
       <a href="/pricing/" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-700 border border-navy-300 hover:border-navy-400 transition-colors inline-flex items-center justify-center min-w-[180px]">See what's included</a>
     </div>
     <p class="text-navy-600 text-base mb-8">Built for anyone who gets paid through Stripe or Paddle: shops, SaaS, agencies, freelancers, course creators.</p>
@@ -2284,7 +2284,7 @@
     <h2 class="font-serif text-4xl sm:text-5xl font-normal mb-4 leading-tight text-navy-900">Your business deserves<br>reviews people <em class="gold-shimmer">believe.</em></h2>
     <p class="text-navy-500 text-lg mb-10 leading-relaxed">Sign up free. Connect Stripe or Paddle and start collecting Purchase Verified reviews tied to real transactions. <a href="/pricing/" class="text-gold-600 underline underline-offset-2 hover:text-gold-500">Plans from $29/mo</a>.</p>
     <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
-      <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]" data-cta="final-signup">Sign up free &rarr;</a>
+      <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 btn-gold btn-ripple btn-cta-pulse text-white rounded-xl text-sm font-semibold inline-flex items-center justify-center min-w-[180px]" data-cta="final-signup" data-conversion="signup">Sign up free &rarr;</a>
       <a href="https://platform.signedreviews.com" rel="noopener" class="px-7 py-3.5 rounded-xl text-sm font-semibold text-navy-600 border border-navy-300 hover:border-navy-400 transition-colors inline-flex items-center justify-center min-w-[140px]">Log in</a>
     </div>
     <div class="flex flex-wrap justify-center gap-2 mt-3 mb-2">
@@ -3807,24 +3807,26 @@
     if (!open || !dlg || !dlg.showModal) { if (open) open.hidden = true; return; }
     var SRC = 'https://video.signedreviews.com/hero-demo-v1.mp4', POSTER = 'https://video.signedreviews.com/hero-demo-poster-v1.webp', warmed = false, half = false;
     function cap(n, p){ try { window.posthog && window.posthog.capture(n, p || {}); } catch (e) {} }
+    // First-party analytics (platform/ANALYTICS.md): queued until the tracker at the end of the page loads.
+    function fpa(n){ try { var f = window.fpa = window.fpa || { q: [] }; if (f.track) f.track(n); else f.q.push([n]); } catch (e) {} }
     function warm(){
       if (warmed) return; warmed = true;
       v.poster = POSTER; v.preload = 'auto'; v.src = SRC;
     }
     ['pointerenter', 'focus', 'touchstart'].forEach(function(ev){ open.addEventListener(ev, warm, {passive: true, once: true}); });
     open.addEventListener('click', function(){
-      warm(); document.documentElement.classList.add('demo-open'); dlg.showModal(); cap('demo_video_open');
+      warm(); document.documentElement.classList.add('demo-open'); dlg.showModal(); cap('demo_video_open'); fpa('demo_open');
       var p = v.play(); if (p && p.catch) p.catch(function(){});
     });
     function shut(){ v.pause(); if (dlg.open) dlg.close(); }
     close.addEventListener('click', shut);
     dlg.addEventListener('click', function(e){ if (e.target === dlg) shut(); });
     dlg.addEventListener('close', function(){ v.pause(); document.documentElement.classList.remove('demo-open'); open.focus(); });
-    v.addEventListener('play', function(){ cap('demo_video_play'); }, {once: true});
+    v.addEventListener('play', function(){ cap('demo_video_play'); fpa('demo_play'); }, {once: true});
     v.addEventListener('timeupdate', function(){
-      if (!half && v.duration && v.currentTime / v.duration >= 0.5) { half = true; cap('demo_video_50'); }
+      if (!half && v.duration && v.currentTime / v.duration >= 0.5) { half = true; cap('demo_video_50'); fpa('demo_half'); }
     });
-    v.addEventListener('ended', function(){ cap('demo_video_complete'); });
+    v.addEventListener('ended', function(){ cap('demo_video_complete'); fpa('demo_complete'); });
   })();
 </script>
 <script>

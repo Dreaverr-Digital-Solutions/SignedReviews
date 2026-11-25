@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "prefix": "sr",
+  "siteName": "Signed Reviews",
+  "host": "signedreviews.com",
+  "endpoint": "/api/e",
+  "ip": "full",
+  "conversionWords": { "singular": "Sign-up", "plural": "Sign-ups" },
+  "linkKinds": [
+    { "kind": "signup", "label": "Sign-up links", "hosts": ["platform.signedreviews.com"], "paths": ["/register"] },
+    { "kind": "platform", "label": "App links", "hosts": ["platform.signedreviews.com"] },
+    { "kind": "stripe", "label": "Stripe", "hosts": ["stripe.com"] }
+  ],
+  "conversions": [
+    { "kind": "signup", "label": "Sign-up click", "scope": "anywhere" }
+  ],
+  "goals": [
+    { "name": "signup", "label": "Sign-up clicks", "question": "Which pages and channels produce sign-up clicks?", "conversion": true, "type": "click", "kind": "signup" },
+    { "name": "pricing", "label": "Viewed pricing", "question": "Do visitors look at pricing before they sign up?", "conversion": false, "type": "pageview", "path": "/pricing/", "match": "exact" },
+    { "name": "demo", "label": "Played the demo video", "question": "Does the homepage demo video get watched?", "conversion": false, "type": "event", "event": "demo_play" },
+    { "name": "checker", "label": "Ran the review checker", "question": "Does the free fake review checker bring visitors who sign up?", "conversion": false, "type": "event", "event": "checker_run" },
+    { "name": "contact", "label": "Emailed us", "question": "How many visitors reach out by email?", "conversion": false, "type": "click", "kind": "email" }
+  ],
+  "events": [
+    { "name": "demo_open", "label": "Opened the demo video", "trigger": "Demo dialog opened from the homepage hero button", "props": [] },
+    { "name": "demo_play", "label": "Started the demo video", "trigger": "Demo video starts playing (first play per page view)", "props": [] },
+    { "name": "demo_half", "label": "Watched half the demo", "trigger": "Demo video passes 50%", "props": [] },
+    { "name": "demo_complete", "label": "Finished the demo video", "trigger": "Demo video ends", "props": [] },
+    { "name": "checker_run", "label": "Ran the fake review checker", "trigger": "Fake review checker sends the AI cross-check request", "props": ["has_url"] },
+    { "name": "checker_result", "label": "Got a checker result", "trigger": "Fake review checker receives the AI cross-check answer", "props": ["ok", "verdict"] }
+  ],
+  "funnels": [
+    {
+      "name": "visit-signup",
+      "label": "Visit to sign-up",
+      "question": "Where do visitors drop out between their first page, pricing and the sign-up click?",
+      "steps": [
+        { "label": "Any page", "type": "pageview", "path": "/", "match": "prefix" },
+        { "label": "Pricing", "type": "pageview", "path": "/pricing/", "match": "exact" },
+        { "label": "Sign-up click", "type": "click", "kind": "signup" }
+      ]
+    },
+    {
+      "name": "checker-signup",
+      "label": "Checker to sign-up",
+      "question": "Does the free fake review checker bring visitors who sign up?",
+      "steps": [
+        { "label": "Checker page", "type": "pageview", "path": "/tools/fake-review-checker/", "match": "exact" },
+        { "label": "Ran a check", "type": "event", "event": "checker_run" },
+        { "label": "Got a result", "type": "event", "event": "checker_result" },
+        { "label": "Sign-up click", "type": "click", "kind": "signup" }
+      ]
+    },
+    {
+      "name": "demo-signup",
+      "label": "Demo to sign-up",
+      "question": "Do people who watch the demo click sign-up?",
+      "steps": [
+        { "label": "Homepage", "type": "pageview", "path": "/", "match": "exact" },
+        { "label": "Opened demo", "type": "event", "event": "demo_open" },
+        { "label": "Played", "type": "event", "event": "demo_play" },
+        { "label": "Watched half", "type": "event", "event": "demo_half" },
+        { "label": "Sign-up click", "type": "click", "kind": "signup" }
+      ]
+    }
+  ],
+  "entity": null,
+  "choices": { "mode": "named", "names": [] },
+  "search": null
+}
