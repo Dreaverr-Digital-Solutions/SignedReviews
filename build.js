@@ -272,7 +272,7 @@ const ORG_SCHEMA = {
   logo: `${SITE_URL}/images/SignedReviews_logo_only.png`,
   description: COMPANY.description,
   email: COMPANY.supportEmail,
-  foundingDate: '2025',
+  foundingDate: '2026-02-16',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '1209 Mountain Road Pl NE, Ste N',
@@ -996,6 +996,9 @@ const FOOTER = `
       </a>
       <a href="https://zerorevenue.club/?utm_source=zerorevenue.club&utm_medium=referral&utm_content=badge" target="_blank" rel="noopener noreferrer">
         <img src="${B}images/badges/zerorevenue.svg" alt="Listed on Zero Revenue Club" width="190" height="44" loading="lazy" decoding="async" style="display:block;border:0;width:190px;max-width:100%;height:44px;object-fit:contain;" />
+      </a>
+      <a href="https://startupbase.io/products/signed-reviews?utm_source=startupbase&utm_medium=badge&utm_campaign=launch-badge-light" target="_blank" rel="noopener noreferrer">
+        <img src="${B}images/badges/startupbase.svg" alt="Launched on StartupBase" width="206" height="55" loading="lazy" decoding="async" style="display:block;border:0;width:206px;max-width:100%;height:55px;object-fit:contain;" />
       </a>
     </div>
   </div>
