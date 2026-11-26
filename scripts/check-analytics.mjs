@@ -250,6 +250,7 @@ const done = (group) => {
   check(viaGo > 100 && direct.size === 0, `sign-up links not routed through /go/signup (${viaGo} routed): ${[...direct].slice(0, 4).join(' | ')}`);
   const robots = fs.readFileSync(path.join(dist, 'robots.txt'), 'utf8');
   check((robots.match(/^Allow: \/$/gm) || []).length === (robots.match(/^Disallow: \/go\/$/gm) || []).length, 'robots.txt disallows /go/ in every group that allows /');
+  check(/^\/go\/signup https:\/\/platform\.signedreviews\.com\/ 302$/m.test(fs.readFileSync(path.join(dist, '_redirects'), 'utf8')), '_redirects keeps /go/signup working if the Worker is not deployed yet');
   const home = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
   check(/"endpoint":"\/api\/e"/.test(home), 'the inlined tracker posts to /api/e');
   check((home.match(/data-conversion="signup"/g) || []).length >= 4, 'homepage sign-up CTAs carry data-conversion="signup"');

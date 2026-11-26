@@ -5238,7 +5238,11 @@ for (const entry of fs.readdirSync(ROOT)) {
 		'/vs/okendo /vs/shopify-review-apps/ 301\n' +
 		'/vs/stamped/ /vs/shopify-review-apps/ 301\n' +
 		'/vs/stamped /vs/shopify-review-apps/ 301\n' +
-		'/SignedReviews/* /:splat 301\n');
+		'/SignedReviews/* /:splat 301\n' +
+		// Safety net for the sign-up redirect: the apex Worker answers /go/signup itself (and counts the
+		// click); if this site is deployed before the Worker, Pages sends the visitor to the app instead
+		// of a 404, so sign-up buttons never break (only the server-side count waits for the Worker).
+		'/go/signup https://platform.signedreviews.com/ 302\n');
 // The home page (index.html) is bespoke and not generated through SHARED_HEAD,
 // so inject PostHog + build metadata into its dist copy here (keeps the source
 // file clean and the key in one place). No-op when POSTHOG_KEY is unset.
