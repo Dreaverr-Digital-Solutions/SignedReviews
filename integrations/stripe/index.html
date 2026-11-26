@@ -8,8 +8,8 @@
   <link rel="canonical" href="https://signedreviews.com/integrations/stripe/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c1320">
-  <meta name="build-commit" content="01eca965905daea67ceb9268c8a438ea52ba23da">
-  <meta name="build-time" content="2026-11-26T08:35:51.421Z">
+  <meta name="build-commit" content="d1feb9b3677ab61b1a6503765a9d0b72ea5d8d6c">
+  <meta name="build-time" content="2026-11-26T08:59:50.863Z">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Stripe Integration for Verified Reviews | Signed Reviews">
@@ -25,7 +25,6 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=20260924a">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=20260924a">
 
-  <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
   <style>@font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:optional;src:url(/fonts/instrumentserif-v5-latin-ext-italic.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}@font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:optional;src:url(/fonts/instrumentserif-v5-latin-italic.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:optional;src:url(/fonts/instrumentserif-v5-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}@font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:optional;src:url(/fonts/instrumentserif-v5-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:optional;src:url(/fonts/inter-v20-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:optional;src:url(/fonts/inter-v20-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:optional;src:url(/fonts/inter-v20-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:optional;src:url(/fonts/inter-v20-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:optional;src:url(/fonts/inter-v20-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:optional;src:url(/fonts/inter-v20-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:optional;src:url(/fonts/jetbrainsmono-v24-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:optional;src:url(/fonts/jetbrainsmono-v24-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}</style>
 
@@ -474,49 +473,173 @@ main { padding: 0; }
 </style>
   <script>
     !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_oks4oQLhwDpmgqTdiwx7tjJ3FZrZPZjDWtsYtvbXG9tu',{api_host:'https://signedreviews.com/ph',person_profiles:'identified_only',session_recording:{maskAllInputs:true},disable_session_recording:true,respect_dnt:true});
-    (function(){
-      var CK='sr_replay_consent', GK='sr_geo';
-      var REGION=['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH','BR'];
-      function get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
-      function set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
-      function start(){ try{ posthog.startSessionRecording(); }catch(e){} }
-      function stop(){ try{ posthog.stopSessionRecording(); }catch(e){} }
-      function banner(){
-        if(document.getElementById('sr-consent')) return;
-        var d=document.createElement('div'); d.id='sr-consent'; d.setAttribute('role','dialog'); d.setAttribute('aria-label','Session recording consent');
-        d.style.cssText='position:fixed;left:16px;right:16px;bottom:16px;margin:0 auto;max-width:520px;z-index:2147483647;background:#0b1220;color:#e7ecf3;border:1px solid #243044;border-radius:12px;padding:16px 18px;box-shadow:0 10px 30px rgba(0,0,0,.35);font:14px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif';
-        var p=document.createElement('div'); p.style.marginBottom='10px';
-        p.innerHTML='We would like to record an anonymised, form-masked replay of your visit to help improve our site. Analytics work either way. See our <a href="/privacy/" style="color:#8ab4ff">Privacy Policy</a>.';
-        var row=document.createElement('div'); row.style.cssText='display:flex;gap:8px;justify-content:flex-end';
-        var dec=document.createElement('button'); dec.type='button'; dec.textContent='Decline'; dec.style.cssText='padding:8px 14px;border-radius:8px;border:1px solid #3a475c;background:transparent;color:#e7ecf3;cursor:pointer';
-        var acc=document.createElement('button'); acc.type='button'; acc.textContent='Accept'; acc.style.cssText='padding:8px 14px;border-radius:8px;border:0;background:#2f6df6;color:#fff;font-weight:600;cursor:pointer';
-        dec.onclick=function(){ set(CK,'denied'); stop(); d.remove(); };
-        acc.onclick=function(){ set(CK,'granted'); d.remove(); start(); };
-        row.appendChild(dec); row.appendChild(acc); d.appendChild(p); d.appendChild(row);
-        (document.body||document.documentElement).appendChild(d);
-      }
-      // Footer "Privacy choices" entry point — lets anyone re-open the banner to
-      // opt in or out at any time, in any region.
-      window.srPrivacy=function(){ banner(); };
-      // Browser-level opt-out signals (Do Not Track, Global Privacy Control):
-      // never record and don't prompt.
-      var dnt=navigator.doNotTrack=='1'||navigator.doNotTrack=='yes'||window.doNotTrack=='1';
-      var gpc=navigator.globalPrivacyControl===true;
-      if(dnt||gpc){ stop(); return; }
-      function decide(inRegion){
-        var c=get(CK);
-        if(c==='denied'){ return; }            // persistent opt-out, honoured everywhere
-        if(c==='granted'){ start(); return; }
-        if(!inRegion){ start(); return; }      // outside EU/EEA/UK: record by default
-        if(document.body){ banner(); }         // inside, no choice yet: ask
-        else { document.addEventListener('DOMContentLoaded',banner); }
-      }
-      var g=get(GK);
-      if(g){ decide(REGION.indexOf(g)>=0); }
-      else { fetch('/cdn-cgi/trace').then(function(r){return r.text();}).then(function(t){ var m=/loc=([A-Z]{2})/.exec(t); var loc=m?m[1]:''; if(loc) set(GK,loc); decide(loc?REGION.indexOf(loc)>=0:true); }).catch(function(){ decide(true); }); }
-    })();
   </script>
+  <script data-sr-consent>(function () {
+var PH_KEY = "phc_oks4oQLhwDpmgqTdiwx7tjJ3FZrZPZjDWtsYtvbXG9tu";
+var PH_HOST = "https://signedreviews.com/ph";
+var CK = 'sr_consent';
+var LEGACY = 'sr_replay_consent';
+var GK = 'sr_geo';
+var REGION = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH', 'BR'];
+var TRACKER_KEYS = ['sr_vid', 'sr_sid', 'sr_slast', 'sr_goals'];
+function get(k) {
+try {
+return localStorage.getItem(k);
+} catch (e) {
+return null;
+}
+}
+function set(k, v) {
+try {
+localStorage.setItem(k, v);
+} catch (e) {}
+}
+function del(k) {
+try {
+localStorage.removeItem(k);
+} catch (e) {}
+}
+var nav = navigator;
+var dnt = nav.doNotTrack == '1' || nav.doNotTrack == 'yes' || window.doNotTrack == '1' || nav.globalPrivacyControl === true;
+var state = 'pending';
+var listeners = [];
+function allowed() {
+return !dnt && (state === 'granted' || state === 'default');
+}
+function emit() {
+for (var i = 0; i < listeners.length; i++) {
+try {
+listeners[i](allowed());
+} catch (e) {}
+}
+}
+window.srConsent = {
+allowed: allowed,
+state: function () {
+return dnt ? 'dnt' : state;
+},
+onChange: function (fn) {
+listeners.push(fn);
+if (state !== 'pending' || dnt) fn(allowed());
+},
+};
+var phStarted = false;
+function startPosthog() {
+var ph = window.posthog;
+if (!PH_KEY || !ph || typeof ph.init !== 'function') return;
+if (!phStarted) {
+phStarted = true;
+try {
+ph.init(PH_KEY, { api_host: PH_HOST, person_profiles: 'identified_only', session_recording: { maskAllInputs: true }, disable_session_recording: true, disable_surveys: true, respect_dnt: true });
+} catch (e) {}
+} else {
+try {
+ph.opt_in_capturing();
+} catch (e) {}
+}
+try {
+ph.startSessionRecording();
+} catch (e) {}
+}
+function stopAll() {
+if (phStarted) {
+try {
+window.posthog.stopSessionRecording();
+window.posthog.opt_out_capturing();
+} catch (e) {}
+}
+for (var i = 0; i < TRACKER_KEYS.length; i++) del(TRACKER_KEYS[i]);
+}
+function apply() {
+if (allowed()) startPosthog();
+else stopAll();
+emit();
+}
+function banner() {
+if (document.getElementById('sr-consent')) return;
+var d = document.createElement('div');
+d.id = 'sr-consent';
+d.setAttribute('role', 'dialog');
+d.setAttribute('aria-label', 'Analytics consent');
+d.style.cssText = 'position:fixed;left:16px;right:16px;bottom:16px;margin:0 auto;max-width:540px;z-index:2147483647;background:#0b1220;color:#e7ecf3;border:1px solid #243044;border-radius:12px;padding:16px 18px;box-shadow:0 10px 30px rgba(0,0,0,.35);font:14px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif';
+var p = document.createElement('div');
+p.style.marginBottom = '10px';
+p.appendChild(document.createTextNode('May we measure your visit? With your consent we count page views and clicks with our own analytics and PostHog, and record a form-masked replay to improve the site. No advertising, and we never store your IP address. '));
+var a = document.createElement('a');
+a.href = '/privacy/';
+a.style.color = '#8ab4ff';
+a.textContent = 'Privacy Policy';
+p.appendChild(a);
+p.appendChild(document.createTextNode('.'));
+var row = document.createElement('div');
+row.style.cssText = 'display:flex;gap:8px;justify-content:flex-end';
+var dec = document.createElement('button');
+dec.type = 'button';
+dec.textContent = 'Decline';
+dec.style.cssText = 'padding:8px 14px;border-radius:8px;border:1px solid #3a475c;background:transparent;color:#e7ecf3;cursor:pointer';
+var acc = document.createElement('button');
+acc.type = 'button';
+acc.textContent = 'Accept';
+acc.style.cssText = 'padding:8px 14px;border-radius:8px;border:0;background:#2f6df6;color:#fff;font-weight:600;cursor:pointer';
+dec.onclick = function () {
+set(CK, 'denied');
+state = 'denied';
+d.remove();
+apply();
+};
+acc.onclick = function () {
+set(CK, 'granted');
+state = 'granted';
+d.remove();
+apply();
+};
+row.appendChild(dec);
+row.appendChild(acc);
+d.appendChild(p);
+d.appendChild(row);
+(document.body || document.documentElement).appendChild(d);
+}
+function showBanner() {
+if (document.body) banner();
+else document.addEventListener('DOMContentLoaded', banner);
+}
+window.srPrivacy = function () {
+showBanner();
+};
+if (dnt) {
+emit();
+return;
+}
+function decide(inRegion) {
+var c = get(CK) || get(LEGACY);
+if (c === 'granted') state = 'granted';
+else if (c === 'denied') state = 'denied';
+else if (!inRegion) state = 'default';
+else {
+state = 'pending';
+showBanner();
+return;
+}
+apply();
+}
+var g = get(GK);
+if (g) decide(REGION.indexOf(g) >= 0);
+else {
+fetch('/cdn-cgi/trace')
+.then(function (r) {
+return r.text();
+})
+.then(function (t) {
+var m = /loc=([A-Z]{2})/.exec(t);
+var loc = m ? m[1] : '';
+if (loc) set(GK, loc);
+decide(loc ? REGION.indexOf(loc) >= 0 : true);
+})
+.catch(function () {
+decide(true);
+});
+}
+})();</script>
   <script>
     (function () {
       function setup() {
@@ -655,7 +778,6 @@ main { padding: 0; }
   </script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Signed Reviews","legalName":"Paid Rightly LLC","url":"https://signedreviews.com","logo":"https://signedreviews.com/images/SignedReviews_logo_only.png","description":"Signed Reviews is a SaaS platform that helps businesses collect verified, tamper-evident customer reviews by linking each review to a completed Stripe or Paddle transaction.","email":"support@signedreviews.com","foundingDate":"2025","address":{"@type":"PostalAddress","streetAddress":"1209 Mountain Road Pl NE, Ste N","addressLocality":"Albuquerque","addressRegion":"NM","postalCode":"87110","addressCountry":"US"},"sameAs":["https://marketplace.stripe.com/apps/signedreviews","https://chromewebstore.google.com/detail/is-this-review-real-%E2%80%94-sig/jkfdbmlmfjbnbhillhlehabpbpeoljco","https://www.linkedin.com/company/signed-reviews"]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://signedreviews.com/"},{"@type":"ListItem","position":2,"name":"Stripe Integration for Verified Reviews","item":"https://signedreviews.com/integrations/stripe/"}]}</script>
-  <script async preferred-sources-control="manual" src="https://news.google.com/swg/js/v1/publisher.js"></script>
   <script defer src="/js/preferred-source.js"></script>
 
   <style>
@@ -867,13 +989,13 @@ main { padding: 0; }
     <span>Signed Reviews is a service operated by Paid Rightly LLC.</span>
     <div class="footer-badges" style="display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem;">
       <a href="https://codehype.ai/product/signed-reviews?utm_source=codehype_badge" target="_blank" rel="noopener noreferrer">
-        <img src="https://codehype.ai/badges/signed-reviews.svg?variant=find-us&v=20" alt="Featured on CodeHype" width="180" height="60" loading="lazy" decoding="async" style="display:block;border:0;width:180px;max-width:100%;height:60px;object-fit:contain;" />
+        <img src="/images/badges/codehype.svg" alt="Featured on CodeHype" width="180" height="60" loading="lazy" decoding="async" style="display:block;border:0;width:180px;max-width:100%;height:60px;object-fit:contain;" />
       </a>
       <a href="https://vibeking.fun/product/signed-reviews" target="_blank" rel="noopener noreferrer">
-        <img src="https://vibeking.fun/badge/5373.svg" alt="Featured on VibeKing" width="180" height="60" loading="lazy" decoding="async" style="display:block;border:0;width:180px;max-width:100%;height:60px;object-fit:contain;" />
+        <img src="/images/badges/vibeking.svg" alt="Featured on VibeKing" width="180" height="60" loading="lazy" decoding="async" style="display:block;border:0;width:180px;max-width:100%;height:60px;object-fit:contain;" />
       </a>
       <a href="https://zerorevenue.club/?utm_source=zerorevenue.club&utm_medium=referral&utm_content=badge" target="_blank" rel="noopener noreferrer">
-        <img src="https://zerorevenue.club/badges/zero-revenue-club.svg" alt="Listed on Zero Revenue Club" width="190" height="44" loading="lazy" decoding="async" style="display:block;border:0;width:190px;max-width:100%;height:44px;object-fit:contain;" />
+        <img src="/images/badges/zerorevenue.svg" alt="Listed on Zero Revenue Club" width="190" height="44" loading="lazy" decoding="async" style="display:block;border:0;width:190px;max-width:100%;height:44px;object-fit:contain;" />
       </a>
     </div>
   </div>

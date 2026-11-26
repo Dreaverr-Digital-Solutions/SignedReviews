@@ -187,6 +187,26 @@ const done = (group) => {
   // Google Fonts sent every visitor's IP to Google (LG Muenchen I, 3 O 17493/20): fonts are self-hosted
   const google = pages.filter((f) => /fonts\.(googleapis|gstatic)\.com/.test(fs.readFileSync(f, 'utf8'))).map((f) => path.relative(dist, f));
   check(google.length === 0, `pages still loading Google Fonts: ${google.slice(0, 5).join(', ')}`);
+  // No page loads anything from another site by itself: every script, stylesheet, image, iframe and
+  // preconnect is first-party. Exceptions: our own subdomains, and Cloudflare Turnstile on the checker
+  // page (anti-abuse, only when its keys are configured).
+  const OWN = /^https:\/\/([a-z0-9-]+\.)?signedreviews\.com(\/|$)/;
+  const ALLOWED_THIRD = /^https:\/\/challenges\.cloudflare\.com\//;
+  const loads = /<(?:script|img|iframe|source|video|audio)\b[^>]*\ssrc="(https?:[^"]+)"|<link\b[^>]*rel="(?:stylesheet|preconnect|preload|modulepreload|dns-prefetch)"[^>]*href="(https?:[^"]+)"|<link\b[^>]*href="(https?:[^"]+)"[^>]*rel="(?:stylesheet|preconnect|preload|modulepreload|dns-prefetch)"/g;
+  const third = new Set();
+  for (const f of pages) {
+    const html = fs.readFileSync(f, 'utf8');
+    for (const m of html.matchAll(loads)) {
+      const u = m[1] || m[2] || m[3];
+      if (!OWN.test(u) && !ALLOWED_THIRD.test(u)) third.add(`${path.relative(dist, f)}: ${u.slice(0, 80)}`);
+    }
+    // consent gate: exactly once, in <head>, before the tracker; PostHog only initialised by the gate
+    const gate = html.indexOf('<script data-sr-consent>');
+    const gates = (html.match(/<script data-sr-consent>/g) || []).length;
+    check(gates === 1 && gate > 0 && gate < html.indexOf('</head>') && gate < html.indexOf('<script data-sr-fpa>'), `${path.relative(dist, f)}: consent gate missing, duplicated or after the tracker`);
+    check(!/posthog\.init\(/.test(html.replace(/<script data-sr-consent>[\s\S]*?<\/script>/, '')), `${path.relative(dist, f)}: posthog.init outside the consent gate`);
+  }
+  check(third.size === 0, `third-party resources loaded on page load: ${[...third].slice(0, 6).join(' | ')}`);
   const home = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
   check(/"endpoint":"\/api\/e"/.test(home), 'the inlined tracker posts to /api/e');
   check((home.match(/data-conversion="signup"/g) || []).length >= 4, 'homepage sign-up CTAs carry data-conversion="signup"');
@@ -204,5 +224,5 @@ const done = (group) => {
   check(privacy.includes(sentence), `privacy page should say: ${sentence}`);
   check(!/We do not persist IP addresses/.test(privacy) || /We never store your IP address/.test(privacy), 'privacy page keeps the no-IP promise and explains the daily code');
   check(!/cookie/i.test(fs.readFileSync(path.join(ROOT, 'analytics', 'tracker.js'), 'utf8').replace(/^\s*\/\/.*$/gm, '')), 'the tracker never touches cookies');
-  done(`built output: tracker on all ${pages.length} pages, no Google Fonts, privacy disclosure`);
+  done(`built output: consent gate and tracker on all ${pages.length} pages, no third-party loads, no Google Fonts, privacy disclosure`);
 }

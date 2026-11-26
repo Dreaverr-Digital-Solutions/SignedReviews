@@ -63,54 +63,33 @@ const POSTHOG_KEY = process.env.POSTHOG_KEY || 'phc_oks4oQLhwDpmgqTdiwx7tjJ3FZrZ
 const POSTHOG_HOST = (process.env.POSTHOG_DIRECT === '1')
   ? (process.env.POSTHOG_HOST || 'https://us.i.posthog.com')
   : 'https://signedreviews.com/ph';
+// PostHog's loader stub only. posthog.init() is called by the consent gate below once analytics
+// are allowed for the visitor, so the library, its cookie and its events never load before that.
+const POSTHOG_STUB = String.raw`!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);`;
+
+// Consent gate (analytics/consent.js), inlined into every page's <head> before PostHog and the
+// visit-statistics script. EU/EEA/UK, Swiss and Brazilian visitors must accept before either runs.
+const CONSENT_TAG = (() => {
+  const src = fs.readFileSync(path.join(ROOT, 'analytics', 'consent.js'), 'utf8')
+    .split(/\r?\n/)
+    .filter((line) => !/^\s*\/\//.test(line))
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .join('\n')
+    .replace('__SR_PH_KEY__', () => JSON.stringify(POSTHOG_KEY || ''))
+    .replace('__SR_PH_HOST__', () => JSON.stringify(POSTHOG_HOST));
+  if (/<\/script/i.test(src)) throw new Error('analytics/consent.js must not contain </script');
+  return `<script data-sr-consent>${src}</script>`;
+})();
+
 const POSTHOG_SNIPPET = POSTHOG_KEY
   ? `
   <script>
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('${POSTHOG_KEY}',{api_host:'${POSTHOG_HOST}',person_profiles:'identified_only',session_recording:{maskAllInputs:true},disable_session_recording:true,respect_dnt:true});
-    (function(){
-      var CK='sr_replay_consent', GK='sr_geo';
-      var REGION=['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH','BR'];
-      function get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
-      function set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
-      function start(){ try{ posthog.startSessionRecording(); }catch(e){} }
-      function stop(){ try{ posthog.stopSessionRecording(); }catch(e){} }
-      function banner(){
-        if(document.getElementById('sr-consent')) return;
-        var d=document.createElement('div'); d.id='sr-consent'; d.setAttribute('role','dialog'); d.setAttribute('aria-label','Session recording consent');
-        d.style.cssText='position:fixed;left:16px;right:16px;bottom:16px;margin:0 auto;max-width:520px;z-index:2147483647;background:#0b1220;color:#e7ecf3;border:1px solid #243044;border-radius:12px;padding:16px 18px;box-shadow:0 10px 30px rgba(0,0,0,.35);font:14px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif';
-        var p=document.createElement('div'); p.style.marginBottom='10px';
-        p.innerHTML='We would like to record an anonymised, form-masked replay of your visit to help improve our site. Analytics work either way. See our <a href="/privacy/" style="color:#8ab4ff">Privacy Policy</a>.';
-        var row=document.createElement('div'); row.style.cssText='display:flex;gap:8px;justify-content:flex-end';
-        var dec=document.createElement('button'); dec.type='button'; dec.textContent='Decline'; dec.style.cssText='padding:8px 14px;border-radius:8px;border:1px solid #3a475c;background:transparent;color:#e7ecf3;cursor:pointer';
-        var acc=document.createElement('button'); acc.type='button'; acc.textContent='Accept'; acc.style.cssText='padding:8px 14px;border-radius:8px;border:0;background:#2f6df6;color:#fff;font-weight:600;cursor:pointer';
-        dec.onclick=function(){ set(CK,'denied'); stop(); d.remove(); };
-        acc.onclick=function(){ set(CK,'granted'); d.remove(); start(); };
-        row.appendChild(dec); row.appendChild(acc); d.appendChild(p); d.appendChild(row);
-        (document.body||document.documentElement).appendChild(d);
-      }
-      // Footer "Privacy choices" entry point — lets anyone re-open the banner to
-      // opt in or out at any time, in any region.
-      window.srPrivacy=function(){ banner(); };
-      // Browser-level opt-out signals (Do Not Track, Global Privacy Control):
-      // never record and don't prompt.
-      var dnt=navigator.doNotTrack=='1'||navigator.doNotTrack=='yes'||window.doNotTrack=='1';
-      var gpc=navigator.globalPrivacyControl===true;
-      if(dnt||gpc){ stop(); return; }
-      function decide(inRegion){
-        var c=get(CK);
-        if(c==='denied'){ return; }            // persistent opt-out, honoured everywhere
-        if(c==='granted'){ start(); return; }
-        if(!inRegion){ start(); return; }      // outside EU/EEA/UK: record by default
-        if(document.body){ banner(); }         // inside, no choice yet: ask
-        else { document.addEventListener('DOMContentLoaded',banner); }
-      }
-      var g=get(GK);
-      if(g){ decide(REGION.indexOf(g)>=0); }
-      else { fetch('/cdn-cgi/trace').then(function(r){return r.text();}).then(function(t){ var m=/loc=([A-Z]{2})/.exec(t); var loc=m?m[1]:''; if(loc) set(GK,loc); decide(loc?REGION.indexOf(loc)>=0:true); }).catch(function(){ decide(true); }); }
-    })();
-  </script>`
-  : '';
+    ${POSTHOG_STUB}
+  </script>
+  ${CONSENT_TAG}`
+  : `
+  ${CONSENT_TAG}`;
 
 // ── Engagement tracker (scroll depth / section viewed / CTA click) ───────────
 // Additive: uses the posthog global loaded by POSTHOG_SNIPPET above. Does NOT
@@ -894,13 +873,11 @@ const SHARED_HEAD = ({ title, description, canonical, slug, pageType = 'website'
   <link rel="icon" type="image/png" sizes="32x32" href="${B}images/favicon-32.png?v=20260924a">
   <link rel="apple-touch-icon" href="${B}images/apple-touch-icon.png?v=20260924a">
 
-  <link rel="preconnect" href="https://us.i.posthog.com">
   <link rel="dns-prefetch" href="https://platform.signedreviews.com">
   <style>${FONT_FACES}</style>
 
   <style>${SHARED_STYLES}</style>${POSTHOG_SNIPPET}${SR_TRACKERS_SNIPPET}
   <script type="application/ld+json">${JSON.stringify(ORG_SCHEMA)}</script>${breadcrumbJsonLd(title, canonical, slug)}
-  <script async preferred-sources-control="manual" src="https://news.google.com/swg/js/v1/publisher.js"></script>
   <script defer src="${B}js/preferred-source.js"></script>
 `;
 
@@ -1012,13 +989,13 @@ const FOOTER = `
     <span>${COMPANY.attribution}</span>
     <div class="footer-badges" style="display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem;">
       <a href="https://codehype.ai/product/signed-reviews?utm_source=codehype_badge" target="_blank" rel="noopener noreferrer">
-        <img src="https://codehype.ai/badges/signed-reviews.svg?variant=find-us&v=20" alt="Featured on CodeHype" width="180" height="60" loading="lazy" decoding="async" style="display:block;border:0;width:180px;max-width:100%;height:60px;object-fit:contain;" />
+        <img src="${B}images/badges/codehype.svg" alt="Featured on CodeHype" width="180" height="60" loading="lazy" decoding="async" style="display:block;border:0;width:180px;max-width:100%;height:60px;object-fit:contain;" />
       </a>
       <a href="https://vibeking.fun/product/signed-reviews" target="_blank" rel="noopener noreferrer">
-        <img src="https://vibeking.fun/badge/5373.svg" alt="Featured on VibeKing" width="180" height="60" loading="lazy" decoding="async" style="display:block;border:0;width:180px;max-width:100%;height:60px;object-fit:contain;" />
+        <img src="${B}images/badges/vibeking.svg" alt="Featured on VibeKing" width="180" height="60" loading="lazy" decoding="async" style="display:block;border:0;width:180px;max-width:100%;height:60px;object-fit:contain;" />
       </a>
       <a href="https://zerorevenue.club/?utm_source=zerorevenue.club&utm_medium=referral&utm_content=badge" target="_blank" rel="noopener noreferrer">
-        <img src="https://zerorevenue.club/badges/zero-revenue-club.svg" alt="Listed on Zero Revenue Club" width="190" height="44" loading="lazy" decoding="async" style="display:block;border:0;width:190px;max-width:100%;height:44px;object-fit:contain;" />
+        <img src="${B}images/badges/zerorevenue.svg" alt="Listed on Zero Revenue Club" width="190" height="44" loading="lazy" decoding="async" style="display:block;border:0;width:190px;max-width:100%;height:44px;object-fit:contain;" />
       </a>
     </div>
   </div>
@@ -5338,9 +5315,11 @@ console.log(`  ✓ dist/ (${PUBLISH.length} entries)`);
       const full = path.join(dir, ent.name);
       if (ent.isDirectory()) walk(full);
       else if (ent.name.endsWith('.html')) {
-        const html = fs.readFileSync(full, 'utf8');
+        let html = fs.readFileSync(full, 'utf8');
+        if (html.lastIndexOf('</body>') < 0 || html.includes('data-sr-fpa')) continue;
+        // pages built outside SHARED_HEAD (404.html) still need the consent gate, or the tracker stays off
+        if (!html.includes('data-sr-consent') && html.includes('</head>')) html = html.replace('</head>', `  ${CONSENT_TAG}\n</head>`);
         const at = html.lastIndexOf('</body>');
-        if (at < 0 || html.includes('data-sr-fpa')) continue;
         fs.writeFileSync(full, `${html.slice(0, at)}${tag}\n${html.slice(at)}`, 'utf8');
         injected += 1;
       }

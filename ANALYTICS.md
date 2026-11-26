@@ -5,6 +5,7 @@ The tracking plan, decisions, architecture and runbook live in `../platform/ANAL
 | File | What it does |
 |---|---|
 | `analytics/tracker.js` | The page tracker. `build.js` inlines it before `</body>` of every page in `dist/`, with the client part of the plan. It only runs on `signedreviews.com`. |
+| `analytics/consent.js` | Consent gate, inlined into every page's head by `build.js`: one banner choice covers PostHog and the tracker; EU, EEA, UK, Switzerland and Brazil must accept first. |
 | `analytics/analytics.config.json` | Copy of the tracking plan. The canonical copy is `platform/backend/src/siteAnalytics/analytics.config.json`. |
 | `workers/site-analytics.js` | Collector (`POST /api/e`) and request log, imported by `workers/apex-router.js`. Forwards to the platform backend. |
 | `scripts/sync-analytics-config.js` | `npm run sync:analytics`: copies the plan from the platform repo. |

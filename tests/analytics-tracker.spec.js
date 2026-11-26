@@ -19,13 +19,18 @@ const TYPES = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascrip
 test.skip(!fs.existsSync(path.join(DIST, 'index.html')), 'run node build.js first');
 
 /** Serve dist/ as signedreviews.com; capture beacons; stub every other origin. */
-async function site(context, { webdriver = false, init = '' } = {}) {
+async function site(context, { webdriver = false, init = '', country = 'US', requests = [] } = {}) {
   const beacons = [];
   await context.addInitScript(`Object.defineProperty(navigator, 'webdriver', { get: () => ${webdriver} });${init}`);
   await context.route('**/*', async (route) => {
     const req = route.request();
     const url = new URL(req.url());
+    requests.push(url.hostname === 'signedreviews.com' ? url.pathname : url.href);
     if (url.hostname !== 'signedreviews.com') return route.fulfill({ status: 204, body: '' });
+    // Cloudflare's trace endpoint: the consent gate reads the visitor's country from it
+    if (url.pathname === '/cdn-cgi/trace') return route.fulfill({ status: 200, body: `fl=1
+loc=${country}
+`, headers: { 'content-type': 'text/plain' } });
     if (url.pathname === '/api/e') {
       try {
         beacons.push(JSON.parse(req.postData() || 'null'));
@@ -183,5 +188,68 @@ test('fake review checker: checker_run and checker_result, never the text', asyn
   // the API is stubbed with an empty 204, so the cross-check reports a failure
   expect(await waitFor(beacons, (b) => b.t === 'ev' && b.n === 'checker_result')).toMatchObject({ pr: { ok: 'no' } });
   expect(JSON.stringify(beacons)).not.toContain('battery');
+  await context.close();
+});
+
+test('EU visitor: banner first, nothing sent or stored until Accept', async ({ browser }) => {
+  const context = await browser.newContext();
+  const requests = [];
+  const beacons = await site(context, { country: 'DE', requests });
+  const page = await context.newPage();
+  await page.goto('https://signedreviews.com/pricing/');
+  await expect(page.locator('#sr-consent')).toBeVisible();
+  await page.waitForTimeout(800);
+  expect(beacons).toHaveLength(0);
+  expect(requests.some((r) => r.startsWith('/ph/'))).toBe(false); // PostHog never initialised
+  expect(requests.filter((r) => /^https?:/.test(r))).toEqual([]); // no third-party request at all
+  const keys = await page.evaluate(() => Object.keys(localStorage).sort());
+  expect(keys.filter((k) => !['sr_geo'].includes(k))).toEqual([]); // only the country, for the banner
+  expect(await page.evaluate(() => document.cookie)).toBe('');
+
+  await page.click('#sr-consent button:has-text("Accept")');
+  expect(await waitFor(beacons, (b) => b.t === 'pv' && b.u === '/pricing/')).toBeTruthy();
+  expect(await page.evaluate(() => localStorage.getItem('sr_consent'))).toBe('granted');
+  await waitFor([requests], () => requests.some((r) => r.startsWith('/ph/static/')), 3000);
+  expect(requests.some((r) => r.startsWith('/ph/static/'))).toBe(true); // PostHog loads only now
+
+  await page.reload();
+  await expect(page.locator('#sr-consent')).toHaveCount(0);
+  expect(await waitFor(beacons, (b) => b.t === 'pv' && b !== beacons[0])).toBeTruthy();
+  await context.close();
+});
+
+test('EU visitor who declines: nothing runs; Privacy choices reopens the banner', async ({ browser }) => {
+  const context = await browser.newContext();
+  const requests = [];
+  const beacons = await site(context, { country: 'FR', requests });
+  const page = await context.newPage();
+  await page.goto('https://signedreviews.com/');
+  await page.click('#sr-consent button:has-text("Decline")');
+  await page.goto('https://signedreviews.com/features/');
+  await page.waitForTimeout(800);
+  await expect(page.locator('#sr-consent')).toHaveCount(0);
+  expect(beacons).toHaveLength(0);
+  expect(requests.some((r) => r.startsWith('/ph/'))).toBe(false);
+  expect(await page.evaluate(() => localStorage.getItem('sr_vid'))).toBeNull();
+  await page.click('button:has-text("Privacy choices")');
+  await expect(page.locator('#sr-consent')).toBeVisible();
+  await context.close();
+});
+
+test('outside the consent regions: runs by default; declining later stops it and clears its ids', async ({ browser }) => {
+  const context = await browser.newContext();
+  const beacons = await site(context, { country: 'US' });
+  const page = await context.newPage();
+  await page.goto('https://signedreviews.com/pricing/');
+  await expect(page.locator('#sr-consent')).toHaveCount(0);
+  expect(await waitFor(beacons, (b) => b.t === 'pv')).toBeTruthy();
+  await page.click('button:has-text("Privacy choices")');
+  await page.click('#sr-consent button:has-text("Decline")');
+  expect(await page.evaluate(() => localStorage.getItem('sr_vid'))).toBeNull();
+  const before = beacons.length;
+  await page.evaluate(() => document.addEventListener('click', (e) => e.preventDefault(), { once: true }));
+  await page.locator('a[data-cta="login"]').first().click({ force: true });
+  await page.waitForTimeout(500);
+  expect(beacons.length).toBe(before);
   await context.close();
 });

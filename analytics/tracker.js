@@ -5,6 +5,7 @@
 // Reports: page views, clicks (sign-up buttons are the conversions), the custom events of the
 // tracking plan, choices, scroll depth, engaged time, Core Web Vitals and JavaScript errors.
 // Nothing typed into a field is ever read.
+// Runs only once analytics are allowed (analytics/consent.js: EU/EEA/UK visitors must accept first).
 // Not sent at all when the browser sends Do Not Track or Global Privacy Control, for automated
 // browsers, outside signedreviews.com (dev server, previews), or after opting out with
 // ?sr-track=off (stored in this browser's local storage; ?sr-track=on reverses it).
@@ -54,13 +55,31 @@
   if (sw === 'off') set('ignore', '1');
   if (sw === 'on') del('ignore');
 
-  // a stub so calls made before this script loads are queued, then replayed below
+  // calls made before this script runs, or before analytics are allowed, are queued and replayed
   var queued = (window.fpa && window.fpa.q) || [];
-  window.fpa = { q: [], track: function () {} };
+  window.fpa = {
+    q: queued,
+    track: function (n, o) {
+      if (queued.length < 50) queued.push([n, o]);
+    },
+  };
 
   if (hostOf(location.hostname) !== C.host) return;
   if (nav.webdriver || nav.doNotTrack === '1' || nav.globalPrivacyControl === true || get('ignore') === '1') return;
 
+  // Consent (analytics/consent.js): nothing is stored or sent until analytics are allowed for this
+  // visitor. Without the consent gate on the page, the script stays off (fail closed).
+  var cm = window.srConsent;
+  if (!cm || typeof cm.onChange !== 'function') return;
+  var begun = false;
+  cm.onChange(function (ok) {
+    if (ok && !begun) {
+      begun = true;
+      begin();
+    }
+  });
+
+  function begin() {
   var vid = get('vid');
   var newVisitor = false;
   if (!vid || !ID.test(vid)) {
@@ -82,6 +101,7 @@
   var pid = rid();
 
   function send(e) {
+    if (!cm.allowed()) return; // consent withdrawn on this page
     set('slast', String(Date.now())); // keeps the session alive across tabs
     var o = { v: vid, s: sid, p: pid, u: location.pathname };
     for (var k in e) if (e[k] !== undefined) o[k] = e[k];
@@ -408,4 +428,5 @@
     var r = e.reason;
     send({ t: 'error', m: 'Unhandled rejection: ' + String((r && r.message) || r || ''), src: location.pathname });
   });
+  }
 })();

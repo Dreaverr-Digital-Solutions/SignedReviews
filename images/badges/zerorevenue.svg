@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="190" height="44" viewBox="0 0 190 44" role="img" aria-labelledby="badge-title">
+  <title id="badge-title">Listed on Zero Revenue Club</title>
+  <style>
+    .badge-surface { fill: #ffffff; }
+    .badge-border { fill: none; stroke: #e1e3e6; }
+    .badge-ink { fill: #111111; }
+    .badge-muted { fill: #777b82; }
+  </style>
+  <rect class="badge-surface" width="190" height="44" rx="6"/>
+  <rect class="badge-border" x="0.5" y="0.5" width="189" height="43" rx="5.5"/>
+  <image x="11" y="12" width="20" height="20" preserveAspectRatio="xMidYMid meet" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAO/SURBVFhH7ZdNrGRDGIYfMl1fXYSE2BAyBJFMYiGxQMJCBBtMxM9gQsJGwmo2VmQyK+zYyCwwfheIEMRCbKyEEXuRIG78zCQyf111zunbR76urts13+17ek67dyHxJpXu0/2e97z1/dSpgv+xjWjxl9f4myPu7ojbHXH31PhbI+7qFgaWvy0IyBUNcqBBfqjxocW3dlT4UYP/qcG9WrPjBquxZYj45xrkRMvK5MFr+LZOBiafeYwKc8pp8AdPsXKp1Vsaq3BOjXyWHxKnQ43YUf6u39M9K23E3WV1l0ILZ1e4L1Q4RyMPvbbpyrxsZoxvh/iHre7SCMh+naGNxKxe5GhEvo/I1xH5LuL+KNNVMdhjNZdGQK5s8LUK5zTlmTe4Hyv8njFcWN7TwgUNbvcI+bZCHi//U/wKK0vXU4V7OUcnIuOAjJMZOXwMLrL8RWjhrBr/ZUA+sf8tRAs+IqspLSky2j0NEiLuGstfBDVTIR+kApfjvSdUs+OmFI1Z5+h1QD603EVIkUlmciPoYmp5naiRp3J0cspSB8kzltuFP+G8HJmyIYa45y23EwF5oRSJyLSr/EOW24WIuzcvBaWhiDtouZ3QG8r6mRkaPGi5XdB3XKmTDE3q6E3L7cQQ93oW0u6ahbrfulIaKiMU+hqK+HVDZVFXDHqtuqdw980zFHGHLLcTEXnDrtDTCD1iuV2ImxjqHaEwMbRRqML3MlTh7p8X6d411GHoUcvtQsXggXk6vSOUUrZRaIjfa7ld0K6cp/Ovayi/VIf4xyy3C9qVW2IoIIfK3GdDYc4bvAu6kJaGsk5vQ+U6VApVyJOW24Uhg73zdEJfQwF5cZNQ77PcLkTcs5vovGK5nQjIE/NSFvGvWW4XAvL+PEMBedpyOxFx1zb4se6B9E2vhnR/XCN/HYXzLX8ejsPFFXJshKxPSvWmW9vrLH8hIvLNvNnVyBnlPyLvTaNho3PYcs8IuUPyKaJcaWvkHT002nsUQ/xlNfJWmkx6MZeG+u4YToOeJqazmqRNRdOuT3d/cjIgn1fIS3qI1EaokI81TaneUqpMMX9ln9ELLbKzRo5MC3pdXOtKa0F/TyOdZnVorSknTyI1xGQCq0ufOEqcZHB9g/w+TcFpxmYG85hFMn2mjV2D/HKCwS6rvTT+RnaOkE/LaOgBIG9NU3q0eKU42yfeCPnoCCuXWM0tQYPcuYa8WyO/bTxKazQmxkY17uc15O0Gud1qbAvGcG7FYFeNv0UfGpA7AnJbjb9xjFyl5zp7z38S/wBhdnTa9VYiHgAAAABJRU5ErkJggg=="/>
+  <text class="badge-muted" x="41" y="17.5" font-family="Arial, Helvetica, sans-serif" font-size="6.5" font-weight="700" letter-spacing="0.7">LISTED ON</text>
+  <text class="badge-ink" x="41" y="31" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700">Zero Revenue Club</text>
+</svg>
