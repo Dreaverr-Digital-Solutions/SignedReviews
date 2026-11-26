@@ -89,6 +89,12 @@ function forward(env, path, body) {
     .catch(() => {});
 }
 
+/** The browser asked not to be tracked: Do Not Track or Global Privacy Control. The privacy
+ *  policy promises we honour both, so such requests are never logged and their beacons dropped. */
+export function optedOut(request) {
+  return request.headers.get('dnt') === '1' || request.headers.get('sec-gpc') === '1';
+}
+
 const reply = (status) => new Response(null, { status, headers: { 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex' } });
 
 /** POST /api/e: the tracker's beacon collector. Always answers quickly; forwarding happens after. */
@@ -96,7 +102,7 @@ export async function collect(request, env, ctx) {
   if (request.method !== 'POST') {
     return new Response('POST only', { status: 405, headers: { Allow: 'POST', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex' } });
   }
-  if (!env || !env.ANALYTICS_INGEST_SECRET) return reply(204);
+  if (!env || !env.ANALYTICS_INGEST_SECRET || optedOut(request)) return reply(204);
   const url = new URL(request.url);
   const origin = request.headers.get('origin');
   if (origin) {
@@ -132,6 +138,7 @@ export function logHit({ request, response, t0, env, ctx, scope, appSegments }) 
   try {
     if (!env || !env.ANALYTICS_INGEST_SECRET) return;
     if (!['GET', 'HEAD', 'POST'].includes(request.method)) return;
+    if (optedOut(request)) return;
     const purpose = `${request.headers.get('sec-purpose') || ''} ${request.headers.get('purpose') || ''}`;
     if (/prefetch|prerender/i.test(purpose)) return;
     if (request.headers.get('x-sr-admin')) return;

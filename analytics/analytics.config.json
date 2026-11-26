@@ -4,7 +4,6 @@
   "siteName": "Signed Reviews",
   "host": "signedreviews.com",
   "endpoint": "/api/e",
-  "ip": "full",
   "conversionWords": { "singular": "Sign-up", "plural": "Sign-ups" },
   "linkKinds": [
     { "kind": "signup", "label": "Sign-up links", "hosts": ["platform.signedreviews.com"], "paths": ["/register"] },

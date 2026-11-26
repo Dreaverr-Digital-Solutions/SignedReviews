@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date:** April 19, 2026
-**Last updated:** November 25, 2026
+**Last updated:** November 26, 2026
 
 This Privacy Policy explains how Paid Rightly LLC ("we," "us," "our") collects, uses, discloses, and protects information when you use Signed Reviews, available at [signedreviews.com](https://signedreviews.com) and [platform.signedreviews.com](https://platform.signedreviews.com) (collectively, the "Service").
 
@@ -89,7 +89,7 @@ If a business enables metrics on its public review page, we also read aggregate 
 
 We collect limited technical information to keep the Service working:
 
-- **IP address**: used for rate limiting to prevent abuse. On our marketing site, `signedreviews.com`, it is also stored with our own visit statistics for 12 months (see Section 3.4b). Elsewhere in the Service we do not persist IP addresses.
+- **IP address**: used transiently for rate limiting to prevent abuse and, on our marketing site, to derive an approximate location and a daily visit code for our own visit statistics (see Section 3.4a). We do not persist IP addresses in our database.
 - **Browser session tokens**: stored in your browser's local storage after you log in. These are not cookies.
 
 ### 3.4a Analytics
@@ -102,21 +102,9 @@ We use **PostHog** for first-party product and marketing analytics, to understan
 
 **Consent in the EU, EEA, and UK.** If you visit our marketing site from the EU, EEA, or UK, session replay is **off by default** and begins **only if you give consent** through the banner shown on your visit. Declining leaves replay off; the rest of our first-party analytics (such as page views and conversion funnels) continues to operate. You can change your choice at any time through the **"Privacy choices"** link in our site footer, and we honour Do Not Track and Global Privacy Control signals automatically.
 
-Beyond this first-party analytics cookie, masked session replay and the visit statistics in Section 3.4b, we do not use advertising cookies, cross-site tracking, or behavioral-advertising platforms, and we do not embed tracking pixels in the emails we send.
+**Our own visit statistics.** On our marketing site we also count visits ourselves, in our own database. Our server records each page request, and a small script records the links and buttons clicked, time on page, scroll depth, page speed and script errors, together with an approximate location derived from your IP address (country, region, city), your network provider, browser, device, screen size, language and the referring page. We never store your IP address: it is replaced by a code that changes every day and cannot be traced back to it. The script keeps a random visitor ID in your browser's local storage (no cookies), and neither the script nor the server log records anything when your browser sends Do Not Track or Global Privacy Control. You can [turn the script off for this browser](/privacy/?sr-track=off) ([turn it back on](/privacy/?sr-track=on)). We keep the server request log for 30 days and the other visit statistics for 12 months.
 
-### 3.4b Our own visit statistics on signedreviews.com
-
-We also count visits to our marketing site ourselves. The data goes to our own database and to no analytics company. It has two parts.
-
-**The server log.** For each page, API, Markdown or discovery-file request to `signedreviews.com`, our server records: your IP address, approximate location (country, region, city with its coordinates, time zone), network provider, browser user agent, language, referring page, the page requested, the response status and the response time. On businesses' public review pages hosted on `signedreviews.com`, it records only requests from automated clients such as search engines and AI crawlers, never their human visitors. App pages, sign-in links and review-request links are not logged.
-
-**The page script.** A small script on our marketing pages records page views, the links and buttons you click (including our sign-up buttons), opening and playing the demo video, running the fake review checker and whether it answered, choices made in drop-downs, checkboxes and radio buttons, how far you scroll, how long the page was active, page-speed measurements and JavaScript errors, together with your screen size, language and time zone. It never reads what you type into a field: the review text and website you give the fake review checker are not part of these statistics.
-
-The script stores these keys in your browser's local storage and sets no cookies: `sr_vid` (a random visitor id), `sr_sid` and `sr_slast` (a session id that ends after 30 idle minutes), `sr_goals` (which of our goals this visit reached) and `sr_ignore` (your opt-out). It sends nothing when your browser sends a Do Not Track or Global Privacy Control signal.
-
-We keep this data for 12 months, then delete it automatically. It is processed by Cloudflare, which hosts `signedreviews.com` and supplies the approximate location, and by Railway, which runs our servers. We do not sell it, share it or use it for advertising.
-
-**Opting out.** [Stop counting my visits in this browser](/privacy/?sr-track=off). [Count them again](/privacy/?sr-track=on). The choice is stored in this browser's local storage, so it applies until you clear it.
+Beyond these first-party analytics and masked session replay, we do not use advertising cookies, cross-site tracking, or behavioral-advertising platforms, and we do not embed tracking pixels in the emails we send.
 
 ### 3.5 From third parties
 
@@ -189,7 +177,7 @@ We use a small number of service providers to operate the Service. A complete, c
 - **Anthropic** and **Google** (business-facing branding AI, logo extraction; see Section 6 for specifics)
 - **TypeSafe** (AI scoring of review text for the free fake review checker and for review moderation; see Section 6.2)
 - **Railway** (cloud hosting and managed database)
-- **Cloudflare** (hosting and content delivery for `signedreviews.com`, and the approximate location used by our visit statistics, see Section 3.4b)
+- **Cloudflare** (hosting and content delivery for `signedreviews.com`, and the approximate location used by our visit statistics, see Section 3.4a)
 - **PostHog** (first-party product and marketing-site analytics, see Section 3.4a)
 - **Decodo** (proxy service used only for Instagram public profile lookups)
 - **OAuth providers** (Google, GitHub, LinkedIn, Microsoft, Facebook, Twitter/X, Instagram), only when you choose to use them
@@ -258,7 +246,7 @@ No system is perfectly secure. If we become aware of a breach affecting your per
 - **Refunded transactions:** When a business refunds a Stripe charge, the associated review is hidden from public surfaces. The underlying record is retained for integrity purposes but is no longer displayed.
 - **Email logs:** Resend, our email provider, retains delivery logs per their own retention policy.
 - **Server logs:** Application logs generated during normal operation are retained by our hosting provider (Railway) for up to 30 days.
-- **Visit statistics:** The marketing-site server log and page-script data described in Section 3.4b are deleted automatically after 12 months.
+- **Visit statistics:** our marketing-site request log is deleted after 30 days, and the other visit statistics described in Section 3.4a after 12 months.
 
 ---
 
@@ -319,11 +307,11 @@ Signed Reviews is not directed at children under 16, and we do not knowingly col
 
 If you are a California resident, the following additional information applies to you under the California Consumer Privacy Act / California Privacy Rights Act (CCPA/CPRA):
 
-**Categories of personal information collected in the last 12 months:** identifiers (email, name, IP address), commercial information (transaction metadata from Stripe or Paddle), internet/electronic activity information (login events, and pages viewed and links clicked on our marketing site), professional information (business name, role), and user-generated content (reviews, photos).
+**Categories of personal information collected in the last 12 months:** identifiers (email, name, IP address transiently), commercial information (transaction metadata from Stripe or Paddle), internet/electronic activity information (login events, and pages viewed and links clicked on our marketing site), professional information (business name, role), and user-generated content (reviews, photos).
 
 **Sources:** directly from you, from OAuth providers when you choose to use them, from a business's connected payment provider (Stripe or Paddle) when a business you've purchased from uses Signed Reviews, and from public websites during brand extraction.
 
-**Business purposes for which we use this information:** providing the Service, verifying reviews, security and fraud prevention, communicating with you, and legal compliance.
+**Business purposes for which we use this information:** providing the Service, verifying reviews, security and fraud prevention, communicating with you, measuring and improving our website, and legal compliance.
 
 **Categories disclosed to sub-processors:** see Section 5.2 and the sub-processor list.
 

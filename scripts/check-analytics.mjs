@@ -137,6 +137,13 @@ const done = (group) => {
   check(ph && ph.path === '/acme' && ph.scope === 'platform', 'a merchant profile request is forwarded with scope platform (the backend keeps bots only)');
 
   forwarded.length = 0;
+  await router.fetch(req('/pricing/', { headers: { dnt: '1' } }), env, ctx);
+  await router.fetch(req('/pricing/', { headers: { 'sec-gpc': '1' } }), env, ctx);
+  r = await router.fetch(req('/api/e', { method: 'POST', body: beacon, headers: { ...H, 'sec-gpc': '1' } }), env, ctx);
+  await settle();
+  check(r.status === 204 && forwarded.length === 0, `Do Not Track / Global Privacy Control: nothing logged or forwarded (got ${forwarded.length})`);
+
+  forwarded.length = 0;
   r = await router.fetch(req('/api/e', { method: 'POST', body: beacon, headers: H }), {}, ctx);
   await router.fetch(req('/pricing/'), {}, ctx);
   await settle();
@@ -177,6 +184,9 @@ const done = (group) => {
     check(n === 1, `${path.relative(dist, f)} loads the tracker ${n} times (expected 1)`);
   }
   check(pages.length > 50, `expected the whole site in dist/, found ${pages.length} pages`);
+  // Google Fonts sent every visitor's IP to Google (LG Muenchen I, 3 O 17493/20): fonts are self-hosted
+  const google = pages.filter((f) => /fonts\.(googleapis|gstatic)\.com/.test(fs.readFileSync(f, 'utf8'))).map((f) => path.relative(dist, f));
+  check(google.length === 0, `pages still loading Google Fonts: ${google.slice(0, 5).join(', ')}`);
   const home = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
   check(/"endpoint":"\/api\/e"/.test(home), 'the inlined tracker posts to /api/e');
   check((home.match(/data-conversion="signup"/g) || []).length >= 4, 'homepage sign-up CTAs carry data-conversion="signup"');
@@ -187,11 +197,12 @@ const done = (group) => {
   check(/IP address/.test(privacy), 'privacy page mentions IP addresses');
   // the stated retention must match what the backend enforces
   const retention = path.join(ROOT, '..', 'platform', 'backend', 'src', 'siteAnalytics', 'retention.js');
-  if (fs.existsSync(retention)) {
-    const days = Number(/RETENTION_DAYS = (\d+)/.exec(fs.readFileSync(retention, 'utf8'))?.[1]);
-    const months = Math.round(days / 30.4);
-    check(privacy.includes(`for ${months} months, then delete it automatically`), `privacy page should state ${months} months (RETENTION_DAYS = ${days})`);
-  } else check(privacy.includes('for 12 months, then delete it automatically'), 'privacy page states the 12-month retention');
+  const days = fs.existsSync(retention) ? fs.readFileSync(retention, 'utf8') : '';
+  const events = Number(/RETENTION_DAYS = (\d+)/.exec(days)?.[1] || 365);
+  const hits = Number(/HITS_RETENTION_DAYS = (\d+)/.exec(days)?.[1] || 30);
+  const sentence = `We keep the server request log for ${hits} days and the other visit statistics for ${Math.round(events / 30.4)} months.`;
+  check(privacy.includes(sentence), `privacy page should say: ${sentence}`);
+  check(!/We do not persist IP addresses/.test(privacy) || /We never store your IP address/.test(privacy), 'privacy page keeps the no-IP promise and explains the daily code');
   check(!/cookie/i.test(fs.readFileSync(path.join(ROOT, 'analytics', 'tracker.js'), 'utf8').replace(/^\s*\/\/.*$/gm, '')), 'the tracker never touches cookies');
-  done(`built output: tracker on all ${pages.length} pages, privacy disclosure`);
+  done(`built output: tracker on all ${pages.length} pages, no Google Fonts, privacy disclosure`);
 }
