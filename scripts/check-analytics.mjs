@@ -136,6 +136,19 @@ const done = (group) => {
   const ph = forwarded.find((f) => f.url.endsWith('/ingest/hits'))?.body.hits[0];
   check(ph && ph.path === '/acme' && ph.scope === 'platform', 'a merchant profile request is forwarded with scope platform (the backend keeps bots only)');
 
+  // The request log ignores the consent banner: a visitor in a consent region who declined (even
+  // if a consent cookie were ever added) is still logged. Only DNT/GPC stop it (privacy policy).
+  forwarded.length = 0;
+  {
+    const r2 = new Request('https://signedreviews.com/features/', { headers: { cookie: 'sr_consent=denied', 'user-agent': 'Mozilla/5.0 Chrome/131' } });
+    Object.defineProperty(r2, 'cf', { value: { country: 'DE', city: 'Berlin' } });
+    await router.fetch(r2, env, ctx);
+    await settle();
+    const h2 = forwarded.find((f) => f.url.endsWith('/ingest/hits'))?.body.hits[0];
+    check(h2 && h2.path === '/features/' && h2.client.cf.country === 'DE', 'a declined visitor from a consent region is still in the server request log');
+    check(!/consent/i.test(fs.readFileSync(path.join(ROOT, 'workers', 'site-analytics.js'), 'utf8').replace(/^\s*(\/\/|\*).*$/gm, '')), 'the request log code never reads consent state');
+  }
+
   forwarded.length = 0;
   await router.fetch(req('/pricing/', { headers: { dnt: '1' } }), env, ctx);
   await router.fetch(req('/pricing/', { headers: { 'sec-gpc': '1' } }), env, ctx);

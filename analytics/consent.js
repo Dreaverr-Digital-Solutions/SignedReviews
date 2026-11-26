@@ -9,8 +9,9 @@
 // cookie and sends events) is only called once analytics are allowed, so nothing is stored or
 // sent before then. The choice (sr_consent) and the visitor's country (sr_geo, from Cloudflare's
 // /cdn-cgi/trace on our own domain) are kept in local storage: both are needed to show the banner
-// to the right people and not ask again. The server request log needs no consent: it stores
-// nothing on the device and no IP address.
+// to the right people and not ask again. The server request log needs no consent and ignores this
+// choice by design: it stores nothing on the device and no IP address, the banner and the privacy
+// policy both say it runs either way, and the choice never reaches the server (it is not a cookie).
 // Build note: only full-line // comments are stripped; never put "</script" in this file.
 (function () {
   var PH_KEY = __SR_PH_KEY__;
@@ -109,7 +110,7 @@
     d.style.cssText = 'position:fixed;left:16px;right:16px;bottom:16px;margin:0 auto;max-width:540px;z-index:2147483647;background:#0b1220;color:#e7ecf3;border:1px solid #243044;border-radius:12px;padding:16px 18px;box-shadow:0 10px 30px rgba(0,0,0,.35);font:14px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif';
     var p = document.createElement('div');
     p.style.marginBottom = '10px';
-    p.appendChild(document.createTextNode('May we measure your visit? With your consent we count page views and clicks with our own analytics and PostHog, and record a form-masked replay to improve the site. No advertising, and we never store your IP address. '));
+    p.appendChild(document.createTextNode('May we measure your visit in more detail? With your consent, our own analytics script and PostHog record which pages and buttons you use, plus a form-masked replay, to improve the site. Either way our server keeps a basic request log, with no IP address and nothing stored on your device. No advertising. '));
     var a = document.createElement('a');
     a.href = '/privacy/';
     a.style.color = '#8ab4ff';
