@@ -5066,36 +5066,43 @@ ${urls
 # Google Search (full crawl — must be allowed for indexation)
 User-agent: Googlebot
 Allow: /
+Disallow: /go/
 
 # Bing / Microsoft (full crawl)
 User-agent: Bingbot
 Allow: /
+Disallow: /go/
 
 # ── AI Search Crawlers (visibility, no training) ──────────────────
 # Google AI Overviews — allow for AI search visibility, block training use
 User-agent: Google-Extended
 Allow: /
+Disallow: /go/
 Content-Signal: ai-train=no, use=reference
 
 # ChatGPT / Perplexity — allow for search visibility, block training
 User-agent: GPTBot
 Allow: /
+Disallow: /go/
 Content-Signal: ai-train=no, use=reference
 
 # Common Crawl (powers many LLM training datasets)
 User-agent: CCBot
 Allow: /
+Disallow: /go/
 Content-Signal: ai-train=no, use=reference
 
 # ── AI Search Crawlers (continued) ─────────────────────────────────
 # Claude — allow for search visibility (Claude web search), block training
 User-agent: ClaudeBot
 Allow: /
+Disallow: /go/
 Content-Signal: ai-train=no, use=reference
 
 # Perplexity — allow for search visibility, block training
 User-agent: PerplexityBot
 Allow: /
+Disallow: /go/
 Content-Signal: ai-train=no, use=reference
 
 User-agent: Applebot-Extended
@@ -5110,6 +5117,7 @@ Disallow: /
 # ── Everyone else ──────────────────────────────────────────────────
 User-agent: *
 Allow: /
+Disallow: /go/
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `;
@@ -5309,6 +5317,26 @@ console.log(`  ✓ dist/ (${PUBLISH.length} entries)`);
     .replace('__SR_FPA_CONFIG__', () => JSON.stringify(client));
   if (/<\/script/i.test(src)) throw new Error('analytics/tracker.js must not contain </script');
   const tag = `<script data-sr-fpa>${src}</script>`;
+  // Sign-up links go through /go/signup so the Worker can count them server-side (every visitor,
+  // whatever they chose in the consent banner), then redirect. Rewritten in dist only, so the
+  // source pages keep the real platform URLs. A link counts as a sign-up when it carries
+  // data-conversion="signup" (links to the app's front page, which "Log in" shares) or points at
+  // platform.signedreviews.com/register. c = the link's data-cta name, or "link" for article links.
+  const SIGNUP_HREF = /^https:\/\/platform\.signedreviews\.com(\/register)?\/?$/;
+  const rewriteSignups = (html) =>
+    html.replace(/<a\b[^>]*>/g, (tagHtml) => {
+      const href = /\shref="([^"]*)"/.exec(tagHtml)?.[1] || '';
+      const marked = /\sdata-conversion="signup"/.test(tagHtml);
+      const register = /^https:\/\/platform\.signedreviews\.com\/register\/?$/.test(href);
+      if (!SIGNUP_HREF.test(href) || (!marked && !register)) return tagHtml;
+      const cta = (/\sdata-cta="([a-z0-9-]{1,40})"/.exec(tagHtml)?.[1]) || (marked ? 'cta' : 'link');
+      let out = tagHtml.replace(/\shref="[^"]*"/, ` href="/go/signup?c=${cta}&amp;to=${register ? 'register' : 'app'}"`);
+      if (!marked) out = out.replace(/^<a\b/, '<a data-conversion="signup"');
+      if (/\srel="/.test(out)) out = out.replace(/\srel="([^"]*)"/, (m, r) => (/\bnofollow\b/.test(r) ? m : ` rel="${r} nofollow"`));
+      else out = out.replace(/^<a\b/, '<a rel="nofollow"');
+      return out;
+    });
+  let signupLinks = 0;
   let injected = 0;
   const walk = (dir) => {
     for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -5319,6 +5347,9 @@ console.log(`  ✓ dist/ (${PUBLISH.length} entries)`);
         if (html.lastIndexOf('</body>') < 0 || html.includes('data-sr-fpa')) continue;
         // pages built outside SHARED_HEAD (404.html) still need the consent gate, or the tracker stays off
         if (!html.includes('data-sr-consent') && html.includes('</head>')) html = html.replace('</head>', `  ${CONSENT_TAG}\n</head>`);
+        const before = html;
+        html = rewriteSignups(html);
+        if (html !== before) signupLinks += (html.match(/href="\/go\/signup\?/g) || []).length;
         const at = html.lastIndexOf('</body>');
         fs.writeFileSync(full, `${html.slice(0, at)}${tag}\n${html.slice(at)}`, 'utf8');
         injected += 1;
@@ -5327,6 +5358,7 @@ console.log(`  ✓ dist/ (${PUBLISH.length} entries)`);
   };
   walk(DIST_DIR);
   console.log(`  ✓ first-party analytics tracker inlined into ${injected} pages (${(tag.length / 1024).toFixed(1)} KiB)`);
+  console.log(`  ✓ ${signupLinks} sign-up links routed through /go/signup (server-side count)`);
 }
 
 // Markdown twins: dist/<page>/index.md for AI agents, built from this run's HTML.

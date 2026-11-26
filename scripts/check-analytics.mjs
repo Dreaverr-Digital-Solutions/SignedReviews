@@ -149,6 +149,20 @@ const done = (group) => {
     check(!/consent/i.test(fs.readFileSync(path.join(ROOT, 'workers', 'site-analytics.js'), 'utf8').replace(/^\s*(\/\/|\*).*$/gm, '')), 'the request log code never reads consent state');
   }
 
+  // /go/signup: counted server-side, then a fixed redirect (never an open redirect)
+  forwarded.length = 0;
+  r = await router.fetch(req('/go/signup?c=hero-signup&to=register', { headers: { referer: 'https://signedreviews.com/pricing/', 'user-agent': 'Mozilla/5.0 Chrome/131' } }), env, ctx);
+  await settle();
+  check(r.status === 302 && r.headers.get('location') === 'https://platform.signedreviews.com/register' && r.headers.get('cache-control') === 'no-store', `/go/signup redirects to the register page (got ${r.status} ${r.headers.get('location')})`);
+  const go = forwarded.find((f) => f.url.endsWith('/ingest/hits'))?.body.hits[0];
+  check(go && go.kind === 'go' && go.path === '/go/signup' && go.ref === 'https://signedreviews.com/pricing/', 'a sign-up click is logged (kind go) with the page it came from');
+  r = await router.fetch(req('/go/signup?c=x&to=https://evil.example/'), env, ctx);
+  check(r.headers.get('location') === 'https://platform.signedreviews.com/', 'an unknown destination falls back to the app, never elsewhere');
+  forwarded.length = 0;
+  r = await router.fetch(req('/go/signup?c=x&to=app', { headers: { dnt: '1' } }), env, ctx);
+  await settle();
+  check(r.status === 302 && forwarded.length === 0, 'Do Not Track: the redirect still works, nothing is logged');
+
   forwarded.length = 0;
   await router.fetch(req('/pricing/', { headers: { dnt: '1' } }), env, ctx);
   await router.fetch(req('/pricing/', { headers: { 'sec-gpc': '1' } }), env, ctx);
@@ -220,6 +234,22 @@ const done = (group) => {
     check(!/posthog\.init\(/.test(html.replace(/<script data-sr-consent>[\s\S]*?<\/script>/, '')), `${path.relative(dist, f)}: posthog.init outside the consent gate`);
   }
   check(third.size === 0, `third-party resources loaded on page load: ${[...third].slice(0, 6).join(' | ')}`);
+  // every sign-up link goes through /go/signup (counted server-side), marked nofollow; none skip it
+  let viaGo = 0;
+  const direct = new Set();
+  for (const f of pages) {
+    const html = fs.readFileSync(f, 'utf8');
+    for (const t of html.match(/<a\b[^>]*>/g) || []) {
+      const href = /\shref="([^"]*)"/.exec(t)?.[1] || '';
+      if (href.startsWith('/go/signup?')) {
+        viaGo += 1;
+        if (!/data-conversion="signup"/.test(t) || !/rel="[^"]*nofollow/.test(t)) direct.add(`${path.relative(dist, f)}: ${t.slice(0, 90)}`);
+      } else if (/^https:\/\/platform\.signedreviews\.com\/register/.test(href) || (/data-conversion="signup"/.test(t))) direct.add(`${path.relative(dist, f)}: ${href}`);
+    }
+  }
+  check(viaGo > 100 && direct.size === 0, `sign-up links not routed through /go/signup (${viaGo} routed): ${[...direct].slice(0, 4).join(' | ')}`);
+  const robots = fs.readFileSync(path.join(dist, 'robots.txt'), 'utf8');
+  check((robots.match(/^Allow: \/$/gm) || []).length === (robots.match(/^Disallow: \/go\/$/gm) || []).length, 'robots.txt disallows /go/ in every group that allows /');
   const home = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
   check(/"endpoint":"\/api\/e"/.test(home), 'the inlined tracker posts to /api/e');
   check((home.match(/data-conversion="signup"/g) || []).length >= 4, 'homepage sign-up CTAs carry data-conversion="signup"');
@@ -237,5 +267,5 @@ const done = (group) => {
   check(privacy.includes(sentence), `privacy page should say: ${sentence}`);
   check(!/We do not persist IP addresses/.test(privacy) || /We never store your IP address/.test(privacy), 'privacy page keeps the no-IP promise and explains the daily code');
   check(!/cookie/i.test(fs.readFileSync(path.join(ROOT, 'analytics', 'tracker.js'), 'utf8').replace(/^\s*\/\/.*$/gm, '')), 'the tracker never touches cookies');
-  done(`built output: consent gate and tracker on all ${pages.length} pages, no third-party loads, no Google Fonts, privacy disclosure`);
+  done(`built output: consent gate and tracker on all ${pages.length} pages, sign-ups via /go/signup, no third-party loads, no Google Fonts, privacy disclosure`);
 }

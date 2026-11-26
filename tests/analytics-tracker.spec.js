@@ -107,11 +107,13 @@ test('pricing pageview goal is sent once per session; register links are sign-up
   expect(second.g).toBeUndefined();
   expect(second.nv).toBe(0);
 
-  // a plain Markdown link to /register counts as a sign-up without any markup
+  // a plain Markdown link to /register counts as a sign-up without any markup in the source
+  // (build.js routes it through /go/signup and marks it data-conversion="signup")
   await page.goto('https://signedreviews.com/features/');
   await waitFor(beacons, (b) => b.t === 'pv' && b.u === '/features/');
-  const reg = page.locator('a[href^="https://platform.signedreviews.com/register"]').first();
-  if (await reg.count()) {
+  const reg = page.locator('a[href^="/go/signup?c=link"]').first();
+  expect(await reg.count()).toBe(1);
+  {
     await page.evaluate(() => document.addEventListener('click', (e) => e.preventDefault(), { once: true }));
     await reg.click();
     expect(await waitFor(beacons, (b) => b.t === 'click' && b.k === 'signup')).toMatchObject({ ld: 1 });

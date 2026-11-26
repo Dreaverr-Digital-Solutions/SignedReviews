@@ -2,36 +2,43 @@
 # Google Search (full crawl — must be allowed for indexation)
 User-agent: Googlebot
 Allow: /
+Disallow: /go/
 
 # Bing / Microsoft (full crawl)
 User-agent: Bingbot
 Allow: /
+Disallow: /go/
 
 # ── AI Search Crawlers (visibility, no training) ──────────────────
 # Google AI Overviews — allow for AI search visibility, block training use
 User-agent: Google-Extended
 Allow: /
+Disallow: /go/
 Content-Signal: ai-train=no, use=reference
 
 # ChatGPT / Perplexity — allow for search visibility, block training
 User-agent: GPTBot
 Allow: /
+Disallow: /go/
 Content-Signal: ai-train=no, use=reference
 
 # Common Crawl (powers many LLM training datasets)
 User-agent: CCBot
 Allow: /
+Disallow: /go/
 Content-Signal: ai-train=no, use=reference
 
 # ── AI Search Crawlers (continued) ─────────────────────────────────
 # Claude — allow for search visibility (Claude web search), block training
 User-agent: ClaudeBot
 Allow: /
+Disallow: /go/
 Content-Signal: ai-train=no, use=reference
 
 # Perplexity — allow for search visibility, block training
 User-agent: PerplexityBot
 Allow: /
+Disallow: /go/
 Content-Signal: ai-train=no, use=reference
 
 User-agent: Applebot-Extended
@@ -46,5 +53,6 @@ Disallow: /
 # ── Everyone else ──────────────────────────────────────────────────
 User-agent: *
 Allow: /
+Disallow: /go/
 
 Sitemap: https://signedreviews.com/sitemap.xml

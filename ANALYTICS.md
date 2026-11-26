@@ -16,6 +16,7 @@ The tracking plan, decisions, architecture and runbook live in `../platform/ANAL
 
 - A sign-up CTA that links to `https://platform.signedreviews.com` (the same URL as "Log in") needs `data-conversion="signup"`.
 - Links to `platform.signedreviews.com/register` count as sign-ups by URL, no markup needed (link kind `signup` in the plan).
+- In `dist/`, `build.js` rewrites every sign-up link to `/go/signup?c=<data-cta or link>&to=app|register` (with `rel="nofollow"`), so the Worker counts the click server-side for every visitor and redirects. Keep writing the real platform URLs in source; `check:analytics` fails if any sign-up link in `dist/` skips `/go/signup`.
 - Click labels come from `data-cta` first, then `aria-label`, then the link text. `data-track` marks PostHog sections and is ignored by the click tracker.
 - Code that knows an outcome happened calls `window.fpa.track(name, { props })`. Calls made before the tracker loads are queued if you use the pattern in `index.html` (demo dialog) or the checker script in `build.js`.
 

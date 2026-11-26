@@ -15,6 +15,17 @@
 
 const DEFAULT_INGEST_ORIGIN = 'https://api.signedreviews.com';
 export const COLLECTOR_PATH = '/api/e';
+
+// Sign-up links on the site point to /go/signup?c=<button>&to=<app|register>. The Worker counts
+// the click in the server request log (like any page request: no device storage, no IP, and it
+// ignores the consent banner) and redirects to a fixed platform URL. Only these two destinations
+// exist, so it can't be used as an open redirect. build.js rewrites the links; robots.txt
+// disallows /go/.
+export const GO_PATH = '/go/signup';
+const GO_DEST = {
+  app: 'https://platform.signedreviews.com/',
+  register: 'https://platform.signedreviews.com/register',
+};
 const MAX_BYTES = 16 * 1024;
 
 const cut = (v, n) => (typeof v === 'string' ? v.slice(0, n) : '');
@@ -27,6 +38,7 @@ const ASSET_EXT = /\.(?:png|jpe?g|webp|avif|gif|svg|ico|css|js|mjs|map|woff2?|tt
 export function hitKind(path, contentType) {
   if (SKIP_PREFIX.some((p) => path === p || path.startsWith(`${p}/`))) return null;
   if (ASSET_EXT.test(path)) return null;
+  if (path === GO_PATH) return 'go';
   if (path.startsWith('/.well-known/')) return 'discovery';
   if (/^\/(robots|llms|llms-full)\.txt$|^\/auth\.md$|^\/openapi\.json$/.test(path)) return 'discovery';
   if (/sitemap[^/]*\.xml$/.test(path)) return 'sitemap';
@@ -93,6 +105,19 @@ function forward(env, path, body) {
  *  policy promises we honour both, so such requests are never logged and their beacons dropped. */
 export function optedOut(request) {
   return request.headers.get('dnt') === '1' || request.headers.get('sec-gpc') === '1';
+}
+
+/** GET /go/signup: count the sign-up click, then send the visitor on to the platform. */
+export function goRedirect(request, env, ctx) {
+  const t0 = Date.now();
+  const url = new URL(request.url);
+  const to = GO_DEST[url.searchParams.get('to')] || GO_DEST.app;
+  const response = new Response(null, {
+    status: 302,
+    headers: { Location: to, 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex, nofollow' },
+  });
+  logHit({ request, response, t0, env, ctx, scope: 'landing', appSegments: new Set() });
+  return response;
 }
 
 const reply = (status) => new Response(null, { status, headers: { 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex' } });
